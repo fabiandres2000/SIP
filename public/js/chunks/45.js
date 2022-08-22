@@ -1,1 +1,117 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[45],{316:function(e,n,a){"use strict";a.d(n,"c",(function(){return o})),a.d(n,"b",(function(){return r})),a.d(n,"d",(function(){return s})),a.d(n,"a",(function(){return c}));var t=a(19);function o(e){return Object(t.a)().post("/indicadores/calcular",e)}function r(e){return Object(t.a)().post("/indicadores/gestantes",e)}function s(e){return Object(t.a)().post("/indicadores/spa",e)}function c(e){return Object(t.a)().post("/indicadores/filtrospa",e)}},668:function(e,n,a){"use strict";a.r(n);var t=a(12),o=a.n(t),r=a(316);function s(e,n,a,t,o,r,s){try{var c=e[r](s),_=c.value}catch(e){return void a(e)}c.done?n(_):Promise.resolve(_).then(t,o)}var c={mounted:function(){this.calcular()},data:function(){return{csrf:document.querySelector('meta[name="csrf-token"]').getAttribute("content"),datos:{nro_mujeres_embarazadas:0,nro_adolescentes_embarazadas:0,nro_adolescentes_desescolarizadas:0,nro_adolescentes_lactantes:0,embarazos_vih:0,adolescentes_violencia:0,ninos_violencia:0,poblacion_sin_eps:0,porcentaje_atencion_prenatal:0,porcentaje_sin_atencion_prenatal:0,razon_gestantes_sin_atencion_prental:0}}},methods:{calcular:function(){var e,n=this;return(e=o.a.mark((function e(){var a;return o.a.wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return a={_token:n.csrf},e.next=3,r.c(a).then((function(e){n.datos=e.data.cantidades})).catch((function(e){console.log(e)}));case 3:case"end":return e.stop()}}),e)})),function(){var n=this,a=arguments;return new Promise((function(t,o){var r=e.apply(n,a);function c(e){s(r,t,o,c,_,"next",e)}function _(e){s(r,t,o,c,_,"throw",e)}c(void 0)}))})()}}},_=a(32),i=Object(_.a)(c,(function(){var e=this,n=e.$createElement,a=e._self._c||n;return a("div",[a("b",[e._v("Número de mujeres con embarazo multiples:")]),e._v(" "+e._s(e.datos.nro_mujeres_embarazadas)+"\n  "),a("br"),e._v(" "),a("b",[e._v("Número de adolescentes en embarazo:")]),e._v(" "+e._s(e.datos.nro_adolescentes_embarazadas)+"\n  "),a("br"),e._v(" "),a("b",[e._v("Número de adolescentes desescolarizadas en embarazo:")]),e._v(" "+e._s(e.datos.nro_adolescentes_desescolarizadas)+"\n  "),a("br"),e._v(" "),a("b",[e._v("Numero de lactantes:")]),e._v(" "+e._s(e.datos.nro_adolescentes_lactantes)+"\n  "),a("br"),e._v(" "),a("b",[e._v("Número de mujeres en embarazo con VIH:")]),e._v(" "+e._s(e.datos.embarazos_vih)+"\n  "),a("br"),e._v(" "),a("b",[e._v("NIÑOS EN HOGARES CON VIOLENCIA INTRAFAMILIAR:")]),e._v(" "+e._s(e.datos.ninos_violencia)+"\n  "),a("br"),e._v(" "),a("b",[e._v("ADOLESCENTES EN HOGARES CON VIOLENCIA INTRAFAMILIAR:")]),e._v(" "+e._s(e.datos.adolescentes_violencia)+"\n  "),a("br"),e._v(" "),a("b",[e._v("Número de la población no afiliada a SGSSS:")]),e._v(" "+e._s(e.datos.poblacion_sin_eps)+"\n  "),a("br"),e._v(" "),a("h4",[e._v("INDICADORES DE SALUD")]),e._v(" "),a("br"),e._v(" "),a("b",[e._v("Porcentaje de atención prenatal: "+e._s(e.datos.porcentaje_atencion_prenatal))]),e._v(" "),a("br"),e._v(" "),a("b",[e._v("Porcentaje de mujeres embarazadas sn atención prental: "+e._s(e.datos.porcentaje_sin_atencion_prenatal))]),e._v(" "),a("br"),e._v(" "),a("b",[e._v("Razón de gestantes sin atención prenatal: "+e._s(e.datos.razon_gestantes_sin_atencion_prental))])])}),[],!1,null,null,null);n.default=i.exports}}]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[45],{
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Caracterizacion/ayu.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Caracterizacion/ayu.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Caracterizacion/ayu.vue?vue&type=template&id=5e77636d&":
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Caracterizacion/ayu.vue?vue&type=template&id=5e77636d& ***!
+  \******************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div")
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./resources/js/Vistas/Caracterizacion/ayu.vue":
+/*!*****************************************************!*\
+  !*** ./resources/js/Vistas/Caracterizacion/ayu.vue ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ayu_vue_vue_type_template_id_5e77636d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ayu.vue?vue&type=template&id=5e77636d& */ "./resources/js/Vistas/Caracterizacion/ayu.vue?vue&type=template&id=5e77636d&");
+/* harmony import */ var _ayu_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ayu.vue?vue&type=script&lang=js& */ "./resources/js/Vistas/Caracterizacion/ayu.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ayu_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ayu_vue_vue_type_template_id_5e77636d___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ayu_vue_vue_type_template_id_5e77636d___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Vistas/Caracterizacion/ayu.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Vistas/Caracterizacion/ayu.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/Vistas/Caracterizacion/ayu.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ayu_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ayu.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Caracterizacion/ayu.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ayu_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Vistas/Caracterizacion/ayu.vue?vue&type=template&id=5e77636d&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/Vistas/Caracterizacion/ayu.vue?vue&type=template&id=5e77636d& ***!
+  \************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ayu_vue_vue_type_template_id_5e77636d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./ayu.vue?vue&type=template&id=5e77636d& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Caracterizacion/ayu.vue?vue&type=template&id=5e77636d&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ayu_vue_vue_type_template_id_5e77636d___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ayu_vue_vue_type_template_id_5e77636d___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ })
+
+}]);

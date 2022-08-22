@@ -188,3 +188,5 @@ Route::get('/riesgos-ambientales/estadisticas', 'RiesgosAmbientalesController@Es
 Route::get('/riesgos-ambientales/valores-riesgos', 'RiesgosAmbientalesController@valoresRiesgosAmbientales');
 Route::get('/riesgos-ambientales/estadisticas-viviendas', 'RiesgosAmbientalesController@EstadisticasPorVivienda');
 Route::get('/riesgos-ambientales/estadisticas-generales', 'RiesgosAmbientalesController@PorcentajesGeneral');
+
+Route::get('/socioeconomico/por-persona', 'SocioeconomicoController@socioEconomicoPersonas');

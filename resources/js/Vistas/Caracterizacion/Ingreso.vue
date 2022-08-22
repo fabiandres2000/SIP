@@ -23282,6 +23282,7 @@
         datosRSMEN1A: [],
         indiceRSMEN1A: 0,
         vectorAuxRSMEN1A: [],
+        datosRSMEN1A_RR_vector: [],
         datosRSMEN1A_RR: {
           // Riesgos de Enfermedades Infeccisosas
           alimentacion_saludable_EnIn: "",
@@ -23402,6 +23403,7 @@
         datosRSDE1A5: [],
         indiceRSDE1A5: 0,
         vectorAuxRSDE1A5: [],
+        datosRSDE1A5_RR_vector: [],
         datosRSDE1A5_RR: {
           // Riesgos de Enfermedades Infeccisosas
           alimentacion_saludable_EnIn: "",
@@ -24495,7 +24497,10 @@
       cerrarModal(){
         this.$refs.modalOcupaciones.hide();
         this.$refs.modalActividad.hide();
-        this.$refs.modalRieAmb.hide();         
+        this.$refs.modalRieAmb.hide();     
+        this.$refs.modalRieSal1.hide(); 
+        this.$refs.modalRieSal2.hide();
+        this.$refs.modalRieSal3.hide();    
       },       
       async consultarOcupaciones(pagina){
         const parametros = {
@@ -25170,7 +25175,7 @@
                     }
                     this.vectorAuxRSMEN1A = [];
                     if(respuesta.data.ValoresRiesgosSaludMen1a !== null){
-                      this.datosRSMEN1A_RR = respuesta.data.ValoresRiesgosSaludMen1a;
+                      this.datosRSMEN1A_RR_vector = respuesta.data.ValoresRiesgosSaludMen1a;
                     }                    
 
                     if(respuesta.data.riesgos_salud_de1a5 !== null){
@@ -25178,7 +25183,7 @@
                     }
                     this.vectorAuxRSDE1A5 = [];
                     if(respuesta.data.ValoresRiesgosSaludDe1a5 !== null){
-                      this.datosRSDE1A5_RR = respuesta.data.ValoresRiesgosSaludDe1a5;
+                      this.datosRSDE1A5_RR_vector = respuesta.data.ValoresRiesgosSaludDe1a5;
                     }                    
                     
                     if(respuesta.data.riesgos_salud_de6a11 !== null){
@@ -29320,7 +29325,8 @@
                     enfermedades: [],
                     antecedentes: [],
                     tipo_empleo: this.CA1.tipo_empleo,
-                    actividad_fisica: this.CA1.actividad_fisica,                                       
+                    actividad_fisica: this.CA1.actividad_fisica,   
+                    vacuna: this.CA1.vacuna,                                    
                   });
                   for(let i=0;i<this.CA1.enfermedades.length;i++){
                     this.datos[this.datos.length-1].enfermedades.push({
@@ -31268,6 +31274,7 @@
                
       },
       eliEdad(identificacion,vector,edad,opcion){
+        let nacimiento = moment(this.vector.fecha_nacimiento);
         let indice = this.Men1A.findIndex(identi => identi.identificacion === identificacion);
         if(indice >= 0){
           this.Men1A[indice].estado = "Inactivo";
@@ -39029,6 +39036,9 @@
       mostrarRiesgoSalMen1a(index){
         this.indiceRSMEN1A = index;
         this.vectorAuxRSMEN1A = [];
+        if(this.datosRSMEN1A_RR_vector.length != 0){
+          this.datosRSMEN1A_RR = this.datosRSMEN1A_RR_vector[index];
+        }
 
         this.vectorAuxRSMEN1A.push({
           riesgo: this.datosRSMEN1A[this.indiceRSMEN1A]["enfermedades_infecciosas_I"],
@@ -39316,6 +39326,9 @@
       mostrarRiesgoSalDe1a5(index){
         this.indiceRSDE1A5 = index;
         this.vectorAuxRSDE1A5 = [];
+         if(this.datosRSDE1A5_RR_vector.length != 0){
+          this.datosRSDE1A5_RR = this.datosRSDE1A5_RR_vector[index];
+        }
         
         this.vectorAuxRSDE1A5.push({
           riesgo: this.datosRSDE1A5[this.indiceRSDE1A5]["enfermedades_infecciosas_I"],
@@ -39323,10 +39336,10 @@
           color: this.datosRSDE1A5[this.indiceRSDE1A5]["c_enfermedades_infecciosas_I"],
           texto: "Enfermedades Infeccisosas",
           boton: "EnIn",
-          id: this.datosRSDE1A5[this.indiceRSMEN1A]["id_inte"],
-          riesgo_r: this.datosRSDE1A5[this.indiceRSMEN1A]["enfermedades_infecciosas_R"],
-          valor_r: this.datosRSDE1A5[this.indiceRSMEN1A]["v_enfermedades_infecciosas_R"],
-          color_r: this.datosRSDE1A5[this.indiceRSMEN1A]["c_enfermedades_infecciosas_R"],
+          id: this.datosRSDE1A5[this.indiceRSDE1A5]["id_inte"],
+          riesgo_r: this.datosRSDE1A5[this.indiceRSDE1A5]["enfermedades_infecciosas_R"],
+          valor_r: this.datosRSDE1A5[this.indiceRSDE1A5]["v_enfermedades_infecciosas_R"],
+          color_r: this.datosRSDE1A5[this.indiceRSDE1A5]["c_enfermedades_infecciosas_R"],
         });
 
         this.vectorAuxRSDE1A5.push({
@@ -39335,10 +39348,10 @@
           color: this.datosRSDE1A5[this.indiceRSDE1A5]["c_transtornos_asociados_spa_I"],
           texto: "Trastornos Asociados al uso de SPA",
           boton: "TrAsSPA",
-          id: this.datosRSDE1A5[this.indiceRSMEN1A]["id_inte"],
-          riesgo_r: this.datosRSDE1A5[this.indiceRSMEN1A]["transtornos_asociados_spa_R"],
-          valor_r: this.datosRSDE1A5[this.indiceRSMEN1A]["v_transtornos_asociados_spa_R"],
-          color_r: this.datosRSDE1A5[this.indiceRSMEN1A]["c_transtornos_asociados_spa_R"],
+          id: this.datosRSDE1A5[this.indiceRSDE1A5]["id_inte"],
+          riesgo_r: this.datosRSDE1A5[this.indiceRSDE1A5]["transtornos_asociados_spa_R"],
+          valor_r: this.datosRSDE1A5[this.indiceRSDE1A5]["v_transtornos_asociados_spa_R"],
+          color_r: this.datosRSDE1A5[this.indiceRSDE1A5]["c_transtornos_asociados_spa_R"],
         });
 
         this.vectorAuxRSDE1A5.push({
@@ -39347,10 +39360,10 @@
           color: this.datosRSDE1A5[this.indiceRSDE1A5]["c_enfermedad_cardiovascular_I"],
           texto: "Enfermedad Cardiovascular Aterogénica",
           boton: "EnCaAt",
-          id: this.datosRSDE1A5[this.indiceRSMEN1A]["id_inte"],
-          riesgo_r: this.datosRSDE1A5[this.indiceRSMEN1A]["enfermedad_cardiovascular_R"],
-          valor_r: this.datosRSDE1A5[this.indiceRSMEN1A]["v_enfermedad_cardiovascular_R"],
-          color_r: this.datosRSDE1A5[this.indiceRSMEN1A]["c_enfermedad_cardiovascular_R"],
+          id: this.datosRSDE1A5[this.indiceRSDE1A5]["id_inte"],
+          riesgo_r: this.datosRSDE1A5[this.indiceRSDE1A5]["enfermedad_cardiovascular_R"],
+          valor_r: this.datosRSDE1A5[this.indiceRSDE1A5]["v_enfermedad_cardiovascular_R"],
+          color_r: this.datosRSDE1A5[this.indiceRSDE1A5]["c_enfermedad_cardiovascular_R"],
         });
         
         this.vectorAuxRSDE1A5.push({
@@ -39359,10 +39372,10 @@
           color: this.datosRSDE1A5[this.indiceRSDE1A5]["c_cancer_I"],
           texto: "Cancer",
           boton: "Ca",
-          id: this.datosRSDE1A5[this.indiceRSMEN1A]["id_inte"],
-          riesgo_r: this.datosRSDE1A5[this.indiceRSMEN1A]["cancer_R"],
-          valor_r: this.datosRSDE1A5[this.indiceRSMEN1A]["v_cancer_R"],
-          color_r: this.datosRSDE1A5[this.indiceRSMEN1A]["c_cancer_R"],
+          id: this.datosRSDE1A5[this.indiceRSDE1A5]["id_inte"],
+          riesgo_r: this.datosRSDE1A5[this.indiceRSDE1A5]["cancer_R"],
+          valor_r: this.datosRSDE1A5[this.indiceRSDE1A5]["v_cancer_R"],
+          color_r: this.datosRSDE1A5[this.indiceRSDE1A5]["c_cancer_R"],
         });
         
         this.vectorAuxRSDE1A5.push({
@@ -39371,10 +39384,10 @@
           color: this.datosRSDE1A5[this.indiceRSDE1A5]["c_alteraciones_transtornos_visuales_I"],
           texto: "Alteraciones y Transtornos Visuales",
           boton: "AlTrVi",
-          id: this.datosRSDE1A5[this.indiceRSMEN1A]["id_inte"],
-          riesgo_r: this.datosRSDE1A5[this.indiceRSMEN1A]["alteraciones_transtornos_visuales_R"],
-          valor_r: this.datosRSDE1A5[this.indiceRSMEN1A]["v_alteraciones_transtornos_visuales_R"],
-          color_r: this.datosRSDE1A5[this.indiceRSMEN1A]["c_alteraciones_transtornos_visuales_R"],
+          id: this.datosRSDE1A5[this.indiceRSDE1A5]["id_inte"],
+          riesgo_r: this.datosRSDE1A5[this.indiceRSDE1A5]["alteraciones_transtornos_visuales_R"],
+          valor_r: this.datosRSDE1A5[this.indiceRSDE1A5]["v_alteraciones_transtornos_visuales_R"],
+          color_r: this.datosRSDE1A5[this.indiceRSDE1A5]["c_alteraciones_transtornos_visuales_R"],
         });
         
         this.vectorAuxRSDE1A5.push({
@@ -39383,10 +39396,10 @@
           color: this.datosRSDE1A5[this.indiceRSDE1A5]["c_alteraciones_transtornos_audicion_I"],
           texto: "Alteraciones y Transtornos de la Audición y Comunicación",
           boton: "AlTrAuCo",
-          id: this.datosRSDE1A5[this.indiceRSMEN1A]["id_inte"],
-          riesgo_r: this.datosRSDE1A5[this.indiceRSMEN1A]["alteraciones_transtornos_audicion_R"],
-          valor_r: this.datosRSDE1A5[this.indiceRSMEN1A]["v_alteraciones_transtornos_audicion_R"],
-          color_r: this.datosRSDE1A5[this.indiceRSMEN1A]["c_alteraciones_transtornos_audicion_R"],
+          id: this.datosRSDE1A5[this.indiceRSDE1A5]["id_inte"],
+          riesgo_r: this.datosRSDE1A5[this.indiceRSDE1A5]["alteraciones_transtornos_audicion_R"],
+          valor_r: this.datosRSDE1A5[this.indiceRSDE1A5]["v_alteraciones_transtornos_audicion_R"],
+          color_r: this.datosRSDE1A5[this.indiceRSDE1A5]["c_alteraciones_transtornos_audicion_R"],
         });
         
         this.vectorAuxRSDE1A5.push({
@@ -39395,10 +39408,10 @@
           color: this.datosRSDE1A5[this.indiceRSDE1A5]["c_salud_bucal_I"],
           texto: "Salud Bucal",
           boton: "SaBu",
-          id: this.datosRSDE1A5[this.indiceRSMEN1A]["id_inte"],
-          riesgo_r: this.datosRSDE1A5[this.indiceRSMEN1A]["salud_bucal_R"],
-          valor_r: this.datosRSDE1A5[this.indiceRSMEN1A]["v_salud_bucal_R"],
-          color_r: this.datosRSDE1A5[this.indiceRSMEN1A]["c_salud_bucal_R"],
+          id: this.datosRSDE1A5[this.indiceRSDE1A5]["id_inte"],
+          riesgo_r: this.datosRSDE1A5[this.indiceRSDE1A5]["salud_bucal_R"],
+          valor_r: this.datosRSDE1A5[this.indiceRSDE1A5]["v_salud_bucal_R"],
+          color_r: this.datosRSDE1A5[this.indiceRSDE1A5]["c_salud_bucal_R"],
         });
         
         this.vectorAuxRSDE1A5.push({
@@ -39407,10 +39420,10 @@
           color: this.datosRSDE1A5[this.indiceRSDE1A5]["c_problemas_salud_mental_I"],
           texto: "Problemas en salud mental",
           boton: "PrSaMe",
-          id: this.datosRSDE1A5[this.indiceRSMEN1A]["id_inte"],
-          riesgo_r: this.datosRSDE1A5[this.indiceRSMEN1A]["problemas_salud_mental_R"],
-          valor_r: this.datosRSDE1A5[this.indiceRSMEN1A]["v_problemas_salud_mental_R"],
-          color_r: this.datosRSDE1A5[this.indiceRSMEN1A]["c_problemas_salud_mental_R"],
+          id: this.datosRSDE1A5[this.indiceRSDE1A5]["id_inte"],
+          riesgo_r: this.datosRSDE1A5[this.indiceRSDE1A5]["problemas_salud_mental_R"],
+          valor_r: this.datosRSDE1A5[this.indiceRSDE1A5]["v_problemas_salud_mental_R"],
+          color_r: this.datosRSDE1A5[this.indiceRSDE1A5]["c_problemas_salud_mental_R"],
         });
         
         this.vectorAuxRSDE1A5.push({
@@ -39419,10 +39432,10 @@
           color: this.datosRSDE1A5[this.indiceRSDE1A5]["c_violencias_I"],
           texto: "Violencias",
           boton: "Vi",
-          id: this.datosRSDE1A5[this.indiceRSMEN1A]["id_inte"],
-          riesgo_r: this.datosRSDE1A5[this.indiceRSMEN1A]["violencias_R"],
-          valor_r: this.datosRSDE1A5[this.indiceRSMEN1A]["v_violencias_R"],
-          color_r: this.datosRSDE1A5[this.indiceRSMEN1A]["c_violencias_R"],
+          id: this.datosRSDE1A5[this.indiceRSDE1A5]["id_inte"],
+          riesgo_r: this.datosRSDE1A5[this.indiceRSDE1A5]["violencias_R"],
+          valor_r: this.datosRSDE1A5[this.indiceRSDE1A5]["v_violencias_R"],
+          color_r: this.datosRSDE1A5[this.indiceRSDE1A5]["c_violencias_R"],
         });
         
         this.vectorAuxRSDE1A5.push({
@@ -39431,10 +39444,10 @@
           color: this.datosRSDE1A5[this.indiceRSDE1A5]["c_enfermedades_respiratorias_I"],
           texto: "Enfermedades Respiratorias crónicas",
           boton: "EnReCr",
-          id: this.datosRSDE1A5[this.indiceRSMEN1A]["id_inte"],
-          riesgo_r: this.datosRSDE1A5[this.indiceRSMEN1A]["enfermedades_respiratorias_R"],
-          valor_r: this.datosRSDE1A5[this.indiceRSMEN1A]["v_enfermedades_respiratorias_R"],
-          color_r: this.datosRSDE1A5[this.indiceRSMEN1A]["c_enfermedades_respiratorias_R"],
+          id: this.datosRSDE1A5[this.indiceRSDE1A5]["id_inte"],
+          riesgo_r: this.datosRSDE1A5[this.indiceRSDE1A5]["enfermedades_respiratorias_R"],
+          valor_r: this.datosRSDE1A5[this.indiceRSDE1A5]["v_enfermedades_respiratorias_R"],
+          color_r: this.datosRSDE1A5[this.indiceRSDE1A5]["c_enfermedades_respiratorias_R"],
         });
         
         this.vectorAuxRSDE1A5.push({
@@ -39443,10 +39456,10 @@
           color: this.datosRSDE1A5[this.indiceRSDE1A5]["c_enfermedades_zoonoticas_I"],
           texto: "Enfermedades Zoonoticas",
           boton: "EnZo",
-          id: this.datosRSDE1A5[this.indiceRSMEN1A]["id_inte"],
-          riesgo_r: this.datosRSDE1A5[this.indiceRSMEN1A]["enfermedades_zoonoticas_R"],
-          valor_r: this.datosRSDE1A5[this.indiceRSMEN1A]["v_enfermedades_zoonoticas_R"],
-          color_r: this.datosRSDE1A5[this.indiceRSMEN1A]["c_enfermedades_zoonoticas_R"],
+          id: this.datosRSDE1A5[this.indiceRSDE1A5]["id_inte"],
+          riesgo_r: this.datosRSDE1A5[this.indiceRSDE1A5]["enfermedades_zoonoticas_R"],
+          valor_r: this.datosRSDE1A5[this.indiceRSDE1A5]["v_enfermedades_zoonoticas_R"],
+          color_r: this.datosRSDE1A5[this.indiceRSDE1A5]["c_enfermedades_zoonoticas_R"],
         });
         
         this.vectorAuxRSDE1A5.push({
@@ -39455,10 +39468,10 @@
           color: this.datosRSDE1A5[this.indiceRSDE1A5]["c_transtornos_degenartivos_I"],
           texto: "Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes",
           boton: "TrDeNeEnAu",
-          id: this.datosRSDE1A5[this.indiceRSMEN1A]["id_inte"],
-          riesgo_r: this.datosRSDE1A5[this.indiceRSMEN1A]["transtornos_degenartivos_R"],
-          valor_r: this.datosRSDE1A5[this.indiceRSMEN1A]["v_transtornos_degenartivos_R"],
-          color_r: this.datosRSDE1A5[this.indiceRSMEN1A]["c_transtornos_degenartivos_R"],
+          id: this.datosRSDE1A5[this.indiceRSDE1A5]["id_inte"],
+          riesgo_r: this.datosRSDE1A5[this.indiceRSDE1A5]["transtornos_degenartivos_R"],
+          valor_r: this.datosRSDE1A5[this.indiceRSDE1A5]["v_transtornos_degenartivos_R"],
+          color_r: this.datosRSDE1A5[this.indiceRSDE1A5]["c_transtornos_degenartivos_R"],
         });
         
         this.vectorAuxRSDE1A5.push({
@@ -39467,10 +39480,10 @@
           color: this.datosRSDE1A5[this.indiceRSDE1A5]["c_consumo_spa_I"],
           texto: "Consumo de SPA",
           boton: "CoSp",
-          id: this.datosRSDE1A5[this.indiceRSMEN1A]["id_inte"],
-          riesgo_r: this.datosRSDE1A5[this.indiceRSMEN1A]["consumo_spa_R"],
-          valor_r: this.datosRSDE1A5[this.indiceRSMEN1A]["v_consumo_spa_R"],
-          color_r: this.datosRSDE1A5[this.indiceRSMEN1A]["c_consumo_spa_R"],
+          id: this.datosRSDE1A5[this.indiceRSDE1A5]["id_inte"],
+          riesgo_r: this.datosRSDE1A5[this.indiceRSDE1A5]["consumo_spa_R"],
+          valor_r: this.datosRSDE1A5[this.indiceRSDE1A5]["v_consumo_spa_R"],
+          color_r: this.datosRSDE1A5[this.indiceRSDE1A5]["c_consumo_spa_R"],
         });
         
         this.vectorAuxRSDE1A5.push({
@@ -39479,10 +39492,10 @@
           color: this.datosRSDE1A5[this.indiceRSDE1A5]["c_riesgos_desnutricion_aguda_I"],
           texto: "Riesgo Desnutrición Aguda",
           boton: "RiDeAg",
-          id: this.datosRSDE1A5[this.indiceRSMEN1A]["id_inte"],
-          riesgo_r: this.datosRSDE1A5[this.indiceRSMEN1A]["riesgos_desnutricion_aguda_R"],
-          valor_r: this.datosRSDE1A5[this.indiceRSMEN1A]["v_riesgos_desnutricion_aguda_R"],
-          color_r: this.datosRSDE1A5[this.indiceRSMEN1A]["c_riesgos_desnutricion_aguda_R"],
+          id: this.datosRSDE1A5[this.indiceRSDE1A5]["id_inte"],
+          riesgo_r: this.datosRSDE1A5[this.indiceRSDE1A5]["riesgos_desnutricion_aguda_R"],
+          valor_r: this.datosRSDE1A5[this.indiceRSDE1A5]["v_riesgos_desnutricion_aguda_R"],
+          color_r: this.datosRSDE1A5[this.indiceRSDE1A5]["c_riesgos_desnutricion_aguda_R"],
         });
         
         this.vectorAuxRSDE1A5.push({
@@ -39491,10 +39504,10 @@
           color: this.datosRSDE1A5[this.indiceRSDE1A5]["c_riesgos_desnutricion_global_I"],
           texto: "Riesgo Desnutrición Global",
           boton: "RiDeGl",
-          id: this.datosRSDE1A5[this.indiceRSMEN1A]["id_inte"],
-          riesgo_r: this.datosRSDE1A5[this.indiceRSMEN1A]["riesgos_desnutricion_global_R"],
-          valor_r: this.datosRSDE1A5[this.indiceRSMEN1A]["v_riesgos_desnutricion_global_R"],
-          color_r: this.datosRSDE1A5[this.indiceRSMEN1A]["c_riesgos_desnutricion_global_R"],
+          id: this.datosRSDE1A5[this.indiceRSDE1A5]["id_inte"],
+          riesgo_r: this.datosRSDE1A5[this.indiceRSDE1A5]["riesgos_desnutricion_global_R"],
+          valor_r: this.datosRSDE1A5[this.indiceRSDE1A5]["v_riesgos_desnutricion_global_R"],
+          color_r: this.datosRSDE1A5[this.indiceRSDE1A5]["c_riesgos_desnutricion_global_R"],
         });
         
         // this.vectorAuxRSDE1A5.push({
@@ -39511,10 +39524,10 @@
           color: this.datosRSDE1A5[this.indiceRSDE1A5]["c_riesgo_talla_baja_I"],
           texto: "Riesgo de Talla Baja",
           boton: "RiTaBa",
-          id: this.datosRSDE1A5[this.indiceRSMEN1A]["id_inte"],
-          riesgo_r: this.datosRSDE1A5[this.indiceRSMEN1A]["riesgo_talla_baja_R"],
-          valor_r: this.datosRSDE1A5[this.indiceRSMEN1A]["v_riesgo_talla_baja_R"],
-          color_r: this.datosRSDE1A5[this.indiceRSMEN1A]["c_riesgo_talla_baja_R"],
+          id: this.datosRSDE1A5[this.indiceRSDE1A5]["id_inte"],
+          riesgo_r: this.datosRSDE1A5[this.indiceRSDE1A5]["riesgo_talla_baja_R"],
+          valor_r: this.datosRSDE1A5[this.indiceRSDE1A5]["v_riesgo_talla_baja_R"],
+          color_r: this.datosRSDE1A5[this.indiceRSDE1A5]["c_riesgo_talla_baja_R"],
         });
         
         // this.vectorAuxRSDE1A5.push({
@@ -39547,10 +39560,10 @@
           color: this.datosRSDE1A5[this.indiceRSDE1A5]["c_riesgo_muerte_I"],
           texto: "Riesgo de Muerte por Desnutrición",
           boton: "RiMuDe",
-          id: this.datosRSDE1A5[this.indiceRSMEN1A]["id_inte"],
-          riesgo_r: this.datosRSDE1A5[this.indiceRSMEN1A]["riesgo_muerte_R"],
-          valor_r: this.datosRSDE1A5[this.indiceRSMEN1A]["v_riesgo_muerte_R"],
-          color_r: this.datosRSDE1A5[this.indiceRSMEN1A]["c_riesgo_muerte_R"],
+          id: this.datosRSDE1A5[this.indiceRSDE1A5]["id_inte"],
+          riesgo_r: this.datosRSDE1A5[this.indiceRSDE1A5]["riesgo_muerte_R"],
+          valor_r: this.datosRSDE1A5[this.indiceRSDE1A5]["v_riesgo_muerte_R"],
+          color_r: this.datosRSDE1A5[this.indiceRSDE1A5]["c_riesgo_muerte_R"],
         });
         
         this.vectorAuxRSDE1A5.push({
@@ -39559,10 +39572,10 @@
           color: this.datosRSDE1A5[this.indiceRSDE1A5]["c_riesgo_sobrepeso_I"],
           texto: "Riesgo Sobrepeso",
           boton: "RiSo",
-          id: this.datosRSDE1A5[this.indiceRSMEN1A]["id_inte"],
-          riesgo_r: this.datosRSDE1A5[this.indiceRSMEN1A]["riesgo_sobrepeso_R"],
-          valor_r: this.datosRSDE1A5[this.indiceRSMEN1A]["v_riesgo_sobrepeso_R"],
-          color_r: this.datosRSDE1A5[this.indiceRSMEN1A]["c_riesgo_sobrepeso_R"],
+          id: this.datosRSDE1A5[this.indiceRSDE1A5]["id_inte"],
+          riesgo_r: this.datosRSDE1A5[this.indiceRSDE1A5]["riesgo_sobrepeso_R"],
+          valor_r: this.datosRSDE1A5[this.indiceRSDE1A5]["v_riesgo_sobrepeso_R"],
+          color_r: this.datosRSDE1A5[this.indiceRSDE1A5]["c_riesgo_sobrepeso_R"],
         });
         
         // this.vectorAuxRSDE1A5.push({
@@ -41561,12 +41574,14 @@
               this.vectorAuxRSMEN1A[this.indexSal1].riesgo_r = respuesta.data.riesgo_r;
               this.vectorAuxRSMEN1A[this.indexSal1].valor_r = respuesta.data.valor_r;
               this.vectorAuxRSMEN1A[this.indexSal1].color_r = respuesta.data.color_r;
+               this.datosRSMEN1A = respuesta.data.riesgos_salud_men1a;
               this.vectorAuxRSMEN1A.splice(this.indexSal1, 1, this.vectorAuxRSMEN1A[this.indexSal1]);                                     
             }
             if(tipo == "DE1A5"){
               this.vectorAuxRSDE1A5[this.indexSal1].riesgo_r = respuesta.data.riesgo_r;
               this.vectorAuxRSDE1A5[this.indexSal1].valor_r = respuesta.data.valor_r;
               this.vectorAuxRSDE1A5[this.indexSal1].color_r = respuesta.data.color_r;
+              this.datosRSDE1A5 = respuesta.data.riesgos_salud_de1a5;
               this.vectorAuxRSDE1A5.splice(this.indexSal1, 1, this.vectorAuxRSDE1A5[this.indexSal1]);                                   
             }
             if(tipo == "DE6A11"){

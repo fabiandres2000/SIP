@@ -1,1 +1,897 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[39],{383:function(t,a,i){var s=i(506);"string"==typeof s&&(s=[[t.i,s,""]]);var r={hmr:!0,transform:void 0,insertInto:void 0};i(64)(s,r);s.locals&&(t.exports=s.locals)},505:function(t,a,i){"use strict";i(383)},506:function(t,a,i){(t.exports=i(63)(!1)).push([t.i,"\n.modal-backdrop {\n  background-color: rgba(0, 0, 0, 0.5) !important;\n}\n.modal-title {\n  color: #f8f9fa !important;\n}\n.close {\n  display: none;\n}\n",""])},647:function(t,a,i){"use strict";i.r(a);var s=i(12),r=i.n(s),e=i(19);function n(t,a,i,s,r,e,n){try{var o=t[e](n),c=o.value}catch(t){return void i(t)}o.done?a(c):Promise.resolve(c).then(s,r)}function o(t){return function(){var a=this,i=arguments;return new Promise((function(s,r){var e=t.apply(a,i);function o(t){n(e,s,r,o,c,"next",t)}function c(t){n(e,s,r,o,c,"throw",t)}o(void 0)}))}}var c,l,v,u,d={mounted:function(){this.consultar(1)},name:"barri",data:function(){return{errores:[],bandera:!1,entrarPorError:!1,txtbusqueda:"",motivos:[],motivosData:{descripcion:"",observacion:"",id:0},csrf:document.querySelector('meta[name="csrf-token"]').getAttribute("content"),paginacion:{total:0,pagina_actual:0,por_pagina:0,ultima_pagina:0,desde:0,hasta:0},offset:4,valG:!0}},computed:{motivosError:function(){if(""==this.motivosData.descripcion.trim())return"El campo es obligatorio"},motivosClases:function(){return[{"is-invalid":this.motivosError,"is-valid":!this.motivosError}]},esActivo:function(){return this.paginacion.pagina_actual},numeroDePaginas:function(){if(!this.paginacion.hasta)return[];var t=this.paginacion.pagina_actual-this.offset;t<1&&(t=1);var a=t+2*this.offset;a>=this.paginacion.ultima_pagina&&(a=this.paginacion.ultima_pagina);for(var i=[];t<=a;)i.push(t),t++;return i},spinG:function(){return this.valG?{}:["kt-spinner","kt-spinner--right","kt-spinner--sm","kt-spinner--light"]}},methods:{consultar:(u=o(r.a.mark((function t(a){var i,s=this;return r.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:return i={txtbusqueda:this.txtbusqueda.trim(),_token:this.csrf,page:a},t.prev=1,t.next=4,(r=i,Object(e.a)().post("/motivos",r)).then((function(t){s.motivos=t.data.motivos.data,s.paginacion=t.data.paginacion}));case 4:t.next=15;break;case 6:t.prev=6,t.t0=t.catch(1),t.t1=t.t0.response.status,t.next=422===t.t1?11:13;break;case 11:case 13:return this.$swal("Error...!","Ocurrio un error!","error"),t.abrupt("break",15);case 15:case"end":return t.stop()}var r}),t,this,[[1,6]])}))),function(t){return u.apply(this,arguments)}),abrirModal:function(){this.motivosData.descripcion="",this.motivosData.observacion="",this.motivosData.id=0,this.errores=[],this.entrarPorError=!1,this.$refs.modalMotivo.show()},cerrarModal:function(){this.$refs.modalMotivo.hide()},guardar:(v=o(r.a.mark((function t(){var a,i=this;return r.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:if(this.checkForm()){t.next=4;break}this.entrarPorError=!1,t.next=23;break;case 4:return this.errores=[],a={_token:this.csrf,descripcion:this.motivosData.descripcion,observacion:this.motivosData.observacion,id:this.motivosData.id},this.valG=!1,t.prev=7,t.next=10,(s=a,Object(e.a)().post("/motivos/guardar",s)).then((function(t){i.consultar(1),i.motivosData.descripcion="",i.motivosData.observacion="",i.motivosData.id=0,i.cerrarModal(),i.$swal("Guardar...!","Datos Guardados Exitosamente!","success"),i.valG=!0})).catch((function(t){i.errorDevuelto=t.response.data.errors,i.entrarPorError=!0}));case 10:t.next=23;break;case 12:t.prev=12,t.t0=t.catch(7),t.t1=t.t0.response.status,t.next=419===t.t1?17:422===t.t1?19:21;break;case 17:case 19:case 21:return this.$swal("Error...!","Ocurrio un error!","error"),t.abrupt("break",23);case 23:case"end":return t.stop()}var s}),t,this,[[7,12]])}))),function(){return v.apply(this,arguments)}),checkForm:function(t){return this.errores=[],this.motivosData.descripcion||this.errores.push("La descripción es obligatoria."),!this.errores.length},cambiarPaginas:function(t){this.paginacion.pagina_actual=t,this.consultar(t)},eliminar:(l=o(r.a.mark((function t(a){var i,s,n=this;return r.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:i="",s="","Activo"==a.estado?(i="¿Desea anular el motivo para no planificar "+a.descripcion+"?",s="Motivo para no planificar "+a.descripcion+" anulado de manera exitosa"):(i="¿Desea activar el motivo para no planificar "+a.descripcion+"?",s="Motivo para no planificar "+a.descripcion+" activado de manera exitosa"),this.$swal({title:i,text:"",icon:"warning",showCancelButton:!0,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"}).then((function(t){if(t.value){var i={_token:n.csrf,id:a.id,estado:a.estado};try{(r=i,Object(e.a)().post("/motivos/eliminar",r)).then((function(t){n.consultar(1),n.$swal({position:"top-end",icon:"success",title:s,showConfirmButton:!1,timer:2e3})})).catch((function(t){n.$swal("Error...!","Ocurrio un error!","error")}))}catch(t){switch(t.response.status){case 422:default:n.$swal("Error...!","Ocurrio un error!","error")}}}var r}));case 4:case"end":return t.stop()}}),t,this)}))),function(t){return l.apply(this,arguments)}),editar:(c=o(r.a.mark((function t(a){return r.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:this.motivosData.descripcion=a.descripcion,this.motivosData.observacion=a.observacion,this.motivosData.id=a.id,this.$refs.modalMotivo.show();case 4:case"end":return t.stop()}}),t,this)}))),function(t){return c.apply(this,arguments)})}},p=(i(505),i(32)),f=Object(p.a)(d,(function(){var t=this,a=t.$createElement,i=t._self._c||a;return i("div",[i("div",{staticClass:"kt-portlet",staticStyle:{"margin-top":"-4%"}},[t._m(0),t._v(" "),i("div",{staticClass:"kt-portlet__body"},[i("div",{staticClass:"kt-section"},[i("div",{staticClass:"kt-section__content"},[i("div",{staticClass:"row"},[i("div",{staticClass:"col-md-6 col-lg-6"},[i("div",{staticClass:"kt-section"},[i("div",{staticClass:"kt-section__content"},[i("a",{staticClass:"btn btn-outline-primary btn-icon",attrs:{href:"javascript:;","data-skin":"dark","data-toggle":"kt-tooltip","data-placement":"top",title:"Nuevo Motivo Para No Planificar"},on:{click:t.abrirModal}},[i("i",{staticClass:"la la-file-text-o"})]),t._v(" \n                ")])])]),t._v(" "),i("div",{staticClass:"col-md-6 col-lg-6"},[i("form",{staticClass:"kt-form"},[i("div",{staticClass:"form-group"},[i("div",{staticClass:"input-group"},[i("input",{directives:[{name:"model",rawName:"v-model",value:t.txtbusqueda,expression:"txtbusqueda"}],staticClass:"form-control",attrs:{type:"text",placeholder:"Busqueda"},domProps:{value:t.txtbusqueda},on:{input:function(a){a.target.composing||(t.txtbusqueda=a.target.value)}}}),t._v(" "),i("div",{staticClass:"input-group-append"},[i("button",{staticClass:"btn btn-primary btn-icon",attrs:{type:"button"},on:{click:function(a){return t.consultar(1)}}},[i("i",{staticClass:"fa fa-search"})])])])])])])]),t._v(" "),i("div",{staticClass:"row"},[i("div",{staticClass:"col-md-12"},[i("div",{staticClass:"table-responsive"},[i("table",{staticClass:"table table-sm table-hover responsive  no-wrap"},[t._m(1),t._v(" "),i("tbody",t._l(t.motivos,(function(a,s){return i("tr",{key:s},[i("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle"}},[t._v(t._s(s+1))]),t._v(" "),i("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle","text-align":"left","text-transform":"capitalize"}},[t._v(t._s(a.descripcion))]),t._v(" "),i("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle","text-align":"left","text-transform":"capitalize"}},[t._v(t._s(a.observacion))]),t._v(" "),i("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle","text-align":"center"}},[i("span",{staticClass:"kt-badge kt-badge--inline",class:"Activo"==a.estado?"kt-badge--success":"kt-badge--danger"},[t._v(t._s(a.estado))])]),t._v(" "),i("td",{staticStyle:{"text-align":"center","vertical-align":"middle"}},[i("button",{staticClass:"btn btn-outline-info btn-icon btn-sm",attrs:{type:"button",title:"Editar"},on:{click:function(i){return t.editar(a)}}},[i("i",{staticClass:"fa fa-edit"})]),t._v(" "),i("button",{staticClass:"btn btn-icon btn-sm",class:"Activo"==a.estado?"btn-outline-danger":"btn-outline-success",attrs:{type:"button",title:"Activo"==a.estado?"Anular":"Activar"},on:{click:function(i){return t.eliminar(a)}}},[i("i",{staticClass:"fa",class:"Activo"==a.estado?"fa-trash":"fa-check"})])])])})),0)]),t._v(" "),i("div",{staticClass:"kt-separator kt-separator--border-dashed"}),t._v(" "),i("div",{staticClass:"kt-section"},[i("div",{staticClass:"kt-pagination kt-pagination--danger"},[i("ul",{staticClass:"kt-pagination__links"},[t.paginacion.pagina_actual>1?i("li",{staticClass:"kt-pagination__link--first"},[i("a",{attrs:{href:"javascript:;"},on:{click:function(a){return a.preventDefault(),t.cambiarPaginas(1)}}},[i("i",{staticClass:"fa fa-angle-double-left kt-font-danger"})])]):t._e(),t._v(" "),t.paginacion.pagina_actual>1?i("li",{staticClass:"kt-pagination__link--next"},[i("a",{attrs:{href:"javascript:;"},on:{click:function(a){return a.preventDefault(),t.cambiarPaginas(t.paginacion.pagina_actual-1)}}},[i("i",{staticClass:"fa fa-angle-left kt-font-danger"})])]):t._e(),t._v(" "),t._l(t.numeroDePaginas,(function(a,s){return i("li",{key:s,class:[a==t.esActivo?"kt-pagination__link--active":""]},[i("a",{attrs:{href:"javascript:;"},on:{click:function(i){return i.preventDefault(),t.cambiarPaginas(a)}}},[t._v(t._s(a))])])})),t._v(" "),t.paginacion.pagina_actual<t.paginacion.ultima_pagina?i("li",{staticClass:"kt-pagination__link--prev"},[i("a",{attrs:{href:"javascript:;"},on:{click:function(a){return a.preventDefault(),t.cambiarPaginas(t.paginacion.pagina_actual+1)}}},[i("i",{staticClass:"fa fa-angle-right kt-font-danger"})])]):t._e(),t._v(" "),t.paginacion.pagina_actual<t.paginacion.ultima_pagina?i("li",{staticClass:"kt-pagination__link--last"},[i("a",{attrs:{href:"javascript:;"},on:{click:function(a){return a.preventDefault(),t.cambiarPaginas(t.paginacion.ultima_pagina)}}},[i("i",{staticClass:"fa fa-angle-double-right kt-font-danger"})])]):t._e()],2)])])])])])])])]),t._v(" "),i("b-modal",{ref:"modalMotivo",attrs:{"hide-footer":"",title:"Gestion de Motivos Para no Planificar",size:"xl",centered:"","header-bg-variant":"danger","header-text-variant":"light","no-close-on-backdrop":!0}},[i("div",{staticClass:"d-block"},[i("div",{staticClass:"row"},[i("div",{staticClass:"col-lg-12"},[i("transition",{attrs:{duration:1e3,name:"fade"}},[t.entrarPorError?i("div",{staticClass:"alert alert-warning fade show",attrs:{role:"alert"}},[i("div",{staticClass:"alert-icon"},[i("i",{staticClass:"flaticon-warning"})]),t._v(" "),i("div",{staticClass:"alert-text"},[t._v("\n                  Por favor, corrija el(los) siguiente(s) error(es):\n                  "),i("hr"),t._v(" "),i("ul",t._l(t.errorDevuelto,(function(a,s){return i("li",{key:s},[t._v(t._s(a))])})),0)]),t._v(" "),i("div",{staticClass:"alert-close"},[i("button",{staticClass:"close",attrs:{type:"button","data-dismiss":"alert","aria-label":"Close"}},[i("span",{attrs:{"aria-hidden":"true"}},[i("i",{staticClass:"la la-close"})])])])]):t._e()])],1)]),t._v(" "),i("div",{staticClass:"row"},[i("div",{staticClass:"col-lg-12"},[i("transition",{attrs:{duration:1e3,name:"fade"}},[t.errores.length?i("div",{staticClass:"alert alert-warning fade show",attrs:{role:"alert"}},[i("div",{staticClass:"alert-icon"},[i("i",{staticClass:"flaticon-warning"})]),t._v(" "),i("div",{staticClass:"alert-text"},[t._v("\n                  Por favor, corrija el(los) siguiente(s) error(es):\n                  "),i("hr"),t._v(" "),i("ul",t._l(t.errores,(function(a,s){return i("li",{key:s},[t._v(t._s(a))])})),0)]),t._v(" "),i("div",{staticClass:"alert-close"},[i("button",{staticClass:"close",attrs:{type:"button","data-dismiss":"alert","aria-label":"Close"}},[i("span",{attrs:{"aria-hidden":"true"}},[i("i",{staticClass:"la la-close"})])])])]):t._e()])],1)]),t._v(" "),i("form",[i("div",{staticClass:"form-group row"},[i("div",{staticClass:"col-lg-6"},[i("label",[t._v("Motivo Para No Planificar:")]),t._v(" "),i("input",{directives:[{name:"model",rawName:"v-model",value:t.motivosData.descripcion,expression:"motivosData.descripcion"}],staticClass:"form-control text-capitalize",class:t.motivosClases,attrs:{type:"text",placeholder:"Descripción"},domProps:{value:t.motivosData.descripcion},on:{input:function(a){a.target.composing||t.$set(t.motivosData,"descripcion",a.target.value)}}}),t._v(" "),t.motivosError?i("div",{staticClass:"invalid-feedback"},[t._v(t._s(t.motivosError))]):t._e()]),t._v(" "),i("div",{staticClass:"col-lg-6"},[i("label",[t._v("Observación:")]),t._v(" "),i("input",{directives:[{name:"model",rawName:"v-model",value:t.motivosData.observacion,expression:"motivosData.observacion"}],staticClass:"form-control text-capitalize",attrs:{type:"text",placeholder:"Observación"},domProps:{value:t.motivosData.observacion},on:{input:function(a){a.target.composing||t.$set(t.motivosData,"observacion",a.target.value)}}})])]),t._v(" "),i("hr"),t._v(" "),i("div",{staticClass:"text-right"},[i("button",{staticClass:"btn btn-success",class:t.spinG,attrs:{type:"button",disabled:!t.valG},on:{click:t.guardar}},[i("i",{staticClass:"fa fa-edit"}),t._v(" Guardar\n            ")]),t._v(" "),i("button",{staticClass:"btn btn-warning",attrs:{type:"button"},on:{click:t.cerrarModal}},[i("i",{staticClass:"fa fa-window-close"}),t._v(" Cancelar\n            ")])])])])])],1)])}),[function(){var t=this.$createElement,a=this._self._c||t;return a("div",{staticClass:"kt-portlet__head"},[a("div",{staticClass:"kt-portlet__head-label"},[a("h3",{staticClass:"kt-portlet__head-title"},[a("span",{staticClass:"kt-widget20__number kt-font-danger"},[this._v("GESTIÓN DE MOTIVOS PARA NO PLANIFICAR")])])])])},function(){var t=this,a=t.$createElement,i=t._self._c||a;return i("thead",{},[i("tr",{staticClass:"kt-bg-fill-brand"},[i("th",[t._v("No.")]),t._v(" "),i("th",[t._v("Motivo")]),t._v(" "),i("th",[t._v("Observación")]),t._v(" "),i("td",{staticClass:"text-center"},[t._v("Estado")]),t._v(" "),i("td",{staticClass:"text-center"},[t._v("Opciones")])])])}],!1,null,null,null);a.default=f.exports}}]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[39],{
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Indicadores/spa.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Indicadores/spa.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @amcharts/amcharts4/core */ "./node_modules/@amcharts/amcharts4/core.js");
+/* harmony import */ var _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @amcharts/amcharts4/charts */ "./node_modules/@amcharts/amcharts4/charts.js");
+/* harmony import */ var _amcharts_amcharts4_themes_animated__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @amcharts/amcharts4/themes/animated */ "./node_modules/@amcharts/amcharts4/themes/animated.js");
+/* harmony import */ var _Servicios_indicadores__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../Servicios/indicadores */ "./resources/js/Servicios/indicadores.js");
+/* harmony import */ var vue_apexcharts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-apexcharts */ "./node_modules/vue-apexcharts/dist/vue-apexcharts.js");
+/* harmony import */ var vue_apexcharts__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vue_apexcharts__WEBPACK_IMPORTED_MODULE_5__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
+
+
+
+_amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_1__["useTheme"](_amcharts_amcharts4_themes_animated__WEBPACK_IMPORTED_MODULE_3__["default"]);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    this.calcular();
+  },
+  data: function data() {
+    return {
+      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
+      combo: "",
+      datos: {
+        total_consumidores: 0,
+        porcentaje_consumidores: 0,
+        adolescentes_consumidores: 0,
+        ninos_consumidores: 0,
+        gestantes_consumidores: 0,
+        grupo_611_hombres: 0,
+        grupo_611_mujeres: 0,
+        grupo_1217_hombres: 0,
+        grupo_1217_mujeres: 0,
+        grupo_1828_hombres: 0,
+        grupo_1828_mujeres: 0,
+        grupo_2959_hombres: 0,
+        grupo_2959_mujeres: 0,
+        grupo_60m_hombres: 0,
+        grupo_60m_mujeres: 0 //gestantes_grupo_510: 0,
+        //gestantes_grupo_1117: 0,
+        //gestantes_grupo_1828: 0,
+        //gestantes_grupo_2959: 0
+
+      },
+      poblacion: {
+        grupo_611_hombrest: 0,
+        grupo_611_mujerest: 0,
+        grupo_1217_hombrest: 0,
+        grupo_1217_mujerest: 0,
+        grupo_1828_hombrest: 0,
+        grupo_1828_mujerest: 0,
+        grupo_2959_hombrest: 0,
+        grupo_2959_mujerest: 0,
+        grupo_60m_hombrest: 0,
+        grupo_60m_mujerest: 0
+      },
+      serie: []
+    };
+  },
+  methods: {
+    calcular: function calcular() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                data = {
+                  _token: _this.csrf
+                };
+                _context.next = 3;
+                return _Servicios_indicadores__WEBPACK_IMPORTED_MODULE_4__["spa"](data).then(function (respuesta) {
+                  _this.datos = respuesta.data["cantidades"];
+                  console.log(_this.datos);
+                  _this.poblacion = respuesta.data["poblacion"];
+                  _this.serie = [{
+                    age: "60+",
+                    male: Number(_this.datos.grupo_611_hombres),
+                    female: Number(_this.datos.grupo_611_mujeres)
+                  }, {
+                    age: "29-59",
+                    male: Number(_this.datos.grupo_2959_hombres),
+                    female: Number(_this.datos.grupo_2959_mujeres)
+                  }, {
+                    age: "18-28",
+                    male: Number(_this.datos.grupo_1828_hombres),
+                    female: Number(_this.datos.grupo_1828_mujeres)
+                  }, {
+                    age: "12-17",
+                    male: Number(_this.datos.grupo_1217_hombres),
+                    female: Number(_this.datos.grupo_1217_mujeres)
+                  }, {
+                    age: "6-11",
+                    male: Number(_this.datos.grupo_611_hombres),
+                    female: Number(_this.datos.grupo_611_mujeres)
+                  }];
+
+                  _this.grafica_stacked();
+
+                  _this.grafica_barras(); //console.log(this.serie);
+
+                })["catch"](function (err) {
+                  console.log(err);
+                });
+
+              case 3:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
+    grafica_stacked: function grafica_stacked() {
+      // Themes begin
+      _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_1__["useTheme"](_amcharts_amcharts4_themes_animated__WEBPACK_IMPORTED_MODULE_3__["default"]); // Themes end
+      // Create chart instance
+
+      var chart = _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_1__["create"]("grafica1", _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["XYChart"]); // Add data
+
+      chart.data = this.serie; // Use only absolute numbers
+
+      chart.numberFormatter.numberFormat = "#.#s"; // Create axes
+
+      var categoryAxis = chart.yAxes.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["CategoryAxis"]());
+      categoryAxis.dataFields.category = "age";
+      categoryAxis.renderer.grid.template.location = 0;
+      categoryAxis.renderer.inversed = true;
+      var valueAxis = chart.xAxes.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["ValueAxis"]());
+      valueAxis.extraMin = 0.1;
+      valueAxis.extraMax = 0.1;
+      valueAxis.renderer.minGridDistance = 40;
+      valueAxis.renderer.ticks.template.length = 5;
+      valueAxis.renderer.ticks.template.disabled = false;
+      valueAxis.renderer.ticks.template.strokeOpacity = 0.4;
+      valueAxis.renderer.labels.template.adapter.add("text", function (text) {
+        return text == "Male" || text == "Female" ? text : text + "%";
+      }); // Create series
+
+      var male = chart.series.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["ColumnSeries"]());
+      male.dataFields.valueX = "male";
+      male.dataFields.categoryY = "age";
+      male.clustered = false;
+      var maleLabel = male.bullets.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["LabelBullet"]());
+      maleLabel.label.text = "{valueX}%";
+      maleLabel.label.hideOversized = false;
+      maleLabel.label.truncate = false;
+      maleLabel.label.horizontalCenter = "right";
+      maleLabel.label.dx = -10;
+      var female = chart.series.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["ColumnSeries"]());
+      female.dataFields.valueX = "female";
+      female.dataFields.categoryY = "age";
+      female.clustered = false;
+      var femaleLabel = female.bullets.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["LabelBullet"]());
+      femaleLabel.label.text = "{valueX}%";
+      femaleLabel.label.hideOversized = false;
+      femaleLabel.label.truncate = false;
+      femaleLabel.label.horizontalCenter = "left";
+      femaleLabel.label.dx = 10;
+      var maleRange = valueAxis.axisRanges.create();
+      maleRange.value = -10;
+      maleRange.endValue = 0;
+      maleRange.label.text = "Hombres";
+      maleRange.label.fill = chart.colors.list[0];
+      maleRange.label.dy = 20;
+      maleRange.label.fontWeight = "600";
+      maleRange.grid.strokeOpacity = 1;
+      maleRange.grid.stroke = male.stroke;
+      var femaleRange = valueAxis.axisRanges.create();
+      femaleRange.value = 0;
+      femaleRange.endValue = 10;
+      femaleRange.label.text = "Mujeres";
+      femaleRange.label.fill = chart.colors.list[1];
+      femaleRange.label.dy = 20;
+      femaleRange.label.fontWeight = "600";
+      femaleRange.grid.strokeOpacity = 1;
+      femaleRange.grid.stroke = female.stroke;
+    },
+    grafica_barras: function grafica_barras() {
+      // Themes begin
+      _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_1__["useTheme"](_amcharts_amcharts4_themes_animated__WEBPACK_IMPORTED_MODULE_3__["default"]); // Themes end
+
+      var chart = _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_1__["create"]("chartdiv", _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["XYChart"]);
+      chart.paddingBottom = 50;
+      chart.cursor = new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["XYCursor"]();
+      chart.scrollbarX = new _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_1__["Scrollbar"]();
+      chart.colors.step = 2;
+      chart.legend = new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["Legend"]();
+      chart.legend.position = "top";
+      chart.legend.paddingBottom = 20;
+      chart.legend.labels.template.maxWidth = 95;
+      var xAxis = chart.xAxes.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["CategoryAxis"]());
+      xAxis.dataFields.category = "category";
+      xAxis.renderer.cellStartLocation = 0.1;
+      xAxis.renderer.cellEndLocation = 0.9;
+      xAxis.renderer.grid.template.location = 0;
+      var yAxis = chart.yAxes.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["ValueAxis"]());
+      yAxis.min = 0;
+
+      function createSeries(value, name) {
+        var series = chart.series.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["ColumnSeries"]());
+        series.dataFields.valueY = value;
+        series.dataFields.categoryX = "category";
+        series.name = name;
+        series.events.on("hidden", arrangeColumns);
+        series.events.on("shown", arrangeColumns);
+        var bullet = series.bullets.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["LabelBullet"]());
+        bullet.interactionsEnabled = false;
+        bullet.dy = 30;
+        bullet.label.text = "{valueY}";
+        bullet.label.fill = _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_1__["color"]("#ffffff");
+        return series;
+      }
+
+      chart.data = [{
+        category: "6-11",
+        first: this.poblacion.grupo_611_hombrest,
+        second: this.poblacion.grupo_611_mujerest
+      }, {
+        category: "12-17",
+        first: this.poblacion.grupo_1217_hombrest,
+        second: this.poblacion.grupo_1217_mujerest
+      }, {
+        category: "18-28",
+        first: this.poblacion.grupo_1828_hombrest,
+        second: this.poblacion.grupo_1828_mujerest
+      }, {
+        category: "29-59",
+        first: this.poblacion.grupo_2959_hombrest,
+        second: this.poblacion.grupo_2959_mujerest
+      }, {
+        category: "60+",
+        first: this.poblacion.grupo_60m_hombrest,
+        second: this.poblacion.grupo_60m_mujerest
+      }];
+      createSeries("first", "Hombres");
+      createSeries("second", "Mujeres");
+
+      function arrangeColumns() {
+        var series = chart.series.getIndex(0);
+        var w = 1 - xAxis.renderer.cellStartLocation - (1 - xAxis.renderer.cellEndLocation);
+      }
+    },
+    filtrar: function filtrar() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                data = {
+                  _token: _this2.csrf,
+                  _tipo: _this2.combo
+                }; //alert(this.combo);
+
+                if (!(_this2.combo == "")) {
+                  _context2.next = 6;
+                  break;
+                }
+
+                _context2.next = 4;
+                return _Servicios_indicadores__WEBPACK_IMPORTED_MODULE_4__["spa"](data).then(function (respuesta) {
+                  _this2.poblacion = respuesta.data["poblacion"];
+
+                  _this2.grafica_barras(); //console.log(this.serie);
+
+                })["catch"](function (err) {
+                  console.log(err);
+                });
+
+              case 4:
+                _context2.next = 8;
+                break;
+
+              case 6:
+                _context2.next = 8;
+                return _Servicios_indicadores__WEBPACK_IMPORTED_MODULE_4__["filtrospa"](data).then(function (respuesta) {
+                  _this2.poblacion = respuesta.data["poblacion"];
+
+                  _this2.grafica_barras(); //console.log(this.serie);
+
+                })["catch"](function (err) {
+                  console.log(err);
+                });
+
+              case 8:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Indicadores/spa.vue?vue&type=template&id=5966eb12&":
+/*!**************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Indicadores/spa.vue?vue&type=template&id=5966eb12& ***!
+  \**************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticStyle: { "margin-top": "-4%" } }, [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-lg-12" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-body" }, [
+            _c("div", { staticClass: "row" }, [
+              _c(
+                "div",
+                { staticClass: "col-lg-3 text-center" },
+                [
+                  _c("h5", [_vm._v("Número consumidores")]),
+                  _vm._v(" "),
+                  _c(
+                    "vue-ellipse-progress",
+                    {
+                      attrs: {
+                        progress: _vm.datos.porcentaje_consumidores,
+                        size: 120,
+                        angle: -90,
+                        gap: 10,
+                        legend: true,
+                        legendValue: 180,
+                        thickness: 5,
+                        emptyThickness: "5%",
+                        dash: "60 0.9",
+                        color: "#068204",
+                        noData: false,
+                        loading: false,
+                        fontColor: "white",
+                        half: false,
+                        "line-mode": "out 2"
+                      }
+                    },
+                    [
+                      _c(
+                        "p",
+                        {
+                          staticStyle: {
+                            "font-size": "14px",
+                            "font-weight": "bold"
+                          },
+                          attrs: { slot: "legend-caption" },
+                          slot: "legend-caption"
+                        },
+                        [_vm._v(_vm._s(_vm.datos.total_consumidores))]
+                      )
+                    ]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-lg-3 text-center" },
+                [
+                  _c("h5", [_vm._v("Adolescentes consumidores")]),
+                  _vm._v(" "),
+                  _c(
+                    "vue-ellipse-progress",
+                    {
+                      attrs: {
+                        progress: Math.round(
+                          _vm.datos.adolescentes_consumidores
+                        ),
+                        size: 120,
+                        angle: -90,
+                        gap: 10,
+                        legend: true,
+                        thickness: 5,
+                        emptyThickness: "5%",
+                        dash: "60 0.9",
+                        color: "#db2be3",
+                        noData: false,
+                        loading: false,
+                        fontColor: "white",
+                        half: false,
+                        "line-mode": "out 2"
+                      }
+                    },
+                    [
+                      _c(
+                        "p",
+                        {
+                          staticStyle: {
+                            "font-size": "14px",
+                            "font-weight": "bold"
+                          },
+                          attrs: { slot: "legend-caption" },
+                          slot: "legend-caption"
+                        },
+                        [
+                          _vm._v(
+                            _vm._s(
+                              Math.round(_vm.datos.adolescentes_consumidores)
+                            )
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-lg-3 text-center" },
+                [
+                  _c("h5", [_vm._v("Niños consumidores")]),
+                  _vm._v(" "),
+                  _c(
+                    "vue-ellipse-progress",
+                    {
+                      attrs: {
+                        progress: Math.round(_vm.datos.ninos_consumidores),
+                        size: 120,
+                        angle: -90,
+                        gap: 10,
+                        legend: true,
+                        thickness: 5,
+                        emptyThickness: "5%",
+                        dash: "60 0.9",
+                        color: "#0511ca",
+                        noData: false,
+                        loading: false,
+                        fontColor: "white",
+                        half: false,
+                        "line-mode": "out 2"
+                      }
+                    },
+                    [
+                      _c(
+                        "p",
+                        {
+                          staticStyle: {
+                            "font-size": "14px",
+                            "font-weight": "bold"
+                          },
+                          attrs: { slot: "legend-caption" },
+                          slot: "legend-caption"
+                        },
+                        [
+                          _vm._v(
+                            _vm._s(Math.round(_vm.datos.ninos_consumidores))
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-lg-3 text-center" },
+                [
+                  _c("h5", [_vm._v("Gestantes consumidores")]),
+                  _vm._v(" "),
+                  _c(
+                    "vue-ellipse-progress",
+                    {
+                      attrs: {
+                        progress: Math.round(_vm.datos.gestantes_consumidores),
+                        size: 120,
+                        angle: -90,
+                        gap: 10,
+                        legend: true,
+                        thickness: 5,
+                        emptyThickness: "5%",
+                        dash: "60 0.9",
+                        color: "#891481",
+                        noData: false,
+                        loading: false,
+                        fontColor: "white",
+                        half: false,
+                        "line-mode": "out 2"
+                      }
+                    },
+                    [
+                      _c(
+                        "p",
+                        {
+                          staticStyle: {
+                            "font-size": "14px",
+                            "font-weight": "bold"
+                          },
+                          attrs: { slot: "legend-caption" },
+                          slot: "legend-caption"
+                        },
+                        [
+                          _vm._v(
+                            _vm._s(Math.round(_vm.datos.gestantes_consumidores))
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                ],
+                1
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-body" }, [
+            _c("br"),
+            _vm._v(" "),
+            _c("div", { staticClass: "row justify-center" }, [
+              _vm._m(1),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-8 text-center" }, [
+                _c("h4", [_vm._v("Población que consume SPA")]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("div", { staticClass: "row offset-2" }, [
+                  _c("div", { staticClass: "col-lg-8" }, [
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.combo,
+                            expression: "combo"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        on: {
+                          change: [
+                            function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.combo = $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            },
+                            _vm.filtrar
+                          ]
+                        }
+                      },
+                      [
+                        _c("option", { attrs: { value: "" } }, [
+                          _vm._v("Todos")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "spa" } }, [
+                          _vm._v("SPA")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "fuma" } }, [
+                          _vm._v("Tabaco")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "alcohol" } }, [
+                          _vm._v("Alcohol")
+                        ])
+                      ]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", {
+                  staticStyle: { width: "100%", height: "380px" },
+                  attrs: { id: "chartdiv" }
+                })
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card" }, [
+      _c("div", { staticClass: "card-body" }, [
+        _c("h3", [_vm._v("Consumo de SPA (Sustancias Psicoactivas)")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-lg-4 text-center" }, [
+      _c("h4", [_vm._v("Población que consume SPA por grupo de edades")]),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("div", {
+        staticStyle: { width: "100%", height: "400px" },
+        attrs: { id: "grafica1" }
+      })
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./resources/js/Servicios/indicadores.js":
+/*!***********************************************!*\
+  !*** ./resources/js/Servicios/indicadores.js ***!
+  \***********************************************/
+/*! exports provided: listar, gestantes, spa, filtrospa */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "listar", function() { return listar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "gestantes", function() { return gestantes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "spa", function() { return spa; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "filtrospa", function() { return filtrospa; });
+/* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
+
+function listar($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/indicadores/calcular', $data);
+}
+function gestantes($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/indicadores/gestantes', $data);
+}
+function spa($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/indicadores/spa', $data);
+}
+function filtrospa($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/indicadores/filtrospa', $data);
+}
+
+/***/ }),
+
+/***/ "./resources/js/Vistas/Indicadores/spa.vue":
+/*!*************************************************!*\
+  !*** ./resources/js/Vistas/Indicadores/spa.vue ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _spa_vue_vue_type_template_id_5966eb12___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./spa.vue?vue&type=template&id=5966eb12& */ "./resources/js/Vistas/Indicadores/spa.vue?vue&type=template&id=5966eb12&");
+/* harmony import */ var _spa_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./spa.vue?vue&type=script&lang=js& */ "./resources/js/Vistas/Indicadores/spa.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _spa_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _spa_vue_vue_type_template_id_5966eb12___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _spa_vue_vue_type_template_id_5966eb12___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Vistas/Indicadores/spa.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Vistas/Indicadores/spa.vue?vue&type=script&lang=js&":
+/*!**************************************************************************!*\
+  !*** ./resources/js/Vistas/Indicadores/spa.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_spa_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./spa.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Indicadores/spa.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_spa_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Vistas/Indicadores/spa.vue?vue&type=template&id=5966eb12&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/Vistas/Indicadores/spa.vue?vue&type=template&id=5966eb12& ***!
+  \********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_spa_vue_vue_type_template_id_5966eb12___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./spa.vue?vue&type=template&id=5966eb12& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Indicadores/spa.vue?vue&type=template&id=5966eb12&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_spa_vue_vue_type_template_id_5966eb12___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_spa_vue_vue_type_template_id_5966eb12___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ })
+
+}]);

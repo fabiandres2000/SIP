@@ -10154,7 +10154,6 @@ class CaracterizacionController extends Controller
 
             // Insalubridad en la vivienda
             $contambien = \App\RiesgosAmbientales::buscar(Session::get('alias'), $id_hogar);
-            dd($contambien);die;
             if ($contambien->riesgos_insalubridad > 1) {
                 $rTRDG = $rTRDG + 0.6;
             }
@@ -18773,14 +18772,15 @@ class CaracterizacionController extends Controller
                 $valor_r = self::valRieResSa($riesgo_r);
                 $color_r = self::colorRieResSa($valor_r);
                 $riesgo = \App\RiesgosSaludMen1::modificar(Session::get('alias'), $IDHOGAR, $opcion, $riesgo_r, $id_inte);
+                $valores_riesgo = \App\ValoresRiesgosSaludMEN1A::modificar(Session::get('alias'), $IDHOGAR, $opcion, $datos, $id_inte);
+                $valoresNuevos = \App\ValoresRiesgosSaludMEN1A::buscarXID(Session::get('alias'), $IDHOGAR);
                 $respuesta = [
                     'riesgo_r' => $riesgo_r,
                     'valor_r' => $valor_r,
                     'color_r' => $color_r,
+                    'riesgos_salud_men1a' => $valoresNuevos,
                 ];
-                $valores_riesgo = \App\ValoresRiesgosSaludMEN1A::modificar(Session::get('alias'), $IDHOGAR, $opcion, $datos);
                 return response()->json($respuesta, 200);
-
             }
 
             if ($tipo == "DE1A5") {
@@ -19050,14 +19050,16 @@ class CaracterizacionController extends Controller
                 $valor_r = self::valRieResSa($riesgo_r);
                 $color_r = self::colorRieResSa($valor_r);
                 $riesgo = \App\RiesgosSaludDe1a5::modificar(Session::get('alias'), $IDHOGAR, $opcion, $riesgo_r, $id_inte);
+                
+                $valores_riesgo = \App\ValoresRiesgosSaludDE1A5::modificar(Session::get('alias'), $IDHOGAR, $opcion, $datos, $id_inte);
+                $valoresNuevos = \App\ValoresRiesgosSaludDE1A5::buscarXID(Session::get('alias'), $IDHOGAR);
                 $respuesta = [
                     'riesgo_r' => $riesgo_r,
                     'valor_r' => $valor_r,
                     'color_r' => $color_r,
+                    'riesgos_salud_de1a5' => $valoresNuevos
                 ];
-                $valores_riesgo = \App\ValoresRiesgosSaludDE1A5::modificar(Session::get('alias'), $IDHOGAR, $opcion, $datos);
                 return response()->json($respuesta, 200);
-
             }
 
             if ($tipo == "DE6A11") {
@@ -20336,7 +20338,7 @@ class CaracterizacionController extends Controller
     public function valRieResSa($valor)
     {
         $eficacia = "";
-        if ($valor == 1) {
+        if ($valor == 1 || $valor == 0) {
             $eficacia = "Inexistente";
         } else {
             if ($valor == 2) {

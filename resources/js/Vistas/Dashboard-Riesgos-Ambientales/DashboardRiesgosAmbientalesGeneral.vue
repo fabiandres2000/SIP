@@ -180,7 +180,7 @@
                     </div>
                 </div>
                 <div :class="claseT" style="padding: 20px 45px 10px;" ref="dataTable">
-                   <table id="tabla-t" class="table_data" style="width: 100%">
+                    <table id="tabla-t" class="table_data" style="width: 100%">
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -193,7 +193,18 @@
                                 <td>{{item.direccion}}</td>
                             </tr>
                         </tbody>
-                   </table>
+                    </table>
+                    <hr>
+                    <vue-excel-xlsx
+                        :data="dataExcel"
+                        :columns="columns"
+                        :file-name="filename"
+                        :file-type="'xlsx'"
+                        :sheet-name="'sheetname'"
+                        style = "background-color: green; color: white; border: 0px; padding: 5px; border-radius: 10px"
+                        >
+                        Exportar a excel <i class="fa fa-table" aria-hidden="true"></i>
+                    </vue-excel-xlsx>
                 </div>
                 <div class="col-lg-12" style="padding: 30px 10px 10px 10px;" ref="dataTable2" hidden>
                    <table id="tabla-t" class="table_data" style="width: 100%">
@@ -291,7 +302,19 @@ export default {
             widthMap: 700,
             dataTableF: [],
             claseT: "col-lg-6",
-            isLoading: false
+            isLoading: false,
+            columns: [
+                {
+                    label: "ID",
+                    field: "id",
+                },
+                {
+                    label: "DIRECCION",
+                    field: "direccion",
+                }
+            ],
+            dataExcel: [],
+            filename:""
         }
     },
     methods: {
@@ -384,7 +407,7 @@ export default {
         calcularColores(){
             if (this.porcentajeviendasSinAguaPotable < 20) {
                 this.colorspinnner = "#1abf03";
-            } else if (this.porcentaje < 60) {
+            } else if (this.porcentajeviendasSinAguaPotable >= 20 && this.porcentajeviendasSinAguaPotable < 60) {
                 this.colorspinnner = "#f2ce1a";
             } else {
                 this.colorspinnner = "#f2451a";
@@ -392,15 +415,15 @@ export default {
 
             if (this.porcentajehogaresSinAguaPotable < 20) {
                     this.colorspinnner2 = "#1abf03";
-            } else if (this.porcentaje < 60) {
+            } else if (this.porcentajehogaresSinAguaPotable >= 20 && this.porcentajehogaresSinAguaPotable < 60) {
                 this.colorspinnner2 = "#f2ce1a";
             } else {
                 this.colorspinnner2 = "#f2451a";
             }
 
-            if (this.porcentajehogaresSinAguaPotable < 20) {
+            if (this.porcentajepoblacionSinAguaPotable < 20) {
                     this.colorspinnner3 = "#1abf03";
-            } else if (this.porcentaje < 60) {
+            } else if (this.porcentajepoblacionSinAguaPotable >= 20 && this.porcentajepoblacionSinAguaPotable < 60) {
                 this.colorspinnner3 = "#f2ce1a";
             } else {
                 this.colorspinnner3 = "#f2451a";
@@ -408,7 +431,7 @@ export default {
 
             if (this.porcentajeviendasSinalcantarillado < 20) {
                     this.colorspinnner4 = "#1abf03";
-            } else if (this.porcentaje < 60) {
+            } else if (this.porcentajeviendasSinalcantarillado >= 20 && this.porcentajeviendasSinalcantarillado < 60) {
                 this.colorspinnner4 = "#f2ce1a";
             } else {
                 this.colorspinnner4 = "#f2451a";
@@ -416,7 +439,7 @@ export default {
 
             if (this.porcentajehogaresSinalcantarillado < 20) {
                     this.colorspinnner5 = "#1abf03";
-            } else if (this.porcentaje < 60) {
+            } else if (this.porcentajehogaresSinalcantarillado >= 20 && this.porcentajehogaresSinalcantarillado < 60) {
                 this.colorspinnner5 = "#f2ce1a";
             } else {
                 this.colorspinnner5 = "#f2451a";
@@ -424,7 +447,7 @@ export default {
 
             if (this.porcentajepoblacionSinalcantarillado < 20) {
                     this.colorspinnner6 = "#1abf03";
-            } else if (this.porcentaje < 60) {
+            } else if (this.porcentajepoblacionSinalcantarillado >= 20 && this.porcentajepoblacionSinalcantarillado < 60) {
                 this.colorspinnner6 = "#f2ce1a";
             } else {
                 this.colorspinnner6 = "#f2451a";
@@ -667,9 +690,13 @@ export default {
                 if(this.tipoComboVivienda == "type1"){
                     this.points = this.markers;
                     this.dataTableF = this.viendasSAP;
+                    this.dataExcel = this.viendasSAP;
+                    this.filename = "Viviendas sin Acceso a Agua Potable"
                 }else{
                     this.points = this.markers2;
                     this.dataTableF = this.viendasSA;
+                    this.dataExcel = this.viendasSA;
+                    this.filename = "Viviendas sin Acceso a Alcantarillado"
                 }
                 this.loading = false;
                 this.crearDataTable();

@@ -1,1 +1,5886 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[14],{292:function(t,e,a){"use strict";a.d(e,"c",(function(){return i})),a.d(e,"b",(function(){return r})),a.d(e,"a",(function(){return s}));var o=a(19);function i(t){return Object(o.a)().post("/actividad",t)}function r(t){return Object(o.a)().post("/actividad/guardar",t)}function s(t){return Object(o.a)().post("/actividad/eliminar",t)}},313:function(t,e,a){"use strict";a.d(e,"d",(function(){return i})),a.d(e,"e",(function(){return r})),a.d(e,"c",(function(){return s})),a.d(e,"b",(function(){return n})),a.d(e,"a",(function(){return c}));var o=a(19);function i(t){return Object(o.a)().post("/establecimientos",t)}function r(t){return Object(o.a)().post("/establecimientos/nuevo",t)}function s(t){return Object(o.a)().post("/establecimientos/guardar",t)}function n(t){return Object(o.a)().post("/establecimientos/eliminar",t)}function c(t){return Object(o.a)().post("/establecimientos/editar",t)}},391:function(t,e,a){var o=a(521);"string"==typeof o&&(o=[[t.i,o,""]]);var i={hmr:!0,transform:void 0,insertInto:void 0};a(64)(o,i);o.locals&&(t.exports=o.locals)},520:function(t,e,a){"use strict";a(391)},521:function(t,e,a){(t.exports=a(63)(!1)).push([t.i,"\n.modal-backdrop {\n  background-color: rgba(0, 0, 0, 0.5) !important;\n}\n.modal-title {\n  color: #f8f9fa !important;\n}\n.close {\n  display: none;\n}\n",""])},664:function(t,e,a){"use strict";a.r(e);var o=a(12),i=a.n(o),r=a(292),s=a(313),n=a(65),c=a(327),l=a.n(c),d=a(87),v=a.n(d);a(152);function p(t,e,a,o,i,r,s){try{var n=t[r](s),c=n.value}catch(t){return void a(t)}n.done?e(c):Promise.resolve(c).then(o,i)}function u(t){return function(){var e=this,a=arguments;return new Promise((function(o,i){var r=t.apply(e,a);function s(t){p(r,o,i,s,n,"next",t)}function n(t){p(r,o,i,s,n,"throw",t)}s(void 0)}))}}var _,m,f,h={components:{Loading:v.a,Multiselect:l.a},mounted:function(){this.hoy=moment(),this.IDHOGAR=this.$route.params.IDHOGAR,null==this.IDHOGAR?this.$router.push("/gestion"):this.nuevo(this.IDHOGAR)},data:function(){return{IDHOGAR:0,dpto_options:[],muni_options:{},corregi_options:{},barrio_options:{},vereda_options:{},txtbusquedaAct:"",actividadesVector:[],actividadesAuxiliar:"",actividad_economica:"",hoy:"",auxNit:"Identificación",datos:{id:0,id_hogar:0,id_dpto:"",id_mun:"",id_corre:"",id_vereda:"",id_barrio:"",registrado:"",num_matricula:"",naturaleza:"",otra_naturaleza:"",tipo:"",capital_extranjero:"",permiso:"",otro_permiso:"",anio:"",num_empleados:"",tiempo_sin_operacion:"",fecha_retorno:"",promedio_ingresos_anterior:"",promedio_ingresos_durante:"",promedio_ingresos_posterior:"",carga_economica:"",protocolo_bioseguridad:"",tipo_afectacion:[],otro_tipo_afectacion:"",ayuda:"",tiempo_recuperacion:"",principal_problema:"",internet:"",estado:"Activo",id_compania:1,fecha:"",usuario_crear:"",fecha_editar:"",usuario_editar:"",otro_principal_problema:"",nit:"",representante:"",direccion:"",razon:"",tipo_tiempo:""},mOMM:!1,mONJ:!1,mOMP:!1,mOTA:!1,mOPP:!1,valG:!0,tipo:[{value:1,texto:"Reducción de personal"},{value:2,texto:"Reducción de salarios"},{value:3,texto:"Desabastecimiento de insumos y materia prima"},{value:4,texto:"Disminución de demanda"},{value:5,texto:"Ninguna afectación"}],ActividadData:[]}},computed:{spinG:function(){return this.valG?{}:["kt-spinner","kt-spinner--right","kt-spinner--sm","kt-spinner--light"]}},filters:{moneda:function(t){var e=+t.replace(/[^\d.]/g,"");return isNaN(e)?0:e},moment:function(t){function e(e){return t.apply(this,arguments)}return e.toString=function(){return t.toString()},e}((function(t){return moment(t).format("YYYY-MM-DD")}))},methods:{nuevo:(f=u(i.a.mark((function t(e){var a,o=this;return i.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:return a={_token:this.csrf,id_hogar:e},t.prev=1,t.next=4,s.e(a).then((function(t){o.dpto_options=t.data.arrayDpto,o.muni_options=t.data.arrayMuni,o.corregi_options=t.data.arrayCorregi,o.vereda_options=t.data.arrayVeredas}));case 4:t.next=15;break;case 6:t.prev=6,t.t0=t.catch(1),t.t1=t.t0.response.status,t.next=422===t.t1?11:13;break;case 11:case 13:return this.$swal("Error...!","Ocurrio un error!","error"),t.abrupt("break",15);case 15:case"end":return t.stop()}}),t,this,[[1,6]])}))),function(t){return f.apply(this,arguments)}),cambiarCombo:(m=u(i.a.mark((function t(e){var a,o,r,s,c=this;return i.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:if("dpto"===e&&(this.datos.id_mun="",this.datos.id_corre="",this.datos.id_vereda="",this.datos.id_barrio=""),"muni"!==e){t.next=20;break}return this.datos.id_corre="",this.datos.id_vereda="",this.datos.id_barrio="",a={_token:this.csrf,id:this.datos.id_mun,opcion:"MUN"},t.prev=6,t.next=9,n.a(a).then((function(t){c.barrio_options=t.data.arrayBarrios}));case 9:t.next=20;break;case 11:t.prev=11,t.t0=t.catch(6),t.t1=t.t0.response.status,t.next=422===t.t1?16:18;break;case 16:case 18:return this.$swal("Error...!","Ocurrio un error!","error"),t.abrupt("break",20);case 20:if("corregi"!==e){t.next=42;break}if(this.datos.id_vereda="",this.datos.id_barrio="","0"===this.datos.id_corre||""===this.datos.id_corre){t.next=41;break}return o={_token:this.csrf,id:this.datos.id_corre,opcion:"CORRE"},t.prev=25,t.next=28,n.a(o).then((function(t){c.barrio_options=t.data.arrayBarrios}));case 28:t.next=39;break;case 30:t.prev=30,t.t2=t.catch(25),t.t3=t.t2.response.status,t.next=422===t.t3?35:37;break;case 35:case 37:return this.$swal("Error...!","Ocurrio un error!","error"),t.abrupt("break",39);case 39:t.next=42;break;case 41:"0"===this.datos.id_corre?(this.cambiarCombo("muni"),this.datos.id_corre="0"):this.cambiarCombo("muni");case 42:if("vereda"!==e){t.next=61;break}return this.datos.id_barrio="0",r={_token:this.csrf,id:this.datos.id_corre,opcion:"VERE"},t.prev=45,t.next=48,n.a(r).then((function(t){c.barrio_options=t.data.arrayBarrios}));case 48:t.next=59;break;case 50:t.prev=50,t.t4=t.catch(45),t.t5=t.t4.response.status,t.next=422===t.t5?55:57;break;case 55:case 57:return this.$swal("Error...!","Ocurrio un error!","error"),t.abrupt("break",59);case 59:s="",""!==this.datos.id_vereda&&"0"!==this.datos.id_vereda||(s=this.datos.id_vereda,this.cambiarCombo("corregi"),"0"===s&&(this.datos.id_vereda="0"));case 61:case"end":return t.stop()}}),t,this,[[6,11],[25,30],[45,50]])}))),function(t){return m.apply(this,arguments)}),volver:function(){this.$router.push("/gestion")},mostrarOtro:function(t){"MM"===t&&("SI"===this.datos.registrado?(this.mOMM=!0,this.auxNit="Nit"):(this.mOMM=!1,this.auxNit="Identificación"),this.datos.num_matricula=""),"NJ"===t&&("7"===this.datos.naturaleza?this.mONJ=!0:this.mONJ=!1,this.datos.otra_naturaleza=""),"MP"===t&&("5"===this.datos.permiso?this.mOMP=!0:this.mOMP=!1,this.datos.otro_permiso=""),"TA"===t&&("6"===this.datos.tipo_afectacion?this.mOTA=!0:this.mOTA=!1,this.datos.otro_tipo_afectacion=""),"PP"===t&&("5"===this.datos.principal_problema?this.mOTA=!0:this.mOTA=!1,this.datos.otro_principal_problema="")},cerrarModal:function(){this.$refs.modalActividad.hide()},abrirModalActividades:function(){this.txtbusquedaAct="",this.consultarActividades(1),this.$refs.modalActividad.show()},consultarActividades:function(t){var e=this;return u(i.a.mark((function a(){var o;return i.a.wrap((function(a){for(;;)switch(a.prev=a.next){case 0:return o={txtbusqueda:e.txtbusquedaAct.trim(),_token:e.csrf,page:t},a.prev=1,a.next=4,r.c(o).then((function(t){e.actividadesVector=t.data.actividades.data}));case 4:a.next=15;break;case 6:a.prev=6,a.t0=a.catch(1),a.t1=a.t0.response.status,a.next=422===a.t1?11:13;break;case 11:case 13:return e.$swal("Error...!","Ocurrio un error!","error"),a.abrupt("break",15);case 15:case"end":return a.stop()}}),a,null,[[1,6]])})))()},seleccionarActividades:function(t){this.actividad_economica=t.id,this.actividadesAuxiliar=t.descripcion,this.$refs.modalActividad.hide()},guardar:(_=u(i.a.mark((function t(){var e,a=this;return i.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:if(this.checkForm()){t.next=3;break}t.next=26;break;case 3:if(!(this.ActividadData.length<=0)){t.next=6;break}return this.$swal("Error...!","Por favor agrege por lo menos una actividad economica!","error"),t.abrupt("return");case 6:return this.datos.id_hogar=this.IDHOGAR,e={_token:this.csrf,datos:this.datos,actividad_establecimientos:this.ActividadData,opcion:"guardar"},this.valG=!1,t.prev=9,t.next=12,s.c(e).then((function(t){"SI"==t.data.OPC?(a.$swal("Guardar...!","Datos Guardados Exitosamente!","success"),a.volver()):a.$swal("Guardar...!","Ocurrio un problema!","warning"),a.valG=!0})).catch((function(t){}));case 12:t.next=25;break;case 14:t.prev=14,t.t0=t.catch(9),t.t1=t.t0.response.status,t.next=419===t.t1?19:422===t.t1?21:23;break;case 19:case 21:case 23:return this.$swal("Error...!","Ocurrio un error!","error"),t.abrupt("break",25);case 25:this.valG=!0;case 26:case"end":return t.stop()}}),t,this,[[9,14]])}))),function(){return _.apply(this,arguments)}),checkForm:function(t){var e=!0;if(""===this.datos.id_dpto)return this.$refs.id_dpto.focus(),e=!1,void this.$swal("Error...!","Por favor seleccione la opción departamento!","error");if(""===this.datos.id_mun)return this.$refs.id_mun.focus(),e=!1,void this.$swal("Error...!","Por favor seleccione la opción municipio!","error");if(""===this.datos.razon)return this.$refs.razon.focus(),e=!1,void this.$swal("Error...!","Por favor digite la razón social!","error");if(""===this.datos.direccion)return this.$refs.direccion.focus(),e=!1,void this.$swal("Error...!","Por favor digite la direccion!","error");if(""===this.datos.nit)return this.$refs.nit.focus(),e=!1,void this.$swal("Error...!","Por favor digite el nit del establecimiento!","error");if(""===this.datos.representante)return this.$refs.representante.focus(),e=!1,void this.$swal("Error...!","Por favor digite el representante legal del establecimiento!","error");if(""===this.datos.registrado)return this.$refs.registrado.focus(),e=!1,void this.$swal("Error...!","Por favor seleccione la opción registro camara de comercio!","error");if(""===this.datos.naturaleza)return this.$refs.naturaleza.focus(),e=!1,void this.$swal("Error...!","Por favor seleccione la opción naturaleza juridica del establecimiento!","error");if(""===this.datos.tipo)return this.$refs.tipo.focus(),e=!1,void this.$swal("Error...!","Por favor seleccione la opción tipo de establecimiento comercial!","error");if(""===this.datos.capital_extranjero)return this.$refs.capital_extranjero.focus(),e=!1,void this.$swal("Error...!","Por favor seleccione la opción participación de capital extranjero!","error");if(""===this.datos.permiso)return this.$refs.permiso.focus(),e=!1,void this.$swal("Error...!","Por favor seleccione la opción recibe el permiso de operar como!","error");if(""===this.datos.anio)return this.$refs.anio.focus(),e=!1,void this.$swal("Error...!","Por favor digite el año de inicio de operación!","error");if(""===this.datos.num_empleados)return this.$refs.num_empleados.focus(),e=!1,void this.$swal("Error...!","Por favor digite el numero de empleados directos!","error");if(""===this.datos.tiempo_sin_operacion)return this.$refs.tiempo_sin_operacion.focus(),e=!1,void this.$swal("Error...!","Por favor digite el tiempo sin operación debido al covid 19!","error");if(this.datos.tiempo_sin_operacion<"0"){if(""===this.datos.tipo_tiempo)return this.$refs.tipo_tiempo.focus(),e=!1,void this.$swal("Error...!","Por favor seleccione la opción tiempo en!","error");if(""===this.datos.fecha_retorno)return this.$refs.fecha_retorno.focus(),e=!1,void this.$swal("Error...!","Por favor seleccione la fecha de retorno a labores!","error")}return""===this.datos.promedio_ingresos_anterior?(this.$refs.promedio_ingresos_anterior.focus(),e=!1,void this.$swal("Error...!","Por favor digite el promedio de ingresos anterior a la contingencia!","error")):""===this.datos.promedio_ingresos_durante?(this.$refs.promedio_ingresos_durante.focus(),e=!1,void this.$swal("Error...!","Por favor digite el promedio de ingresos durante la contingencia!","error")):""===this.datos.promedio_ingresos_posterior?(this.$refs.promedio_ingresos_posterior.focus(),e=!1,void this.$swal("Error...!","Por favor digite el promedio de ingresos posterior a la contingencia!","error")):""===this.datos.carga_economica?(this.$refs.carga_economica.focus(),e=!1,void this.$swal("Error...!","Por favor seleccione la opción principal carga economica!","error")):""===this.datos.protocolo_bioseguridad?(this.$refs.protocolo_bioseguridad.focus(),e=!1,void this.$swal("Error...!","Por favor seleccione la opción cuenta con protocolos de bioseguridad!","error")):this.datos.tipo_afectacion.length<=0?(this.$refs.tipo_afectacion.focus(),e=!1,void this.$swal("Error...!","Por favor seleccione la opción tipo de afectación del establecimiento!","error")):""===this.datos.ayuda?(this.$refs.ayuda.focus(),e=!1,void this.$swal("Error...!","Por favor seleccione la opción recibió ayuda por parte del gobierno!","error")):""===this.datos.internet?(this.$refs.internet.focus(),e=!1,void this.$swal("Error...!","Por favor seleccione la opción cuenta con servicio de internet!","error")):""===this.datos.tiempo_recuperacion?(this.$refs.tiempo_recuperacion.focus(),e=!1,void this.$swal("Error...!","Por favor seleccione la opción Dentro de cuanto tiempo, creen que el establecimiento pueda recuperarse económicamente de las afectaciones por la emergencia Covid- 19!","error")):""===this.datos.principal_problema?(this.$refs.principal_problema.focus(),e=!1,void this.$swal("Error...!","Por favor seleccione la opción Cuál cree usted que es el principal problema del sector en el que está ubicado el establecimiento comercial!","error")):e},formato:function(t){if("anio"===t&&(this.datos.anio=this.datos.anio.replace(/[^.\d]/g,"").trim(),"NaN"==this.datos.anio&&(this.datos.anio=""),"0"==this.datos.anio&&(this.datos.anio="")),"nume"===t&&(this.datos.num_empleados=this.datos.num_empleados.replace(/[^.\d]/g,"").trim(),"NaN"==this.datos.num_empleados&&(this.datos.num_empleados=""),"0"==this.datos.num_empleados&&(this.datos.num_empleados="")),"tiempo_sin_operacion"==t&&(this.datos.tiempo_sin_operacion=this.datos.tiempo_sin_operacion.replace(/[^.\d]/g,"").trim(),"NaN"==this.datos.tiempo_sin_operacion&&(this.datos.tiempo_sin_operacion=""),this.datos.tiempo_sin_operacion<"0"&&(this.datos.tiempo_sin_operacion=""),"0"===this.datos.tiempo_sin_operacion&&(this.datos.tipo_tiempo="",this.datos.fecha_retorno="")),"promedio_ingresos_anterior"==t){this.datos.promedio_ingresos_anterior=this.datos.promedio_ingresos_anterior.replace(/[.*+\-?^${}()|[\]\\]/g,"");var e=(this.datos.promedio_ingresos_anterior/1).toFixed(0).replace(".",",");this.datos.promedio_ingresos_anterior=e.toString().replace(/\B(?=(\d{3})+(?!\d))/g,"."),"NaN"==this.datos.promedio_ingresos_anterior&&(this.datos.promedio_ingresos_anterior=""),"0"==this.datos.promedio_ingresos_anterior&&(this.datos.promedio_ingresos_anterior="")}if("promedio_ingresos_durante"==t){this.datos.promedio_ingresos_durante=this.datos.promedio_ingresos_durante.replace(/[.*+\-?^${}()|[\]\\]/g,"");var a=(this.datos.promedio_ingresos_durante/1).toFixed(0).replace(".",",");this.datos.promedio_ingresos_durante=a.toString().replace(/\B(?=(\d{3})+(?!\d))/g,"."),"NaN"==this.datos.promedio_ingresos_durante&&(this.datos.promedio_ingresos_durante=""),"0"==this.datos.promedio_ingresos_durante&&(this.datos.promedio_ingresos_durante="")}if("promedio_ingresos_posterior"==t){this.datos.promedio_ingresos_posterior=this.datos.promedio_ingresos_posterior.replace(/[.*+\-?^${}()|[\]\\]/g,"");var o=(this.datos.promedio_ingresos_posterior/1).toFixed(0).replace(".",",");this.datos.promedio_ingresos_posterior=o.toString().replace(/\B(?=(\d{3})+(?!\d))/g,"."),"NaN"==this.datos.promedio_ingresos_posterior&&(this.datos.promedio_ingresos_posterior=""),"0"==this.datos.promedio_ingresos_posterior&&(this.datos.promedio_ingresos_posterior="")}},AgregarActividad:function(){if(""===this.actividadesAuxiliar)return this.$refs.actividadesAuxiliar.focus(),void this.$swal("Error...!","Por favor seleccione una actividad economica!","error");this.ActividadData.push({id:0,id_actividad:this.actividad_economica,actividad:this.actividadesAuxiliar,estado:"Activo"}),this.limpiarActividad()},limpiarActividad:function(){this.actividadesAuxiliar="",this.actividad_economica=""},eliminarItemActividad:function(t,e){0!==t.id?(this.ActividadData[e].estado="Inactivo",this.ActividadData.splice(e,1,this.ActividadData[e])):this.ActividadData.splice(e,1)}}},g=(a(328),a(520),a(32)),b=Object(g.a)(h,(function(){var t=this,e=t.$createElement,a=t._self._c||e;return a("div",[a("div",{staticClass:"kt-portlet",staticStyle:{"margin-top":"-4%"}},[a("div",{staticClass:"kt-portlet__head"},[t._m(0),t._v(" "),a("div",{staticClass:"kt-portlet__head-toolbar"},[a("a",{staticClass:"btn btn-danger kt-margin-r-10",attrs:{href:"#"},on:{click:function(e){return e.preventDefault(),t.volver.apply(null,arguments)}}},[a("i",{staticClass:"la la-arrow-left"}),t._v(" "),a("span",{staticClass:"kt-hidden-mobile"},[t._v("Volver")])]),t._v(" "),a("div",{staticClass:"btn-group"},[a("button",{staticClass:"btn btn-brand",class:t.spinG,attrs:{type:"button",disabled:!t.valG},on:{click:function(e){return e.preventDefault(),t.guardar.apply(null,arguments)}}},[a("i",{staticClass:"la la-edit"}),t._v(" "),a("span",{staticClass:"kt-hidden-mobile"},[t._v("Guardar")])])])])]),t._v(" "),a("div",{staticClass:"kt-portlet__body"},[a("div",{staticClass:"kt-section"},[a("div",{staticClass:"kt-section__content"},[a("div",{staticClass:"form-group row"},[a("div",{staticClass:"col-lg-4"},[a("label",[t._v("Departamento (*):")]),t._v(" "),a("b-form-select",{ref:"id_dpto",class:""==t.datos.id_dpto?"is-invalid":"is-valid",on:{change:function(e){return t.cambiarCombo("dpto")}},model:{value:t.datos.id_dpto,callback:function(e){t.$set(t.datos,"id_dpto","string"==typeof e?e.trim():e)},expression:"datos.id_dpto"}},[a("option",{attrs:{value:"",selected:""}},[t._v("Seleccione")]),t._v(" "),t._l(t.dpto_options,(function(e){return a("option",{key:e.value,domProps:{value:e.value}},[t._v(t._s(e.texto))])}))],2),t._v(" "),""!=t.datos.id_dpto?a("div",{staticClass:"valid-feedback"},[t._v("Departamento Valido")]):t._e(),t._v(" "),a("div",{staticClass:"invalid-feedback"},[""==t.datos.id_dpto?a("span",[t._v("El departamento es obligatorio")]):t._e()])],1),t._v(" "),a("div",{staticClass:"col-lg-4"},[a("label",[t._v("Municipio (*):")]),t._v(" "),a("b-form-select",{ref:"id_mun",class:""==t.datos.id_mun?"is-invalid":"is-valid",on:{change:function(e){return t.cambiarCombo("muni")}},model:{value:t.datos.id_mun,callback:function(e){t.$set(t.datos,"id_mun","string"==typeof e?e.trim():e)},expression:"datos.id_mun"}},[a("option",{attrs:{value:"",selected:""}},[t._v("Seleccione")]),t._v(" "),t._l(t.muni_options[t.datos.id_dpto],(function(e){return a("option",{key:e.value,domProps:{value:e.value}},[t._v(t._s(e.texto))])}))],2),t._v(" "),""!=t.datos.id_mun?a("div",{staticClass:"valid-feedback"},[t._v("Municipio Valido")]):t._e(),t._v(" "),a("div",{staticClass:"invalid-feedback"},[""==t.datos.id_mun?a("span",[t._v("El municipio es obligatorio")]):t._e()])],1),t._v(" "),a("div",{staticClass:"col-lg-4"},[a("label",[t._v("Corregimiento:")]),t._v(" "),a("b-form-select",{ref:"id_corre",class:""==t.datos.id_corre?"is-invalid":"is-valid",on:{change:function(e){return t.cambiarCombo("corregi")}},model:{value:t.datos.id_corre,callback:function(e){t.$set(t.datos,"id_corre",e)},expression:"datos.id_corre"}},[a("option",{attrs:{value:"",selected:""}},[t._v("Seleccione")]),t._v(" "),a("option",{attrs:{value:"0"}},[t._v("No Aplica")]),t._v(" "),t._l(t.corregi_options[t.datos.id_mun],(function(e){return a("option",{key:e.value,domProps:{value:e.value}},[t._v(t._s(e.texto))])}))],2),t._v(" "),""!=t.datos.id_corre?a("div",{staticClass:"valid-feedback"},[t._v("Corregimiento Valido")]):t._e(),t._v(" "),a("div",{staticClass:"invalid-feedback"},[""==t.datos.id_corre?a("span",[t._v("El corregimiento es obligatorio")]):t._e()])],1)]),t._v(" "),a("div",{staticClass:"form-group row"},[a("div",{staticClass:"col-lg-4"},[a("label",[t._v("Vereda:")]),t._v(" "),a("b-form-select",{ref:"id_vereda",class:""==t.datos.id_vereda?"is-invalid":"is-valid",on:{change:function(e){return t.cambiarCombo("vereda")}},model:{value:t.datos.id_vereda,callback:function(e){t.$set(t.datos,"id_vereda",e)},expression:"datos.id_vereda"}},[a("option",{attrs:{value:"",selected:""}},[t._v("Seleccione")]),t._v(" "),a("option",{attrs:{value:"0"}},[t._v("No Aplica")]),t._v(" "),t._l(t.vereda_options[t.datos.id_corre],(function(e){return a("option",{key:e.value,domProps:{value:e.value}},[t._v(t._s(e.texto))])}))],2),t._v(" "),""!=t.datos.id_vereda?a("div",{staticClass:"valid-feedback"},[t._v("Vereda Valida")]):t._e()],1),t._v(" "),a("div",{staticClass:"col-lg-4"},[a("label",[t._v("Barrio:")]),t._v(" "),a("b-form-select",{ref:"id_barrio",class:""==t.datos.id_barrio?"is-invalid":"is-valid",model:{value:t.datos.id_barrio,callback:function(e){t.$set(t.datos,"id_barrio",e)},expression:"datos.id_barrio"}},[a("option",{attrs:{value:"",selected:""}},[t._v("Seleccione")]),t._v(" "),a("option",{attrs:{value:"0"}},[t._v("No Aplica")]),t._v(" "),t._l(t.barrio_options,(function(e){return a("option",{key:e.value,domProps:{value:e.value}},[t._v(t._s(e.texto))])}))],2),t._v(" "),""!=t.datos.id_barrio?a("div",{staticClass:"valid-feedback"},[t._v("Barrio Valido")]):t._e()],1)]),t._v(" "),a("div",{staticClass:"form-group row"},[a("div",{staticClass:"col-lg-12"},[a("label",[t._v("Razón Social:")]),t._v(" "),a("input",{directives:[{name:"model",rawName:"v-model.trim",value:t.datos.razon,expression:"datos.razon",modifiers:{trim:!0}}],ref:"razon",staticClass:"form-control text-capitalize",class:""==t.datos.razon?"is-invalid":"is-valid",attrs:{type:"text",placeholder:"Razón Social"},domProps:{value:t.datos.razon},on:{input:function(e){e.target.composing||t.$set(t.datos,"razon",e.target.value.trim())},blur:function(e){return t.$forceUpdate()}}}),t._v(" "),""!=t.datos.razon?a("div",{staticClass:"valid-feedback"},[t._v("La Razón Social es Valida")]):t._e(),t._v(" "),a("div",{staticClass:"invalid-feedback"},[""==t.datos.razon?a("span",[t._v("La razón social es obligatoria")]):t._e()])])]),t._v(" "),a("div",{staticClass:"form-group row"},[a("div",{staticClass:"col-lg-12"},[a("label",[t._v("Dirección:")]),t._v(" "),a("input",{directives:[{name:"model",rawName:"v-model.trim",value:t.datos.direccion,expression:"datos.direccion",modifiers:{trim:!0}}],ref:"direccion",staticClass:"form-control text-capitalize",class:""==t.datos.direccion?"is-invalid":"is-valid",attrs:{type:"text",placeholder:"Dirección"},domProps:{value:t.datos.direccion},on:{input:function(e){e.target.composing||t.$set(t.datos,"direccion",e.target.value.trim())},blur:function(e){return t.$forceUpdate()}}}),t._v(" "),""!=t.datos.direccion?a("div",{staticClass:"valid-feedback"},[t._v("La Dirección es Valida")]):t._e(),t._v(" "),a("div",{staticClass:"invalid-feedback"},[""==t.datos.direccion?a("span",[t._v("La dirección es obligatoria")]):t._e()])])]),t._v(" "),a("div",{staticClass:"form-group row"},[a("div",{staticClass:"col-lg-4"},[a("label",[t._v("Registro Camara de Comercio:")]),t._v(" "),a("b-form-select",{ref:"registrado",class:""==t.datos.registrado?"":"is-valid",on:{change:function(e){return t.mostrarOtro("MM")}},model:{value:t.datos.registrado,callback:function(e){t.$set(t.datos,"registrado",e)},expression:"datos.registrado"}},[a("option",{attrs:{value:"",selected:""}},[t._v("Seleccione")]),t._v(" "),a("option",{attrs:{value:"SI"}},[t._v("SI")]),t._v(" "),a("option",{attrs:{value:"NO"}},[t._v("NO")])])],1),t._v(" "),a("div",{directives:[{name:"show",rawName:"v-show",value:t.mOMM,expression:"mOMM"}],staticClass:"col-lg-4"},[a("label",[t._v("Número Matrícula Mercantil:")]),t._v(" "),a("input",{directives:[{name:"model",rawName:"v-model.trim",value:t.datos.num_matricula,expression:"datos.num_matricula",modifiers:{trim:!0}}],ref:"num_matricula",staticClass:"form-control text-capitalize",class:""==t.datos.num_matricula?"":"is-valid",attrs:{type:"text",placeholder:"Número Matrícula Mercantil"},domProps:{value:t.datos.num_matricula},on:{input:function(e){e.target.composing||t.$set(t.datos,"num_matricula",e.target.value.trim())},blur:function(e){return t.$forceUpdate()}}})]),t._v(" "),a("div",{staticClass:"col-lg-4"},[a("label",[t._v("Naturaleza Juridica del Establecimiento:")]),t._v(" "),a("b-form-select",{ref:"naturaleza",class:""==t.datos.naturaleza?"":"is-valid",on:{change:function(e){return t.mostrarOtro("NJ")}},model:{value:t.datos.naturaleza,callback:function(e){t.$set(t.datos,"naturaleza",e)},expression:"datos.naturaleza"}},[a("option",{attrs:{value:"",selected:""}},[t._v("Seleccione")]),t._v(" "),a("option",{attrs:{value:"1"}},[t._v("Persona Natural")]),t._v(" "),a("option",{attrs:{value:"2"}},[t._v("Sociedad Anónima S.A.")]),t._v(" "),a("option",{attrs:{value:"3"}},[t._v("Sociedad por acciones simplificadas. S.A.S")]),t._v(" "),a("option",{attrs:{value:"4"}},[t._v("Sociedad Limitada LTDA.")]),t._v(" "),a("option",{attrs:{value:"5"}},[t._v("Cooperativa")]),t._v(" "),a("option",{attrs:{value:"6"}},[t._v("No registra")]),t._v(" "),a("option",{attrs:{value:"7"}},[t._v("Otra")])])],1)]),t._v(" "),a("div",{staticClass:"form-group row"},[a("div",{staticClass:"col-lg-4"},[a("label",[t._v(t._s(t.auxNit)+":")]),t._v(" "),a("input",{directives:[{name:"model",rawName:"v-model.trim",value:t.datos.nit,expression:"datos.nit",modifiers:{trim:!0}}],ref:"nit",staticClass:"form-control text-capitalize",class:""==t.datos.nit?"":"is-valid",attrs:{type:"text",placeholder:t.auxNit},domProps:{value:t.datos.nit},on:{input:function(e){e.target.composing||t.$set(t.datos,"nit",e.target.value.trim())},blur:function(e){return t.$forceUpdate()}}})]),t._v(" "),a("div",{staticClass:"col-lg-8"},[a("label",[t._v("Representante Legal:")]),t._v(" "),a("input",{directives:[{name:"model",rawName:"v-model.trim",value:t.datos.representante,expression:"datos.representante",modifiers:{trim:!0}}],ref:"representante",staticClass:"form-control text-capitalize",class:""==t.datos.representante?"":"is-valid",attrs:{type:"text",placeholder:"Representante Legal"},domProps:{value:t.datos.representante},on:{input:function(e){e.target.composing||t.$set(t.datos,"representante",e.target.value.trim())},blur:function(e){return t.$forceUpdate()}}})])]),t._v(" "),a("div",{staticClass:"form-group row"},[a("div",{directives:[{name:"show",rawName:"v-show",value:t.mONJ,expression:"mONJ"}],staticClass:"col-lg-12"},[a("label",[t._v("Otra Naturaleza Juridica del Establecimiento:")]),t._v(" "),a("input",{directives:[{name:"model",rawName:"v-model.trim",value:t.datos.otra_naturaleza,expression:"datos.otra_naturaleza",modifiers:{trim:!0}}],ref:"otra_naturaleza",staticClass:"form-control text-capitalize",class:""==t.datos.otra_naturaleza?"":"is-valid",attrs:{type:"text",placeholder:"Cual?"},domProps:{value:t.datos.otra_naturaleza},on:{input:function(e){e.target.composing||t.$set(t.datos,"otra_naturaleza",e.target.value.trim())},blur:function(e){return t.$forceUpdate()}}})])]),t._v(" "),a("div",{staticClass:"form-group row"},[a("div",{staticClass:"col-lg-4"},[a("label",[t._v("Tipo de Establecimiento Comercial:")]),t._v(" "),a("b-form-select",{ref:"tipo",class:""==t.datos.tipo?"":"is-valid",model:{value:t.datos.tipo,callback:function(e){t.$set(t.datos,"tipo",e)},expression:"datos.tipo"}},[a("option",{attrs:{value:"",selected:""}},[t._v("Seleccione")]),t._v(" "),a("option",{attrs:{value:"1"}},[t._v("Tienda de Ropa")]),t._v(" "),a("option",{attrs:{value:"2"}},[t._v("Almacen")]),t._v(" "),a("option",{attrs:{value:"3"}},[t._v("Centros de Belleza")]),t._v(" "),a("option",{attrs:{value:"4"}},[t._v("Restaurantes")]),t._v(" "),a("option",{attrs:{value:"5"}},[t._v("Talleres mecánicos")]),t._v(" "),a("option",{attrs:{value:"6"}},[t._v("Café Internet")]),t._v(" "),a("option",{attrs:{value:"7"}},[t._v("Comidas Rapidas")]),t._v(" "),a("option",{attrs:{value:"8"}},[t._v("Panaderia/ pasteliría")]),t._v(" "),a("option",{attrs:{value:"9"}},[t._v("Ferretería")]),t._v(" "),a("option",{attrs:{value:"10"}},[t._v("Miscelania")]),t._v(" "),a("option",{attrs:{value:"11"}},[t._v("Papelería  y Librerías")]),t._v(" "),a("option",{attrs:{value:"12"}},[t._v("Cafetería")]),t._v(" "),a("option",{attrs:{value:"13"}},[t._v("Frutería")]),t._v(" "),a("option",{attrs:{value:"14"}},[t._v("Venta de loterías o juegos de azar")]),t._v(" "),a("option",{attrs:{value:"15"}},[t._v("Carnicería")]),t._v(" "),a("option",{attrs:{value:"16"}},[t._v("Asaderos")]),t._v(" "),a("option",{attrs:{value:"17"}},[t._v("Lavaderos de Vehículos")]),t._v(" "),a("option",{attrs:{value:"18"}},[t._v("Licorería")]),t._v(" "),a("option",{attrs:{value:"19"}},[t._v("Parqueaderos")]),t._v(" "),a("option",{attrs:{value:"20"}},[t._v("Colegios o centros de estudios")]),t._v(" "),a("option",{attrs:{value:"21"}},[t._v("Consultorios medicos")]),t._v(" "),a("option",{attrs:{value:"22"}},[t._v("Consultorios Juridicos")]),t._v(" "),a("option",{attrs:{value:"23"}},[t._v("Micelania y Cacharrerias")]),t._v(" "),a("option",{attrs:{value:"24"}},[t._v("Agencias de Viajes")]),t._v(" "),a("option",{attrs:{value:"25"}},[t._v("Discotecas y Bares")]),t._v(" "),a("option",{attrs:{value:"26"}},[t._v("Estaciones de servicios")]),t._v(" "),a("option",{attrs:{value:"27"}},[t._v("Hoteles")]),t._v(" "),a("option",{attrs:{value:"28"}},[t._v("Joyerias")]),t._v(" "),a("option",{attrs:{value:"29"}},[t._v("Puesto de Mercado")]),t._v(" "),a("option",{attrs:{value:"30"}},[t._v("Sex Shop")]),t._v(" "),a("option",{attrs:{value:"31"}},[t._v("Supermercados")]),t._v(" "),a("option",{attrs:{value:"32"}},[t._v("Otras Tienda especializada")]),t._v(" "),a("option",{attrs:{value:"33"}},[t._v("Otros Establecimiento de servicios")])])],1)]),t._v(" "),a("div",{staticClass:"form-group row"},[a("div",{staticClass:"col-lg-10"},[a("label",[t._v("Actividad Económica:")]),t._v(" "),a("input",{directives:[{name:"model",rawName:"v-model",value:t.actividadesAuxiliar,expression:"actividadesAuxiliar"}],ref:"actividad_economica",staticClass:"form-control text-capitalize",class:""==t.actividadesAuxiliar?"":"is-valid",attrs:{type:"text",placeholder:"Actividad Económica",readonly:!0},domProps:{value:t.actividadesAuxiliar},on:{click:function(e){return t.abrirModalActividades()},input:function(e){e.target.composing||(t.actividadesAuxiliar=e.target.value)}}})]),t._v(" "),a("div",{staticClass:"col-lg-1"},[a("br"),t._v(" "),a("label",[t._v("           ")]),t._v(" "),a("a",{staticClass:"btn btn-outline-info btn-icon",attrs:{href:"javascript:;","data-skin":"dark","data-toggle":"kt-tooltip","data-placement":"top",title:"Agregar"},on:{click:function(e){return e.preventDefault(),t.AgregarActividad.apply(null,arguments)}}},[a("i",{staticClass:"fa fa-plus"})]),t._v(" \n            ")]),t._v(" "),a("div",{staticClass:"col-lg-1"},[a("br"),t._v(" "),a("label",[t._v("           ")]),t._v(" "),a("a",{staticClass:"btn btn-outline-danger btn-icon",attrs:{href:"javascript:;","data-skin":"dark","data-toggle":"kt-tooltip","data-placement":"top",title:"Limpiar"},on:{click:function(e){return e.preventDefault(),t.limpiarActividad.apply(null,arguments)}}},[a("i",{staticClass:"fa fa-trash"})]),t._v(" \n            ")])]),t._v(" "),a("div",{staticClass:"row"},[a("div",{staticClass:"col-md-12"},[a("div",{staticClass:"table-responsive"},[a("table",{staticClass:"table table-sm table-hover"},[t._m(1),t._v(" "),a("tbody",t._l(t.ActividadData,(function(e,o){return a("tr",{directives:[{name:"show",rawName:"v-show",value:"Activo"==e.estado,expression:"item.estado=='Activo'"}],key:o},[a("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle"}},[t._v(t._s(o+1))]),t._v(" "),a("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle","text-align":"left","text-transform":"capitalize"}},[a("span",{staticClass:"text-capitalize"},[t._v(t._s(e.actividad))])]),t._v(" "),a("td",{staticStyle:{"text-align":"center","vertical-align":"middle"}},[a("button",{staticClass:"btn btn-icon btn-sm btn-outline-danger",attrs:{type:"button",title:"Eliminar"},on:{click:function(a){return t.eliminarItemActividad(e,o)}}},[a("i",{staticClass:"fa fa-trash"})])])])})),0)]),t._v(" "),a("div",{staticClass:"kt-separator kt-separator--border-dashed"})])])]),t._v(" "),a("div",{staticClass:"form-group row"},[a("div",{staticClass:"col-lg-4"},[a("label",[t._v("Participación de Capital Extranjero:")]),t._v(" "),a("b-form-select",{ref:"capital_extranjero",class:""==t.datos.capital_extranjero?"":"is-valid",model:{value:t.datos.capital_extranjero,callback:function(e){t.$set(t.datos,"capital_extranjero",e)},expression:"datos.capital_extranjero"}},[a("option",{attrs:{value:"",selected:""}},[t._v("Seleccione")]),t._v(" "),a("option",{attrs:{value:"SI"}},[t._v("SI")]),t._v(" "),a("option",{attrs:{value:"NO"}},[t._v("NO")])])],1),t._v(" "),a("div",{staticClass:"col-lg-4"},[a("label",[t._v("¿Recibe el Permiso de Operar Como?:")]),t._v(" "),a("b-form-select",{ref:"permiso",class:""==t.datos.permiso?"":"is-valid",on:{change:function(e){return t.mostrarOtro("MP")}},model:{value:t.datos.permiso,callback:function(e){t.$set(t.datos,"permiso",e)},expression:"datos.permiso"}},[a("option",{attrs:{value:"",selected:""}},[t._v("Seleccione")]),t._v(" "),a("option",{attrs:{value:"1"}},[t._v("Franquicia")]),t._v(" "),a("option",{attrs:{value:"2"}},[t._v("Concesión")]),t._v(" "),a("option",{attrs:{value:"3"}},[t._v("Patente")]),t._v(" "),a("option",{attrs:{value:"4"}},[t._v("Ninguna")]),t._v(" "),a("option",{attrs:{value:"5"}},[t._v("Otro")])])],1)]),t._v(" "),a("div",{staticClass:"form-group row"},[a("div",{directives:[{name:"show",rawName:"v-show",value:t.mOMP,expression:"mOMP"}],staticClass:"col-lg-8"},[a("label",[t._v("¿Cual?:")]),t._v(" "),a("input",{directives:[{name:"model",rawName:"v-model.trim",value:t.datos.otro_permiso,expression:"datos.otro_permiso",modifiers:{trim:!0}}],ref:"otro_permiso",staticClass:"form-control text-capitalize",class:""==t.datos.otro_permiso?"":"is-valid",attrs:{type:"text",placeholder:"¿Cual?"},domProps:{value:t.datos.otro_permiso},on:{input:function(e){e.target.composing||t.$set(t.datos,"otro_permiso",e.target.value.trim())},blur:function(e){return t.$forceUpdate()}}})])]),t._v(" "),a("div",{staticClass:"form-group row"},[a("div",{staticClass:"col-lg-4"},[a("label",[t._v("Año de Inicio de Operación:")]),t._v(" "),a("input",{directives:[{name:"model",rawName:"v-model.trim",value:t.datos.anio,expression:"datos.anio",modifiers:{trim:!0}}],ref:"anio",staticClass:"form-control text-capitalize",class:""==t.datos.anio?"":"is-valid",attrs:{type:"text",placeholder:"Año de Inicio de Operación"},domProps:{value:t.datos.anio},on:{change:function(e){return t.formato("anio")},input:function(e){e.target.composing||t.$set(t.datos,"anio",e.target.value.trim())},blur:function(e){return t.$forceUpdate()}}})]),t._v(" "),a("div",{staticClass:"col-lg-4"},[a("label",[t._v("Numero de Empleados Directos:")]),t._v(" "),a("input",{directives:[{name:"model",rawName:"v-model.trim",value:t.datos.num_empleados,expression:"datos.num_empleados",modifiers:{trim:!0}}],ref:"num_empleados",staticClass:"form-control text-capitalize",class:""==t.datos.num_empleados?"":"is-valid",attrs:{type:"text",placeholder:"Numero de Empleados Directos"},domProps:{value:t.datos.num_empleados},on:{change:function(e){return t.formato("nume")},input:function(e){e.target.composing||t.$set(t.datos,"num_empleados",e.target.value.trim())},blur:function(e){return t.$forceUpdate()}}})])]),t._v(" "),a("div",{staticClass:"form-group row"},[a("div",{staticClass:"col-lg-4"},[a("label",[t._v("Tiempo Sin Operación Debido al Covid 19:")]),t._v(" "),a("input",{directives:[{name:"model",rawName:"v-model.trim",value:t.datos.tiempo_sin_operacion,expression:"datos.tiempo_sin_operacion",modifiers:{trim:!0}}],ref:"tiempo_sin_operacion",staticClass:"form-control text-capitalize",class:""==t.datos.tiempo_sin_operacion?"":"is-valid",attrs:{type:"text",placeholder:"Tiempo Sin Operación Debido al Covid 19"},domProps:{value:t.datos.tiempo_sin_operacion},on:{change:function(e){return t.formato("tiempo_sin_operacion")},input:function(e){e.target.composing||t.$set(t.datos,"tiempo_sin_operacion",e.target.value.trim())},blur:function(e){return t.$forceUpdate()}}})]),t._v(" "),a("div",{staticClass:"col-lg-3"},[a("label",[t._v("Tiempo en:")]),t._v(" "),a("b-form-select",{ref:"tipo_tiempo",class:""==t.datos.tipo_tiempo?"":"is-valid",attrs:{disabled:!(t.datos.tiempo_sin_operacion>0)},model:{value:t.datos.tipo_tiempo,callback:function(e){t.$set(t.datos,"tipo_tiempo",e)},expression:"datos.tipo_tiempo"}},[a("option",{attrs:{value:"",selected:""}},[t._v("Seleccione")]),t._v(" "),a("option",{attrs:{value:"DIAS"}},[t._v("DIAS")]),t._v(" "),a("option",{attrs:{value:"MESES"}},[t._v("MESES")]),t._v(" "),a("option",{attrs:{value:"ANIOS"}},[t._v("AÑOS")])])],1),t._v(" "),a("div",{staticClass:"col-lg-3"},[a("label",[t._v("Fecha de Retorno a Labores")]),t._v(" "),a("input",{directives:[{name:"model",rawName:"v-model",value:t.datos.fecha_retorno,expression:"datos.fecha_retorno"},{name:"show",rawName:"v-show",value:0!=t.datos.tiempo_sin_operacion,expression:"datos.tiempo_sin_operacion!=0"}],ref:"fecha_retorno",staticClass:"form-control text-capitalize",class:""==t.datos.fecha_retorno?"":"is-valid",attrs:{id:"date",type:"date",placeholder:"Fecha de Retorno a Labores",max:t._f("moment")(t.hoy),readonly:!(t.datos.tiempo_sin_operacion>0)},domProps:{value:t.datos.fecha_retorno},on:{input:function(e){e.target.composing||t.$set(t.datos,"fecha_retorno",e.target.value)}}}),t._v(" "),a("input",{directives:[{name:"show",rawName:"v-show",value:0==t.datos.tiempo_sin_operacion,expression:"datos.tiempo_sin_operacion==0"}],ref:"fecha_retorno",staticClass:"form-control text-capitalize",attrs:{id:"date",type:"text",placeholder:"Fecha de Retorno a Labores",readonly:!(t.datos.tiempo_sin_operacion>0)}})])]),t._v(" "),a("div",{staticClass:"form-group row"},[a("div",{staticClass:"col-lg-4"},[a("label",[t._v("Ingresos Anterior a la Contingencia:")]),t._v(" "),a("input",{directives:[{name:"model",rawName:"v-model.trim",value:t.datos.promedio_ingresos_anterior,expression:"datos.promedio_ingresos_anterior",modifiers:{trim:!0}}],ref:"promedio_ingresos_anterior",staticClass:"form-control text-capitalize",class:""==t.datos.promedio_ingresos_anterior?"":"is-valid",attrs:{type:"text",placeholder:"Ingresos Anterior a la Contingencia"},domProps:{value:t.datos.promedio_ingresos_anterior},on:{change:function(e){return t.formato("promedio_ingresos_anterior")},input:function(e){e.target.composing||t.$set(t.datos,"promedio_ingresos_anterior",e.target.value.trim())},blur:function(e){return t.$forceUpdate()}}})]),t._v(" "),a("div",{staticClass:"col-lg-4"},[a("label",[t._v("Ingresos Durante a la Contingencia:")]),t._v(" "),a("input",{directives:[{name:"model",rawName:"v-model.trim",value:t.datos.promedio_ingresos_durante,expression:"datos.promedio_ingresos_durante",modifiers:{trim:!0}}],ref:"promedio_ingresos_durante",staticClass:"form-control text-capitalize",class:""==t.datos.promedio_ingresos_durante?"":"is-valid",attrs:{type:"text",placeholder:"Ingresos Durante a la Contingencia"},domProps:{value:t.datos.promedio_ingresos_durante},on:{change:function(e){return t.formato("promedio_ingresos_durante")},input:function(e){e.target.composing||t.$set(t.datos,"promedio_ingresos_durante",e.target.value.trim())},blur:function(e){return t.$forceUpdate()}}})]),t._v(" "),a("div",{staticClass:"col-lg-4"},[a("label",[t._v("Ingresos Posterior a la Contingencia:")]),t._v(" "),a("input",{directives:[{name:"model",rawName:"v-model.trim",value:t.datos.promedio_ingresos_posterior,expression:"datos.promedio_ingresos_posterior",modifiers:{trim:!0}}],ref:"promedio_ingresos_posterior",staticClass:"form-control text-capitalize",class:""==t.datos.promedio_ingresos_posterior?"":"is-valid",attrs:{type:"text",placeholder:"Ingresos Posterior a la Contingencia"},domProps:{value:t.datos.promedio_ingresos_posterior},on:{change:function(e){return t.formato("promedio_ingresos_posterior")},input:function(e){e.target.composing||t.$set(t.datos,"promedio_ingresos_posterior",e.target.value.trim())},blur:function(e){return t.$forceUpdate()}}})])]),t._v(" "),a("div",{staticClass:"form-group row"},[a("div",{staticClass:"col-lg-4"},[a("label",[t._v("Principal Carga Economica:")]),t._v(" "),a("b-form-select",{ref:"carga_economica",class:""==t.datos.carga_economica?"":"is-valid",model:{value:t.datos.carga_economica,callback:function(e){t.$set(t.datos,"carga_economica",e)},expression:"datos.carga_economica"}},[a("option",{attrs:{value:"",selected:""}},[t._v("Seleccione")]),t._v(" "),a("option",{attrs:{value:"1"}},[t._v("Pago de Nóminas.")]),t._v(" "),a("option",{attrs:{value:"2"}},[t._v("Pago a proveedores.")]),t._v(" "),a("option",{attrs:{value:"3"}},[t._v("Arrendamiento y servicios públicos.")])])],1),t._v(" "),a("div",{staticClass:"col-lg-4"},[a("label",[t._v("¿Cuenta Con Protocolos de Seguridad?:")]),t._v(" "),a("b-form-select",{ref:"protocolo_bioseguridad",class:""==t.datos.protocolo_bioseguridad?"":"is-valid",model:{value:t.datos.protocolo_bioseguridad,callback:function(e){t.$set(t.datos,"protocolo_bioseguridad",e)},expression:"datos.protocolo_bioseguridad"}},[a("option",{attrs:{value:"",selected:""}},[t._v("Seleccione")]),t._v(" "),a("option",{attrs:{value:"SI"}},[t._v("SI")]),t._v(" "),a("option",{attrs:{value:"NO"}},[t._v("NO")])])],1)]),t._v(" "),a("div",{staticClass:"form-group row"},[a("div",{staticClass:"col-lg-12"},[a("label",[t._v("Tipo de Afectación del Establecimiento:")]),t._v(" "),a("multiselect",{class:""==t.datos.tipo_afectacion?"":"is-valid",attrs:{options:t.tipo,multiple:!0,"close-on-select":!1,"clear-on-select":!1,"preserve-search":!0,placeholder:"Seleccione un tipo de afectación",label:"texto","track-by":"value"},model:{value:t.datos.tipo_afectacion,callback:function(e){t.$set(t.datos,"tipo_afectacion",e)},expression:"datos.tipo_afectacion"}})],1)]),t._v(" "),a("div",{staticClass:"form-group row"},[a("div",{directives:[{name:"show",rawName:"v-show",value:t.mOTA,expression:"mOTA"}],staticClass:"col-lg-4"},[a("label",[t._v("¿Cual?:")]),t._v(" "),a("input",{directives:[{name:"model",rawName:"v-model.trim",value:t.datos.otro_tipo_afectacion,expression:"datos.otro_tipo_afectacion",modifiers:{trim:!0}}],ref:"otro_tipo_afectacion",staticClass:"form-control text-capitalize",class:""==t.datos.otro_tipo_afectacion?"":"is-valid",attrs:{type:"text",placeholder:"¿Cual?"},domProps:{value:t.datos.otro_tipo_afectacion},on:{input:function(e){e.target.composing||t.$set(t.datos,"otro_tipo_afectacion",e.target.value.trim())},blur:function(e){return t.$forceUpdate()}}})])]),t._v(" "),a("div",{staticClass:"form-group row"},[a("div",{staticClass:"col-lg-4"},[a("label",[t._v("¿Recibió Ayuda del Gobierno?:")]),t._v(" "),a("b-form-select",{ref:"ayuda",class:""==t.datos.ayuda?"":"is-valid",model:{value:t.datos.ayuda,callback:function(e){t.$set(t.datos,"ayuda",e)},expression:"datos.ayuda"}},[a("option",{attrs:{value:"",selected:""}},[t._v("Seleccione")]),t._v(" "),a("option",{attrs:{value:"SI"}},[t._v("SI")]),t._v(" "),a("option",{attrs:{value:"NO"}},[t._v("NO")])])],1),t._v(" "),a("div",{staticClass:"col-lg-4"},[a("label",[t._v("¿Cuenta con Servicio de Internet?:")]),t._v(" "),a("b-form-select",{ref:"internet",class:""==t.datos.internet?"":"is-valid",model:{value:t.datos.internet,callback:function(e){t.$set(t.datos,"internet",e)},expression:"datos.internet"}},[a("option",{attrs:{value:"",selected:""}},[t._v("Seleccione")]),t._v(" "),a("option",{attrs:{value:"SI"}},[t._v("SI")]),t._v(" "),a("option",{attrs:{value:"NO"}},[t._v("NO")])])],1)]),t._v(" "),a("div",{staticClass:"form-group row"},[a("div",{staticClass:"col-lg-12"},[a("label",[t._v("¿Dentro de cuanto tiempo, creen que el establecimiento pueda recuperarse económicamente de las afectaciones por la emergencia Covid- 19?:")]),t._v(" "),a("b-form-select",{ref:"tiempo_recuperacion",class:""==t.datos.tiempo_recuperacion?"":"is-valid",model:{value:t.datos.tiempo_recuperacion,callback:function(e){t.$set(t.datos,"tiempo_recuperacion",e)},expression:"datos.tiempo_recuperacion"}},[a("option",{attrs:{value:"",selected:""}},[t._v("Seleccione")]),t._v(" "),a("option",{attrs:{value:"1"}},[t._v("En los próximos de 6 meses.")]),t._v(" "),a("option",{attrs:{value:"2"}},[t._v("Antes de los 6 meses.")]),t._v(" "),a("option",{attrs:{value:"3"}},[t._v("No se ha estimado.")]),t._v(" "),a("option",{attrs:{value:"4"}},[t._v("No hay afectación.")])])],1)]),t._v(" "),a("div",{staticClass:"form-group row"},[a("div",{staticClass:"col-lg-12"},[a("label",[t._v("¿Cuál cree usted que es el principal problema del sector en el que está ubicado el establecimiento comercial?:")]),t._v(" "),a("b-form-select",{ref:"principal_problema",class:""==t.datos.principal_problema?"":"is-valid",on:{change:function(e){return t.mostrarOtro("PP")}},model:{value:t.datos.principal_problema,callback:function(e){t.$set(t.datos,"principal_problema",e)},expression:"datos.principal_problema"}},[a("option",{attrs:{value:"",selected:""}},[t._v("Seleccione")]),t._v(" "),a("option",{attrs:{value:"1"}},[t._v("Inseguridad.")]),t._v(" "),a("option",{attrs:{value:"2"}},[t._v("Falta de servicios públicos.")]),t._v(" "),a("option",{attrs:{value:"3"}},[t._v("Vías de acceso.")]),t._v(" "),a("option",{attrs:{value:"4"}},[t._v("Falta de Alumbrado Público.")]),t._v(" "),a("option",{attrs:{value:"5"}},[t._v("Otro.")])])],1)]),t._v(" "),a("div",{staticClass:"form-group row"},[a("div",{directives:[{name:"show",rawName:"v-show",value:t.mOPP,expression:"mOPP"}],staticClass:"col-lg-4"},[a("label",[t._v("¿Cual?:")]),t._v(" "),a("input",{directives:[{name:"model",rawName:"v-model.trim",value:t.datos.otro_principal_problema,expression:"datos.otro_principal_problema",modifiers:{trim:!0}}],ref:"otro_principal_problema",staticClass:"form-control text-capitalize",class:""==t.datos.otro_principal_problema?"":"is-valid",attrs:{type:"text",placeholder:"¿Cual?"},domProps:{value:t.datos.otro_principal_problema},on:{input:function(e){e.target.composing||t.$set(t.datos,"otro_principal_problema",e.target.value.trim())},blur:function(e){return t.$forceUpdate()}}})])])])])]),t._v(" "),a("b-modal",{ref:"modalActividad",attrs:{"hide-footer":"",title:"Actividades Economicas",size:"xl",centered:"","header-bg-variant":"danger","header-text-variant":"light","no-close-on-backdrop":!0}},[a("div",{staticClass:"d-block"},[a("form",[a("div",{staticClass:"row"},[a("div",{staticClass:"col-md-6 col-lg-6"},[a("form",{staticClass:"kt-form"},[a("div",{staticClass:"form-group"},[a("div",{staticClass:"input-group"},[a("input",{directives:[{name:"model",rawName:"v-model",value:t.txtbusquedaAct,expression:"txtbusquedaAct"}],staticClass:"form-control",attrs:{type:"text",placeholder:"Busqueda"},domProps:{value:t.txtbusquedaAct},on:{input:function(e){e.target.composing||(t.txtbusquedaAct=e.target.value)}}}),t._v(" "),a("div",{staticClass:"input-group-append"},[a("button",{staticClass:"btn btn-primary btn-icon",attrs:{type:"button"},on:{click:function(e){return t.consultarActividades(1)}}},[a("i",{staticClass:"fa fa-search"})])])])])])])]),t._v(" "),a("div",{staticClass:"form-group row"},[a("div",{staticClass:"col-md-12"},[a("div",{staticClass:"table-responsive",staticStyle:{height:"350px"}},[a("table",{staticClass:"table table-sm table-hover"},[a("thead",{},[a("tr",{staticClass:"kt-bg-fill-brand"},[a("th",[t._v("No.")]),t._v(" "),a("th",[t._v("Actividad Economica")]),t._v(" "),a("td",{staticClass:"text-center"},[t._v("Opciones")])])]),t._v(" "),a("tbody",t._l(t.actividadesVector,(function(e,o){return a("tr",{key:o},[a("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle"}},[t._v(t._s(o+1))]),t._v(" "),a("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle","text-align":"left","text-transform":"capitalize"}},[a("span",{staticClass:"text-capitalize"},[t._v(t._s(e.descripcion))])]),t._v(" "),a("td",{staticStyle:{"text-align":"center","vertical-align":"middle"}},[a("button",{staticClass:"btn btn-icon btn-sm btn-outline-success",attrs:{type:"button",title:"Seleccionar"},on:{click:function(a){return t.seleccionarActividades(e)}}},[a("svg",{staticClass:"kt-svg-icon",attrs:{xmlns:"http://www.w3.org/2000/svg","xmlns:xlink":"http://www.w3.org/1999/xlink",width:"24px",height:"24px",viewBox:"0 0 24 24",version:"1.1"}},[a("g",{attrs:{stroke:"none","stroke-width":"1",fill:"none","fill-rule":"evenodd"}},[a("polygon",{attrs:{id:"Shape",points:"0 0 24 0 24 24 0 24"}}),t._v(" "),a("path",{attrs:{d:"M6.26193932,17.6476484 C5.90425297,18.0684559 5.27315905,18.1196257 4.85235158,17.7619393 C4.43154411,17.404253 4.38037434,16.773159 4.73806068,16.3523516 L13.2380607,6.35235158 C13.6013618,5.92493855 14.2451015,5.87991302 14.6643638,6.25259068 L19.1643638,10.2525907 C19.5771466,10.6195087 19.6143273,11.2515811 19.2474093,11.6643638 C18.8804913,12.0771466 18.2484189,12.1143273 17.8356362,11.7474093 L14.0997854,8.42665306 L6.26193932,17.6476484 Z",id:"Path-94",fill:"#000000","fill-rule":"nonzero",transform:"translate(11.999995, 12.000002) rotate(-180.000000) translate(-11.999995, -12.000002) "}})])])])])])})),0)])])])]),t._v(" "),a("div",{staticClass:"text-right"},[a("button",{staticClass:"btn btn-warning",attrs:{type:"button"},on:{click:t.cerrarModal}},[a("i",{staticClass:"fa fa-window-close"}),t._v(" Cerrar\n            ")])])])])])],1)])}),[function(){var t=this.$createElement,e=this._self._c||t;return e("div",{staticClass:"kt-portlet__head-label"},[e("h3",{staticClass:"kt-portlet__head-title"},[e("span",{staticClass:"kt-widget20__number kt-font-danger"},[this._v("GESTIÓN DE ESTABLECIMIENTOS")])])])},function(){var t=this.$createElement,e=this._self._c||t;return e("thead",{},[e("tr",{staticClass:"kt-bg-fill-brand"},[e("th",[this._v("No.")]),this._v(" "),e("th",[this._v("Actividad")]),this._v(" "),e("td",{staticClass:"text-center"},[this._v("Opciones")])])])}],!1,null,null,null);e.default=b.exports}}]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[14],{
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Consultas/listadoviviendas.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Consultas/listadoviviendas.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Servicios_consultas__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Servicios/consultas */ "./resources/js/Servicios/consultas.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    this.iniciales(1);
+  },
+  data: function data() {
+    return {
+      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
+      ruta: "",
+      datos: {
+        id_dpto: "",
+        id_mun: "",
+        id_corre: "",
+        id_vereda: "",
+        id_zona: "",
+        id_barrio: "",
+        tenencia_vivienda: "",
+        tipo_vivienda: "",
+        poblacion_especial: "",
+        material_predominante: "",
+        promedio_ingresos: "",
+        energia_electrica: "",
+        gas_natural: "",
+        acueducto: "",
+        alcantarillado: "",
+        aseo: "",
+        servicio_sanitario: "",
+        aguas_negras: "",
+        tipo_combustible: ""
+      },
+      viviendas: {},
+      paginacion: {
+        total: 0,
+        pagina_actual: 0,
+        por_pagina: 0,
+        ultima_pagina: 0,
+        desde: 0,
+        hasta: 0
+      },
+      offset: 4,
+      fila: {}
+    };
+  },
+  methods: {
+    iniciales: function iniciales(pagina) {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _this.datos = {
+                  id_dpto: _this.$route.params.id_dpto,
+                  id_mun: _this.$route.params.id_mun,
+                  id_corre: _this.$route.params.id_corre,
+                  id_vereda: _this.$route.params.id_vereda,
+                  id_zona: _this.$route.params.id_zona,
+                  id_barrio: _this.$route.params.id_barrio,
+                  tenencia_vivienda: _this.$route.params.tenencia_vivienda,
+                  tipo_vivienda: _this.$route.params.tipo_vivienda,
+                  poblacion_especial: _this.$route.params.poblacion_especial,
+                  material_predominante: _this.$route.params.material_predominante,
+                  promedio_ingresos: _this.$route.params.promedio_ingresos,
+                  energia_electrica: _this.$route.params.energia_electrica,
+                  gas_natural: _this.$route.params.gas_natural,
+                  acueducto: _this.$route.params.acueducto,
+                  alcantarillado: _this.$route.params.alcantarillado,
+                  aseo: _this.$route.params.aseo,
+                  servicio_sanitario: _this.$route.params.servicio_sanitario,
+                  aguas_negras: _this.$route.params.aguas_negras,
+                  tipo_combustible: _this.$route.params.tipo_combustible
+                };
+                parametros = {
+                  _token: _this.csrf,
+                  datos: _this.datos,
+                  page: pagina
+                };
+                _context.prev = 2;
+                _context.next = 5;
+                return _Servicios_consultas__WEBPACK_IMPORTED_MODULE_1__["viviendas"](parametros).then(function (respuesta) {
+                  _this.viviendas = respuesta.data.viviendas.data;
+                  _this.paginacion = respuesta.data.paginacion; //console.log(respuesta.data.viviendas);
+                });
+
+              case 5:
+                _context.next = 9;
+                break;
+
+              case 7:
+                _context.prev = 7;
+                _context.t0 = _context["catch"](2);
+
+              case 9:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[2, 7]]);
+      }))();
+    },
+    Buscar: function Buscar() {},
+    cambiarPaginas: function cambiarPaginas(pagina) {
+      this.paginacion.pagina_actual = pagina;
+      this.iniciales(pagina);
+    },
+    generarPDF: function generarPDF() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                parametros = {
+                  _token: _this2.csrf,
+                  datos: _this2.datos
+                };
+                _context2.prev = 1;
+                _context2.next = 4;
+                return _Servicios_consultas__WEBPACK_IMPORTED_MODULE_1__["viviendaspdf"](parametros).then(function (respuesta) {
+                  _this2.ruta = "http://127.0.0.1:8000/archivo.pdf";
+
+                  _this2.$refs.modalpdf.show();
+                });
+
+              case 4:
+                _context2.next = 8;
+                break;
+
+              case 6:
+                _context2.prev = 6;
+                _context2.t0 = _context2["catch"](1);
+
+              case 8:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[1, 6]]);
+      }))();
+    },
+    abrirModal: function abrirModal() {
+      this.$refs.modalCorregimiento.show();
+    },
+    cerrarModal: function cerrarModal() {
+      this.$refs.modalCorregimiento.hide();
+    },
+    detalles: function detalles(item) {
+      this.fila = item;
+      this.$refs.modalCorregimiento.show();
+    },
+    consultar: function consultar() {}
+  },
+  computed: {
+    esActivo: function esActivo() {
+      return this.paginacion.pagina_actual;
+    },
+    numeroDePaginas: function numeroDePaginas() {
+      if (!this.paginacion.hasta) {
+        return [];
+      }
+
+      var desde = this.paginacion.pagina_actual - this.offset; // TODO offset
+
+      if (desde < 1) {
+        desde = 1;
+      }
+
+      var aux = this.offset * 2;
+      var hasta = desde + aux;
+
+      if (hasta >= this.paginacion.ultima_pagina) {
+        hasta = this.paginacion.ultima_pagina;
+      }
+
+      var paginasArray = [];
+
+      while (desde <= hasta) {
+        paginasArray.push(desde);
+        desde++;
+      }
+
+      return paginasArray;
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Consultas/listadoviviendas.vue?vue&type=style&index=0&lang=css&":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Consultas/listadoviviendas.vue?vue&type=style&index=0&lang=css& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.modal-backdrop {\n  background-color: rgba(0, 0, 0, 0.5) !important;\n}\n.modal-title {\n  color: #f8f9fa !important;\n}\n.close {\n  display: none;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Consultas/listadoviviendas.vue?vue&type=style&index=0&lang=css&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Consultas/listadoviviendas.vue?vue&type=style&index=0&lang=css& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./listadoviviendas.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Consultas/listadoviviendas.vue?vue&type=style&index=0&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Consultas/listadoviviendas.vue?vue&type=template&id=e9f1b276&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Consultas/listadoviviendas.vue?vue&type=template&id=e9f1b276& ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "row" },
+    [
+      _c("div", { staticClass: "col-12" }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              "kt-portlet kt-portlet--height-fluid kt-portlet--mobile",
+            staticStyle: { "margin-top": "-4%" }
+          },
+          [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "\n          kt-portlet__head\n          kt-portlet__head--lg\n          kt-portlet__head--noborder\n          kt-portlet__head--break-sm\n        "
+              },
+              [
+                _vm._m(0),
+                _vm._v(" "),
+                _c("div", { staticClass: "kt-portlet__head-toolbar" }, [
+                  _c("div", { staticClass: "btn-group" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "btn btn-danger",
+                        attrs: { href: "javascript:void(0);" },
+                        on: {
+                          click: function($event) {
+                            return _vm.generarPDF()
+                          }
+                        }
+                      },
+                      [
+                        _c("i", { staticClass: "la la-file-pdf-o" }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "kt-hidden-mobile" }, [
+                          _vm._v("Listado PDF")
+                        ])
+                      ]
+                    )
+                  ])
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "kt-portlet__body" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-12" }, [
+                  _c("div", { staticClass: "table-responsive" }, [
+                    _c("table", { staticClass: "table table-sm table-hover" }, [
+                      _vm._m(1),
+                      _vm._v(" "),
+                      _c(
+                        "tbody",
+                        _vm._l(_vm.viviendas, function(item, index) {
+                          return _c("tr", { key: index }, [
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                      " +
+                                    _vm._s(index + 1) +
+                                    "\n                    "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                      " +
+                                    _vm._s(item.id) +
+                                    "\n                    "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                      " +
+                                    _vm._s(item.dpto) +
+                                    "\n                    "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                      " +
+                                    _vm._s(item.muni) +
+                                    "\n                    "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                      " +
+                                    _vm._s(item.corre) +
+                                    "\n                    "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                      " +
+                                    _vm._s(item.vereda) +
+                                    "\n                    "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                      " +
+                                    _vm._s(item.pnom) +
+                                    " " +
+                                    _vm._s(item.snom) +
+                                    " " +
+                                    _vm._s(item.pape) +
+                                    "\n                      " +
+                                    _vm._s(item.sape) +
+                                    "\n                    "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "text-align": "center",
+                                  "vertical-align": "middle"
+                                }
+                              },
+                              [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "btn btn-outline-info btn-icon btn-sm",
+                                    attrs: {
+                                      type: "button",
+                                      title: "Detalles"
+                                    },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.detalles(item)
+                                      }
+                                    }
+                                  },
+                                  [_c("i", { staticClass: "fa fa-list" })]
+                                )
+                              ]
+                            )
+                          ])
+                        }),
+                        0
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", {
+                      staticClass: "kt-separator kt-separator--border-dashed"
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "kt-section" }, [
+                      _c(
+                        "div",
+                        { staticClass: "kt-pagination kt-pagination--danger" },
+                        [
+                          _c(
+                            "ul",
+                            { staticClass: "kt-pagination__links" },
+                            [
+                              _vm.paginacion.pagina_actual > 1
+                                ? _c(
+                                    "li",
+                                    {
+                                      staticClass: "kt-pagination__link--first"
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          attrs: { href: "javascript:;" },
+                                          on: {
+                                            click: function($event) {
+                                              $event.preventDefault()
+                                              return _vm.cambiarPaginas(1)
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass:
+                                              "fa fa-angle-double-left kt-font-danger"
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.paginacion.pagina_actual > 1
+                                ? _c(
+                                    "li",
+                                    {
+                                      staticClass: "kt-pagination__link--next"
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          attrs: { href: "javascript:;" },
+                                          on: {
+                                            click: function($event) {
+                                              $event.preventDefault()
+                                              return _vm.cambiarPaginas(
+                                                _vm.paginacion.pagina_actual - 1
+                                              )
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass:
+                                              "fa fa-angle-left kt-font-danger"
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm._l(_vm.numeroDePaginas, function(
+                                pagina,
+                                index
+                              ) {
+                                return _c(
+                                  "li",
+                                  {
+                                    key: index,
+                                    class: [
+                                      pagina == _vm.esActivo
+                                        ? "kt-pagination__link--active"
+                                        : ""
+                                    ]
+                                  },
+                                  [
+                                    _c(
+                                      "a",
+                                      {
+                                        attrs: { href: "javascript:;" },
+                                        on: {
+                                          click: function($event) {
+                                            $event.preventDefault()
+                                            return _vm.cambiarPaginas(pagina)
+                                          }
+                                        }
+                                      },
+                                      [_vm._v(_vm._s(pagina))]
+                                    )
+                                  ]
+                                )
+                              }),
+                              _vm._v(" "),
+                              _vm.paginacion.pagina_actual <
+                              _vm.paginacion.ultima_pagina
+                                ? _c(
+                                    "li",
+                                    {
+                                      staticClass: "kt-pagination__link--prev"
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          attrs: { href: "javascript:;" },
+                                          on: {
+                                            click: function($event) {
+                                              $event.preventDefault()
+                                              return _vm.cambiarPaginas(
+                                                _vm.paginacion.pagina_actual + 1
+                                              )
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass:
+                                              "fa fa-angle-right kt-font-danger"
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.paginacion.pagina_actual <
+                              _vm.paginacion.ultima_pagina
+                                ? _c(
+                                    "li",
+                                    {
+                                      staticClass: "kt-pagination__link--last"
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          attrs: { href: "javascript:;" },
+                                          on: {
+                                            click: function($event) {
+                                              $event.preventDefault()
+                                              return _vm.cambiarPaginas(
+                                                _vm.paginacion.ultima_pagina
+                                              )
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass:
+                                              "fa fa-angle-double-right kt-font-danger"
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : _vm._e()
+                            ],
+                            2
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("br")
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c(
+        "b-modal",
+        {
+          ref: "modalpdf",
+          attrs: {
+            title: "Listado de viviendas",
+            size: "xl",
+            centered: "",
+            "header-bg-variant": "danger",
+            "header-text-variant": "light",
+            "no-close-on-backdrop": false
+          },
+          scopedSlots: _vm._u([
+            {
+              key: "modal-header-close",
+              fn: function() {
+                return [_c("i", { staticClass: "fa fa-close" })]
+              },
+              proxy: true
+            }
+          ])
+        },
+        [
+          _vm._v(" "),
+          _c("embed", {
+            attrs: {
+              id: "divPdf",
+              src: _vm.ruta,
+              type: "application/pdf",
+              width: "100%",
+              height: "650px"
+            }
+          })
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "b-modal",
+        {
+          ref: "modalCorregimiento",
+          attrs: {
+            "hide-footer": "",
+            title: "Detalles de vivienda",
+            size: "xl",
+            centered: "",
+            "header-bg-variant": "danger",
+            "header-text-variant": "light",
+            "no-close-on-backdrop": false
+          }
+        },
+        [
+          _c("div", { staticClass: "d-block" }, [
+            _c("p", [
+              _c(
+                "span",
+                {
+                  staticClass: "kt-font-boldest",
+                  staticStyle: { "font-size": "18px" }
+                },
+                [_vm._v("Jefes de hogar")]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-md-12" }, [
+                _c("div", { staticClass: "table-responsive" }, [
+                  _c("table", { staticClass: "table table-sm table-hover" }, [
+                    _c("thead", {}, [
+                      _c("tr", { staticClass: "kt-bg-fill-brand" }, [
+                        _c("th", [_vm._v("No.")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("Tipo Identificación")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("Identificación")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("Nombres")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("Estado civil")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("Edad")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("Ocupación")])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "tbody",
+                      _vm._l(_vm.fila.jefes, function(item, index) {
+                        return _c(
+                          "tr",
+                          {
+                            directives: [
+                              {
+                                name: "show",
+                                rawName: "v-show",
+                                value: item.estado == "Activo",
+                                expression: "item.estado=='Activo'"
+                              }
+                            ],
+                            key: index
+                          },
+                          [
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle"
+                                }
+                              },
+                              [_vm._v(_vm._s(index + 1))]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _c("span", { staticClass: "text-capitalize" }, [
+                                  _vm._v(_vm._s(item.tipo_id))
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _c("span", { staticClass: "text-capitalize" }, [
+                                  _vm._v(_vm._s(item.identificacion))
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _c("span", { staticClass: "text-capitalize" }, [
+                                  _vm._v(
+                                    _vm._s(item.pnom) +
+                                      " " +
+                                      _vm._s(item.snom) +
+                                      " " +
+                                      _vm._s(item.pape) +
+                                      " " +
+                                      _vm._s(item.sape)
+                                  )
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _c("span", { staticClass: "text-capitalize" }, [
+                                  _vm._v(_vm._s(item.textoEstado))
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _c("span", { staticClass: "text-capitalize" }, [
+                                  _vm._v(_vm._s(item.edad))
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _c("span", { staticClass: "text-capitalize" }, [
+                                  _vm._v(_vm._s(item.textoOcupacion))
+                                ])
+                              ]
+                            )
+                          ]
+                        )
+                      }),
+                      0
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", {
+                    staticClass: "kt-separator kt-separator--border-dashed"
+                  })
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("p", [
+              _c(
+                "span",
+                {
+                  staticClass: "kt-font-boldest",
+                  staticStyle: { "font-size": "18px" }
+                },
+                [_vm._v("Integrantes")]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-md-12" }, [
+                _c("div", { staticClass: "table-responsive" }, [
+                  _c("table", { staticClass: "table table-sm table-hover" }, [
+                    _c("thead", {}, [
+                      _c("tr", { staticClass: "kt-bg-fill-brand" }, [
+                        _c("th", [_vm._v("No.")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("Tipo Identificación")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("Identificación")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("Nombres")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("Estado civil")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("Edad")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("Ocupación")])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "tbody",
+                      _vm._l(_vm.fila.integrantes, function(item, index) {
+                        return _c(
+                          "tr",
+                          {
+                            directives: [
+                              {
+                                name: "show",
+                                rawName: "v-show",
+                                value: item.estado == "Activo",
+                                expression: "item.estado=='Activo'"
+                              }
+                            ],
+                            key: index
+                          },
+                          [
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle"
+                                }
+                              },
+                              [_vm._v(_vm._s(index + 1))]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _c("span", { staticClass: "text-capitalize" }, [
+                                  _vm._v(_vm._s(item.tipo_id))
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _c("span", { staticClass: "text-capitalize" }, [
+                                  _vm._v(_vm._s(item.identificacion))
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _c("span", { staticClass: "text-capitalize" }, [
+                                  _vm._v(
+                                    _vm._s(item.pnom) +
+                                      " " +
+                                      _vm._s(item.snom) +
+                                      " " +
+                                      _vm._s(item.pape) +
+                                      " " +
+                                      _vm._s(item.sape)
+                                  )
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _c("span", { staticClass: "text-capitalize" }, [
+                                  _vm._v(_vm._s(item.textoEstado))
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _c("span", { staticClass: "text-capitalize" }, [
+                                  _vm._v(_vm._s(item.edad))
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _c("span", { staticClass: "text-capitalize" }, [
+                                  _vm._v(_vm._s(item.textoOcupacion))
+                                ])
+                              ]
+                            )
+                          ]
+                        )
+                      }),
+                      0
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", {
+                    staticClass: "kt-separator kt-separator--border-dashed"
+                  })
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("p", [
+              _c(
+                "span",
+                {
+                  staticClass: "kt-font-boldest",
+                  staticStyle: { "font-size": "18px" }
+                },
+                [_vm._v("Ubicación")]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Departamento:")
+                ]),
+                _vm._v(" "),
+                _c("div", [_vm._v(_vm._s(_vm.fila.dpto))])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Municipio:")
+                ]),
+                _vm._v(" "),
+                _c("div", [_vm._v(_vm._s(_vm.fila.muni))])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Corregimiento:")
+                ]),
+                _vm._v(" "),
+                _c("div", [_vm._v(_vm._s(_vm.fila.corre))])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Vereda:")
+                ]),
+                _vm._v(" "),
+                _c("div", [_vm._v(_vm._s(_vm.fila.vereda))])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Barrio:")
+                ]),
+                _vm._v(" "),
+                _c("div", [_vm._v(_vm._s(_vm.fila.barrio))])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Zona:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.id_zona == 0
+                          ? "No Aplica"
+                          : _vm.fila.id_zona == 1
+                          ? "Urbano"
+                          : _vm.fila.id_zona == 2
+                          ? "Rural centro poblado"
+                          : _vm.fila.id_zona == 3
+                          ? "Rural disperso"
+                          : ""
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Tenencia de vivienda:")
+                ]),
+                _vm._v(" "),
+                _c("div", [_vm._v(_vm._s(_vm.fila.tenencia_vivienda))])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Número de hogares:")
+                ]),
+                _vm._v(" "),
+                _c("div", [_vm._v(_vm._s(_vm.fila.numero_hogares))])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Población Especial:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.poblacion_especial == 0
+                          ? "NO APLICA"
+                          : _vm.fila.poblacion_especial == 1
+                          ? "DESPLAZADO"
+                          : _vm.fila.poblacion_especial == 3
+                          ? "VICTIMA DEL CONFLICTO ARMADO"
+                          : _vm.fila.poblacion_especial == 4
+                          ? "MADRE COMUNITARIA"
+                          : ""
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-4" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("¿La comunidad presenta vías de acceso?:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.vias_acceso == 0
+                          ? "No Aplica"
+                          : _vm.fila.vias_acceso == 1
+                          ? "Pavimentadas"
+                          : _vm.fila.vias_acceso == 2
+                          ? "Placa huella"
+                          : _vm.fila.vias_acceso == 3
+                          ? "Sin pavimentar"
+                          : ""
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-4" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("¿Presenta acceso fácil a los servicios públicos? :")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.servicios_publicos == 1
+                          ? "Permanente"
+                          : _vm.fila.servicios_publicos == 2
+                          ? "Ocasional"
+                          : _vm.fila.servicios_publicos == 3
+                          ? "Periódico"
+                          : _vm.fila.servicios_publicos == 4
+                          ? "No hay acceso a servicios públicos"
+                          : ""
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "col-lg-12" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Dirección:")
+                ]),
+                _vm._v(" "),
+                _c("div", [_vm._v(_vm._s(_vm.fila.direccion))])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("p", [
+              _c(
+                "span",
+                {
+                  staticClass: "kt-font-boldest",
+                  staticStyle: { "font-size": "18px" }
+                },
+                [_vm._v("Vivienda")]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Tipo de Vivienda:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.tipo_vivienda == 1
+                          ? "No Aplica"
+                          : _vm.fila.tipo_vivienda == 2
+                          ? "Casa"
+                          : _vm.fila.tipo_vivienda == 3
+                          ? "Apartamento"
+                          : _vm.fila.tipo_vivienda == 4
+                          ? "Finca"
+                          : ""
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Tipo de Estructura:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.tipo_estructura == 1
+                          ? "No Aplica"
+                          : _vm.fila.tipo_estructura == 2
+                          ? "Concreto"
+                          : _vm.fila.tipo_estructura == 3
+                          ? "Ladrillo ó Bloque"
+                          : _vm.fila.tipo_estructura == 4
+                          ? "Madera"
+                          : "Otro"
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _vm.fila.tipo_estructura == 5
+                ? _c("div", { staticClass: "col-lg-6" }, [
+                    _c("label", { staticStyle: { "font-weight": "500" } }, [
+                      _vm._v("Otro Tipo de Estructura:")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [_vm._v(_vm._s(_vm.fila.otro_tipo_estructura))])
+                  ])
+                : _vm._e()
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("# de Habitaciones:")
+                ]),
+                _vm._v(" "),
+                _c("div", [_vm._v(_vm._s(_vm.fila.numero_cuartos))])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Materia Predominante Piso:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.material_predominante == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.material_predominante == 1
+                          ? "Marmol ó Madera Pulida"
+                          : _vm.fila.material_predominante == 2
+                          ? "Cerámica ó Tablón"
+                          : _vm.fila.material_predominante == 3
+                          ? "Cemento"
+                          : _vm.fila.material_predominante == 4
+                          ? "Madera"
+                          : _vm.fila.material_predominante == 5
+                          ? "Tierra"
+                          : _vm.fila.material_predominante == 6
+                          ? "Bolsa ó Vinilo"
+                          : "Otro"
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Tipo de Cubierta:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.tipo_cubierta == 1
+                          ? "No Aplica"
+                          : _vm.fila.tipo_cubierta == 2
+                          ? "Material de Desecho Plastico - Lona"
+                          : _vm.fila.tipo_cubierta == 3
+                          ? "Zinc"
+                          : _vm.fila.tipo_cubierta == 4
+                          ? "Eternit"
+                          : _vm.fila.tipo_cubierta == 5
+                          ? "Entre Piso"
+                          : _vm.fila.tipo_cubierta == 6
+                          ? "Teja de Barro"
+                          : _vm.fila.tipo_cubierta == 7
+                          ? "Placa Definitiva"
+                          : _vm.fila.tipo_cubierta == 8
+                          ? "Paja ó Palma"
+                          : "Otro"
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _vm.fila.tipo_cubierta == 9
+                ? _c("div", { staticClass: "col-lg-3" }, [
+                    _c("label", { staticStyle: { "font-weight": "500" } }, [
+                      _vm._v("Otro Tipo de Cubierta:")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [_vm._v(_vm._s(_vm.fila.otro_tipo_cubierta))])
+                  ])
+                : _vm._e()
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-md-12" }, [
+                _c("div", { staticClass: "table-responsive" }, [
+                  _c("table", { staticClass: "table table-sm table-hover" }, [
+                    _c("thead", [
+                      _c("tr", { staticClass: "kt-bg-fill-brand" }, [
+                        _c("th", [_vm._v("No.")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("Actividad")])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "tbody",
+                      [
+                        _vm._l(_vm.fila.actividad, function(item, index) {
+                          return _c("tr", { key: index }, [
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                    " +
+                                    _vm._s(index) +
+                                    "\n                  "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _c("span", { staticClass: "text-capitalize" }, [
+                                  _vm._v(_vm._s(item.actividad))
+                                ])
+                              ]
+                            )
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _vm.fila.actividad == null
+                          ? _c("tr", [
+                              _c(
+                                "td",
+                                {
+                                  staticStyle: {
+                                    "font-weight": "normal",
+                                    "vertical-align": "middle"
+                                  },
+                                  attrs: { colspan: "2" }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                    No hay registros\n                  "
+                                  )
+                                ]
+                              )
+                            ])
+                          : _vm._e()
+                      ],
+                      2
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", {
+                    staticClass: "kt-separator kt-separator--border-dashed"
+                  })
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Evento que Puede Afectar la Vivienda:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.evento_afecta_vivienda == 1
+                          ? "No Aplica"
+                          : _vm.fila.evento_afecta_vivienda == 2
+                          ? "Inundación"
+                          : _vm.fila.evento_afecta_vivienda == 3
+                          ? "Arroyo"
+                          : _vm.fila.evento_afecta_vivienda == 4
+                          ? "Oleaje Fuerte"
+                          : "Deslizamiento"
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Pertenece a Familias en Acción:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.familias_accion == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.familias_accion
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-4" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Promedio de Ingresos Mensuales:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.promedio_ingresos == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.promedio_ingresos == 1
+                          ? "Menos de un salario minimo legal vigente"
+                          : _vm.fila.promedio_ingresos == 2
+                          ? "Un salario minimo legal vigente"
+                          : _vm.fila.promedio_ingresos == 3
+                          ? "Entre 1 y 3 salarios mínimos"
+                          : _vm.fila.promedio_ingresos == 4
+                          ? "Entre 3 y 5 salarios mínimos"
+                          : "Más de 5 salarios mínimos"
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Fuente de Agua para Consumo:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.fuente_agua == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.fuente_agua == 1
+                          ? "Acueducto"
+                          : _vm.fila.fuente_agua == 3
+                          ? "Pozo con bomba"
+                          : _vm.fila.fuente_agua == 4
+                          ? "Laguna o jaguey"
+                          : _vm.fila.fuente_agua == 5
+                          ? "Rio quebrada ó manantial"
+                          : _vm.fila.fuente_agua == 6
+                          ? "Aguas lluvias"
+                          : _vm.fila.fuente_agua == 7
+                          ? "Carro tanque"
+                          : _vm.fila.fuente_agua == 8
+                          ? "Agua tratada envasada"
+                          : _vm.fila.fuente_agua == 9
+                          ? "Otro"
+                          : ""
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _vm.fila.tipo_estructura == 9
+                ? _c("div", { staticClass: "col-lg-5" }, [
+                    _c("label", { staticStyle: { "font-weight": "500" } }, [
+                      _vm._v("Otra fuente de agua:")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [_vm._v(_vm._s(_vm.fila.cual_fuente))])
+                  ])
+                : _vm._e()
+            ]),
+            _vm._v(" "),
+            _c("p", [
+              _c(
+                "span",
+                {
+                  staticClass: "kt-font-boldest",
+                  staticStyle: { "font-size": "18px" }
+                },
+                [_vm._v("Acceso a servicios públicos")]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Energia Electrica:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.energia_electrica == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.energia_electrica
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Gas Natural:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.gas_natural == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.gas_natural
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Acueducto:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.acueducto == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.acueducto
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Alcantarillado:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.alcantarillado == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.alcantarillado
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Telefono Fijo:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.telefono_fijo == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.telefono_fijo
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Aseo:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.aseo == "NA" ? "No Aplica" : _vm.fila.aseo
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Internet Subsidiado:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.internet_subsidiado == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.internet_subsidiado
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Internet Privado:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.internet_privado == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.internet_privado
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Donde se Almacena el Agua:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.donde_almacena_agua == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.donde_almacena_agua == 1
+                          ? "No almacenan"
+                          : _vm.fila.donde_almacena_agua == 2
+                          ? "Tanque"
+                          : _vm.fila.donde_almacena_agua == 3
+                          ? "Alberca"
+                          : _vm.fila.donde_almacena_agua == 4
+                          ? "Planta acuatica"
+                          : _vm.fila.donde_almacena_agua == 6
+                          ? "Otro"
+                          : ""
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _vm.fila.otro_almacena_agua == 9
+                ? _c("div", { staticClass: "col-lg-3" }, [
+                    _c("label", { staticStyle: { "font-weight": "500" } }, [
+                      _vm._v("Otra lugar de almacenamiento del agua:")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [_vm._v(_vm._s(_vm.fila.otro_almacena_agua))])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Ubicación del Tanque:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.ubicacion_tanque == 5
+                          ? "No Aplica"
+                          : _vm.fila.ubicacion_tanque == 1
+                          ? "Interior de la vivienda"
+                          : _vm.fila.ubicacion_tanque == 2
+                          ? "Exterior de la vivienda bajo techo"
+                          : _vm.fila.ubicacion_tanque == 3
+                          ? "Exterior de la vivienda sin techo"
+                          : _vm.fila.ubicacion_tanque == 4
+                          ? "Sobre el techo"
+                          : ""
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Tipo de Tratamiento del Agua:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.tipo_tratamiento_agua == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.tipo_tratamiento_agua == 1
+                          ? "Clorada"
+                          : _vm.fila.tipo_tratamiento_agua == 2
+                          ? "Filtrada"
+                          : _vm.fila.tipo_tratamiento_agua == 3
+                          ? "Hervida"
+                          : _vm.fila.tipo_tratamiento_agua == 4
+                          ? "Consume sin tratamiento"
+                          : ""
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "col-lg-6" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Destino final de la Basura:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.destino_final_basura == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.destino_final_basura == 1
+                          ? "Recolección y dispocisión en el aseo municipal"
+                          : _vm.fila.destino_final_basura == 2
+                          ? "Quemada"
+                          : _vm.fila.destino_final_basura == 3
+                          ? "Cielo Abierto"
+                          : _vm.fila.destino_final_basura == 4
+                          ? "Enterrada"
+                          : _vm.fila.destino_final_basura == 5
+                          ? "Otro"
+                          : ""
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _vm.fila.destino_final_basura == 5
+                ? _c("div", { staticClass: "col-lg-6" }, [
+                    _c("label", { staticStyle: { "font-weight": "500" } }, [
+                      _vm._v("Otra destino final de la basura:")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _vm._v(_vm._s(_vm.fila.otro_destino_final_basura))
+                    ])
+                  ])
+                : _vm._e()
+            ]),
+            _vm._v(" "),
+            _c("p", [
+              _c(
+                "span",
+                {
+                  staticClass: "kt-font-boldest",
+                  staticStyle: { "font-size": "18px" }
+                },
+                [_vm._v("Observe si cerca de la vivienda hay")]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Porquerizas:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.porquerizas == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.porquerizas
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Plagas:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.plagas == "NA" ? "No Aplica" : _vm.fila.plagas
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Industrias Contaminantes:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.industrias == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.industrias
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Malos Olores:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.malos_olores == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.malos_olores
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Rellenos Sanitarios:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.rellenos == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.rellenos
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Ruido")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.contaminacion_a == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.contaminacion_a
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Cuerpos de agua:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.rio == "NA" ? "No Aplica" : _vm.fila.rio
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Avenidas:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.avenidas_transitadas == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.avenidas_transitadas
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Lotes Abandonados:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.lotes_abandonados == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.lotes_abandonados
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Otro")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.otro_cerca == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.otro_cerca
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _vm.fila.otro_cerca == "SI"
+                ? _c("div", { staticClass: "col-lg-6" }, [
+                    _c("label", { staticStyle: { "font-weight": "500" } }, [
+                      _vm._v("Cual otro:")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _vm._v(
+                        "\n            " +
+                          _vm._s(_vm.fila.cual_otro) +
+                          "\n          "
+                      )
+                    ])
+                  ])
+                : _vm._e()
+            ]),
+            _vm._v(" "),
+            _c("p", [
+              _c(
+                "span",
+                {
+                  staticClass: "kt-font-boldest",
+                  staticStyle: { "font-size": "18px" }
+                },
+                [_vm._v("Animales dentro de la Vivienda")]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-md-12" }, [
+                _c("div", { staticClass: "table-responsive" }, [
+                  _c("table", { staticClass: "table table-sm table-hover" }, [
+                    _c("thead", {}, [
+                      _c("tr", { staticClass: "kt-bg-fill-brand" }, [
+                        _c("th", [_vm._v("No.")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("Animal")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("Cuantos")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("Vacunado")])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "tbody",
+                      _vm._l(_vm.fila.animales, function(item, index) {
+                        return _c("tr", { key: index }, [
+                          _c(
+                            "td",
+                            {
+                              staticStyle: {
+                                "font-weight": "normal",
+                                "vertical-align": "middle"
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                    " +
+                                  _vm._s(index + 1) +
+                                  "\n                  "
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "td",
+                            {
+                              staticStyle: {
+                                "font-weight": "normal",
+                                "vertical-align": "middle",
+                                "text-align": "left",
+                                "text-transform": "capitalize"
+                              }
+                            },
+                            [
+                              _c("span", { staticClass: "text-capitalize" }, [
+                                _vm._v(_vm._s(item.animal))
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "td",
+                            {
+                              staticStyle: {
+                                "font-weight": "normal",
+                                "vertical-align": "middle",
+                                "text-align": "left",
+                                "text-transform": "capitalize"
+                              }
+                            },
+                            [
+                              _c("span", { staticClass: "text-capitalize" }, [
+                                _vm._v(_vm._s(item.cuantos))
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "td",
+                            {
+                              staticStyle: {
+                                "font-weight": "normal",
+                                "vertical-align": "middle",
+                                "text-align": "left",
+                                "text-transform": "capitalize"
+                              }
+                            },
+                            [
+                              _c("span", { staticClass: "text-capitalize" }, [
+                                _vm._v(_vm._s(item.vacunados))
+                              ])
+                            ]
+                          )
+                        ])
+                      }),
+                      0
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", {
+                    staticClass: "kt-separator kt-separator--border-dashed"
+                  })
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "col-lg-4" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("El Servicio Sanitario Es:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.servicio_sanitario == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.servicio_sanitario == 1
+                          ? "De Uso Exclusivo de las Personas de la Familia"
+                          : _vm.fila.servicio_sanitario == 2
+                          ? "Compartida con Personas de Otras Familias"
+                          : _vm.fila.servicio_sanitario == 3
+                          ? "Sin servicio sanitario"
+                          : ""
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-4" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Donde se Encuentra el Sanitario,Inodoro Ó Letrina:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.donde_sanitario == 1
+                          ? "Fuera de la casa"
+                          : _vm.fila.donde_sanitario == 2
+                          ? "Patio"
+                          : _vm.fila.donde_sanitario == 3
+                          ? "Dentro de la casa"
+                          : "No aplica"
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _vm.fila.otro_cerca == "SI"
+                ? _c("div", { staticClass: "col-lg-6" }, [
+                    _c("label", { staticStyle: { "font-weight": "500" } }, [
+                      _vm._v("Donde se Disponen las Excretas (HECES):")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _vm._v(
+                        "\n            " +
+                          _vm._s(
+                            _vm.fila.excretas == "NA"
+                              ? "No Aplica"
+                              : _vm.fila.excretas == 1
+                              ? "Letrina"
+                              : _vm.fila.excretas == 3
+                              ? "Inodoro conectado a red de alcantarillado"
+                              : _vm.fila.excretas == 4
+                              ? "Cuerpos de aguas"
+                              : _vm.fila.excretas == 5
+                              ? "Inododoro conectado a pozo séptico"
+                              : _vm.fila.excretas == 6
+                              ? "Campo abierto"
+                              : _vm.fila.excretas == 7
+                              ? "Otro"
+                              : ""
+                          ) +
+                          "\n          "
+                      )
+                    ])
+                  ])
+                : _vm._e()
+            ]),
+            _vm._v(" "),
+            _vm.fila.excretas == 7
+              ? _c("div", { staticClass: "form-group row" }, [
+                  _c("div", { staticClass: "col-lg-4" }, [
+                    _c("label", { staticStyle: { "font-weight": "500" } }, [
+                      _vm._v("En otro lugar:")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _vm._v(
+                        "\n            " +
+                          _vm._s(_vm.fila.otro_depositan_excretas) +
+                          "\n          "
+                      )
+                    ])
+                  ])
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _c("p", [
+              _c(
+                "span",
+                {
+                  staticClass: "kt-font-boldest",
+                  staticStyle: { "font-size": "18px" }
+                },
+                [_vm._v("La vivienda Tiene los Siguientes Ambientes Separados")]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Cocina:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.cocina == "NA" ? "No Aplica" : _vm.fila.cocina
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Dormitorios:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.dormitorio_a == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.plagas
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Sala Comedor:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.sala == "NA" ? "No Aplica" : _vm.fila.sala
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Sanitario:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.sanitario == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.sanitario
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Lavadero:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.lavadero == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.lavadero
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("p", [
+              _c(
+                "span",
+                {
+                  staticClass: "kt-font-boldest",
+                  staticStyle: { "font-size": "18px" }
+                },
+                [
+                  _vm._v(
+                    "Almacena Junto A Los Alimentos Y/O Agua De Consumo Alguno De Los\n          Siguientes Productos"
+                  )
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Gasolina:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.gasolina == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.gasolina
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Plaguicidas Agricolas:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.plaguicidas == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.plaguicidas
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Detergentes/Desifectantes:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.detergentes == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.detergentes
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Plaguicidas Para Insectos:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.plaguicidas_insectos == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.plaguicidas_insectos
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "col-lg-6" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v(
+                    "Uso Final Que Le Dan A Los Envases Vacios De Los\n            Plaguicidas:"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.envases_vacios == "1"
+                          ? "No Aplica"
+                          : _vm.fila.envases_vacios == 2
+                          ? "Guardar alimentos y agua"
+                          : _vm.fila.envases_vacios == 3
+                          ? "Para varios usos en el hogar"
+                          : _vm.fila.envases_vacios == 4
+                          ? "Los botan a la basura"
+                          : _vm.fila.envases_vacios == 5
+                          ? "Los entierran"
+                          : _vm.fila.envases_vacios == 6
+                          ? "Los queman"
+                          : _vm.fila.envases_vacios == 7
+                          ? "Otro"
+                          : ""
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _vm.fila.envases_vacios == 7
+                ? _c("div", { staticClass: "col-lg-6" }, [
+                    _c("label", { staticStyle: { "font-weight": "500" } }, [
+                      _vm._v("Otro uso:")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _vm._v(
+                        "\n            " +
+                          _vm._s(_vm.fila.otro_envases_vacios) +
+                          "\n          "
+                      )
+                    ])
+                  ])
+                : _vm._e()
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "col-lg-6" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v(
+                    "Con Que Tipo De Elementos Se Protegen Contra\n            Animales,Plagas:"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.elementos_protecion == "1"
+                          ? "Toldillos/mosquiteros"
+                          : _vm.fila.elementos_protecion == 2
+                          ? "Anjeos"
+                          : _vm.fila.elementos_protecion == 3
+                          ? "Fumigación con insecticidas/plaguicidas"
+                          : _vm.fila.elementos_protecion == 4
+                          ? "Raticidas"
+                          : _vm.fila.elementos_protecion == 5
+                          ? "Otro"
+                          : _vm.fila.elementos_protecion == 6
+                          ? "Ninguna"
+                          : _vm.fila.elementos_protecion == 7
+                          ? "No aplica"
+                          : ""
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _vm.fila.elementos_protecion == 5
+                ? _c("div", { staticClass: "col-lg-6" }, [
+                    _c("label", { staticStyle: { "font-weight": "500" } }, [
+                      _vm._v("Otros elementos de protección:")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _vm._v(
+                        "\n            " +
+                          _vm._s(_vm.fila.otro_elementos_protecion) +
+                          "\n          "
+                      )
+                    ])
+                  ])
+                : _vm._e()
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "col-lg-6" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Metodo de cocción de los alimentos:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.metodos_coccion == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.metodos_coccion == 1
+                          ? "Estufa a gas"
+                          : _vm.fila.metodos_coccion == 2
+                          ? "Estufa electrica"
+                          : _vm.fila.metodos_coccion == 3
+                          ? "Estufa a gasolina"
+                          : _vm.fila.metodos_coccion == 4
+                          ? "Leña"
+                          : _vm.fila.metodos_coccion == 5
+                          ? "Carbon"
+                          : _vm.fila.metodos_coccion == 6
+                          ? "Otro"
+                          : ""
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _vm.fila.metodos_coccion == 6
+                ? _c("div", { staticClass: "col-lg-6" }, [
+                    _c("label", { staticStyle: { "font-weight": "500" } }, [
+                      _vm._v("Otros Metodos de Cocción:")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _vm._v(
+                        "\n            " +
+                          _vm._s(_vm.fila.otro_metodos_coccion) +
+                          "\n          "
+                      )
+                    ])
+                  ])
+                : _vm._e()
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "col-lg-6" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v(
+                    "En cual de los siguientes lugares preparan los alimentos:"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.lugares_preparan_alimentos == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.lugares_preparan_alimentos == 1
+                          ? "En un cuarto usado solo para cocinar"
+                          : _vm.fila.lugares_preparan_alimentos == 2
+                          ? "En un cuarto usado tambien para dormir"
+                          : _vm.fila.lugares_preparan_alimentos == 3
+                          ? "En una sala comedor con lavaplatos"
+                          : _vm.fila.lugares_preparan_alimentos == 4
+                          ? "En una sala comedor sin lavaplatos"
+                          : _vm.fila.lugares_preparan_alimentos == 5
+                          ? "En un patio comedor al aire libre"
+                          : _vm.fila.lugares_preparan_alimentos == 6
+                          ? "En ninguna parte(no preparan alimentos)"
+                          : ""
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-6" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Antes de consumir frutas y verduras las lava:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.lava_frutas == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.lava_frutas
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "col-lg-6" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Como conserva los alimentos:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.lugares_almacenan_alimentos == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.lugares_almacenan_alimentos == 1
+                          ? "Refrigerador"
+                          : _vm.fila.lugares_almacenan_alimentos == 2
+                          ? "Recipientes Abiertos"
+                          : _vm.fila.lugares_almacenan_alimentos == 3
+                          ? "Recipientes Cerrados"
+                          : _vm.fila.lugares_almacenan_alimentos == 4
+                          ? "Al aire libre dentro de la casa"
+                          : _vm.fila.lugares_almacenan_alimentos == 5
+                          ? "AL aire libre fuera de la casa"
+                          : _vm.fila.lugares_almacenan_alimentos == 6
+                          ? "Otro"
+                          : ""
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _vm.fila.lugares_almacenan_alimentos == 6
+                ? _c("div", { staticClass: "col-lg-6" }, [
+                    _c("label", { staticStyle: { "font-weight": "500" } }, [
+                      _vm._v("Otros Lugares de Almacenamiento:")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _vm._v(
+                        "\n            " +
+                          _vm._s(_vm.fila.otro_lugares_almacenan_alimentos) +
+                          "\n          "
+                      )
+                    ])
+                  ])
+                : _vm._e()
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "col-lg-6" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("¿Qué tipo de explotación se le está dando al suelo?:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.tipo_explotacion == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.tipo_explotacion == 1
+                          ? "Forestal"
+                          : _vm.fila.tipo_explotacion == 2
+                          ? "Estufa electrica"
+                          : _vm.fila.tipo_explotacion == 3
+                          ? "Estufa a gasolina"
+                          : _vm.fila.tipo_explotacion == 4
+                          ? "Leña"
+                          : _vm.fila.tipo_explotacion == 5
+                          ? "Carbon"
+                          : _vm.fila.tipo_explotacion == 6
+                          ? "Otro"
+                          : ""
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _vm.fila.tipo_explotacion == 6
+                ? _c("div", { staticClass: "col-lg-6" }, [
+                    _c("label", { staticStyle: { "font-weight": "500" } }, [
+                      _vm._v("Otros Metodos de Cocción:")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _vm._v(
+                        "\n            " +
+                          _vm._s(_vm.fila.otro_tipo_explotacion) +
+                          "\n          "
+                      )
+                    ])
+                  ])
+                : _vm._e()
+            ]),
+            _vm._v(" "),
+            _c("p", [
+              _c(
+                "span",
+                {
+                  staticClass: "kt-font-boldest",
+                  staticStyle: { "font-size": "18px" }
+                },
+                [
+                  _vm._v(
+                    "¿Cuáles son los tipos de residuos que se genera en su casa?"
+                  )
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Residuos Aprovechables:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.residuos_aprovechables == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.residuos_aprovechables
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Residuos Organicos:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.residuos_organicos == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.residuos_organicos
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Residuos No Aprovechables:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.residuos_no_aprovechables == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.residuos_no_aprovechables
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Otros:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.otros_genera == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.otros_genera
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _vm.fila.otros_genera == "SI"
+              ? _c("div", { staticClass: "form-group row" }, [
+                  _c("div", { staticClass: "col-lg-3" }, [
+                    _c("label", { staticStyle: { "font-weight": "500" } }, [
+                      _vm._v("Otros residuos:")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _vm._v(
+                        "\n            " +
+                          _vm._s(_vm.fila.cual_genera) +
+                          "\n          "
+                      )
+                    ])
+                  ])
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _c("div", {
+              staticClass: "kt-separator kt-separator--border-dashed"
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "col-lg-6" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v(
+                    "¿Cuál es el tipo de combustible utilizado en su casa para\n            cocinar?:"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.tipo_combustible == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.tipo_combustible == 1
+                          ? "Luz eléctrica"
+                          : _vm.fila.tipo_combustible == 2
+                          ? "Gasolina"
+                          : _vm.fila.tipo_combustible == 3
+                          ? "Leña"
+                          : _vm.fila.tipo_combustible == 4
+                          ? "Carbón"
+                          : _vm.fila.tipo_combustible == 5
+                          ? "Gas natural"
+                          : ""
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-6" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Su vivienda se encuentra en una zona de alto riesgo:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.zona_alto_riesgo == 0
+                          ? "No Aplica"
+                          : _vm.fila.zona_alto_riesgo == 1
+                          ? "Ladera"
+                          : _vm.fila.zona_alto_riesgo == 2
+                          ? "Cuerpos de agua"
+                          : _vm.fila.zona_alto_riesgo == 3
+                          ? "suelo inestable, derrumbes"
+                          : ""
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "col-lg-6" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v(
+                    "¿Existe un lugar apto para el almacenamiento de los residuos\n            antes de la recolección?:"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.almacenamiento_residuos == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.almacenamiento_residuos
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-6" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v(
+                    "¿Se presenta en tu barrio problemáticas de aguas negras?:"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(_vm.fila.aguas_negras) +
+                      "\n          "
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "col-lg-6" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v(
+                    "Considera que su comunidad posee adecuadas zonas verdes como\n            parques:"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.zonas_verdes == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.zona_alto_riesgo == 1
+                          ? "SI HAY"
+                          : _vm.fila.zona_alto_riesgo == 2
+                          ? "NO HAY"
+                          : _vm.fila.zona_alto_riesgo == 3
+                          ? "SI HAY EN MAL ESTADO"
+                          : ""
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-6" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v(
+                    "Cuantas veces los deslizamientos afectaron su comunidad o su\n            vivienda:"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.desplazamientos == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.desplazamientos == 1
+                          ? "Más de 2 veces al año"
+                          : _vm.fila.desplazamientos == 2
+                          ? "Al menos una vez al año"
+                          : _vm.fila.desplazamientos == 3
+                          ? "Una vez cada 2 años"
+                          : "Nunca"
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "col-lg-6" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("¿Realiza usted rotación del cultivo? :")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.rotacion_cultivo == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.rotacion_cultivo == 1
+                          ? "Permanentemente"
+                          : _vm.fila.rotacion_cultivo == 2
+                          ? "Nunca"
+                          : _vm.fila.rotacion_cultivo == 3
+                          ? "Ocasional"
+                          : _vm.fila.rotacion_cultivo == 4
+                          ? "Periódicamente"
+                          : _vm.fila.rotacion_cultivo == 5
+                          ? "No Aplica"
+                          : ""
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-6" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v(
+                    "Emplea fertilizantes químicos o plaguicidas en su\n            actividad:"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.emplea_fertilizantes == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.emplea_fertilizantes
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "col-lg-6" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("¿Usted realiza quema de cultivo?:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.quema_cultivo == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.quema_cultivo
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-6" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v(
+                    "¿ha evidenciado usted mantenimiento preventivo a la red de\n            alcantarillado en su comunidad?:"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.rotacion_cultivo == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.rotacion_cultivo == 1
+                          ? "Permanentemente"
+                          : _vm.fila.rotacion_cultivo == 2
+                          ? "Nunca"
+                          : _vm.fila.rotacion_cultivo == 3
+                          ? "Ocasional"
+                          : _vm.fila.rotacion_cultivo == 4
+                          ? "Periódicamente"
+                          : ""
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "col-lg-6" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v(
+                    "Cuantas veces las inundaciones afectaron su comunidad o su\n            vivienda:"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.veces_inundaciones == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.veces_inundaciones == 1
+                          ? "Más de 2 veces al año"
+                          : _vm.fila.veces_inundaciones == 2
+                          ? "Al menos una vez al año"
+                          : _vm.fila.veces_inundaciones == 3
+                          ? "Una vez cada 2 años"
+                          : _vm.fila.veces_inundaciones == 4
+                          ? "Nunca"
+                          : ""
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-6" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Fachada de la casa:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.fachada == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.fachada == 1
+                          ? "Permanentemente"
+                          : _vm.fila.fachada == 2
+                          ? "Nunca"
+                          : _vm.fila.fachada == 3
+                          ? "Ocasional"
+                          : _vm.fila.fachada == 4
+                          ? "Periódicamente"
+                          : ""
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("¿Cuantos baños de uso exclusivo tiene?:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.cuantos_baños == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.cuantos_baños == 1
+                          ? "No posee baño de uso exclusivo"
+                          : _vm.fila.cuantos_baños == 2
+                          ? "1 Baño"
+                          : _vm.fila.cuantos_baños == 3
+                          ? "2 Baños"
+                          : _vm.fila.cuantos_baños == 4
+                          ? "3 Baños ó mas"
+                          : ""
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Estado de conservacion de los baños:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.estado_conservacion_baños == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.estado_conservacion_baños == 1
+                          ? "Malo"
+                          : _vm.fila.estado_conservacion_baños == 2
+                          ? "Nunca"
+                          : _vm.fila.estado_conservacion_baños == 3
+                          ? "Ocasional"
+                          : _vm.fila.estado_conservacion_baños == 4
+                          ? "Periódicamente"
+                          : ""
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Estado de conservacion de los baños:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.estado_conservacion_baños == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.estado_conservacion_baños == 1
+                          ? "Malo"
+                          : _vm.fila.estado_conservacion_baños == 2
+                          ? "Nunca"
+                          : _vm.fila.estado_conservacion_baños == 3
+                          ? "Ocasional"
+                          : _vm.fila.estado_conservacion_baños == 4
+                          ? "Periódicamente"
+                          : ""
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Acabados externos de los muros ó paredes:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.acabados_externos == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.acabados_externos == 1
+                          ? "Sin cubrimiento"
+                          : _vm.fila.acabados_externos == 2
+                          ? "Pañete ó ladrillos presado"
+                          : _vm.fila.acabados_externos == 3
+                          ? "Estuco, Cerámica, Papel de Colgadura"
+                          : _vm.fila.acabados_externos == 4
+                          ? "Madera Piedra Ornamental"
+                          : "Marmol, lujoso"
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "col-lg-4" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v(
+                    "Estado de Conservacion de las estructuras de la Vivienda:"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.estado_conservacion_estructuras == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.estado_conservacion_estructuras == 1
+                          ? "Malo"
+                          : _vm.fila.estado_conservacion_estructuras == 2
+                          ? "Regular"
+                          : _vm.fila.estado_conservacion_estructuras == 3
+                          ? "Bueno"
+                          : _vm.fila.estado_conservacion_estructuras == 4
+                          ? "Excelente"
+                          : ""
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("Mobiliario de la cocina:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.mobiliario_cocina == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.mobiliario_cocina == 1
+                          ? "Pobre"
+                          : _vm.fila.mobiliario_cocina == 2
+                          ? "Sencillo"
+                          : _vm.fila.mobiliario_cocina == 3
+                          ? "Regular"
+                          : _vm.fila.mobiliario_cocina == 4
+                          ? "Excelente"
+                          : ""
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-4" }, [
+                _c("label", { staticStyle: { "font-weight": "500" } }, [
+                  _vm._v("¿Estado de los andenes y bordillo de la vivienda?:")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.fila.andenes == "NA"
+                          ? "No Aplica"
+                          : _vm.fila.andenes == 1
+                          ? "No tiene."
+                          : _vm.fila.andenes == 2
+                          ? "Si tiene, pavimentado"
+                          : _vm.fila.andenes == 3
+                          ? "Si tiene en mal estado"
+                          : ""
+                      ) +
+                      "\n          "
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("p", [
+              _c(
+                "span",
+                {
+                  staticClass: "kt-font-boldest",
+                  staticStyle: { "font-size": "18px" }
+                },
+                [_vm._v("Estratificación")]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-md-12" }, [
+                _c("div", { staticClass: "table-responsive" }, [
+                  _c("table", { staticClass: "table table-sm table-hover" }, [
+                    _c("thead", {}, [
+                      _c("tr", { staticClass: "kt-bg-fill-brand" }, [
+                        _c("th", [_vm._v("No.")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("¿Cuenta ese Hogar con Internet?")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("¿Tiene computador de Escritorío?")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("¿Tiene Computador Portatil?")]),
+                        _vm._v(" "),
+                        _c("th", [
+                          _vm._v("¿Cuantos celular en uso hay en el Hogar?")
+                        ]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("Tiene Equipo de sonido")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("Cuantos Tv a Color")]),
+                        _vm._v(" "),
+                        _c("th", [
+                          _vm._v(
+                            "Cuantos Vehiculos de Uso exclusivo tiene el Hogar"
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("th", [
+                          _vm._v(
+                            "¿Cual es el nivel de Instrucción del jefe del Hogar?"
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("th", [
+                          _vm._v(
+                            "¿Alguien en el Hogar posee afiliación de salud Privada o contribituva, prepagada ?"
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("th", [
+                          _vm._v("¿Ingresos mensuales por Hogar zona rural?")
+                        ]),
+                        _vm._v(" "),
+                        _c("th", [
+                          _vm._v("¿Ingresos mensuales por Hogar en Ciudad?")
+                        ]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("Jefe del hogar")])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "tbody",
+                      _vm._l(_vm.fila.estratificacion, function(item, index) {
+                        return _c(
+                          "tr",
+                          {
+                            directives: [
+                              {
+                                name: "show",
+                                rawName: "v-show",
+                                value: item.estado == "Activo",
+                                expression: "item.estado=='Activo'"
+                              }
+                            ],
+                            key: index
+                          },
+                          [
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle"
+                                }
+                              },
+                              [_vm._v(_vm._s(index + 1))]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _c("span", { staticClass: "text-capitalize" }, [
+                                  _vm._v(_vm._s(item.cuenta_internet))
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _c("span", { staticClass: "text-capitalize" }, [
+                                  _vm._v(_vm._s(item.tiene_pc_escritorio))
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _c("span", { staticClass: "text-capitalize" }, [
+                                  _vm._v(_vm._s(item.tiene_pc_portatil))
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _c("span", { staticClass: "text-capitalize" }, [
+                                  _vm._v(_vm._s(item.texto_cuantos_celulares))
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _c("span", { staticClass: "text-capitalize" }, [
+                                  _vm._v(_vm._s(item.tiene_equipo_sonido))
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _c("span", { staticClass: "text-capitalize" }, [
+                                  _vm._v(_vm._s(item.texto_cuantos_tv_color))
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _c("span", { staticClass: "text-capitalize" }, [
+                                  _vm._v(_vm._s(item.texto_cuantos_vehiculos))
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _c("span", { staticClass: "text-capitalize" }, [
+                                  _vm._v(_vm._s(item.texto_nivel_instruccion))
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _c("span", { staticClass: "text-capitalize" }, [
+                                  _vm._v(_vm._s(item.afiliacion_salud_privada))
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _c("span", { staticClass: "text-capitalize" }, [
+                                  _vm._v(_vm._s(item.texto_ingresos_zona_rural))
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _c("span", { staticClass: "text-capitalize" }, [
+                                  _vm._v(_vm._s(item.texto_ingresos_ciudad))
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _c("span", { staticClass: "text-capitalize" }, [
+                                  _vm._v(_vm._s(item.id_jefe))
+                                ])
+                              ]
+                            )
+                          ]
+                        )
+                      }),
+                      0
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", {
+                    staticClass: "kt-separator kt-separator--border-dashed"
+                  })
+                ])
+              ])
+            ])
+          ])
+        ]
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "kt-portlet__head-label" }, [
+      _c("h3", { staticClass: "kt-portlet__head-title" }, [
+        _c("span", { staticClass: "kt-widget20__number kt-font-danger" }, [
+          _vm._v("Listado de viviendas")
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", {}, [
+      _c("tr", { staticClass: "kt-bg-fill-brand" }, [
+        _c("th", [_vm._v("No.")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Id")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Departamento")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Municipio")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Corregimiento")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Vereda")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Jefe de hogar")]),
+        _vm._v(" "),
+        _c("td", { staticClass: "text-center" }, [_vm._v("Opciones")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./resources/js/Servicios/consultas.js":
+/*!*********************************************!*\
+  !*** ./resources/js/Servicios/consultas.js ***!
+  \*********************************************/
+/*! exports provided: iniciales, viviendas, viviendaspdf, jefe, jefespdf */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "iniciales", function() { return iniciales; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "viviendas", function() { return viviendas; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "viviendaspdf", function() { return viviendaspdf; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "jefe", function() { return jefe; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "jefespdf", function() { return jefespdf; });
+/* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
+
+function iniciales($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/vivienda/iniciales', $data);
+}
+function viviendas($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/vivienda/listar', $data);
+}
+function viviendaspdf($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/vivienda/listarpdf', $data);
+}
+function jefe($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/jefehogar/listar', $data);
+}
+function jefespdf($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/jefehogar/listarpdf', $data);
+}
+
+/***/ }),
+
+/***/ "./resources/js/Vistas/Consultas/listadoviviendas.vue":
+/*!************************************************************!*\
+  !*** ./resources/js/Vistas/Consultas/listadoviviendas.vue ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _listadoviviendas_vue_vue_type_template_id_e9f1b276___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./listadoviviendas.vue?vue&type=template&id=e9f1b276& */ "./resources/js/Vistas/Consultas/listadoviviendas.vue?vue&type=template&id=e9f1b276&");
+/* harmony import */ var _listadoviviendas_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./listadoviviendas.vue?vue&type=script&lang=js& */ "./resources/js/Vistas/Consultas/listadoviviendas.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _listadoviviendas_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./listadoviviendas.vue?vue&type=style&index=0&lang=css& */ "./resources/js/Vistas/Consultas/listadoviviendas.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _listadoviviendas_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _listadoviviendas_vue_vue_type_template_id_e9f1b276___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _listadoviviendas_vue_vue_type_template_id_e9f1b276___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Vistas/Consultas/listadoviviendas.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Vistas/Consultas/listadoviviendas.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/Vistas/Consultas/listadoviviendas.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_listadoviviendas_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./listadoviviendas.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Consultas/listadoviviendas.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_listadoviviendas_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Vistas/Consultas/listadoviviendas.vue?vue&type=style&index=0&lang=css&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/Vistas/Consultas/listadoviviendas.vue?vue&type=style&index=0&lang=css& ***!
+  \*********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_listadoviviendas_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./listadoviviendas.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Consultas/listadoviviendas.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_listadoviviendas_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_listadoviviendas_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_listadoviviendas_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_listadoviviendas_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+/***/ }),
+
+/***/ "./resources/js/Vistas/Consultas/listadoviviendas.vue?vue&type=template&id=e9f1b276&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/Vistas/Consultas/listadoviviendas.vue?vue&type=template&id=e9f1b276& ***!
+  \*******************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_listadoviviendas_vue_vue_type_template_id_e9f1b276___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./listadoviviendas.vue?vue&type=template&id=e9f1b276& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Consultas/listadoviviendas.vue?vue&type=template&id=e9f1b276&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_listadoviviendas_vue_vue_type_template_id_e9f1b276___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_listadoviviendas_vue_vue_type_template_id_e9f1b276___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ })
+
+}]);

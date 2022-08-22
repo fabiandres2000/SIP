@@ -1761,6 +1761,10 @@ export default {
             this.limpiar();
             this.$refs.modalUsuario.hide();
         },
+        cambiarPaginas: function(pagina) {
+            this.paginacion.pagina_actual = pagina;
+            this.consultar(pagina);
+        },
         cambiarRol(opcion) {
             if (opcion == "Crear") {
                 switch (this.permisos.rol) {
