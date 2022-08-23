@@ -99,106 +99,106 @@ class ValoresRiesgosSaludMEN1A extends Model
 
     public static function guardarInicial($id_hogar, $alias, $id_inte)
     {
-
-        return DB::connection('mysql')->table($alias . '.valores_riesgos_salud_men1a')->updateOrInsert([
-            'id_inte' => $id_inte,
-        ], [
-            'id_hogar' => $id_hogar,
-            'alimentacion_saludable_EnIn' => '',
-            'asistencia_crecimiento_EnIn' => '',
-            'fumigacion_EnIn' => '',
-            'sistema_recoleccion_EnIn' => '',
-            'desparacitacion_EnIn' => '',
-            'inmunizacion_EnIn' => '',
-            'educacion_EnIn' => '',
-            'mantenimiento_EnIn' => '',
-            'citas_EnIn' => '',
-
-            'educacion_TrAsSPA' => '',
-            'acompaniamiento_TrAsSPA' => '',
-
-            'asistencia_crecimiento_EnCaAt' => '',
-            'educacion_EnCaAt' => '',
-            'actividad_EnCaAt' => '',
-
-            'asistencia_crecimiento_Ca' => '',
-            'educacion_Ca' => '',
-            'valoracion_Ca' => '',
-
-            'asistencia_crecimiento_AlTrVi' => '',
-            'valoracion_AlTrVi' => '',
-
-            'asistencia_crecimiento_AlTrAuCo' => '',
-            'valoracion_AlTrAuCo' => '',
-
-            'control_odontologia_SaBu' => '',
-            'aplicacion_fluor_SaBu' => '',
-            'educacion_SaBu' => '',
-            'habitos_higiene_SaBu' => '',
-
-            'concientizacion_PrSaMe' => '',
-            'acompaniamiento_PrSaMe' => '',
-            'crecimiento_PrSaMe' => '',
-            'grupos_PrSaMe' => '',
-
-            'acompaniamiento_Vi' => '',
-            'grupos_Vi' => '',
-            'concientizacion_Vi' => '',
-            'crecimiento_Vi' => '',
-            'icbf_Vi' => '',
-
-            'crecimiento_EnReCr' => '',
-            'educacion_EnReCr' => '',
-            'valoracion_EnReCr' => '',
-
-            'crecimiento_EnZo' => '',
-            'potabilizacion_EnZo' => '',
-            'mantenimiento_EnZo' => '',
-            'fumigacion_EnZo' => '',
-            'vacunacion_EnZo' => '',
-            'inmunizacion_EnZo' => '',
-            'valorizacion_EnZo' => '',
-            'desparatizacion_EnZo' => '',
-
-            'crecimiento_TrDeNeEnAu' => '',
-            'acceso_TrDeNeEnAu' => '',
-            'valoracion_TrDeNeEnAu' => '',
-            
-            'atencion_CoSp' => '',
-            'relaciones_CoSp' => '',
-            'grupos_CoSp' => '',
-            'educacion_CoSp' => '',
-            'valoracion_CoSp' => '',
-
-            'asistencia_RiDeAg' => '',
-            'programas_RiDeAg' => '',
-            'suplementacion_RiDeAg' => '',
-
-            'asistencia_RiDeGl' => '',
-            'programas_RiDeGl' => '',
-            'suplementacion_RiDeGl' => '',
-
-            'asistencia_RiTaBa' => '',
-            'programas_RiTaBa' => '',
-            'suplementacion_RiTaBa' => '',
-
-            'asistencia_RiSo' => '',
-            'actividad_RiSo' => '',
-
-            'id_compania' => 1,
-            'estado' => 'Activo',
-        ]);
-    }
-
-    public static function modificar($alias, $id_hogar, $opcion, $data, $id_inte){
         $hay = DB::connection('mysql')->table($alias . '.valores_riesgos_salud_men1a')
         ->where('valores_riesgos_salud_men1a.id_inte', $id_inte)
         ->where('valores_riesgos_salud_men1a.estado', 'Activo')
         ->count();
 
         if($hay == 0){
-            self::guardarInicial($id_hogar, $alias, $id_inte);
+            return DB::connection('mysql')->table($alias . '.valores_riesgos_salud_men1a')->Insert([
+                'id_hogar' => $id_hogar,
+
+                'alimentacion_saludable_EnIn' => '',
+                'asistencia_crecimiento_EnIn' => '',
+                'fumigacion_EnIn' => '',
+                'sistema_recoleccion_EnIn' => '',
+                'desparacitacion_EnIn' => '',
+                'inmunizacion_EnIn' => '',
+                'educacion_EnIn' => '',
+                'mantenimiento_EnIn' => '',
+                'citas_EnIn' => '',
+
+                'educacion_TrAsSPA' => '',
+                'acompaniamiento_TrAsSPA' => '',
+
+                'asistencia_crecimiento_EnCaAt' => '',
+                'educacion_EnCaAt' => '',
+                'actividad_EnCaAt' => '',
+
+                'asistencia_crecimiento_Ca' => '',
+                'educacion_Ca' => '',
+                'valoracion_Ca' => '',
+
+                'asistencia_crecimiento_AlTrVi' => '',
+                'valoracion_AlTrVi' => '',
+
+                'asistencia_crecimiento_AlTrAuCo' => '',
+                'valoracion_AlTrAuCo' => '',
+
+                'control_odontologia_SaBu' => '',
+                'aplicacion_fluor_SaBu' => '',
+                'educacion_SaBu' => '',
+                'habitos_higiene_SaBu' => '',
+
+                'concientizacion_PrSaMe' => '',
+                'acompaniamiento_PrSaMe' => '',
+                'crecimiento_PrSaMe' => '',
+                'grupos_PrSaMe' => '',
+
+                'acompaniamiento_Vi' => '',
+                'grupos_Vi' => '',
+                'concientizacion_Vi' => '',
+                'crecimiento_Vi' => '',
+                'icbf_Vi' => '',
+
+                'crecimiento_EnReCr' => '',
+                'educacion_EnReCr' => '',
+                'valoracion_EnReCr' => '',
+
+                'crecimiento_EnZo' => '',
+                'potabilizacion_EnZo' => '',
+                'mantenimiento_EnZo' => '',
+                'fumigacion_EnZo' => '',
+                'vacunacion_EnZo' => '',
+                'inmunizacion_EnZo' => '',
+                'valorizacion_EnZo' => '',
+                'desparatizacion_EnZo' => '',
+
+                'crecimiento_TrDeNeEnAu' => '',
+                'acceso_TrDeNeEnAu' => '',
+                'valoracion_TrDeNeEnAu' => '',
+                
+                'atencion_CoSp' => '',
+                'relaciones_CoSp' => '',
+                'grupos_CoSp' => '',
+                'educacion_CoSp' => '',
+                'valoracion_CoSp' => '',
+
+                'asistencia_RiDeAg' => '',
+                'programas_RiDeAg' => '',
+                'suplementacion_RiDeAg' => '',
+
+                'asistencia_RiDeGl' => '',
+                'programas_RiDeGl' => '',
+                'suplementacion_RiDeGl' => '',
+
+                'asistencia_RiTaBa' => '',
+                'programas_RiTaBa' => '',
+                'suplementacion_RiTaBa' => '',
+
+                'asistencia_RiSo' => '',
+                'actividad_RiSo' => '',
+
+                'id_compania' => 1,
+                'estado' => 'Activo',
+                'id_inte' => $id_inte,
+            ]);
+        }else{
+            return null;
         }
+    }
+
+    public static function modificar($alias, $id_hogar, $opcion, $data, $id_inte){
 
         if ($opcion == "EnIn") {
             return DB::connection('mysql')->table($alias . '.valores_riesgos_salud_men1a')->where('id_inte', $id_inte)->update([

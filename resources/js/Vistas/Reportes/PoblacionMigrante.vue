@@ -470,6 +470,7 @@ export default {
                 await reportes.migrantesPDF(parametros).then(respuesta => {
                     // this.ruta = "http://127.0.0.1:8000/archivomigrantes.pdf";
                     this.ruta = store.state.apiURL + respuesta.data.nombre;
+                    console.log(this.ruta);
                     this.$refs.modalpdf.show();
                 });
             } catch (e) {}

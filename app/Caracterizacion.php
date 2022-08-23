@@ -20,7 +20,7 @@ class Caracterizacion extends Model
     ];
 
     public static function listar($busqueda, $alias)
-    {
+    {   
         if (!empty($busqueda)) {
             if (Auth::user()->rol == "Administrador") {
                 $respuesta = DB::connection('mysql')->table($alias . '.caracterizacion')

@@ -24,13 +24,14 @@ class RiesgosSaludDe18a28 extends Model
         'proba_enfermedades_infecciosas_I', 'proba_transtornos_asociados_spa_I', 'proba_enfermedad_cardiovascular_I', 'proba_cancer_I',
         'proba_alteraciones_transtornos_visuales_I', 'proba_alteraciones_transtornos_audicion_I', 'proba_salud_bucal_I', 'proba_problemas_salud_mental_I',
         'proba_violencias_I', 'proba_enfermedades_respiratorias_I', 'proba_enfermedades_zoonoticas_I', 'proba_transtornos_degenartivos_I',
-        'proba_consumo_spa_I', 'proba_riesgo_delgadez_I', 
+        'proba_consumo_spa_I', 'proba_riesgo_delgadez_I', 'opci'
     ];
     public static function guardar($data, $alias)
     {
 
         return DB::connection('mysql')->table($alias . '.riesgos_salud_de18a28')->updateOrInsert([
             'id_inte' => $data['id_inte'],
+            'opci' => $data['opci'],
         ], [
             'id_hogar' => $data['id_hogar'],
             'enfermedades_infecciosas_I' => $data['enfermedades_infecciosas_I'],

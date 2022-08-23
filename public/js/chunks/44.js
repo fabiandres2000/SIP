@@ -518,6 +518,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _Servicios_reportes__WEBPACK_IMPORTED_MODULE_1__["migrantesPDF"](parametros).then(function (respuesta) {
                   // this.ruta = "http://127.0.0.1:8000/archivomigrantes.pdf";
                   _this2.ruta = _store__WEBPACK_IMPORTED_MODULE_2__["default"].state.apiURL + respuesta.data.nombre;
+                  console.log(_this2.ruta);
 
                   _this2.$refs.modalpdf.show();
                 });

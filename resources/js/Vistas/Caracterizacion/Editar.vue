@@ -24156,6 +24156,7 @@
         datosRSDE6A11: [],
         indiceRSDE6A11: 0,
         vectorAuxRSDE6A11: [],
+        datosRSDE6A11_RR_vector: [],
         datosRSDE6A11_RR: {
           // Riesgos de Enfermedades Infeccisosas
           alimentacion_saludable_EnIn: "",
@@ -24272,6 +24273,7 @@
         datosRSDE12A17: [],
         indiceRSDE12A17: 0,
         vectorAuxRSDE12A17: [],
+        datosRSDE12A17_RR_vector: [],
         datosRSDE12A17_RR: {
           // Riesgos de Enfermedades Infeccisosas
           alimentacion_saludable_EnIn: "",
@@ -24382,6 +24384,7 @@
         datosRSDE18A28: [],
         indiceRSDE18A28: 0,
         vectorAuxRSDE18A28: [],
+        datosRSDE18A28_RR_vector: [],
         datosRSDE18A28_RR: {
           // Riesgos de Enfermedades Infeccisosas
           alimentacion_saludable_EnIn: "",
@@ -24486,6 +24489,7 @@
         datosRSDE29A59: [],
         indiceRSDE29A59: 0,
         vectorAuxRSDE29A59: [],
+        datosRSDE29A59_RR_vector: [],
         datosRSDE29A59_RR: {
           // Riesgos de Enfermedades Infeccisosas
           alimentacion_saludable_EnIn: "",
@@ -24595,6 +24599,7 @@
 
         datosRSDE60: [],
         indiceRSDE60: 0,
+        datosRSDE60_RR_vector: [],
         vectorAuxRSDE60: [],
         datosRSDE60_RR: {
           // Riesgos de Enfermedades Infeccisosas
@@ -24711,7 +24716,9 @@
         comodin1: "<",
         comodin2: "<=",
         comodin3: ">",
-        comodin4: ">=",        
+        comodin4: ">=",  
+        
+        opci_crs: "",
       };
     },
     validations: {
@@ -26235,7 +26242,11 @@
                     if(respuesta.data.riesgos_salud_de6a11 !== null){
                       this.datosRSDE6A11 = respuesta.data.riesgos_salud_de6a11;
                     }
-                    this.vectorAuxRSDE6A11 = [];                    
+                    this.vectorAuxRSDE6A11 = [];  
+                    if(respuesta.data.ValoresRiesgosSaludDe1a5 !== null){
+                      this.datosRSDE6A11_RR_vector = respuesta.data.ValoresRiesgosSaludDe6a11;
+                    }
+
                     this.$refs.modalRieSal1.show();                    
                   }
                 })
@@ -26346,16 +26357,25 @@
                       this.datosRSDE12A17 = respuesta.data.riesgos_salud_de12a17;
                     }
                     this.vectorAuxRSDE12A17 = [];
+                    if(respuesta.data.ValoresRiesgosSaludDe12a17 !== null){
+                      this.datosRSDE12A17_RR_vector = respuesta.data.ValoresRiesgosSaludDe12a17;
+                    }
 
                     if(respuesta.data.riesgos_salud_de18a28 !== null){
                       this.datosRSDE18A28 = respuesta.data.riesgos_salud_de18a28;
                     }
                     this.vectorAuxRSDE18A28 = [];
+                    if(respuesta.data.ValoresRiesgosSaludDe18a28 !== null){
+                      this.datosRSDE18A28_RR_vector = respuesta.data.ValoresRiesgosSaludDe18a28;
+                    }
                     
                     if(respuesta.data.riesgos_salud_de29a59 !== null){
                       this.datosRSDE29A59 = respuesta.data.riesgos_salud_de29a59;
                     }
                     this.vectorAuxRSDE29A59 = [];
+                    if(respuesta.data.ValoresRiesgosSaludDe29a59 !== null){
+                      this.datosRSDE29A59_RR_vector = respuesta.data.ValoresRiesgosSaludDe29a59;
+                    }
 
                     // console.log(respuesta.data.RI_SA_1828_DE);
                    
@@ -26468,7 +26488,10 @@
                     if(respuesta.data.riesgos_salud_de60 !== null){
                       this.datosRSDE60 = respuesta.data.riesgos_salud_de60;
                     }
-                    this.vectorAuxRSDE60 = [];                    
+                    this.vectorAuxRSDE60 = [];  
+                    if(respuesta.data.ValoresRiesgosSaludDe60 !== null){
+                      this.datosRSDE60_RR_vector = respuesta.data.ValoresRiesgosSaludDe60;
+                    }                  
                     this.$refs.modalRieSal3.show();                                         
                   }
                 })
@@ -40726,7 +40749,10 @@
       mostrarRiesgoSalDe6a11(index){
         this.indiceRSDE6A11 = index;
         this.vectorAuxRSDE6A11 = [];
-        
+
+        if(this.datosRSDE6A11_RR_vector.length != 0){
+          this.datosRSDE6A11_RR = this.datosRSDE6A11_RR_vector[index];
+        }
         this.vectorAuxRSDE6A11.push({
           riesgo: this.datosRSDE6A11[this.indiceRSDE6A11]["enfermedades_infecciosas_I"],
           valor: this.datosRSDE6A11[this.indiceRSDE6A11]["v_enfermedades_infecciosas_I"],
@@ -42706,6 +42732,7 @@
               this.vectorAuxRSDE6A11[this.indexSal1].riesgo_r = respuesta.data.riesgo_r;
               this.vectorAuxRSDE6A11[this.indexSal1].valor_r = respuesta.data.valor_r;
               this.vectorAuxRSDE6A11[this.indexSal1].color_r = respuesta.data.color_r;
+              this.datosRSDE6A11 = respuesta.data.riesgos_salud_de6a11;
               this.vectorAuxRSDE6A11.splice(this.indexSal1, 1, this.vectorAuxRSDE6A11[this.indexSal1]);                                     
             }                                  
             this.cerrarControlRS1(tab);
@@ -42722,6 +42749,10 @@
       mostrarRiesgoSalDe12a17(index){
         this.indiceRSDE12A17 = index;
         this.vectorAuxRSDE12A17 = [];
+        if(this.datosRSDE12A17_RR_vector.length != 0){
+          this.datosRSDE12A17_RR = this.datosRSDE12A17_RR_vector[index];
+        }
+        this.opci_crs = this.datosRSDE12A17[this.indiceRSDE12A17]["opci"];
         
         this.vectorAuxRSDE12A17.push({
           riesgo: this.datosRSDE12A17[this.indiceRSDE12A17]["enfermedades_infecciosas_I"],
@@ -44530,7 +44561,8 @@
           opcion: opcion,
           tipo: tipo,
           IDHOGAR: this.IDHOGAR,
-          id_inte: this.idSal2
+          id_inte: this.idSal2,
+          opci_crs: this.opci_crs
         };
         await caracterizacionServicios
           .ControlRS(parametros)
@@ -44539,18 +44571,21 @@
               this.vectorAuxRSDE12A17[this.indexSal2].riesgo_r = respuesta.data.riesgo_r;
               this.vectorAuxRSDE12A17[this.indexSal2].valor_r = respuesta.data.valor_r;
               this.vectorAuxRSDE12A17[this.indexSal2].color_r = respuesta.data.color_r;
+              this.datosRSDE12A17 = respuesta.data.riesgos_salud_de12a17;
               this.vectorAuxRSDE12A17.splice(this.indexSal2, 1, this.vectorAuxRSDE12A17[this.indexSal2]);                        
             }
             if(tipo == "DE18A28"){
               this.vectorAuxRSDE18A28[this.indexSal2].riesgo_r = respuesta.data.riesgo_r;
               this.vectorAuxRSDE18A28[this.indexSal2].valor_r = respuesta.data.valor_r;
               this.vectorAuxRSDE18A28[this.indexSal2].color_r = respuesta.data.color_r;
+              this.datosRSDE18A28 = respuesta.data.riesgos_salud_de18a28;
               this.vectorAuxRSDE18A28.splice(this.indexSal2, 1, this.vectorAuxRSDE18A28[this.indexSal2]);                        
             }
             if(tipo == "DE29A59"){
               this.vectorAuxRSDE29A59[this.indexSal2].riesgo_r = respuesta.data.riesgo_r;
               this.vectorAuxRSDE29A59[this.indexSal2].valor_r = respuesta.data.valor_r;
               this.vectorAuxRSDE29A59[this.indexSal2].color_r = respuesta.data.color_r;
+              this.datosRSDE29A59 = respuesta.data.riesgos_salud_de29a59;
               this.vectorAuxRSDE29A59.splice(this.indexSal2, 1, this.vectorAuxRSDE29A59[this.indexSal2]);                        
             }                                                          
             this.cerrarControlRS2(tab);
@@ -44567,7 +44602,12 @@
       mostrarRiesgoSalDe18a28(index,identificacion){
         this.indiceRSDE18A28 = index;
         this.vectorAuxRSDE18A28 = [];
+        if(this.datosRSDE18A28_RR_vector.length != 0){
+          this.datosRSDE18A28_RR = this.datosRSDE18A28_RR_vector[index];
+        }
         
+        this.opci_crs = this.datosRSDE18A28[this.indiceRSDE18A28]["opci"];
+
         this.vectorAuxRSDE18A28.push({
           riesgo: this.datosRSDE18A28[this.indiceRSDE18A28]["enfermedades_infecciosas_I"],
           valor: this.datosRSDE18A28[this.indiceRSDE18A28]["v_enfermedades_infecciosas_I"],
@@ -44779,6 +44819,12 @@
       mostrarRiesgoSalDe29a59(index){
         this.indiceRSDE29A59 = index;
         this.vectorAuxRSDE29A59 = [];
+
+        if(this.datosRSDE29A59_RR_vector.length != 0){
+          this.datosRSDE29A59_RR = this.datosRSDE29A59_RR_vector[index];
+        }
+        
+        this.opci_crs = this.datosRSDE29A59[this.indiceRSDE29A59]["opci"];
         
         this.vectorAuxRSDE29A59.push({
           riesgo: this.datosRSDE29A59[this.indiceRSDE29A59]["enfermedades_infecciosas_I"],
@@ -44963,6 +45009,12 @@
       mostrarRiesgoSalDe60(index){
         this.indiceRSDE60 = index;
         this.vectorAuxRSDE60 = [];
+
+        if(this.datosRSDE60_RR_vector.length != 0){
+          this.datosRSDE60_RR = this.datosRSDE60_RR_vector[index];
+        }
+        
+        this.opci_crs = this.datosRSDE60[this.indiceRSDE60]["opci"];
         
         this.vectorAuxRSDE60.push({
           riesgo: this.datosRSDE60[this.indiceRSDE60]["enfermedades_infecciosas_I"],
@@ -45640,7 +45692,8 @@
           opcion: opcion,
           tipo: tipo,
           IDHOGAR: this.IDHOGAR,
-          id_inte: this.idSal3
+          id_inte: this.idSal3,
+          opci_crs: this.opci_crs
         };
         await caracterizacionServicios
           .ControlRS(parametros)
@@ -45649,6 +45702,7 @@
               this.vectorAuxRSDE60[this.indexSal3].riesgo_r = respuesta.data.riesgo_r;
               this.vectorAuxRSDE60[this.indexSal3].valor_r = respuesta.data.valor_r;
               this.vectorAuxRSDE60[this.indexSal3].color_r = respuesta.data.color_r;
+              this.datosRSDE60 = respuesta.data.riesgos_salud_de60;
               this.vectorAuxRSDE60.splice(this.indexSal3, 1, this.vectorAuxRSDE60[this.indexSal3]);                        
             }                                                   
             this.cerrarControlRS3();

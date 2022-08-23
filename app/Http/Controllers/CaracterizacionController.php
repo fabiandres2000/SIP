@@ -1601,6 +1601,7 @@ class CaracterizacionController extends Controller
                             $item->c_riesgo_delgadez_R = $item->v_riesgo_delgadez_R == "" ? "" : self::colorRieResSa($item->v_riesgo_delgadez_R);
                         }
                     }
+                    $ValoresRiesgosSaludDe6a11 = \App\ValoresRiesgosSaludDE6A11::buscar(Session::get('alias'), $IDHOGAR);
                     // RIESGOS SALUD DE6A11
                     $respuesta = [
                         'OPC' => 'SI',
@@ -1614,6 +1615,7 @@ class CaracterizacionController extends Controller
                         'riesgos_salud_de6a11' => $riesgos_salud_de6a11,
                         'ValoresRiesgosSaludMen1a' => $ValoresRiesgosSaludMen1a,
                         'ValoresRiesgosSaludDe1a5' => $ValoresRiesgosSaludDe1a5,
+                        'ValoresRiesgosSaludDe6a11' => $ValoresRiesgosSaludDe6a11,
                     ];
                     $gua = \App\Log::guardar("Guardar la pestaña cart.X.ciclo con id_hogar  = " . $IDHOGAR, Session::get('alias'), 'CARACTERIZACION');
                     return response()->json($respuesta, 200);
@@ -1738,6 +1740,7 @@ class CaracterizacionController extends Controller
                             $item->c_riesgo_delgadez_R = $item->v_riesgo_delgadez_R == "" ? "" : self::colorRieResSa($item->v_riesgo_delgadez_R);
                         }
                     }
+                    $ValoresRiesgosSaludDe12a17 = \App\ValoresRiesgosSaludDE12A17::buscar(Session::get('alias'), $IDHOGAR);
                     // RIESGOS SALUD DE12A17
 
                     // RIESGOS SALUD DE18A28
@@ -1805,6 +1808,7 @@ class CaracterizacionController extends Controller
                             $item->c_riesgo_delgadez_R = $item->v_riesgo_delgadez_R == "" ? "" : self::colorRieResSa($item->v_riesgo_delgadez_R);
                         }
                     }
+                    $ValoresRiesgosSaludDe18a28 = \App\ValoresRiesgosSaludDE18A28::buscar(Session::get('alias'), $IDHOGAR);
                     // RIESGOS SALUD DE18A28
 
                     // RIESGOS SALUD DE29A59
@@ -1872,8 +1876,8 @@ class CaracterizacionController extends Controller
                             $item->c_riesgo_delgadez_R = $item->v_riesgo_delgadez_R == "" ? "" : self::colorRieResSa($item->v_riesgo_delgadez_R);
                         }
                     }
+                    $ValoresRiesgosSaludDe29a59 = \App\ValoresRiesgosSaludDE29A59::buscar(Session::get('alias'), $IDHOGAR);
                     // RIESGOS SALUD DE29A59
-
                     $respuesta = [
                         'OPC' => 'SI',
                         'De12A17' => $De12A17,
@@ -1882,6 +1886,10 @@ class CaracterizacionController extends Controller
                         'riesgos_salud_de12a17' => $riesgos_salud_de12a17,
                         'riesgos_salud_de18a28' => $riesgos_salud_de18a28,
                         'riesgos_salud_de29a59' => $riesgos_salud_de29a59,
+                        'ValoresRiesgosSaludDe12a17' => $ValoresRiesgosSaludDe12a17,
+                        'ValoresRiesgosSaludDe18a28' => $ValoresRiesgosSaludDe18a28,
+                        'ValoresRiesgosSaludDe29a59' => $ValoresRiesgosSaludDe29a59,
+                        // 'RI_SA_1828_DE' => $RI_SA_1828_DE
                     ];
                     $gua = \App\Log::guardar("Guardar la pestaña Adolescentes/Jovenes con id_hogar  = " . $IDHOGAR, Session::get('alias'), 'CARACTERIZACION');
                     return response()->json($respuesta, 200);
@@ -1943,7 +1951,6 @@ class CaracterizacionController extends Controller
                             $item->v_enfermedades_zoonoticas_I = $item->enfermedades_zoonoticas_I == 0 ? "" : self::valRieResSa($item->enfermedades_zoonoticas_I);
                             $item->v_transtornos_degenartivos_I = $item->transtornos_degenartivos_I == 0 ? "" : self::valRieResSa($item->transtornos_degenartivos_I);
                             $item->v_consumo_spa_I = $item->consumo_spa_I == 0 ? "" : self::valRieResSa($item->consumo_spa_I);
-                            $item->v_riesgo_delgadez_I = $item->riesgo_delgadez_I == 0 ? "" : self::valRieResSa($item->riesgo_delgadez_I);
 
                             $item->c_enfermedades_infecciosas_I = $item->v_enfermedades_infecciosas_I == "" ? "" : self::colorRieResSa($item->v_enfermedades_infecciosas_I);
                             $item->c_transtornos_asociados_spa_I = $item->v_transtornos_asociados_spa_I == "" ? "" : self::colorRieResSa($item->v_transtornos_asociados_spa_I);
@@ -1958,7 +1965,6 @@ class CaracterizacionController extends Controller
                             $item->c_enfermedades_zoonoticas_I = $item->v_enfermedades_zoonoticas_I == "" ? "" : self::colorRieResSa($item->v_enfermedades_zoonoticas_I);
                             $item->c_transtornos_degenartivos_I = $item->v_transtornos_degenartivos_I == "" ? "" : self::colorRieResSa($item->v_transtornos_degenartivos_I);
                             $item->c_consumo_spa_I = $item->v_consumo_spa_I == "" ? "" : self::colorRieResSa($item->v_consumo_spa_I);
-                            $item->c_riesgo_delgadez_I = $item->v_riesgo_delgadez_I == "" ? "" : self::colorRieResSa($item->v_riesgo_delgadez_I);
 
                             $item->v_enfermedades_infecciosas_R = $item->enfermedades_infecciosas_R == 0 ? "" : self::valRieResSa($item->enfermedades_infecciosas_R);
                             $item->v_transtornos_asociados_spa_R = $item->transtornos_asociados_spa_R == 0 ? "" : self::valRieResSa($item->transtornos_asociados_spa_R);
@@ -1973,7 +1979,6 @@ class CaracterizacionController extends Controller
                             $item->v_enfermedades_zoonoticas_R = $item->enfermedades_zoonoticas_R == 0 ? "" : self::valRieResSa($item->enfermedades_zoonoticas_R);
                             $item->v_transtornos_degenartivos_R = $item->transtornos_degenartivos_R == 0 ? "" : self::valRieResSa($item->transtornos_degenartivos_R);
                             $item->v_consumo_spa_R = $item->consumo_spa_R == 0 ? "" : self::valRieResSa($item->consumo_spa_R);
-                            $item->v_riesgo_delgadez_R = $item->riesgo_delgadez_R == 0 ? "" : self::valRieResSa($item->riesgo_delgadez_R);
 
                             $item->c_enfermedades_infecciosas_R = $item->v_enfermedades_infecciosas_R == "" ? "" : self::colorRieResSa($item->v_enfermedades_infecciosas_R);
                             $item->c_transtornos_asociados_spa_R = $item->v_transtornos_asociados_spa_R == "" ? "" : self::colorRieResSa($item->v_transtornos_asociados_spa_R);
@@ -1988,9 +1993,9 @@ class CaracterizacionController extends Controller
                             $item->c_enfermedades_zoonoticas_R = $item->v_enfermedades_zoonoticas_R == "" ? "" : self::colorRieResSa($item->v_enfermedades_zoonoticas_R);
                             $item->c_transtornos_degenartivos_R = $item->v_transtornos_degenartivos_R == "" ? "" : self::colorRieResSa($item->v_transtornos_degenartivos_R);
                             $item->c_consumo_spa_R = $item->v_consumo_spa_R == "" ? "" : self::colorRieResSa($item->v_consumo_spa_R);
-                            $item->c_riesgo_delgadez_R = $item->v_riesgo_delgadez_R == "" ? "" : self::colorRieResSa($item->v_riesgo_delgadez_R);
                         }
                     }
+                    $ValoresRiesgosSaludDe60 = \App\ValoresRiesgosSaludDE60::buscar(Session::get('alias'), $IDHOGAR);
                     // RIESGOS SALUD DE60
                     $respuesta = [
                         'OPC' => 'SI',
@@ -1998,6 +2003,7 @@ class CaracterizacionController extends Controller
                         'EnCro' => $EnCro,
                         'EnInf' => $EnInf,
                         'riesgos_salud_de60' => $riesgos_salud_de60,
+                        'ValoresRiesgosSaludDe60' => $ValoresRiesgosSaludDe60,
                     ];
                     $gua = \App\Log::guardar("Guardar la pestaña Adulto mayor con id_hogar  = " . $IDHOGAR, Session::get('alias'), 'CARACTERIZACION');
                     return response()->json($respuesta, 200);
@@ -2704,6 +2710,7 @@ class CaracterizacionController extends Controller
                             $item->c_riesgo_delgadez_R = $item->v_riesgo_delgadez_R == "" ? "" : self::colorRieResSa($item->v_riesgo_delgadez_R);
                         }
                     }
+                    $ValoresRiesgosSaludDe6a11 = \App\ValoresRiesgosSaludDE6A11::buscar(Session::get('alias'), $IDHOGAR);
                     // RIESGOS SALUD DE6A11
 
                     $respuesta = [
@@ -2718,6 +2725,7 @@ class CaracterizacionController extends Controller
                         'riesgos_salud_de6a11' => $riesgos_salud_de6a11,
                         'ValoresRiesgosSaludMen1a' => $ValoresRiesgosSaludMen1a,
                         'ValoresRiesgosSaludDe1a5' => $ValoresRiesgosSaludDe1a5,
+                        'ValoresRiesgosSaludDe6a11' => $ValoresRiesgosSaludDe6a11,
                     ];
                     $gua = \App\Log::guardar("Guardar la pestaña cart.X.ciclo con id_hogar  = " . $IDHOGAR, Session::get('alias'), 'CARACTERIZACION');
                     return response()->json($respuesta, 200);
@@ -2841,11 +2849,11 @@ class CaracterizacionController extends Controller
                             $item->c_riesgo_delgadez_R = $item->v_riesgo_delgadez_R == "" ? "" : self::colorRieResSa($item->v_riesgo_delgadez_R);
                         }
                     }
+                    $ValoresRiesgosSaludDe12a17 = \App\ValoresRiesgosSaludDE12A17::buscar(Session::get('alias'), $IDHOGAR);
                     // RIESGOS SALUD DE12A17
 
                     // RIESGOS SALUD DE18A28
                     $riesgos_salud_de18a28 = \App\RiesgosSaludDe18a28::buscar(Session::get('alias'), $IDHOGAR);
-                    // dd($riesgos_salud_de18a28);
                     if ($riesgos_salud_de18a28) {
                         foreach ($riesgos_salud_de18a28 as $item) {
                             $item->v_enfermedades_infecciosas_I = $item->enfermedades_infecciosas_I == 0 ? "" : self::valRieResSaludMejorado($item->enfermedades_infecciosas_I, 1);
@@ -3049,6 +3057,7 @@ class CaracterizacionController extends Controller
                             // ];                            
                         }
                     }
+                    $ValoresRiesgosSaludDe18a28 = \App\ValoresRiesgosSaludDE18A28::buscar(Session::get('alias'), $IDHOGAR);
                     // RIESGOS SALUD DE18A28
 
                     // RIESGOS SALUD DE29A59
@@ -3116,6 +3125,7 @@ class CaracterizacionController extends Controller
                             $item->c_riesgo_delgadez_R = $item->v_riesgo_delgadez_R == "" ? "" : self::colorRieResSa($item->v_riesgo_delgadez_R);
                         }
                     }
+                    $ValoresRiesgosSaludDe29a59 = \App\ValoresRiesgosSaludDE29A59::buscar(Session::get('alias'), $IDHOGAR);
                     // RIESGOS SALUD DE29A59
                     $respuesta = [
                         'OPC' => 'SI',
@@ -3125,6 +3135,9 @@ class CaracterizacionController extends Controller
                         'riesgos_salud_de12a17' => $riesgos_salud_de12a17,
                         'riesgos_salud_de18a28' => $riesgos_salud_de18a28,
                         'riesgos_salud_de29a59' => $riesgos_salud_de29a59,
+                        'ValoresRiesgosSaludDe12a17' => $ValoresRiesgosSaludDe12a17,
+                        'ValoresRiesgosSaludDe18a28' => $ValoresRiesgosSaludDe18a28,
+                        'ValoresRiesgosSaludDe29a59' => $ValoresRiesgosSaludDe29a59,
                         // 'RI_SA_1828_DE' => $RI_SA_1828_DE
                     ];
                     $gua = \App\Log::guardar("Guardar la pestaña Adolescentes/Jovenes con id_hogar  = " . $IDHOGAR, Session::get('alias'), 'CARACTERIZACION');
@@ -3188,7 +3201,6 @@ class CaracterizacionController extends Controller
                             $item->v_enfermedades_zoonoticas_I = $item->enfermedades_zoonoticas_I == 0 ? "" : self::valRieResSa($item->enfermedades_zoonoticas_I);
                             $item->v_transtornos_degenartivos_I = $item->transtornos_degenartivos_I == 0 ? "" : self::valRieResSa($item->transtornos_degenartivos_I);
                             $item->v_consumo_spa_I = $item->consumo_spa_I == 0 ? "" : self::valRieResSa($item->consumo_spa_I);
-                            $item->v_riesgo_delgadez_I = $item->riesgo_delgadez_I == 0 ? "" : self::valRieResSa($item->riesgo_delgadez_I);
 
                             $item->c_enfermedades_infecciosas_I = $item->v_enfermedades_infecciosas_I == "" ? "" : self::colorRieResSa($item->v_enfermedades_infecciosas_I);
                             $item->c_transtornos_asociados_spa_I = $item->v_transtornos_asociados_spa_I == "" ? "" : self::colorRieResSa($item->v_transtornos_asociados_spa_I);
@@ -3203,7 +3215,6 @@ class CaracterizacionController extends Controller
                             $item->c_enfermedades_zoonoticas_I = $item->v_enfermedades_zoonoticas_I == "" ? "" : self::colorRieResSa($item->v_enfermedades_zoonoticas_I);
                             $item->c_transtornos_degenartivos_I = $item->v_transtornos_degenartivos_I == "" ? "" : self::colorRieResSa($item->v_transtornos_degenartivos_I);
                             $item->c_consumo_spa_I = $item->v_consumo_spa_I == "" ? "" : self::colorRieResSa($item->v_consumo_spa_I);
-                            $item->c_riesgo_delgadez_I = $item->v_riesgo_delgadez_I == "" ? "" : self::colorRieResSa($item->v_riesgo_delgadez_I);
 
                             $item->v_enfermedades_infecciosas_R = $item->enfermedades_infecciosas_R == 0 ? "" : self::valRieResSa($item->enfermedades_infecciosas_R);
                             $item->v_transtornos_asociados_spa_R = $item->transtornos_asociados_spa_R == 0 ? "" : self::valRieResSa($item->transtornos_asociados_spa_R);
@@ -3218,7 +3229,6 @@ class CaracterizacionController extends Controller
                             $item->v_enfermedades_zoonoticas_R = $item->enfermedades_zoonoticas_R == 0 ? "" : self::valRieResSa($item->enfermedades_zoonoticas_R);
                             $item->v_transtornos_degenartivos_R = $item->transtornos_degenartivos_R == 0 ? "" : self::valRieResSa($item->transtornos_degenartivos_R);
                             $item->v_consumo_spa_R = $item->consumo_spa_R == 0 ? "" : self::valRieResSa($item->consumo_spa_R);
-                            $item->v_riesgo_delgadez_R = $item->riesgo_delgadez_R == 0 ? "" : self::valRieResSa($item->riesgo_delgadez_R);
 
                             $item->c_enfermedades_infecciosas_R = $item->v_enfermedades_infecciosas_R == "" ? "" : self::colorRieResSa($item->v_enfermedades_infecciosas_R);
                             $item->c_transtornos_asociados_spa_R = $item->v_transtornos_asociados_spa_R == "" ? "" : self::colorRieResSa($item->v_transtornos_asociados_spa_R);
@@ -3233,9 +3243,9 @@ class CaracterizacionController extends Controller
                             $item->c_enfermedades_zoonoticas_R = $item->v_enfermedades_zoonoticas_R == "" ? "" : self::colorRieResSa($item->v_enfermedades_zoonoticas_R);
                             $item->c_transtornos_degenartivos_R = $item->v_transtornos_degenartivos_R == "" ? "" : self::colorRieResSa($item->v_transtornos_degenartivos_R);
                             $item->c_consumo_spa_R = $item->v_consumo_spa_R == "" ? "" : self::colorRieResSa($item->v_consumo_spa_R);
-                            $item->c_riesgo_delgadez_R = $item->v_riesgo_delgadez_R == "" ? "" : self::colorRieResSa($item->v_riesgo_delgadez_R);
                         }
                     }
+                    $ValoresRiesgosSaludDe60 = \App\ValoresRiesgosSaludDE60::buscar(Session::get('alias'), $IDHOGAR);
                     // RIESGOS SALUD DE60
                     $respuesta = [
                         'OPC' => 'SI',
@@ -3243,6 +3253,7 @@ class CaracterizacionController extends Controller
                         'EnCro' => $EnCro,
                         'EnInf' => $EnInf,
                         'riesgos_salud_de60' => $riesgos_salud_de60,
+                        'ValoresRiesgosSaludDe60' => $ValoresRiesgosSaludDe60,
                     ];
                     $gua = \App\Log::guardar("Guardar la pestaña Adulto mayor con id_hogar  = " . $IDHOGAR, Session::get('alias'), 'CARACTERIZACION');
                     return response()->json($respuesta, 200);
@@ -13011,6 +13022,11 @@ class CaracterizacionController extends Controller
             $datos["consumo_spa_I"] = $rTCDS;
             $datos["riesgo_talla_baja_I"] = $rTRRT;
             $datos["riesgo_delgadez_I"] = $rTRD;
+            if ($respuinte != null) {
+                $datos["opci"] = "INTE";
+            }else{
+                $datos["opci"] = "JEFE";
+            }
             $resultado = self::calculosSaludInherente($datos, "DE12A17", $id_hogar, $respude12a17->id_integrante);
 
         }
@@ -13661,7 +13677,12 @@ class CaracterizacionController extends Controller
             $datos["enfermedades_zoonoticas_I"] = $rTEZ;
             $datos["transtornos_degenartivos_I"] = $rTTDNEA;
             $datos["consumo_spa_I"] = $rTCDS;
-            $datos["riesgo_delgadez_I"] = $rTRD;            
+            $datos["riesgo_delgadez_I"] = $rTRD;   
+            if ($respuinte != null) {
+                $datos["opci"] = "INTE";
+            }else{
+                $datos["opci"] = "JEFE";
+            }        
             $resultado = self::calculosSaludInherente($datos, "DE18A28", $id_hogar, $respude18a28->id_integrante);
         }
         // // // // // // // // // // De18A28 // // // // // // // // // //
@@ -14306,6 +14327,11 @@ class CaracterizacionController extends Controller
             $datos["transtornos_degenartivos_I"] = $rTTDNEA;
             $datos["consumo_spa_I"] = $rTCDS;
             $datos["riesgo_delgadez_I"] = $rTRD;
+            if ($respuinte != null) {
+                $datos["opci"] = "INTE";
+            }else{
+                $datos["opci"] = "JEFE";
+            }
             $resultado = self::calculosSaludInherente($datos, "DE29A59", $id_hogar, $respude29a59->id_integrante);
         }
         // // // // // // // // // // De29A59 // // // // // // // // // //
@@ -14856,6 +14882,11 @@ class CaracterizacionController extends Controller
             $datos["enfermedades_zoonoticas_I"] = $rTEZ;
             $datos["transtornos_degenartivos_I"] = $rTTDNEA;
             $datos["consumo_spa_I"] = $rTCDS;
+            if ($respuinte != null) {
+                $datos["opci"] = "INTE";
+            }else{
+                $datos["opci"] = "JEFE";
+            }
             $resultado = self::calculosSaludInherente($datos, "DE60", $id_hogar, $respude60->id_integrante);
         }
         // // // // // // // // // // De60 // // // // // // // // // //
@@ -15688,6 +15719,7 @@ class CaracterizacionController extends Controller
             $datos["id_hogar"] = $id_hogar;
             $datos["estado"] = "Activo";
             $guardar = \App\RiesgosSaludMen1::guardar($datos, Session::get('alias'));
+            $guardar2 = \App\ValoresRiesgosSaludMEN1A::guardarInicial($id_hogar, Session::get('alias'), $id);
             // GUARDAR DATOS
 
             if ($guardar) {
@@ -16235,6 +16267,7 @@ class CaracterizacionController extends Controller
             $datos["id_hogar"] = $id_hogar;
             $datos["estado"] = "Activo";
             $guardar = \App\RiesgosSaludDe1a5::guardar($datos, Session::get('alias'));
+            $guardar2 = \App\ValoresRiesgosSaludDE1A5::guardarInicial($id_hogar, Session::get('alias'), $id);
             // GUARDAR DATOS
 
             if ($guardar) {
@@ -16705,6 +16738,7 @@ class CaracterizacionController extends Controller
             $datos["id_hogar"] = $id_hogar;
             $datos["estado"] = "Activo";
             $guardar = \App\RiesgosSaludDe6a11::guardar($datos, Session::get('alias'));
+            $guardar2 = \App\ValoresRiesgosSaludDE6A11::guardarInicial($id_hogar, Session::get('alias'), $id);
             // GUARDAR DATOS
 
             if ($guardar) {
@@ -17175,6 +17209,7 @@ class CaracterizacionController extends Controller
             $datos["id_hogar"] = $id_hogar;
             $datos["estado"] = "Activo";
             $guardar = \App\RiesgosSaludDe12a17::guardar($datos, Session::get('alias'));
+            $guardar2 = \App\ValoresRiesgosSaludDE12A17::guardarInicial($id_hogar, Session::get('alias'), $id, $datos["opci"]);
             // GUARDAR DATOS
 
             if ($guardar) {
@@ -17630,6 +17665,7 @@ class CaracterizacionController extends Controller
             $datos["id_hogar"] = $id_hogar;
             $datos["estado"] = "Activo";
             $guardar = \App\RiesgosSaludDe18a28::guardar($datos, Session::get('alias'));
+            $guardar2 = \App\ValoresRiesgosSaludDE18A28::guardarInicial($id_hogar, Session::get('alias'), $id, $datos["opci"]);
             // GUARDAR DATOS
 
             if ($guardar) {
@@ -18069,6 +18105,7 @@ class CaracterizacionController extends Controller
             $datos["id_hogar"] = $id_hogar;
             $datos["estado"] = "Activo";
             $guardar = \App\RiesgosSaludDe29a59::guardar($datos, Session::get('alias'));
+            $guardar2 = \App\ValoresRiesgosSaludDE29A59::guardarInicial($id_hogar, Session::get('alias'), $id, $datos["opci"]);
             // GUARDAR DATOS
 
             if ($guardar) {
@@ -18477,6 +18514,7 @@ class CaracterizacionController extends Controller
             $datos["id_hogar"] = $id_hogar;
             $datos["estado"] = "Activo";
             $guardar = \App\RiesgosSaludDe60::guardar($datos, Session::get('alias'));
+            $guardar2 = \App\ValoresRiesgosSaludDE60::guardarInicial($id_hogar, Session::get('alias'), $id, $datos["opci"]);
             // GUARDAR DATOS
 
             if ($guardar) {
@@ -18497,6 +18535,7 @@ class CaracterizacionController extends Controller
             $vector = request()->get("vector");
             $tipo = request()->get("tipo");
             $id_inte = request()->get("id_inte");
+            $opci_crs = request()->get("opci_crs");
 
             $suma = 0;
             $media = 0;
@@ -19305,14 +19344,16 @@ class CaracterizacionController extends Controller
                 $valor_r = self::valRieResSa($riesgo_r);
                 $color_r = self::colorRieResSa($valor_r);
                 $riesgo = \App\RiesgosSaludDe6a11::modificar(Session::get('alias'), $IDHOGAR, $opcion, $riesgo_r, $id_inte);
+
+                $valores_riesgo = \App\ValoresRiesgosSaludDE6A11::modificar(Session::get('alias'), $IDHOGAR, $opcion, $datos, $id_inte);
+                $valoresNuevos = \App\ValoresRiesgosSaludDE6A11::buscarXID(Session::get('alias'), $IDHOGAR);
                 $respuesta = [
                     'riesgo_r' => $riesgo_r,
                     'valor_r' => $valor_r,
                     'color_r' => $color_r,
+                    'riesgos_salud_de6a11' => $valoresNuevos
                 ];
-                // $valores_riesgo = \App\ValoresRiesgosAmbientales::modificar(Session::get('alias'), $IDHOGAR, "RD", $datosRA);
                 return response()->json($respuesta, 200);
-
             }
 
             if ($tipo == "DE12A17") {
@@ -19558,14 +19599,16 @@ class CaracterizacionController extends Controller
                 $valor_r = self::valRieResSa($riesgo_r);
                 $color_r = self::colorRieResSa($valor_r);
                 $riesgo = \App\RiesgosSaludDe12a17::modificar(Session::get('alias'), $IDHOGAR, $opcion, $riesgo_r, $id_inte);
+               
+                $valores_riesgo = \App\ValoresRiesgosSaludDE12A17::modificar(Session::get('alias'), $IDHOGAR, $opcion, $datos, $id_inte, $opci_crs);
+                $valoresNuevos = \App\ValoresRiesgosSaludDE12A17::buscarXID(Session::get('alias'), $IDHOGAR);
                 $respuesta = [
                     'riesgo_r' => $riesgo_r,
                     'valor_r' => $valor_r,
                     'color_r' => $color_r,
+                    'riesgos_salud_de12a17' => $valoresNuevos
                 ];
-                // $valores_riesgo = \App\ValoresRiesgosAmbientales::modificar(Session::get('alias'), $IDHOGAR, "RD", $datosRA);
                 return response()->json($respuesta, 200);
-
             }
 
             if ($tipo == "DE18A28") {
@@ -19798,14 +19841,15 @@ class CaracterizacionController extends Controller
                 $valor_r = self::valRieResSa($riesgo_r);
                 $color_r = self::colorRieResSa($valor_r);
                 $riesgo = \App\RiesgosSaludDe18a28::modificar(Session::get('alias'), $IDHOGAR, $opcion, $riesgo_r, $id_inte);
+                $valores_riesgo = \App\ValoresRiesgosSaludDE18A28::modificar(Session::get('alias'), $IDHOGAR, $opcion, $datos, $id_inte, $opci_crs);
+                $valoresNuevos = \App\ValoresRiesgosSaludDE18A28::buscarXID(Session::get('alias'), $IDHOGAR);
                 $respuesta = [
                     'riesgo_r' => $riesgo_r,
                     'valor_r' => $valor_r,
                     'color_r' => $color_r,
+                    'riesgos_salud_de18a28' => $valoresNuevos
                 ];
-                // $valores_riesgo = \App\ValoresRiesgosAmbientales::modificar(Session::get('alias'), $IDHOGAR, "RD", $datosRA);
                 return response()->json($respuesta, 200);
-
             }
 
             if ($tipo == "DE29A59") {
@@ -20038,12 +20082,14 @@ class CaracterizacionController extends Controller
                 $valor_r = self::valRieResSa($riesgo_r);
                 $color_r = self::colorRieResSa($valor_r);
                 $riesgo = \App\RiesgosSaludDe29a59::modificar(Session::get('alias'), $IDHOGAR, $opcion, $riesgo_r, $id_inte);
+                $valores_riesgo = \App\ValoresRiesgosSaludDE29A59::modificar(Session::get('alias'), $IDHOGAR, $opcion, $datos, $id_inte, $opci_crs);
+                $valoresNuevos = \App\ValoresRiesgosSaludDE29A59::buscarXID(Session::get('alias'), $IDHOGAR);
                 $respuesta = [
                     'riesgo_r' => $riesgo_r,
                     'valor_r' => $valor_r,
                     'color_r' => $color_r,
-                ];
-                // $valores_riesgo = \App\ValoresRiesgosAmbientales::modificar(Session::get('alias'), $IDHOGAR, "RD", $datosRA);
+                    'riesgos_salud_de29a59' => $valoresNuevos
+                ];   
                 return response()->json($respuesta, 200);
 
             }
@@ -20265,12 +20311,14 @@ class CaracterizacionController extends Controller
                 $valor_r = self::valRieResSa($riesgo_r);
                 $color_r = self::colorRieResSa($valor_r);
                 $riesgo = \App\RiesgosSaludDe60::modificar(Session::get('alias'), $IDHOGAR, $opcion, $riesgo_r, $id_inte);
+                $valores_riesgo = \App\ValoresRiesgosSaludDE60::modificar(Session::get('alias'), $IDHOGAR, $opcion, $datos, $id_inte, $opci_crs);
+                $valoresNuevos = \App\ValoresRiesgosSaludDE60::buscarXID(Session::get('alias'), $IDHOGAR);
                 $respuesta = [
                     'riesgo_r' => $riesgo_r,
                     'valor_r' => $valor_r,
                     'color_r' => $color_r,
-                ];
-                // $valores_riesgo = \App\ValoresRiesgosAmbientales::modificar(Session::get('alias'), $IDHOGAR, "RD", $datosRA);
+                    'riesgos_salud_de60' => $valoresNuevos
+                ];   
                 return response()->json($respuesta, 200);
 
             }

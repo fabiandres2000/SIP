@@ -17,13 +17,14 @@ class RiesgosSaludDe60 extends Model
         'alteraciones_transtornos_visuales_R', 'alteraciones_transtornos_audicion_R', 'salud_bucal_R', 'problemas_salud_mental_R', 'violencias_R',
         'enfermedades_respiratorias_R', 'enfermedades_zoonoticas_R', 'transtornos_degenartivos_R', 'consumo_spa_R',
 
-        'estado', 'id_compania', 'id_inte',
+        'estado', 'id_compania', 'id_inte', 'opci'
     ];
     public static function guardar($data, $alias)
     {
 
         return DB::connection('mysql')->table($alias . '.riesgos_salud_de60')->updateOrInsert([
             'id_inte' => $data['id_inte'],
+            'opci' => $data['opci'],
         ], [
             'id_hogar' => $data['id_hogar'],
             'enfermedades_infecciosas_I' => $data['enfermedades_infecciosas_I'],
