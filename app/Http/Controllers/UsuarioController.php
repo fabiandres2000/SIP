@@ -278,6 +278,7 @@ class UsuarioController extends Controller
             'entesTotal' => $entesTotal->count() ?? 0,
             'imagen' => Auth::user()->imagen,
             'alias' => Auth::user()->permisos->where('actual', 1)->first()->ente->alias,
+            'permisos_usuario' => Auth::user()->permisos->where('actual', 1)->first()
         ];
         return response()->json($respuesta, 200);
         // return redirect('/')->with('success', 'Sesion Finalizada');
@@ -400,7 +401,7 @@ class UsuarioController extends Controller
         if ($hasFile1) {
             $imagen_tmp1 = $data['imagen'];
             if ($imagen_tmp1->isValid()) {
-                $filename1 = 'foto_usuario_' . date('Y-m-d h:i:s A');
+                $filename1 = 'foto_usuario_' . date('Y-m-d-h-i-s-A');
                 $imagen_tmp1->move(public_path() . '/assets/media/' . Auth::user()->permisos->where('actual', 1)->first()->ente->alias . '/fotos/', $filename1);
             }
         }
@@ -427,7 +428,7 @@ class UsuarioController extends Controller
         if ($hasFile1) {
             $imagen_tmp1 = $data['imagen'];
             if ($imagen_tmp1->isValid()) {
-                $filename1 = 'foto_usuario_' . date('Y-m-d h:i:s A');
+                $filename1 = 'foto_usuario_' . date('Y-m-d-h-i-s-A');
                 $imagen_tmp1->move(public_path() . '/assets/media/' . Auth::user()->permisos->where('actual', 1)->first()->ente->alias . '/fotos/', $filename1);
             }
         }

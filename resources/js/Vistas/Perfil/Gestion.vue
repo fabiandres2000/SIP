@@ -544,6 +544,7 @@ export default {
                     celular: this.usuariosData.celular,
                     direccion: this.usuariosData.direccion,
                     usuario: this.usuariosData.usuario,
+                    rol: this.usuariosData.rol,
                     ruta: this.usuariosData.imagen
                 };
                 try {

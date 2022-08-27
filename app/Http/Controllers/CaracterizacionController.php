@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Auth;
 use Carbon\Carbon;
 use Session;
+use File;
 
 class CaracterizacionController extends Controller
 {
@@ -1183,7 +1184,7 @@ class CaracterizacionController extends Controller
                                 $riesgos_ambientales->color_residual_riesgos_quema = "";
                             }
 
-                            $riesgos_ambientales->va_riesgos_auditivo = self::valorizacion($riesgos_ambientales->riesgos_auditivo, 1);
+                            $riesgos_ambientales->va_riesgos_auditivo = self::valorizacion($riesgos_ambientales->riesgos_auditivo, 3);
                             $riesgos_ambientales->color_riesgos_auditivo = self::color($riesgos_ambientales->va_riesgos_auditivo);
                             if ($riesgos_ambientales->control_riesgos_auditivo != "0") {
                                 $riesgos_ambientales->val_residual_riesgos_auditivo = self::valRieRes($riesgos_ambientales->control_riesgos_auditivo);
@@ -3300,7 +3301,9 @@ class CaracterizacionController extends Controller
         if (Auth::check()) {
             $identificacion = request()->get("identificacion");
             // VERIFICAR SI YA EXISTE EL USUARIO
-            $resultado = self::verificar($identificacion, "Integrante");
+            $resultado1 = self::verificar($identificacion, "Integrante");
+            $resultado2 = self::verificar($identificacion, "Caracterizacion");
+            $resultado = $resultado1 + $resultado2;
             if ($resultado >= 1) {
                 $respuesta = [
                     'OPC' => 'EXISTE',
@@ -3345,17 +3348,23 @@ class CaracterizacionController extends Controller
     public function exportar2()
     {
         if (Auth::check()) {
-
             $caracterizacion = \App\Caracterizacion::exportar2(request()->get('id'), Session::get('alias'));
             if ($caracterizacion) {
-                $integrantes = \App\Integrante::exportar(request()->get('id'), Session::get('alias'));
+                $integrantes = \App\Integrante::exportar($caracterizacion[0]->id_hogar, Session::get('alias'));
+                $riesgos_ambientales_vivienda = \App\Vivienda::riesgosViviendaExportar($caracterizacion[0]->id_hogar, Session::get('alias'));
+                $riesgos_ambientales_vivienda = \App\ExportarPdfCaracterizacion::calcularRiesgosAmbientales($riesgos_ambientales_vivienda);
+                $riesgos_salud_todos_ciclos = \App\ExportarPdfCaracterizacion::consultarRiesgosSalud(Session::get('alias'), $caracterizacion[0]->id_hogar);
                 if (!$integrantes) {
                     $integrantes = [];
                 }
                 $respuesta = [
                     'caracterizacion' => $caracterizacion,
                     'integrantes' => $integrantes,
+                    'riesgos_ambientales_vivienda'  => $riesgos_ambientales_vivienda,
+                    'nombre' => 'caracterizaciones/'.$caracterizacion[0]->id_hogar.'/caracterizacion_casa.pdf',
+                    'riesgos_salud_todos_ciclos' => $riesgos_salud_todos_ciclos
                 ];
+                self::exportarCaracterizacionPDF($caracterizacion[0]->id_hogar, $integrantes, $caracterizacion, $riesgos_ambientales_vivienda, $riesgos_salud_todos_ciclos);
                 return response()->json($respuesta, 200);
             } else {
                 $respuesta = [
@@ -3369,12 +3378,33 @@ class CaracterizacionController extends Controller
 
     }
 
+    public function exportarCaracterizacionPDF($idCasa, $integrantes, $caracterizacion, $riesgos_ambientales_vivienda, $riesgos_salud_todos_ciclos){
+        $path = public_path().'/caracterizaciones'.'/'.$idCasa;
+        File::makeDirectory($path, $mode = 0777, true, true);
+        $pdf = app('dompdf.wrapper');
+        $pdf->loadView('caracterizacionCasaPDF', [
+            'integrantes' => $integrantes,
+            'caracterizaciones' => $caracterizacion,
+            'idCasa' => $idCasa,
+            'RieAmbInh' => $riesgos_ambientales_vivienda,
+            'riesgos_salud_men1a' => $riesgos_salud_todos_ciclos["riesgos_salud_men1a"],
+            'riesgos_salud_de1a5' => $riesgos_salud_todos_ciclos["riesgos_salud_de1a5"],
+            'riesgos_salud_de6a11' => $riesgos_salud_todos_ciclos["riesgos_salud_de6a11"],
+            'riesgos_salud_de12a17' => $riesgos_salud_todos_ciclos["riesgos_salud_de12a17"],
+            'riesgos_salud_de18a28' => $riesgos_salud_todos_ciclos["riesgos_salud_de18a28"],
+            'riesgos_salud_de29a59' => $riesgos_salud_todos_ciclos["riesgos_salud_de29a59"],
+            'riesgos_salud_de60' => $riesgos_salud_todos_ciclos["riesgos_salud_de60"],
+        ])->setPaper('a4', 'potrait')->save('caracterizaciones/'.$idCasa.'/caracterizacion_casa.pdf');
+    }
+
     public function validarJefe()
     {
         if (Auth::check()) {
             $identificacion = request()->get("identificacion");
             // VERIFICAR SI YA EXISTE EL USUARIO
-            $resultado = self::verificar($identificacion, "Caracterizacion");
+            $resultado1 = self::verificar($identificacion, "Integrante");
+            $resultado2 = self::verificar($identificacion, "Caracterizacion");
+            $resultado = $resultado1 + $resultado2;
             if ($resultado >= 1) {
                 $respuesta = [
                     'OPC' => 'EXISTE',
@@ -10097,793 +10127,793 @@ class CaracterizacionController extends Controller
         if ($opcion == "Men1A") {
             $respuinte = \App\Integrante::buscar($identificacion, Session::get('alias'));
             $respumen1a = \App\Men1a::buscarPorIdentificacion(Session::get('alias'), $identificacion);
+            if($respumen1a){
+                // // // // // // // // // // RIESGO DESNUTRICIÓN Aguda
+                $rTRDA = 0;
+                // No lactancia exclusiva 6 meses
+                if ($respumen1a->lactancia != "Exclusiva") {
+                    $rTRDA = $rTRDA + 0.3;
+                }
+                // No lactancia exclusiva 6 meses
+
+                // Clasificación antropométrica entre las líneas de P/T  -2 a < -1
+
+                // Clasificación antropométrica entre las líneas de P/T  -2 a < -1
+
+                // NO agua potable
+                if ($respuvivi->acueducto == "NO") {
+                    $rTRDA = $rTRDA + 0.3;
+                }
+                // NO agua potable
+
+                // Bajo peso al nacer
+                if ($respumen1a->peso_nacer <= "2.5") {
+                    $rTRDA = $rTRDA + 0.3;
+                }
+                // Bajo peso al nacer
+
+                // Presencia de Edemas
+                if ($respumen1a->edemas == "SI") {
+                    $rTRDA = $rTRDA + 0.3;
+                }
+                // Presencia de Edemas
+
+                // perdida de peso en ultimos 3 meses
+                if ($respuinte->perdida_peso == "SI") {
+                    $rTRDA = $rTRDA + 0.3;
+                }
+                // perdida de peso en ultimos 3 meses
+
+                // Bajo nivel educativo jefe del hogar
+                $niveleducativojefe = \App\Caracterizacion::NivelEducativoJefes(Session::get('alias'), $id_hogar);
+                if ($niveleducativojefe > 0) {
+                    $rTRDA = $rTRDA + 0.3;
+                }
+                // Bajo nivel educativo jefe del hogar
+
+                // Enfermedades infecciosas
+                $respuenferinte = \App\EnfermedadesIntegrantes::buscarInfecciosas(Session::get('alias'), $respuinte->id);
+                if (count($respuenferinte) > 0) {
+                    $rTRDA = $rTRDA + 0.3;
+                }
+                // Enfermedades infecciosas
+
+                // Perimetro del brazo  -1 a -2
+                if ($respumen1a->pb >= -1 && $respumen1a->pb <= -2) {
+                    $rTRDA = $rTRDA + 1;
+                }
+                // Perimetro del brazo  -1 a -2
+                // // // // // // // // // // RIESGO DESNUTRICIÓN Aguda
+
+                // // // // // // // // // // RIESGO DESNUTRICIÓN GLOBAL
+                $rTRDG = 0;
+                // Enfermedades infecciosas
+                if (count($respuenferinte) > 0) {
+                    $rTRDG = $rTRDG + 0.6;
+                }
+                // Enfermedades infecciosas
+
+                // Insalubridad en la vivienda
+                $contambien = \App\RiesgosAmbientales::buscar(Session::get('alias'), $id_hogar);
+                if ($contambien->riesgos_insalubridad > 1) {
+                    $rTRDG = $rTRDG + 0.6;
+                }
+                // Insalubridad en la vivienda
+
+                // NBI
+                $NBI = self::calcularNBI($id_hogar);
+                if ($NBI == "SI") {
+                    $rTRDG = $rTRDG + 1;
+                }
+                // NBI
+
+                // Bajo peso al nacer
+                if ($respumen1a->peso_nacer <= "2.5") {
+                    $rTRDG = $rTRDG + 0.6;
+                }
+                // Bajo peso al nacer
+
+                // NO agua potable
+                if ($respuvivi->acueducto == "NO") {
+                    $rTRDG = $rTRDG + 0.6;
+                }
+                // NO agua potable
+
+                // presencia de edemas
+                if ($respumen1a->edemas == "SI") {
+                    $rTRDG = $rTRDG + 0.3;
+                }
+                // presencia de edemas
+
+                // P / E -2 a < -1
+                $peso_edad = self::CalculosPerimetros("PESOEDAD", $respuinte->fecha_nac, $respuinte->sexo, $respumen1a);
+                if ($peso_edad < -2 || $peso_edad > 2) {
+                    $rTRDG = $rTRDG + 3;
+                }
+                // P / E -2 a < -1
+                // // // // // // // // // // RIESGO DESNUTRICIÓN GLOBAL
+
+                // // // // // // // // // // DESNUTRICIÓN GLOBAL
+                $rTDG = 0;
+
+                // P / E  < -2
+                if ($peso_edad < -2) {
+                    $rTDG = 1;
+                }
+                // P / E  < -2
+                // // // // // // // // // // DESNUTRICIÓN GLOBAL
+
+                // // // // // // // // // // RIESGO DE TALLA BAJA
+                $rTRTB = 0;
+                // Talla / E -2 a < -1
+
+                // Talla / E -2 a < -1
+
+                // No lactancia exclusiva 6 meses
+                if ($respumen1a->lactancia != "Exclusiva") {
+                    $rTRTB = $rTRTB + 0.8;
+                }
+                // No lactancia exclusiva 6 meses
+
+                // Insalubridad
+                if ($contambien->riesgos_insalubridad > 1) {
+                    $rTRTB = $rTRTB + 0.8;
+                }
+                // Insalubridad
+
+                // Enfermedades infecciosas.
+                if (count($respuenferinte) > 0) {
+                    $rTRTB = $rTRTB + 0.8;
+                }
+                // Enfermedades infecciosas.
+
+                // NO agua potable
+                if ($respuvivi->acueducto == "NO") {
+                    $rTRTB = $rTRTB + 0.8;
+                }
+                // NO agua potable
+
+                // NBI
+                if ($NBI == "SI") {
+                    $rTRTB = $rTRTB + 0.8;
+                }
+                // NBI
+                // // // // // // // // // // RIESGO DE TALLA BAJA
+
+                // // // // // // // // // // TALLA BAJA o retraso de la edad
+                $rTTB = 0;
+                // T / E < -2
+
+                // T / E < -2
+                // // // // // // // // // // TALLA BAJA o retraso de la edad
+
+                // // // // // // // // // // DESNUTRICIÓN AGUDA MODERADA
+                $rTRDAM = 0;
+                // Desnutrición Aguda P/T <-2 a - 3
+
+                // Desnutrición Aguda P/T <-2 a - 3
+
+                // Presencia de Edemas
+                if ($respumen1a->edemas == "SI") {
+
+                }
+                // Presencia de Edemas
+                // // // // // // // // // // DESNUTRICIÓN AGUDA MODERADA
+
+                // // // // // // // // // // DESNUTRICIÓN AGUDA SEVERA.
+                $rTRDAS = 0;
+                // Desnutrición Aguda P/T < - 3
+
+                // Desnutrición Aguda P/T < - 3
+
+                // Presencia de Edemas
+                if ($respumen1a->edemas == "SI") {
+
+                }
+                // Presencia de Edemas
+                // // // // // // // // // // DESNUTRICIÓN AGUDA SEVERA.
+
+                // // // // // // // // // // RIESGO DE MUERTE POR  DESNUTRICIÓN
+                $rTRMPD = 0;
+                // Edemas
+                if ($respumen1a->edemas == "SI") {
+                    $rTRMPD = $rTRMPD + 1.5;
+                }
+                // Edemas
+
+                // Cualquier tipo de desnutrición
+
+                // Cualquier tipo de desnutrición
+
+                // Perimetro B   menor a 11,5 cm ( RESOLUCIÓN 5006 - 15)
+                if ($respumen1a->pb < 11.5) {
+                    $rTRMPD = $rTRMPD + 3;
+                }
+                // Perimetro B   menor a 11,5 cm ( RESOLUCIÓN 5006 - 15)
+                // // // // // // // // // // RIESGO DE MUERTE POR  DESNUTRICIÓN
+
+                // // // // // // // // // // RIESGO SOBREPESO
+                $rTRS = 0;
+                // P/ T  >+1  a +2
+                if ($respumen1a->peso_long >= 1 && $respumen1a->peso_long <= 2) {
+                    $rTRS = $rTRS + 5;
+                }
+                // P/ T  >+1  a +2
+
+                // IMC >+1 a +2
+                // IMC >+1 a +2
+
+                // Sedentarismo
+                if ($respuinte->actividad_fisica == "NO") {
+                    $rTRS = $rTRS + 1;
+                }
+                // Sedentarismo
+                // // // // // // // // // // RIESGO SOBREPESO
+
+                // // // // // // // // // // SOBREPESO
+                $rTS = 0;
+                // P/ T > +2  a +3
+                if ($respumen1a->peso_long >= 2 && $respumen1a->peso_long <= 3) {
+                    $rTS = 1;
+                }
+                // P/ T > +2  a +3
 
-            // // // // // // // // // // RIESGO DESNUTRICIÓN Aguda
-            $rTRDA = 0;
-            // No lactancia exclusiva 6 meses
-            if ($respumen1a->lactancia != "Exclusiva") {
-                $rTRDA = $rTRDA + 0.3;
-            }
-            // No lactancia exclusiva 6 meses
-
-            // Clasificación antropométrica entre las líneas de P/T  -2 a < -1
-
-            // Clasificación antropométrica entre las líneas de P/T  -2 a < -1
-
-            // NO agua potable
-            if ($respuvivi->acueducto == "NO") {
-                $rTRDA = $rTRDA + 0.3;
-            }
-            // NO agua potable
-
-            // Bajo peso al nacer
-            if ($respumen1a->peso_nacer <= "2.5") {
-                $rTRDA = $rTRDA + 0.3;
-            }
-            // Bajo peso al nacer
-
-            // Presencia de Edemas
-            if ($respumen1a->edemas == "SI") {
-                $rTRDA = $rTRDA + 0.3;
-            }
-            // Presencia de Edemas
-
-            // perdida de peso en ultimos 3 meses
-            if ($respuinte->perdida_peso == "SI") {
-                $rTRDA = $rTRDA + 0.3;
-            }
-            // perdida de peso en ultimos 3 meses
-
-            // Bajo nivel educativo jefe del hogar
-            $niveleducativojefe = \App\Caracterizacion::NivelEducativoJefes(Session::get('alias'), $id_hogar);
-            if ($niveleducativojefe > 0) {
-                $rTRDA = $rTRDA + 0.3;
-            }
-            // Bajo nivel educativo jefe del hogar
-
-            // Enfermedades infecciosas
-            $respuenferinte = \App\EnfermedadesIntegrantes::buscarInfecciosas(Session::get('alias'), $respuinte->id);
-            if (count($respuenferinte) > 0) {
-                $rTRDA = $rTRDA + 0.3;
-            }
-            // Enfermedades infecciosas
-
-            // Perimetro del brazo  -1 a -2
-            if ($respumen1a->pb >= -1 && $respumen1a->pb <= -2) {
-                $rTRDA = $rTRDA + 1;
-            }
-            // Perimetro del brazo  -1 a -2
-            // // // // // // // // // // RIESGO DESNUTRICIÓN Aguda
-
-            // // // // // // // // // // RIESGO DESNUTRICIÓN GLOBAL
-            $rTRDG = 0;
-            // Enfermedades infecciosas
-            if (count($respuenferinte) > 0) {
-                $rTRDG = $rTRDG + 0.6;
-            }
-            // Enfermedades infecciosas
-
-            // Insalubridad en la vivienda
-            $contambien = \App\RiesgosAmbientales::buscar(Session::get('alias'), $id_hogar);
-            if ($contambien->riesgos_insalubridad > 1) {
-                $rTRDG = $rTRDG + 0.6;
-            }
-            // Insalubridad en la vivienda
-
-            // NBI
-            $NBI = self::calcularNBI($id_hogar);
-            if ($NBI == "SI") {
-                $rTRDG = $rTRDG + 1;
-            }
-            // NBI
-
-            // Bajo peso al nacer
-            if ($respumen1a->peso_nacer <= "2.5") {
-                $rTRDG = $rTRDG + 0.6;
-            }
-            // Bajo peso al nacer
-
-            // NO agua potable
-            if ($respuvivi->acueducto == "NO") {
-                $rTRDG = $rTRDG + 0.6;
-            }
-            // NO agua potable
-
-            // presencia de edemas
-            if ($respumen1a->edemas == "SI") {
-                $rTRDG = $rTRDG + 0.3;
-            }
-            // presencia de edemas
-
-            // P / E -2 a < -1
-            $peso_edad = self::CalculosPerimetros("PESOEDAD", $respuinte->fecha_nac, $respuinte->sexo, $respumen1a);
-            if ($peso_edad < -2 || $peso_edad > 2) {
-                $rTRDG = $rTRDG + 3;
-            }
-            // P / E -2 a < -1
-            // // // // // // // // // // RIESGO DESNUTRICIÓN GLOBAL
-
-            // // // // // // // // // // DESNUTRICIÓN GLOBAL
-            $rTDG = 0;
-
-            // P / E  < -2
-            if ($peso_edad < -2) {
-                $rTDG = 1;
-            }
-            // P / E  < -2
-            // // // // // // // // // // DESNUTRICIÓN GLOBAL
-
-            // // // // // // // // // // RIESGO DE TALLA BAJA
-            $rTRTB = 0;
-            // Talla / E -2 a < -1
-
-            // Talla / E -2 a < -1
-
-            // No lactancia exclusiva 6 meses
-            if ($respumen1a->lactancia != "Exclusiva") {
-                $rTRTB = $rTRTB + 0.8;
-            }
-            // No lactancia exclusiva 6 meses
-
-            // Insalubridad
-            if ($contambien->riesgos_insalubridad > 1) {
-                $rTRTB = $rTRTB + 0.8;
-            }
-            // Insalubridad
-
-            // Enfermedades infecciosas.
-            if (count($respuenferinte) > 0) {
-                $rTRTB = $rTRTB + 0.8;
-            }
-            // Enfermedades infecciosas.
-
-            // NO agua potable
-            if ($respuvivi->acueducto == "NO") {
-                $rTRTB = $rTRTB + 0.8;
-            }
-            // NO agua potable
-
-            // NBI
-            if ($NBI == "SI") {
-                $rTRTB = $rTRTB + 0.8;
-            }
-            // NBI
-            // // // // // // // // // // RIESGO DE TALLA BAJA
-
-            // // // // // // // // // // TALLA BAJA o retraso de la edad
-            $rTTB = 0;
-            // T / E < -2
-
-            // T / E < -2
-            // // // // // // // // // // TALLA BAJA o retraso de la edad
-
-            // // // // // // // // // // DESNUTRICIÓN AGUDA MODERADA
-            $rTRDAM = 0;
-            // Desnutrición Aguda P/T <-2 a - 3
-
-            // Desnutrición Aguda P/T <-2 a - 3
-
-            // Presencia de Edemas
-            if ($respumen1a->edemas == "SI") {
-
-            }
-            // Presencia de Edemas
-            // // // // // // // // // // DESNUTRICIÓN AGUDA MODERADA
-
-            // // // // // // // // // // DESNUTRICIÓN AGUDA SEVERA.
-            $rTRDAS = 0;
-            // Desnutrición Aguda P/T < - 3
-
-            // Desnutrición Aguda P/T < - 3
-
-            // Presencia de Edemas
-            if ($respumen1a->edemas == "SI") {
-
-            }
-            // Presencia de Edemas
-            // // // // // // // // // // DESNUTRICIÓN AGUDA SEVERA.
-
-            // // // // // // // // // // RIESGO DE MUERTE POR  DESNUTRICIÓN
-            $rTRMPD = 0;
-            // Edemas
-            if ($respumen1a->edemas == "SI") {
-                $rTRMPD = $rTRMPD + 1.5;
-            }
-            // Edemas
-
-            // Cualquier tipo de desnutrición
-
-            // Cualquier tipo de desnutrición
-
-            // Perimetro B   menor a 11,5 cm ( RESOLUCIÓN 5006 - 15)
-            if ($respumen1a->pb < 11.5) {
-                $rTRMPD = $rTRMPD + 3;
-            }
-            // Perimetro B   menor a 11,5 cm ( RESOLUCIÓN 5006 - 15)
-            // // // // // // // // // // RIESGO DE MUERTE POR  DESNUTRICIÓN
-
-            // // // // // // // // // // RIESGO SOBREPESO
-            $rTRS = 0;
-            // P/ T  >+1  a +2
-            if ($respumen1a->peso_long >= 1 && $respumen1a->peso_long <= 2) {
-                $rTRS = $rTRS + 5;
-            }
-            // P/ T  >+1  a +2
-
-            // IMC >+1 a +2
-            // IMC >+1 a +2
-
-            // Sedentarismo
-            if ($respuinte->actividad_fisica == "NO") {
-                $rTRS = $rTRS + 1;
-            }
-            // Sedentarismo
-            // // // // // // // // // // RIESGO SOBREPESO
-
-            // // // // // // // // // // SOBREPESO
-            $rTS = 0;
-            // P/ T > +2  a +3
-            if ($respumen1a->peso_long >= 2 && $respumen1a->peso_long <= 3) {
-                $rTS = 1;
-            }
-            // P/ T > +2  a +3
-
-            // Sedentarismo
-            if ($respuinte->actividad_fisica == "NO") {
-                // $rTS = 1;
-            }
-            // Sedentarismo
-
-            // IMC >+2 a +3
-
-            // IMC >+2 a +3
-
-            // // // // // // // // // // SOBREPESO
-
-            // // // // // // // // // // OBESIDAD
-            $rTO = 0;
-            // P/ T > +3
-            if ($respumen1a->peso_long >= 3) {
-                $rTO = 1;
-            }
-            // P/ T > +3
-
-            // IMC  > +3
-
-            // IMC  > +3
-            // // // // // // // // // // OBESIDAD
-
-            // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
-
-            // // // // // // // // // // Enfermedades Infeccisosas.
-            $rTEI = 0;
-            // Desnutricion Global
-            if ($rTDG == 1) {
-                $rTEI = $rTEI + 0.65;
-            }
-            // Desnutricion Global
-
-            // Desnutrición Aguda
-
-            // Desnutrición Aguda
-
-            // Riesgos de desnutricion
-
-            // Riesgos de desnutricion
-
-            // No vacunación o atrasada.
-            if ($respumen1a->bcg == "NO" || $respumen1a->hepb == "NO" || $respumen1a->polio == "NO" || $respumen1a->pentavalente == "NO") {
-                $rTEI = $rTEI + 0.55;
-            }
-            // No vacunación o atrasada.
-
-            // Plagas en la vivienda
-            if ($respuvivi->plagas == "SI") {
-                $rTEI = $rTEI + 0.55;
-            }
-            // Plagas en la vivienda
-
-            // insalubridad
-            if ($contambien->riesgos_insalubridad > 1) {
-                $rTEI = $rTEI + 0.7;
-            }
-            // insalubridad
-
-            // Baño compartido
-            if ($respuvivi->cuantos_baños <= 1) {
-                $rTEI = $rTEI + 0.55;
-            }
-            // Baño compartido
-
-            // relleno sanitario cerda de la vivienda
-            if ($respuvivi->rellenos == "SI") {
-                $rTEI = $rTEI + 0.55;
-            }
-            // relleno sanitario cerda de la vivienda
-
-            // no lavar la verduras y frutas antes de comer
-
-            // no lavar la verduras y frutas antes de comer
-
-            // Habitante de la vivienda con enfermedad infectocontagiosa
-
-            // Habitante de la vivienda con enfermedad infectocontagiosa
-
-            // Manejo inadecuado  de residuos
-
-            // Manejo inadecuado  de residuos
-
-            // Malas condiciones de la vivienda
-
-            // Malas condiciones de la vivienda
-
-            // No desparacitado
-
-            // No desparacitado
-
-            // Enfermedades inmunosupresoras
-
-            // Enfermedades inmunosupresoras
-
-            // Lotes enmontados
-            if ($respuvivi->lotes_abandonados == "SI") {
-                $rTEI = $rTEI + 0.55;
-            }
-            // Lotes enmontados
-
-            // Ningun tratamiento para el consumo de agua
-            if ($respuvivi->tipo_tratamiento_agua == "NA" || $respuvivi->tipo_tratamiento_agua == "4") {
-                $rTEI = $rTEI + 0.55;
-            }
-            // Ningun tratamiento para el consumo de agua
-
-            // Lactancia exclusiva 6 meses
-            if ($respumen1a->lactancia != "Exclusiva") {
-                $rTEI = $rTEI + 0.55;
-            }
-            // Lactancia exclusiva 6 meses
-
-            // Hacinamiento
-            $hacinamiento = self::hacinamiento($id_hogar);
-            if ($hacinamiento == "SI") {
-                $rTEI = $rTEI + 0.25;
-            }
-            // Hacinamiento
-
-            // No acceso agua potable
-            if ($respuvivi->acueducto == "NO") {
-                $rTEI = $rTEI + 0.55;
-            }
-            // No acceso agua potable
-            // // // // // // // // // // Enfermedades Infeccisosas.
-
-            // // // // // // // // // // TRASTORNOS ASOCIADOS AL USO DE SPA
-            $rTTAUS = 0;
-
-            // Consumo de SPA
-
-            // Consumo de SPA
-
-            // Consumo pasivo de SPA
-            $consufact = \App\Factores::buscarFact(Session::get('alias'), $id_hogar);
-            if ($consufact->sustancias_psico == "SI") {
-                $rTTAUS = $rTTAUS + 1.8;
-            }
-            // Consumo pasivo de SPA
-            // // // // // // // // // // TRASTORNOS ASOCIADOS AL USO DE SPA
-
-            // // // // // // // // // // ENFERMERDAD CARDIOVASCULAR ATEROGÉNICA
-            $rTECA = 0;
-
-            // Sobrepeso
-            if ($rTS == 1) {
-                $rTECA = $rTECA + 0.5;
-            }
-            // Sobrepeso
-
-            // FAMILIARES CON ATENCEDENTES
-
-            // FAMILIARES CON ATENCEDENTES
-
-            // Consumo de alcohol
-
-            // Consumo de alcohol
-
-            // Consumo de SPA
-
-            // Consumo de SPA
-
-            // OBESIDAD
-            if ($rTO == 1) {
-                $rTECA = $rTECA + 1.4;
-            }
-            // OBESIDAD
-
-            // Hipertension arterial
-            $antehipertension = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id, "HIPERTENSION");
-            if ($antehipertension > 0) {
-                $rTECA = $rTECA + 1.5;
-            }
-            // Hipertension arterial
-
-            // Diabetes
-            $antediabetes = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id, "DIABETES");
-            if ($antediabetes > 0) {
-                $rTECA = $rTECA + 1;
-            }
-            // Diabetes
-
-            // Hiperlipemias
-
-            // Hiperlipemias
-            // // // // // // // // // // ENFERMERDAD CARDIOVASCULAR ATEROGÉNICA
-
-            // // // // // // // // // // Cancer
-            $rTC = 0;
-            // Antecedentes en familiares
-            $antecancer = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "CANCER");
-            if ($antecancer > 0) {
-                $rTC = $rTC + 2;
-            }
-            // Antecedentes en familiares
-
-            // Contaminación ambiental
-            if ($contambien->control_riesgos_atmosferico > 1) {
-                $rTC = $rTC + 0.5;
-            }
-            // Contaminación ambiental
-
-            // consumo de tabaco o spa pasivo
-            if ($consufact->tabaco == "SI" || $consufact->sustancias_psico == "SI") {
-                $rTC = $rTC + 1;
-            }
-            // consumo de tabaco o spa pasivo
-
-            // Obesidad
-            if ($rTO == 1) {
-                $rTC = $rTC + 1;
-            }
-            // Obesidad
-
-            // consumos de tabaco. Alcoholismos, spa
-
-            // consumos de tabaco. Alcoholismos, spa
-
-            // VIH
-            $vih = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id, "VIH");
-            if ($vih > 0) {
-                $rTC = $rTC + 1;
-            }
-            // VIH
-            // // // // // // // // // // Cancer
-
-            // // // // // // // // // // Alteraciones y transtornos visuales
-            $rTATV = 0;
-            // Antecedentes familiares
-            $antealteraciones = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "ALTERACIONES");
-            if ($antealteraciones > 0) {
-                $rTATV = $rTATV + 2;
-            }
-            // Antecedentes familiares
-
-            // Hipertension arterial
-            if ($antehipertension > 0) {
-                $rTATV = $rTATV + 1;
-            }
-            // Hipertension arterial
-
-            // DESnutricion
-            if ($rTDG == 1) {
-                $rTATV = $rTATV + 1;
-            }
-            // DESnutricion
-
-            // Deabetes
-            if ($antediabetes > 0) {
-                $rTATV = $rTATV + 1;
-            }
-            // Deabetes
-
-            // Consumo de alcohol
-
-            // Consumo de alcohol
-            // // // // // // // // // // Alteraciones y transtornos visuales
-
-            // // // // // // // // // // ALTERACIONES Y TRASTORNOS DE LA AUDICIÓN Y COMUNICACIÓN
-            $rTATAC = 0;
-            // antecedente familiar
-            $antealteracionesaud = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "ALTERACIONESAUD");
-            if ($antealteracionesaud > 0) {
-                $rTATAC = $rTATAC + 1.75;
-            }
-            // antecedente familiar
-
-            // Exposicion a contaminación auditiva
-            if ($contambien->riesgos_auditivo > 1) {
-                $rTATAC = $rTATAC + 1.75;
-            }
-            // Exposicion a contaminación auditiva
-
-            // Infecciones crónicas de oidos
-            $enferoidos = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id, "OIDOS");
-            if ($enferoidos > 0) {
-                $rTATAC = $rTATAC + 1.75;
-            }
-            // Infecciones crónicas de oidos
-
-            // Desnutrición global
-            if ($rTDG == 1) {
-                $rTATAC = $rTATAC + 1.75;
-            }
-            // Desnutrición global
-            // // // // // // // // // // ALTERACIONES Y TRASTORNOS DE LA AUDICIÓN Y COMUNICACIÓN
-
-            // // // // // // // // // // Salud Bucal
-            $rTSB = 0;
-            // Pobreza
-
-            // Pobreza
-
-            // Sin acceso a servicios odontologicos
-
-            // Sin acceso a servicios odontologicos
-
-            // Malos hábitos de higiene oral
-
-            // Malos hábitos de higiene oral
-
-            // no aplicación de barniz de fluor
-
-            // no aplicación de barniz de fluor
-
-            // Consumo de tabaco
-
-            // Consumo de tabaco
-            // // // // // // // // // // Salud Bucal
-
-            // // // // // // // // // // PROBLEMAS EN SALUD MENTAL
-            $rTSM = 0;
-            // Antecedente familiar
-            $antesaludmental = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "SALUDMENTAL");
-            if ($antesaludmental > 0) {
-                $rTSM = $rTSM + 1.4;
-            }
-            // Antecedente familiar
-
-            // Mala relación con los familiares
-
-            // Mala relación con los familiares
-
-            // Problemas de conducta
-            if ($respumen1a->conducta != "SI") {
-                $rTSM = $rTSM + 1.4;
-            }
-            // Problemas de conducta
-
-            // consumo de alcoho, spa, tabaco
-
-            // consumo de alcoho, spa, tabaco
-
-            // Violencia intrafamiliar
-
-            // Violencia intrafamiliar
-            // // // // // // // // // // PROBLEMAS EN SALUD MENTAL
-
-            // // // // // // // // // // VIOLENCIAS
-            $rTV = 0;
-            // Violencia intrafamiliar  ( materializado)
-
-            // Violencia intrafamiliar  ( materializado)
-
-            // Transtornos mentales
-            $anteconducta = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id, "CONDUCTA");
-            if ($anteconducta > 0) {
-                $rTV = $rTV + 1.4;
-            }
-            // Transtornos mentales
-
-            // Problemas de conducta
-            if ($respumen1a->conducta != "SI") {
-                $rTV = $rTV + 1.4;
-            }
-            // Problemas de conducta
-
-            // Señales de violencia
-
-            // Señales de violencia
-
-            // padres con consumo de SPA y o  Alcohol
-            if ($consufact->alcohol == "SI" || $consufact->sustancias_psico == "SI") {
-                $rTV = $rTV + 1.8;
-            }
-            // padres con consumo de SPA y o  Alcohol
-
-            // Mala relacion con familiares
-
-            // Mala relacion con familiares
-            // // // // // // // // // // VIOLENCIAS
-
-            // // // // // // // // // // Enfermedades Respiratorias  crónicas
-            $rTERC = 0;
-            // ViVienda Cocina con leña o carbón
-            if ($respuvivi->tipo_combustible == "3" || $respuvivi->tipo_combustible == "4") {
-                $rTERC = $rTERC + 2.2;
-            }
-            // ViVienda Cocina con leña o carbón
-
-            // Antecedentes familiares de enfermedades respiratorias cronicas
-            $anteenferrespi = \App\AntecedentesIntegrantes::buscarAntePorId(Session::get('alias'), $id_hogar, "ENFERRESPI", $respuinte->id);
-            if ($anteenferrespi > 0) {
-                $rTERC = $rTERC + 1;
-            }
-            // Antecedentes familiares de enfermedades respiratorias cronicas
-
-            // Contaminación ambiental
-            if ($contambien->control_riesgos_atmosferico > 1) {
-                $rTERC = $rTERC + 1;
-            }
-            // Contaminación ambiental
+                // Sedentarismo
+                if ($respuinte->actividad_fisica == "NO") {
+                    // $rTS = 1;
+                }
+                // Sedentarismo
 
-            // consumo de tabaco y SPA
-
-            // consumo de tabaco y SPA
-
-            // Consumo pasivo de humo de tabaco o SPA
-            if ($consufact->tabaco == "SI" || $consufact->sustancias_psico == "SI") {
-                $rTERC = $rTERC + 1.4;
-            }
-            // Consumo pasivo de humo de tabaco o SPA
-            // // // // // // // // // // Enfermedades Respiratorias  crónicas
-
-            // // // // // // // // // // ENFERMEDADES ZOONOTICAS
-            $rTEZ = 0;
-            // Cria de animales (mas de 2  domesticos)
-            $anidomes = \App\Animal::buscar(Session::get('alias'), $id_hogar);
-            if (count($anidomes) > 2) {
-                $rTEZ = $rTEZ + 1.8;
-            }
-            // Cria de animales (mas de 2  domesticos)
-
-            // No vacunación de animales
-            $anidomesvacuna = \App\Animal::buscarVacunados(Session::get('alias'), $id_hogar);
-            if (count($anidomesvacuna) > 2) {
-                $rTEZ = $rTEZ + 1.2;
-            }
-            // No vacunación de animales
-
-            // Consumo de agua no potable.
-            if ($respuvivi->tipo_tratamiento_agua == "NA" || $respuvivi->tipo_tratamiento_agua == "4") {
-                $rTEZ = $rTEZ + 1.2;
-            }
-            // Consumo de agua no potable.
-
-            // Manejo de residuos
-            if ($respuvivi->destino_final_basura != "1" || $respuvivi->almacenamiento_residuos != "SI") {
-                $rTEZ = $rTEZ + 0.9;
-            }
-            // Manejo de residuos
-
-            // No inmunizado
-            if ($respumen1a->bcg == "NO" || $respumen1a->hepb == "NO" || $respumen1a->polio == "NO" || $respumen1a->pentavalente == "NO") {
-                $rTEZ = $rTEZ + 0.9;
-            }
-            // No inmunizado
-
-            // NBI
-            if ($NBI == "SI") {
-                $rTEZ = $rTEZ + 0.9;
-            }
-            // NBI
-
-            // Lotes abandonados
-            if ($respuvivi->lotes_abandonados == "SI") {
-                $rTEZ = $rTEZ + 0.9;
-            }
-            // Lotes abandonados
+                // IMC >+2 a +3
+
+                // IMC >+2 a +3
 
-            // no Desparacitación
+                // // // // // // // // // // SOBREPESO
+
+                // // // // // // // // // // OBESIDAD
+                $rTO = 0;
+                // P/ T > +3
+                if ($respumen1a->peso_long >= 3) {
+                    $rTO = 1;
+                }
+                // P/ T > +3
+
+                // IMC  > +3
+
+                // IMC  > +3
+                // // // // // // // // // // OBESIDAD
+
+                // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
+
+                // // // // // // // // // // Enfermedades Infeccisosas.
+                $rTEI = 0;
+                // Desnutricion Global
+                if ($rTDG == 1) {
+                    $rTEI = $rTEI + 0.65;
+                }
+                // Desnutricion Global
+
+                // Desnutrición Aguda
+
+                // Desnutrición Aguda
+
+                // Riesgos de desnutricion
+
+                // Riesgos de desnutricion
+
+                // No vacunación o atrasada.
+                if ($respumen1a->bcg == "NO" || $respumen1a->hepb == "NO" || $respumen1a->polio == "NO" || $respumen1a->pentavalente == "NO") {
+                    $rTEI = $rTEI + 0.55;
+                }
+                // No vacunación o atrasada.
+
+                // Plagas en la vivienda
+                if ($respuvivi->plagas == "SI") {
+                    $rTEI = $rTEI + 0.55;
+                }
+                // Plagas en la vivienda
+
+                // insalubridad
+                if ($contambien->riesgos_insalubridad > 1) {
+                    $rTEI = $rTEI + 0.7;
+                }
+                // insalubridad
+
+                // Baño compartido
+                if ($respuvivi->cuantos_baños <= 1) {
+                    $rTEI = $rTEI + 0.55;
+                }
+                // Baño compartido
 
-            // no Desparacitación
+                // relleno sanitario cerda de la vivienda
+                if ($respuvivi->rellenos == "SI") {
+                    $rTEI = $rTEI + 0.55;
+                }
+                // relleno sanitario cerda de la vivienda
 
-            // Mal estado de la vivienda
-            if ($respuvivi->material_predominante == "5" || $respuvivi->material_predominante == "7"
-                || $respuvivi->tipo_estructura == "5" || $respuvivi->tipo_cubierta == "2"
-                || $respuvivi->tipo_cubierta == "6" || $respuvivi->tipo_cubierta == "8" || $respuvivi->tipo_cubierta == "9") {
-                $rTEZ = $rTEZ + 0.9;
-            }
-            // Mal estado de la vivienda
-            // // // // // // // // // // ENFERMEDADES ZOONOTICAS
-
-            // // // // // // // // // // TRASTORNOS DEGENERATIVOS, NEUROPATÍAS Y ENF AUTOINMUNE
-            $rTTDNEA = 0;
-            // Antecedente familiar
-            $antetranstornos = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "TRANSTORNOS");
-            if ($antetranstornos > 0) {
-                $rTTDNEA = $rTTDNEA + 1.35;
-            }
-            // Antecedente familiar
-
-            // Problemas de lenguaje
-            if ($respumen1a->lenguaje == "SI") {
-                $rTTDNEA = $rTTDNEA + 1.1;
-            }
-            // Problemas de lenguaje
-
-            // contaminación ambiental
-            if ($contambien->control_riesgos_atmosferico > 1) {
-                $rTTDNEA = $rTTDNEA + 1.1;
-            }
-            // contaminación ambiental
-
-            // Problemas de motricidad
-            if ($respumen1a->motora == "SI") {
-                $rTTDNEA = $rTTDNEA + 1.35;
+                // no lavar la verduras y frutas antes de comer
+
+                // no lavar la verduras y frutas antes de comer
+
+                // Habitante de la vivienda con enfermedad infectocontagiosa
+
+                // Habitante de la vivienda con enfermedad infectocontagiosa
+
+                // Manejo inadecuado  de residuos
+
+                // Manejo inadecuado  de residuos
+
+                // Malas condiciones de la vivienda
+
+                // Malas condiciones de la vivienda
+
+                // No desparacitado
+
+                // No desparacitado
+
+                // Enfermedades inmunosupresoras
+
+                // Enfermedades inmunosupresoras
+
+                // Lotes enmontados
+                if ($respuvivi->lotes_abandonados == "SI") {
+                    $rTEI = $rTEI + 0.55;
+                }
+                // Lotes enmontados
+
+                // Ningun tratamiento para el consumo de agua
+                if ($respuvivi->tipo_tratamiento_agua == "NA" || $respuvivi->tipo_tratamiento_agua == "4") {
+                    $rTEI = $rTEI + 0.55;
+                }
+                // Ningun tratamiento para el consumo de agua
+
+                // Lactancia exclusiva 6 meses
+                if ($respumen1a->lactancia != "Exclusiva") {
+                    $rTEI = $rTEI + 0.55;
+                }
+                // Lactancia exclusiva 6 meses
+
+                // Hacinamiento
+                $hacinamiento = self::hacinamiento($id_hogar);
+                if ($hacinamiento == "SI") {
+                    $rTEI = $rTEI + 0.25;
+                }
+                // Hacinamiento
+
+                // No acceso agua potable
+                if ($respuvivi->acueducto == "NO") {
+                    $rTEI = $rTEI + 0.55;
+                }
+                // No acceso agua potable
+                // // // // // // // // // // Enfermedades Infeccisosas.
+
+                // // // // // // // // // // TRASTORNOS ASOCIADOS AL USO DE SPA
+                $rTTAUS = 0;
+
+                // Consumo de SPA
+
+                // Consumo de SPA
+
+                // Consumo pasivo de SPA
+                $consufact = \App\Factores::buscarFact(Session::get('alias'), $id_hogar);
+                if ($consufact->sustancias_psico == "SI") {
+                    $rTTAUS = $rTTAUS + 1.8;
+                }
+                // Consumo pasivo de SPA
+                // // // // // // // // // // TRASTORNOS ASOCIADOS AL USO DE SPA
+
+                // // // // // // // // // // ENFERMERDAD CARDIOVASCULAR ATEROGÉNICA
+                $rTECA = 0;
+
+                // Sobrepeso
+                if ($rTS == 1) {
+                    $rTECA = $rTECA + 0.5;
+                }
+                // Sobrepeso
+
+                // FAMILIARES CON ATENCEDENTES
+
+                // FAMILIARES CON ATENCEDENTES
+
+                // Consumo de alcohol
+
+                // Consumo de alcohol
+
+                // Consumo de SPA
+
+                // Consumo de SPA
+
+                // OBESIDAD
+                if ($rTO == 1) {
+                    $rTECA = $rTECA + 1.4;
+                }
+                // OBESIDAD
+
+                // Hipertension arterial
+                $antehipertension = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id, "HIPERTENSION");
+                if ($antehipertension > 0) {
+                    $rTECA = $rTECA + 1.5;
+                }
+                // Hipertension arterial
+
+                // Diabetes
+                $antediabetes = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id, "DIABETES");
+                if ($antediabetes > 0) {
+                    $rTECA = $rTECA + 1;
+                }
+                // Diabetes
+
+                // Hiperlipemias
+
+                // Hiperlipemias
+                // // // // // // // // // // ENFERMERDAD CARDIOVASCULAR ATEROGÉNICA
+
+                // // // // // // // // // // Cancer
+                $rTC = 0;
+                // Antecedentes en familiares
+                $antecancer = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "CANCER");
+                if ($antecancer > 0) {
+                    $rTC = $rTC + 2;
+                }
+                // Antecedentes en familiares
+
+                // Contaminación ambiental
+                if ($contambien->control_riesgos_atmosferico > 1) {
+                    $rTC = $rTC + 0.5;
+                }
+                // Contaminación ambiental
+
+                // consumo de tabaco o spa pasivo
+                if ($consufact->tabaco == "SI" || $consufact->sustancias_psico == "SI") {
+                    $rTC = $rTC + 1;
+                }
+                // consumo de tabaco o spa pasivo
+
+                // Obesidad
+                if ($rTO == 1) {
+                    $rTC = $rTC + 1;
+                }
+                // Obesidad
+
+                // consumos de tabaco. Alcoholismos, spa
+
+                // consumos de tabaco. Alcoholismos, spa
+
+                // VIH
+                $vih = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id, "VIH");
+                if ($vih > 0) {
+                    $rTC = $rTC + 1;
+                }
+                // VIH
+                // // // // // // // // // // Cancer
+
+                // // // // // // // // // // Alteraciones y transtornos visuales
+                $rTATV = 0;
+                // Antecedentes familiares
+                $antealteraciones = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "ALTERACIONES");
+                if ($antealteraciones > 0) {
+                    $rTATV = $rTATV + 2;
+                }
+                // Antecedentes familiares
+
+                // Hipertension arterial
+                if ($antehipertension > 0) {
+                    $rTATV = $rTATV + 1;
+                }
+                // Hipertension arterial
+
+                // DESnutricion
+                if ($rTDG == 1) {
+                    $rTATV = $rTATV + 1;
+                }
+                // DESnutricion
+
+                // Deabetes
+                if ($antediabetes > 0) {
+                    $rTATV = $rTATV + 1;
+                }
+                // Deabetes
+
+                // Consumo de alcohol
+
+                // Consumo de alcohol
+                // // // // // // // // // // Alteraciones y transtornos visuales
+
+                // // // // // // // // // // ALTERACIONES Y TRASTORNOS DE LA AUDICIÓN Y COMUNICACIÓN
+                $rTATAC = 0;
+                // antecedente familiar
+                $antealteracionesaud = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "ALTERACIONESAUD");
+                if ($antealteracionesaud > 0) {
+                    $rTATAC = $rTATAC + 1.75;
+                }
+                // antecedente familiar
+
+                // Exposicion a contaminación auditiva
+                if ($contambien->riesgos_auditivo > 1) {
+                    $rTATAC = $rTATAC + 1.75;
+                }
+                // Exposicion a contaminación auditiva
+
+                // Infecciones crónicas de oidos
+                $enferoidos = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id, "OIDOS");
+                if ($enferoidos > 0) {
+                    $rTATAC = $rTATAC + 1.75;
+                }
+                // Infecciones crónicas de oidos
+
+                // Desnutrición global
+                if ($rTDG == 1) {
+                    $rTATAC = $rTATAC + 1.75;
+                }
+                // Desnutrición global
+                // // // // // // // // // // ALTERACIONES Y TRASTORNOS DE LA AUDICIÓN Y COMUNICACIÓN
+
+                // // // // // // // // // // Salud Bucal
+                $rTSB = 0;
+                // Pobreza
+
+                // Pobreza
+
+                // Sin acceso a servicios odontologicos
+
+                // Sin acceso a servicios odontologicos
+
+                // Malos hábitos de higiene oral
+
+                // Malos hábitos de higiene oral
+
+                // no aplicación de barniz de fluor
+
+                // no aplicación de barniz de fluor
+
+                // Consumo de tabaco
+
+                // Consumo de tabaco
+                // // // // // // // // // // Salud Bucal
+
+                // // // // // // // // // // PROBLEMAS EN SALUD MENTAL
+                $rTSM = 0;
+                // Antecedente familiar
+                $antesaludmental = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "SALUDMENTAL");
+                if ($antesaludmental > 0) {
+                    $rTSM = $rTSM + 1.4;
+                }
+                // Antecedente familiar
+
+                // Mala relación con los familiares
+
+                // Mala relación con los familiares
+
+                // Problemas de conducta
+                if ($respumen1a->conducta != "SI") {
+                    $rTSM = $rTSM + 1.4;
+                }
+                // Problemas de conducta
+
+                // consumo de alcoho, spa, tabaco
+
+                // consumo de alcoho, spa, tabaco
+
+                // Violencia intrafamiliar
+
+                // Violencia intrafamiliar
+                // // // // // // // // // // PROBLEMAS EN SALUD MENTAL
+
+                // // // // // // // // // // VIOLENCIAS
+                $rTV = 0;
+                // Violencia intrafamiliar  ( materializado)
+
+                // Violencia intrafamiliar  ( materializado)
+
+                // Transtornos mentales
+                $anteconducta = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id, "CONDUCTA");
+                if ($anteconducta > 0) {
+                    $rTV = $rTV + 1.4;
+                }
+                // Transtornos mentales
+
+                // Problemas de conducta
+                if ($respumen1a->conducta != "SI") {
+                    $rTV = $rTV + 1.4;
+                }
+                // Problemas de conducta
+
+                // Señales de violencia
+
+                // Señales de violencia
+
+                // padres con consumo de SPA y o  Alcohol
+                if ($consufact->alcohol == "SI" || $consufact->sustancias_psico == "SI") {
+                    $rTV = $rTV + 1.8;
+                }
+                // padres con consumo de SPA y o  Alcohol
+
+                // Mala relacion con familiares
+
+                // Mala relacion con familiares
+                // // // // // // // // // // VIOLENCIAS
+
+                // // // // // // // // // // Enfermedades Respiratorias  crónicas
+                $rTERC = 0;
+                // ViVienda Cocina con leña o carbón
+                if ($respuvivi->tipo_combustible == "3" || $respuvivi->tipo_combustible == "4") {
+                    $rTERC = $rTERC + 2.2;
+                }
+                // ViVienda Cocina con leña o carbón
+
+                // Antecedentes familiares de enfermedades respiratorias cronicas
+                $anteenferrespi = \App\AntecedentesIntegrantes::buscarAntePorId(Session::get('alias'), $id_hogar, "ENFERRESPI", $respuinte->id);
+                if ($anteenferrespi > 0) {
+                    $rTERC = $rTERC + 1;
+                }
+                // Antecedentes familiares de enfermedades respiratorias cronicas
+
+                // Contaminación ambiental
+                if ($contambien->control_riesgos_atmosferico > 1) {
+                    $rTERC = $rTERC + 1;
+                }
+                // Contaminación ambiental
+
+                // consumo de tabaco y SPA
+
+                // consumo de tabaco y SPA
+
+                // Consumo pasivo de humo de tabaco o SPA
+                if ($consufact->tabaco == "SI" || $consufact->sustancias_psico == "SI") {
+                    $rTERC = $rTERC + 1.4;
+                }
+                // Consumo pasivo de humo de tabaco o SPA
+                // // // // // // // // // // Enfermedades Respiratorias  crónicas
+
+                // // // // // // // // // // ENFERMEDADES ZOONOTICAS
+                $rTEZ = 0;
+                // Cria de animales (mas de 2  domesticos)
+                $anidomes = \App\Animal::buscar(Session::get('alias'), $id_hogar);
+                if (count($anidomes) > 2) {
+                    $rTEZ = $rTEZ + 1.8;
+                }
+                // Cria de animales (mas de 2  domesticos)
+
+                // No vacunación de animales
+                $anidomesvacuna = \App\Animal::buscarVacunados(Session::get('alias'), $id_hogar);
+                if (count($anidomesvacuna) > 2) {
+                    $rTEZ = $rTEZ + 1.2;
+                }
+                // No vacunación de animales
+
+                // Consumo de agua no potable.
+                if ($respuvivi->tipo_tratamiento_agua == "NA" || $respuvivi->tipo_tratamiento_agua == "4") {
+                    $rTEZ = $rTEZ + 1.2;
+                }
+                // Consumo de agua no potable.
+
+                // Manejo de residuos
+                if ($respuvivi->destino_final_basura != "1" || $respuvivi->almacenamiento_residuos != "SI") {
+                    $rTEZ = $rTEZ + 0.9;
+                }
+                // Manejo de residuos
+
+                // No inmunizado
+                if ($respumen1a->bcg == "NO" || $respumen1a->hepb == "NO" || $respumen1a->polio == "NO" || $respumen1a->pentavalente == "NO") {
+                    $rTEZ = $rTEZ + 0.9;
+                }
+                // No inmunizado
+
+                // NBI
+                if ($NBI == "SI") {
+                    $rTEZ = $rTEZ + 0.9;
+                }
+                // NBI
+
+                // Lotes abandonados
+                if ($respuvivi->lotes_abandonados == "SI") {
+                    $rTEZ = $rTEZ + 0.9;
+                }
+                // Lotes abandonados
+
+                // no Desparacitación
+
+                // no Desparacitación
+
+                // Mal estado de la vivienda
+                if ($respuvivi->material_predominante == "5" || $respuvivi->material_predominante == "7"
+                    || $respuvivi->tipo_estructura == "5" || $respuvivi->tipo_cubierta == "2"
+                    || $respuvivi->tipo_cubierta == "6" || $respuvivi->tipo_cubierta == "8" || $respuvivi->tipo_cubierta == "9") {
+                    $rTEZ = $rTEZ + 0.9;
+                }
+                // Mal estado de la vivienda
+                // // // // // // // // // // ENFERMEDADES ZOONOTICAS
+
+                // // // // // // // // // // TRASTORNOS DEGENERATIVOS, NEUROPATÍAS Y ENF AUTOINMUNE
+                $rTTDNEA = 0;
+                // Antecedente familiar
+                $antetranstornos = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "TRANSTORNOS");
+                if ($antetranstornos > 0) {
+                    $rTTDNEA = $rTTDNEA + 1.35;
+                }
+                // Antecedente familiar
+
+                // Problemas de lenguaje
+                if ($respumen1a->lenguaje == "SI") {
+                    $rTTDNEA = $rTTDNEA + 1.1;
+                }
+                // Problemas de lenguaje
+
+                // contaminación ambiental
+                if ($contambien->control_riesgos_atmosferico > 1) {
+                    $rTTDNEA = $rTTDNEA + 1.1;
+                }
+                // contaminación ambiental
+
+                // Problemas de motricidad
+                if ($respumen1a->motora == "SI") {
+                    $rTTDNEA = $rTTDNEA + 1.35;
+                }
+                // Problemas de motricidad
+
+                // perimetro cefalico > +2 o <- 2
+                $per_cef = self::CalculosPerimetros("PERIMETROCEFALICO", $respuinte->fecha_nac, $respuinte->sexo, $respumen1a);
+                if ($per_cef < -2 || $per_cef > 2) {
+                    $rTTDNEA = $rTTDNEA + 2.1;
+                }
+                // perimetro cefalico > +2 o <- 2
+                // // // // // // // // // // TRASTORNOS DEGENERATIVOS, NEUROPATÍAS Y ENF AUTOINMUNE
+
+                // // // // // // // // // // CONSUMO DE SPA
+                $rTCDS = 0;
+                // Problemas de conducta
+                if ($respumen1a->conducta == "SI") {
+                    $rTCDS = $rTCDS + 1;
+                }
+                // Problemas de conducta
+
+                // consumos de SPA en la vivienda.
+                if ($consufact->sustancias_psico == "SI") {
+                    $rTCDS = $rTCDS + 3;
+                }
+                // consumos de SPA en la vivienda.
+
+                // Violencia intrafamiliar
+                if ($respumen1a->maltrato == "SI") {
+                    $rTCDS = $rTCDS + 1;
+                }
+                // Violencia intrafamiliar
+
+                // Enfermedad mental
+                if ($anteconducta > 0) {
+                    $rTCDS = $rTCDS + 2;
+                }
+                // Enfermedad mental
+                // // // // // // // // // // CONSUMO DE SPA
+
+                $datos["enfermedades_infecciosas_I"] = $rTEI;
+                $datos["transtornos_asociados_spa_I"] = $rTTAUS;
+                $datos["enfermedad_cardiovascular_I"] = $rTECA;
+                $datos["cancer_I"] = $rTC;
+                $datos["alteraciones_transtornos_visuales_I"] = $rTATV;
+                $datos["alteraciones_transtornos_audicion_I"] = $rTATAC;
+                $datos["salud_bucal_I"] = $rTSB;
+                $datos["problemas_salud_mental_I"] = $rTSM;
+                $datos["violencias_I"] = $rTV;
+                $datos["enfermedades_respiratorias_I"] = $rTERC;
+                $datos["enfermedades_zoonoticas_I"] = $rTEZ;
+                $datos["transtornos_degenartivos_I"] = $rTTDNEA;
+                $datos["consumo_spa_I"] = $rTCDS;
+
+                $datos["riesgos_desnutricion_aguda_I"] = $rTRDA;
+                $datos["riesgos_desnutricion_global_I"] = $rTRDG;
+                $datos["desnutricion_global_I"] = $rTDG;
+                $datos["riesgo_talla_baja_I"] = $rTRTB;
+                $datos["talla_baja_retraso_I"] = $rTTB;
+                $datos["desnutricion_aguda_moderada_I"] = $rTRDAM;
+                $datos["desnutricion_aguda_severa_I"] = $rTRDAS;
+                $datos["riesgo_muerte_I"] = $rTRMPD;
+                $datos["riesgo_sobrepeso_I"] = $rTRS;
+                $datos["sobrepeso_I"] = $rTS;
+                $datos["obesidad_I"] = $rTO;
+                $resultado = self::calculosSaludInherente($datos, "MEN1", $id_hogar, $respumen1a->id_integrante);
+                // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
             }
-            // Problemas de motricidad
-
-            // perimetro cefalico > +2 o <- 2
-            $per_cef = self::CalculosPerimetros("PERIMETROCEFALICO", $respuinte->fecha_nac, $respuinte->sexo, $respumen1a);
-            if ($per_cef < -2 || $per_cef > 2) {
-                $rTTDNEA = $rTTDNEA + 2.1;
-            }
-            // perimetro cefalico > +2 o <- 2
-            // // // // // // // // // // TRASTORNOS DEGENERATIVOS, NEUROPATÍAS Y ENF AUTOINMUNE
-
-            // // // // // // // // // // CONSUMO DE SPA
-            $rTCDS = 0;
-            // Problemas de conducta
-            if ($respumen1a->conducta == "SI") {
-                $rTCDS = $rTCDS + 1;
-            }
-            // Problemas de conducta
-
-            // consumos de SPA en la vivienda.
-            if ($consufact->sustancias_psico == "SI") {
-                $rTCDS = $rTCDS + 3;
-            }
-            // consumos de SPA en la vivienda.
-
-            // Violencia intrafamiliar
-            if ($respumen1a->maltrato == "SI") {
-                $rTCDS = $rTCDS + 1;
-            }
-            // Violencia intrafamiliar
-
-            // Enfermedad mental
-            if ($anteconducta > 0) {
-                $rTCDS = $rTCDS + 2;
-            }
-            // Enfermedad mental
-            // // // // // // // // // // CONSUMO DE SPA
-
-            $datos["enfermedades_infecciosas_I"] = $rTEI;
-            $datos["transtornos_asociados_spa_I"] = $rTTAUS;
-            $datos["enfermedad_cardiovascular_I"] = $rTECA;
-            $datos["cancer_I"] = $rTC;
-            $datos["alteraciones_transtornos_visuales_I"] = $rTATV;
-            $datos["alteraciones_transtornos_audicion_I"] = $rTATAC;
-            $datos["salud_bucal_I"] = $rTSB;
-            $datos["problemas_salud_mental_I"] = $rTSM;
-            $datos["violencias_I"] = $rTV;
-            $datos["enfermedades_respiratorias_I"] = $rTERC;
-            $datos["enfermedades_zoonoticas_I"] = $rTEZ;
-            $datos["transtornos_degenartivos_I"] = $rTTDNEA;
-            $datos["consumo_spa_I"] = $rTCDS;
-
-            $datos["riesgos_desnutricion_aguda_I"] = $rTRDA;
-            $datos["riesgos_desnutricion_global_I"] = $rTRDG;
-            $datos["desnutricion_global_I"] = $rTDG;
-            $datos["riesgo_talla_baja_I"] = $rTRTB;
-            $datos["talla_baja_retraso_I"] = $rTTB;
-            $datos["desnutricion_aguda_moderada_I"] = $rTRDAM;
-            $datos["desnutricion_aguda_severa_I"] = $rTRDAS;
-            $datos["riesgo_muerte_I"] = $rTRMPD;
-            $datos["riesgo_sobrepeso_I"] = $rTRS;
-            $datos["sobrepeso_I"] = $rTS;
-            $datos["obesidad_I"] = $rTO;
-            $resultado = self::calculosSaludInherente($datos, "MEN1", $id_hogar, $respumen1a->id_integrante);
-            // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
-
         }
         // // // // // // // // // // Men1A // // // // // // // // // //
 
@@ -10891,795 +10921,796 @@ class CaracterizacionController extends Controller
         if ($opcion == "De1A5") {
             $respuinte = \App\Integrante::buscar($identificacion, Session::get('alias'));
             $respude1a5 = \App\De1a5::buscarPorIdentificacion(Session::get('alias'), $identificacion);
-
+            if($respude1a5){
             // // // // // // // // // // RIESGO DESNUTRICIÓN Aguda
-            $rTRDA = 0;
-            // No lactancia exclusiva 6 meses
-
-            // No lactancia exclusiva 6 meses
-
-            // Clasificación antropométrica entre las líneas de P/T  -2 a < -1
-            if ($respude1a5->pt >= -2 && $respude1a5->pt <= -1) {
-                $rTRDA = $rTRDA + 3;
-            }
-            // Clasificación antropométrica entre las líneas de P/T  -2 a < -1
-
-            // NO agua potable
-            if ($respuvivi->acueducto == "NO") {
-                $rTRDA = $rTRDA + 0.3;
-            }
-            // NO agua potable
-
-            // Bajo peso al nacer
-
-            // Bajo peso al nacer
-
-            // Presencia de Edemas
-
-            // Presencia de Edemas
-
-            // perdida de peso en ultimos 3 meses
-            if ($respuinte->perdida_peso == "SI") {
-                $rTRDA = $rTRDA + 0.3;
-            }
-            // perdida de peso en ultimos 3 meses
-
-            // Bajo nivel educativo jefe del hogar
-            $niveleducativojefe = \App\Caracterizacion::NivelEducativoJefes(Session::get('alias'), $id_hogar);
-            if ($niveleducativojefe > 0) {
-                $rTRDA = $rTRDA + 0.3;
-            }
-            // Bajo nivel educativo jefe del hogar
-
-            // Enfermedades infecciosas
-            $respuenferinte = \App\EnfermedadesIntegrantes::buscarInfecciosas(Session::get('alias'), $respuinte->id);
-            if (count($respuenferinte) > 0) {
-                $rTRDA = $rTRDA + 0.3;
-            }
-            // Enfermedades infecciosas
-
-            // Perimetro del brazo  -1 a -2
-            if ($respude1a5->pb >= -1 && $respude1a5->pb <= -2) {
-                $rTRDA = $rTRDA + 1;
-            }
-            // Perimetro del brazo  -1 a -2
-            // // // // // // // // // // RIESGO DESNUTRICIÓN Aguda
-
-            // // // // // // // // // // RIESGO DESNUTRICIÓN GLOBAL
-            $rTRDG = 0;
-            // Enfermedades infecciosas
-            if (count($respuenferinte) > 0) {
-                $rTRDG = $rTRDG + 0.6;
-            }
-            // Enfermedades infecciosas
-
-            // Insalubridad en la vivienda
-            $contambien = \App\RiesgosAmbientales::buscar(Session::get('alias'), $id_hogar);
-            if ($contambien->riesgos_insalubridad > 1) {
-                $rTRDG = $rTRDG + 0.6;
-            }
-            // Insalubridad en la vivienda
-
-            // NBI
-            $NBI = self::calcularNBI($id_hogar);
-            if ($NBI == "SI") {
-                $rTRDG = $rTRDG + 1;
-            }
-            // NBI
-
-            // Bajo peso al nacer
-            if ($respude1a5->peso <= "2.5") {
-                $rTRDG = $rTRDG + 0.6;
-            }
-            // Bajo peso al nacer
-
-            // NO agua potable
-            if ($respuvivi->acueducto == "NO") {
-                $rTRDG = $rTRDG + 0.6;
-            }
-            // NO agua potable
-
-            // presencia de edemas
-
-            // presencia de edemas
-
-            // P / E -2 a < -1
-            $peso_edad = self::CalculosPerimetros("PESOEDAD2", $respuinte->fecha_nac, $respuinte->sexo, $respude1a5);
-            if ($peso_edad < -2 || $peso_edad > 2) {
-                $rTRDG = $rTRDG + 3;
-            }
-            // P / E -2 a < -1
-            // // // // // // // // // // RIESGO DESNUTRICIÓN GLOBAL
-
-            // // // // // // // // // // DESNUTRICIÓN GLOBAL
-            $rTDG = 0;
-
-            // P / E  < -2
-            if ($peso_edad < -2) {
-                $rTDG = 1;
-            }
-            // P / E  < -2
-            // // // // // // // // // // DESNUTRICIÓN GLOBAL
-
-            // // // // // // // // // // RIESGO DE TALLA BAJA
-            $rTRTB = 0;
-            // Talla / E -2 a < -1
-            if ($respude1a5->te >= -1 && $respude1a5->te <= -2) {
-                $rTRTB = $rTRTB + 3;
-            }
-            // Talla / E -2 a < -1
-
-            // No lactancia exclusiva 6 meses
-
-            // No lactancia exclusiva 6 meses
-
-            // Insalubridad
-            if ($contambien->riesgos_insalubridad > 1) {
-                $rTRTB = $rTRTB + 0.8;
-            }
-            // Insalubridad
-
-            // Enfermedades infecciosas.
-            if (count($respuenferinte) > 0) {
-                $rTRTB = $rTRTB + 0.8;
-            }
-            // Enfermedades infecciosas.
-
-            // NO agua potable
-            if ($respuvivi->acueducto == "NO") {
-                $rTRTB = $rTRTB + 0.8;
-            }
-            // NO agua potable
-
-            // NBI
-            if ($NBI == "SI") {
-                $rTRTB = $rTRTB + 0.8;
-            }
-            // NBI
-            // // // // // // // // // // RIESGO DE TALLA BAJA
-
-            // // // // // // // // // // TALLA BAJA o retraso de la edad
-            $rTTB = 0;
-            // T / E < -2
-            if ($respude1a5->te <= -2) {
-                $rTTB = 1;
-            }
-            // T / E < -2
-            // // // // // // // // // // TALLA BAJA o retraso de la edad
-
-            // // // // // // // // // // DESNUTRICIÓN AGUDA MODERADA
-            $rTRDAM = 0;
-            // Desnutrición Aguda P/T <-2 a - 3
-            if ($respude1a5->pt >= -3 && $respude1a5->pt <= -2) {
-                $rTRDAM = 1;
-            }
-            // Desnutrición Aguda P/T <-2 a - 3
-
-            // Presencia de Edemas
-
-            // Presencia de Edemas
-            // // // // // // // // // // DESNUTRICIÓN AGUDA MODERADA
-
-            // // // // // // // // // // DESNUTRICIÓN AGUDA SEVERA.
-            $rTRDAS = 0;
-            // Desnutrición Aguda P/T < - 3
-            if ($respude1a5->pt <= -3) {
-                $rTRDAS = 1;
-            }
-            // Desnutrición Aguda P/T < - 3
-
-            // Presencia de Edemas
-
-            // Presencia de Edemas
-            // // // // // // // // // // DESNUTRICIÓN AGUDA SEVERA.
-
-            // // // // // // // // // // RIESGO DE MUERTE POR  DESNUTRICIÓN
-            $rTRMPD = 0;
-            // Edemas
-
-            // Edemas
-
-            // Cualquier tipo de desnutrición
-
-            // Cualquier tipo de desnutrición
-
-            // Perimetro B   menor a 11,5 cm ( RESOLUCIÓN 5006 - 15)
-            if ($respude1a5->pb < 11.5) {
-                $rTRMPD = $rTRMPD + 3;
-            }
-            // Perimetro B   menor a 11,5 cm ( RESOLUCIÓN 5006 - 15)
-            // // // // // // // // // // RIESGO DE MUERTE POR  DESNUTRICIÓN
-
-            // // // // // // // // // // RIESGO SOBREPESO
-            $rTRS = 0;
-            // P/ T  >+1  a +2
-            if ($respude1a5->pt >= 1 && $respude1a5->pt <= 2) {
-                $rTRS = $rTRS + 5;
-            }
-            // P/ T  >+1  a +2
-
-            // IMC >+1 a +2
-            // IMC >+1 a +2
-
-            // Sedentarismo
-            if ($respuinte->actividad_fisica == "NO") {
-                $rTRS = $rTRS + 1;
-            }
-            // Sedentarismo
-            // // // // // // // // // // RIESGO SOBREPESO
-
-            // // // // // // // // // // SOBREPESO
-            $rTS = 0;
-            // P/ T > +2  a +3
-            if ($respude1a5->pt >= 2 && $respude1a5->pt <= 3) {
-                $rTS = 1;
-            }
-            // P/ T > +2  a +3
-
-            // Sedentarismo
-            if ($respuinte->actividad_fisica == "NO") {
-                // $rTS = 1;
-            }
-            // Sedentarismo
-
-            // IMC >+2 a +3
-
-            // IMC >+2 a +3
-
-            // // // // // // // // // // SOBREPESO
-
-            // // // // // // // // // // OBESIDAD
-            $rTO = 0;
-            // P/ T > +3
-            if ($respude1a5->pt >= 3) {
-                $rTO = 1;
-            }
-            // P/ T > +3
-
-            // IMC  > +3
-
-            // IMC  > +3
-            // // // // // // // // // // OBESIDAD
-
-            // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
-
-            // // // // // // // // // // Enfermedades Infeccisosas.
-            $rTEI = 0;
-            // Desnutricion Global
-            if ($rTDG == 1) {
-                $rTEI = $rTEI + 0.65;
-            }
-            // Desnutricion Global
-
-            // Desnutrición Aguda
-
-            // Desnutrición Aguda
-
-            // Riesgos de desnutricion
-
-            // Riesgos de desnutricion
-
-            // No vacunación o atrasada.
-            if ($respude1a5->bcg == "NO" || $respude1a5->dpt == "NO" || $respude1a5->polio == "NO" || $respude1a5->fiebrea == "NO" || $respude1a5->tripleviral == "NO" || $respude1a5->pentavalente == "NO") {
-                $rTEI = $rTEI + 0.55;
-            }
-            // No vacunación o atrasada.
-
-            // Plagas en la vivienda
-            if ($respuvivi->plagas == "SI") {
-                $rTEI = $rTEI + 0.55;
-            }
-            // Plagas en la vivienda
-
-            // insalubridad
-            if ($contambien->riesgos_insalubridad > 1) {
-                $rTEI = $rTEI + 0.7;
-            }
-            // insalubridad
+                $rTRDA = 0;
+                // No lactancia exclusiva 6 meses
+
+                // No lactancia exclusiva 6 meses
+
+                // Clasificación antropométrica entre las líneas de P/T  -2 a < -1
+                if ($respude1a5->pt >= -2 && $respude1a5->pt <= -1) {
+                    $rTRDA = $rTRDA + 3;
+                }
+                // Clasificación antropométrica entre las líneas de P/T  -2 a < -1
+
+                // NO agua potable
+                if ($respuvivi->acueducto == "NO") {
+                    $rTRDA = $rTRDA + 0.3;
+                }
+                // NO agua potable
+
+                // Bajo peso al nacer
+
+                // Bajo peso al nacer
+
+                // Presencia de Edemas
+
+                // Presencia de Edemas
+
+                // perdida de peso en ultimos 3 meses
+                if ($respuinte->perdida_peso == "SI") {
+                    $rTRDA = $rTRDA + 0.3;
+                }
+                // perdida de peso en ultimos 3 meses
+
+                // Bajo nivel educativo jefe del hogar
+                $niveleducativojefe = \App\Caracterizacion::NivelEducativoJefes(Session::get('alias'), $id_hogar);
+                if ($niveleducativojefe > 0) {
+                    $rTRDA = $rTRDA + 0.3;
+                }
+                // Bajo nivel educativo jefe del hogar
+
+                // Enfermedades infecciosas
+                $respuenferinte = \App\EnfermedadesIntegrantes::buscarInfecciosas(Session::get('alias'), $respuinte->id);
+                if (count($respuenferinte) > 0) {
+                    $rTRDA = $rTRDA + 0.3;
+                }
+                // Enfermedades infecciosas
+
+                // Perimetro del brazo  -1 a -2
+                if ($respude1a5->pb >= -1 && $respude1a5->pb <= -2) {
+                    $rTRDA = $rTRDA + 1;
+                }
+                // Perimetro del brazo  -1 a -2
+                // // // // // // // // // // RIESGO DESNUTRICIÓN Aguda
+
+                // // // // // // // // // // RIESGO DESNUTRICIÓN GLOBAL
+                $rTRDG = 0;
+                // Enfermedades infecciosas
+                if (count($respuenferinte) > 0) {
+                    $rTRDG = $rTRDG + 0.6;
+                }
+                // Enfermedades infecciosas
+
+                // Insalubridad en la vivienda
+                $contambien = \App\RiesgosAmbientales::buscar(Session::get('alias'), $id_hogar);
+                if ($contambien->riesgos_insalubridad > 1) {
+                    $rTRDG = $rTRDG + 0.6;
+                }
+                // Insalubridad en la vivienda
+
+                // NBI
+                $NBI = self::calcularNBI($id_hogar);
+                if ($NBI == "SI") {
+                    $rTRDG = $rTRDG + 1;
+                }
+                // NBI
+
+                // Bajo peso al nacer
+                if ($respude1a5->peso <= "2.5") {
+                    $rTRDG = $rTRDG + 0.6;
+                }
+                // Bajo peso al nacer
+
+                // NO agua potable
+                if ($respuvivi->acueducto == "NO") {
+                    $rTRDG = $rTRDG + 0.6;
+                }
+                // NO agua potable
+
+                // presencia de edemas
+
+                // presencia de edemas
+
+                // P / E -2 a < -1
+                $peso_edad = self::CalculosPerimetros("PESOEDAD2", $respuinte->fecha_nac, $respuinte->sexo, $respude1a5);
+                if ($peso_edad < -2 || $peso_edad > 2) {
+                    $rTRDG = $rTRDG + 3;
+                }
+                // P / E -2 a < -1
+                // // // // // // // // // // RIESGO DESNUTRICIÓN GLOBAL
+
+                // // // // // // // // // // DESNUTRICIÓN GLOBAL
+                $rTDG = 0;
+
+                // P / E  < -2
+                if ($peso_edad < -2) {
+                    $rTDG = 1;
+                }
+                // P / E  < -2
+                // // // // // // // // // // DESNUTRICIÓN GLOBAL
+
+                // // // // // // // // // // RIESGO DE TALLA BAJA
+                $rTRTB = 0;
+                // Talla / E -2 a < -1
+                if ($respude1a5->te >= -1 && $respude1a5->te <= -2) {
+                    $rTRTB = $rTRTB + 3;
+                }
+                // Talla / E -2 a < -1
+
+                // No lactancia exclusiva 6 meses
+
+                // No lactancia exclusiva 6 meses
+
+                // Insalubridad
+                if ($contambien->riesgos_insalubridad > 1) {
+                    $rTRTB = $rTRTB + 0.8;
+                }
+                // Insalubridad
+
+                // Enfermedades infecciosas.
+                if (count($respuenferinte) > 0) {
+                    $rTRTB = $rTRTB + 0.8;
+                }
+                // Enfermedades infecciosas.
+
+                // NO agua potable
+                if ($respuvivi->acueducto == "NO") {
+                    $rTRTB = $rTRTB + 0.8;
+                }
+                // NO agua potable
+
+                // NBI
+                if ($NBI == "SI") {
+                    $rTRTB = $rTRTB + 0.8;
+                }
+                // NBI
+                // // // // // // // // // // RIESGO DE TALLA BAJA
+
+                // // // // // // // // // // TALLA BAJA o retraso de la edad
+                $rTTB = 0;
+                // T / E < -2
+                if ($respude1a5->te <= -2) {
+                    $rTTB = 1;
+                }
+                // T / E < -2
+                // // // // // // // // // // TALLA BAJA o retraso de la edad
+
+                // // // // // // // // // // DESNUTRICIÓN AGUDA MODERADA
+                $rTRDAM = 0;
+                // Desnutrición Aguda P/T <-2 a - 3
+                if ($respude1a5->pt >= -3 && $respude1a5->pt <= -2) {
+                    $rTRDAM = 1;
+                }
+                // Desnutrición Aguda P/T <-2 a - 3
+
+                // Presencia de Edemas
+
+                // Presencia de Edemas
+                // // // // // // // // // // DESNUTRICIÓN AGUDA MODERADA
+
+                // // // // // // // // // // DESNUTRICIÓN AGUDA SEVERA.
+                $rTRDAS = 0;
+                // Desnutrición Aguda P/T < - 3
+                if ($respude1a5->pt <= -3) {
+                    $rTRDAS = 1;
+                }
+                // Desnutrición Aguda P/T < - 3
+
+                // Presencia de Edemas
+
+                // Presencia de Edemas
+                // // // // // // // // // // DESNUTRICIÓN AGUDA SEVERA.
+
+                // // // // // // // // // // RIESGO DE MUERTE POR  DESNUTRICIÓN
+                $rTRMPD = 0;
+                // Edemas
+
+                // Edemas
+
+                // Cualquier tipo de desnutrición
+
+                // Cualquier tipo de desnutrición
+
+                // Perimetro B   menor a 11,5 cm ( RESOLUCIÓN 5006 - 15)
+                if ($respude1a5->pb < 11.5) {
+                    $rTRMPD = $rTRMPD + 3;
+                }
+                // Perimetro B   menor a 11,5 cm ( RESOLUCIÓN 5006 - 15)
+                // // // // // // // // // // RIESGO DE MUERTE POR  DESNUTRICIÓN
+
+                // // // // // // // // // // RIESGO SOBREPESO
+                $rTRS = 0;
+                // P/ T  >+1  a +2
+                if ($respude1a5->pt >= 1 && $respude1a5->pt <= 2) {
+                    $rTRS = $rTRS + 5;
+                }
+                // P/ T  >+1  a +2
+
+                // IMC >+1 a +2
+                // IMC >+1 a +2
+
+                // Sedentarismo
+                if ($respuinte->actividad_fisica == "NO") {
+                    $rTRS = $rTRS + 1;
+                }
+                // Sedentarismo
+                // // // // // // // // // // RIESGO SOBREPESO
+
+                // // // // // // // // // // SOBREPESO
+                $rTS = 0;
+                // P/ T > +2  a +3
+                if ($respude1a5->pt >= 2 && $respude1a5->pt <= 3) {
+                    $rTS = 1;
+                }
+                // P/ T > +2  a +3
+
+                // Sedentarismo
+                if ($respuinte->actividad_fisica == "NO") {
+                    // $rTS = 1;
+                }
+                // Sedentarismo
+
+                // IMC >+2 a +3
+
+                // IMC >+2 a +3
+
+                // // // // // // // // // // SOBREPESO
+
+                // // // // // // // // // // OBESIDAD
+                $rTO = 0;
+                // P/ T > +3
+                if ($respude1a5->pt >= 3) {
+                    $rTO = 1;
+                }
+                // P/ T > +3
+
+                // IMC  > +3
+
+                // IMC  > +3
+                // // // // // // // // // // OBESIDAD
+
+                // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
+
+                // // // // // // // // // // Enfermedades Infeccisosas.
+                $rTEI = 0;
+                // Desnutricion Global
+                if ($rTDG == 1) {
+                    $rTEI = $rTEI + 0.65;
+                }
+                // Desnutricion Global
+
+                // Desnutrición Aguda
+
+                // Desnutrición Aguda
+
+                // Riesgos de desnutricion
+
+                // Riesgos de desnutricion
+
+                // No vacunación o atrasada.
+                if ($respude1a5->bcg == "NO" || $respude1a5->dpt == "NO" || $respude1a5->polio == "NO" || $respude1a5->fiebrea == "NO" || $respude1a5->tripleviral == "NO" || $respude1a5->pentavalente == "NO") {
+                    $rTEI = $rTEI + 0.55;
+                }
+                // No vacunación o atrasada.
+
+                // Plagas en la vivienda
+                if ($respuvivi->plagas == "SI") {
+                    $rTEI = $rTEI + 0.55;
+                }
+                // Plagas en la vivienda
+
+                // insalubridad
+                if ($contambien->riesgos_insalubridad > 1) {
+                    $rTEI = $rTEI + 0.7;
+                }
+                // insalubridad
 
-            // Baño compartido
-            if ($respuvivi->cuantos_baños <= 1) {
-                $rTEI = $rTEI + 0.55;
-            }
-            // Baño compartido
+                // Baño compartido
+                if ($respuvivi->cuantos_baños <= 1) {
+                    $rTEI = $rTEI + 0.55;
+                }
+                // Baño compartido
 
-            // relleno sanitario cerda de la vivienda
-            if ($respuvivi->rellenos == "SI") {
-                $rTEI = $rTEI + 0.55;
-            }
-            // relleno sanitario cerda de la vivienda
+                // relleno sanitario cerda de la vivienda
+                if ($respuvivi->rellenos == "SI") {
+                    $rTEI = $rTEI + 0.55;
+                }
+                // relleno sanitario cerda de la vivienda
 
-            // no lavar la verduras y frutas antes de comer
-
-            // no lavar la verduras y frutas antes de comer
+                // no lavar la verduras y frutas antes de comer
+
+                // no lavar la verduras y frutas antes de comer
 
-            // Habitante de la vivienda con enfermedad infectocontagiosa
-
-            // Habitante de la vivienda con enfermedad infectocontagiosa
-
-            // Manejo inadecuado  de residuos
-
-            // Manejo inadecuado  de residuos
-
-            // Malas condiciones de la vivienda
-
-            // Malas condiciones de la vivienda
+                // Habitante de la vivienda con enfermedad infectocontagiosa
+
+                // Habitante de la vivienda con enfermedad infectocontagiosa
+
+                // Manejo inadecuado  de residuos
+
+                // Manejo inadecuado  de residuos
+
+                // Malas condiciones de la vivienda
+
+                // Malas condiciones de la vivienda
 
-            // No desparacitado
-
-            // No desparacitado
-
-            // Enfermedades inmunosupresoras
-
-            // Enfermedades inmunosupresoras
-
-            // Lotes enmontados
-            if ($respuvivi->lotes_abandonados == "SI") {
-                $rTEI = $rTEI + 0.55;
-            }
-            // Lotes enmontados
-
-            // Ningun tratamiento para el consumo de agua
-            if ($respuvivi->tipo_tratamiento_agua == "NA" || $respuvivi->tipo_tratamiento_agua == "4") {
-                $rTEI = $rTEI + 0.55;
-            }
-            // Ningun tratamiento para el consumo de agua
-
-            // Lactancia exclusiva 6 meses
-
-            // Lactancia exclusiva 6 meses
-
-            // Hacinamiento
-            $hacinamiento = self::hacinamiento($id_hogar);
-            if ($hacinamiento == "SI") {
-                $rTEI = $rTEI + 0.25;
-            }
-            // Hacinamiento
-
-            // No acceso agua potable
-            if ($respuvivi->acueducto == "NO") {
-                $rTEI = $rTEI + 0.55;
-            }
-            // No acceso agua potable
-            // // // // // // // // // // Enfermedades Infeccisosas.
-
-            // // // // // // // // // // TRASTORNOS ASOCIADOS AL USO DE SPA
-            $rTTAUS = 0;
-
-            // Consumo de SPA
-
-            // Consumo de SPA
-
-            // Consumo pasivo de SPA
-            $consufact = \App\Factores::buscarFact(Session::get('alias'), $id_hogar);
-            if ($consufact->sustancias_psico == "SI") {
-                $rTTAUS = $rTTAUS + 1.8;
-            }
-            // Consumo pasivo de SPA
-            // // // // // // // // // // TRASTORNOS ASOCIADOS AL USO DE SPA
-
-            // // // // // // // // // // ENFERMERDAD CARDIOVASCULAR ATEROGÉNICA
-            $rTECA = 0;
-
-            // Sobrepeso
-            if ($rTS == 1) {
-                $rTECA = $rTECA + 0.5;
-            }
-            // Sobrepeso
-
-            // FAMILIARES CON ATENCEDENTES
-
-            // FAMILIARES CON ATENCEDENTES
-
-            // Consumo de alcohol
-
-            // Consumo de alcohol
-
-            // Consumo de SPA
-
-            // Consumo de SPA
-
-            // OBESIDAD
-            if ($rTO == 1) {
-                $rTECA = $rTECA + 1.4;
-            }
-            // OBESIDAD
-
-            // Hipertension arterial
-            $antehipertension = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id, "HIPERTENSION");
-            if ($antehipertension > 0) {
-                $rTECA = $rTECA + 1.5;
-            }
-            // Hipertension arterial
-
-            // Diabetes
-            $antediabetes = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id, "DIABETES");
-            if ($antediabetes > 0) {
-                $rTECA = $rTECA + 1;
-            }
-            // Diabetes
-
-            // Hiperlipemias
-
-            // Hiperlipemias
-            // // // // // // // // // // ENFERMERDAD CARDIOVASCULAR ATEROGÉNICA
-
-            // // // // // // // // // // Cancer
-            $rTC = 0;
-            // Antecedentes en familiares
-            $antecancer = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "CANCER");
-            if ($antecancer > 0) {
-                $rTC = $rTC + 2;
-            }
-            // Antecedentes en familiares
-
-            // Contaminación ambiental
-            if ($contambien->control_riesgos_atmosferico > 1) {
-                $rTC = $rTC + 0.5;
-            }
-            // Contaminación ambiental
-
-            // consumo de tabaco o spa pasivo
-            if ($consufact->tabaco == "SI" || $consufact->sustancias_psico == "SI") {
-                $rTC = $rTC + 1;
-            }
-            // consumo de tabaco o spa pasivo
-
-            // Obesidad
-            if ($rTO == 1) {
-                $rTC = $rTC + 1;
-            }
-            // Obesidad
-
-            // consumos de tabaco. Alcoholismos, spa
-
-            // consumos de tabaco. Alcoholismos, spa
-
-            // VIH
-            $vih = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id, "VIH");
-            if ($vih > 0) {
-                $rTC = $rTC + 1;
-            }
-            // VIH
-            // // // // // // // // // // Cancer
-
-            // // // // // // // // // // Alteraciones y transtornos visuales
-            $rTATV = 0;
-            // Antecedentes familiares
-            $antealteraciones = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "ALTERACIONES");
-            if ($antealteraciones > 0) {
-                $rTATV = $rTATV + 2;
-            }
-            // Antecedentes familiares
-
-            // Hipertension arterial
-            if ($antehipertension > 0) {
-                $rTATV = $rTATV + 1;
-            }
-            // Hipertension arterial
-
-            // DESnutricion
-            if ($rTDG == 1) {
-                $rTATV = $rTATV + 1;
-            }
-            // DESnutricion
-
-            // Deabetes
-            if ($antediabetes > 0) {
-                $rTATV = $rTATV + 1;
-            }
-            // Deabetes
-
-            // Consumo de alcohol
-
-            // Consumo de alcohol
-            // // // // // // // // // // Alteraciones y transtornos visuales
-
-            // // // // // // // // // // ALTERACIONES Y TRASTORNOS DE LA AUDICIÓN Y COMUNICACIÓN
-            $rTATAC = 0;
-            // antecedente familiar
-            $antealteracionesaud = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "ALTERACIONESAUD");
-            if ($antealteracionesaud > 0) {
-                $rTATAC = $rTATAC + 1.75;
-            }
-            // antecedente familiar
-
-            // Exposicion a contaminación auditiva
-            if ($contambien->riesgos_auditivo > 1) {
-                $rTATAC = $rTATAC + 1.75;
-            }
-            // Exposicion a contaminación auditiva
-
-            // Infecciones crónicas de oidos
-            $enferoidos = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id, "OIDOS");
-            if ($enferoidos > 0) {
-                $rTATAC = $rTATAC + 1.75;
-            }
-            // Infecciones crónicas de oidos
-
-            // Desnutrición global
-            if ($rTDG == 1) {
-                $rTATAC = $rTATAC + 1.75;
-            }
-            // Desnutrición global
-
-            // // // // // // // // // // Salud Bucal
-            $rTSB = 0;
-            // Presencia de caries
-            if ($respude1a5->caries == "SI") {
-                $rTSB = $rTSB + 7;
-            } else {
+                // No desparacitado
+
+                // No desparacitado
+
+                // Enfermedades inmunosupresoras
+
+                // Enfermedades inmunosupresoras
+
+                // Lotes enmontados
+                if ($respuvivi->lotes_abandonados == "SI") {
+                    $rTEI = $rTEI + 0.55;
+                }
+                // Lotes enmontados
+
+                // Ningun tratamiento para el consumo de agua
+                if ($respuvivi->tipo_tratamiento_agua == "NA" || $respuvivi->tipo_tratamiento_agua == "4") {
+                    $rTEI = $rTEI + 0.55;
+                }
+                // Ningun tratamiento para el consumo de agua
+
+                // Lactancia exclusiva 6 meses
+
+                // Lactancia exclusiva 6 meses
+
+                // Hacinamiento
+                $hacinamiento = self::hacinamiento($id_hogar);
+                if ($hacinamiento == "SI") {
+                    $rTEI = $rTEI + 0.25;
+                }
+                // Hacinamiento
+
+                // No acceso agua potable
+                if ($respuvivi->acueducto == "NO") {
+                    $rTEI = $rTEI + 0.55;
+                }
+                // No acceso agua potable
+                // // // // // // // // // // Enfermedades Infeccisosas.
+
+                // // // // // // // // // // TRASTORNOS ASOCIADOS AL USO DE SPA
+                $rTTAUS = 0;
+
+                // Consumo de SPA
+
+                // Consumo de SPA
+
+                // Consumo pasivo de SPA
+                $consufact = \App\Factores::buscarFact(Session::get('alias'), $id_hogar);
+                if ($consufact->sustancias_psico == "SI") {
+                    $rTTAUS = $rTTAUS + 1.8;
+                }
+                // Consumo pasivo de SPA
+                // // // // // // // // // // TRASTORNOS ASOCIADOS AL USO DE SPA
+
+                // // // // // // // // // // ENFERMERDAD CARDIOVASCULAR ATEROGÉNICA
+                $rTECA = 0;
+
+                // Sobrepeso
+                if ($rTS == 1) {
+                    $rTECA = $rTECA + 0.5;
+                }
+                // Sobrepeso
+
+                // FAMILIARES CON ATENCEDENTES
+
+                // FAMILIARES CON ATENCEDENTES
+
+                // Consumo de alcohol
+
+                // Consumo de alcohol
+
+                // Consumo de SPA
+
+                // Consumo de SPA
+
+                // OBESIDAD
+                if ($rTO == 1) {
+                    $rTECA = $rTECA + 1.4;
+                }
+                // OBESIDAD
+
+                // Hipertension arterial
+                $antehipertension = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id, "HIPERTENSION");
+                if ($antehipertension > 0) {
+                    $rTECA = $rTECA + 1.5;
+                }
+                // Hipertension arterial
+
+                // Diabetes
+                $antediabetes = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id, "DIABETES");
+                if ($antediabetes > 0) {
+                    $rTECA = $rTECA + 1;
+                }
+                // Diabetes
+
+                // Hiperlipemias
+
+                // Hiperlipemias
+                // // // // // // // // // // ENFERMERDAD CARDIOVASCULAR ATEROGÉNICA
+
+                // // // // // // // // // // Cancer
+                $rTC = 0;
+                // Antecedentes en familiares
+                $antecancer = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "CANCER");
+                if ($antecancer > 0) {
+                    $rTC = $rTC + 2;
+                }
+                // Antecedentes en familiares
+
+                // Contaminación ambiental
+                if ($contambien->control_riesgos_atmosferico > 1) {
+                    $rTC = $rTC + 0.5;
+                }
+                // Contaminación ambiental
+
+                // consumo de tabaco o spa pasivo
+                if ($consufact->tabaco == "SI" || $consufact->sustancias_psico == "SI") {
+                    $rTC = $rTC + 1;
+                }
+                // consumo de tabaco o spa pasivo
+
+                // Obesidad
+                if ($rTO == 1) {
+                    $rTC = $rTC + 1;
+                }
+                // Obesidad
+
+                // consumos de tabaco. Alcoholismos, spa
+
+                // consumos de tabaco. Alcoholismos, spa
+
+                // VIH
+                $vih = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id, "VIH");
+                if ($vih > 0) {
+                    $rTC = $rTC + 1;
+                }
+                // VIH
+                // // // // // // // // // // Cancer
+
+                // // // // // // // // // // Alteraciones y transtornos visuales
+                $rTATV = 0;
+                // Antecedentes familiares
+                $antealteraciones = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "ALTERACIONES");
+                if ($antealteraciones > 0) {
+                    $rTATV = $rTATV + 2;
+                }
+                // Antecedentes familiares
+
+                // Hipertension arterial
+                if ($antehipertension > 0) {
+                    $rTATV = $rTATV + 1;
+                }
+                // Hipertension arterial
+
+                // DESnutricion
+                if ($rTDG == 1) {
+                    $rTATV = $rTATV + 1;
+                }
+                // DESnutricion
+
+                // Deabetes
+                if ($antediabetes > 0) {
+                    $rTATV = $rTATV + 1;
+                }
+                // Deabetes
+
+                // Consumo de alcohol
+
+                // Consumo de alcohol
+                // // // // // // // // // // Alteraciones y transtornos visuales
+
+                // // // // // // // // // // ALTERACIONES Y TRASTORNOS DE LA AUDICIÓN Y COMUNICACIÓN
+                $rTATAC = 0;
+                // antecedente familiar
+                $antealteracionesaud = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "ALTERACIONESAUD");
+                if ($antealteracionesaud > 0) {
+                    $rTATAC = $rTATAC + 1.75;
+                }
+                // antecedente familiar
+
+                // Exposicion a contaminación auditiva
+                if ($contambien->riesgos_auditivo > 1) {
+                    $rTATAC = $rTATAC + 1.75;
+                }
+                // Exposicion a contaminación auditiva
+
+                // Infecciones crónicas de oidos
+                $enferoidos = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id, "OIDOS");
+                if ($enferoidos > 0) {
+                    $rTATAC = $rTATAC + 1.75;
+                }
+                // Infecciones crónicas de oidos
+
+                // Desnutrición global
+                if ($rTDG == 1) {
+                    $rTATAC = $rTATAC + 1.75;
+                }
+                // Desnutrición global
+
+                // // // // // // // // // // Salud Bucal
+                $rTSB = 0;
                 // Presencia de caries
-                // Pobreza
+                if ($respude1a5->caries == "SI") {
+                    $rTSB = $rTSB + 7;
+                } else {
+                    // Presencia de caries
+                    // Pobreza
 
-                // Pobreza
+                    // Pobreza
 
-                // Sin acceso a servicios odontologicos
-                if ($respude1a5->consultaodon == "NO") {
-                    $rTSB = $rTSB + 1.6;
+                    // Sin acceso a servicios odontologicos
+                    if ($respude1a5->consultaodon == "NO") {
+                        $rTSB = $rTSB + 1.6;
+                    }
+                    // Sin acceso a servicios odontologicos
+
+                    // Malos hábitos de higiene oral
+                    if ($respude1a5->nocepillado < 3) {
+                        $rTSB = $rTSB + 1.8;
+                    }
+                    // Malos hábitos de higiene oral
+
+                    // no aplicación de barniz de fluor
+
+                    // no aplicación de barniz de fluor
+
+                    // Consumo de tabaco
+
+                    // Consumo de tabaco
                 }
-                // Sin acceso a servicios odontologicos
+                // // // // // // // // // // Salud Bucal
+                // // // // // // // // // // ALTERACIONES Y TRASTORNOS DE LA AUDICIÓN Y COMUNICACIÓN
 
-                // Malos hábitos de higiene oral
-                if ($respude1a5->nocepillado < 3) {
-                    $rTSB = $rTSB + 1.8;
+                // // // // // // // // // // PROBLEMAS EN SALUD MENTAL
+                $rTSM = 0;
+                // Antecedente familiar
+                $antesaludmental = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "SALUDMENTAL");
+                if ($antesaludmental > 0) {
+                    $rTSM = $rTSM + 1.4;
                 }
-                // Malos hábitos de higiene oral
+                // Antecedente familiar
 
-                // no aplicación de barniz de fluor
+                // Mala relación con los familiares
 
-                // no aplicación de barniz de fluor
+                // Mala relación con los familiares
 
-                // Consumo de tabaco
+                // Problemas de conducta
+                if ($respude1a5->conducta == "SI") {
+                    $rTSM = $rTSM + 1.4;
+                }
+                // Problemas de conducta
 
-                // Consumo de tabaco
+                // consumo de alcoho, spa, tabaco
+
+                // consumo de alcoho, spa, tabaco
+
+                // Violencia intrafamiliar
+
+                // Violencia intrafamiliar
+                // // // // // // // // // // PROBLEMAS EN SALUD MENTAL
+
+                // // // // // // // // // // VIOLENCIAS
+                $rTV = 0;
+                // Violencia intrafamiliar  ( materializado)
+
+                // Violencia intrafamiliar  ( materializado)
+
+                // Transtornos mentales
+                $anteconducta = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id, "CONDUCTA");
+                if ($anteconducta > 0) {
+                    $rTV = $rTV + 1.4;
+                }
+                // Transtornos mentales
+
+                // Problemas de conducta
+                if ($respude1a5->conducta == "SI") {
+                    $rTV = $rTV + 1.4;
+                }
+                // Problemas de conducta
+
+                // Señales de violencia
+                if ($respude1a5->maltrato == "SI") {
+                    $rTV = $rTV + 2;
+                }
+                // Señales de violencia
+
+                // padres con consumo de SPA y o  Alcohol
+                if ($consufact->alcohol == "SI" || $consufact->sustancias_psico == "SI") {
+                    $rTV = $rTV + 1.8;
+                }
+                // padres con consumo de SPA y o  Alcohol
+
+                // Mala relacion con familiares
+
+                // Mala relacion con familiares
+                // // // // // // // // // // VIOLENCIAS
+
+                // // // // // // // // // // Enfermedades Respiratorias  crónicas
+                $rTERC = 0;
+                // ViVienda Cocina con leña o carbón
+                if ($respuvivi->tipo_combustible == "3" || $respuvivi->tipo_combustible == "4") {
+                    $rTERC = $rTERC + 2.2;
+                }
+                // ViVienda Cocina con leña o carbón
+
+                // Antecedentes familiares de enfermedades respiratorias cronicas
+                $anteenferrespi = \App\AntecedentesIntegrantes::buscarAntePorId(Session::get('alias'), $id_hogar, "ENFERRESPI", $respuinte->id);
+                if ($anteenferrespi > 0) {
+                    $rTERC = $rTERC + 1;
+                }
+                // Antecedentes familiares de enfermedades respiratorias cronicas
+
+                // Contaminación ambiental
+                if ($contambien->control_riesgos_atmosferico > 1) {
+                    $rTERC = $rTERC + 1;
+                }
+                // Contaminación ambiental
+
+                // consumo de tabaco y SPA
+
+                // consumo de tabaco y SPA
+
+                // Consumo pasivo de humo de tabaco o SPA
+                if ($consufact->tabaco == "SI" || $consufact->sustancias_psico == "SI") {
+                    $rTERC = $rTERC + 1.4;
+                }
+                // Consumo pasivo de humo de tabaco o SPA
+                // // // // // // // // // // Enfermedades Respiratorias  crónicas
+
+                // // // // // // // // // // ENFERMEDADES ZOONOTICAS
+                $rTEZ = 0;
+                // Cria de animales (mas de 2  domesticos)
+                $anidomes = \App\Animal::buscar(Session::get('alias'), $id_hogar);
+                if (count($anidomes) > 2) {
+                    $rTEZ = $rTEZ + 1.8;
+                }
+                // Cria de animales (mas de 2  domesticos)
+
+                // No vacunación de animales
+                $anidomesvacuna = \App\Animal::buscarVacunados(Session::get('alias'), $id_hogar);
+                if (count($anidomesvacuna) > 2) {
+                    $rTEZ = $rTEZ + 1.2;
+                }
+                // No vacunación de animales
+
+                // Consumo de agua no potable.
+                if ($respuvivi->tipo_tratamiento_agua == "NA" || $respuvivi->tipo_tratamiento_agua == "4") {
+                    $rTEZ = $rTEZ + 1.2;
+                }
+                // Consumo de agua no potable.
+
+                // Manejo de residuos
+                if ($respuvivi->destino_final_basura != "1" || $respuvivi->almacenamiento_residuos != "SI") {
+                    $rTEZ = $rTEZ + 0.9;
+                }
+                // Manejo de residuos
+
+                // No inmunizado
+                if ($respude1a5->bcg == "NO" || $respude1a5->dpt == "NO" || $respude1a5->polio == "NO" || $respude1a5->fiebrea == "NO" || $respude1a5->tripleviral == "NO" || $respude1a5->pentavalente == "NO") {
+                    $rTEZ = $rTEZ + 0.9;
+                }
+                // No inmunizado
+
+                // NBI
+                if ($NBI == "SI") {
+                    $rTEZ = $rTEZ + 0.9;
+                }
+                // NBI
+
+                // Lotes abandonados
+                if ($respuvivi->lotes_abandonados == "SI") {
+                    $rTEZ = $rTEZ + 0.9;
+                }
+                // Lotes abandonados
+
+                // no Desparacitación
+
+                // no Desparacitación
+
+                // Mal estado de la vivienda
+                if ($respuvivi->material_predominante == "5" || $respuvivi->material_predominante == "7"
+                    || $respuvivi->tipo_estructura == "5" || $respuvivi->tipo_cubierta == "2"
+                    || $respuvivi->tipo_cubierta == "6" || $respuvivi->tipo_cubierta == "8" || $respuvivi->tipo_cubierta == "9") {
+                    $rTEZ = $rTEZ + 0.9;
+                }
+                // Mal estado de la vivienda
+                // // // // // // // // // // ENFERMEDADES ZOONOTICAS
+
+                // // // // // // // // // // TRASTORNOS DEGENERATIVOS, NEUROPATÍAS Y ENF AUTOINMUNE
+                $rTTDNEA = 0;
+                // Antecedente familiar
+                $antetranstornos = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "TRANSTORNOS");
+                if ($antetranstornos > 0) {
+                    $rTTDNEA = $rTTDNEA + 1.35;
+                }
+                // Antecedente familiar
+
+                // Problemas de lenguaje
+                if ($respude1a5->lenguaje == "SI") {
+                    $rTTDNEA = $rTTDNEA + 1.1;
+                }
+                // Problemas de lenguaje
+
+                // contaminación ambiental
+                if ($contambien->control_riesgos_atmosferico > 1) {
+                    $rTTDNEA = $rTTDNEA + 1.1;
+                }
+                // contaminación ambiental
+
+                // Problemas de motricidad
+                if ($respude1a5->motora == "SI") {
+                    $rTTDNEA = $rTTDNEA + 1.35;
+                }
+                // Problemas de motricidad
+
+                // perimetro cefalico > +2 o <- 2
+                $per_cef = self::CalculosPerimetros("PERIMETROCEFALICO2", $respuinte->fecha_nac, $respuinte->sexo, $respude1a5);
+                if ($per_cef < -2 || $per_cef > 2) {
+                    $rTTDNEA = $rTTDNEA + 2.1;
+                }
+                // perimetro cefalico > +2 o <- 2
+                // // // // // // // // // // TRASTORNOS DEGENERATIVOS, NEUROPATÍAS Y ENF AUTOINMUNE
+
+                // // // // // // // // // // CONSUMO DE SPA
+                $rTCDS = 0;
+                // Problemas de conducta
+                if ($respude1a5->conducta == "SI") {
+                    $rTCDS = $rTCDS + 1;
+                }
+                // Problemas de conducta
+
+                // consumos de SPA en la vivienda.
+                if ($consufact->sustancias_psico == "SI") {
+                    $rTCDS = $rTCDS + 3;
+                }
+                // consumos de SPA en la vivienda.
+
+                // Violencia intrafamiliar
+                if ($respude1a5->maltrato == "SI") {
+                    $rTCDS = $rTCDS + 1;
+                }
+                // Violencia intrafamiliar
+
+                // Enfermedad mental
+                if ($anteconducta > 0) {
+                    $rTCDS = $rTCDS + 2;
+                }
+                // Enfermedad mental
+                // // // // // // // // // // CONSUMO DE SPA
+
+                $datos["enfermedades_infecciosas_I"] = $rTEI;
+                $datos["transtornos_asociados_spa_I"] = $rTTAUS;
+                $datos["enfermedad_cardiovascular_I"] = $rTECA;
+                $datos["cancer_I"] = $rTC;
+                $datos["alteraciones_transtornos_visuales_I"] = $rTATV;
+                $datos["alteraciones_transtornos_audicion_I"] = $rTATAC;
+                $datos["salud_bucal_I"] = $rTSB;
+                $datos["problemas_salud_mental_I"] = $rTSM;
+                $datos["violencias_I"] = $rTV;
+                $datos["enfermedades_respiratorias_I"] = $rTERC;
+                $datos["enfermedades_zoonoticas_I"] = $rTEZ;
+                $datos["transtornos_degenartivos_I"] = $rTTDNEA;
+                $datos["consumo_spa_I"] = $rTCDS;
+
+                $datos["riesgos_desnutricion_aguda_I"] = $rTRDA;
+                $datos["riesgos_desnutricion_global_I"] = $rTRDG;
+                $datos["desnutricion_global_I"] = $rTDG;
+                $datos["riesgo_talla_baja_I"] = $rTRTB;
+                $datos["talla_baja_retraso_I"] = $rTTB;
+                $datos["desnutricion_aguda_moderada_I"] = $rTRDAM;
+                $datos["desnutricion_aguda_severa_I"] = $rTRDAS;
+                $datos["riesgo_muerte_I"] = $rTRMPD;
+                $datos["riesgo_sobrepeso_I"] = $rTRS;
+                $datos["sobrepeso_I"] = $rTS;
+                $datos["obesidad_I"] = $rTO;
+                $resultado = self::calculosSaludInherente($datos, "DE1A5", $id_hogar, $respude1a5->id_integrante);
             }
-            // // // // // // // // // // Salud Bucal
-            // // // // // // // // // // ALTERACIONES Y TRASTORNOS DE LA AUDICIÓN Y COMUNICACIÓN
-
-            // // // // // // // // // // PROBLEMAS EN SALUD MENTAL
-            $rTSM = 0;
-            // Antecedente familiar
-            $antesaludmental = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "SALUDMENTAL");
-            if ($antesaludmental > 0) {
-                $rTSM = $rTSM + 1.4;
-            }
-            // Antecedente familiar
-
-            // Mala relación con los familiares
-
-            // Mala relación con los familiares
-
-            // Problemas de conducta
-            if ($respude1a5->conducta == "SI") {
-                $rTSM = $rTSM + 1.4;
-            }
-            // Problemas de conducta
-
-            // consumo de alcoho, spa, tabaco
-
-            // consumo de alcoho, spa, tabaco
-
-            // Violencia intrafamiliar
-
-            // Violencia intrafamiliar
-            // // // // // // // // // // PROBLEMAS EN SALUD MENTAL
-
-            // // // // // // // // // // VIOLENCIAS
-            $rTV = 0;
-            // Violencia intrafamiliar  ( materializado)
-
-            // Violencia intrafamiliar  ( materializado)
-
-            // Transtornos mentales
-            $anteconducta = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id, "CONDUCTA");
-            if ($anteconducta > 0) {
-                $rTV = $rTV + 1.4;
-            }
-            // Transtornos mentales
-
-            // Problemas de conducta
-            if ($respude1a5->conducta == "SI") {
-                $rTV = $rTV + 1.4;
-            }
-            // Problemas de conducta
-
-            // Señales de violencia
-            if ($respude1a5->maltrato == "SI") {
-                $rTV = $rTV + 2;
-            }
-            // Señales de violencia
-
-            // padres con consumo de SPA y o  Alcohol
-            if ($consufact->alcohol == "SI" || $consufact->sustancias_psico == "SI") {
-                $rTV = $rTV + 1.8;
-            }
-            // padres con consumo de SPA y o  Alcohol
-
-            // Mala relacion con familiares
-
-            // Mala relacion con familiares
-            // // // // // // // // // // VIOLENCIAS
-
-            // // // // // // // // // // Enfermedades Respiratorias  crónicas
-            $rTERC = 0;
-            // ViVienda Cocina con leña o carbón
-            if ($respuvivi->tipo_combustible == "3" || $respuvivi->tipo_combustible == "4") {
-                $rTERC = $rTERC + 2.2;
-            }
-            // ViVienda Cocina con leña o carbón
-
-            // Antecedentes familiares de enfermedades respiratorias cronicas
-            $anteenferrespi = \App\AntecedentesIntegrantes::buscarAntePorId(Session::get('alias'), $id_hogar, "ENFERRESPI", $respuinte->id);
-            if ($anteenferrespi > 0) {
-                $rTERC = $rTERC + 1;
-            }
-            // Antecedentes familiares de enfermedades respiratorias cronicas
-
-            // Contaminación ambiental
-            if ($contambien->control_riesgos_atmosferico > 1) {
-                $rTERC = $rTERC + 1;
-            }
-            // Contaminación ambiental
-
-            // consumo de tabaco y SPA
-
-            // consumo de tabaco y SPA
-
-            // Consumo pasivo de humo de tabaco o SPA
-            if ($consufact->tabaco == "SI" || $consufact->sustancias_psico == "SI") {
-                $rTERC = $rTERC + 1.4;
-            }
-            // Consumo pasivo de humo de tabaco o SPA
-            // // // // // // // // // // Enfermedades Respiratorias  crónicas
-
-            // // // // // // // // // // ENFERMEDADES ZOONOTICAS
-            $rTEZ = 0;
-            // Cria de animales (mas de 2  domesticos)
-            $anidomes = \App\Animal::buscar(Session::get('alias'), $id_hogar);
-            if (count($anidomes) > 2) {
-                $rTEZ = $rTEZ + 1.8;
-            }
-            // Cria de animales (mas de 2  domesticos)
-
-            // No vacunación de animales
-            $anidomesvacuna = \App\Animal::buscarVacunados(Session::get('alias'), $id_hogar);
-            if (count($anidomesvacuna) > 2) {
-                $rTEZ = $rTEZ + 1.2;
-            }
-            // No vacunación de animales
-
-            // Consumo de agua no potable.
-            if ($respuvivi->tipo_tratamiento_agua == "NA" || $respuvivi->tipo_tratamiento_agua == "4") {
-                $rTEZ = $rTEZ + 1.2;
-            }
-            // Consumo de agua no potable.
-
-            // Manejo de residuos
-            if ($respuvivi->destino_final_basura != "1" || $respuvivi->almacenamiento_residuos != "SI") {
-                $rTEZ = $rTEZ + 0.9;
-            }
-            // Manejo de residuos
-
-            // No inmunizado
-            if ($respude1a5->bcg == "NO" || $respude1a5->dpt == "NO" || $respude1a5->polio == "NO" || $respude1a5->fiebrea == "NO" || $respude1a5->tripleviral == "NO" || $respude1a5->pentavalente == "NO") {
-                $rTEZ = $rTEZ + 0.9;
-            }
-            // No inmunizado
-
-            // NBI
-            if ($NBI == "SI") {
-                $rTEZ = $rTEZ + 0.9;
-            }
-            // NBI
-
-            // Lotes abandonados
-            if ($respuvivi->lotes_abandonados == "SI") {
-                $rTEZ = $rTEZ + 0.9;
-            }
-            // Lotes abandonados
-
-            // no Desparacitación
-
-            // no Desparacitación
-
-            // Mal estado de la vivienda
-            if ($respuvivi->material_predominante == "5" || $respuvivi->material_predominante == "7"
-                || $respuvivi->tipo_estructura == "5" || $respuvivi->tipo_cubierta == "2"
-                || $respuvivi->tipo_cubierta == "6" || $respuvivi->tipo_cubierta == "8" || $respuvivi->tipo_cubierta == "9") {
-                $rTEZ = $rTEZ + 0.9;
-            }
-            // Mal estado de la vivienda
-            // // // // // // // // // // ENFERMEDADES ZOONOTICAS
-
-            // // // // // // // // // // TRASTORNOS DEGENERATIVOS, NEUROPATÍAS Y ENF AUTOINMUNE
-            $rTTDNEA = 0;
-            // Antecedente familiar
-            $antetranstornos = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "TRANSTORNOS");
-            if ($antetranstornos > 0) {
-                $rTTDNEA = $rTTDNEA + 1.35;
-            }
-            // Antecedente familiar
-
-            // Problemas de lenguaje
-            if ($respude1a5->lenguaje == "SI") {
-                $rTTDNEA = $rTTDNEA + 1.1;
-            }
-            // Problemas de lenguaje
-
-            // contaminación ambiental
-            if ($contambien->control_riesgos_atmosferico > 1) {
-                $rTTDNEA = $rTTDNEA + 1.1;
-            }
-            // contaminación ambiental
-
-            // Problemas de motricidad
-            if ($respude1a5->motora == "SI") {
-                $rTTDNEA = $rTTDNEA + 1.35;
-            }
-            // Problemas de motricidad
-
-            // perimetro cefalico > +2 o <- 2
-            $per_cef = self::CalculosPerimetros("PERIMETROCEFALICO2", $respuinte->fecha_nac, $respuinte->sexo, $respude1a5);
-            if ($per_cef < -2 || $per_cef > 2) {
-                $rTTDNEA = $rTTDNEA + 2.1;
-            }
-            // perimetro cefalico > +2 o <- 2
-            // // // // // // // // // // TRASTORNOS DEGENERATIVOS, NEUROPATÍAS Y ENF AUTOINMUNE
-
-            // // // // // // // // // // CONSUMO DE SPA
-            $rTCDS = 0;
-            // Problemas de conducta
-            if ($respude1a5->conducta == "SI") {
-                $rTCDS = $rTCDS + 1;
-            }
-            // Problemas de conducta
-
-            // consumos de SPA en la vivienda.
-            if ($consufact->sustancias_psico == "SI") {
-                $rTCDS = $rTCDS + 3;
-            }
-            // consumos de SPA en la vivienda.
-
-            // Violencia intrafamiliar
-            if ($respude1a5->maltrato == "SI") {
-                $rTCDS = $rTCDS + 1;
-            }
-            // Violencia intrafamiliar
-
-            // Enfermedad mental
-            if ($anteconducta > 0) {
-                $rTCDS = $rTCDS + 2;
-            }
-            // Enfermedad mental
-            // // // // // // // // // // CONSUMO DE SPA
-
-            $datos["enfermedades_infecciosas_I"] = $rTEI;
-            $datos["transtornos_asociados_spa_I"] = $rTTAUS;
-            $datos["enfermedad_cardiovascular_I"] = $rTECA;
-            $datos["cancer_I"] = $rTC;
-            $datos["alteraciones_transtornos_visuales_I"] = $rTATV;
-            $datos["alteraciones_transtornos_audicion_I"] = $rTATAC;
-            $datos["salud_bucal_I"] = $rTSB;
-            $datos["problemas_salud_mental_I"] = $rTSM;
-            $datos["violencias_I"] = $rTV;
-            $datos["enfermedades_respiratorias_I"] = $rTERC;
-            $datos["enfermedades_zoonoticas_I"] = $rTEZ;
-            $datos["transtornos_degenartivos_I"] = $rTTDNEA;
-            $datos["consumo_spa_I"] = $rTCDS;
-
-            $datos["riesgos_desnutricion_aguda_I"] = $rTRDA;
-            $datos["riesgos_desnutricion_global_I"] = $rTRDG;
-            $datos["desnutricion_global_I"] = $rTDG;
-            $datos["riesgo_talla_baja_I"] = $rTRTB;
-            $datos["talla_baja_retraso_I"] = $rTTB;
-            $datos["desnutricion_aguda_moderada_I"] = $rTRDAM;
-            $datos["desnutricion_aguda_severa_I"] = $rTRDAS;
-            $datos["riesgo_muerte_I"] = $rTRMPD;
-            $datos["riesgo_sobrepeso_I"] = $rTRS;
-            $datos["sobrepeso_I"] = $rTS;
-            $datos["obesidad_I"] = $rTO;
-            $resultado = self::calculosSaludInherente($datos, "DE1A5", $id_hogar, $respude1a5->id_integrante);
         }
         // // // // // // // // // // De1A5 // // // // // // // // // //
 
@@ -11687,659 +11718,660 @@ class CaracterizacionController extends Controller
         if ($opcion == "De6A11") {
             $respuinte = \App\Integrante::buscar($identificacion, Session::get('alias'));
             $respude6a11 = \App\De6a11::buscarPorIdentificacion(Session::get('alias'), $identificacion);
+            if($respude6a11){
+                // // // // // // // // // //  Riesgo de delgadez
+                $rTRD = 0;
+                // Enfermedades infecciosas
+                $respuenferinte = \App\EnfermedadesIntegrantes::buscarInfecciosas(Session::get('alias'), $respuinte->id);
+                if (count($respuenferinte) > 0) {
+                    $rTRD = $rTRD + 0.6;
+                }
+                // Enfermedades infecciosas
 
-            // // // // // // // // // //  Riesgo de delgadez
-            $rTRD = 0;
-            // Enfermedades infecciosas
-            $respuenferinte = \App\EnfermedadesIntegrantes::buscarInfecciosas(Session::get('alias'), $respuinte->id);
-            if (count($respuenferinte) > 0) {
-                $rTRD = $rTRD + 0.6;
-            }
-            // Enfermedades infecciosas
+                // No acceso a servicio de salud
+                if ($respuinte->afi_entidad == "NINGUNA") {
+                    $rTRD = $rTRD + 0.5;
+                }
+                // No acceso a servicio de salud
 
-            // No acceso a servicio de salud
-            if ($respuinte->afi_entidad == "NINGUNA") {
-                $rTRD = $rTRD + 0.5;
-            }
-            // No acceso a servicio de salud
+                // Consumo SPA
+                if ($respude6a11->sustanciaspsico == "Spa") {
+                    $rTRD = $rTRD + 0.5;
+                }
+                // Consumo SPA
 
-            // Consumo SPA
-            if ($respude6a11->sustanciaspsico == "Spa") {
-                $rTRD = $rTRD + 0.5;
-            }
-            // Consumo SPA
+                // NBI
+                $NBI = self::calcularNBI($id_hogar);
+                if ($NBI == "SI") {
+                    $rTRD = $rTRD + 0.9;
+                }
+                // NBI
 
-            // NBI
-            $NBI = self::calcularNBI($id_hogar);
-            if ($NBI == "SI") {
-                $rTRD = $rTRD + 0.9;
-            }
-            // NBI
+                // NO agua potable
+                if ($respuvivi->acueducto == "NO") {
+                    $rTRD = $rTRD + 0.5;
+                }
+                // NO agua potable
 
-            // NO agua potable
-            if ($respuvivi->acueducto == "NO") {
-                $rTRD = $rTRD + 0.5;
-            }
-            // NO agua potable
+                // IMC  -2 a < -1
+                $imc = self::CalculosPerimetros("IMC1", $respuinte->fecha_nac, $respuinte->sexo, $respude6a11);
+                if ($imc >= -2 && $imc <= -1) {
+                    $rTRD = $rTRD + 4;
+                }
+                // IMC  -2 a < -1
+                // // // // // // // // // //  Riesgo de delgadez
 
-            // IMC  -2 a < -1
-            $imc = self::CalculosPerimetros("IMC1", $respuinte->fecha_nac, $respuinte->sexo, $respude6a11);
-            if ($imc >= -2 && $imc <= -1) {
-                $rTRD = $rTRD + 4;
-            }
-            // IMC  -2 a < -1
-            // // // // // // // // // //  Riesgo de delgadez
+                // // // // // // // // // //  RIESGO DE RETRASO  EN TALLA
+                $rTRRT = 0;
+                // Talla para edad  -2 Y -1
+                if ($respude6a11->te >= -2 && $respude6a11->te <= -1) {
+                    $rTRRT = $rTRRT + 3;
+                }
+                // Talla para edad  -2 Y -1
 
-            // // // // // // // // // //  RIESGO DE RETRASO  EN TALLA
-            $rTRRT = 0;
-            // Talla para edad  -2 Y -1
-            if ($respude6a11->te >= -2 && $respude6a11->te <= -1) {
-                $rTRRT = $rTRRT + 3;
-            }
-            // Talla para edad  -2 Y -1
+                // Enfermedades infecciosas
+                if (count($respuenferinte) > 0) {
+                    $rTRRT = $rTRRT + 1;
+                }
+                // Enfermedades infecciosas
 
-            // Enfermedades infecciosas
-            if (count($respuenferinte) > 0) {
-                $rTRRT = $rTRRT + 1;
-            }
-            // Enfermedades infecciosas
+                // No acceso a servicio de salud
+                if ($respuinte->afi_entidad == "NINGUNA") {
+                    $rTRRT = $rTRRT + 0.5;
+                }
+                // No acceso a servicio de salud
 
-            // No acceso a servicio de salud
-            if ($respuinte->afi_entidad == "NINGUNA") {
-                $rTRRT = $rTRRT + 0.5;
-            }
-            // No acceso a servicio de salud
+                // Consumo SPA
+                if ($respude6a11->sustanciaspsico == "Spa") {
+                    $rTRRT = $rTRRT + 0.5;
+                }
+                // Consumo SPA
 
-            // Consumo SPA
-            if ($respude6a11->sustanciaspsico == "Spa") {
-                $rTRRT = $rTRRT + 0.5;
-            }
-            // Consumo SPA
+                // NBI
+                if ($NBI == "SI") {
+                    $rTRRT = $rTRRT + 1;
+                }
+                // NBI
 
-            // NBI
-            if ($NBI == "SI") {
-                $rTRRT = $rTRRT + 1;
-            }
-            // NBI
+                // NO agua potable
+                if ($respuvivi->acueducto == "NO") {
+                    $rTRRT = $rTRRT + 1;
+                }
+                // NO agua potable
+                // // // // // // // // // //  RIESGO DE RETRASO  EN TALLA
 
-            // NO agua potable
-            if ($respuvivi->acueducto == "NO") {
-                $rTRRT = $rTRRT + 1;
-            }
-            // NO agua potable
-            // // // // // // // // // //  RIESGO DE RETRASO  EN TALLA
+                // // // // // // // // // //  Enfermedades Infecciosas
+                $rTEI = 0;
+                // Talla baja para la edad
+                if ($respude6a11->te < -2) {
+                    $rTEI = $rTEI + 0.5;
+                }
+                // Talla baja para la edad
 
-            // // // // // // // // // //  Enfermedades Infecciosas
-            $rTEI = 0;
-            // Talla baja para la edad
-            if ($respude6a11->te < -2) {
-                $rTEI = $rTEI + 0.5;
-            }
-            // Talla baja para la edad
+                // Delgadez
+                if ($imc < -2) {
+                    $rTEI = $rTEI + 0.6;
+                }
+                // Delgadez
 
-            // Delgadez
-            if ($imc < -2) {
-                $rTEI = $rTEI + 0.6;
-            }
-            // Delgadez
-
-            // Riesgos de delgadez
-            $proba = 0;
-            if ($rTRD == 0) {
-                $proba = 1;
-            } else {
-                if ($proba >= 0.1 && $proba < 1) {
-                    $proba = 2;
+                // Riesgos de delgadez
+                $proba = 0;
+                if ($rTRD == 0) {
+                    $proba = 1;
                 } else {
-                    if ($proba >= 1 && $proba < 3.5) {
-                        $proba = 3;
+                    if ($proba >= 0.1 && $proba < 1) {
+                        $proba = 2;
                     } else {
-                        if ($proba >= 3.5 && $proba < 6) {
-                            $proba = 4;
+                        if ($proba >= 1 && $proba < 3.5) {
+                            $proba = 3;
                         } else {
-                            $proba = 5;
+                            if ($proba >= 3.5 && $proba < 6) {
+                                $proba = 4;
+                            } else {
+                                $proba = 5;
+                            }
                         }
                     }
                 }
-            }
-            $res = $proba * 4;
+                $res = $proba * 4;
 
-            if ($res > 8) {
-                $rTEI = $rTEI + 0.5;
-            }
-            // Riesgos de delgadez
+                if ($res > 8) {
+                    $rTEI = $rTEI + 0.5;
+                }
+                // Riesgos de delgadez
 
-            // No Vacunación
+                // No Vacunación
 
-            // No Vacunación
+                // No Vacunación
 
-            // plagas
-            if ($respuvivi->plagas == "SI") {
-                $rTEI = $rTEI + 0.6;
-            }
-            // plagas
+                // plagas
+                if ($respuvivi->plagas == "SI") {
+                    $rTEI = $rTEI + 0.6;
+                }
+                // plagas
 
-            // Manejo inadecuado  de residuos
+                // Manejo inadecuado  de residuos
 
-            // Manejo inadecuado  de residuos
+                // Manejo inadecuado  de residuos
 
-            // Malas condiciones de la vivienda
+                // Malas condiciones de la vivienda
 
-            // Malas condiciones de la vivienda
+                // Malas condiciones de la vivienda
 
-            // Enfermedades inmunosupresoras
+                // Enfermedades inmunosupresoras
 
-            // Enfermedades inmunosupresoras
+                // Enfermedades inmunosupresoras
 
-            // No desparacitado
+                // No desparacitado
 
-            // No desparacitado
+                // No desparacitado
 
-            // Baño compartido
-            if ($respuvivi->cuantos_baños <= 1) {
-                $rTEI = $rTEI + 0.6;
-            }
-            // Baño compartido
+                // Baño compartido
+                if ($respuvivi->cuantos_baños <= 1) {
+                    $rTEI = $rTEI + 0.6;
+                }
+                // Baño compartido
 
-            // Lotes enmontados
-            if ($respuvivi->lotes_abandonados == "SI") {
-                $rTEI = $rTEI + 0.6;
-            }
-            // Lotes enmontados
+                // Lotes enmontados
+                if ($respuvivi->lotes_abandonados == "SI") {
+                    $rTEI = $rTEI + 0.6;
+                }
+                // Lotes enmontados
 
-            // relleno sanitario cerda de la vivienda
-            if ($respuvivi->rellenos == "SI") {
-                $rTEI = $rTEI + 0.62;
-            }
-            // relleno sanitario cerda de la vivienda
+                // relleno sanitario cerda de la vivienda
+                if ($respuvivi->rellenos == "SI") {
+                    $rTEI = $rTEI + 0.62;
+                }
+                // relleno sanitario cerda de la vivienda
 
-            // no lavar la verduras y frutas antes de comer
+                // no lavar la verduras y frutas antes de comer
 
-            // no lavar la verduras y frutas antes de comer
+                // no lavar la verduras y frutas antes de comer
 
-            // Ningun tratamiento para el consumo de agua
-            if ($respuvivi->tipo_tratamiento_agua == "NA" || $respuvivi->tipo_tratamiento_agua == "4") {
-                $rTEI = $rTEI + 0.65;
-            }
-            // Ningun tratamiento para el consumo de agua
+                // Ningun tratamiento para el consumo de agua
+                if ($respuvivi->tipo_tratamiento_agua == "NA" || $respuvivi->tipo_tratamiento_agua == "4") {
+                    $rTEI = $rTEI + 0.65;
+                }
+                // Ningun tratamiento para el consumo de agua
 
-            // Hacinamiento
-            $hacinamiento = self::hacinamiento($id_hogar);
-            if ($hacinamiento == "SI") {
-                $rTEI = $rTEI + 0.54;
-            }
-            // Hacinamiento
+                // Hacinamiento
+                $hacinamiento = self::hacinamiento($id_hogar);
+                if ($hacinamiento == "SI") {
+                    $rTEI = $rTEI + 0.54;
+                }
+                // Hacinamiento
 
-            // Habitante de la vivienda con enfermedad infectocontagiosa
+                // Habitante de la vivienda con enfermedad infectocontagiosa
 
-            // Habitante de la vivienda con enfermedad infectocontagiosa
+                // Habitante de la vivienda con enfermedad infectocontagiosa
 
-            // No acceso agua potable
-            if ($respuvivi->acueducto == "NO") {
-                $rTEI = $rTEI + 0.7;
-            }
-            // No acceso agua potable
+                // No acceso agua potable
+                if ($respuvivi->acueducto == "NO") {
+                    $rTEI = $rTEI + 0.7;
+                }
+                // No acceso agua potable
 
-            // // // // // // // // // //  Enfermedades Infecciosas
+                // // // // // // // // // //  Enfermedades Infecciosas
 
-            // // // // // // // // // //  TRASTORNO ASOCIADOS AL CONSUMO DE SPA
-            $rTTAUS = 0;
-            // Consumo SPA
-            if ($respude6a11->sustanciaspsico == "Spa") {
-                $rTTAUS = $rTTAUS + 5;
-            }
-            // Consumo SPA
+                // // // // // // // // // //  TRASTORNO ASOCIADOS AL CONSUMO DE SPA
+                $rTTAUS = 0;
+                // Consumo SPA
+                if ($respude6a11->sustanciaspsico == "Spa") {
+                    $rTTAUS = $rTTAUS + 5;
+                }
+                // Consumo SPA
 
-            // Consumo pasivo de SPA
-            $consufact = \App\Factores::buscarFact(Session::get('alias'), $id_hogar);
-            if ($consufact->sustancias_psico == "SI") {
-                $rTTAUS = $rTTAUS + 2;
-            }
-            // Consumo pasivo de SPA
-            // // // // // // // // // //  TRASTORNO ASOCIADOS AL CONSUMO DE SPA
+                // Consumo pasivo de SPA
+                $consufact = \App\Factores::buscarFact(Session::get('alias'), $id_hogar);
+                if ($consufact->sustancias_psico == "SI") {
+                    $rTTAUS = $rTTAUS + 2;
+                }
+                // Consumo pasivo de SPA
+                // // // // // // // // // //  TRASTORNO ASOCIADOS AL CONSUMO DE SPA
 
-            // // // // // // // // // //  CONSUMO DE  SPA
-            $rTCDS = 0;
-            // Violencia intrafamiliar
-            if ($respude6a11->maltrato == "SI") {
-                $rTCDS = $rTCDS + 0.8;
-            }
-            // Violencia intrafamiliar
+                // // // // // // // // // //  CONSUMO DE  SPA
+                $rTCDS = 0;
+                // Violencia intrafamiliar
+                if ($respude6a11->maltrato == "SI") {
+                    $rTCDS = $rTCDS + 0.8;
+                }
+                // Violencia intrafamiliar
 
-            // Mala relaciones con familiares
-            if ($respude6a11->padre == "4" || $respude6a11->madre == "4" || $respude6a11->hermanos == "4" || $respude6a11->conyuge == "4") {
-                $rTCDS = $rTCDS + 1;
-            }
-            // Mala relaciones con familiares
+                // Mala relaciones con familiares
+                if ($respude6a11->padre == "4" || $respude6a11->madre == "4" || $respude6a11->hermanos == "4" || $respude6a11->conyuge == "4") {
+                    $rTCDS = $rTCDS + 1;
+                }
+                // Mala relaciones con familiares
 
-            // Pobreza
+                // Pobreza
 
-            // Pobreza
+                // Pobreza
 
-            // Madre cabeza de Hogar
+                // Madre cabeza de Hogar
 
-            // Madre cabeza de Hogar
+                // Madre cabeza de Hogar
 
-            // Enfermedades mentales
+                // Enfermedades mentales
 
-            // Enfermedades mentales
+                // Enfermedades mentales
 
-            // Consumo de Spa en la vivienda
-            if ($consufact->sustancias_psico == "SI") {
-                $rTCDS = $rTCDS + 1.2;
-            }
-            // Consumo de Spa en la vivienda
+                // Consumo de Spa en la vivienda
+                if ($consufact->sustancias_psico == "SI") {
+                    $rTCDS = $rTCDS + 1.2;
+                }
+                // Consumo de Spa en la vivienda
 
-            // Consumo de alcohol
-            if ($respude6a11->sustanciaspsico == "Alcohol") {
-                $rTCDS = $rTCDS + 0.8;
-            }
-            // Consumo de alcohol
+                // Consumo de alcohol
+                if ($respude6a11->sustanciaspsico == "Alcohol") {
+                    $rTCDS = $rTCDS + 0.8;
+                }
+                // Consumo de alcohol
 
-            // Problemas de conducta
-            if ($respude6a11->conducta == "SI") {
-                $rTCDS = $rTCDS + 0.8;
-            }
-            // Problemas de conducta
-            // // // // // // // // // //  CONSUMO DE  SPA
+                // Problemas de conducta
+                if ($respude6a11->conducta == "SI") {
+                    $rTCDS = $rTCDS + 0.8;
+                }
+                // Problemas de conducta
+                // // // // // // // // // //  CONSUMO DE  SPA
 
-            // // // // // // // // // //  ENFERMERDAD CARDIOVASCULAR ATEROGÉNICA
-            $rTECA = 0;
+                // // // // // // // // // //  ENFERMERDAD CARDIOVASCULAR ATEROGÉNICA
+                $rTECA = 0;
 
-            // Hiperlipemia
+                // Hiperlipemia
 
-            // Hiperlipemia
+                // Hiperlipemia
 
-            // Antecedentes familiares
+                // Antecedentes familiares
 
-            // Antecedentes familiares
+                // Antecedentes familiares
 
-            // Sedentario
+                // Sedentario
 
-            // Sedentario
+                // Sedentario
 
-            // obesidad
-            if ($imc > 2) {
-                $rTECA = $rTECA + 1.5;
-            }
-            // obesidad
+                // obesidad
+                if ($imc > 2) {
+                    $rTECA = $rTECA + 1.5;
+                }
+                // obesidad
 
-            // Diabetes
-            $antediabetes = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id, "DIABETES");
-            if ($antediabetes > 0) {
-                $rTECA = $rTECA + 1;
-            }
-            // Diabetes
+                // Diabetes
+                $antediabetes = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id, "DIABETES");
+                if ($antediabetes > 0) {
+                    $rTECA = $rTECA + 1;
+                }
+                // Diabetes
 
-            // Sobrepeso
-            if ($imc >= 1 && $imc <= 2) {
-                $rTECA = $rTECA + 0.5;
-            }
-            // Sobrepeso
+                // Sobrepeso
+                if ($imc >= 1 && $imc <= 2) {
+                    $rTECA = $rTECA + 0.5;
+                }
+                // Sobrepeso
 
-            // Cosumos de SPA
-            if ($respude6a11->sustanciaspsico == "Spa") {
-                $rTECA = $rTECA + 0.5;
-            }
-            // Cosumos de SPA
+                // Cosumos de SPA
+                if ($respude6a11->sustanciaspsico == "Spa") {
+                    $rTECA = $rTECA + 0.5;
+                }
+                // Cosumos de SPA
 
-            // Hipertension arterial
-            $antehipertension = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id, "HIPERTENSION");
-            if ($antehipertension > 0) {
-                $rTECA = $rTECA + 1.5;
-            }
-            // Hipertension arterial
-            // // // // // // // // // //  ENFERMERDAD CARDIOVASCULAR ATEROGÉNICA
+                // Hipertension arterial
+                $antehipertension = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id, "HIPERTENSION");
+                if ($antehipertension > 0) {
+                    $rTECA = $rTECA + 1.5;
+                }
+                // Hipertension arterial
+                // // // // // // // // // //  ENFERMERDAD CARDIOVASCULAR ATEROGÉNICA
 
-            // // // // // // // // // // Cancer
-            $rTC = 0;
-            // Antecedentes en familiares
-            $antecancer = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "CANCER");
-            if ($antecancer > 0) {
-                $rTC = $rTC + 1.2;
-            }
-            // Antecedentes en familiares
+                // // // // // // // // // // Cancer
+                $rTC = 0;
+                // Antecedentes en familiares
+                $antecancer = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "CANCER");
+                if ($antecancer > 0) {
+                    $rTC = $rTC + 1.2;
+                }
+                // Antecedentes en familiares
 
-            // Contaminación ambiental
-            $contambien = \App\RiesgosAmbientales::buscar(Session::get('alias'), $id_hogar);
-            if ($contambien->control_riesgos_atmosferico > 1) {
-                $rTC = $rTC + 0.8;
-            }
-            // Contaminación ambiental
+                // Contaminación ambiental
+                $contambien = \App\RiesgosAmbientales::buscar(Session::get('alias'), $id_hogar);
+                if ($contambien->control_riesgos_atmosferico > 1) {
+                    $rTC = $rTC + 0.8;
+                }
+                // Contaminación ambiental
 
-            // consumo de tabaco o spa pasivo
-            if ($consufact->tabaco == "SI" || $consufact->sustancias_psico == "SI") {
-                $rTC = $rTC + 0.8;
-            }
-            // consumo de tabaco o spa pasivo
+                // consumo de tabaco o spa pasivo
+                if ($consufact->tabaco == "SI" || $consufact->sustancias_psico == "SI") {
+                    $rTC = $rTC + 0.8;
+                }
+                // consumo de tabaco o spa pasivo
 
-            // Consumo de Alcohol
-            if ($respude6a11->sustanciaspsico == "Alcohol") {
-                $rTC = $rTC + 1.2;
-            }
-            // Consumo de Alcohol
+                // Consumo de Alcohol
+                if ($respude6a11->sustanciaspsico == "Alcohol") {
+                    $rTC = $rTC + 1.2;
+                }
+                // Consumo de Alcohol
 
-            // sobrepeso / Obesidad
-            if ($imc > 1) {
-                $rTC = $rTC + 1;
-            }
-            // sobrepeso / Obesidad
+                // sobrepeso / Obesidad
+                if ($imc > 1) {
+                    $rTC = $rTC + 1;
+                }
+                // sobrepeso / Obesidad
 
-            // consumo tabaco, SPA
-            if ($respude6a11->sustanciaspsico == "Tabaco" || $respude6a11->sustanciaspsico == "Spa") {
-                $rTC = $rTC + 3;
-            }
-            // consumo tabaco, SPA
-            // // // // // // // // // // Cancer
+                // consumo tabaco, SPA
+                if ($respude6a11->sustanciaspsico == "Tabaco" || $respude6a11->sustanciaspsico == "Spa") {
+                    $rTC = $rTC + 3;
+                }
+                // consumo tabaco, SPA
+                // // // // // // // // // // Cancer
 
-            // // // // // // // // // // Alteraciones y transtornos visuales
-            $rTATV = 0;
-            // Antecedentes familiares
-            $antealteraciones = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "ALTERACIONES");
-            if ($antealteraciones > 0) {
-                $rTATV = $rTATV + 1.9;
-            }
-            // Antecedentes familiares
+                // // // // // // // // // // Alteraciones y transtornos visuales
+                $rTATV = 0;
+                // Antecedentes familiares
+                $antealteraciones = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "ALTERACIONES");
+                if ($antealteraciones > 0) {
+                    $rTATV = $rTATV + 1.9;
+                }
+                // Antecedentes familiares
 
-            // Hipertension arterial
-            if ($antehipertension > 0) {
-                $rTATV = $rTATV + 1.7;
-            }
-            // Hipertension arterial
+                // Hipertension arterial
+                if ($antehipertension > 0) {
+                    $rTATV = $rTATV + 1.7;
+                }
+                // Hipertension arterial
 
-            // consumo de alcohol
-            if ($respude6a11->sustanciaspsico == "Alcohol") {
-                $rTATV = $rTATV + 1.7;
-            }
-            // consumo de alcohol
+                // consumo de alcohol
+                if ($respude6a11->sustanciaspsico == "Alcohol") {
+                    $rTATV = $rTATV + 1.7;
+                }
+                // consumo de alcohol
 
-            // Diabetes
-            if ($antediabetes > 0) {
-                $rTATV = $rTATV + 1.7;
-            }
-            // Diabetes
-            // // // // // // // // // // Alteraciones y transtornos visuales
+                // Diabetes
+                if ($antediabetes > 0) {
+                    $rTATV = $rTATV + 1.7;
+                }
+                // Diabetes
+                // // // // // // // // // // Alteraciones y transtornos visuales
 
-            // // // // // // // // // // ALTERACIONES Y TRASTORNOS DE LA AUDICIÓN Y COMUNICACIÓN
-            $rTATAC = 0;
-            // antecedente familiar
-            $antealteracionesaud = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "ALTERACIONESAUD");
-            if ($antealteracionesaud > 0) {
-                $rTATAC = $rTATAC + 2;
-            }
-            // antecedente familiar
+                // // // // // // // // // // ALTERACIONES Y TRASTORNOS DE LA AUDICIÓN Y COMUNICACIÓN
+                $rTATAC = 0;
+                // antecedente familiar
+                $antealteracionesaud = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "ALTERACIONESAUD");
+                if ($antealteracionesaud > 0) {
+                    $rTATAC = $rTATAC + 2;
+                }
+                // antecedente familiar
 
-            // Exposicion a contaminación auditiva
-            if ($contambien->riesgos_auditivo > 1) {
-                $rTATAC = $rTATAC + 2;
-            }
-            // Exposicion a contaminación auditiva
+                // Exposicion a contaminación auditiva
+                if ($contambien->riesgos_auditivo > 1) {
+                    $rTATAC = $rTATAC + 2;
+                }
+                // Exposicion a contaminación auditiva
 
-            // Infecciones crónicas de oidos
-            $enferoidos = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id, "OIDOS");
-            if ($enferoidos > 0) {
-                $rTATAC = $rTATAC + 3;
-            }
-            // Infecciones crónicas de oidos
-            // // // // // // // // // // ALTERACIONES Y TRASTORNOS DE LA AUDICIÓN Y COMUNICACIÓN
+                // Infecciones crónicas de oidos
+                $enferoidos = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id, "OIDOS");
+                if ($enferoidos > 0) {
+                    $rTATAC = $rTATAC + 3;
+                }
+                // Infecciones crónicas de oidos
+                // // // // // // // // // // ALTERACIONES Y TRASTORNOS DE LA AUDICIÓN Y COMUNICACIÓN
 
-            // // // // // // // // // // Salud Bucal
-            $rTSB = 0;
+                // // // // // // // // // // Salud Bucal
+                $rTSB = 0;
 
-            // Presencia de caries
-            if ($respude6a11->dientes_sanos == "SI") {
-                $rTSB = $rTSB + 7;
                 // Presencia de caries
-            } else {
+                if ($respude6a11->dientes_sanos == "SI") {
+                    $rTSB = $rTSB + 7;
+                    // Presencia de caries
+                } else {
+                    // NBI
+                    if ($NBI == "SI") {
+                        $rTSB = $rTSB + 1;
+                    }
+                    // NBI
+
+                    // Sin acceso a servicios odontologicos
+                    if ($respude6a11->consultaodon == "NO") {
+                        $rTSB = $rTSB + 1;
+                    }
+                    // Sin acceso a servicios odontologicos
+
+                    // Malos hábitos de higiene oral
+                    if ($respude6a11->nocepillado < 3) {
+                        $rTSB = $rTSB + 2;
+                    }
+                    // Malos hábitos de higiene oral
+
+                    // tabaco
+                    if ($respude6a11->sustanciaspsico == "Tabaco") {
+                        $rTSB = $rTSB + 2;
+                    }
+                    // tabaco
+
+                    // consumo d alcohol
+                    if ($respude6a11->sustanciaspsico == "Alcohol") {
+                        $rTSB = $rTSB + 1;
+                    }
+                    // consumo d alcohol
+                }
+
+                // // // // // // // // // // Salud Bucal
+
+                // // // // // // // // // // PROBLEMAS EN SALUD MENTAL
+                $rTSM = 0;
+                // Antecedente familiar
+                $antesaludmental = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "SALUDMENTAL");
+                if ($antesaludmental > 0) {
+                    $rTSM = $rTSM + 1.4;
+                }
+                // Antecedente familiar
+
+                // Mala relaciones con familiares
+                if ($respude6a11->padre == "4" || $respude6a11->madre == "4" || $respude6a11->hermanos == "4" || $respude6a11->conyuge == "4") {
+                    $rTSM = $rTSM + 1.2;
+                }
+                // Mala relaciones con familiares
+
+                // Problemas de conducta
+                if ($respude6a11->conducta == "SI") {
+                    $rTSM = $rTSM + 1.4;
+                }
+                // Problemas de conducta
+
+                // consumo de SPA
+                if ($respude6a11->sustanciaspsico == "Spa") {
+                    $rTSM = $rTSM + 2;
+                }
+                // consumo de SPA
+
+                // Violencia intrafamiliar
+                if ($respude6a11->maltrato == "SI") {
+                    $rTSM = $rTSM + 1;
+                }
+                // Violencia intrafamiliar
+                // // // // // // // // // // PROBLEMAS EN SALUD MENTAL
+
+                // // // // // // // // // // VIOLENCIAS
+                $rTV = 0;
+                // Antecedentes de Violencia  intrafamiliar
+                if ($consufact->violencia_fisica == "SI") {
+                    $rTV = $rTV + 1;
+                }
+                // Antecedentes de Violencia  intrafamiliar
+
+                // Transtornos mentales
+                $anteconducta = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id, "CONDUCTA");
+                if ($anteconducta > 0) {
+                    $rTV = $rTV + 0.5;
+                }
+                // Transtornos mentales
+
+                // Consumo de SPA en la vivienda
+                if ($consufact->sustancias_psico == "SI") {
+                    $rTV = $rTV + 1;
+                }
+                // Consumo de SPA en la vivienda
+
+                // Problemas de conducta
+                if ($respude6a11->conducta == "SI") {
+                    $rTV = $rTV + 1;
+                }
+                // Problemas de conducta
+
+                // Conusmo de SPA EN LA FAMILIA
+                $consufactfami = \App\Factores::buscarFactFami(Session::get('alias'), $id_hogar, $respuinte->jefe);
+                if ($consufactfami->sustancias_psico == "SI") {
+                    $rTV = $rTV + 1;
+                }
+                // Conusmo de SPA EN LA FAMILIA
+
+                // Señales de violencia
+                if ($respude6a11->maltrato == "SI") {
+                    $rTV = $rTV + 2;
+                }
+                // Señales de violencia
+
+                // Mala relación con familiares
+                if ($respude6a11->padre == "4" || $respude6a11->madre == "4" || $respude6a11->hermanos == "4" || $respude6a11->conyuge == "4") {
+                    $rTV = $rTV + 0.5;
+                }
+                // Mala relación con familiares
+                // // // // // // // // // // VIOLENCIAS
+
+                // // // // // // // // // // Enfermedades Respiratorias
+                $rTERC = 0;
+                // ViVienda Cocina con leña o carbón
+                if ($respuvivi->tipo_combustible == "3" || $respuvivi->tipo_combustible == "4") {
+                    $rTERC = $rTERC + 2;
+                }
+                // ViVienda Cocina con leña o carbón
+
+                // Antecedentes familiares de enfermedades respiratorias cronicas
+                $anteenferrespi = \App\AntecedentesIntegrantes::buscarAntePorId(Session::get('alias'), $id_hogar, "ENFERRESPI", $respuinte->id);
+                if ($anteenferrespi > 0) {
+                    $rTERC = $rTERC + 0.5;
+                }
+                // Antecedentes familiares de enfermedades respiratorias cronicas
+
+                // Contaminación ambiental
+                if ($contambien->control_riesgos_atmosferico > 1) {
+                    $rTERC = $rTERC + 0.5;
+                }
+                // Contaminación ambiental
+
+                // consumo de tabaco y SPA
+                if ($respude6a11->sustanciaspsico == "Spa" || $respude6a11->sustanciaspsico == "Tabaco") {
+                    $rTERC = $rTERC + 3;
+                }
+                // consumo de tabaco y SPA
+
+                // Consumo pasivo de humo de tabaco o SPA
+                if ($consufact->tabaco == "SI" || $consufact->sustancias_psico == "SI") {
+                    $rTERC = $rTERC + 2;
+                }
+                // Consumo pasivo de humo de tabaco o SPA
+                // // // // // // // // // // Enfermedades Respiratorias
+
+                // // // // // // // // // // ENFERMEDADES ZOONOTICAS
+                $rTEZ = 0;
+                // Cria de animales (mas de 2  domesticos)
+                $anidomes = \App\Animal::buscar(Session::get('alias'), $id_hogar);
+                if (count($anidomes) > 2) {
+                    $rTEZ = $rTEZ + 2;
+                }
+                // Cria de animales (mas de 2  domesticos)
+
+                // No vacunación de animales
+                $anidomesvacuna = \App\Animal::buscarVacunados(Session::get('alias'), $id_hogar);
+                if (count($anidomesvacuna) > 2) {
+                    $rTEZ = $rTEZ + 2;
+                }
+                // No vacunación de animales
+
+                // Consumo de agua no potable.
+                if ($respuvivi->tipo_tratamiento_agua == "NA" || $respuvivi->tipo_tratamiento_agua == "4") {
+                    $rTEZ = $rTEZ + 1;
+                }
+                // Consumo de agua no potable.
+
+                // Manejo de residuos
+                if ($respuvivi->destino_final_basura != "1" || $respuvivi->almacenamiento_residuos != "SI") {
+                    $rTEZ = $rTEZ + 1;
+                }
+                // Manejo de residuos
+
+                // No inmunizado
+
+                // No inmunizado
+
+                // Lotes abandonados
+                if ($respuvivi->lotes_abandonados == "SI") {
+                    $rTEZ = $rTEZ + 1;
+                }
+                // Lotes abandonados
+
                 // NBI
                 if ($NBI == "SI") {
-                    $rTSB = $rTSB + 1;
+                    $rTEZ = $rTEZ + 1;
                 }
                 // NBI
 
-                // Sin acceso a servicios odontologicos
-                if ($respude6a11->consultaodon == "NO") {
-                    $rTSB = $rTSB + 1;
+                // Mal estado de la vivienda
+                if ($respuvivi->material_predominante == "5" || $respuvivi->material_predominante == "7"
+                    || $respuvivi->tipo_estructura == "5" || $respuvivi->tipo_cubierta == "2"
+                    || $respuvivi->tipo_cubierta == "6" || $respuvivi->tipo_cubierta == "8" || $respuvivi->tipo_cubierta == "9") {
+                    $rTEZ = $rTEZ + 1;
                 }
-                // Sin acceso a servicios odontologicos
+                // Mal estado de la vivienda
+                // // // // // // // // // // ENFERMEDADES ZOONOTICAS
 
-                // Malos hábitos de higiene oral
-                if ($respude6a11->nocepillado < 3) {
-                    $rTSB = $rTSB + 2;
+                // // // // // // // // // // TRASTORNOS DEGENERATIVOS, NEUROPATÍAS Y ENF AUTOINMUNE
+                $rTTDNEA = 0;
+                // Antecedente familiar
+                $antetranstornos = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "TRANSTORNOS");
+                if ($antetranstornos > 0) {
+                    $rTTDNEA = $rTTDNEA + 2;
                 }
-                // Malos hábitos de higiene oral
+                // Antecedente familiar
 
-                // tabaco
-                if ($respude6a11->sustanciaspsico == "Tabaco") {
-                    $rTSB = $rTSB + 2;
+                // Consumo de SPA
+                if ($respude6a11->sustanciaspsico == "Spa" || $respude6a11->sustanciaspsico == "Tabaco") {
+                    $rTTDNEA = $rTTDNEA + 2;
                 }
-                // tabaco
+                // Consumo de SPA
 
-                // consumo d alcohol
-                if ($respude6a11->sustanciaspsico == "Alcohol") {
-                    $rTSB = $rTSB + 1;
+                // Enfermedades infecciosas
+                if (count($respuenferinte) > 0) {
+                    $rTTDNEA = $rTTDNEA + 1;
                 }
-                // consumo d alcohol
+                // Enfermedades infecciosas
+
+                // Contaminación ambiental
+                if ($contambien->control_riesgos_atmosferico > 1) {
+                    $rTTDNEA = $rTTDNEA + 1;
+                }
+                // Contaminación ambiental
+
+                // Desnutrición
+
+                // Desnutrición
+                // // // // // // // // // // TRASTORNOS DEGENERATIVOS, NEUROPATÍAS Y ENF AUTOINMUNE
+
+                $datos["enfermedades_infecciosas_I"] = $rTEI;
+                $datos["transtornos_asociados_spa_I"] = $rTTAUS;
+                $datos["enfermedad_cardiovascular_I"] = $rTECA;
+                $datos["cancer_I"] = $rTC;
+                $datos["alteraciones_transtornos_visuales_I"] = $rTATV;
+                $datos["alteraciones_transtornos_audicion_I"] = $rTATAC;
+                $datos["salud_bucal_I"] = $rTSB;
+                $datos["problemas_salud_mental_I"] = $rTSM;
+                $datos["violencias_I"] = $rTV;
+                $datos["enfermedades_respiratorias_I"] = $rTERC;
+                $datos["enfermedades_zoonoticas_I"] = $rTEZ;
+                $datos["transtornos_degenartivos_I"] = $rTTDNEA;
+                $datos["consumo_spa_I"] = $rTCDS;
+                $datos["riesgo_talla_baja_I"] = $rTRRT;
+                $datos["riesgo_delgadez_I"] = $rTRD;
+                $resultado = self::calculosSaludInherente($datos, "DE6A11", $id_hogar, $respude6a11->id_integrante);
             }
-
-            // // // // // // // // // // Salud Bucal
-
-            // // // // // // // // // // PROBLEMAS EN SALUD MENTAL
-            $rTSM = 0;
-            // Antecedente familiar
-            $antesaludmental = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "SALUDMENTAL");
-            if ($antesaludmental > 0) {
-                $rTSM = $rTSM + 1.4;
-            }
-            // Antecedente familiar
-
-            // Mala relaciones con familiares
-            if ($respude6a11->padre == "4" || $respude6a11->madre == "4" || $respude6a11->hermanos == "4" || $respude6a11->conyuge == "4") {
-                $rTSM = $rTSM + 1.2;
-            }
-            // Mala relaciones con familiares
-
-            // Problemas de conducta
-            if ($respude6a11->conducta == "SI") {
-                $rTSM = $rTSM + 1.4;
-            }
-            // Problemas de conducta
-
-            // consumo de SPA
-            if ($respude6a11->sustanciaspsico == "Spa") {
-                $rTSM = $rTSM + 2;
-            }
-            // consumo de SPA
-
-            // Violencia intrafamiliar
-            if ($respude6a11->maltrato == "SI") {
-                $rTSM = $rTSM + 1;
-            }
-            // Violencia intrafamiliar
-            // // // // // // // // // // PROBLEMAS EN SALUD MENTAL
-
-            // // // // // // // // // // VIOLENCIAS
-            $rTV = 0;
-            // Antecedentes de Violencia  intrafamiliar
-            if ($consufact->violencia_fisica == "SI") {
-                $rTV = $rTV + 1;
-            }
-            // Antecedentes de Violencia  intrafamiliar
-
-            // Transtornos mentales
-            $anteconducta = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id, "CONDUCTA");
-            if ($anteconducta > 0) {
-                $rTV = $rTV + 0.5;
-            }
-            // Transtornos mentales
-
-            // Consumo de SPA en la vivienda
-            if ($consufact->sustancias_psico == "SI") {
-                $rTV = $rTV + 1;
-            }
-            // Consumo de SPA en la vivienda
-
-            // Problemas de conducta
-            if ($respude6a11->conducta == "SI") {
-                $rTV = $rTV + 1;
-            }
-            // Problemas de conducta
-
-            // Conusmo de SPA EN LA FAMILIA
-            $consufactfami = \App\Factores::buscarFactFami(Session::get('alias'), $id_hogar, $respuinte->jefe);
-            if ($consufactfami->sustancias_psico == "SI") {
-                $rTV = $rTV + 1;
-            }
-            // Conusmo de SPA EN LA FAMILIA
-
-            // Señales de violencia
-            if ($respude6a11->maltrato == "SI") {
-                $rTV = $rTV + 2;
-            }
-            // Señales de violencia
-
-            // Mala relación con familiares
-            if ($respude6a11->padre == "4" || $respude6a11->madre == "4" || $respude6a11->hermanos == "4" || $respude6a11->conyuge == "4") {
-                $rTV = $rTV + 0.5;
-            }
-            // Mala relación con familiares
-            // // // // // // // // // // VIOLENCIAS
-
-            // // // // // // // // // // Enfermedades Respiratorias
-            $rTERC = 0;
-            // ViVienda Cocina con leña o carbón
-            if ($respuvivi->tipo_combustible == "3" || $respuvivi->tipo_combustible == "4") {
-                $rTERC = $rTERC + 2;
-            }
-            // ViVienda Cocina con leña o carbón
-
-            // Antecedentes familiares de enfermedades respiratorias cronicas
-            $anteenferrespi = \App\AntecedentesIntegrantes::buscarAntePorId(Session::get('alias'), $id_hogar, "ENFERRESPI", $respuinte->id);
-            if ($anteenferrespi > 0) {
-                $rTERC = $rTERC + 0.5;
-            }
-            // Antecedentes familiares de enfermedades respiratorias cronicas
-
-            // Contaminación ambiental
-            if ($contambien->control_riesgos_atmosferico > 1) {
-                $rTERC = $rTERC + 0.5;
-            }
-            // Contaminación ambiental
-
-            // consumo de tabaco y SPA
-            if ($respude6a11->sustanciaspsico == "Spa" || $respude6a11->sustanciaspsico == "Tabaco") {
-                $rTERC = $rTERC + 3;
-            }
-            // consumo de tabaco y SPA
-
-            // Consumo pasivo de humo de tabaco o SPA
-            if ($consufact->tabaco == "SI" || $consufact->sustancias_psico == "SI") {
-                $rTERC = $rTERC + 2;
-            }
-            // Consumo pasivo de humo de tabaco o SPA
-            // // // // // // // // // // Enfermedades Respiratorias
-
-            // // // // // // // // // // ENFERMEDADES ZOONOTICAS
-            $rTEZ = 0;
-            // Cria de animales (mas de 2  domesticos)
-            $anidomes = \App\Animal::buscar(Session::get('alias'), $id_hogar);
-            if (count($anidomes) > 2) {
-                $rTEZ = $rTEZ + 2;
-            }
-            // Cria de animales (mas de 2  domesticos)
-
-            // No vacunación de animales
-            $anidomesvacuna = \App\Animal::buscarVacunados(Session::get('alias'), $id_hogar);
-            if (count($anidomesvacuna) > 2) {
-                $rTEZ = $rTEZ + 2;
-            }
-            // No vacunación de animales
-
-            // Consumo de agua no potable.
-            if ($respuvivi->tipo_tratamiento_agua == "NA" || $respuvivi->tipo_tratamiento_agua == "4") {
-                $rTEZ = $rTEZ + 1;
-            }
-            // Consumo de agua no potable.
-
-            // Manejo de residuos
-            if ($respuvivi->destino_final_basura != "1" || $respuvivi->almacenamiento_residuos != "SI") {
-                $rTEZ = $rTEZ + 1;
-            }
-            // Manejo de residuos
-
-            // No inmunizado
-
-            // No inmunizado
-
-            // Lotes abandonados
-            if ($respuvivi->lotes_abandonados == "SI") {
-                $rTEZ = $rTEZ + 1;
-            }
-            // Lotes abandonados
-
-            // NBI
-            if ($NBI == "SI") {
-                $rTEZ = $rTEZ + 1;
-            }
-            // NBI
-
-            // Mal estado de la vivienda
-            if ($respuvivi->material_predominante == "5" || $respuvivi->material_predominante == "7"
-                || $respuvivi->tipo_estructura == "5" || $respuvivi->tipo_cubierta == "2"
-                || $respuvivi->tipo_cubierta == "6" || $respuvivi->tipo_cubierta == "8" || $respuvivi->tipo_cubierta == "9") {
-                $rTEZ = $rTEZ + 1;
-            }
-            // Mal estado de la vivienda
-            // // // // // // // // // // ENFERMEDADES ZOONOTICAS
-
-            // // // // // // // // // // TRASTORNOS DEGENERATIVOS, NEUROPATÍAS Y ENF AUTOINMUNE
-            $rTTDNEA = 0;
-            // Antecedente familiar
-            $antetranstornos = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "TRANSTORNOS");
-            if ($antetranstornos > 0) {
-                $rTTDNEA = $rTTDNEA + 2;
-            }
-            // Antecedente familiar
-
-            // Consumo de SPA
-            if ($respude6a11->sustanciaspsico == "Spa" || $respude6a11->sustanciaspsico == "Tabaco") {
-                $rTTDNEA = $rTTDNEA + 2;
-            }
-            // Consumo de SPA
-
-            // Enfermedades infecciosas
-            if (count($respuenferinte) > 0) {
-                $rTTDNEA = $rTTDNEA + 1;
-            }
-            // Enfermedades infecciosas
-
-            // Contaminación ambiental
-            if ($contambien->control_riesgos_atmosferico > 1) {
-                $rTTDNEA = $rTTDNEA + 1;
-            }
-            // Contaminación ambiental
-
-            // Desnutrición
-
-            // Desnutrición
-            // // // // // // // // // // TRASTORNOS DEGENERATIVOS, NEUROPATÍAS Y ENF AUTOINMUNE
-
-            $datos["enfermedades_infecciosas_I"] = $rTEI;
-            $datos["transtornos_asociados_spa_I"] = $rTTAUS;
-            $datos["enfermedad_cardiovascular_I"] = $rTECA;
-            $datos["cancer_I"] = $rTC;
-            $datos["alteraciones_transtornos_visuales_I"] = $rTATV;
-            $datos["alteraciones_transtornos_audicion_I"] = $rTATAC;
-            $datos["salud_bucal_I"] = $rTSB;
-            $datos["problemas_salud_mental_I"] = $rTSM;
-            $datos["violencias_I"] = $rTV;
-            $datos["enfermedades_respiratorias_I"] = $rTERC;
-            $datos["enfermedades_zoonoticas_I"] = $rTEZ;
-            $datos["transtornos_degenartivos_I"] = $rTTDNEA;
-            $datos["consumo_spa_I"] = $rTCDS;
-            $datos["riesgo_talla_baja_I"] = $rTRRT;
-            $datos["riesgo_delgadez_I"] = $rTRD;
-            $resultado = self::calculosSaludInherente($datos, "DE6A11", $id_hogar, $respude6a11->id_integrante);
         }
         // // // // // // // // // // De6A11 // // // // // // // // // //
 
@@ -12348,686 +12380,687 @@ class CaracterizacionController extends Controller
             $respuinte = \App\Integrante::buscar($identificacion, Session::get('alias'));
             $respujefe = \App\Caracterizacion::buscar($identificacion, Session::get('alias'));
             $respude12a17 = \App\De12a17::buscarPorIdentificacion(Session::get('alias'), $identificacion);
+            if($respude12a17){
+                // // // // // // // // // //  Riesgo de delgadez
+                $rTRD = 0;
+                // Enfermedades infecciosas
+                $respuenferinte = \App\EnfermedadesIntegrantes::buscarInfecciosas(Session::get('alias'), $respuinte->id ?? 0);
+                $respuenferjefe = \App\EnfermedadesJefes::buscarInfecciosas(Session::get('alias'), $respujefe->id ?? 0);
 
-            // // // // // // // // // //  Riesgo de delgadez
-            $rTRD = 0;
-            // Enfermedades infecciosas
-            $respuenferinte = \App\EnfermedadesIntegrantes::buscarInfecciosas(Session::get('alias'), $respuinte->id ?? 0);
-            $respuenferjefe = \App\EnfermedadesJefes::buscarInfecciosas(Session::get('alias'), $respujefe->id ?? 0);
+                if ((count($respuenferinte) + count($respuenferjefe)) > 0) {
+                    $rTRD = $rTRD + 0.6;
+                }
+                // Enfermedades infecciosas
 
-            if ((count($respuenferinte) + count($respuenferjefe)) > 0) {
-                $rTRD = $rTRD + 0.6;
-            }
-            // Enfermedades infecciosas
+                // No acceso a servicio de salud
+                if ($respuinte->afi_entidad ?? '' == "NINGUNA" || $respujefe->afiliacion_entidad ?? '' == "NINGUNA") {
+                    $rTRD = $rTRD + 0.5;
+                }
+                // No acceso a servicio de salud
 
-            // No acceso a servicio de salud
-            if ($respuinte->afi_entidad ?? '' == "NINGUNA" || $respujefe->afiliacion_entidad ?? '' == "NINGUNA") {
-                $rTRD = $rTRD + 0.5;
-            }
-            // No acceso a servicio de salud
+                // Consumo SPA
+                if ($respude12a17->spa == "SI") {
+                    $rTRD = $rTRD + 0.5;
+                }
+                // Consumo SPA
 
-            // Consumo SPA
-            if ($respude12a17->spa == "SI") {
-                $rTRD = $rTRD + 0.5;
-            }
-            // Consumo SPA
+                // NBI
+                $NBI = self::calcularNBI($id_hogar);
+                if ($NBI == "SI") {
+                    $rTRD = $rTRD + 0.9;
+                }
+                // NBI
 
-            // NBI
-            $NBI = self::calcularNBI($id_hogar);
-            if ($NBI == "SI") {
-                $rTRD = $rTRD + 0.9;
-            }
-            // NBI
+                // NO agua potable
+                if ($respuvivi->acueducto == "NO") {
+                    $rTRD = $rTRD + 0.5;
+                }
+                // NO agua potable
 
-            // NO agua potable
-            if ($respuvivi->acueducto == "NO") {
-                $rTRD = $rTRD + 0.5;
-            }
-            // NO agua potable
+                // IMC  -2 a < -1
+                $imc = self::CalculosPerimetros("IMC1", $respuinte->fecha_nac ?? $respujefe->fecha_nacimiento, $respuinte->sexo ?? $respujefe->sexo, $respude12a17);
+                if ($imc >= -2 && $imc <= -1) {
+                    $rTRD = $rTRD + 4;
+                }
+                // IMC  -2 a < -1
+                // // // // // // // // // //  Riesgo de delgadez
 
-            // IMC  -2 a < -1
-            $imc = self::CalculosPerimetros("IMC1", $respuinte->fecha_nac ?? $respujefe->fecha_nacimiento, $respuinte->sexo ?? $respujefe->sexo, $respude12a17);
-            if ($imc >= -2 && $imc <= -1) {
-                $rTRD = $rTRD + 4;
-            }
-            // IMC  -2 a < -1
-            // // // // // // // // // //  Riesgo de delgadez
+                // // // // // // // // // //  RIESGO DE RETRASO  EN TALLA
+                $rTRRT = 0;
+                // Talla para edad  -2 Y -1
+                if ($respude12a17->te >= -2 && $respude12a17->te <= -1) {
+                    $rTRRT = $rTRRT + 3;
+                }
+                // Talla para edad  -2 Y -1
 
-            // // // // // // // // // //  RIESGO DE RETRASO  EN TALLA
-            $rTRRT = 0;
-            // Talla para edad  -2 Y -1
-            if ($respude12a17->te >= -2 && $respude12a17->te <= -1) {
-                $rTRRT = $rTRRT + 3;
-            }
-            // Talla para edad  -2 Y -1
+                // Enfermedades infecciosas
+                if ((count($respuenferinte) + count($respuenferjefe)) > 0) {
+                    $rTRRT = $rTRRT + 1;
+                }
+                // Enfermedades infecciosas
 
-            // Enfermedades infecciosas
-            if ((count($respuenferinte) + count($respuenferjefe)) > 0) {
-                $rTRRT = $rTRRT + 1;
-            }
-            // Enfermedades infecciosas
+                // No acceso a servicio de salud
+                if ($respuinte->afi_entidad ?? '' == "NINGUNA" || $respujefe->afiliacion_entidad ?? '' == "NINGUNA") {
+                    $rTRRT = $rTRRT + 0.5;
+                }
+                // No acceso a servicio de salud
 
-            // No acceso a servicio de salud
-            if ($respuinte->afi_entidad ?? '' == "NINGUNA" || $respujefe->afiliacion_entidad ?? '' == "NINGUNA") {
-                $rTRRT = $rTRRT + 0.5;
-            }
-            // No acceso a servicio de salud
+                // Consumo SPA
+                if ($respude12a17->spa == "SI") {
+                    $rTRRT = $rTRRT + 0.5;
+                }
+                // Consumo SPA
 
-            // Consumo SPA
-            if ($respude12a17->spa == "SI") {
-                $rTRRT = $rTRRT + 0.5;
-            }
-            // Consumo SPA
+                // NBI
+                if ($NBI == "SI") {
+                    $rTRRT = $rTRRT + 1;
+                }
+                // NBI
 
-            // NBI
-            if ($NBI == "SI") {
-                $rTRRT = $rTRRT + 1;
-            }
-            // NBI
+                // NO agua potable
+                if ($respuvivi->acueducto == "NO") {
+                    $rTRRT = $rTRRT + 1;
+                }
+                // NO agua potable
+                // // // // // // // // // //  RIESGO DE RETRASO  EN TALLA
 
-            // NO agua potable
-            if ($respuvivi->acueducto == "NO") {
-                $rTRRT = $rTRRT + 1;
-            }
-            // NO agua potable
-            // // // // // // // // // //  RIESGO DE RETRASO  EN TALLA
+                // // // // // // // // // //  Enfermedades Infecciosas
+                $rTEI = 0;
+                // Talla baja para la edad
+                if ($respude12a17->te < -2) {
+                    $rTEI = $rTEI + 0.5;
+                }
+                // Talla baja para la edad
 
-            // // // // // // // // // //  Enfermedades Infecciosas
-            $rTEI = 0;
-            // Talla baja para la edad
-            if ($respude12a17->te < -2) {
-                $rTEI = $rTEI + 0.5;
-            }
-            // Talla baja para la edad
+                // Delgadez
+                if ($imc < -2) {
+                    $rTEI = $rTEI + 0.62;
+                }
+                // Delgadez
 
-            // Delgadez
-            if ($imc < -2) {
-                $rTEI = $rTEI + 0.62;
-            }
-            // Delgadez
+                // No Vacunación
 
-            // No Vacunación
+                // No Vacunación
 
-            // No Vacunación
+                // plagas
+                if ($respuvivi->plagas == "SI") {
+                    $rTEI = $rTEI + 0.62;
+                }
+                // plagas
 
-            // plagas
-            if ($respuvivi->plagas == "SI") {
-                $rTEI = $rTEI + 0.62;
-            }
-            // plagas
+                // Manejo inadecuado  de residuos
 
-            // Manejo inadecuado  de residuos
+                // Manejo inadecuado  de residuos
 
-            // Manejo inadecuado  de residuos
+                // Malas condiciones de la vivienda
 
-            // Malas condiciones de la vivienda
+                // Malas condiciones de la vivienda
 
-            // Malas condiciones de la vivienda
+                // Hacinamiento
+                $hacinamiento = self::hacinamiento($id_hogar);
+                if ($hacinamiento == "SI") {
+                    $rTEI = $rTEI + 0.52;
+                }
+                // Hacinamiento
 
-            // Hacinamiento
-            $hacinamiento = self::hacinamiento($id_hogar);
-            if ($hacinamiento == "SI") {
-                $rTEI = $rTEI + 0.52;
-            }
-            // Hacinamiento
-
-            // Riesgos de delgadez
-            $proba = 0;
-            if ($rTRD == 0) {
-                $proba = 1;
-            } else {
-                if ($proba >= 0.1 && $proba < 1) {
-                    $proba = 2;
+                // Riesgos de delgadez
+                $proba = 0;
+                if ($rTRD == 0) {
+                    $proba = 1;
                 } else {
-                    if ($proba >= 1 && $proba < 3.5) {
-                        $proba = 3;
+                    if ($proba >= 0.1 && $proba < 1) {
+                        $proba = 2;
                     } else {
-                        if ($proba >= 3.5 && $proba < 6) {
-                            $proba = 4;
+                        if ($proba >= 1 && $proba < 3.5) {
+                            $proba = 3;
                         } else {
-                            $proba = 5;
+                            if ($proba >= 3.5 && $proba < 6) {
+                                $proba = 4;
+                            } else {
+                                $proba = 5;
+                            }
                         }
                     }
                 }
-            }
-            $res = $proba * 4;
+                $res = $proba * 4;
 
-            if ($res > 8) {
-                $rTEI = $rTEI + 0.4;
-            }
-            // Riesgos de delgadez
+                if ($res > 8) {
+                    $rTEI = $rTEI + 0.4;
+                }
+                // Riesgos de delgadez
 
-            // Enfermedades inmunosupresoras
+                // Enfermedades inmunosupresoras
 
-            // Enfermedades inmunosupresoras
+                // Enfermedades inmunosupresoras
 
-            // No desparacitado
+                // No desparacitado
 
-            // No desparacitado
+                // No desparacitado
 
-            // Baño compartido
-            if ($respuvivi->cuantos_baños <= 1) {
-                $rTEI = $rTEI + 0.6;
-            }
-            // Baño compartido
+                // Baño compartido
+                if ($respuvivi->cuantos_baños <= 1) {
+                    $rTEI = $rTEI + 0.6;
+                }
+                // Baño compartido
 
-            // Lotes enmontados
-            if ($respuvivi->lotes_abandonados == "SI") {
-                $rTEI = $rTEI + 0.6;
-            }
-            // Lotes enmontados
+                // Lotes enmontados
+                if ($respuvivi->lotes_abandonados == "SI") {
+                    $rTEI = $rTEI + 0.6;
+                }
+                // Lotes enmontados
 
-            // no lavar la verduras y frutas antes de comer
+                // no lavar la verduras y frutas antes de comer
 
-            // no lavar la verduras y frutas antes de comer
+                // no lavar la verduras y frutas antes de comer
 
-            // relleno sanitario cerda de la vivienda
-            if ($respuvivi->rellenos == "SI") {
-                $rTEI = $rTEI + 0.62;
-            }
-            // relleno sanitario cerda de la vivienda
+                // relleno sanitario cerda de la vivienda
+                if ($respuvivi->rellenos == "SI") {
+                    $rTEI = $rTEI + 0.62;
+                }
+                // relleno sanitario cerda de la vivienda
 
-            // Ningun tratamiento para el consumo de agua
-            if ($respuvivi->tipo_tratamiento_agua == "NA" || $respuvivi->tipo_tratamiento_agua == "4") {
-                $rTEI = $rTEI + 0.65;
-            }
-            // Ningun tratamiento para el consumo de agua
+                // Ningun tratamiento para el consumo de agua
+                if ($respuvivi->tipo_tratamiento_agua == "NA" || $respuvivi->tipo_tratamiento_agua == "4") {
+                    $rTEI = $rTEI + 0.65;
+                }
+                // Ningun tratamiento para el consumo de agua
 
-            // No acceso agua potable
-            if ($respuvivi->acueducto == "NO") {
-                $rTEI = $rTEI + 0.7;
-            }
-            // No acceso agua potable
+                // No acceso agua potable
+                if ($respuvivi->acueducto == "NO") {
+                    $rTEI = $rTEI + 0.7;
+                }
+                // No acceso agua potable
 
-            // Habitante de la vivienda con enfermedad infectocontagiosa
+                // Habitante de la vivienda con enfermedad infectocontagiosa
 
-            // Habitante de la vivienda con enfermedad infectocontagiosa
+                // Habitante de la vivienda con enfermedad infectocontagiosa
 
-            // // // // // // // // // //  Enfermedades Infecciosas
+                // // // // // // // // // //  Enfermedades Infecciosas
 
-            // // // // // // // // // //  TRASTORNO ASOCIADOS AL CONSUMO DE SPA
-            $rTTAUS = 0;
-            // Consumo SPA
-            if ($respude12a17->spa == "SI") {
-                $rTTAUS = $rTTAUS + 5;
-            }
-            // Consumo SPA
+                // // // // // // // // // //  TRASTORNO ASOCIADOS AL CONSUMO DE SPA
+                $rTTAUS = 0;
+                // Consumo SPA
+                if ($respude12a17->spa == "SI") {
+                    $rTTAUS = $rTTAUS + 5;
+                }
+                // Consumo SPA
 
-            // Consumo pasivo de SPA
-            $consufact = \App\Factores::buscarFact(Session::get('alias'), $id_hogar);
-            if ($consufact->sustancias_psico == "SI") {
-                $rTTAUS = $rTTAUS + 2;
-            }
-            // Consumo pasivo de SPA
-            // // // // // // // // // //  TRASTORNO ASOCIADOS AL CONSUMO DE SPA
+                // Consumo pasivo de SPA
+                $consufact = \App\Factores::buscarFact(Session::get('alias'), $id_hogar);
+                if ($consufact->sustancias_psico == "SI") {
+                    $rTTAUS = $rTTAUS + 2;
+                }
+                // Consumo pasivo de SPA
+                // // // // // // // // // //  TRASTORNO ASOCIADOS AL CONSUMO DE SPA
 
-            // // // // // // // // // //  CONSUMO DE  SPA
-            $rTCDS = 0;
-            // Violencia intrafamiliar
-            if ($respude12a17->maltrato == "SI") {
-                $rTCDS = $rTCDS + 1;
-            }
-            // Violencia intrafamiliar
+                // // // // // // // // // //  CONSUMO DE  SPA
+                $rTCDS = 0;
+                // Violencia intrafamiliar
+                if ($respude12a17->maltrato == "SI") {
+                    $rTCDS = $rTCDS + 1;
+                }
+                // Violencia intrafamiliar
 
-            // Mala relaciones con familiares
-            if ($respude12a17->padre == "4" || $respude12a17->madre == "4" || $respude12a17->hermanos == "4" || $respude12a17->conyuge == "4") {
-                $rTCDS = $rTCDS + 1;
-            }
-            // Mala relaciones con familiares
+                // Mala relaciones con familiares
+                if ($respude12a17->padre == "4" || $respude12a17->madre == "4" || $respude12a17->hermanos == "4" || $respude12a17->conyuge == "4") {
+                    $rTCDS = $rTCDS + 1;
+                }
+                // Mala relaciones con familiares
 
-            // Pobreza
+                // Pobreza
 
-            // Pobreza
+                // Pobreza
 
-            // Madre cabeza de Hogar
+                // Madre cabeza de Hogar
 
-            // Madre cabeza de Hogar
+                // Madre cabeza de Hogar
 
-            // Enfermedades mentales
+                // Enfermedades mentales
 
-            // Enfermedades mentales
+                // Enfermedades mentales
 
-            // Problemas de conducta
-            if ($respude12a17->conducta == "SI") {
-                $rTCDS = $rTCDS + 1;
-            }
-            // Problemas de conducta
+                // Problemas de conducta
+                if ($respude12a17->conducta == "SI") {
+                    $rTCDS = $rTCDS + 1;
+                }
+                // Problemas de conducta
 
-            // Consumo de Spa en la vivienda
-            if ($consufact->sustancias_psico == "SI") {
-                $rTCDS = $rTCDS + 2;
-            }
-            // Consumo de Spa en la vivienda
+                // Consumo de Spa en la vivienda
+                if ($consufact->sustancias_psico == "SI") {
+                    $rTCDS = $rTCDS + 2;
+                }
+                // Consumo de Spa en la vivienda
 
-            // Consumo de alcohol
-            if ($respude12a17->alcohol == "SI") {
-                $rTCDS = $rTCDS + 0.5;
-            }
-            // Consumo de alcohol
-            // // // // // // // // // //  CONSUMO DE  SPA
+                // Consumo de alcohol
+                if ($respude12a17->alcohol == "SI") {
+                    $rTCDS = $rTCDS + 0.5;
+                }
+                // Consumo de alcohol
+                // // // // // // // // // //  CONSUMO DE  SPA
 
-            // // // // // // // // // //  ENFERMERDAD CARDIOVASCULAR ATEROGÉNICA
-            $rTECA = 0;
+                // // // // // // // // // //  ENFERMERDAD CARDIOVASCULAR ATEROGÉNICA
+                $rTECA = 0;
 
-            // Sedentario
+                // Sedentario
 
-            // Sedentario
+                // Sedentario
 
-            // Cosumos de SPA
-            if ($respude12a17->spa == "SI") {
-                $rTECA = $rTECA + 0.5;
-            }
-            // Cosumos de SPA
+                // Cosumos de SPA
+                if ($respude12a17->spa == "SI") {
+                    $rTECA = $rTECA + 0.5;
+                }
+                // Cosumos de SPA
 
-            // Sobrepeso
-            if ($imc >= 1 && $imc <= 2) {
-                $rTECA = $rTECA + 0.5;
-            }
-            // Sobrepeso
+                // Sobrepeso
+                if ($imc >= 1 && $imc <= 2) {
+                    $rTECA = $rTECA + 0.5;
+                }
+                // Sobrepeso
 
-            // Hipertension arterial
-            $antehipertension = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id ?? 0, "HIPERTENSION");
-            $antehipertension2 = \App\EnfermedadesJefes::buscarEnfer(Session::get('alias'), $respujefe->id ?? 0, "HIPERTENSION");
-            if (($antehipertension + $antehipertension2) > 0) {
-                $rTECA = $rTECA + 1.5;
-            }
-            // Hipertension arterial
+                // Hipertension arterial
+                $antehipertension = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id ?? 0, "HIPERTENSION");
+                $antehipertension2 = \App\EnfermedadesJefes::buscarEnfer(Session::get('alias'), $respujefe->id ?? 0, "HIPERTENSION");
+                if (($antehipertension + $antehipertension2) > 0) {
+                    $rTECA = $rTECA + 1.5;
+                }
+                // Hipertension arterial
 
-            // Hiperlipemia
+                // Hiperlipemia
 
-            // Hiperlipemia
+                // Hiperlipemia
 
-            // obesidad
-            if ($imc > 2) {
-                $rTECA = $rTECA + 1.5;
-            }
-            // obesidad
+                // obesidad
+                if ($imc > 2) {
+                    $rTECA = $rTECA + 1.5;
+                }
+                // obesidad
 
-            // Antecedentes familiares
+                // Antecedentes familiares
 
-            // Antecedentes familiares
+                // Antecedentes familiares
 
-            // Diabetes
-            $antediabetes = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id ?? 0, "DIABETES");
-            $antediabetes2 = \App\EnfermedadesJefes::buscarEnfer(Session::get('alias'), $respujefe->id ?? 0, "DIABETES");
-            if (($antediabetes + $antediabetes2) > 0) {
-                $rTECA = $rTECA + 1;
-            }
-            // Diabetes
-            // // // // // // // // // //  ENFERMERDAD CARDIOVASCULAR ATEROGÉNICA
+                // Diabetes
+                $antediabetes = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id ?? 0, "DIABETES");
+                $antediabetes2 = \App\EnfermedadesJefes::buscarEnfer(Session::get('alias'), $respujefe->id ?? 0, "DIABETES");
+                if (($antediabetes + $antediabetes2) > 0) {
+                    $rTECA = $rTECA + 1;
+                }
+                // Diabetes
+                // // // // // // // // // //  ENFERMERDAD CARDIOVASCULAR ATEROGÉNICA
 
-            // // // // // // // // // // Cancer
-            $rTC = 0;
-            // Antecedentes en familiares
-            $antecancer = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "CANCER");
-            if ($antecancer > 0) {
-                $rTC = $rTC + 2;
-            }
-            // Antecedentes en familiares
+                // // // // // // // // // // Cancer
+                $rTC = 0;
+                // Antecedentes en familiares
+                $antecancer = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "CANCER");
+                if ($antecancer > 0) {
+                    $rTC = $rTC + 2;
+                }
+                // Antecedentes en familiares
 
-            // Contaminación ambiental
-            $contambien = \App\RiesgosAmbientales::buscar(Session::get('alias'), $id_hogar);
-            if ($contambien->control_riesgos_atmosferico > 1) {
-                $rTC = $rTC + 0.5;
-            }
-            // Contaminación ambiental
+                // Contaminación ambiental
+                $contambien = \App\RiesgosAmbientales::buscar(Session::get('alias'), $id_hogar);
+                if ($contambien->control_riesgos_atmosferico > 1) {
+                    $rTC = $rTC + 0.5;
+                }
+                // Contaminación ambiental
 
-            // sobrepeso / Obesidad
-            if ($imc > 1) {
-                $rTC = $rTC + 0.5;
-            }
-            // sobrepeso / Obesidad
+                // sobrepeso / Obesidad
+                if ($imc > 1) {
+                    $rTC = $rTC + 0.5;
+                }
+                // sobrepeso / Obesidad
 
-            // consumo SPA
-            if ($respude12a17->spa == "SI") {
-                $rTC = $rTC + 1.5;
-            }
-            // consumo SPA
+                // consumo SPA
+                if ($respude12a17->spa == "SI") {
+                    $rTC = $rTC + 1.5;
+                }
+                // consumo SPA
 
-            // consumo tabaco
-            if ($respude12a17->fuma == "SI") {
-                $rTC = $rTC + 1.5;
-            }
-            // consumo tabaco
+                // consumo tabaco
+                if ($respude12a17->fuma == "SI") {
+                    $rTC = $rTC + 1.5;
+                }
+                // consumo tabaco
 
-            // consumo de tabaco pasivo
-            if ($consufact->tabaco == "SI") {
-                $rTC = $rTC + 1;
-            }
-            // consumo de tabaco pasivo
+                // consumo de tabaco pasivo
+                if ($consufact->tabaco == "SI") {
+                    $rTC = $rTC + 1;
+                }
+                // consumo de tabaco pasivo
 
-            // consumo tabaco
-            if ($respude12a17->alcohol == "SI") {
-                $rTC = $rTC + 1;
-            }
-            // consumo tabaco
+                // consumo tabaco
+                if ($respude12a17->alcohol == "SI") {
+                    $rTC = $rTC + 1;
+                }
+                // consumo tabaco
 
-            // Examen de mama anormal
+                // Examen de mama anormal
 
-            // Examen de mama anormal
+                // Examen de mama anormal
 
-            // citología anormal /examen de prostota anormal
+                // citología anormal /examen de prostota anormal
 
-            // citología anormal /examen de prostota anormal
-            // // // // // // // // // // Cancer
+                // citología anormal /examen de prostota anormal
+                // // // // // // // // // // Cancer
 
-            // // // // // // // // // // Alteraciones y transtornos visuales
-            $rTATV = 0;
-            // Antecedentes familiares
-            $antealteraciones = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "ALTERACIONES");
-            if ($antealteraciones > 0) {
-                $rTATV = $rTATV + 1.9;
-            }
-            // Antecedentes familiares
+                // // // // // // // // // // Alteraciones y transtornos visuales
+                $rTATV = 0;
+                // Antecedentes familiares
+                $antealteraciones = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "ALTERACIONES");
+                if ($antealteraciones > 0) {
+                    $rTATV = $rTATV + 1.9;
+                }
+                // Antecedentes familiares
 
-            // consumo de alcohol
-            if ($respude12a17->alcohol == "SI" || $respude12a17->fuma == "SI") {
-                $rTATV = $rTATV + 1.7;
-            }
-            // consumo de alcohol
+                // consumo de alcohol
+                if ($respude12a17->alcohol == "SI" || $respude12a17->fuma == "SI") {
+                    $rTATV = $rTATV + 1.7;
+                }
+                // consumo de alcohol
 
-            // Diabetes
-            if ($antediabetes > 0) {
-                $rTATV = $rTATV + 1.7;
-            }
-            // Diabetes
+                // Diabetes
+                if ($antediabetes > 0) {
+                    $rTATV = $rTATV + 1.7;
+                }
+                // Diabetes
 
-            // Hipertension arterial
-            if ($antehipertension > 0) {
-                $rTATV = $rTATV + 1.7;
-            }
-            // Hipertension arterial
-            // // // // // // // // // // Alteraciones y transtornos visuales
+                // Hipertension arterial
+                if ($antehipertension > 0) {
+                    $rTATV = $rTATV + 1.7;
+                }
+                // Hipertension arterial
+                // // // // // // // // // // Alteraciones y transtornos visuales
 
-            // // // // // // // // // // ALTERACIONES Y TRASTORNOS DE LA AUDICIÓN Y COMUNICACIÓN
-            $rTATAC = 0;
-            // antecedente familiar
-            $antealteracionesaud = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "ALTERACIONESAUD");
-            if ($antealteracionesaud > 0) {
-                $rTATAC = $rTATAC + 2;
-            }
-            // antecedente familiar
+                // // // // // // // // // // ALTERACIONES Y TRASTORNOS DE LA AUDICIÓN Y COMUNICACIÓN
+                $rTATAC = 0;
+                // antecedente familiar
+                $antealteracionesaud = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "ALTERACIONESAUD");
+                if ($antealteracionesaud > 0) {
+                    $rTATAC = $rTATAC + 2;
+                }
+                // antecedente familiar
 
-            // Exposicion a contaminación auditiva
-            if ($contambien->riesgos_auditivo > 1) {
-                $rTATAC = $rTATAC + 2;
-            }
-            // Exposicion a contaminación auditiva
+                // Exposicion a contaminación auditiva
+                if ($contambien->riesgos_auditivo > 1) {
+                    $rTATAC = $rTATAC + 2;
+                }
+                // Exposicion a contaminación auditiva
 
-            // Infecciones crónicas de oidos
-            $enferoidos = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id ?? 0, "OIDOS");
-            $enferoidos2 = \App\EnfermedadesJefes::buscarEnfer(Session::get('alias'), $respujefe->id ?? 0, "OIDOS");
-            if (($enferoidos + $enferoidos2) > 0) {
-                $rTATAC = $rTATAC + 3;
-            }
-            // Infecciones crónicas de oidos
-            // // // // // // // // // // ALTERACIONES Y TRASTORNOS DE LA AUDICIÓN Y COMUNICACIÓN
+                // Infecciones crónicas de oidos
+                $enferoidos = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id ?? 0, "OIDOS");
+                $enferoidos2 = \App\EnfermedadesJefes::buscarEnfer(Session::get('alias'), $respujefe->id ?? 0, "OIDOS");
+                if (($enferoidos + $enferoidos2) > 0) {
+                    $rTATAC = $rTATAC + 3;
+                }
+                // Infecciones crónicas de oidos
+                // // // // // // // // // // ALTERACIONES Y TRASTORNOS DE LA AUDICIÓN Y COMUNICACIÓN
 
-            // // // // // // // // // // Salud Bucal
-            $rTSB = 0;
+                // // // // // // // // // // Salud Bucal
+                $rTSB = 0;
 
-            // Presencia de caries
-            if ($respude12a17->dientes_sanos == "SI") {
-                $rTSB = $rTSB + 7;
                 // Presencia de caries
-            } else {
+                if ($respude12a17->dientes_sanos == "SI") {
+                    $rTSB = $rTSB + 7;
+                    // Presencia de caries
+                } else {
+                    // NBI
+                    if ($NBI == "SI") {
+                        $rTSB = $rTSB + 1;
+                    }
+                    // NBI
+
+                    // Sin acceso a servicios odontologicos
+                    if ($respude12a17->consultaodon == "NO") {
+                        $rTSB = $rTSB + 1;
+                    }
+                    // Sin acceso a servicios odontologicos
+
+                    // Malos hábitos de higiene oral
+                    if ($respude12a17->nocepillado < 3) {
+                        $rTSB = $rTSB + 2;
+                    }
+                    // Malos hábitos de higiene oral
+
+                    // tabaco
+                    if ($respude12a17->fuma == "SI") {
+                        $rTSB = $rTSB + 2;
+                    }
+                    // tabaco
+
+                    // consumo d alcohol
+                    if ($respude12a17->alcohol == "SI") {
+                        $rTSB = $rTSB + 1;
+                    }
+                    // consumo d alcohol
+                }
+
+                // // // // // // // // // // Salud Bucal
+
+                // // // // // // // // // // PROBLEMAS EN SALUD MENTAL
+                $rTSM = 0;
+                // Antecedente familiar
+                $antesaludmental = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "SALUDMENTAL");
+                if ($antesaludmental > 0) {
+                    $rTSM = $rTSM + 1.4;
+                }
+                // Antecedente familiar
+
+                // Mala relaciones con familiares
+                if ($respude12a17->padre == "4" || $respude12a17->madre == "4" || $respude12a17->hermanos == "4" || $respude12a17->conyuge == "4") {
+                    $rTSM = $rTSM + 1.2;
+                }
+                // Mala relaciones con familiares
+
+                // Problemas de conducta
+                if ($respude12a17->conducta == "SI") {
+                    $rTSM = $rTSM + 1.4;
+                }
+                // Problemas de conducta
+
+                // consumo de SPA
+                if ($respude12a17->spa == "SI") {
+                    $rTSM = $rTSM + 2;
+                }
+                // consumo de SPA
+
+                // Violencia intrafamiliar
+                if ($respude12a17->maltrato == "SI") {
+                    $rTSM = $rTSM + 1;
+                }
+                // Violencia intrafamiliar
+                // // // // // // // // // // PROBLEMAS EN SALUD MENTAL
+
+                // // // // // // // // // // VIOLENCIAS
+                $rTV = 0;
+                // Antecedentes de Violencia  intrafamiliar
+                if ($consufact->violencia_fisica == "SI") {
+                    $rTV = $rTV + 1;
+                }
+                // Antecedentes de Violencia  intrafamiliar
+
+                // Transtornos mentales
+                $anteconducta = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id ?? 0, "CONDUCTA");
+                $anteconducta2 = \App\EnfermedadesJefes::buscarEnfer(Session::get('alias'), $respujefe->id ?? 0, "CONDUCTA");
+                if (($anteconducta + $anteconducta2) > 0) {
+                    $rTV = $rTV + 0.5;
+                }
+                // Transtornos mentales
+
+                // Consumo de SPA en la vivienda
+                if ($consufact->sustancias_psico == "SI") {
+                    $rTV = $rTV + 1;
+                }
+                // Consumo de SPA en la vivienda
+
+                // Problemas de conducta
+                if ($respude12a17->conducta == "SI") {
+                    $rTV = $rTV + 1;
+                }
+                // Problemas de conducta
+
                 // NBI
                 if ($NBI == "SI") {
-                    $rTSB = $rTSB + 1;
+                    $rTV = $rTV + 1;
                 }
                 // NBI
 
-                // Sin acceso a servicios odontologicos
-                if ($respude12a17->consultaodon == "NO") {
-                    $rTSB = $rTSB + 1;
+                // Señales de violencia
+                if ($respude12a17->maltrato == "SI") {
+                    $rTV = $rTV + 2;
                 }
-                // Sin acceso a servicios odontologicos
+                // Señales de violencia
 
-                // Malos hábitos de higiene oral
-                if ($respude12a17->nocepillado < 3) {
-                    $rTSB = $rTSB + 2;
+                // Mala relación con familiares
+                if ($respude12a17->padre == "4" || $respude12a17->madre == "4" || $respude12a17->hermanos == "4" || $respude12a17->conyuge == "4") {
+                    $rTV = $rTV + 0.5;
                 }
-                // Malos hábitos de higiene oral
+                // Mala relación con familiares
+                // // // // // // // // // // VIOLENCIAS
 
-                // tabaco
+                // // // // // // // // // // Enfermedades Respiratorias
+                $rTERC = 0;
+
+                // consumo de tabaco
                 if ($respude12a17->fuma == "SI") {
-                    $rTSB = $rTSB + 2;
+                    $rTERC = $rTERC + 2.5;
                 }
-                // tabaco
+                // consumo de tabaco
 
-                // consumo d alcohol
-                if ($respude12a17->alcohol == "SI") {
-                    $rTSB = $rTSB + 1;
+                // consumo de SPA
+                if ($respude12a17->spa == "SI") {
+                    $rTERC = $rTERC + 2;
                 }
-                // consumo d alcohol
+                // consumo de SPA
+
+                // ViVienda Cocina con leña o carbón
+                if ($respuvivi->tipo_combustible == "3" || $respuvivi->tipo_combustible == "4") {
+                    $rTERC = $rTERC + 1.5;
+                }
+                // ViVienda Cocina con leña o carbón
+
+                // Antecedentes familiares de enfermedades respiratorias cronicas
+                $anteenferrespi = \App\AntecedentesIntegrantes::buscarAntePorId(Session::get('alias'), $id_hogar, "ENFERRESPI", $respuinte->id ?? $respujefe->id);
+                if ($anteenferrespi > 0) {
+                    $rTERC = $rTERC + 0.5;
+                }
+                // Antecedentes familiares de enfermedades respiratorias cronicas
+
+                // Contaminación ambiental
+                if ($contambien->control_riesgos_atmosferico > 1) {
+                    $rTERC = $rTERC + 0.5;
+                }
+                // Contaminación ambiental
+
+                // Consumo pasivo de humo de tabaco o SPA
+                if ($consufact->tabaco == "SI" || $consufact->sustancias_psico == "SI") {
+                    $rTERC = $rTERC + 1;
+                }
+                // Consumo pasivo de humo de tabaco o SPA
+                // // // // // // // // // // Enfermedades Respiratorias
+
+                // // // // // // // // // // ENFERMEDADES ZOONOTICAS
+                $rTEZ = 0;
+                // Cria de animales (mas de 2  domesticos)
+                $anidomes = \App\Animal::buscar(Session::get('alias'), $id_hogar);
+                if (count($anidomes) > 2) {
+                    $rTEZ = $rTEZ + 2.25;
+                }
+                // Cria de animales (mas de 2  domesticos)
+
+                // No vacunación de animales
+                $anidomesvacuna = \App\Animal::buscarVacunados(Session::get('alias'), $id_hogar);
+                if (count($anidomesvacuna) > 2) {
+                    $rTEZ = $rTEZ + 2;
+                }
+                // No vacunación de animales
+
+                // Consumo de agua no potable.
+                if ($respuvivi->tipo_tratamiento_agua == "NA" || $respuvivi->tipo_tratamiento_agua == "4") {
+                    $rTEZ = $rTEZ + 1.25;
+                }
+                // Consumo de agua no potable.
+
+                // Manejo de residuos
+                if ($respuvivi->destino_final_basura != "1" || $respuvivi->almacenamiento_residuos != "SI") {
+                    $rTEZ = $rTEZ + 1.25;
+                }
+                // Manejo de residuos
+
+                // Lotes abandonados
+                if ($respuvivi->lotes_abandonados == "SI") {
+                    $rTEZ = $rTEZ + 1;
+                }
+                // Lotes abandonados
+
+                // NBI
+                if ($NBI == "SI") {
+                    $rTEZ = $rTEZ + 1.25;
+                }
+                // NBI
+
+                // Mal estado de la vivienda
+                if ($respuvivi->material_predominante == "5" || $respuvivi->material_predominante == "7"
+                    || $respuvivi->tipo_estructura == "5" || $respuvivi->tipo_cubierta == "2"
+                    || $respuvivi->tipo_cubierta == "6" || $respuvivi->tipo_cubierta == "8" || $respuvivi->tipo_cubierta == "9") {
+                    $rTEZ = $rTEZ + 1;
+                }
+                // Mal estado de la vivienda
+                // // // // // // // // // // ENFERMEDADES ZOONOTICAS
+
+                // // // // // // // // // // TRASTORNOS DEGENERATIVOS, NEUROPATÍAS Y ENF AUTOINMUNE
+                $rTTDNEA = 0;
+                // Antecedente familiar
+                $antetranstornos = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "TRANSTORNOS");
+                if ($antetranstornos > 0) {
+                    $rTTDNEA = $rTTDNEA + 2;
+                }
+                // Antecedente familiar
+
+                // Consumo de SPA
+                if ($respude12a17->spa == "SI") {
+                    $rTTDNEA = $rTTDNEA + 2;
+                }
+                // Consumo de SPA
+
+                // Enfermedades infecciosas
+                if ((count($respuenferinte) + count($respuenferjefe)) > 0) {
+                    $rTTDNEA = $rTTDNEA + 1;
+                }
+                // Enfermedades infecciosas
+
+                // Contaminación ambiental
+                if ($contambien->control_riesgos_atmosferico > 1) {
+                    $rTTDNEA = $rTTDNEA + 1;
+                }
+                // Contaminación ambiental
+
+                // Desnutrición
+
+                // Desnutrición
+                // // // // // // // // // // TRASTORNOS DEGENERATIVOS, NEUROPATÍAS Y ENF AUTOINMUNE
+
+                $datos["enfermedades_infecciosas_I"] = $rTEI;
+                $datos["transtornos_asociados_spa_I"] = $rTTAUS;
+                $datos["enfermedad_cardiovascular_I"] = $rTECA;
+                $datos["cancer_I"] = $rTC;
+                $datos["alteraciones_transtornos_visuales_I"] = $rTATV;
+                $datos["alteraciones_transtornos_audicion_I"] = $rTATAC;
+                $datos["salud_bucal_I"] = $rTSB;
+                $datos["problemas_salud_mental_I"] = $rTSM;
+                $datos["violencias_I"] = $rTV;
+                $datos["enfermedades_respiratorias_I"] = $rTERC;
+                $datos["enfermedades_zoonoticas_I"] = $rTEZ;
+                $datos["transtornos_degenartivos_I"] = $rTTDNEA;
+                $datos["consumo_spa_I"] = $rTCDS;
+                $datos["riesgo_talla_baja_I"] = $rTRRT;
+                $datos["riesgo_delgadez_I"] = $rTRD;
+                if ($respuinte != null) {
+                    $datos["opci"] = "INTE";
+                }else{
+                    $datos["opci"] = "JEFE";
+                }
+                $resultado = self::calculosSaludInherente($datos, "DE12A17", $id_hogar, $respude12a17->id_integrante);
             }
-
-            // // // // // // // // // // Salud Bucal
-
-            // // // // // // // // // // PROBLEMAS EN SALUD MENTAL
-            $rTSM = 0;
-            // Antecedente familiar
-            $antesaludmental = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "SALUDMENTAL");
-            if ($antesaludmental > 0) {
-                $rTSM = $rTSM + 1.4;
-            }
-            // Antecedente familiar
-
-            // Mala relaciones con familiares
-            if ($respude12a17->padre == "4" || $respude12a17->madre == "4" || $respude12a17->hermanos == "4" || $respude12a17->conyuge == "4") {
-                $rTSM = $rTSM + 1.2;
-            }
-            // Mala relaciones con familiares
-
-            // Problemas de conducta
-            if ($respude12a17->conducta == "SI") {
-                $rTSM = $rTSM + 1.4;
-            }
-            // Problemas de conducta
-
-            // consumo de SPA
-            if ($respude12a17->spa == "SI") {
-                $rTSM = $rTSM + 2;
-            }
-            // consumo de SPA
-
-            // Violencia intrafamiliar
-            if ($respude12a17->maltrato == "SI") {
-                $rTSM = $rTSM + 1;
-            }
-            // Violencia intrafamiliar
-            // // // // // // // // // // PROBLEMAS EN SALUD MENTAL
-
-            // // // // // // // // // // VIOLENCIAS
-            $rTV = 0;
-            // Antecedentes de Violencia  intrafamiliar
-            if ($consufact->violencia_fisica == "SI") {
-                $rTV = $rTV + 1;
-            }
-            // Antecedentes de Violencia  intrafamiliar
-
-            // Transtornos mentales
-            $anteconducta = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id ?? 0, "CONDUCTA");
-            $anteconducta2 = \App\EnfermedadesJefes::buscarEnfer(Session::get('alias'), $respujefe->id ?? 0, "CONDUCTA");
-            if (($anteconducta + $anteconducta2) > 0) {
-                $rTV = $rTV + 0.5;
-            }
-            // Transtornos mentales
-
-            // Consumo de SPA en la vivienda
-            if ($consufact->sustancias_psico == "SI") {
-                $rTV = $rTV + 1;
-            }
-            // Consumo de SPA en la vivienda
-
-            // Problemas de conducta
-            if ($respude12a17->conducta == "SI") {
-                $rTV = $rTV + 1;
-            }
-            // Problemas de conducta
-
-            // NBI
-            if ($NBI == "SI") {
-                $rTV = $rTV + 1;
-            }
-            // NBI
-
-            // Señales de violencia
-            if ($respude12a17->maltrato == "SI") {
-                $rTV = $rTV + 2;
-            }
-            // Señales de violencia
-
-            // Mala relación con familiares
-            if ($respude12a17->padre == "4" || $respude12a17->madre == "4" || $respude12a17->hermanos == "4" || $respude12a17->conyuge == "4") {
-                $rTV = $rTV + 0.5;
-            }
-            // Mala relación con familiares
-            // // // // // // // // // // VIOLENCIAS
-
-            // // // // // // // // // // Enfermedades Respiratorias
-            $rTERC = 0;
-
-            // consumo de tabaco
-            if ($respude12a17->fuma == "SI") {
-                $rTERC = $rTERC + 2.5;
-            }
-            // consumo de tabaco
-
-            // consumo de SPA
-            if ($respude12a17->spa == "SI") {
-                $rTERC = $rTERC + 2;
-            }
-            // consumo de SPA
-
-            // ViVienda Cocina con leña o carbón
-            if ($respuvivi->tipo_combustible == "3" || $respuvivi->tipo_combustible == "4") {
-                $rTERC = $rTERC + 1.5;
-            }
-            // ViVienda Cocina con leña o carbón
-
-            // Antecedentes familiares de enfermedades respiratorias cronicas
-            $anteenferrespi = \App\AntecedentesIntegrantes::buscarAntePorId(Session::get('alias'), $id_hogar, "ENFERRESPI", $respuinte->id ?? $respujefe->id);
-            if ($anteenferrespi > 0) {
-                $rTERC = $rTERC + 0.5;
-            }
-            // Antecedentes familiares de enfermedades respiratorias cronicas
-
-            // Contaminación ambiental
-            if ($contambien->control_riesgos_atmosferico > 1) {
-                $rTERC = $rTERC + 0.5;
-            }
-            // Contaminación ambiental
-
-            // Consumo pasivo de humo de tabaco o SPA
-            if ($consufact->tabaco == "SI" || $consufact->sustancias_psico == "SI") {
-                $rTERC = $rTERC + 1;
-            }
-            // Consumo pasivo de humo de tabaco o SPA
-            // // // // // // // // // // Enfermedades Respiratorias
-
-            // // // // // // // // // // ENFERMEDADES ZOONOTICAS
-            $rTEZ = 0;
-            // Cria de animales (mas de 2  domesticos)
-            $anidomes = \App\Animal::buscar(Session::get('alias'), $id_hogar);
-            if (count($anidomes) > 2) {
-                $rTEZ = $rTEZ + 2.25;
-            }
-            // Cria de animales (mas de 2  domesticos)
-
-            // No vacunación de animales
-            $anidomesvacuna = \App\Animal::buscarVacunados(Session::get('alias'), $id_hogar);
-            if (count($anidomesvacuna) > 2) {
-                $rTEZ = $rTEZ + 2;
-            }
-            // No vacunación de animales
-
-            // Consumo de agua no potable.
-            if ($respuvivi->tipo_tratamiento_agua == "NA" || $respuvivi->tipo_tratamiento_agua == "4") {
-                $rTEZ = $rTEZ + 1.25;
-            }
-            // Consumo de agua no potable.
-
-            // Manejo de residuos
-            if ($respuvivi->destino_final_basura != "1" || $respuvivi->almacenamiento_residuos != "SI") {
-                $rTEZ = $rTEZ + 1.25;
-            }
-            // Manejo de residuos
-
-            // Lotes abandonados
-            if ($respuvivi->lotes_abandonados == "SI") {
-                $rTEZ = $rTEZ + 1;
-            }
-            // Lotes abandonados
-
-            // NBI
-            if ($NBI == "SI") {
-                $rTEZ = $rTEZ + 1.25;
-            }
-            // NBI
-
-            // Mal estado de la vivienda
-            if ($respuvivi->material_predominante == "5" || $respuvivi->material_predominante == "7"
-                || $respuvivi->tipo_estructura == "5" || $respuvivi->tipo_cubierta == "2"
-                || $respuvivi->tipo_cubierta == "6" || $respuvivi->tipo_cubierta == "8" || $respuvivi->tipo_cubierta == "9") {
-                $rTEZ = $rTEZ + 1;
-            }
-            // Mal estado de la vivienda
-            // // // // // // // // // // ENFERMEDADES ZOONOTICAS
-
-            // // // // // // // // // // TRASTORNOS DEGENERATIVOS, NEUROPATÍAS Y ENF AUTOINMUNE
-            $rTTDNEA = 0;
-            // Antecedente familiar
-            $antetranstornos = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "TRANSTORNOS");
-            if ($antetranstornos > 0) {
-                $rTTDNEA = $rTTDNEA + 2;
-            }
-            // Antecedente familiar
-
-            // Consumo de SPA
-            if ($respude12a17->spa == "SI") {
-                $rTTDNEA = $rTTDNEA + 2;
-            }
-            // Consumo de SPA
-
-            // Enfermedades infecciosas
-            if ((count($respuenferinte) + count($respuenferjefe)) > 0) {
-                $rTTDNEA = $rTTDNEA + 1;
-            }
-            // Enfermedades infecciosas
-
-            // Contaminación ambiental
-            if ($contambien->control_riesgos_atmosferico > 1) {
-                $rTTDNEA = $rTTDNEA + 1;
-            }
-            // Contaminación ambiental
-
-            // Desnutrición
-
-            // Desnutrición
-            // // // // // // // // // // TRASTORNOS DEGENERATIVOS, NEUROPATÍAS Y ENF AUTOINMUNE
-
-            $datos["enfermedades_infecciosas_I"] = $rTEI;
-            $datos["transtornos_asociados_spa_I"] = $rTTAUS;
-            $datos["enfermedad_cardiovascular_I"] = $rTECA;
-            $datos["cancer_I"] = $rTC;
-            $datos["alteraciones_transtornos_visuales_I"] = $rTATV;
-            $datos["alteraciones_transtornos_audicion_I"] = $rTATAC;
-            $datos["salud_bucal_I"] = $rTSB;
-            $datos["problemas_salud_mental_I"] = $rTSM;
-            $datos["violencias_I"] = $rTV;
-            $datos["enfermedades_respiratorias_I"] = $rTERC;
-            $datos["enfermedades_zoonoticas_I"] = $rTEZ;
-            $datos["transtornos_degenartivos_I"] = $rTTDNEA;
-            $datos["consumo_spa_I"] = $rTCDS;
-            $datos["riesgo_talla_baja_I"] = $rTRRT;
-            $datos["riesgo_delgadez_I"] = $rTRD;
-            if ($respuinte != null) {
-                $datos["opci"] = "INTE";
-            }else{
-                $datos["opci"] = "JEFE";
-            }
-            $resultado = self::calculosSaludInherente($datos, "DE12A17", $id_hogar, $respude12a17->id_integrante);
 
         }
         // // // // // // // // // // De12A17 // // // // // // // // // //
@@ -13037,1531 +13070,295 @@ class CaracterizacionController extends Controller
             $respuinte = \App\Integrante::buscar($identificacion, Session::get('alias'));
             $respujefe = \App\Caracterizacion::buscar($identificacion, Session::get('alias'));
             $respude18a28 = \App\De18a28::buscarPorIdentificacion(Session::get('alias'), $identificacion);
+            if($respude18a28){
+                // // // // // // // // // //  Riesgo de delgadez
+                $rTRD = 0;
+                // Enfermedades infecciosas
+                $respuenferinte = \App\EnfermedadesIntegrantes::buscarInfecciosas(Session::get('alias'), $respuinte->id ?? 0);
+                $respuenferjefe = \App\EnfermedadesJefes::buscarInfecciosas(Session::get('alias'), $respujefe->id ?? 0);
 
-            // // // // // // // // // //  Riesgo de delgadez
-            $rTRD = 0;
-            // Enfermedades infecciosas
-            $respuenferinte = \App\EnfermedadesIntegrantes::buscarInfecciosas(Session::get('alias'), $respuinte->id ?? 0);
-            $respuenferjefe = \App\EnfermedadesJefes::buscarInfecciosas(Session::get('alias'), $respujefe->id ?? 0);
+                if ((count($respuenferinte) + count($respuenferjefe)) > 0) {
+                    $rTRD = $rTRD + 0.8;
+                }
+                // Enfermedades infecciosas
 
-            if ((count($respuenferinte) + count($respuenferjefe)) > 0) {
-                $rTRD = $rTRD + 0.8;
-            }
-            // Enfermedades infecciosas
+                // Consumo SPA
+                if ($respude18a28->spa == "SI") {
+                    $rTRD = $rTRD + 0.8;
+                }
+                // Consumo SPA
 
-            // Consumo SPA
-            if ($respude18a28->spa == "SI") {
-                $rTRD = $rTRD + 0.8;
-            }
-            // Consumo SPA
+                // NBI
+                $NBI = self::calcularNBI($id_hogar);
+                if ($NBI == "SI") {
+                    $rTRD = $rTRD + 1.2;
+                }
+                // NBI
 
-            // NBI
-            $NBI = self::calcularNBI($id_hogar);
-            if ($NBI == "SI") {
-                $rTRD = $rTRD + 1.2;
-            }
-            // NBI
+                // NO agua potable
+                if ($respuvivi->acueducto == "NO") {
+                    $rTRD = $rTRD + 0.8;
+                }
+                // NO agua potable
 
-            // NO agua potable
-            if ($respuvivi->acueducto == "NO") {
-                $rTRD = $rTRD + 0.8;
-            }
-            // NO agua potable
+                // IMC  -2 a < -1
+                if ($respude18a28->imc >= "18.5" && $respude18a28->imc <= "19.5") {
+                    $rTRD = $rTRD + 3.4;
+                }
+                // IMC  -2 a < -1
+                // // // // // // // // // //  Riesgo de delgadez
 
-            // IMC  -2 a < -1
-            if ($respude18a28->imc >= "18.5" && $respude18a28->imc <= "19.5") {
-                $rTRD = $rTRD + 3.4;
-            }
-            // IMC  -2 a < -1
-            // // // // // // // // // //  Riesgo de delgadez
+                // // // // // // // // // //  Enfermedades Infecciosas
+                $rTEI = 0;
 
-            // // // // // // // // // //  Enfermedades Infecciosas
-            $rTEI = 0;
+                // Delgadez
+                if ($respude18a28->imc < "18.5") {
+                    $rTEI = $rTEI + 0.6;
+                }
+                // Delgadez
 
-            // Delgadez
-            if ($respude18a28->imc < "18.5") {
-                $rTEI = $rTEI + 0.6;
-            }
-            // Delgadez
+                // plagas
+                if ($respuvivi->plagas == "SI") {
+                    $rTEI = $rTEI + 0.7;
+                }
+                // plagas
 
-            // plagas
-            if ($respuvivi->plagas == "SI") {
-                $rTEI = $rTEI + 0.7;
-            }
-            // plagas
+                // Manejo inadecuado  de residuos
 
-            // Manejo inadecuado  de residuos
+                // Manejo inadecuado  de residuos
 
-            // Manejo inadecuado  de residuos
+                // Malas condiciones de la vivienda
 
-            // Malas condiciones de la vivienda
+                // Malas condiciones de la vivienda
 
-            // Malas condiciones de la vivienda
+                // Hacinamiento
+                $hacinamiento = self::hacinamiento($id_hogar);
+                if ($hacinamiento == "SI") {
+                    $rTEI = $rTEI + 0.62;
+                }
+                // Hacinamiento
 
-            // Hacinamiento
-            $hacinamiento = self::hacinamiento($id_hogar);
-            if ($hacinamiento == "SI") {
-                $rTEI = $rTEI + 0.62;
-            }
-            // Hacinamiento
+                // Enfermedades inmunosupresoras
 
-            // Enfermedades inmunosupresoras
+                // Enfermedades inmunosupresoras
 
-            // Enfermedades inmunosupresoras
+                // No desparacitado
 
-            // No desparacitado
+                // No desparacitado
 
-            // No desparacitado
+                // No Vacunación
 
-            // No Vacunación
+                // No Vacunación
 
-            // No Vacunación
-
-            // Riesgos de delgadez
-            $proba = 0;
-            if ($rTRD == 0) {
-                $proba = 1;
-            } else {
-                if ($proba >= 0.1 && $proba < 0.5) {
-                    $proba = 2;
+                // Riesgos de delgadez
+                $proba = 0;
+                if ($rTRD == 0) {
+                    $proba = 1;
                 } else {
-                    if ($proba >= 0.5 && $proba < 3.4) {
-                        $proba = 3;
+                    if ($proba >= 0.1 && $proba < 0.5) {
+                        $proba = 2;
                     } else {
-                        if ($proba >= 3.4 && $proba < 6.1) {
-                            $proba = 4;
+                        if ($proba >= 0.5 && $proba < 3.4) {
+                            $proba = 3;
                         } else {
-                            $proba = 5;
+                            if ($proba >= 3.4 && $proba < 6.1) {
+                                $proba = 4;
+                            } else {
+                                $proba = 5;
+                            }
                         }
                     }
                 }
-            }
-            $res = $proba * 4;
+                $res = $proba * 4;
 
-            if ($res > 8) {
-                $rTEI = $rTEI + 0.4;
-            }
-            // Riesgos de delgadez
-
-            // Baño compartido
-            if ($respuvivi->cuantos_baños <= 1) {
-                $rTEI = $rTEI + 0.6;
-            }
-            // Baño compartido
-
-            // Lotes enmontados
-            if ($respuvivi->lotes_abandonados == "SI") {
-                $rTEI = $rTEI + 0.64;
-            }
-            // Lotes enmontados
-
-            // no lavar la verduras y frutas antes de comer
-
-            // no lavar la verduras y frutas antes de comer
-
-            // relleno sanitario cerda de la vivienda
-            if ($respuvivi->rellenos == "SI") {
-                $rTEI = $rTEI + 0.8;
-            }
-            // relleno sanitario cerda de la vivienda
-
-            // Ningun tratamiento para el consumo de agua
-            if ($respuvivi->tipo_tratamiento_agua == "NA" || $respuvivi->tipo_tratamiento_agua == "4") {
-                $rTEI = $rTEI + 0.8;
-            }
-            // Ningun tratamiento para el consumo de agua
-
-            // No acceso agua potable
-            if ($respuvivi->acueducto == "NO") {
-                $rTEI = $rTEI + 0.8;
-            }
-            // No acceso agua potable
-
-            // Habitante de la vivienda con enfermedad infectocontagiosa
-
-            // Habitante de la vivienda con enfermedad infectocontagiosa
-
-            // // // // // // // // // //  Enfermedades Infecciosas
-
-            // // // // // // // // // //  CONSUMO DE  SPA
-            $rTCDS = 0;
-
-            // Mala relaciones con familiares
-
-            // Mala relaciones con familiares
-
-            // NBI
-            if ($NBI == "SI") {
-                $rTCDS = $rTCDS + 1;
-            }
-            // NBI
-
-            // Enfermedades mentales
-
-            // Enfermedades mentales
-
-            // Problemas de conducta
-            if ($respude18a28->conducta == "SI") {
-                $rTCDS = $rTCDS + 1;
-            }
-            // Problemas de conducta
-
-            // Consumo de Spa en la vivienda
-            $consufact = \App\Factores::buscarFact(Session::get('alias'), $id_hogar);
-            if ($consufact->sustancias_psico == "SI") {
-                $rTCDS = $rTCDS + 1;
-            }
-            // Consumo de Spa en la vivienda
-
-            // Consumo de alcohol
-            if ($respude18a28->alcohol == "SI") {
-                $rTCDS = $rTCDS + 1;
-            }
-            // Consumo de alcohol
-
-            // Consumo de alcohol
-            if ($respude18a28->empleo == "NO") {
-                $rTCDS = $rTCDS + 1;
-            }
-            // Consumo de alcohol
-            // // // // // // // // // //  CONSUMO DE  SPA
-
-            // // // // // // // // // //  TRASTORNO ASOCIADOS AL CONSUMO DE SPA
-            $rTTAUS = 0;
-            // Consumo SPA
-            if ($respude18a28->spa == "SI") {
-                $rTTAUS = $rTTAUS + 5;
-            }
-            // Consumo SPA
-
-            // Consumo pasivo de SPA
-            $consufact = \App\Factores::buscarFact(Session::get('alias'), $id_hogar);
-            if ($consufact->sustancias_psico == "SI") {
-                $rTTAUS = $rTTAUS + 2;
-            }
-            // Consumo pasivo de SPA
-            // // // // // // // // // //  TRASTORNO ASOCIADOS AL CONSUMO DE SPA
-
-            // // // // // // // // // //  ENFERMERDAD CARDIOVASCULAR ATEROGÉNICA
-            $rTECA = 0;
-
-            // Sedentario
-
-            // Sedentario
-
-            // Cosumos de SPA
-            if ($respude18a28->spa == "SI") {
-                $rTECA = $rTECA + 0.5;
-            }
-            // Cosumos de SPA
-
-            // Sobrepeso
-            if ($respude18a28->imc >= "25" && $respude18a28->imc <= "30") {
-                $rTECA = $rTECA + 0.5;
-            }
-            // Sobrepeso
-
-            // Hipertension arterial
-            $antehipertension = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id ?? 0, "HIPERTENSION");
-            $antehipertension2 = \App\EnfermedadesJefes::buscarEnfer(Session::get('alias'), $respujefe->id ?? 0, "HIPERTENSION");
-            if (($antehipertension + $antehipertension2) > 0) {
-                $rTECA = $rTECA + 1;
-            }
-            // Hipertension arterial
-
-            // P.C Hombre 102 a 115 / Mujeres 88 a 100 cm
-            if ($respuinte->sexo ?? '' == "MASCULINO" || $respujefe->sexo ?? '' == "MASCULINO") {
-                if ($respude18a28->pcintura >= "102" && $respude18a28->pcintura >= "115") {
-                    $rTECA = $rTECA + 0.6;
+                if ($res > 8) {
+                    $rTEI = $rTEI + 0.4;
                 }
-            } else {
-                if ($respuinte->sexo ?? '' == "FEMENINO" || $respujefe->sexo ?? '' == "FEMENINO") {
-                    if ($respude18a28->pcintura >= "88" && $respude18a28->pcintura >= "100") {
-                        $rTECA = $rTECA + 0.6;
-                    }
+                // Riesgos de delgadez
+
+                // Baño compartido
+                if ($respuvivi->cuantos_baños <= 1) {
+                    $rTEI = $rTEI + 0.6;
                 }
-            }
-            // P.C Hombre 102 a 115 / Mujeres 88 a 100 cm
+                // Baño compartido
 
-            // P.C Hombre mayor a 115 / Mujeres Mayor  a 100 cm
-            if ($respuinte->sexo ?? '' == "MASCULINO" || $respujefe->sexo ?? '' == "MASCULINO") {
-                if ($respude18a28->pcintura > "115") {
-                    $rTECA = $rTECA + 1;
+                // Lotes enmontados
+                if ($respuvivi->lotes_abandonados == "SI") {
+                    $rTEI = $rTEI + 0.64;
                 }
-            } else {
-                if ($respuinte->sexo ?? '' == "FEMENINO" || $respujefe->sexo ?? '' == "FEMENINO") {
-                    if ($respude18a28->pcintura >= "100") {
-                        $rTECA = $rTECA + 1;
-                    }
+                // Lotes enmontados
+
+                // no lavar la verduras y frutas antes de comer
+
+                // no lavar la verduras y frutas antes de comer
+
+                // relleno sanitario cerda de la vivienda
+                if ($respuvivi->rellenos == "SI") {
+                    $rTEI = $rTEI + 0.8;
                 }
-            }
-            // P.C Hombre mayor a 115 / Mujeres Mayor  a 100 cm
+                // relleno sanitario cerda de la vivienda
 
-            // Hiperlipemia
+                // Ningun tratamiento para el consumo de agua
+                if ($respuvivi->tipo_tratamiento_agua == "NA" || $respuvivi->tipo_tratamiento_agua == "4") {
+                    $rTEI = $rTEI + 0.8;
+                }
+                // Ningun tratamiento para el consumo de agua
 
-            // Hiperlipemia
+                // No acceso agua potable
+                if ($respuvivi->acueducto == "NO") {
+                    $rTEI = $rTEI + 0.8;
+                }
+                // No acceso agua potable
 
-            // obesidad
-            if ($respude18a28->imc >= "25" && $respude18a28->imc <= "30") {
-                $rTECA = $rTECA + 1.5;
-            }
-            // obesidad
+                // Habitante de la vivienda con enfermedad infectocontagiosa
 
-            // Antecedentes familiares
+                // Habitante de la vivienda con enfermedad infectocontagiosa
 
-            // Antecedentes familiares
+                // // // // // // // // // //  Enfermedades Infecciosas
 
-            // Diabetes
-            $antediabetes = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id ?? 0, "DIABETES");
-            $antediabetes2 = \App\EnfermedadesJefes::buscarEnfer(Session::get('alias'), $respujefe->id ?? 0, "DIABETES");
-            if (($antediabetes + $antediabetes2) > 0) {
-                $rTECA = $rTECA + 1;
-            }
-            // Diabetes
-            // // // // // // // // // //  ENFERMERDAD CARDIOVASCULAR ATEROGÉNICA
+                // // // // // // // // // //  CONSUMO DE  SPA
+                $rTCDS = 0;
 
-            // // // // // // // // // // Cancer
-            $rTC = 0;
-            // Antecedentes en familiares
-            $antecancer = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "CANCER");
-            if ($antecancer > 0) {
-                $rTC = $rTC + 1;
-            }
-            // Antecedentes en familiares
+                // Mala relaciones con familiares
 
-            // Contaminación ambiental
-            $contambien = \App\RiesgosAmbientales::buscar(Session::get('alias'), $id_hogar);
-            if ($contambien->control_riesgos_atmosferico > 1) {
-                $rTC = $rTC + 0.5;
-            }
-            // Contaminación ambiental
+                // Mala relaciones con familiares
 
-            // Obesidad
-            if ($respude18a28->imc >= "25" && $respude18a28->imc <= "30") {
-                $rTC = $rTC + 1.5;
-            }
-            // Obesidad
-
-            // consumo SPA
-            if ($respude18a28->spa == "SI") {
-                $rTC = $rTC + 1.2;
-            }
-            // consumo SPA
-
-            // consumo tabaco
-            if ($respude18a28->fuma == "SI") {
-                $rTC = $rTC + 1.5;
-            }
-            // consumo tabaco
-
-            // consumo de tabaco pasivo
-            if ($consufact->tabaco == "SI") {
-                $rTC = $rTC + 1;
-            }
-            // consumo de tabaco pasivo
-
-            // consumo alcohol
-            if ($respude18a28->alcohol == "SI") {
-                $rTC = $rTC + 1.3;
-            }
-            // consumo alcohol
-
-            // // // // // // // // // // Cancer
-
-            // // // // // // // // // // Alteraciones y transtornos visuales
-            $rTATV = 0;
-            // Antecedentes familiares
-            $antealteraciones = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "ALTERACIONES");
-            if ($antealteraciones > 0) {
-                $rTATV = $rTATV + 1.9;
-            }
-            // Antecedentes familiares
-
-            // consumo de alcohol
-            if ($respude18a28->alcohol == "SI" || $respude18a28->fuma == "SI") {
-                $rTATV = $rTATV + 1.7;
-            }
-            // consumo de alcohol
-
-            // Diabetes
-            if ($antediabetes > 0) {
-                $rTATV = $rTATV + 1.7;
-            }
-            // Diabetes
-
-            // Hipertension arterial
-            if ($antehipertension > 0) {
-                $rTATV = $rTATV + 1.7;
-            }
-            // Hipertension arterial
-            // // // // // // // // // // Alteraciones y transtornos visuales
-
-            // // // // // // // // // // ALTERACIONES Y TRASTORNOS DE LA AUDICIÓN Y COMUNICACIÓN
-            $rTATAC = 0;
-            // antecedente familiar
-            $antealteracionesaud = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "ALTERACIONESAUD");
-            if ($antealteracionesaud > 0) {
-                $rTATAC = $rTATAC + 2;
-            }
-            // antecedente familiar
-
-            // Exposicion a contaminación auditiva
-            if ($contambien->riesgos_auditivo > 1) {
-                $rTATAC = $rTATAC + 2;
-            }
-            // Exposicion a contaminación auditiva
-
-            // Infecciones crónicas de oidos
-            $enferoidos = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id ?? 0, "OIDOS");
-            $enferoidos2 = \App\EnfermedadesJefes::buscarEnfer(Session::get('alias'), $respujefe->id ?? 0, "OIDOS");
-            if (($enferoidos + $enferoidos2) > 0) {
-                $rTATAC = $rTATAC + 3;
-            }
-            // Infecciones crónicas de oidos
-            // // // // // // // // // // ALTERACIONES Y TRASTORNOS DE LA AUDICIÓN Y COMUNICACIÓN
-
-            // // // // // // // // // // Salud Bucal
-            $rTSB = 0;
-
-            // Presencia de caries
-            if ($respude18a28->dientes_sanos == "SI") {
-                $rTSB = $rTSB + 7;
-                // Presencia de caries
-            } else {
                 // NBI
                 if ($NBI == "SI") {
-                    $rTSB = $rTSB + 1;
+                    $rTCDS = $rTCDS + 1;
                 }
                 // NBI
 
-                // Sin acceso a servicios odontologicos
-                if ($respude18a28->consultaodon == "NO") {
-                    $rTSB = $rTSB + 1;
-                }
-                // Sin acceso a servicios odontologicos
+                // Enfermedades mentales
 
-                // Malos hábitos de higiene oral
-                if ($respude18a28->nocepillado < 3) {
-                    $rTSB = $rTSB + 2;
-                }
-                // Malos hábitos de higiene oral
+                // Enfermedades mentales
 
-                // tabaco
-                if ($respude18a28->fuma == "SI") {
-                    $rTSB = $rTSB + 2;
+                // Problemas de conducta
+                if ($respude18a28->conducta == "SI") {
+                    $rTCDS = $rTCDS + 1;
                 }
-                // tabaco
+                // Problemas de conducta
 
-                // consumo d alcohol
+                // Consumo de Spa en la vivienda
+                $consufact = \App\Factores::buscarFact(Session::get('alias'), $id_hogar);
+                if ($consufact->sustancias_psico == "SI") {
+                    $rTCDS = $rTCDS + 1;
+                }
+                // Consumo de Spa en la vivienda
+
+                // Consumo de alcohol
                 if ($respude18a28->alcohol == "SI") {
-                    $rTSB = $rTSB + 1;
+                    $rTCDS = $rTCDS + 1;
                 }
-                // consumo d alcohol
-            }
+                // Consumo de alcohol
 
-            // // // // // // // // // // Salud Bucal
+                // Consumo de alcohol
+                if ($respude18a28->empleo == "NO") {
+                    $rTCDS = $rTCDS + 1;
+                }
+                // Consumo de alcohol
+                // // // // // // // // // //  CONSUMO DE  SPA
 
-            // // // // // // // // // // PROBLEMAS EN SALUD MENTAL
-            $rTSM = 0;
-            // Antecedente familiar
-            $antesaludmental = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "SALUDMENTAL");
-            if ($antesaludmental > 0) {
-                $rTSM = $rTSM + 1.4;
-            }
-            // Antecedente familiar
+                // // // // // // // // // //  TRASTORNO ASOCIADOS AL CONSUMO DE SPA
+                $rTTAUS = 0;
+                // Consumo SPA
+                if ($respude18a28->spa == "SI") {
+                    $rTTAUS = $rTTAUS + 5;
+                }
+                // Consumo SPA
 
-            // Mala relaciones con familiares
+                // Consumo pasivo de SPA
+                $consufact = \App\Factores::buscarFact(Session::get('alias'), $id_hogar);
+                if ($consufact->sustancias_psico == "SI") {
+                    $rTTAUS = $rTTAUS + 2;
+                }
+                // Consumo pasivo de SPA
+                // // // // // // // // // //  TRASTORNO ASOCIADOS AL CONSUMO DE SPA
 
-            // Mala relaciones con familiares
+                // // // // // // // // // //  ENFERMERDAD CARDIOVASCULAR ATEROGÉNICA
+                $rTECA = 0;
 
-            // Problemas de conducta
-            if ($respude18a28->conducta == "SI") {
-                $rTSM = $rTSM + 1.4;
-            }
-            // Problemas de conducta
+                // Sedentario
 
-            // consumo de SPA
-            if ($respude18a28->spa == "SI") {
-                $rTSM = $rTSM + 2;
-            }
-            // consumo de SPA
+                // Sedentario
 
-            // Violencia intrafamiliar
-            if ($respude18a28->maltrato == "SI") {
-                $rTSM = $rTSM + 1;
-            }
-            // Violencia intrafamiliar
-            // // // // // // // // // // PROBLEMAS EN SALUD MENTAL
+                // Cosumos de SPA
+                if ($respude18a28->spa == "SI") {
+                    $rTECA = $rTECA + 0.5;
+                }
+                // Cosumos de SPA
 
-            // // // // // // // // // // VIOLENCIAS
-            $rTV = 0;
-            // Antecedentes de Violencia  intrafamiliar
-            if ($consufact->violencia_fisica == "SI") {
-                $rTV = $rTV + 1;
-            }
-            // Antecedentes de Violencia  intrafamiliar
+                // Sobrepeso
+                if ($respude18a28->imc >= "25" && $respude18a28->imc <= "30") {
+                    $rTECA = $rTECA + 0.5;
+                }
+                // Sobrepeso
 
-            // Transtornos mentales
-            $anteconducta = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id ?? 0, "CONDUCTA");
-            $anteconducta2 = \App\EnfermedadesJefes::buscarEnfer(Session::get('alias'), $respujefe->id ?? 0, "CONDUCTA");
-            if (($anteconducta + $anteconducta2) > 0) {
-                $rTV = $rTV + 0.5;
-            }
-            // Transtornos mentales
+                // Hipertension arterial
+                $antehipertension = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id ?? 0, "HIPERTENSION");
+                $antehipertension2 = \App\EnfermedadesJefes::buscarEnfer(Session::get('alias'), $respujefe->id ?? 0, "HIPERTENSION");
+                if (($antehipertension + $antehipertension2) > 0) {
+                    $rTECA = $rTECA + 1;
+                }
+                // Hipertension arterial
 
-            // Consumo de SPA en la vivienda
-            if ($consufact->sustancias_psico == "SI") {
-                $rTV = $rTV + 1;
-            }
-            // Consumo de SPA en la vivienda
-
-            // Problemas de conducta
-            if ($respude18a28->conducta == "SI") {
-                $rTV = $rTV + 1;
-            }
-            // Problemas de conducta
-
-            // NBI
-            if ($NBI == "SI") {
-                $rTV = $rTV + 1;
-            }
-            // NBI
-
-            // Señales de violencia
-            if ($respude18a28->maltrato == "SI") {
-                $rTV = $rTV + 2;
-            }
-            // Señales de violencia
-
-            // Mala relación con familiares
-
-            // Mala relación con familiares
-            // // // // // // // // // // VIOLENCIAS
-
-            // // // // // // // // // // Enfermedades Respiratorias
-            $rTERC = 0;
-
-            // consumo de tabaco
-            if ($respude18a28->fuma == "SI") {
-                $rTERC = $rTERC + 2.5;
-            }
-            // consumo de tabaco
-
-            // consumo de SPA
-            if ($respude18a28->spa == "SI") {
-                $rTERC = $rTERC + 1.5;
-            }
-            // consumo de SPA
-
-            // ViVienda Cocina con leña o carbón
-            if ($respuvivi->tipo_combustible == "3" || $respuvivi->tipo_combustible == "4") {
-                $rTERC = $rTERC + 1.5;
-            }
-            // ViVienda Cocina con leña o carbón
-
-            // Antecedentes familiares de enfermedades respiratorias cronicas
-            $anteenferrespi = \App\AntecedentesIntegrantes::buscarAntePorId(Session::get('alias'), $id_hogar, "ENFERRESPI", $respuinte->id ?? $respujefe->id);
-            if ($anteenferrespi > 0) {
-                $rTERC = $rTERC + 0.5;
-            }
-            // Antecedentes familiares de enfermedades respiratorias cronicas
-
-            // Contaminación ambiental
-            if ($contambien->control_riesgos_atmosferico > 1) {
-                $rTERC = $rTERC + 1;
-            }
-            // Contaminación ambiental
-
-            // Consumo pasivo de humo de tabaco o SPA
-            if ($consufact->tabaco == "SI" || $consufact->sustancias_psico == "SI") {
-                $rTERC = $rTERC + 1;
-            }
-            // Consumo pasivo de humo de tabaco o SPA
-            // // // // // // // // // // Enfermedades Respiratorias
-
-            // // // // // // // // // // ENFERMEDADES ZOONOTICAS
-            $rTEZ = 0;
-            // Cria de animales (mas de 2  domesticos)
-            $anidomes = \App\Animal::buscar(Session::get('alias'), $id_hogar);
-            if (count($anidomes) > 2) {
-                $rTEZ = $rTEZ + 1.6;
-            }
-            // Cria de animales (mas de 2  domesticos)
-
-            // No vacunación de animales
-            $anidomesvacuna = \App\Animal::buscarVacunados(Session::get('alias'), $id_hogar);
-            if (count($anidomesvacuna) > 2) {
-                $rTEZ = $rTEZ + 1.5;
-            }
-            // No vacunación de animales
-
-            // Consumo de agua no potable.
-            if ($respuvivi->tipo_tratamiento_agua == "NA" || $respuvivi->tipo_tratamiento_agua == "4") {
-                $rTEZ = $rTEZ + 2;
-            }
-            // Consumo de agua no potable.
-
-            // Manejo de residuos
-            if ($respuvivi->destino_final_basura != "1" || $respuvivi->almacenamiento_residuos != "SI") {
-                $rTEZ = $rTEZ + 1;
-            }
-            // Manejo de residuos
-
-            // Lotes abandonados
-            if ($respuvivi->lotes_abandonados == "SI") {
-                $rTEZ = $rTEZ + 1;
-            }
-            // Lotes abandonados
-
-            // NBI
-            if ($NBI == "SI") {
-                $rTEZ = $rTEZ + 1.25;
-            }
-            // NBI
-
-            // no Desparasitado
-
-            // no Desparasitado
-
-            // Mal estado de la vivienda
-            if ($respuvivi->material_predominante == "5" || $respuvivi->material_predominante == "7"
-                || $respuvivi->tipo_estructura == "5" || $respuvivi->tipo_cubierta == "2"
-                || $respuvivi->tipo_cubierta == "6" || $respuvivi->tipo_cubierta == "8" || $respuvivi->tipo_cubierta == "9") {
-                $rTEZ = $rTEZ + 0.6;
-            }
-            // Mal estado de la vivienda
-            // // // // // // // // // // ENFERMEDADES ZOONOTICAS
-
-            // // // // // // // // // // TRASTORNOS DEGENERATIVOS, NEUROPATÍAS Y ENF AUTOINMUNE
-            $rTTDNEA = 0;
-            // Antecedente familiar
-            $antetranstornos = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "TRANSTORNOS");
-            if ($antetranstornos > 0) {
-                $rTTDNEA = $rTTDNEA + 2;
-            }
-            // Antecedente familiar
-
-            // Consumo de SPA
-            if ($respude18a28->spa == "SI") {
-                $rTTDNEA = $rTTDNEA + 2;
-            }
-            // Consumo de SPA
-
-            // Enfermedades infecciosas
-            if ((count($respuenferinte) + count($respuenferjefe)) > 0) {
-                $rTTDNEA = $rTTDNEA + 1;
-            }
-            // Enfermedades infecciosas
-
-            // Contaminación ambiental
-            if ($contambien->control_riesgos_atmosferico > 1) {
-                $rTTDNEA = $rTTDNEA + 1;
-            }
-            // Contaminación ambiental
-
-            // Desnutrición
-
-            // Desnutrición
-            // // // // // // // // // // TRASTORNOS DEGENERATIVOS, NEUROPATÍAS Y ENF AUTOINMUNE
-
-            $datos["enfermedades_infecciosas_I"] = $rTEI;
-            $datos["transtornos_asociados_spa_I"] = $rTTAUS;
-            $datos["enfermedad_cardiovascular_I"] = $rTECA;
-            $datos["cancer_I"] = $rTC;
-            $datos["alteraciones_transtornos_visuales_I"] = $rTATV;
-            $datos["alteraciones_transtornos_audicion_I"] = $rTATAC;
-            $datos["salud_bucal_I"] = $rTSB;
-            $datos["problemas_salud_mental_I"] = $rTSM;
-            $datos["violencias_I"] = $rTV;
-            $datos["enfermedades_respiratorias_I"] = $rTERC;
-            $datos["enfermedades_zoonoticas_I"] = $rTEZ;
-            $datos["transtornos_degenartivos_I"] = $rTTDNEA;
-            $datos["consumo_spa_I"] = $rTCDS;
-            $datos["riesgo_delgadez_I"] = $rTRD;   
-            if ($respuinte != null) {
-                $datos["opci"] = "INTE";
-            }else{
-                $datos["opci"] = "JEFE";
-            }        
-            $resultado = self::calculosSaludInherente($datos, "DE18A28", $id_hogar, $respude18a28->id_integrante);
-        }
-        // // // // // // // // // // De18A28 // // // // // // // // // //
-
-        // // // // // // // // // // De29A59 // // // // // // // // // //
-        if ($opcion == "De29A59") {
-            $respuinte = \App\Integrante::buscar($identificacion, Session::get('alias'));
-            $respujefe = \App\Caracterizacion::buscar($identificacion, Session::get('alias'));
-            $respude29a59 = \App\De29a59::buscarPorIdentificacion(Session::get('alias'), $identificacion);
-
-            // // // // // // // // // //  Riesgo de delgadez
-            $rTRD = 0;
-            // Enfermedades infecciosas
-            $respuenferinte = \App\EnfermedadesIntegrantes::buscarInfecciosas(Session::get('alias'), $respuinte->id ?? 0);
-            $respuenferjefe = \App\EnfermedadesJefes::buscarInfecciosas(Session::get('alias'), $respujefe->id ?? 0);
-
-            if ((count($respuenferinte) + count($respuenferjefe)) > 0) {
-                $rTRD = $rTRD + 0.8;
-            }
-            // Enfermedades infecciosas
-
-            // Consumo SPA
-            if ($respude29a59->spa == "SI") {
-                $rTRD = $rTRD + 0.8;
-            }
-            // Consumo SPA
-
-            // NBI
-            $NBI = self::calcularNBI($id_hogar);
-            if ($NBI == "SI") {
-                $rTRD = $rTRD + 1.2;
-            }
-            // NBI
-
-            // NO agua potable
-            if ($respuvivi->acueducto == "NO") {
-                $rTRD = $rTRD + 0.8;
-            }
-            // NO agua potable
-
-            // IMC  -2 a < -1
-            if ($respude29a59->imc >= "18.5" && $respude29a59->imc <= "19.5") {
-                $rTRD = $rTRD + 3.4;
-            }
-            // IMC  -2 a < -1
-            // // // // // // // // // //  Riesgo de delgadez
-
-            // // // // // // // // // //  Enfermedades Infecciosas
-            $rTEI = 0;
-
-            // Delgadez
-            if ($respude29a59->imc < "18.5") {
-                $rTEI = $rTEI + 0.6;
-            }
-            // Delgadez
-
-            // plagas
-            if ($respuvivi->plagas == "SI") {
-                $rTEI = $rTEI + 0.7;
-            }
-            // plagas
-
-            // Manejo inadecuado  de residuos
-
-            // Manejo inadecuado  de residuos
-
-            // Malas condiciones de la vivienda
-
-            // Malas condiciones de la vivienda
-
-            // Hacinamiento
-            $hacinamiento = self::hacinamiento($id_hogar);
-            if ($hacinamiento == "SI") {
-                $rTEI = $rTEI + 0.62;
-            }
-            // Hacinamiento
-
-            // Enfermedades inmunosupresoras
-
-            // Enfermedades inmunosupresoras
-
-            // No desparacitado
-
-            // No desparacitado
-
-            // No Vacunación
-
-            // No Vacunación
-
-            // Riesgos de delgadez
-            $proba = 0;
-            if ($rTRD == 0) {
-                $proba = 1;
-            } else {
-                if ($proba >= 0.1 && $proba < 0.5) {
-                    $proba = 2;
+                // P.C Hombre 102 a 115 / Mujeres 88 a 100 cm
+                if ($respuinte->sexo ?? '' == "MASCULINO" || $respujefe->sexo ?? '' == "MASCULINO") {
+                    if ($respude18a28->pcintura >= "102" && $respude18a28->pcintura >= "115") {
+                        $rTECA = $rTECA + 0.6;
+                    }
                 } else {
-                    if ($proba >= 0.5 && $proba < 3.4) {
-                        $proba = 3;
-                    } else {
-                        if ($proba >= 3.4 && $proba < 6.1) {
-                            $proba = 4;
-                        } else {
-                            $proba = 5;
+                    if ($respuinte->sexo ?? '' == "FEMENINO" || $respujefe->sexo ?? '' == "FEMENINO") {
+                        if ($respude18a28->pcintura >= "88" && $respude18a28->pcintura >= "100") {
+                            $rTECA = $rTECA + 0.6;
                         }
                     }
                 }
-            }
-            $res = $proba * 4;
+                // P.C Hombre 102 a 115 / Mujeres 88 a 100 cm
 
-            if ($res > 8) {
-                $rTEI = $rTEI + 0.4;
-            }
-            // Riesgos de delgadez
-
-            // Baño compartido
-            if ($respuvivi->cuantos_baños <= 1) {
-                $rTEI = $rTEI + 0.6;
-            }
-            // Baño compartido
-
-            // Lotes enmontados
-            if ($respuvivi->lotes_abandonados == "SI") {
-                $rTEI = $rTEI + 0.64;
-            }
-            // Lotes enmontados
-
-            // no lavar la verduras y frutas antes de comer
-
-            // no lavar la verduras y frutas antes de comer
-
-            // relleno sanitario cerda de la vivienda
-            if ($respuvivi->rellenos == "SI") {
-                $rTEI = $rTEI + 0.8;
-            }
-            // relleno sanitario cerda de la vivienda
-
-            // Ningun tratamiento para el consumo de agua
-            if ($respuvivi->tipo_tratamiento_agua == "NA" || $respuvivi->tipo_tratamiento_agua == "4") {
-                $rTEI = $rTEI + 0.8;
-            }
-            // Ningun tratamiento para el consumo de agua
-
-            // No acceso agua potable
-            if ($respuvivi->acueducto == "NO") {
-                $rTEI = $rTEI + 0.8;
-            }
-            // No acceso agua potable
-
-            // Habitante de la vivienda con enfermedad infectocontagiosa
-
-            // Habitante de la vivienda con enfermedad infectocontagiosa
-
-            // // // // // // // // // //  Enfermedades Infecciosas
-
-            // // // // // // // // // //  CONSUMO DE  SPA
-            $rTCDS = 0;
-
-            // Mala relaciones con familiares
-
-            // Mala relaciones con familiares
-
-            // NBI
-            if ($NBI == "SI") {
-                $rTCDS = $rTCDS + 1;
-            }
-            // NBI
-
-            // Enfermedades mentales
-
-            // Enfermedades mentales
-
-            // Problemas de conducta
-            if ($respude29a59->conducta == "SI") {
-                $rTCDS = $rTCDS + 1;
-            }
-            // Problemas de conducta
-
-            // Consumo de Spa en la vivienda
-            $consufact = \App\Factores::buscarFact(Session::get('alias'), $id_hogar);
-            if ($consufact->sustancias_psico == "SI") {
-                $rTCDS = $rTCDS + 1;
-            }
-            // Consumo de Spa en la vivienda
-
-            // Consumo de alcohol
-            if ($respude29a59->alcohol == "SI") {
-                $rTCDS = $rTCDS + 1;
-            }
-            // Consumo de alcohol
-
-            // Consumo de alcohol
-            if ($respude29a59->empleo == "NO") {
-                $rTCDS = $rTCDS + 1;
-            }
-            // Consumo de alcohol
-            // // // // // // // // // //  CONSUMO DE  SPA
-
-            // // // // // // // // // //  TRASTORNO ASOCIADOS AL CONSUMO DE SPA
-            $rTTAUS = 0;
-            // Consumo SPA
-            if ($respude29a59->spa == "SI") {
-                $rTTAUS = $rTTAUS + 5;
-            }
-            // Consumo SPA
-
-            // Consumo pasivo de SPA
-            $consufact = \App\Factores::buscarFact(Session::get('alias'), $id_hogar);
-            if ($consufact->sustancias_psico == "SI") {
-                $rTTAUS = $rTTAUS + 2;
-            }
-            // Consumo pasivo de SPA
-            // // // // // // // // // //  TRASTORNO ASOCIADOS AL CONSUMO DE SPA
-
-            // // // // // // // // // //  ENFERMERDAD CARDIOVASCULAR ATEROGÉNICA
-            $rTECA = 0;
-
-            // Sedentario
-
-            // Sedentario
-
-            // Cosumos de SPA
-            if ($respude29a59->spa == "SI") {
-                $rTECA = $rTECA + 0.5;
-            }
-            // Cosumos de SPA
-
-            // Sobrepeso
-            if ($respude29a59->imc >= "25" && $respude29a59->imc <= "30") {
-                $rTECA = $rTECA + 0.5;
-            }
-            // Sobrepeso
-
-            // Hipertension arterial
-            $antehipertension = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id ?? 0, "HIPERTENSION");
-            $antehipertension2 = \App\EnfermedadesJefes::buscarEnfer(Session::get('alias'), $respujefe->id ?? 0, "HIPERTENSION");
-            if (($antehipertension + $antehipertension2) > 0) {
-                $rTECA = $rTECA + 1;
-            }
-            // Hipertension arterial
-
-            // P.C Hombre 102 a 115 / Mujeres 88 a 100 cm
-            if ($respuinte->sexo ?? '' == "MASCULINO" || $respujefe->sexo ?? '' == "MASCULINO") {
-                if ($respude29a59->pcintura >= "102" && $respude29a59->pcintura >= "115") {
-                    $rTECA = $rTECA + 0.6;
-                }
-            } else {
-                if ($respuinte->sexo ?? '' == "FEMENINO" || $respujefe->sexo ?? '' == "FEMENINO") {
-                    if ($respude29a59->pcintura >= "88" && $respude29a59->pcintura >= "100") {
-                        $rTECA = $rTECA + 0.6;
-                    }
-                }
-            }
-            // P.C Hombre 102 a 115 / Mujeres 88 a 100 cm
-
-            // P.C Hombre mayor a 115 / Mujeres Mayor  a 100 cm
-            if ($respuinte->sexo ?? '' == "MASCULINO" || $respujefe->sexo ?? '' == "MASCULINO") {
-                if ($respude29a59->pcintura > "115") {
-                    $rTECA = $rTECA + 1;
-                }
-            } else {
-                if ($respuinte->sexo ?? '' == "FEMENINO" || $respujefe->sexo ?? '' == "FEMENINO") {
-                    if ($respude29a59->pcintura >= "100") {
+                // P.C Hombre mayor a 115 / Mujeres Mayor  a 100 cm
+                if ($respuinte->sexo ?? '' == "MASCULINO" || $respujefe->sexo ?? '' == "MASCULINO") {
+                    if ($respude18a28->pcintura > "115") {
                         $rTECA = $rTECA + 1;
                     }
-                }
-            }
-            // P.C Hombre mayor a 115 / Mujeres Mayor  a 100 cm
-
-            // Hiperlipemia
-
-            // Hiperlipemia
-
-            // obesidad
-            if ($respude29a59->imc >= "30") {
-                $rTECA = $rTECA + 1;
-            }
-            // obesidad
-
-            // Antecedentes familiares
-
-            // Antecedentes familiares
-
-            // Diabetes
-            $antediabetes = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id ?? 0, "DIABETES");
-            $antediabetes2 = \App\EnfermedadesJefes::buscarEnfer(Session::get('alias'), $respujefe->id ?? 0, "DIABETES");
-            if (($antediabetes + $antediabetes2) > 0) {
-                $rTECA = $rTECA + 0.8;
-            }
-            // Diabetes
-            // // // // // // // // // //  ENFERMERDAD CARDIOVASCULAR ATEROGÉNICA
-
-            // // // // // // // // // // Cancer
-            $rTC = 0;
-            // Antecedentes en familiares
-            $antecancer = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "CANCER");
-            if ($antecancer > 0) {
-                $rTC = $rTC + 0.6;
-            }
-            // Antecedentes en familiares
-
-            // Contaminación ambiental
-            $contambien = \App\RiesgosAmbientales::buscar(Session::get('alias'), $id_hogar);
-            if ($contambien->control_riesgos_atmosferico > 1) {
-                $rTC = $rTC + 0.5;
-            }
-            // Contaminación ambiental
-
-            // Obesidad
-            if ($respude29a59->imc >= "30") {
-                $rTC = $rTC + 0.8;
-            }
-            // Obesidad
-
-            // consumo SPA
-            if ($respude29a59->spa == "SI") {
-                $rTC = $rTC + 0.8;
-            }
-            // consumo SPA
-
-            // consumo tabaco
-            if ($respude29a59->fuma == "SI") {
-                $rTC = $rTC + 2;
-            }
-            // consumo tabaco
-
-            // consumo de tabaco pasivo
-            if ($consufact->tabaco == "SI") {
-                $rTC = $rTC + 0.5;
-            }
-            // consumo de tabaco pasivo
-
-            // consumo alcohol
-            if ($respude29a59->alcohol == "SI") {
-                $rTC = $rTC + 2;
-            }
-            // consumo alcohol
-
-            // // // // // // // // // // Cancer
-
-            // // // // // // // // // // Alteraciones y transtornos visuales
-            $rTATV = 0;
-            // Antecedentes familiares
-            $antealteraciones = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "ALTERACIONES");
-            if ($antealteraciones > 0) {
-                $rTATV = $rTATV + 2;
-            }
-            // Antecedentes familiares
-
-            // consumo de alcohol
-            if ($respude29a59->alcohol == "SI" || $respude29a59->fuma == "SI") {
-                $rTATV = $rTATV + 1;
-            }
-            // consumo de alcohol
-
-            // Diabetes
-            if ($antediabetes > 0) {
-                $rTATV = $rTATV + 1;
-            }
-            // Diabetes
-
-            // Hipertension arterial
-            if ($antehipertension > 0) {
-                $rTATV = $rTATV + 1;
-            }
-            // Hipertension arterial
-            // // // // // // // // // // Alteraciones y transtornos visuales
-
-            // // // // // // // // // // ALTERACIONES Y TRASTORNOS DE LA AUDICIÓN Y COMUNICACIÓN
-            $rTATAC = 0;
-            // antecedente familiar
-            $antealteracionesaud = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "ALTERACIONESAUD");
-            if ($antealteracionesaud > 0) {
-                $rTATAC = $rTATAC + 2;
-            }
-            // antecedente familiar
-
-            // Exposicion a contaminación auditiva
-            if ($contambien->riesgos_auditivo > 1) {
-                $rTATAC = $rTATAC + 2;
-            }
-            // Exposicion a contaminación auditiva
-
-            // Infecciones crónicas de oidos
-            $enferoidos = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id ?? 0, "OIDOS");
-            $enferoidos2 = \App\EnfermedadesJefes::buscarEnfer(Session::get('alias'), $respujefe->id ?? 0, "OIDOS");
-            if (($enferoidos + $enferoidos2) > 0) {
-                $rTATAC = $rTATAC + 3;
-            }
-            // Infecciones crónicas de oidos
-            // // // // // // // // // // ALTERACIONES Y TRASTORNOS DE LA AUDICIÓN Y COMUNICACIÓN
-
-            // // // // // // // // // // Salud Bucal
-            $rTSB = 0;
-
-            // Presencia de caries
-            if ($respude29a59->dientes_sanos == "SI") {
-                $rTSB = $rTSB + 7;
-                // Presencia de caries
-            } else {
-                // NBI
-                if ($NBI == "SI") {
-                    $rTSB = $rTSB + 1;
-                }
-                // NBI
-
-                // Sin acceso a servicios odontologicos
-                if ($respude29a59->consultaodon == "NO") {
-                    $rTSB = $rTSB + 1;
-                }
-                // Sin acceso a servicios odontologicos
-
-                // Malos hábitos de higiene oral
-                if ($respude29a59->nocepillado < 3) {
-                    $rTSB = $rTSB + 2;
-                }
-                // Malos hábitos de higiene oral
-
-                // tabaco
-                if ($respude29a59->fuma == "SI") {
-                    $rTSB = $rTSB + 2;
-                }
-                // tabaco
-
-                // consumo d alcohol
-                if ($respude29a59->alcohol == "SI") {
-                    $rTSB = $rTSB + 1;
-                }
-                // consumo d alcohol
-            }
-
-            // // // // // // // // // // Salud Bucal
-
-            // // // // // // // // // // PROBLEMAS EN SALUD MENTAL
-            $rTSM = 0;
-            // Antecedente familiar
-            $antesaludmental = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "SALUDMENTAL");
-            if ($antesaludmental > 0) {
-                $rTSM = $rTSM + 1.4;
-            }
-            // Antecedente familiar
-
-            // Mala relaciones con familiares
-
-            // Mala relaciones con familiares
-
-            // Problemas de conducta
-            if ($respude29a59->conducta == "SI") {
-                $rTSM = $rTSM + 1.4;
-            }
-            // Problemas de conducta
-
-            // consumo de SPA
-            if ($respude29a59->spa == "SI") {
-                $rTSM = $rTSM + 2;
-            }
-            // consumo de SPA
-
-            // Violencia intrafamiliar
-            if ($respude29a59->maltrato == "SI") {
-                $rTSM = $rTSM + 1;
-            }
-            // Violencia intrafamiliar
-            // // // // // // // // // // PROBLEMAS EN SALUD MENTAL
-
-            // // // // // // // // // // VIOLENCIAS
-            $rTV = 0;
-            // Antecedentes de Violencia  intrafamiliar
-            if ($consufact->violencia_fisica == "SI") {
-                $rTV = $rTV + 1.5;
-            }
-            // Antecedentes de Violencia  intrafamiliar
-
-            // Transtornos mentales
-            $anteconducta = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id ?? 0, "CONDUCTA");
-            $anteconducta2 = \App\EnfermedadesJefes::buscarEnfer(Session::get('alias'), $respujefe->id ?? 0, "CONDUCTA");
-            if (($anteconducta + $anteconducta2) > 0) {
-                $rTV = $rTV + 1;
-            }
-            // Transtornos mentales
-
-            // Consumo de SPA en la vivienda
-            if ($consufact->sustancias_psico == "SI") {
-                $rTV = $rTV + 1.5;
-            }
-            // Consumo de SPA en la vivienda
-
-            // Problemas de conducta
-            if ($respude29a59->conducta == "SI") {
-                $rTV = $rTV + 1;
-            }
-            // Problemas de conducta
-
-            // NBI
-            if ($NBI == "SI") {
-                $rTV = $rTV + 1;
-            }
-            // NBI
-
-            // Mala relación con familiares
-
-            // Mala relación con familiares
-            // // // // // // // // // // VIOLENCIAS
-
-            // // // // // // // // // // Enfermedades Respiratorias
-            $rTERC = 0;
-
-            // consumo de tabaco
-            if ($respude29a59->fuma == "SI") {
-                $rTERC = $rTERC + 2.5;
-            }
-            // consumo de tabaco
-
-            // consumo de SPA
-            if ($respude29a59->spa == "SI") {
-                $rTERC = $rTERC + 1.5;
-            }
-            // consumo de SPA
-
-            // ViVienda Cocina con leña o carbón
-            if ($respuvivi->tipo_combustible == "3" || $respuvivi->tipo_combustible == "4") {
-                $rTERC = $rTERC + 1.5;
-            }
-            // ViVienda Cocina con leña o carbón
-
-            // Antecedentes familiares de enfermedades respiratorias cronicas
-            $anteenferrespi = \App\AntecedentesIntegrantes::buscarAntePorId(Session::get('alias'), $id_hogar, "ENFERRESPI", $respuinte->id ?? $respujefe->id);
-            if ($anteenferrespi > 0) {
-                $rTERC = $rTERC + 0.5;
-            }
-            // Antecedentes familiares de enfermedades respiratorias cronicas
-
-            // Contaminación ambiental
-            if ($contambien->control_riesgos_atmosferico > 1) {
-                $rTERC = $rTERC + 0.5;
-            }
-            // Contaminación ambiental
-
-            // Consumo pasivo de humo de tabaco o SPA
-            if ($consufact->tabaco == "SI" || $consufact->sustancias_psico == "SI") {
-                $rTERC = $rTERC + 1.5;
-            }
-            // Consumo pasivo de humo de tabaco o SPA
-            // // // // // // // // // // Enfermedades Respiratorias
-
-            // // // // // // // // // // ENFERMEDADES ZOONOTICAS
-            $rTEZ = 0;
-            // Cria de animales (mas de 2  domesticos)
-            $anidomes = \App\Animal::buscar(Session::get('alias'), $id_hogar);
-            if (count($anidomes) > 2) {
-                $rTEZ = $rTEZ + 2.5;
-            }
-            // Cria de animales (mas de 2  domesticos)
-
-            // No vacunación de animales
-            $anidomesvacuna = \App\Animal::buscarVacunados(Session::get('alias'), $id_hogar);
-            if (count($anidomesvacuna) > 2) {
-                $rTEZ = $rTEZ + 2;
-            }
-            // No vacunación de animales
-
-            // Consumo de agua no potable.
-            if ($respuvivi->tipo_tratamiento_agua == "NA" || $respuvivi->tipo_tratamiento_agua == "4") {
-                $rTEZ = $rTEZ + 2;
-            }
-            // Consumo de agua no potable.
-
-            // Manejo de residuos
-            if ($respuvivi->destino_final_basura != "1" || $respuvivi->almacenamiento_residuos != "SI") {
-                $rTEZ = $rTEZ + 1;
-            }
-            // Manejo de residuos
-
-            // Lotes abandonados
-            if ($respuvivi->lotes_abandonados == "SI") {
-                $rTEZ = $rTEZ + 0.8;
-            }
-            // Lotes abandonados
-
-            // NBI
-            if ($NBI == "SI") {
-                $rTEZ = $rTEZ + 1;
-            }
-            // NBI
-
-            // no Desparasitado
-
-            // no Desparasitado
-
-            // Mal estado de la vivienda
-            if ($respuvivi->material_predominante == "5" || $respuvivi->material_predominante == "7"
-                || $respuvivi->tipo_estructura == "5" || $respuvivi->tipo_cubierta == "2"
-                || $respuvivi->tipo_cubierta == "6" || $respuvivi->tipo_cubierta == "8" || $respuvivi->tipo_cubierta == "9") {
-                $rTEZ = $rTEZ + 0.7;
-            }
-            // Mal estado de la vivienda
-            // // // // // // // // // // ENFERMEDADES ZOONOTICAS
-
-            // // // // // // // // // // TRASTORNOS DEGENERATIVOS, NEUROPATÍAS Y ENF AUTOINMUNE
-            $rTTDNEA = 0;
-            // Antecedente familiar
-            $antetranstornos = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "TRANSTORNOS");
-            if ($antetranstornos > 0) {
-                $rTTDNEA = $rTTDNEA + 2;
-            }
-            // Antecedente familiar
-
-            // Consumo de SPA
-            if ($respude29a59->spa == "SI") {
-                $rTTDNEA = $rTTDNEA + 2;
-            }
-            // Consumo de SPA
-
-            // Enfermedades infecciosas
-            if ((count($respuenferinte) + count($respuenferjefe)) > 0) {
-                $rTTDNEA = $rTTDNEA + 1;
-            }
-            // Enfermedades infecciosas
-
-            // Contaminación ambiental
-            if ($contambien->control_riesgos_atmosferico > 1) {
-                $rTTDNEA = $rTTDNEA + 1;
-            }
-            // Contaminación ambiental
-
-            // Desnutrición
-
-            // Desnutrición
-            // // // // // // // // // // TRASTORNOS DEGENERATIVOS, NEUROPATÍAS Y ENF AUTOINMUNE
-
-            $datos["enfermedades_infecciosas_I"] = $rTEI;
-            $datos["transtornos_asociados_spa_I"] = $rTTAUS;
-            $datos["enfermedad_cardiovascular_I"] = $rTECA;
-            $datos["cancer_I"] = $rTC;
-            $datos["alteraciones_transtornos_visuales_I"] = $rTATV;
-            $datos["alteraciones_transtornos_audicion_I"] = $rTATAC;
-            $datos["salud_bucal_I"] = $rTSB;
-            $datos["problemas_salud_mental_I"] = $rTSM;
-            $datos["violencias_I"] = $rTV;
-            $datos["enfermedades_respiratorias_I"] = $rTERC;
-            $datos["enfermedades_zoonoticas_I"] = $rTEZ;
-            $datos["transtornos_degenartivos_I"] = $rTTDNEA;
-            $datos["consumo_spa_I"] = $rTCDS;
-            $datos["riesgo_delgadez_I"] = $rTRD;
-            if ($respuinte != null) {
-                $datos["opci"] = "INTE";
-            }else{
-                $datos["opci"] = "JEFE";
-            }
-            $resultado = self::calculosSaludInherente($datos, "DE29A59", $id_hogar, $respude29a59->id_integrante);
-        }
-        // // // // // // // // // // De29A59 // // // // // // // // // //
-
-        // // // // // // // // // // De60 // // // // // // // // // //
-        if ($opcion == "De60") {
-            $respuinte = \App\Integrante::buscar($identificacion, Session::get('alias'));
-            $respujefe = \App\Caracterizacion::buscar($identificacion, Session::get('alias'));
-            $respude60 = \App\De60::buscarPorIdentificacion(Session::get('alias'), $identificacion);
-
-            // // // // // // // // // //  Enfermedades Infecciosas
-            $rTEI = 0;
-
-            // Delgadez
-            if ($respude60->imc < "18.5") {
-                $rTEI = $rTEI + 0.7;
-            }
-            // Delgadez
-
-            // plagas
-            if ($respuvivi->plagas == "SI") {
-                $rTEI = $rTEI + 0.7;
-            }
-            // plagas
-
-            // Manejo inadecuado  de residuos
-
-            // Manejo inadecuado  de residuos
-
-            // Malas condiciones de la vivienda
-
-            // Malas condiciones de la vivienda
-
-            // Hacinamiento
-            $hacinamiento = self::hacinamiento($id_hogar);
-            if ($hacinamiento == "SI") {
-                $rTEI = $rTEI + 0.6;
-            }
-            // Hacinamiento
-
-            // Enfermedades inmunosupresoras
-
-            // Enfermedades inmunosupresoras
-
-            // No desparacitado
-
-            // No desparacitado
-
-            // No Vacunación
-
-            // No Vacunación
-
-            // Baño compartido
-            if ($respuvivi->cuantos_baños <= 1) {
-                $rTEI = $rTEI + 0.5;
-            }
-            // Baño compartido
-
-            // Lotes enmontados
-            if ($respuvivi->lotes_abandonados == "SI") {
-                $rTEI = $rTEI + 0.8;
-            }
-            // Lotes enmontados
-
-            // no lavar la verduras y frutas antes de comer
-
-            // no lavar la verduras y frutas antes de comer
-
-            // relleno sanitario cerda de la vivienda
-            if ($respuvivi->rellenos == "SI") {
-                $rTEI = $rTEI + 0.6;
-            }
-            // relleno sanitario cerda de la vivienda
-
-            // Ningun tratamiento para el consumo de agua
-            if ($respuvivi->tipo_tratamiento_agua == "NA" || $respuvivi->tipo_tratamiento_agua == "4") {
-                $rTEI = $rTEI + 1;
-            }
-            // Ningun tratamiento para el consumo de agua
-
-            // No acceso agua potable
-            if ($respuvivi->acueducto == "NO") {
-                $rTEI = $rTEI + 0.8;
-            }
-            // No acceso agua potable
-
-            // Habitante de la vivienda con enfermedad infectocontagiosa
-
-            // Habitante de la vivienda con enfermedad infectocontagiosa
-
-            // // // // // // // // // //  Enfermedades Infecciosas
-
-            // // // // // // // // // //  CONSUMO DE  SPA
-            $rTCDS = 0;
-
-            // Mala relaciones con familiares
-
-            // Mala relaciones con familiares
-
-            // NBI
-            $NBI = self::calcularNBI($id_hogar);
-            if ($NBI == "SI") {
-                $rTCDS = $rTCDS + 0.8;
-            }
-            // NBI
-
-            // Enfermedades mentales
-
-            // Enfermedades mentales
-
-            // Problemas de conducta
-
-            // Problemas de conducta
-
-            // Consumo de Spa en la vivienda
-            $consufact = \App\Factores::buscarFact(Session::get('alias'), $id_hogar);
-            if ($consufact->sustancias_psico == "SI") {
-                $rTCDS = $rTCDS + 0.8;
-            }
-            // Consumo de Spa en la vivienda
-
-            // Consumo de alcohol
-            if ($respude60->alcohol == "SI") {
-                $rTCDS = $rTCDS + 31;
-            }
-            // Consumo de alcohol
-
-            // // // // // // // // // //  CONSUMO DE  SPA
-
-            // // // // // // // // // //  TRASTORNO ASOCIADOS AL CONSUMO DE SPA
-            $rTTAUS = 0;
-            // Consumo SPA
-
-            // Consumo SPA
-
-            // Consumo pasivo de SPA
-            $consufact = \App\Factores::buscarFact(Session::get('alias'), $id_hogar);
-            if ($consufact->sustancias_psico == "SI") {
-                $rTTAUS = $rTTAUS + 2;
-            }
-            // Consumo pasivo de SPA
-            // // // // // // // // // //  TRASTORNO ASOCIADOS AL CONSUMO DE SPA
-
-            // // // // // // // // // //  ENFERMERDAD CARDIOVASCULAR ATEROGÉNICA
-            $rTECA = 0;
-
-            // Sedentario
-
-            // Sedentario
-
-            // Cosumos de SPA
-
-            // Cosumos de SPA
-
-            // Sobrepeso
-            if ($respude60->imc >= "25" && $respude60->imc <= "30") {
-                $rTECA = $rTECA + 0.5;
-            }
-            // Sobrepeso
-
-            // Hipertension arterial
-            $antehipertension = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id ?? 0, "HIPERTENSION");
-            $antehipertension2 = \App\EnfermedadesJefes::buscarEnfer(Session::get('alias'), $respujefe->id ?? 0, "HIPERTENSION");
-            if (($antehipertension + $antehipertension2) > 0) {
-                $rTECA = $rTECA + 1;
-            }
-            // Hipertension arterial
-
-            // P.C Hombre 102 a 115 / Mujeres 88 a 100 cm
-            if ($respuinte->sexo ?? '' == "MASCULINO" || $respujefe->sexo ?? '' == "MASCULINO") {
-                if ($respude60->pa >= "102" && $respude60->pa >= "115") {
-                    $rTECA = $rTECA + 0.6;
-                }
-            } else {
-                if ($respuinte->sexo ?? '' == "FEMENINO" || $respujefe->sexo ?? '' == "FEMENINO") {
-                    if ($respude60->pa >= "88" && $respude60->pa >= "100") {
-                        $rTECA = $rTECA + 0.6;
+                } else {
+                    if ($respuinte->sexo ?? '' == "FEMENINO" || $respujefe->sexo ?? '' == "FEMENINO") {
+                        if ($respude18a28->pcintura >= "100") {
+                            $rTECA = $rTECA + 1;
+                        }
                     }
                 }
-            }
-            // P.C Hombre 102 a 115 / Mujeres 88 a 100 cm
+                // P.C Hombre mayor a 115 / Mujeres Mayor  a 100 cm
 
-            // P.C Hombre mayor a 115 / Mujeres Mayor  a 100 cm
-            if ($respuinte->sexo ?? '' == "MASCULINO" || $respujefe->sexo ?? '' == "MASCULINO") {
-                if ($respude60->pa > "115") {
+                // Hiperlipemia
+
+                // Hiperlipemia
+
+                // obesidad
+                if ($respude18a28->imc >= "25" && $respude18a28->imc <= "30") {
+                    $rTECA = $rTECA + 1.5;
+                }
+                // obesidad
+
+                // Antecedentes familiares
+
+                // Antecedentes familiares
+
+                // Diabetes
+                $antediabetes = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id ?? 0, "DIABETES");
+                $antediabetes2 = \App\EnfermedadesJefes::buscarEnfer(Session::get('alias'), $respujefe->id ?? 0, "DIABETES");
+                if (($antediabetes + $antediabetes2) > 0) {
                     $rTECA = $rTECA + 1;
                 }
-            } else {
-                if ($respuinte->sexo ?? '' == "FEMENINO" || $respujefe->sexo ?? '' == "FEMENINO") {
-                    if ($respude60->pa >= "100") {
-                        $rTECA = $rTECA + 1;
-                    }
-                }
-            }
-            // P.C Hombre mayor a 115 / Mujeres Mayor  a 100 cm
+                // Diabetes
+                // // // // // // // // // //  ENFERMERDAD CARDIOVASCULAR ATEROGÉNICA
 
-            // Hiperlipemia
-
-            // Hiperlipemia
-
-            // obesidad
-            if ($respude60->imc >= "30") {
-                $rTECA = $rTECA + 1;
-            }
-            // obesidad
-
-            // Antecedentes familiares
-
-            // Antecedentes familiares
-
-            // Diabetes
-            $antediabetes = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id ?? 0, "DIABETES");
-            $antediabetes2 = \App\EnfermedadesJefes::buscarEnfer(Session::get('alias'), $respujefe->id ?? 0, "DIABETES");
-            if (($antediabetes + $antediabetes2) > 0) {
-                $rTECA = $rTECA + 0.8;
-            }
-            // Diabetes
-            // // // // // // // // // //  ENFERMERDAD CARDIOVASCULAR ATEROGÉNICA
-
-            // // // // // // // // // // Cancer
-            $rTC = 0;
-
-            // Citologia anormal, Examen de prostata Anormal,Examen de mama Anormal
-            if ($respude60->examen_seno == "SIA" || $respude60->citologia == "SIA" || $respude60->examen_prostata == "SIA") {
-                $rTC = $rTC + 8;
-            } else {
+                // // // // // // // // // // Cancer
+                $rTC = 0;
                 // Antecedentes en familiares
                 $antecancer = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "CANCER");
                 if ($antecancer > 0) {
-                    $rTC = $rTC + 0.8;
+                    $rTC = $rTC + 1;
                 }
                 // Antecedentes en familiares
 
@@ -14573,324 +13370,1562 @@ class CaracterizacionController extends Controller
                 // Contaminación ambiental
 
                 // Obesidad
-                if ($respude60->imc >= "30") {
-                    $rTC = $rTC + 0.8;
+                if ($respude18a28->imc >= "25" && $respude18a28->imc <= "30") {
+                    $rTC = $rTC + 1.5;
                 }
                 // Obesidad
 
                 // consumo SPA
-
+                if ($respude18a28->spa == "SI") {
+                    $rTC = $rTC + 1.2;
+                }
                 // consumo SPA
 
                 // consumo tabaco
-                if ($respude60->cigarrillo == "SI") {
+                if ($respude18a28->fuma == "SI") {
                     $rTC = $rTC + 1.5;
                 }
                 // consumo tabaco
 
                 // consumo de tabaco pasivo
                 if ($consufact->tabaco == "SI") {
-                    $rTC = $rTC + 0.7;
+                    $rTC = $rTC + 1;
                 }
                 // consumo de tabaco pasivo
 
                 // consumo alcohol
-                if ($respude60->alcohol == "SI") {
-                    $rTC = $rTC + 1;
+                if ($respude18a28->alcohol == "SI") {
+                    $rTC = $rTC + 1.3;
                 }
                 // consumo alcohol
+
+                // // // // // // // // // // Cancer
+
+                // // // // // // // // // // Alteraciones y transtornos visuales
+                $rTATV = 0;
+                // Antecedentes familiares
+                $antealteraciones = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "ALTERACIONES");
+                if ($antealteraciones > 0) {
+                    $rTATV = $rTATV + 1.9;
+                }
+                // Antecedentes familiares
+
+                // consumo de alcohol
+                if ($respude18a28->alcohol == "SI" || $respude18a28->fuma == "SI") {
+                    $rTATV = $rTATV + 1.7;
+                }
+                // consumo de alcohol
+
+                // Diabetes
+                if ($antediabetes > 0) {
+                    $rTATV = $rTATV + 1.7;
+                }
+                // Diabetes
+
+                // Hipertension arterial
+                if ($antehipertension > 0) {
+                    $rTATV = $rTATV + 1.7;
+                }
+                // Hipertension arterial
+                // // // // // // // // // // Alteraciones y transtornos visuales
+
+                // // // // // // // // // // ALTERACIONES Y TRASTORNOS DE LA AUDICIÓN Y COMUNICACIÓN
+                $rTATAC = 0;
+                // antecedente familiar
+                $antealteracionesaud = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "ALTERACIONESAUD");
+                if ($antealteracionesaud > 0) {
+                    $rTATAC = $rTATAC + 2;
+                }
+                // antecedente familiar
+
+                // Exposicion a contaminación auditiva
+                if ($contambien->riesgos_auditivo > 1) {
+                    $rTATAC = $rTATAC + 2;
+                }
+                // Exposicion a contaminación auditiva
+
+                // Infecciones crónicas de oidos
+                $enferoidos = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id ?? 0, "OIDOS");
+                $enferoidos2 = \App\EnfermedadesJefes::buscarEnfer(Session::get('alias'), $respujefe->id ?? 0, "OIDOS");
+                if (($enferoidos + $enferoidos2) > 0) {
+                    $rTATAC = $rTATAC + 3;
+                }
+                // Infecciones crónicas de oidos
+                // // // // // // // // // // ALTERACIONES Y TRASTORNOS DE LA AUDICIÓN Y COMUNICACIÓN
+
+                // // // // // // // // // // Salud Bucal
+                $rTSB = 0;
+
+                // Presencia de caries
+                if ($respude18a28->dientes_sanos == "SI") {
+                    $rTSB = $rTSB + 7;
+                    // Presencia de caries
+                } else {
+                    // NBI
+                    if ($NBI == "SI") {
+                        $rTSB = $rTSB + 1;
+                    }
+                    // NBI
+
+                    // Sin acceso a servicios odontologicos
+                    if ($respude18a28->consultaodon == "NO") {
+                        $rTSB = $rTSB + 1;
+                    }
+                    // Sin acceso a servicios odontologicos
+
+                    // Malos hábitos de higiene oral
+                    if ($respude18a28->nocepillado < 3) {
+                        $rTSB = $rTSB + 2;
+                    }
+                    // Malos hábitos de higiene oral
+
+                    // tabaco
+                    if ($respude18a28->fuma == "SI") {
+                        $rTSB = $rTSB + 2;
+                    }
+                    // tabaco
+
+                    // consumo d alcohol
+                    if ($respude18a28->alcohol == "SI") {
+                        $rTSB = $rTSB + 1;
+                    }
+                    // consumo d alcohol
+                }
+
+                // // // // // // // // // // Salud Bucal
+
+                // // // // // // // // // // PROBLEMAS EN SALUD MENTAL
+                $rTSM = 0;
+                // Antecedente familiar
+                $antesaludmental = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "SALUDMENTAL");
+                if ($antesaludmental > 0) {
+                    $rTSM = $rTSM + 1.4;
+                }
+                // Antecedente familiar
+
+                // Mala relaciones con familiares
+
+                // Mala relaciones con familiares
+
+                // Problemas de conducta
+                if ($respude18a28->conducta == "SI") {
+                    $rTSM = $rTSM + 1.4;
+                }
+                // Problemas de conducta
+
+                // consumo de SPA
+                if ($respude18a28->spa == "SI") {
+                    $rTSM = $rTSM + 2;
+                }
+                // consumo de SPA
+
+                // Violencia intrafamiliar
+                if ($respude18a28->maltrato == "SI") {
+                    $rTSM = $rTSM + 1;
+                }
+                // Violencia intrafamiliar
+                // // // // // // // // // // PROBLEMAS EN SALUD MENTAL
+
+                // // // // // // // // // // VIOLENCIAS
+                $rTV = 0;
+                // Antecedentes de Violencia  intrafamiliar
+                if ($consufact->violencia_fisica == "SI") {
+                    $rTV = $rTV + 1;
+                }
+                // Antecedentes de Violencia  intrafamiliar
+
+                // Transtornos mentales
+                $anteconducta = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id ?? 0, "CONDUCTA");
+                $anteconducta2 = \App\EnfermedadesJefes::buscarEnfer(Session::get('alias'), $respujefe->id ?? 0, "CONDUCTA");
+                if (($anteconducta + $anteconducta2) > 0) {
+                    $rTV = $rTV + 0.5;
+                }
+                // Transtornos mentales
+
+                // Consumo de SPA en la vivienda
+                if ($consufact->sustancias_psico == "SI") {
+                    $rTV = $rTV + 1;
+                }
+                // Consumo de SPA en la vivienda
+
+                // Problemas de conducta
+                if ($respude18a28->conducta == "SI") {
+                    $rTV = $rTV + 1;
+                }
+                // Problemas de conducta
+
+                // NBI
+                if ($NBI == "SI") {
+                    $rTV = $rTV + 1;
+                }
+                // NBI
+
+                // Señales de violencia
+                if ($respude18a28->maltrato == "SI") {
+                    $rTV = $rTV + 2;
+                }
+                // Señales de violencia
+
+                // Mala relación con familiares
+
+                // Mala relación con familiares
+                // // // // // // // // // // VIOLENCIAS
+
+                // // // // // // // // // // Enfermedades Respiratorias
+                $rTERC = 0;
+
+                // consumo de tabaco
+                if ($respude18a28->fuma == "SI") {
+                    $rTERC = $rTERC + 2.5;
+                }
+                // consumo de tabaco
+
+                // consumo de SPA
+                if ($respude18a28->spa == "SI") {
+                    $rTERC = $rTERC + 1.5;
+                }
+                // consumo de SPA
+
+                // ViVienda Cocina con leña o carbón
+                if ($respuvivi->tipo_combustible == "3" || $respuvivi->tipo_combustible == "4") {
+                    $rTERC = $rTERC + 1.5;
+                }
+                // ViVienda Cocina con leña o carbón
+
+                // Antecedentes familiares de enfermedades respiratorias cronicas
+                $anteenferrespi = \App\AntecedentesIntegrantes::buscarAntePorId(Session::get('alias'), $id_hogar, "ENFERRESPI", $respuinte->id ?? $respujefe->id);
+                if ($anteenferrespi > 0) {
+                    $rTERC = $rTERC + 0.5;
+                }
+                // Antecedentes familiares de enfermedades respiratorias cronicas
+
+                // Contaminación ambiental
+                if ($contambien->control_riesgos_atmosferico > 1) {
+                    $rTERC = $rTERC + 1;
+                }
+                // Contaminación ambiental
+
+                // Consumo pasivo de humo de tabaco o SPA
+                if ($consufact->tabaco == "SI" || $consufact->sustancias_psico == "SI") {
+                    $rTERC = $rTERC + 1;
+                }
+                // Consumo pasivo de humo de tabaco o SPA
+                // // // // // // // // // // Enfermedades Respiratorias
+
+                // // // // // // // // // // ENFERMEDADES ZOONOTICAS
+                $rTEZ = 0;
+                // Cria de animales (mas de 2  domesticos)
+                $anidomes = \App\Animal::buscar(Session::get('alias'), $id_hogar);
+                if (count($anidomes) > 2) {
+                    $rTEZ = $rTEZ + 1.6;
+                }
+                // Cria de animales (mas de 2  domesticos)
+
+                // No vacunación de animales
+                $anidomesvacuna = \App\Animal::buscarVacunados(Session::get('alias'), $id_hogar);
+                if (count($anidomesvacuna) > 2) {
+                    $rTEZ = $rTEZ + 1.5;
+                }
+                // No vacunación de animales
+
+                // Consumo de agua no potable.
+                if ($respuvivi->tipo_tratamiento_agua == "NA" || $respuvivi->tipo_tratamiento_agua == "4") {
+                    $rTEZ = $rTEZ + 2;
+                }
+                // Consumo de agua no potable.
+
+                // Manejo de residuos
+                if ($respuvivi->destino_final_basura != "1" || $respuvivi->almacenamiento_residuos != "SI") {
+                    $rTEZ = $rTEZ + 1;
+                }
+                // Manejo de residuos
+
+                // Lotes abandonados
+                if ($respuvivi->lotes_abandonados == "SI") {
+                    $rTEZ = $rTEZ + 1;
+                }
+                // Lotes abandonados
+
+                // NBI
+                if ($NBI == "SI") {
+                    $rTEZ = $rTEZ + 1.25;
+                }
+                // NBI
+
+                // no Desparasitado
+
+                // no Desparasitado
+
+                // Mal estado de la vivienda
+                if ($respuvivi->material_predominante == "5" || $respuvivi->material_predominante == "7"
+                    || $respuvivi->tipo_estructura == "5" || $respuvivi->tipo_cubierta == "2"
+                    || $respuvivi->tipo_cubierta == "6" || $respuvivi->tipo_cubierta == "8" || $respuvivi->tipo_cubierta == "9") {
+                    $rTEZ = $rTEZ + 0.6;
+                }
+                // Mal estado de la vivienda
+                // // // // // // // // // // ENFERMEDADES ZOONOTICAS
+
+                // // // // // // // // // // TRASTORNOS DEGENERATIVOS, NEUROPATÍAS Y ENF AUTOINMUNE
+                $rTTDNEA = 0;
+                // Antecedente familiar
+                $antetranstornos = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "TRANSTORNOS");
+                if ($antetranstornos > 0) {
+                    $rTTDNEA = $rTTDNEA + 2;
+                }
+                // Antecedente familiar
+
+                // Consumo de SPA
+                if ($respude18a28->spa == "SI") {
+                    $rTTDNEA = $rTTDNEA + 2;
+                }
+                // Consumo de SPA
+
+                // Enfermedades infecciosas
+                if ((count($respuenferinte) + count($respuenferjefe)) > 0) {
+                    $rTTDNEA = $rTTDNEA + 1;
+                }
+                // Enfermedades infecciosas
+
+                // Contaminación ambiental
+                if ($contambien->control_riesgos_atmosferico > 1) {
+                    $rTTDNEA = $rTTDNEA + 1;
+                }
+                // Contaminación ambiental
+
+                // Desnutrición
+
+                // Desnutrición
+                // // // // // // // // // // TRASTORNOS DEGENERATIVOS, NEUROPATÍAS Y ENF AUTOINMUNE
+
+                $datos["enfermedades_infecciosas_I"] = $rTEI;
+                $datos["transtornos_asociados_spa_I"] = $rTTAUS;
+                $datos["enfermedad_cardiovascular_I"] = $rTECA;
+                $datos["cancer_I"] = $rTC;
+                $datos["alteraciones_transtornos_visuales_I"] = $rTATV;
+                $datos["alteraciones_transtornos_audicion_I"] = $rTATAC;
+                $datos["salud_bucal_I"] = $rTSB;
+                $datos["problemas_salud_mental_I"] = $rTSM;
+                $datos["violencias_I"] = $rTV;
+                $datos["enfermedades_respiratorias_I"] = $rTERC;
+                $datos["enfermedades_zoonoticas_I"] = $rTEZ;
+                $datos["transtornos_degenartivos_I"] = $rTTDNEA;
+                $datos["consumo_spa_I"] = $rTCDS;
+                $datos["riesgo_delgadez_I"] = $rTRD;   
+                if ($respuinte != null) {
+                    $datos["opci"] = "INTE";
+                }else{
+                    $datos["opci"] = "JEFE";
+                }        
+                $resultado = self::calculosSaludInherente($datos, "DE18A28", $id_hogar, $respude18a28->id_integrante);
             }
-            // Citologia anormal, Examen de prostata Anormal,Examen de mama Anormal
-
-            // // // // // // // // // // Cancer
-
-            // // // // // // // // // // Alteraciones y transtornos visuales
-            $rTATV = 0;
-
-            // consumo de alcohol
-            if ($respude60->alcohol == "SI") {
-                $rTATV = $rTATV + 2;
-            }
-            // consumo de alcohol
-
-            // Diabetes
-            if ($antediabetes > 0) {
-                $rTATV = $rTATV + 2;
-            }
-            // Diabetes
-
-            // Hipertension arterial
-            if ($antehipertension > 0) {
-                $rTATV = $rTATV + 1;
-            }
-            // Hipertension arterial
-            // // // // // // // // // // Alteraciones y transtornos visuales
-
-            // // // // // // // // // // ALTERACIONES Y TRASTORNOS DE LA AUDICIÓN Y COMUNICACIÓN
-            $rTATAC = 0;
-            // antecedente familiar
-            $antealteracionesaud = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "ALTERACIONESAUD");
-            if ($antealteracionesaud > 0) {
-                $rTATAC = $rTATAC + 2;
-            }
-            // antecedente familiar
-
-            // Exposicion a contaminación auditiva
-            $contambien = \App\RiesgosAmbientales::buscar(Session::get('alias'), $id_hogar);
-            if ($contambien->riesgos_auditivo > 1) {
-                $rTATAC = $rTATAC + 2;
-            }
-            // Exposicion a contaminación auditiva
-
-            // Infecciones crónicas de oidos
-            $enferoidos = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id ?? 0, "OIDOS");
-            $enferoidos2 = \App\EnfermedadesJefes::buscarEnfer(Session::get('alias'), $respujefe->id ?? 0, "OIDOS");
-            if (($enferoidos + $enferoidos2) > 0) {
-                $rTATAC = $rTATAC + 3;
-            }
-            // Infecciones crónicas de oidos
-            // // // // // // // // // // ALTERACIONES Y TRASTORNOS DE LA AUDICIÓN Y COMUNICACIÓN
-
-            // // // // // // // // // // Salud Bucal
-            $rTSB = 0;
-
-            // NBI
-            if ($NBI == "SI") {
-                $rTSB = $rTSB + 1;
-            }
-            // NBI
-
-            // Sin acceso a servicios odontologicos
-
-            // Sin acceso a servicios odontologicos
-
-            // Malos hábitos de higiene oral
-
-            // Malos hábitos de higiene oral
-
-            // tabaco
-            if ($respude60->cigarrillo == "SI") {
-                $rTSB = $rTSB + 2;
-            }
-            // tabaco
-
-            // consumo d alcohol
-            if ($respude60->alcohol == "SI") {
-                $rTSB = $rTSB + 1;
-            }
-            // consumo d alcohol
-
-            // // // // // // // // // // Salud Bucal
-
-            // // // // // // // // // // PROBLEMAS EN SALUD MENTAL
-            $rTSM = 0;
-            // Antecedente familiar
-            $antesaludmental = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "SALUDMENTAL");
-            if ($antesaludmental > 0) {
-                $rTSM = $rTSM + 1;
-            }
-            // Antecedente familiar
-
-            // Mala relaciones con familiares
-
-            // Mala relaciones con familiares
-
-            // Problemas de conducta
-
-            // Problemas de conducta
-
-            // consumo de SPA
-
-            // consumo de SPA
-
-            // Violencia intrafamiliar
-
-            // Violencia intrafamiliar
-            // // // // // // // // // // PROBLEMAS EN SALUD MENTAL
-
-            // // // // // // // // // // VIOLENCIAS
-            $rTV = 0;
-            // Antecedentes de Violencia  intrafamiliar
-            if ($consufact->violencia_fisica == "SI") {
-                $rTV = $rTV + 1.5;
-            }
-            // Antecedentes de Violencia  intrafamiliar
-
-            // Transtornos mentales
-            $anteconducta = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id ?? 0, "CONDUCTA");
-            $anteconducta2 = \App\EnfermedadesJefes::buscarEnfer(Session::get('alias'), $respujefe->id ?? 0, "CONDUCTA");
-            if (($anteconducta + $anteconducta2) > 0) {
-                $rTV = $rTV + 1;
-            }
-            // Transtornos mentales
-
-            // Consumo de SPA en la vivienda
-            if ($consufact->sustancias_psico == "SI") {
-                $rTV = $rTV + 1.5;
-            }
-            // Consumo de SPA en la vivienda
-
-            // Problemas de conducta
-
-            // Problemas de conducta
-
-            // NBI
-            if ($NBI == "SI") {
-                $rTV = $rTV + 1;
-            }
-            // NBI
-
-            // Mala relación con familiares
-
-            // Mala relación con familiares
-            // // // // // // // // // // VIOLENCIAS
-
-            // // // // // // // // // // Enfermedades Respiratorias
-            $rTERC = 0;
-
-            // consumo de tabaco
-            if ($respude60->cigarrillo == "SI") {
-                $rTERC = $rTERC + 2.3;
-            }
-            // consumo de tabaco
-
-            // consumo de SPA
-
-            // consumo de SPA
-
-            // ViVienda Cocina con leña o carbón
-            if ($respuvivi->tipo_combustible == "3" || $respuvivi->tipo_combustible == "4") {
-                $rTERC = $rTERC + 2.3;
-            }
-            // ViVienda Cocina con leña o carbón
-
-            // Antecedentes familiares de enfermedades respiratorias cronicas
-            $anteenferrespi = \App\AntecedentesIntegrantes::buscarAntePorId(Session::get('alias'), $id_hogar, "ENFERRESPI", $respuinte->id ?? $respujefe->id);
-            if ($anteenferrespi > 0) {
-                $rTERC = $rTERC + 0.9;
-            }
-            // Antecedentes familiares de enfermedades respiratorias cronicas
-
-            // Contaminación ambiental
-            if ($contambien->control_riesgos_atmosferico > 1) {
-                $rTERC = $rTERC + 0.5;
-            }
-            // Contaminación ambiental
-
-            // Consumo pasivo de humo de tabaco o SPA
-            if ($consufact->tabaco == "SI" || $consufact->sustancias_psico == "SI") {
-                $rTERC = $rTERC + 0.5;
-            }
-            // Consumo pasivo de humo de tabaco o SPA
-
-            // Sintomas respiratorios
-            if ($respude60->sintomatico == "SI") {
-                $rTERC = $rTERC + 0.5;
-            }
-            // Sintomas respiratorios
-            // // // // // // // // // // Enfermedades Respiratorias
-
-            // // // // // // // // // // ENFERMEDADES ZOONOTICAS
-            $rTEZ = 0;
-            // Cria de animales (mas de 2  domesticos)
-            $anidomes = \App\Animal::buscar(Session::get('alias'), $id_hogar);
-            if (count($anidomes) > 2) {
-                $rTEZ = $rTEZ + 2.5;
-            }
-            // Cria de animales (mas de 2  domesticos)
-
-            // No vacunación de animales
-            $anidomesvacuna = \App\Animal::buscarVacunados(Session::get('alias'), $id_hogar);
-            if (count($anidomesvacuna) > 2) {
-                $rTEZ = $rTEZ + 2;
-            }
-            // No vacunación de animales
-
-            // Consumo de agua no potable.
-            if ($respuvivi->tipo_tratamiento_agua == "NA" || $respuvivi->tipo_tratamiento_agua == "4") {
-                $rTEZ = $rTEZ + 2;
-            }
-            // Consumo de agua no potable.
-
-            // Manejo de residuos
-            if ($respuvivi->destino_final_basura != "1" || $respuvivi->almacenamiento_residuos != "SI") {
-                $rTEZ = $rTEZ + 1;
-            }
-            // Manejo de residuos
-
-            // Lotes abandonados
-            if ($respuvivi->lotes_abandonados == "SI") {
-                $rTEZ = $rTEZ + 0.8;
-            }
-            // Lotes abandonados
-
-            // NBI
-            if ($NBI == "SI") {
-                $rTEZ = $rTEZ + 1;
-            }
-            // NBI
-
-            // no Desparasitado
-
-            // no Desparasitado
-
-            // Mal estado de la vivienda
-            if ($respuvivi->material_predominante == "5" || $respuvivi->material_predominante == "7"
-                || $respuvivi->tipo_estructura == "5" || $respuvivi->tipo_cubierta == "2"
-                || $respuvivi->tipo_cubierta == "6" || $respuvivi->tipo_cubierta == "8" || $respuvivi->tipo_cubierta == "9") {
-                $rTEZ = $rTEZ + 0.7;
-            }
-            // Mal estado de la vivienda
-            // // // // // // // // // // ENFERMEDADES ZOONOTICAS
-
-            // // // // // // // // // // TRASTORNOS DEGENERATIVOS, NEUROPATÍAS Y ENF AUTOINMUNE
-            $rTTDNEA = 0;
-
-            // Consumo de SPA
-
-            // Consumo de SPA
-
-            // Enfermedades infecciosas
-            $respuenferinte = \App\EnfermedadesIntegrantes::buscarInfecciosas(Session::get('alias'), $respuinte->id ?? 0);
-            $respuenferjefe = \App\EnfermedadesJefes::buscarInfecciosas(Session::get('alias'), $respujefe->id ?? 0);
-            if ((count($respuenferinte) + count($respuenferjefe)) > 0) {
-                $rTTDNEA = $rTTDNEA + 1;
-            }
-            // Enfermedades infecciosas
-
-            // Contaminación ambiental
-            if ($contambien->control_riesgos_atmosferico > 1) {
-                $rTTDNEA = $rTTDNEA + 1;
-            }
-            // Contaminación ambiental
-
-            // Desnutrición
-
-            // Desnutrición
-            // // // // // // // // // // TRASTORNOS DEGENERATIVOS, NEUROPATÍAS Y ENF AUTOINMUNE
-
-            $datos["enfermedades_infecciosas_I"] = $rTEI;
-            $datos["transtornos_asociados_spa_I"] = $rTTAUS;
-            $datos["enfermedad_cardiovascular_I"] = $rTECA;
-            $datos["cancer_I"] = $rTC;
-            $datos["alteraciones_transtornos_visuales_I"] = $rTATV;
-            $datos["alteraciones_transtornos_audicion_I"] = $rTATAC;
-            $datos["salud_bucal_I"] = $rTSB;
-            $datos["problemas_salud_mental_I"] = $rTSM;
-            $datos["violencias_I"] = $rTV;
-            $datos["enfermedades_respiratorias_I"] = $rTERC;
-            $datos["enfermedades_zoonoticas_I"] = $rTEZ;
-            $datos["transtornos_degenartivos_I"] = $rTTDNEA;
-            $datos["consumo_spa_I"] = $rTCDS;
-            if ($respuinte != null) {
-                $datos["opci"] = "INTE";
-            }else{
-                $datos["opci"] = "JEFE";
-            }
-            $resultado = self::calculosSaludInherente($datos, "DE60", $id_hogar, $respude60->id_integrante);
         }
-        // // // // // // // // // // De60 // // // // // // // // // //
+        // // // // // // // // // // De18A28 // // // // // // // // // //
 
+        // // // // // // // // // // De29A59 // // // // // // // // // //
+        if ($opcion == "De29A59") {
+            $respuinte = \App\Integrante::buscar($identificacion, Session::get('alias'));
+            $respujefe = \App\Caracterizacion::buscar($identificacion, Session::get('alias'));
+            $respude29a59 = \App\De29a59::buscarPorIdentificacion(Session::get('alias'), $identificacion);
+            if($respude29a59){
+                // // // // // // // // // //  Riesgo de delgadez
+                $rTRD = 0;
+                // Enfermedades infecciosas
+                $respuenferinte = \App\EnfermedadesIntegrantes::buscarInfecciosas(Session::get('alias'), $respuinte->id ?? 0);
+                $respuenferjefe = \App\EnfermedadesJefes::buscarInfecciosas(Session::get('alias'), $respujefe->id ?? 0);
+
+                if ((count($respuenferinte) + count($respuenferjefe)) > 0) {
+                    $rTRD = $rTRD + 0.8;
+                }
+                // Enfermedades infecciosas
+
+                // Consumo SPA
+                if ($respude29a59->spa == "SI") {
+                    $rTRD = $rTRD + 0.8;
+                }
+                // Consumo SPA
+
+                // NBI
+                $NBI = self::calcularNBI($id_hogar);
+                if ($NBI == "SI") {
+                    $rTRD = $rTRD + 1.2;
+                }
+                // NBI
+
+                // NO agua potable
+                if ($respuvivi->acueducto == "NO") {
+                    $rTRD = $rTRD + 0.8;
+                }
+                // NO agua potable
+
+                // IMC  -2 a < -1
+                if ($respude29a59->imc >= "18.5" && $respude29a59->imc <= "19.5") {
+                    $rTRD = $rTRD + 3.4;
+                }
+                // IMC  -2 a < -1
+                // // // // // // // // // //  Riesgo de delgadez
+
+                // // // // // // // // // //  Enfermedades Infecciosas
+                $rTEI = 0;
+
+                // Delgadez
+                if ($respude29a59->imc < "18.5") {
+                    $rTEI = $rTEI + 0.6;
+                }
+                // Delgadez
+
+                // plagas
+                if ($respuvivi->plagas == "SI") {
+                    $rTEI = $rTEI + 0.7;
+                }
+                // plagas
+
+                // Manejo inadecuado  de residuos
+
+                // Manejo inadecuado  de residuos
+
+                // Malas condiciones de la vivienda
+
+                // Malas condiciones de la vivienda
+
+                // Hacinamiento
+                $hacinamiento = self::hacinamiento($id_hogar);
+                if ($hacinamiento == "SI") {
+                    $rTEI = $rTEI + 0.62;
+                }
+                // Hacinamiento
+
+                // Enfermedades inmunosupresoras
+
+                // Enfermedades inmunosupresoras
+
+                // No desparacitado
+
+                // No desparacitado
+
+                // No Vacunación
+
+                // No Vacunación
+
+                // Riesgos de delgadez
+                $proba = 0;
+                if ($rTRD == 0) {
+                    $proba = 1;
+                } else {
+                    if ($proba >= 0.1 && $proba < 0.5) {
+                        $proba = 2;
+                    } else {
+                        if ($proba >= 0.5 && $proba < 3.4) {
+                            $proba = 3;
+                        } else {
+                            if ($proba >= 3.4 && $proba < 6.1) {
+                                $proba = 4;
+                            } else {
+                                $proba = 5;
+                            }
+                        }
+                    }
+                }
+                $res = $proba * 4;
+
+                if ($res > 8) {
+                    $rTEI = $rTEI + 0.4;
+                }
+                // Riesgos de delgadez
+
+                // Baño compartido
+                if ($respuvivi->cuantos_baños <= 1) {
+                    $rTEI = $rTEI + 0.6;
+                }
+                // Baño compartido
+
+                // Lotes enmontados
+                if ($respuvivi->lotes_abandonados == "SI") {
+                    $rTEI = $rTEI + 0.64;
+                }
+                // Lotes enmontados
+
+                // no lavar la verduras y frutas antes de comer
+
+                // no lavar la verduras y frutas antes de comer
+
+                // relleno sanitario cerda de la vivienda
+                if ($respuvivi->rellenos == "SI") {
+                    $rTEI = $rTEI + 0.8;
+                }
+                // relleno sanitario cerda de la vivienda
+
+                // Ningun tratamiento para el consumo de agua
+                if ($respuvivi->tipo_tratamiento_agua == "NA" || $respuvivi->tipo_tratamiento_agua == "4") {
+                    $rTEI = $rTEI + 0.8;
+                }
+                // Ningun tratamiento para el consumo de agua
+
+                // No acceso agua potable
+                if ($respuvivi->acueducto == "NO") {
+                    $rTEI = $rTEI + 0.8;
+                }
+                // No acceso agua potable
+
+                // Habitante de la vivienda con enfermedad infectocontagiosa
+
+                // Habitante de la vivienda con enfermedad infectocontagiosa
+
+                // // // // // // // // // //  Enfermedades Infecciosas
+
+                // // // // // // // // // //  CONSUMO DE  SPA
+                $rTCDS = 0;
+
+                // Mala relaciones con familiares
+
+                // Mala relaciones con familiares
+
+                // NBI
+                if ($NBI == "SI") {
+                    $rTCDS = $rTCDS + 1;
+                }
+                // NBI
+
+                // Enfermedades mentales
+
+                // Enfermedades mentales
+
+                // Problemas de conducta
+                if ($respude29a59->conducta == "SI") {
+                    $rTCDS = $rTCDS + 1;
+                }
+                // Problemas de conducta
+
+                // Consumo de Spa en la vivienda
+                $consufact = \App\Factores::buscarFact(Session::get('alias'), $id_hogar);
+                if ($consufact->sustancias_psico == "SI") {
+                    $rTCDS = $rTCDS + 1;
+                }
+                // Consumo de Spa en la vivienda
+
+                // Consumo de alcohol
+                if ($respude29a59->alcohol == "SI") {
+                    $rTCDS = $rTCDS + 1;
+                }
+                // Consumo de alcohol
+
+                // Consumo de alcohol
+                if ($respude29a59->empleo == "NO") {
+                    $rTCDS = $rTCDS + 1;
+                }
+                // Consumo de alcohol
+                // // // // // // // // // //  CONSUMO DE  SPA
+
+                // // // // // // // // // //  TRASTORNO ASOCIADOS AL CONSUMO DE SPA
+                $rTTAUS = 0;
+                // Consumo SPA
+                if ($respude29a59->spa == "SI") {
+                    $rTTAUS = $rTTAUS + 5;
+                }
+                // Consumo SPA
+
+                // Consumo pasivo de SPA
+                $consufact = \App\Factores::buscarFact(Session::get('alias'), $id_hogar);
+                if ($consufact->sustancias_psico == "SI") {
+                    $rTTAUS = $rTTAUS + 2;
+                }
+                // Consumo pasivo de SPA
+                // // // // // // // // // //  TRASTORNO ASOCIADOS AL CONSUMO DE SPA
+
+                // // // // // // // // // //  ENFERMERDAD CARDIOVASCULAR ATEROGÉNICA
+                $rTECA = 0;
+
+                // Sedentario
+
+                // Sedentario
+
+                // Cosumos de SPA
+                if ($respude29a59->spa == "SI") {
+                    $rTECA = $rTECA + 0.5;
+                }
+                // Cosumos de SPA
+
+                // Sobrepeso
+                if ($respude29a59->imc >= "25" && $respude29a59->imc <= "30") {
+                    $rTECA = $rTECA + 0.5;
+                }
+                // Sobrepeso
+
+                // Hipertension arterial
+                $antehipertension = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id ?? 0, "HIPERTENSION");
+                $antehipertension2 = \App\EnfermedadesJefes::buscarEnfer(Session::get('alias'), $respujefe->id ?? 0, "HIPERTENSION");
+                if (($antehipertension + $antehipertension2) > 0) {
+                    $rTECA = $rTECA + 1;
+                }
+                // Hipertension arterial
+
+                // P.C Hombre 102 a 115 / Mujeres 88 a 100 cm
+                if ($respuinte->sexo ?? '' == "MASCULINO" || $respujefe->sexo ?? '' == "MASCULINO") {
+                    if ($respude29a59->pcintura >= "102" && $respude29a59->pcintura >= "115") {
+                        $rTECA = $rTECA + 0.6;
+                    }
+                } else {
+                    if ($respuinte->sexo ?? '' == "FEMENINO" || $respujefe->sexo ?? '' == "FEMENINO") {
+                        if ($respude29a59->pcintura >= "88" && $respude29a59->pcintura >= "100") {
+                            $rTECA = $rTECA + 0.6;
+                        }
+                    }
+                }
+                // P.C Hombre 102 a 115 / Mujeres 88 a 100 cm
+
+                // P.C Hombre mayor a 115 / Mujeres Mayor  a 100 cm
+                if ($respuinte->sexo ?? '' == "MASCULINO" || $respujefe->sexo ?? '' == "MASCULINO") {
+                    if ($respude29a59->pcintura > "115") {
+                        $rTECA = $rTECA + 1;
+                    }
+                } else {
+                    if ($respuinte->sexo ?? '' == "FEMENINO" || $respujefe->sexo ?? '' == "FEMENINO") {
+                        if ($respude29a59->pcintura >= "100") {
+                            $rTECA = $rTECA + 1;
+                        }
+                    }
+                }
+                // P.C Hombre mayor a 115 / Mujeres Mayor  a 100 cm
+
+                // Hiperlipemia
+
+                // Hiperlipemia
+
+                // obesidad
+                if ($respude29a59->imc >= "30") {
+                    $rTECA = $rTECA + 1;
+                }
+                // obesidad
+
+                // Antecedentes familiares
+
+                // Antecedentes familiares
+
+                // Diabetes
+                $antediabetes = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id ?? 0, "DIABETES");
+                $antediabetes2 = \App\EnfermedadesJefes::buscarEnfer(Session::get('alias'), $respujefe->id ?? 0, "DIABETES");
+                if (($antediabetes + $antediabetes2) > 0) {
+                    $rTECA = $rTECA + 0.8;
+                }
+                // Diabetes
+                // // // // // // // // // //  ENFERMERDAD CARDIOVASCULAR ATEROGÉNICA
+
+                // // // // // // // // // // Cancer
+                $rTC = 0;
+                // Antecedentes en familiares
+                $antecancer = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "CANCER");
+                if ($antecancer > 0) {
+                    $rTC = $rTC + 0.6;
+                }
+                // Antecedentes en familiares
+
+                // Contaminación ambiental
+                $contambien = \App\RiesgosAmbientales::buscar(Session::get('alias'), $id_hogar);
+                if ($contambien->control_riesgos_atmosferico > 1) {
+                    $rTC = $rTC + 0.5;
+                }
+                // Contaminación ambiental
+
+                // Obesidad
+                if ($respude29a59->imc >= "30") {
+                    $rTC = $rTC + 0.8;
+                }
+                // Obesidad
+
+                // consumo SPA
+                if ($respude29a59->spa == "SI") {
+                    $rTC = $rTC + 0.8;
+                }
+                // consumo SPA
+
+                // consumo tabaco
+                if ($respude29a59->fuma == "SI") {
+                    $rTC = $rTC + 2;
+                }
+                // consumo tabaco
+
+                // consumo de tabaco pasivo
+                if ($consufact->tabaco == "SI") {
+                    $rTC = $rTC + 0.5;
+                }
+                // consumo de tabaco pasivo
+
+                // consumo alcohol
+                if ($respude29a59->alcohol == "SI") {
+                    $rTC = $rTC + 2;
+                }
+                // consumo alcohol
+
+                // // // // // // // // // // Cancer
+
+                // // // // // // // // // // Alteraciones y transtornos visuales
+                $rTATV = 0;
+                // Antecedentes familiares
+                $antealteraciones = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "ALTERACIONES");
+                if ($antealteraciones > 0) {
+                    $rTATV = $rTATV + 2;
+                }
+                // Antecedentes familiares
+
+                // consumo de alcohol
+                if ($respude29a59->alcohol == "SI" || $respude29a59->fuma == "SI") {
+                    $rTATV = $rTATV + 1;
+                }
+                // consumo de alcohol
+
+                // Diabetes
+                if ($antediabetes > 0) {
+                    $rTATV = $rTATV + 1;
+                }
+                // Diabetes
+
+                // Hipertension arterial
+                if ($antehipertension > 0) {
+                    $rTATV = $rTATV + 1;
+                }
+                // Hipertension arterial
+                // // // // // // // // // // Alteraciones y transtornos visuales
+
+                // // // // // // // // // // ALTERACIONES Y TRASTORNOS DE LA AUDICIÓN Y COMUNICACIÓN
+                $rTATAC = 0;
+                // antecedente familiar
+                $antealteracionesaud = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "ALTERACIONESAUD");
+                if ($antealteracionesaud > 0) {
+                    $rTATAC = $rTATAC + 2;
+                }
+                // antecedente familiar
+
+                // Exposicion a contaminación auditiva
+                if ($contambien->riesgos_auditivo > 1) {
+                    $rTATAC = $rTATAC + 2;
+                }
+                // Exposicion a contaminación auditiva
+
+                // Infecciones crónicas de oidos
+                $enferoidos = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id ?? 0, "OIDOS");
+                $enferoidos2 = \App\EnfermedadesJefes::buscarEnfer(Session::get('alias'), $respujefe->id ?? 0, "OIDOS");
+                if (($enferoidos + $enferoidos2) > 0) {
+                    $rTATAC = $rTATAC + 3;
+                }
+                // Infecciones crónicas de oidos
+                // // // // // // // // // // ALTERACIONES Y TRASTORNOS DE LA AUDICIÓN Y COMUNICACIÓN
+
+                // // // // // // // // // // Salud Bucal
+                $rTSB = 0;
+
+                // Presencia de caries
+                if ($respude29a59->dientes_sanos == "SI") {
+                    $rTSB = $rTSB + 7;
+                    // Presencia de caries
+                } else {
+                    // NBI
+                    if ($NBI == "SI") {
+                        $rTSB = $rTSB + 1;
+                    }
+                    // NBI
+
+                    // Sin acceso a servicios odontologicos
+                    if ($respude29a59->consultaodon == "NO") {
+                        $rTSB = $rTSB + 1;
+                    }
+                    // Sin acceso a servicios odontologicos
+
+                    // Malos hábitos de higiene oral
+                    if ($respude29a59->nocepillado < 3) {
+                        $rTSB = $rTSB + 2;
+                    }
+                    // Malos hábitos de higiene oral
+
+                    // tabaco
+                    if ($respude29a59->fuma == "SI") {
+                        $rTSB = $rTSB + 2;
+                    }
+                    // tabaco
+
+                    // consumo d alcohol
+                    if ($respude29a59->alcohol == "SI") {
+                        $rTSB = $rTSB + 1;
+                    }
+                    // consumo d alcohol
+                }
+
+                // // // // // // // // // // Salud Bucal
+
+                // // // // // // // // // // PROBLEMAS EN SALUD MENTAL
+                $rTSM = 0;
+                // Antecedente familiar
+                $antesaludmental = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "SALUDMENTAL");
+                if ($antesaludmental > 0) {
+                    $rTSM = $rTSM + 1.4;
+                }
+                // Antecedente familiar
+
+                // Mala relaciones con familiares
+
+                // Mala relaciones con familiares
+
+                // Problemas de conducta
+                if ($respude29a59->conducta == "SI") {
+                    $rTSM = $rTSM + 1.4;
+                }
+                // Problemas de conducta
+
+                // consumo de SPA
+                if ($respude29a59->spa == "SI") {
+                    $rTSM = $rTSM + 2;
+                }
+                // consumo de SPA
+
+                // Violencia intrafamiliar
+                if ($respude29a59->maltrato == "SI") {
+                    $rTSM = $rTSM + 1;
+                }
+                // Violencia intrafamiliar
+                // // // // // // // // // // PROBLEMAS EN SALUD MENTAL
+
+                // // // // // // // // // // VIOLENCIAS
+                $rTV = 0;
+                // Antecedentes de Violencia  intrafamiliar
+                if ($consufact->violencia_fisica == "SI") {
+                    $rTV = $rTV + 1.5;
+                }
+                // Antecedentes de Violencia  intrafamiliar
+
+                // Transtornos mentales
+                $anteconducta = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id ?? 0, "CONDUCTA");
+                $anteconducta2 = \App\EnfermedadesJefes::buscarEnfer(Session::get('alias'), $respujefe->id ?? 0, "CONDUCTA");
+                if (($anteconducta + $anteconducta2) > 0) {
+                    $rTV = $rTV + 1;
+                }
+                // Transtornos mentales
+
+                // Consumo de SPA en la vivienda
+                if ($consufact->sustancias_psico == "SI") {
+                    $rTV = $rTV + 1.5;
+                }
+                // Consumo de SPA en la vivienda
+
+                // Problemas de conducta
+                if ($respude29a59->conducta == "SI") {
+                    $rTV = $rTV + 1;
+                }
+                // Problemas de conducta
+
+                // NBI
+                if ($NBI == "SI") {
+                    $rTV = $rTV + 1;
+                }
+                // NBI
+
+                // Mala relación con familiares
+
+                // Mala relación con familiares
+                // // // // // // // // // // VIOLENCIAS
+
+                // // // // // // // // // // Enfermedades Respiratorias
+                $rTERC = 0;
+
+                // consumo de tabaco
+                if ($respude29a59->fuma == "SI") {
+                    $rTERC = $rTERC + 2.5;
+                }
+                // consumo de tabaco
+
+                // consumo de SPA
+                if ($respude29a59->spa == "SI") {
+                    $rTERC = $rTERC + 1.5;
+                }
+                // consumo de SPA
+
+                // ViVienda Cocina con leña o carbón
+                if ($respuvivi->tipo_combustible == "3" || $respuvivi->tipo_combustible == "4") {
+                    $rTERC = $rTERC + 1.5;
+                }
+                // ViVienda Cocina con leña o carbón
+
+                // Antecedentes familiares de enfermedades respiratorias cronicas
+                $anteenferrespi = \App\AntecedentesIntegrantes::buscarAntePorId(Session::get('alias'), $id_hogar, "ENFERRESPI", $respuinte->id ?? $respujefe->id);
+                if ($anteenferrespi > 0) {
+                    $rTERC = $rTERC + 0.5;
+                }
+                // Antecedentes familiares de enfermedades respiratorias cronicas
+
+                // Contaminación ambiental
+                if ($contambien->control_riesgos_atmosferico > 1) {
+                    $rTERC = $rTERC + 0.5;
+                }
+                // Contaminación ambiental
+
+                // Consumo pasivo de humo de tabaco o SPA
+                if ($consufact->tabaco == "SI" || $consufact->sustancias_psico == "SI") {
+                    $rTERC = $rTERC + 1.5;
+                }
+                // Consumo pasivo de humo de tabaco o SPA
+                // // // // // // // // // // Enfermedades Respiratorias
+
+                // // // // // // // // // // ENFERMEDADES ZOONOTICAS
+                $rTEZ = 0;
+                // Cria de animales (mas de 2  domesticos)
+                $anidomes = \App\Animal::buscar(Session::get('alias'), $id_hogar);
+                if (count($anidomes) > 2) {
+                    $rTEZ = $rTEZ + 2.5;
+                }
+                // Cria de animales (mas de 2  domesticos)
+
+                // No vacunación de animales
+                $anidomesvacuna = \App\Animal::buscarVacunados(Session::get('alias'), $id_hogar);
+                if (count($anidomesvacuna) > 2) {
+                    $rTEZ = $rTEZ + 2;
+                }
+                // No vacunación de animales
+
+                // Consumo de agua no potable.
+                if ($respuvivi->tipo_tratamiento_agua == "NA" || $respuvivi->tipo_tratamiento_agua == "4") {
+                    $rTEZ = $rTEZ + 2;
+                }
+                // Consumo de agua no potable.
+
+                // Manejo de residuos
+                if ($respuvivi->destino_final_basura != "1" || $respuvivi->almacenamiento_residuos != "SI") {
+                    $rTEZ = $rTEZ + 1;
+                }
+                // Manejo de residuos
+
+                // Lotes abandonados
+                if ($respuvivi->lotes_abandonados == "SI") {
+                    $rTEZ = $rTEZ + 0.8;
+                }
+                // Lotes abandonados
+
+                // NBI
+                if ($NBI == "SI") {
+                    $rTEZ = $rTEZ + 1;
+                }
+                // NBI
+
+                // no Desparasitado
+
+                // no Desparasitado
+
+                // Mal estado de la vivienda
+                if ($respuvivi->material_predominante == "5" || $respuvivi->material_predominante == "7"
+                    || $respuvivi->tipo_estructura == "5" || $respuvivi->tipo_cubierta == "2"
+                    || $respuvivi->tipo_cubierta == "6" || $respuvivi->tipo_cubierta == "8" || $respuvivi->tipo_cubierta == "9") {
+                    $rTEZ = $rTEZ + 0.7;
+                }
+                // Mal estado de la vivienda
+                // // // // // // // // // // ENFERMEDADES ZOONOTICAS
+
+                // // // // // // // // // // TRASTORNOS DEGENERATIVOS, NEUROPATÍAS Y ENF AUTOINMUNE
+                $rTTDNEA = 0;
+                // Antecedente familiar
+                $antetranstornos = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "TRANSTORNOS");
+                if ($antetranstornos > 0) {
+                    $rTTDNEA = $rTTDNEA + 2;
+                }
+                // Antecedente familiar
+
+                // Consumo de SPA
+                if ($respude29a59->spa == "SI") {
+                    $rTTDNEA = $rTTDNEA + 2;
+                }
+                // Consumo de SPA
+
+                // Enfermedades infecciosas
+                if ((count($respuenferinte) + count($respuenferjefe)) > 0) {
+                    $rTTDNEA = $rTTDNEA + 1;
+                }
+                // Enfermedades infecciosas
+
+                // Contaminación ambiental
+                if ($contambien->control_riesgos_atmosferico > 1) {
+                    $rTTDNEA = $rTTDNEA + 1;
+                }
+                // Contaminación ambiental
+
+                // Desnutrición
+
+                // Desnutrición
+                // // // // // // // // // // TRASTORNOS DEGENERATIVOS, NEUROPATÍAS Y ENF AUTOINMUNE
+
+                $datos["enfermedades_infecciosas_I"] = $rTEI;
+                $datos["transtornos_asociados_spa_I"] = $rTTAUS;
+                $datos["enfermedad_cardiovascular_I"] = $rTECA;
+                $datos["cancer_I"] = $rTC;
+                $datos["alteraciones_transtornos_visuales_I"] = $rTATV;
+                $datos["alteraciones_transtornos_audicion_I"] = $rTATAC;
+                $datos["salud_bucal_I"] = $rTSB;
+                $datos["problemas_salud_mental_I"] = $rTSM;
+                $datos["violencias_I"] = $rTV;
+                $datos["enfermedades_respiratorias_I"] = $rTERC;
+                $datos["enfermedades_zoonoticas_I"] = $rTEZ;
+                $datos["transtornos_degenartivos_I"] = $rTTDNEA;
+                $datos["consumo_spa_I"] = $rTCDS;
+                $datos["riesgo_delgadez_I"] = $rTRD;
+                if ($respuinte != null) {
+                    $datos["opci"] = "INTE";
+                }else{
+                    $datos["opci"] = "JEFE";
+                }
+                $resultado = self::calculosSaludInherente($datos, "DE29A59", $id_hogar, $respude29a59->id_integrante);
+            }
+        }
+        // // // // // // // // // // De29A59 // // // // // // // // // //
+
+        // // // // // // // // // // De60 // // // // // // // // // //
+        if ($opcion == "De60") {
+            $respuinte = \App\Integrante::buscar($identificacion, Session::get('alias'));
+            $respujefe = \App\Caracterizacion::buscar($identificacion, Session::get('alias'));
+            $respude60 = \App\De60::buscarPorIdentificacion(Session::get('alias'), $identificacion);
+            if($respude60){
+                // // // // // // // // // //  Enfermedades Infecciosas
+                $rTEI = 0;
+
+                // Delgadez
+                if ($respude60->imc < "18.5") {
+                    $rTEI = $rTEI + 0.7;
+                }
+                // Delgadez
+
+                // plagas
+                if ($respuvivi->plagas == "SI") {
+                    $rTEI = $rTEI + 0.7;
+                }
+                // plagas
+
+                // Manejo inadecuado  de residuos
+
+                // Manejo inadecuado  de residuos
+
+                // Malas condiciones de la vivienda
+
+                // Malas condiciones de la vivienda
+
+                // Hacinamiento
+                $hacinamiento = self::hacinamiento($id_hogar);
+                if ($hacinamiento == "SI") {
+                    $rTEI = $rTEI + 0.6;
+                }
+                // Hacinamiento
+
+                // Enfermedades inmunosupresoras
+
+                // Enfermedades inmunosupresoras
+
+                // No desparacitado
+
+                // No desparacitado
+
+                // No Vacunación
+
+                // No Vacunación
+
+                // Baño compartido
+                if ($respuvivi->cuantos_baños <= 1) {
+                    $rTEI = $rTEI + 0.5;
+                }
+                // Baño compartido
+
+                // Lotes enmontados
+                if ($respuvivi->lotes_abandonados == "SI") {
+                    $rTEI = $rTEI + 0.8;
+                }
+                // Lotes enmontados
+
+                // no lavar la verduras y frutas antes de comer
+
+                // no lavar la verduras y frutas antes de comer
+
+                // relleno sanitario cerda de la vivienda
+                if ($respuvivi->rellenos == "SI") {
+                    $rTEI = $rTEI + 0.6;
+                }
+                // relleno sanitario cerda de la vivienda
+
+                // Ningun tratamiento para el consumo de agua
+                if ($respuvivi->tipo_tratamiento_agua == "NA" || $respuvivi->tipo_tratamiento_agua == "4") {
+                    $rTEI = $rTEI + 1;
+                }
+                // Ningun tratamiento para el consumo de agua
+
+                // No acceso agua potable
+                if ($respuvivi->acueducto == "NO") {
+                    $rTEI = $rTEI + 0.8;
+                }
+                // No acceso agua potable
+
+                // Habitante de la vivienda con enfermedad infectocontagiosa
+
+                // Habitante de la vivienda con enfermedad infectocontagiosa
+
+                // // // // // // // // // //  Enfermedades Infecciosas
+
+                // // // // // // // // // //  CONSUMO DE  SPA
+                $rTCDS = 0;
+
+                // Mala relaciones con familiares
+
+                // Mala relaciones con familiares
+
+                // NBI
+                $NBI = self::calcularNBI($id_hogar);
+                if ($NBI == "SI") {
+                    $rTCDS = $rTCDS + 0.8;
+                }
+                // NBI
+
+                // Enfermedades mentales
+
+                // Enfermedades mentales
+
+                // Problemas de conducta
+
+                // Problemas de conducta
+
+                // Consumo de Spa en la vivienda
+                $consufact = \App\Factores::buscarFact(Session::get('alias'), $id_hogar);
+                if ($consufact->sustancias_psico == "SI") {
+                    $rTCDS = $rTCDS + 0.8;
+                }
+                // Consumo de Spa en la vivienda
+
+                // Consumo de alcohol
+                if ($respude60->alcohol == "SI") {
+                    $rTCDS = $rTCDS + 31;
+                }
+                // Consumo de alcohol
+
+                // // // // // // // // // //  CONSUMO DE  SPA
+
+                // // // // // // // // // //  TRASTORNO ASOCIADOS AL CONSUMO DE SPA
+                $rTTAUS = 0;
+                // Consumo SPA
+
+                // Consumo SPA
+
+                // Consumo pasivo de SPA
+                $consufact = \App\Factores::buscarFact(Session::get('alias'), $id_hogar);
+                if ($consufact->sustancias_psico == "SI") {
+                    $rTTAUS = $rTTAUS + 2;
+                }
+                // Consumo pasivo de SPA
+                // // // // // // // // // //  TRASTORNO ASOCIADOS AL CONSUMO DE SPA
+
+                // // // // // // // // // //  ENFERMERDAD CARDIOVASCULAR ATEROGÉNICA
+                $rTECA = 0;
+
+                // Sedentario
+
+                // Sedentario
+
+                // Cosumos de SPA
+
+                // Cosumos de SPA
+
+                // Sobrepeso
+                if ($respude60->imc >= "25" && $respude60->imc <= "30") {
+                    $rTECA = $rTECA + 0.5;
+                }
+                // Sobrepeso
+
+                // Hipertension arterial
+                $antehipertension = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id ?? 0, "HIPERTENSION");
+                $antehipertension2 = \App\EnfermedadesJefes::buscarEnfer(Session::get('alias'), $respujefe->id ?? 0, "HIPERTENSION");
+                if (($antehipertension + $antehipertension2) > 0) {
+                    $rTECA = $rTECA + 1;
+                }
+                // Hipertension arterial
+
+                // P.C Hombre 102 a 115 / Mujeres 88 a 100 cm
+                if ($respuinte->sexo ?? '' == "MASCULINO" || $respujefe->sexo ?? '' == "MASCULINO") {
+                    if ($respude60->pa >= "102" && $respude60->pa >= "115") {
+                        $rTECA = $rTECA + 0.6;
+                    }
+                } else {
+                    if ($respuinte->sexo ?? '' == "FEMENINO" || $respujefe->sexo ?? '' == "FEMENINO") {
+                        if ($respude60->pa >= "88" && $respude60->pa >= "100") {
+                            $rTECA = $rTECA + 0.6;
+                        }
+                    }
+                }
+                // P.C Hombre 102 a 115 / Mujeres 88 a 100 cm
+
+                // P.C Hombre mayor a 115 / Mujeres Mayor  a 100 cm
+                if ($respuinte->sexo ?? '' == "MASCULINO" || $respujefe->sexo ?? '' == "MASCULINO") {
+                    if ($respude60->pa > "115") {
+                        $rTECA = $rTECA + 1;
+                    }
+                } else {
+                    if ($respuinte->sexo ?? '' == "FEMENINO" || $respujefe->sexo ?? '' == "FEMENINO") {
+                        if ($respude60->pa >= "100") {
+                            $rTECA = $rTECA + 1;
+                        }
+                    }
+                }
+                // P.C Hombre mayor a 115 / Mujeres Mayor  a 100 cm
+
+                // Hiperlipemia
+
+                // Hiperlipemia
+
+                // obesidad
+                if ($respude60->imc >= "30") {
+                    $rTECA = $rTECA + 1;
+                }
+                // obesidad
+
+                // Antecedentes familiares
+
+                // Antecedentes familiares
+
+                // Diabetes
+                $antediabetes = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id ?? 0, "DIABETES");
+                $antediabetes2 = \App\EnfermedadesJefes::buscarEnfer(Session::get('alias'), $respujefe->id ?? 0, "DIABETES");
+                if (($antediabetes + $antediabetes2) > 0) {
+                    $rTECA = $rTECA + 0.8;
+                }
+                // Diabetes
+                // // // // // // // // // //  ENFERMERDAD CARDIOVASCULAR ATEROGÉNICA
+
+                // // // // // // // // // // Cancer
+                $rTC = 0;
+
+                // Citologia anormal, Examen de prostata Anormal,Examen de mama Anormal
+                if ($respude60->examen_seno == "SIA" || $respude60->citologia == "SIA" || $respude60->examen_prostata == "SIA") {
+                    $rTC = $rTC + 8;
+                } else {
+                    // Antecedentes en familiares
+                    $antecancer = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "CANCER");
+                    if ($antecancer > 0) {
+                        $rTC = $rTC + 0.8;
+                    }
+                    // Antecedentes en familiares
+
+                    // Contaminación ambiental
+                    $contambien = \App\RiesgosAmbientales::buscar(Session::get('alias'), $id_hogar);
+                    if ($contambien->control_riesgos_atmosferico > 1) {
+                        $rTC = $rTC + 0.5;
+                    }
+                    // Contaminación ambiental
+
+                    // Obesidad
+                    if ($respude60->imc >= "30") {
+                        $rTC = $rTC + 0.8;
+                    }
+                    // Obesidad
+
+                    // consumo SPA
+
+                    // consumo SPA
+
+                    // consumo tabaco
+                    if ($respude60->cigarrillo == "SI") {
+                        $rTC = $rTC + 1.5;
+                    }
+                    // consumo tabaco
+
+                    // consumo de tabaco pasivo
+                    if ($consufact->tabaco == "SI") {
+                        $rTC = $rTC + 0.7;
+                    }
+                    // consumo de tabaco pasivo
+
+                    // consumo alcohol
+                    if ($respude60->alcohol == "SI") {
+                        $rTC = $rTC + 1;
+                    }
+                    // consumo alcohol
+                }
+                // Citologia anormal, Examen de prostata Anormal,Examen de mama Anormal
+
+                // // // // // // // // // // Cancer
+
+                // // // // // // // // // // Alteraciones y transtornos visuales
+                $rTATV = 0;
+
+                // consumo de alcohol
+                if ($respude60->alcohol == "SI") {
+                    $rTATV = $rTATV + 2;
+                }
+                // consumo de alcohol
+
+                // Diabetes
+                if ($antediabetes > 0) {
+                    $rTATV = $rTATV + 2;
+                }
+                // Diabetes
+
+                // Hipertension arterial
+                if ($antehipertension > 0) {
+                    $rTATV = $rTATV + 1;
+                }
+                // Hipertension arterial
+                // // // // // // // // // // Alteraciones y transtornos visuales
+
+                // // // // // // // // // // ALTERACIONES Y TRASTORNOS DE LA AUDICIÓN Y COMUNICACIÓN
+                $rTATAC = 0;
+                // antecedente familiar
+                $antealteracionesaud = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "ALTERACIONESAUD");
+                if ($antealteracionesaud > 0) {
+                    $rTATAC = $rTATAC + 2;
+                }
+                // antecedente familiar
+
+                // Exposicion a contaminación auditiva
+                $contambien = \App\RiesgosAmbientales::buscar(Session::get('alias'), $id_hogar);
+                if ($contambien->riesgos_auditivo > 1) {
+                    $rTATAC = $rTATAC + 2;
+                }
+                // Exposicion a contaminación auditiva
+
+                // Infecciones crónicas de oidos
+                $enferoidos = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id ?? 0, "OIDOS");
+                $enferoidos2 = \App\EnfermedadesJefes::buscarEnfer(Session::get('alias'), $respujefe->id ?? 0, "OIDOS");
+                if (($enferoidos + $enferoidos2) > 0) {
+                    $rTATAC = $rTATAC + 3;
+                }
+                // Infecciones crónicas de oidos
+                // // // // // // // // // // ALTERACIONES Y TRASTORNOS DE LA AUDICIÓN Y COMUNICACIÓN
+
+                // // // // // // // // // // Salud Bucal
+                $rTSB = 0;
+
+                // NBI
+                if ($NBI == "SI") {
+                    $rTSB = $rTSB + 1;
+                }
+                // NBI
+
+                // Sin acceso a servicios odontologicos
+
+                // Sin acceso a servicios odontologicos
+
+                // Malos hábitos de higiene oral
+
+                // Malos hábitos de higiene oral
+
+                // tabaco
+                if ($respude60->cigarrillo == "SI") {
+                    $rTSB = $rTSB + 2;
+                }
+                // tabaco
+
+                // consumo d alcohol
+                if ($respude60->alcohol == "SI") {
+                    $rTSB = $rTSB + 1;
+                }
+                // consumo d alcohol
+
+                // // // // // // // // // // Salud Bucal
+
+                // // // // // // // // // // PROBLEMAS EN SALUD MENTAL
+                $rTSM = 0;
+                // Antecedente familiar
+                $antesaludmental = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "SALUDMENTAL");
+                if ($antesaludmental > 0) {
+                    $rTSM = $rTSM + 1;
+                }
+                // Antecedente familiar
+
+                // Mala relaciones con familiares
+
+                // Mala relaciones con familiares
+
+                // Problemas de conducta
+
+                // Problemas de conducta
+
+                // consumo de SPA
+
+                // consumo de SPA
+
+                // Violencia intrafamiliar
+
+                // Violencia intrafamiliar
+                // // // // // // // // // // PROBLEMAS EN SALUD MENTAL
+
+                // // // // // // // // // // VIOLENCIAS
+                $rTV = 0;
+                // Antecedentes de Violencia  intrafamiliar
+                if ($consufact->violencia_fisica == "SI") {
+                    $rTV = $rTV + 1.5;
+                }
+                // Antecedentes de Violencia  intrafamiliar
+
+                // Transtornos mentales
+                $anteconducta = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id ?? 0, "CONDUCTA");
+                $anteconducta2 = \App\EnfermedadesJefes::buscarEnfer(Session::get('alias'), $respujefe->id ?? 0, "CONDUCTA");
+                if (($anteconducta + $anteconducta2) > 0) {
+                    $rTV = $rTV + 1;
+                }
+                // Transtornos mentales
+
+                // Consumo de SPA en la vivienda
+                if ($consufact->sustancias_psico == "SI") {
+                    $rTV = $rTV + 1.5;
+                }
+                // Consumo de SPA en la vivienda
+
+                // Problemas de conducta
+
+                // Problemas de conducta
+
+                // NBI
+                if ($NBI == "SI") {
+                    $rTV = $rTV + 1;
+                }
+                // NBI
+
+                // Mala relación con familiares
+
+                // Mala relación con familiares
+                // // // // // // // // // // VIOLENCIAS
+
+                // // // // // // // // // // Enfermedades Respiratorias
+                $rTERC = 0;
+
+                // consumo de tabaco
+                if ($respude60->cigarrillo == "SI") {
+                    $rTERC = $rTERC + 2.3;
+                }
+                // consumo de tabaco
+
+                // consumo de SPA
+
+                // consumo de SPA
+
+                // ViVienda Cocina con leña o carbón
+                if ($respuvivi->tipo_combustible == "3" || $respuvivi->tipo_combustible == "4") {
+                    $rTERC = $rTERC + 2.3;
+                }
+                // ViVienda Cocina con leña o carbón
+
+                // Antecedentes familiares de enfermedades respiratorias cronicas
+                $anteenferrespi = \App\AntecedentesIntegrantes::buscarAntePorId(Session::get('alias'), $id_hogar, "ENFERRESPI", $respuinte->id ?? $respujefe->id);
+                if ($anteenferrespi > 0) {
+                    $rTERC = $rTERC + 0.9;
+                }
+                // Antecedentes familiares de enfermedades respiratorias cronicas
+
+                // Contaminación ambiental
+                if ($contambien->control_riesgos_atmosferico > 1) {
+                    $rTERC = $rTERC + 0.5;
+                }
+                // Contaminación ambiental
+
+                // Consumo pasivo de humo de tabaco o SPA
+                if ($consufact->tabaco == "SI" || $consufact->sustancias_psico == "SI") {
+                    $rTERC = $rTERC + 0.5;
+                }
+                // Consumo pasivo de humo de tabaco o SPA
+
+                // Sintomas respiratorios
+                if ($respude60->sintomatico == "SI") {
+                    $rTERC = $rTERC + 0.5;
+                }
+                // Sintomas respiratorios
+                // // // // // // // // // // Enfermedades Respiratorias
+
+                // // // // // // // // // // ENFERMEDADES ZOONOTICAS
+                $rTEZ = 0;
+                // Cria de animales (mas de 2  domesticos)
+                $anidomes = \App\Animal::buscar(Session::get('alias'), $id_hogar);
+                if (count($anidomes) > 2) {
+                    $rTEZ = $rTEZ + 2.5;
+                }
+                // Cria de animales (mas de 2  domesticos)
+
+                // No vacunación de animales
+                $anidomesvacuna = \App\Animal::buscarVacunados(Session::get('alias'), $id_hogar);
+                if (count($anidomesvacuna) > 2) {
+                    $rTEZ = $rTEZ + 2;
+                }
+                // No vacunación de animales
+
+                // Consumo de agua no potable.
+                if ($respuvivi->tipo_tratamiento_agua == "NA" || $respuvivi->tipo_tratamiento_agua == "4") {
+                    $rTEZ = $rTEZ + 2;
+                }
+                // Consumo de agua no potable.
+
+                // Manejo de residuos
+                if ($respuvivi->destino_final_basura != "1" || $respuvivi->almacenamiento_residuos != "SI") {
+                    $rTEZ = $rTEZ + 1;
+                }
+                // Manejo de residuos
+
+                // Lotes abandonados
+                if ($respuvivi->lotes_abandonados == "SI") {
+                    $rTEZ = $rTEZ + 0.8;
+                }
+                // Lotes abandonados
+
+                // NBI
+                if ($NBI == "SI") {
+                    $rTEZ = $rTEZ + 1;
+                }
+                // NBI
+
+                // no Desparasitado
+
+                // no Desparasitado
+
+                // Mal estado de la vivienda
+                if ($respuvivi->material_predominante == "5" || $respuvivi->material_predominante == "7"
+                    || $respuvivi->tipo_estructura == "5" || $respuvivi->tipo_cubierta == "2"
+                    || $respuvivi->tipo_cubierta == "6" || $respuvivi->tipo_cubierta == "8" || $respuvivi->tipo_cubierta == "9") {
+                    $rTEZ = $rTEZ + 0.7;
+                }
+                // Mal estado de la vivienda
+                // // // // // // // // // // ENFERMEDADES ZOONOTICAS
+
+                // // // // // // // // // // TRASTORNOS DEGENERATIVOS, NEUROPATÍAS Y ENF AUTOINMUNE
+                $rTTDNEA = 0;
+
+                // Consumo de SPA
+
+                // Consumo de SPA
+
+                // Enfermedades infecciosas
+                $respuenferinte = \App\EnfermedadesIntegrantes::buscarInfecciosas(Session::get('alias'), $respuinte->id ?? 0);
+                $respuenferjefe = \App\EnfermedadesJefes::buscarInfecciosas(Session::get('alias'), $respujefe->id ?? 0);
+                if ((count($respuenferinte) + count($respuenferjefe)) > 0) {
+                    $rTTDNEA = $rTTDNEA + 1;
+                }
+                // Enfermedades infecciosas
+
+                // Contaminación ambiental
+                if ($contambien->control_riesgos_atmosferico > 1) {
+                    $rTTDNEA = $rTTDNEA + 1;
+                }
+                // Contaminación ambiental
+
+                // Desnutrición
+
+                // Desnutrición
+                // // // // // // // // // // TRASTORNOS DEGENERATIVOS, NEUROPATÍAS Y ENF AUTOINMUNE
+
+                $datos["enfermedades_infecciosas_I"] = $rTEI;
+                $datos["transtornos_asociados_spa_I"] = $rTTAUS;
+                $datos["enfermedad_cardiovascular_I"] = $rTECA;
+                $datos["cancer_I"] = $rTC;
+                $datos["alteraciones_transtornos_visuales_I"] = $rTATV;
+                $datos["alteraciones_transtornos_audicion_I"] = $rTATAC;
+                $datos["salud_bucal_I"] = $rTSB;
+                $datos["problemas_salud_mental_I"] = $rTSM;
+                $datos["violencias_I"] = $rTV;
+                $datos["enfermedades_respiratorias_I"] = $rTERC;
+                $datos["enfermedades_zoonoticas_I"] = $rTEZ;
+                $datos["transtornos_degenartivos_I"] = $rTTDNEA;
+                $datos["consumo_spa_I"] = $rTCDS;
+                if ($respuinte != null) {
+                    $datos["opci"] = "INTE";
+                }else{
+                    $datos["opci"] = "JEFE";
+                }
+                $resultado = self::calculosSaludInherente($datos, "DE60", $id_hogar, $respude60->id_integrante);
+            }
+            // // // // // // // // // // De60 // // // // // // // // // //
+        }
     }
 
     public function calcularNBI($id_hogar)

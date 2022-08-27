@@ -266,4 +266,11 @@ class Vivienda extends Model
             return $consulta->groupBy("vivienda.id_hogar")->paginate(10);
         }
     }
+
+    public static function riesgosViviendaExportar($id_hogar, $alias){
+        return DB::connection('mysql')->table($alias . '.riesgos_ambientales')
+        ->where('riesgos_ambientales.id_hogar', $id_hogar)
+        ->where('riesgos_ambientales.estado', 'Activo')
+        ->first();
+    }
 }

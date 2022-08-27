@@ -54,8 +54,10 @@ class RiesgosSaludDe29a59 extends Model
     {
         $busc1 = DB::connection('mysql')->table($alias . '.riesgos_salud_de29a59')
             ->join($alias . '.integrantes', 'integrantes.id', 'riesgos_salud_de29a59.id_inte')
+            ->join($alias . '.de29a59', 'integrantes.id', 'de29a59.id_integrante')
             ->where('integrantes.id_hogar', $id_hogar)
             ->where('integrantes.estado', 'Activo')
+            ->where('de29a59.estado', 'Activo')
             ->select('riesgos_salud_de29a59.*'
                 , "integrantes.identificacion AS identificacion"
                 , "integrantes.tipo_id AS tipo_id"
@@ -66,8 +68,10 @@ class RiesgosSaludDe29a59 extends Model
 
         $busc2 = DB::connection('mysql')->table($alias . '.riesgos_salud_de29a59')
             ->join($alias . '.caracterizacion', 'caracterizacion.id', 'riesgos_salud_de29a59.id_inte')
+            ->join($alias . '.de29a59', 'caracterizacion.id', 'de29a59.id_integrante')
             ->where('caracterizacion.id_hogar', $id_hogar)
             ->where('caracterizacion.estado', 'Activo')
+            ->where('de29a59.estado', 'Activo')
             ->select('riesgos_salud_de29a59.*'
                 , "caracterizacion.identificacion AS identificacion"
                 , "caracterizacion.tipo_id AS tipo_id"

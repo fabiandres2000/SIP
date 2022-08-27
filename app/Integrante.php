@@ -157,15 +157,19 @@ class Integrante extends Model
     {
         $respuesta = DB::connection('mysql')->table($alias . '.integrantes')
             ->join($alias . '.parentescos', 'parentescos.id', 'integrantes.parentesco')
-            ->where('integrantes.jefe', $id)
-            ->select("sexo",
-                "identificacion",
-                "tipo_id",
+            ->join($alias . '.caracterizacion', 'caracterizacion.id', 'integrantes.jefe')
+            ->where('integrantes.id_hogar', $id)
+            ->select("integrantes.sexo",
+                "integrantes.identificacion",
+                "integrantes.tipo_id",
                 "parentescos.descripcion as PARENT",
                 "integrantes.id"
+
             )
-            ->selectRaw('CONCAT_WS(" ",pnom," ",snom," ",pape," ",sape) AS INTEGRANTE')
-            ->selectRaw("YEAR(CURDATE())-YEAR(fecha_nac) +  IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(fecha_nac,'%m-%d'),0,-1) AS edad")
+            ->selectRaw('CONCAT_WS(" ",caracterizacion.pnom," ",caracterizacion.snom," ",caracterizacion.pape," ",caracterizacion.sape) AS JEFE')
+            ->selectRaw('CONCAT_WS(" ",integrantes.pnom," ",integrantes.snom," ",integrantes.pape," ",integrantes.sape) AS INTEGRANTE')
+            ->selectRaw("YEAR(CURDATE())-YEAR(integrantes.fecha_nac) +  IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(integrantes.fecha_nac,'%m-%d'),0,-1) AS edad")
+            ->orderBy("JEFE")
             ->get();
         return $respuesta;
     }

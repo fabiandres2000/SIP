@@ -66,8 +66,10 @@ class RiesgosSaludMen1 extends Model
     {
         return DB::connection('mysql')->table($alias . '.riesgos_salud_men1')
             ->join($alias . '.integrantes', 'integrantes.id', 'riesgos_salud_men1.id_inte')
+            ->join($alias . '.men1a', 'integrantes.id', 'men1a.id_integrante')
             ->where('integrantes.id_hogar', $id_hogar)
             ->where('integrantes.estado', 'Activo')
+            ->where('men1a.estado', 'Activo')
             ->select('riesgos_salud_men1.*'
                 , "integrantes.identificacion AS identificacion"
                 , "integrantes.tipo_id AS tipo_id"

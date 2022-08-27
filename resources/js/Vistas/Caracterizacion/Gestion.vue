@@ -1,5 +1,15 @@
 <template>
   <div>
+    <loading
+      :active.sync="isLoading"
+      :can-cancel="true"
+      :on-cancel="onCancel"
+      loader="dots"
+      :height=128
+      :width=128
+      color="#007bff"
+      :is-full-page="true"
+    />
     <!-- CARCARTERIZACION -->
     <div
       class="kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile"
@@ -316,140 +326,22 @@
         header-text-variant="light"
         :no-close-on-backdrop="true"
       >
-        <div class="d-block">
-          <div ref="content">
-            <div
-              class="kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile"
+        <embed
+            id="divPdf"
+            :src="pdf_caracterizacion"
+            type="application/pdf"
+            width="100%"
+            height="650px"
+        />
+
+        <div class="text-right">
+            <button
+                type="button"
+                class="btn btn-warning"
+                @click="cerrarModal"
             >
-              <div class="kt-portlet__body">
-                <div class="kt-section">
-                  <div class="kt-section__content">
-                    <div class="row justify-content-center">
-                      <div class="col-xl-12">
-                        <center>
-                          <!-- <span
-                            class="kt-font-boldest"
-                            style="font-size: 22px;"
-                          >SISTEMA INTEGRADO POBLACIONAL</span>-->
-                        </center>
-                      </div>
-                    </div>
-                    <div class="kt-separator kt-separator--border-dashed"></div>
-                    <div class="row justify-content-center">
-                      <div class="col-xl-12">
-                        <p>
-                          <span class="kt-font-boldest" style="font-size: 18px;">Cabeza de Hogar</span>
-                        </p>
-                      </div>
-                    </div>
-                    <div
-                      style="font-size: 15px;"
-                      v-for="(item, index) in caracterizacion3"
-                      :key="index"
-                    >
-                      <div class="row">
-                        <div class="col-md-3">
-                          <label class="kt-font-bold">Identificación:</label>
-                        </div>
-                        <div class="col-md-6">
-                          <label>{{item.IDENTIFICACION}}</label>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-3">
-                          <label class="kt-font-bold">Nombre:</label>
-                        </div>
-                        <div class="col-md-6">
-                          <label>{{item.USUARIO}}</label>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-3">
-                          <label class="kt-font-bold">Departamento:</label>
-                        </div>
-                        <div class="col-md-6">
-                          <label>{{item.DPTO}}</label>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-3">
-                          <label class="kt-font-bold">Municipio:</label>
-                        </div>
-                        <div class="col-md-6">
-                          <label>{{item.MUNI}}</label>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-3">
-                          <label class="kt-font-bold">Dirección:</label>
-                        </div>
-                        <div class="col-md-6">
-                          <label>{{item.DIRECCION}}</label>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="kt-separator kt-separator--border-dashed"></div>
-                    <div class="row justify-content-center">
-                      <div class="col-xl-12">
-                        <div class="table-responsive">
-                          <p>
-                            <span
-                              class="kt-font-boldest"
-                              style="font-size: 18px;"
-                            >Integrantes del Hogar</span>
-                          </p>
-                          <table class="table table-sm table-hover">
-                            <thead class>
-                              <tr class="kt-bg-fill-brand">
-                                <th>No.</th>
-                                <th>Identificación</th>
-                                <th>Integrante</th>
-                                <th>Sexo</th>
-                                <th>Edad</th>
-                                <th>Parentesco</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr v-for="(item, index) in integrantes" :key="index">
-                                <td
-                                  style="font-weight: normal;vertical-align: middle;"
-                                >{{ (index+1) }}</td>
-                                <td
-                                  style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
-                                >{{item.tipo_id.toUpperCase()}}: {{item.identificacion}}</td>
-                                <td
-                                  style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
-                                >{{item.INTEGRANTE.toUpperCase()}}</td>
-                                <td
-                                  style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
-                                >{{item.sexo.toUpperCase()}}</td>
-                                <td
-                                  style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
-                                >{{item.edad}}</td>
-                                <td
-                                  style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
-                                >{{item.PARENT}}</td>
-                              </tr>
-                            </tbody>
-                          </table>
-                          <div class="kt-separator kt-separator--border-dashed"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <hr />
-          <div class="text-right">
-            <button type="button" class="btn btn-success" @click="ExportarTodo">
-              <i class="la la-file-pdf-o"></i> Imprimir
+                <i class="fa fa-window-close"></i> Cancelar
             </button>
-            <button type="button" class="btn btn-warning" @click="cerrarModal">
-              <i class="fa fa-window-close"></i> Cerrar
-            </button>
-          </div>
         </div>
       </b-modal>
       <!--begin::Modal Exportar2-->
@@ -965,11 +857,17 @@
   import * as unidadesServicios from "../../Servicios/unidades_servicios";
   import html2canvas from "html2canvas";
   import jsPDF from "jspdf";
+  import store from "../../store";
+  import Loading from "vue-loading-overlay";
+
   export default {
     mounted() {
       this.consultar(1);
       this.consultar2(1);
       this.consultar3(1);
+    },
+    components: {
+      Loading
     },
     data() {
       return {
@@ -1011,7 +909,9 @@
         },
         offset: 4,
         establecimientos: [],
-        unidades: []
+        unidades: [],
+        pdf_caracterizacion: "",
+        isLoading: false,
       };
     },
     computed: {
@@ -1414,6 +1314,7 @@
         }
       },
       abrirModal2: async function(item) {
+        this.isLoading = true;
         const parametros = {
           _token: this.csrf,
           id: item.id
@@ -1425,6 +1326,8 @@
               console.log(respuesta.data.integrantes);
               this.caracterizacion3 = respuesta.data.caracterizacion;
               this.integrantes = respuesta.data.integrantes;
+              this.pdf_caracterizacion = store.state.apiURL + respuesta.data.nombre;
+              this.isLoading = false;
               this.$refs.modalExportar2.show();
             })
             .catch(error => {

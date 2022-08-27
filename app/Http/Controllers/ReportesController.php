@@ -257,13 +257,13 @@ class ReportesController extends Controller
                 'integrantes' => $integrantes,
                 'grupo' => $grupo,
             ])
-                ->setPaper('letter', 'landscape')
-                ->save('archivomigrantes.pdf');
+            ->setPaper('letter', 'landscape')
+            ->save('archivomigrantes.pdf');
 
-                $respuesta = [
-                    'nombre' => $nombre,
-                ];
-                return response()->json($respuesta, 200);
+            $respuesta = [
+                'nombre' => $nombre,
+            ];
+            return response()->json($respuesta, 200);
         }
     }
 }

@@ -303,27 +303,32 @@ class Caracterizacion extends Model
 
     public static function exportar2($id, $alias)
     {
+        $hogar = DB::connection('mysql')->table($alias.'.caracterizacion')
+        ->where('caracterizacion.id', $id)
+        ->first();
+
         $respuesta = DB::connection('mysql')->table($alias . '.caracterizacion')
-            ->join($alias . '.hogar', 'hogar.id', 'caracterizacion.id_hogar')
-            ->join($alias . '.dptos', 'dptos.codigo', 'hogar.id_dpto')
-            ->join($alias . '.muni', function ($join) {
-                $join->on('muni.coddep', '=', 'dptos.codigo');
-                $join->on('muni.codmun', '=', 'hogar.id_mun');
-            })
-            ->leftjoin($alias . '.corregimientos', 'corregimientos.id', 'hogar.id_corre')
-            ->select("dptos.descripcion AS DPTO",
-                "muni.descripcion AS MUNI",
-                "corregimientos.descripcion AS CORREGIMIENTO",
-                "caracterizacion.estado AS ESTADO",
-                "caracterizacion.identificacion AS IDENTIFICACION",
-                "hogar.direccion AS DIRECCION",
-                "caracterizacion.id"
-            )
-            ->selectRaw('CONCAT_WS(" ",caracterizacion.pnom," ",caracterizacion.snom," ",caracterizacion.pape," ",caracterizacion.sape) AS USUARIO')
-            ->where('caracterizacion.estado', 'Activo')
-            ->where('caracterizacion.id', $id)
-            ->orderBy('caracterizacion.id', 'DESC')
-            ->get();
+        ->join($alias . '.hogar', 'hogar.id', 'caracterizacion.id_hogar')
+        ->join($alias . '.dptos', 'dptos.codigo', 'hogar.id_dpto')
+        ->join($alias . '.muni', function ($join) {
+            $join->on('muni.coddep', '=', 'dptos.codigo');
+            $join->on('muni.codmun', '=', 'hogar.id_mun');
+        })
+        ->leftjoin($alias . '.corregimientos', 'corregimientos.id', 'hogar.id_corre')
+        ->select("dptos.descripcion AS DPTO",
+            "muni.descripcion AS MUNI",
+            "corregimientos.descripcion AS CORREGIMIENTO",
+            "caracterizacion.estado AS ESTADO",
+            "caracterizacion.identificacion AS IDENTIFICACION",
+            "hogar.direccion AS DIRECCION",
+            "caracterizacion.id",
+            "caracterizacion.id_hogar"
+        )
+        ->selectRaw('CONCAT_WS(" ",caracterizacion.pnom," ",caracterizacion.snom," ",caracterizacion.pape," ",caracterizacion.sape) AS USUARIO')
+        ->where('caracterizacion.estado', 'Activo')
+        ->where('caracterizacion.id_hogar',  $hogar->id_hogar)
+        ->orderBy('caracterizacion.id', 'DESC')
+        ->get();
         return $respuesta;
     }
 

@@ -31293,11 +31293,20 @@
         this.datosJefe.splice(this.indiceEditJefe, 1, this.datosJefe[this.indiceEditJefe]);                
         this.EnfJef.length = 0; 
         
-        this.limpiar2();
+        setTimeout(() => {
+          this.limpiar2();
+        }, 500); 
                
       },
       eliEdad(identificacion,vector,edad,opcion){
-        let nacimiento = moment(this.vector.fecha_nacimiento);
+        let hoy = moment();
+        let nacimiento = "";
+        if(opcion == "INTE"){
+          nacimiento = moment(vector.fecha_nac);
+        }else{
+          nacimiento = moment(vector.fecha_nacimiento);
+        }
+        vector.edad = edad;
         let indice = this.Men1A.findIndex(identi => identi.identificacion === identificacion);
         if(indice >= 0){
           this.Men1A[indice].estado = "Inactivo";
@@ -32553,7 +32562,9 @@
         this.datos[this.indiceEditInte].tipo_empleo = this.CA1.tipo_empleo;
         this.datos[this.indiceEditInte].actividad_fisica = this.CA1.actividad_fisica;
         this.datos.splice(this.indiceEditInte, 1, this.datos[this.indiceEditInte]);
-        this.limpiar();        
+        setTimeout(() => {
+          this.limpiar();
+        }, 500);        
       },                
       validarTablaIntegrantes: async function() {
         for (let i = 0; i < this.datos.length; i++) {

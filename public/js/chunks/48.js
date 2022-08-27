@@ -629,6 +629,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   celular: this.usuariosData.celular,
                   direccion: this.usuariosData.direccion,
                   usuario: this.usuariosData.usuario,
+                  rol: this.usuariosData.rol,
                   ruta: this.usuariosData.imagen
                 };
                 _context3.prev = 6;

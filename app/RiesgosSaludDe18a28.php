@@ -76,8 +76,10 @@ class RiesgosSaludDe18a28 extends Model
     {
         $busc1 = DB::connection('mysql')->table($alias . '.riesgos_salud_de18a28')
             ->join($alias . '.integrantes', 'integrantes.id', 'riesgos_salud_de18a28.id_inte')
+            ->join($alias . '.de18a28', 'integrantes.id', 'de18a28.id_integrante')
             ->where('integrantes.id_hogar', $id_hogar)
             ->where('integrantes.estado', 'Activo')
+            ->where('de18a28.estado', 'Activo')
             ->select('riesgos_salud_de18a28.*'
                 , "integrantes.identificacion AS identificacion"
                 , "integrantes.tipo_id AS tipo_id"
@@ -88,8 +90,10 @@ class RiesgosSaludDe18a28 extends Model
 
         $busc2 = DB::connection('mysql')->table($alias . '.riesgos_salud_de18a28')
             ->join($alias . '.caracterizacion', 'caracterizacion.id', 'riesgos_salud_de18a28.id_inte')
+            ->join($alias . '.de18a28', 'caracterizacion.id', 'de18a28.id_integrante')
             ->where('caracterizacion.id_hogar', $id_hogar)
             ->where('caracterizacion.estado', 'Activo')
+            ->where('de18a28.estado', 'Activo')
             ->select('riesgos_salud_de18a28.*'
                 , "caracterizacion.identificacion AS identificacion"
                 , "caracterizacion.tipo_id AS tipo_id"

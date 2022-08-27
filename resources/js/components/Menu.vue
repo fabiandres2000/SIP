@@ -130,7 +130,7 @@
                     data-ktmenu-dropdown-timeout="500"
                 >
                     <ul class="kt-menu__nav">
-                        <li
+                        <li v-if="permisos_usuario.dashboard != 'S'"
                             class="kt-menu__item"
                             aria-haspopup="true"
                             style="color: #001e36"
@@ -243,6 +243,7 @@
                                         class="kt-menu__item kt-menu__item--submenu"
                                         aria-haspopup="true"
                                         data-ktmenu-submenu-toggle="hover"
+                                        v-if="permisos_usuario.barrios != 'S'"
                                     >
                                         <router-link
                                             to="/barrios"
@@ -262,6 +263,7 @@
                                         class="kt-menu__item kt-menu__item--submenu"
                                         aria-haspopup="true"
                                         data-ktmenu-submenu-toggle="hover"
+                                        v-if="permisos_usuario.usuarios != 'S'"
                                     >
                                         <router-link
                                             to="/usuarios"
@@ -281,6 +283,7 @@
                                         class="kt-menu__item kt-menu__item--submenu"
                                         aria-haspopup="true"
                                         data-ktmenu-submenu-toggle="hover"
+                                        v-if="permisos_usuario.corregimientos != 'S'"
                                     >
                                         <router-link
                                             to="/corregimientos"
@@ -300,6 +303,7 @@
                                         class="kt-menu__item kt-menu__item--submenu"
                                         aria-haspopup="true"
                                         data-ktmenu-submenu-toggle="hover"
+                                        v-if="permisos_usuario.etnias != 'S'"
                                     >
                                         <router-link
                                             to="/etnias"
@@ -319,6 +323,7 @@
                                         class="kt-menu__item kt-menu__item--submenu"
                                         aria-haspopup="true"
                                         data-ktmenu-submenu-toggle="hover"
+                                        v-if="permisos_usuario.ocupaciones != 'S'"
                                     >
                                         <router-link
                                             to="/ocupaciones"
@@ -338,6 +343,7 @@
                                         class="kt-menu__item kt-menu__item--submenu"
                                         aria-haspopup="true"
                                         data-ktmenu-submenu-toggle="hover"
+                                        v-if="permisos_usuario.parentescos != 'S'"
                                     >
                                         <router-link
                                             to="/parentescos"
@@ -357,6 +363,7 @@
                                         class="kt-menu__item kt-menu__item--submenu"
                                         aria-haspopup="true"
                                         data-ktmenu-submenu-toggle="hover"
+                                        v-if="permisos_usuario.estado_civil != 'S'"
                                     >
                                         <router-link
                                             to="/estadocivil"
@@ -376,6 +383,7 @@
                                         class="kt-menu__item kt-menu__item--submenu"
                                         aria-haspopup="true"
                                         data-ktmenu-submenu-toggle="hover"
+                                        v-if="permisos_usuario.escolaridad != 'S'"
                                     >
                                         <router-link
                                             to="/escolaridad"
@@ -395,6 +403,7 @@
                                         class="kt-menu__item kt-menu__item--submenu"
                                         aria-haspopup="true"
                                         data-ktmenu-submenu-toggle="hover"
+                                        v-if="permisos_usuario.veredas != 'S'"
                                     >
                                         <router-link
                                             to="/veredas"
@@ -414,6 +423,7 @@
                                         class="kt-menu__item kt-menu__item--submenu"
                                         aria-haspopup="true"
                                         data-ktmenu-submenu-toggle="hover"
+                                        v-if="permisos_usuario.mobilidad_ges != 'S'"
                                     >
                                         <router-link
                                             to="/morbilidad"
@@ -433,6 +443,7 @@
                                         class="kt-menu__item kt-menu__item--submenu"
                                         aria-haspopup="true"
                                         data-ktmenu-submenu-toggle="hover"
+                                        v-if="permisos_usuario.mobilidad_nac != 'S'"
                                     >
                                         <router-link
                                             to="/morbilidad_nacer"
@@ -452,6 +463,7 @@
                                         class="kt-menu__item kt-menu__item--submenu"
                                         aria-haspopup="true"
                                         data-ktmenu-submenu-toggle="hover"
+                                        v-if="permisos_usuario.metodos != 'S'"
                                     >
                                         <router-link
                                             to="/metodos"
@@ -471,6 +483,7 @@
                                         class="kt-menu__item kt-menu__item--submenu"
                                         aria-haspopup="true"
                                         data-ktmenu-submenu-toggle="hover"
+                                        v-if="permisos_usuario.motivos != 'S'"
                                     >
                                         <router-link
                                             to="/motivos"
@@ -491,6 +504,7 @@
                                         class="kt-menu__item kt-menu__item--submenu"
                                         aria-haspopup="true"
                                         data-ktmenu-submenu-toggle="hover"
+                                        v-if="permisos_usuario.grupos != 'S'"
                                     >
                                         <router-link
                                             to="/grupos"
@@ -510,6 +524,7 @@
                                         class="kt-menu__item kt-menu__item--submenu"
                                         aria-haspopup="true"
                                         data-ktmenu-submenu-toggle="hover"
+                                        v-if="permisos_usuario.enfermedades_cro != 'S'"
                                     >
                                         <router-link
                                             to="/enfermedadesCro"
@@ -529,6 +544,7 @@
                                         class="kt-menu__item kt-menu__item--submenu"
                                         aria-haspopup="true"
                                         data-ktmenu-submenu-toggle="hover"
+                                        v-if="permisos_usuario.enfermedades_inf != 'S'"
                                     >
                                         <router-link
                                             to="/enfermedadesInf"
@@ -548,6 +564,7 @@
                                         class="kt-menu__item kt-menu__item--submenu"
                                         aria-haspopup="true"
                                         data-ktmenu-submenu-toggle="hover"
+                                        v-if="permisos_usuario.religion != 'S'"
                                     >
                                         <router-link
                                             to="/religion"
@@ -567,6 +584,7 @@
                                         class="kt-menu__item kt-menu__item--submenu"
                                         aria-haspopup="true"
                                         data-ktmenu-submenu-toggle="hover"
+                                        v-if="permisos_usuario.colegios != 'S'"
                                     >
                                         <router-link
                                             to="/colegios"
@@ -586,6 +604,7 @@
                                         class="kt-menu__item kt-menu__item--submenu"
                                         aria-haspopup="true"
                                         data-ktmenu-submenu-toggle="hover"
+                                        v-if="permisos_usuario.actividades_economicas != 'S'"
                                     >
                                         <router-link
                                             to="/actividad"
@@ -682,6 +701,7 @@
                                         class="kt-menu__item kt-menu__item--submenu"
                                         aria-haspopup="true"
                                         data-ktmenu-submenu-toggle="hover"
+                                        v-if="permisos_usuario.gestion != 'S'"
                                     >
                                         <router-link
                                             to="/gestion"
@@ -701,6 +721,7 @@
                                         class="kt-menu__item kt-menu__item--submenu"
                                         aria-haspopup="true"
                                         data-ktmenu-submenu-toggle="hover"
+                                        v-if="permisos_usuario.consulta_integrante != 'S'"
                                     >
                                         <router-link
                                             to="/consultas/jefehogar"
@@ -720,6 +741,7 @@
                                         class="kt-menu__item kt-menu__item--submenu"
                                         aria-haspopup="true"
                                         data-ktmenu-submenu-toggle="hover"
+                                        v-if="permisos_usuario.consulta_vivienda != 'S'"
                                     >
                                         <router-link
                                             to="/consultas/vivienda"
@@ -800,6 +822,7 @@
                                         <router-link
                                             to="/indicadores/gestantes"
                                             class="kt-menu__link kt-menu__toggle"
+                                            v-if="permisos_usuario.indicadores_gestantes != 'S'"
                                         >
                                             <i
                                                 class="kt-menu__link-bullet kt-menu__link-bullet--line"
@@ -815,6 +838,7 @@
                                         class="kt-menu__item kt-menu__item--submenu"
                                         aria-haspopup="true"
                                         data-ktmenu-submenu-toggle="hover"
+                                        v-if="permisos_usuario.indicadores_spa != 'S'"
                                     >
                                         <router-link
                                             to="/indicadores/spa"
@@ -1220,6 +1244,7 @@ export default {
     data() {
         return {
             nombreUsuario: "",
+            permisos_usuario: {},
             rolUsuario: "",
             csrf: document
                 .querySelector('meta[name="csrf-token"]')
@@ -1268,6 +1293,7 @@ export default {
                     .iniciar(parametros)
                     .then(respuesta => {
                         this.rolUsuario = respuesta.data.rolUsuario;
+                        this.permisos_usuario = respuesta.data.permisos_usuario;
                     })
                     .catch(error => {});
             } catch (error) {

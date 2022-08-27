@@ -31000,12 +31000,20 @@
         this.datosJefe[this.indiceEditJefe].vacuna = this.caracData.vacuna;
         this.datosJefe.splice(this.indiceEditJefe, 1, this.datosJefe[this.indiceEditJefe]);                
         
-        this.limpiar2();
+        setTimeout(() => {
+          this.limpiar2();
+        }, 500); 
                
       },
       eliEdad(identificacion,vector,edad,opcion){
         let hoy = moment();
-        let nacimiento = moment(this.vector.fecha_nacimiento);
+        let nacimiento = "";
+        if(opcion == "INTE"){
+          nacimiento = moment(vector.fecha_nac);
+        }else{
+          nacimiento = moment(vector.fecha_nacimiento);
+        }
+        vector.edad = edad;
         let indice = this.Men1A.findIndex(identi => identi.identificacion === identificacion);
         if(indice >= 0){
           this.Men1A[indice].estado = "Inactivo";
@@ -31070,7 +31078,7 @@
         if(indice >= 0){
           this.Migra[indice].estado = "Inactivo";
           this.Migra.splice(indice, 1, this.Migra[indice]);                
-        }        
+        }    
                 
         // AGREGAR NIÑOS MENORES DE 1 AÑO
         if (edad <= 0) {
@@ -31137,7 +31145,7 @@
         if (vector.migrante === "SI") {
           this.AMigra(vector, edad, opcion);
         }
-        // AGREGAR MIGRANTES               
+        // AGREGAR MIGRANTES        
       },                         
       //OPCIONES DEL JEFE DE HOGAR
 
@@ -33274,6 +33282,7 @@
           if(edad !== this.edadEditar){
             // ELIMINO EN LOS CICLOS ESTA IDENTIFICACION Y LUEGO AGREGO EN LA EDAD CORRESPONDIENTE
             this.eliEdad(this.identificacionEditar,this.CA1,edad,"INTE");
+
           }else{
 
             // let id = this.vectorIntegrante[this.indiceEditInte].identificacion;
@@ -33813,8 +33822,10 @@
         this.datos[this.indiceEditInte].tipo_empleo = this.CA1.tipo_empleo;
         this.datos[this.indiceEditInte].actividad_fisica = this.CA1.actividad_fisica;
         this.datos[this.indiceEditInte].vacuna = this.CA1.vacuna;
-        this.datos.splice(this.indiceEditInte, 1, this.datos[this.indiceEditInte]);
-        this.limpiar();        
+        this.datos.splice(this.indiceEditInte, 1, this.datos[this.indiceEditInte]);   
+        setTimeout(() => {
+          this.limpiar();
+        }, 500); 
       },                       
       //OPCIONES DE LOS INTEGRANTES
 
