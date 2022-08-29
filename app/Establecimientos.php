@@ -277,4 +277,98 @@ class Establecimientos extends Model
 
         ]);
     }
+
+    public static function listar2($alias)
+    {
+        return DB::connection('mysql')->table($alias . '.establecimientos')
+        ->join($alias . '.dptos', 'dptos.codigo', 'establecimientos.id_dpto')
+        ->join($alias . '.muni', function ($join) {
+            $join->on('muni.coddep', '=', 'dptos.codigo');
+            $join->on('muni.codmun', '=', 'establecimientos.id_mun');
+        })
+        ->leftjoin($alias . '.corregimientos', 'corregimientos.id', 'establecimientos.id_corre')
+        ->where("establecimientos.estado", "Activo")
+        ->select("dptos.descripcion AS DPTO",
+            "muni.descripcion AS MUNI",
+            "corregimientos.descripcion AS CORREGIMIENTO",
+            "establecimientos.estado AS ESTADO",
+            "establecimientos.nit",
+            "establecimientos.id",
+            "establecimientos.representante",
+            "establecimientos.razon",
+            "establecimientos.registrado",
+            "establecimientos.direccion",
+        )
+        ->orderBy('establecimientos.id', 'DESC')
+        ->get();
+    }
+
+    public static function buscar2($alias, $id)
+    {
+        $array_n = ["Persona Natural","Sociedad Anónima S.A.","Sociedad por acciones simplificadas. S.A.S","Sociedad Limitada LTDA.","Cooperativa","No registra","Otra"];
+        $array_t = ["Tienda de Ropa", "Almacen", "Centros de Belleza", "Restaurantes", "Talleres mecánicos", "Café Internet", "Comidas Rapidas", "Panaderia/ pasteliría", "Ferretería", "Miscelania", "Papelería  y Librerías", "Cafetería", "Frutería", "Venta de loterías o juegos de azar", "Carnicería", "Asaderos", "Lavaderos de Vehículos", "Licorería", "Parqueaderos", "Colegios o centros de estudios", "Consultorios medicos", "Consultorios Juridicos", "Micelania y Cacharrerias", "Agencias de Viajes", "Discotecas y Bares", "Estaciones de servicios", "Hoteles", "Joyerias", "Puesto de Mercado", "Sex Shop", "Supermercados", "Otras Tienda especializada", "Otros Establecimiento de servicios"];
+        $array_p = ["Franquicia","Concesión","Patente","Ninguna","Otro"];
+        $array_ce = ["Pago de Nóminas.","Pago a proveedores.","Arrendamiento y servicios públicos."];
+        $array_tr = ["En los próximos de 6 meses.","Antes de los 6 meses.","No se ha estimado.","No hay afectación."];
+        $array_pp = ["Inseguridad.","Falta de servicios públicos.","Vías de acceso.","Falta de Alumbrado Público.","Otro."];
+
+        $establecimiento = DB::connection('mysql')->table($alias . '.establecimientos')
+        ->join($alias . '.dptos', 'dptos.codigo', 'establecimientos.id_dpto')
+        ->leftjoin($alias . '.barrios', 'barrios.id', 'establecimientos.id_barrio')
+        ->join($alias . '.muni', function ($join) {
+            $join->on('muni.coddep', '=', 'dptos.codigo');
+            $join->on('muni.codmun', '=', 'establecimientos.id_mun');
+        })
+        ->leftjoin($alias . '.corregimientos', 'corregimientos.id', 'establecimientos.id_corre')
+        ->where("establecimientos.estado", "Activo")
+        ->select("establecimientos.id",
+            "dptos.descripcion AS DPTO",
+            "muni.descripcion AS MUNI",
+            "corregimientos.descripcion AS CORREGIMIENTO",
+            "barrios.barrio AS BARRIO",
+            "establecimientos.razon",
+            "establecimientos.direccion",
+            "establecimientos.registrado",
+            "establecimientos.num_matricula",
+            "establecimientos.naturaleza",
+            "establecimientos.nit",
+            "establecimientos.representante",
+            "establecimientos.tipo",
+            "establecimientos.capital_extranjero",
+            "establecimientos.permiso",
+            "establecimientos.anio",
+            "establecimientos.num_empleados",
+            "establecimientos.tiempo_sin_operacion",
+            "establecimientos.tipo_tiempo",
+            "establecimientos.fecha_retorno",
+            "establecimientos.promedio_ingresos_anterior",
+            "establecimientos.promedio_ingresos_durante",
+            "establecimientos.promedio_ingresos_posterior",
+            "establecimientos.carga_economica",
+            "establecimientos.protocolo_bioseguridad",
+            "establecimientos.tipo_afectacion",
+            "establecimientos.ayuda",
+            "establecimientos.internet",
+            "establecimientos.tiempo_recuperacion",
+            "establecimientos.principal_problema",
+        )
+        ->where('establecimientos.id', $id)
+        ->orderBy('establecimientos.id', 'DESC')
+        ->first();
+
+        $establecimiento->afectaciones = json_decode($establecimiento->tipo_afectacion, true);
+        $establecimiento->actividades_economicas = DB::connection('mysql')->table($alias . '.actividad_establecimientos')
+        ->join($alias . '.actividades_economicas', 'actividades_economicas.id', 'actividad_establecimientos.id_actividad')
+        ->where('actividad_establecimientos.id_establecimiento', $establecimiento->id)
+        ->select("actividades_economicas.*",)
+        ->get();
+        $establecimiento->naturaleza = $array_n[(int)$establecimiento->naturaleza-1];
+        $establecimiento->tipo = $array_t[(int)$establecimiento->tipo-1];
+        $establecimiento->permiso = $array_p[(int)$establecimiento->permiso-1];
+        $establecimiento->carga_economica = $array_ce[(int)$establecimiento->carga_economica-1];
+        $establecimiento->tiempo_recuperacion = $array_tr[(int)$establecimiento->tiempo_recuperacion-1];
+        $establecimiento->principal_problema = $array_pp[(int)$establecimiento->principal_problema-1];
+        
+        return $establecimiento;
+    }
 }

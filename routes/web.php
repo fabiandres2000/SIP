@@ -118,8 +118,10 @@ Route::post('/caracterizacion/ControlRS', 'CaracterizacionController@ControlRS')
 Route::post('/establecimientos/editar', 'EstablecimientosController@editar');
 Route::post('/establecimientos/guardar', 'EstablecimientosController@guardar');
 Route::post('/establecimientos/nuevo', 'EstablecimientosController@nuevo');
-Route::post('/establecimientos', 'EstablecimientosController@gestion');
+Route::post('/establecimientos-listar', 'EstablecimientosController@gestion');
 Route::post('/establecimientos/eliminar', 'EstablecimientosController@eliminar');
+Route::post('/establecimientos/exportarEstablecimientosPDF', 'EstablecimientosController@exportarEstablecimientosPDF');
+Route::post('/establecimientos/exportarEstablecimientoPDF', 'EstablecimientosController@exportarEstablecimientoPDF');
 
 Route::post('/unidades/editar', 'UnidadesProductivasController@editar');
 Route::post('/unidades/guardar', 'UnidadesProductivasController@guardar');

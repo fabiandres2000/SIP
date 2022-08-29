@@ -4218,7 +4218,7 @@ function eliminar($data) {
 /*!**************************************************************!*\
   !*** ./resources/js/Servicios/establecimientos_servicios.js ***!
   \**************************************************************/
-/*! exports provided: listar, nuevo, guardar, eliminar, combo, editar */
+/*! exports provided: listar, nuevo, guardar, eliminar, combo, editar, exportarEstablecimientosPDF, exportarEstablecimientoPDF */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4229,10 +4229,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "eliminar", function() { return eliminar; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "combo", function() { return combo; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "editar", function() { return editar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "exportarEstablecimientosPDF", function() { return exportarEstablecimientosPDF; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "exportarEstablecimientoPDF", function() { return exportarEstablecimientoPDF; });
 /* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
 
 function listar($data) {
-  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/establecimientos', $data);
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/establecimientos-listar', $data);
 }
 function nuevo($data) {
   return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/establecimientos/nuevo', $data);
@@ -4248,6 +4250,12 @@ function combo($data) {
 }
 function editar($data) {
   return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/establecimientos/editar', $data);
+}
+function exportarEstablecimientosPDF($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/establecimientos/exportarEstablecimientosPDF', $data);
+}
+function exportarEstablecimientoPDF($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/establecimientos/exportarEstablecimientoPDF', $data);
 }
 
 /***/ }),

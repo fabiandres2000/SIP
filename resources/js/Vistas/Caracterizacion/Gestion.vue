@@ -484,7 +484,7 @@
                       class="btn btn-outline-warning btn-icon"
                       href="javascript:;"
                       title="Exportar a Pdf"
-                      @click="abrirModal"
+                      @click="exportarEstablecimientosPDF"
                     >
                       <i class="la la-file-pdf-o"></i>
                     </a>
@@ -562,7 +562,7 @@
                             type="button"
                             class="btn btn-outline-success btn-icon btn-sm"
                             title="Imprimir"
-                            @click="abrirModal2(item)"
+                            @click="exportarEstablecimientoPDF(item)"
                           >
                             <i class="fa fa-file-pdf"></i>
                           </button>
@@ -1344,6 +1344,61 @@
           }
         }
       },
+      exportarEstablecimientosPDF: async function() {
+        this.isLoading = true;
+        const parametros = {
+          _token: this.csrf,
+        };
+        try {
+          establecimientosServicios
+            .exportarEstablecimientosPDF(parametros)
+            .then(respuesta => {
+              this.pdf_caracterizacion = store.state.apiURL + respuesta.data.nombre;
+              this.isLoading = false;
+              this.$refs.modalExportar2.show();
+            })
+            .catch(error => {
+              this.$swal("Error...!", "Ocurrio un error!", "error");
+            });
+        } catch (error) {
+          switch (error.response.status) {
+            case 422:
+              this.$swal("Error...!", "Ocurrio un error!", "error");
+              break;
+            default:
+              this.$swal("Error...!", "Ocurrio un error!", "error");
+              break;
+          }
+        }
+      },
+      exportarEstablecimientoPDF: async function(item) {
+        this.isLoading = true;
+        const parametros = {
+          _token: this.csrf,
+          id: item.id
+        };
+        try {
+          establecimientosServicios
+            .exportarEstablecimientoPDF(parametros)
+            .then(respuesta => {
+              this.pdf_caracterizacion = store.state.apiURL + respuesta.data.nombre;
+              this.isLoading = false;
+              this.$refs.modalExportar2.show();
+            })
+            .catch(error => {
+              this.$swal("Error...!", "Ocurrio un error!", "error");
+            });
+        } catch (error) {
+          switch (error.response.status) {
+            case 422:
+              this.$swal("Error...!", "Ocurrio un error!", "error");
+              break;
+            default:
+              this.$swal("Error...!", "Ocurrio un error!", "error");
+              break;
+          }
+        }
+      },
       abrir() {
         // this.$refs.modalAbrir.show();
         this.$router.push({
@@ -1401,6 +1456,9 @@
             IDHOGAR: 0
           }
         });
+      },
+      onCancel(){
+
       }
     }
   };

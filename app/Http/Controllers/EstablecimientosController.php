@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
 use Session;
+use File;
 
 class EstablecimientosController extends Controller
 {
@@ -203,5 +204,37 @@ class EstablecimientosController extends Controller
         } else {
             return redirect("/login")->with("error", "Su sesion ha terminado");
         }
+    }
+
+    public function exportarEstablecimientosPDF(){
+        $establecimientos = \App\Establecimientos::listar2(Session::get('alias')); 
+        $path = public_path().'/establecimientos';
+        File::makeDirectory($path, $mode = 0777, true, true);
+        $pdf = app('dompdf.wrapper');
+        $pdf->loadView('establecimientosPDF', [
+            'establecimientos' => $establecimientos,
+        ])->setPaper('a4', 'landscape')->save('establecimientos/general.pdf');
+
+        $respuesta = [
+            'nombre' => 'establecimientos/general.pdf',
+        ];
+        return response()->json($respuesta, 200);
+    }
+
+    public function exportarEstablecimientoPDF(){
+        $id = request()->get("id");
+        $establecimiento = \App\Establecimientos::buscar2(Session::get('alias'), $id); 
+        $path = public_path().'/establecimientos';
+        File::makeDirectory($path, $mode = 0777, true, true);
+        $pdf = app('dompdf.wrapper');
+        $pdf->loadView('establecimientoPDF', [
+            'establecimiento' => $establecimiento,
+        ])->setPaper('a4', 'portrait')->save('establecimientos/reporte_'.$id.'.pdf');
+
+        $respuesta = [
+            'nombre' => 'establecimientos/reporte_'.$id.'.pdf',
+            'establecimiento' => $establecimiento
+        ];
+        return response()->json($respuesta, 200);
     }
 }

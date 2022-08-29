@@ -3361,7 +3361,7 @@ class CaracterizacionController extends Controller
                     'caracterizacion' => $caracterizacion,
                     'integrantes' => $integrantes,
                     'riesgos_ambientales_vivienda'  => $riesgos_ambientales_vivienda,
-                    'nombre' => 'caracterizaciones/'.$caracterizacion[0]->id_hogar.'/caracterizacion_casa.pdf',
+                    'nombre' => 'caracterizaciones/caracterizacion_casa_'.$caracterizacion[0]->id_hogar.'.pdf',
                     'riesgos_salud_todos_ciclos' => $riesgos_salud_todos_ciclos
                 ];
                 self::exportarCaracterizacionPDF($caracterizacion[0]->id_hogar, $integrantes, $caracterizacion, $riesgos_ambientales_vivienda, $riesgos_salud_todos_ciclos);
@@ -3379,7 +3379,7 @@ class CaracterizacionController extends Controller
     }
 
     public function exportarCaracterizacionPDF($idCasa, $integrantes, $caracterizacion, $riesgos_ambientales_vivienda, $riesgos_salud_todos_ciclos){
-        $path = public_path().'/caracterizaciones'.'/'.$idCasa;
+        $path = public_path().'/caracterizaciones';
         File::makeDirectory($path, $mode = 0777, true, true);
         $pdf = app('dompdf.wrapper');
         $pdf->loadView('caracterizacionCasaPDF', [
@@ -3394,7 +3394,7 @@ class CaracterizacionController extends Controller
             'riesgos_salud_de18a28' => $riesgos_salud_todos_ciclos["riesgos_salud_de18a28"],
             'riesgos_salud_de29a59' => $riesgos_salud_todos_ciclos["riesgos_salud_de29a59"],
             'riesgos_salud_de60' => $riesgos_salud_todos_ciclos["riesgos_salud_de60"],
-        ])->setPaper('a4', 'potrait')->save('caracterizaciones/'.$idCasa.'/caracterizacion_casa.pdf');
+        ])->setPaper('a4', 'potrait')->save('caracterizaciones/caracterizacion_casa_'.$idCasa.'.pdf');
     }
 
     public function validarJefe()
