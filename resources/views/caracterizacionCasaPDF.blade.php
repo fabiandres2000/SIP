@@ -82,7 +82,7 @@
           }
           footer {
             position: fixed; 
-            bottom: -25px; 
+            bottom: -20px; 
             left: 0px; 
             right: 0px;
             height: 50px; 
@@ -100,7 +100,12 @@
         Fecha de reporte: <?php echo date("d/m/Y H:i:s");?> 
       </footer>
       <main>
-        <br>
+      <br>
+      <h1 style="color: #5578eb; margin: 2px">
+        {{$ente}}
+      </h1>
+      <h2 style="color: #5578eb; margin: 2px">Informe de riesgos de salud y ambientales, por vivienda</h2>
+      <br>
       <h2>Cabezas de Hogar</h2>
       <hr>
       <div class="row">

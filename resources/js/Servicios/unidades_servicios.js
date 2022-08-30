@@ -18,3 +18,11 @@ export function combo($data) {
 export function editar($data) {
   return http().post('/unidades/editar', $data);
 }
+
+export function exportarUnidades($data) {
+  return http().post('/unidades/exportarUnidades', $data);
+}
+
+export function exportarUnidad($data) {
+  return http().post('/unidades/exportarUnidad', $data);
+}

@@ -683,7 +683,7 @@
                       class="btn btn-outline-warning btn-icon"
                       href="javascript:;"
                       title="Exportar a Pdf"
-                      @click="abrirModal"
+                      @click="exportarUnidades"
                     >
                       <i class="la la-file-pdf-o"></i>
                     </a>
@@ -761,7 +761,7 @@
                             type="button"
                             class="btn btn-outline-success btn-icon btn-sm"
                             title="Imprimir"
-                            @click="abrirModal2(item)"
+                            @click="exportarUnidad(item)"
                           >
                             <i class="fa fa-file-pdf"></i>
                           </button>
@@ -1380,6 +1380,61 @@
         try {
           establecimientosServicios
             .exportarEstablecimientoPDF(parametros)
+            .then(respuesta => {
+              this.pdf_caracterizacion = store.state.apiURL + respuesta.data.nombre;
+              this.isLoading = false;
+              this.$refs.modalExportar2.show();
+            })
+            .catch(error => {
+              this.$swal("Error...!", "Ocurrio un error!", "error");
+            });
+        } catch (error) {
+          switch (error.response.status) {
+            case 422:
+              this.$swal("Error...!", "Ocurrio un error!", "error");
+              break;
+            default:
+              this.$swal("Error...!", "Ocurrio un error!", "error");
+              break;
+          }
+        }
+      },
+      exportarUnidades: async function() {
+        this.isLoading = true;
+        const parametros = {
+          _token: this.csrf,
+        };
+        try {
+          unidadesServicios
+            .exportarUnidades(parametros)
+            .then(respuesta => {
+              this.pdf_caracterizacion = store.state.apiURL + respuesta.data.nombre;
+              this.isLoading = false;
+              this.$refs.modalExportar2.show();
+            })
+            .catch(error => {
+              this.$swal("Error...!", "Ocurrio un error!", "error");
+            });
+        } catch (error) {
+          switch (error.response.status) {
+            case 422:
+              this.$swal("Error...!", "Ocurrio un error!", "error");
+              break;
+            default:
+              this.$swal("Error...!", "Ocurrio un error!", "error");
+              break;
+          }
+        }
+      },
+      exportarUnidad: async function(item) {
+        this.isLoading = true;
+        const parametros = {
+          _token: this.csrf,
+          id: item.id
+        };
+        try {
+          unidadesServicios
+            .exportarUnidad(parametros)
             .then(respuesta => {
               this.pdf_caracterizacion = store.state.apiURL + respuesta.data.nombre;
               this.isLoading = false;

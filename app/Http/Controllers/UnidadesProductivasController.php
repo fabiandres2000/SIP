@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Auth;
 use Session;
+use File;
 
 class UnidadesProductivasController extends Controller
 {
@@ -311,5 +312,39 @@ class UnidadesProductivasController extends Controller
         } else {
             return redirect("/login")->with("error", "Su sesion ha terminado");
         }
+    }
+
+    public function exportarUnidades(){
+        $unidades_productivas = \App\UnidadesProductivas::exportarUnidades(Session::get('alias')); 
+        $path = public_path().'/unidades_productivasPDF';
+        File::makeDirectory($path, $mode = 0777, true, true);
+        $pdf = app('dompdf.wrapper');
+        $pdf->loadView('unidades_productivasPDF', [
+            'unidades_productivas' => $unidades_productivas,
+            'ente' => Auth::user()->permisos->where('actual', 1)->first()->ente->nombre,
+        ])->setPaper('a4', 'landscape')->save('unidades_productivasPDF/general.pdf');
+
+        $respuesta = [
+            'nombre' => 'unidades_productivasPDF/general.pdf',
+        ];
+        return response()->json($respuesta, 200);
+    }
+
+    public function exportarUnidad(){
+        $id = request()->get("id");
+        $unidad_productiva = \App\UnidadesProductivas::exportarUnidad(Session::get('alias'), $id); 
+        $path = public_path().'/unidades_productivasPDF';
+        File::makeDirectory($path, $mode = 0777, true, true);
+        $pdf = app('dompdf.wrapper');
+        $pdf->loadView('unidad_productivaPDF', [
+            'unidad_productiva' => $unidad_productiva,
+            'ente' => Auth::user()->permisos->where('actual', 1)->first()->ente->nombre,
+        ])->setPaper('a4', 'landscape')->save('unidades_productivasPDF/reporte_unidad_'.$id.'.pdf');
+
+        $respuesta = [
+            'nombre' => 'unidades_productivasPDF/reporte_unidad_'.$id.'.pdf',
+            'unidad' => $unidad_productiva
+        ];
+        return response()->json($respuesta, 200);
     }
 }

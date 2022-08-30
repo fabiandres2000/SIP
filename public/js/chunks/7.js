@@ -1739,6 +1739,115 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
       return exportarEstablecimientoPDF;
     }(),
+    exportarUnidades: function () {
+      var _exportarUnidades = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee12() {
+        var _this11 = this;
+
+        var parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee12$(_context12) {
+          while (1) {
+            switch (_context12.prev = _context12.next) {
+              case 0:
+                this.isLoading = true;
+                parametros = {
+                  _token: this.csrf
+                };
+                _context12.prev = 2;
+                _Servicios_unidades_servicios__WEBPACK_IMPORTED_MODULE_3__["exportarUnidades"](parametros).then(function (respuesta) {
+                  _this11.pdf_caracterizacion = _store__WEBPACK_IMPORTED_MODULE_6__["default"].state.apiURL + respuesta.data.nombre;
+                  _this11.isLoading = false;
+
+                  _this11.$refs.modalExportar2.show();
+                })["catch"](function (error) {
+                  _this11.$swal("Error...!", "Ocurrio un error!", "error");
+                });
+                _context12.next = 15;
+                break;
+
+              case 6:
+                _context12.prev = 6;
+                _context12.t0 = _context12["catch"](2);
+                _context12.t1 = _context12.t0.response.status;
+                _context12.next = _context12.t1 === 422 ? 11 : 13;
+                break;
+
+              case 11:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context12.abrupt("break", 15);
+
+              case 13:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context12.abrupt("break", 15);
+
+              case 15:
+              case "end":
+                return _context12.stop();
+            }
+          }
+        }, _callee12, this, [[2, 6]]);
+      }));
+
+      function exportarUnidades() {
+        return _exportarUnidades.apply(this, arguments);
+      }
+
+      return exportarUnidades;
+    }(),
+    exportarUnidad: function () {
+      var _exportarUnidad = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee13(item) {
+        var _this12 = this;
+
+        var parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee13$(_context13) {
+          while (1) {
+            switch (_context13.prev = _context13.next) {
+              case 0:
+                this.isLoading = true;
+                parametros = {
+                  _token: this.csrf,
+                  id: item.id
+                };
+                _context13.prev = 2;
+                _Servicios_unidades_servicios__WEBPACK_IMPORTED_MODULE_3__["exportarUnidad"](parametros).then(function (respuesta) {
+                  _this12.pdf_caracterizacion = _store__WEBPACK_IMPORTED_MODULE_6__["default"].state.apiURL + respuesta.data.nombre;
+                  _this12.isLoading = false;
+
+                  _this12.$refs.modalExportar2.show();
+                })["catch"](function (error) {
+                  _this12.$swal("Error...!", "Ocurrio un error!", "error");
+                });
+                _context13.next = 15;
+                break;
+
+              case 6:
+                _context13.prev = 6;
+                _context13.t0 = _context13["catch"](2);
+                _context13.t1 = _context13.t0.response.status;
+                _context13.next = _context13.t1 === 422 ? 11 : 13;
+                break;
+
+              case 11:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context13.abrupt("break", 15);
+
+              case 13:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context13.abrupt("break", 15);
+
+              case 15:
+              case "end":
+                return _context13.stop();
+            }
+          }
+        }, _callee13, this, [[2, 6]]);
+      }));
+
+      function exportarUnidad(_x9) {
+        return _exportarUnidad.apply(this, arguments);
+      }
+
+      return exportarUnidad;
+    }(),
     abrir: function abrir() {
       // this.$refs.modalAbrir.show();
       this.$router.push({
@@ -3545,7 +3654,7 @@ var render = function() {
                               href: "javascript:;",
                               title: "Exportar a Pdf"
                             },
-                            on: { click: _vm.abrirModal }
+                            on: { click: _vm.exportarUnidades }
                           },
                           [_c("i", { staticClass: "la la-file-pdf-o" })]
                         )
@@ -3745,7 +3854,7 @@ var render = function() {
                                         },
                                         on: {
                                           click: function($event) {
-                                            return _vm.abrirModal2(item)
+                                            return _vm.exportarUnidad(item)
                                           }
                                         }
                                       },
@@ -4177,7 +4286,7 @@ function exportarEstablecimientoPDF($data) {
 /*!******************************************************!*\
   !*** ./resources/js/Servicios/unidades_servicios.js ***!
   \******************************************************/
-/*! exports provided: listar, nuevo, guardar, eliminar, combo, editar */
+/*! exports provided: listar, nuevo, guardar, eliminar, combo, editar, exportarUnidades, exportarUnidad */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4188,6 +4297,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "eliminar", function() { return eliminar; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "combo", function() { return combo; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "editar", function() { return editar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "exportarUnidades", function() { return exportarUnidades; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "exportarUnidad", function() { return exportarUnidad; });
 /* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
 
 function listar($data) {
@@ -4207,6 +4318,12 @@ function combo($data) {
 }
 function editar($data) {
   return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/unidades/editar', $data);
+}
+function exportarUnidades($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/unidades/exportarUnidades', $data);
+}
+function exportarUnidad($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/unidades/exportarUnidad', $data);
 }
 
 /***/ }),

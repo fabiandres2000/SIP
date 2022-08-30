@@ -128,6 +128,8 @@ Route::post('/unidades/guardar', 'UnidadesProductivasController@guardar');
 Route::post('/unidades/nuevo', 'UnidadesProductivasController@nuevo');
 Route::post('/unidades', 'UnidadesProductivasController@gestion');
 Route::post('/unidades/eliminar', 'UnidadesProductivasController@eliminar');
+Route::post('/unidades/exportarUnidades', 'UnidadesProductivasController@exportarUnidades');
+Route::post('/unidades/exportarUnidad', 'UnidadesProductivasController@exportarUnidad');
 
 Route::post('/estadisticas', 'AdministracionController@estadisticas');
 

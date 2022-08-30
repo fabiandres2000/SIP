@@ -3394,6 +3394,7 @@ class CaracterizacionController extends Controller
             'riesgos_salud_de18a28' => $riesgos_salud_todos_ciclos["riesgos_salud_de18a28"],
             'riesgos_salud_de29a59' => $riesgos_salud_todos_ciclos["riesgos_salud_de29a59"],
             'riesgos_salud_de60' => $riesgos_salud_todos_ciclos["riesgos_salud_de60"],
+            'ente' => Auth::user()->permisos->where('actual', 1)->first()->ente->nombre,
         ])->setPaper('a4', 'potrait')->save('caracterizaciones/caracterizacion_casa_'.$idCasa.'.pdf');
     }
 
