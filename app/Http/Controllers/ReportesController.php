@@ -143,7 +143,7 @@ class ReportesController extends Controller
             $ente = Auth::user()->permisos->where('actual', 1)->first()->ente->nombre;
             File::makeDirectory(public_path().'/'.$ente, $mode = 0777, true, true);
 
-            $nombre = 'gestantes' . '.pdf';
+            $nombre = 'nutricional' . '.pdf';
             $pdf = app('dompdf.wrapper');
             $pdf->loadView('Pdf/Reportes/Nutricional/nutricional', ['nutricional' => $nutricional, 'total_mujeres' => $total_mujeres, 'grupo' => $grupo])
                 ->setPaper('a3', 'landscape')

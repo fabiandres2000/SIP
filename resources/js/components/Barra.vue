@@ -944,9 +944,6 @@ export default {
                             "Entidad Cambiada!",
                             "success"
                         );
-                        // this.$router.push({
-                        //     name: "Administracion"
-                        // });
                         this.$router.go(0);
                     } else {
                         this.$swal("Error...!", "Ocurrio un error!", "error");

@@ -186,7 +186,7 @@ class soporteController extends Controller
             if ($eae) {
                 $cam = \App\UserPermisos::cambiarActualEnte($id_ente);
                 if ($cam) {
-                    $alias = Auth::user()->permisos->where('actual', 1)->first()->ente;
+                    $alias = Auth::user()->permisos->where('id_ente', $id_ente)->first()->ente;
                     Session::put('alias', $alias->alias);
                     Session::put('idusuario', $alias->id);
                     Session::put('sigla', $alias->sigla);
