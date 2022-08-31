@@ -3326,27 +3326,31 @@ class CaracterizacionController extends Controller
     public function exportar()
     {
         if (Auth::check()) {
-
+            $ente = Auth::user()->permisos->where('actual', 1)->first()->ente->nombre;
+            File::makeDirectory(public_path().'/'.$ente, $mode = 0777, true, true);
             $caracterizacion = \App\Caracterizacion::exportar(Session::get('alias'));
             if ($caracterizacion) {
+                $pdf = app('dompdf.wrapper');
+                $pdf->loadView('usuarios_caracterizadosPDF', [
+                    'caracterizaciones' => $caracterizacion,
+                    'ente' => Auth::user()->permisos->where('actual', 1)->first()->ente->nombre,
+                ])->setPaper('A4', 'landscape')->save($ente.'/usuarios_caracterizados.pdf');
                 $respuesta = [
                     'caracterizacion' => $caracterizacion,
+                    'nombre' => $ente.'/usuarios_caracterizados.pdf',
                 ];
                 return response()->json($respuesta, 200);
             } else {
-                $respuesta = [
-                    'MENSAJE' => "Ocurrio un error...",
-                ];
                 return response()->json("Error", 500);
             }
         } else {
             return redirect("/index")->with("error", "Su sesion ha terminado");
         }
-
     }
 
     public function exportar2()
     {
+        $ente = Auth::user()->permisos->where('actual', 1)->first()->ente->nombre;
         if (Auth::check()) {
             $caracterizacion = \App\Caracterizacion::exportar2(request()->get('id'), Session::get('alias'));
             if ($caracterizacion) {
@@ -3361,10 +3365,10 @@ class CaracterizacionController extends Controller
                     'caracterizacion' => $caracterizacion,
                     'integrantes' => $integrantes,
                     'riesgos_ambientales_vivienda'  => $riesgos_ambientales_vivienda,
-                    'nombre' => 'caracterizaciones/caracterizacion_casa_'.$caracterizacion[0]->id_hogar.'.pdf',
+                    'nombre' => $ente.'/caracterizaciones/caracterizacion_casa_'.$caracterizacion[0]->id_hogar.'.pdf',
                     'riesgos_salud_todos_ciclos' => $riesgos_salud_todos_ciclos
                 ];
-                self::exportarCaracterizacionPDF($caracterizacion[0]->id_hogar, $integrantes, $caracterizacion, $riesgos_ambientales_vivienda, $riesgos_salud_todos_ciclos);
+                self::exportarCaracterizacionPDF($caracterizacion[0]->id_hogar, $integrantes, $caracterizacion, $riesgos_ambientales_vivienda, $riesgos_salud_todos_ciclos, $ente);
                 return response()->json($respuesta, 200);
             } else {
                 $respuesta = [
@@ -3375,11 +3379,11 @@ class CaracterizacionController extends Controller
         } else {
             return redirect("/index")->with("error", "Su sesion ha terminado");
         }
-
     }
 
-    public function exportarCaracterizacionPDF($idCasa, $integrantes, $caracterizacion, $riesgos_ambientales_vivienda, $riesgos_salud_todos_ciclos){
-        $path = public_path().'/caracterizaciones';
+    public function exportarCaracterizacionPDF($idCasa, $integrantes, $caracterizacion, $riesgos_ambientales_vivienda, $riesgos_salud_todos_ciclos, $ente){
+        File::makeDirectory(public_path().'/'.$ente, $mode = 0777, true, true);
+        $path = public_path().'/'.$ente.'/caracterizaciones';
         File::makeDirectory($path, $mode = 0777, true, true);
         $pdf = app('dompdf.wrapper');
         $pdf->loadView('caracterizacionCasaPDF', [
@@ -3395,7 +3399,7 @@ class CaracterizacionController extends Controller
             'riesgos_salud_de29a59' => $riesgos_salud_todos_ciclos["riesgos_salud_de29a59"],
             'riesgos_salud_de60' => $riesgos_salud_todos_ciclos["riesgos_salud_de60"],
             'ente' => Auth::user()->permisos->where('actual', 1)->first()->ente->nombre,
-        ])->setPaper('a4', 'potrait')->save('caracterizaciones/caracterizacion_casa_'.$idCasa.'.pdf');
+        ])->setPaper('a4', 'potrait')->save($ente.'/caracterizaciones/caracterizacion_casa_'.$idCasa.'.pdf');
     }
 
     public function validarJefe()

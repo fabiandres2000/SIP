@@ -208,15 +208,17 @@ class EstablecimientosController extends Controller
 
     public function exportarEstablecimientosPDF(){
         $establecimientos = \App\Establecimientos::listar2(Session::get('alias')); 
-        $path = public_path().'/establecimientos';
+        $ente = Auth::user()->permisos->where('actual', 1)->first()->ente->nombre;
+        File::makeDirectory(public_path().'/'.$ente, $mode = 0777, true, true);
+        $path = public_path().'/'.$ente.'/establecimientos';
         File::makeDirectory($path, $mode = 0777, true, true);
         $pdf = app('dompdf.wrapper');
         $pdf->loadView('establecimientosPDF', [
             'establecimientos' => $establecimientos,
-        ])->setPaper('a4', 'landscape')->save('establecimientos/general.pdf');
+        ])->setPaper('a4', 'landscape')->save($ente.'/establecimientos/general.pdf');
 
         $respuesta = [
-            'nombre' => 'establecimientos/general.pdf',
+            'nombre' => $ente.'/establecimientos/general.pdf',
         ];
         return response()->json($respuesta, 200);
     }
@@ -224,15 +226,17 @@ class EstablecimientosController extends Controller
     public function exportarEstablecimientoPDF(){
         $id = request()->get("id");
         $establecimiento = \App\Establecimientos::buscar2(Session::get('alias'), $id); 
-        $path = public_path().'/establecimientos';
+        $ente = Auth::user()->permisos->where('actual', 1)->first()->ente->nombre;
+        File::makeDirectory(public_path().'/'.$ente, $mode = 0777, true, true);
+        $path = public_path().'/'.$ente.'/establecimientos';
         File::makeDirectory($path, $mode = 0777, true, true);
         $pdf = app('dompdf.wrapper');
         $pdf->loadView('establecimientoPDF', [
             'establecimiento' => $establecimiento,
-        ])->setPaper('a4', 'portrait')->save('establecimientos/reporte_'.$id.'.pdf');
+        ])->setPaper('a4', 'portrait')->save($ente.'/establecimientos/reporte_'.$id.'.pdf');
 
         $respuesta = [
-            'nombre' => 'establecimientos/reporte_'.$id.'.pdf',
+            'nombre' => $ente.'/establecimientos/reporte_'.$id.'.pdf',
             'establecimiento' => $establecimiento
         ];
         return response()->json($respuesta, 200);

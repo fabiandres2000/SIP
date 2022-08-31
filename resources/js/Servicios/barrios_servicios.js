@@ -14,5 +14,5 @@ export function comboBarrios($data) {
 }
 
 export function exportar($data) {
-    return http().post('/barrios/exportar', $data, {responseType: 'blob'});
+    return http().post('/barrios/exportar', $data);
 }

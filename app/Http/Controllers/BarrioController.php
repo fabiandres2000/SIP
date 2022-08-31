@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
 use Session;
+use File;
 
 class BarrioController extends Controller
 {
@@ -168,16 +169,21 @@ class BarrioController extends Controller
     public function exportar()
     {
         if (Auth::check()) {
+
+            $ente = Auth::user()->permisos->where('actual', 1)->first()->ente->nombre;
+            File::makeDirectory(public_path().'/'.$ente, $mode = 0777, true, true);
             $datos = request()->all();
             $busqueda = request()->get('txtbusqueda');
             $barrios = \App\Barrio::listar2($busqueda, Session::get('alias'));
-            $nombre = 'barrios' . '.pdf';
+            $nombre = 'barrios.pdf';
             $pdf = app('dompdf.wrapper');
             $pdf->loadView('Pdf/Barrios/pdf', ['barrios' => $barrios])
                 ->setPaper('letter', 'portrait')
-                ->save($nombre);
+                ->save($ente.'/'.$nombre);
+
             $respuesta = [
-                'nombre' => $nombre,
+                'nombre' => $ente.'/'.$nombre,
+                'barrios' => $barrios
             ];
             return response()->json($respuesta, 200);
         }

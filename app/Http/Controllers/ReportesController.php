@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
 use Session;
+use File;
 
 class ReportesController extends Controller
 {
@@ -65,13 +66,17 @@ class ReportesController extends Controller
             } else if ($rango == "r60+") {
                 $grupo = "Mayores de 60 años";
             }
+
+            $ente = Auth::user()->permisos->where('actual', 1)->first()->ente->nombre;
+            File::makeDirectory(public_path().'/'.$ente, $mode = 0777, true, true);
+
             $nombre = 'gestantes' . '.pdf';
             $pdf = app('dompdf.wrapper');
             $pdf->loadView('Pdf/Reportes/Gestantes/gestantes', ['gestantes' => $gestantes, 'total_mujeres' => $total_mujeres, 'grupo' => $grupo])
                 ->setPaper('a4', 'landscape')
-                ->save($nombre);
+                ->save( $ente.'/'.$nombre);
             $respuesta = [
-                'nombre' => $nombre,
+                'nombre' => $ente.'/'.$nombre,
             ];
             return response()->json($respuesta, 200);
         }
@@ -134,13 +139,17 @@ class ReportesController extends Controller
             } else if ($rango == "r60+") {
                 $grupo = "Mayores de 60 años";
             }
+
+            $ente = Auth::user()->permisos->where('actual', 1)->first()->ente->nombre;
+            File::makeDirectory(public_path().'/'.$ente, $mode = 0777, true, true);
+
             $nombre = 'gestantes' . '.pdf';
             $pdf = app('dompdf.wrapper');
             $pdf->loadView('Pdf/Reportes/Nutricional/nutricional', ['nutricional' => $nutricional, 'total_mujeres' => $total_mujeres, 'grupo' => $grupo])
-                ->setPaper('a4', 'landscape')
-                ->save($nombre);
+                ->setPaper('a3', 'landscape')
+                ->save($ente.'/'.$nombre);
             $respuesta = [
-                'nombre' => $nombre,
+                'nombre' => $ente.'/'.$nombre,
             ];
             return response()->json($respuesta, 200);
         }
@@ -194,18 +203,22 @@ class ReportesController extends Controller
             } else if ($datos["datos"]["rangoEdad"] == "r60+") {
                 $grupo = "Mayores de 60";
             }
+
+            $ente = Auth::user()->permisos->where('actual', 1)->first()->ente->nombre;
+            File::makeDirectory(public_path().'/'.$ente, $mode = 0777, true, true);
+
             $integrantes = \App\Reportes::listarcronicas(Session::get('alias'), $datos, $datos["tipo"]);
             $pdf = app('dompdf.wrapper');
             $pdf->loadView('vistaCronicasPDF', ['integrantes' => $integrantes, 'grupo' => $grupo,
-                'enfermedad' => $enfermedad])
-                ->setPaper('letter', 'landscape')
-                ->save('archivocronicas.pdf');
+            'enfermedad' => $enfermedad])
+            ->setPaper('letter', 'landscape')
+            ->save($ente.'/archivocronicas.pdf');
 
-                $nombre = 'archivocronicas' . '.pdf';
-                $respuesta = [
-                    'nombre' => $nombre,
-                ];
-                return response()->json($respuesta, 200);
+            $nombre = 'archivocronicas' . '.pdf';
+            $respuesta = [
+                'nombre' => $ente.'/'.$nombre,
+            ];
+            return response()->json($respuesta, 200);
         }
     }
 
@@ -250,7 +263,11 @@ class ReportesController extends Controller
             } else if ($datos["datos"]["rangoEdad"] == "r60+") {
                 $grupo = "Mayores de 60";
             }
-            $nombre = 'archivomigrantes' . '.pdf';
+
+            $ente = Auth::user()->permisos->where('actual', 1)->first()->ente->nombre;
+            File::makeDirectory(public_path().'/'.$ente, $mode = 0777, true, true);
+
+            $nombre = 'archivomigrantes.pdf';
             $integrantes = \App\Reportes::listarmigrantes(Session::get('alias'), $datos, $datos["tipo"]);
             $pdf = app('dompdf.wrapper');
             $pdf->loadView('vistaMigrantesPDF', [
@@ -258,10 +275,10 @@ class ReportesController extends Controller
                 'grupo' => $grupo,
             ])
             ->setPaper('letter', 'landscape')
-            ->save('archivomigrantes.pdf');
+            ->save($ente.'/archivomigrantes.pdf');
 
             $respuesta = [
-                'nombre' => $nombre,
+                'nombre' => $ente.'/'.$nombre,
             ];
             return response()->json($respuesta, 200);
         }

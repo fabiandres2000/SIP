@@ -1,20 +1,75 @@
 <html>
-
-<head>
-    <style>
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-    </style>
-
-</head>
+    <head>
+        <meta charset="utf-8" />
+        <title>
+            LListado de migrantes
+        </title>
+        <meta name="description" content="Latest updates and statistic charts">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <style>
+            @page { margin: 20px; }
+            body { margin: 20px; }
+    
+            @font-face {
+                font-family: 'Poppins', sans-serif;
+                src: url('{{ public_path('fonts/Poppins/Poppins-Medium.tff') }}');
+            }
+            body {
+                margin: 0;
+                font-family: 'Poppins', sans-serif;
+                font-size: 1rem;
+                font-weight: 400;
+                line-height: 1.5;
+                color: #212529;
+                text-align: left;
+                background-color: #fff;
+            }
+    
+            table {
+                width: 100%;
+                font-size: 20px;
+                border-collapse: collapse;
+            }
+    
+            thead {
+                padding: 0.3em;
+                color: #fff;
+                background: #5578eb;
+            }
+    
+            th,
+            td {
+                width: 25%;
+                text-align: left;
+                vertical-align: top;
+                padding: 0.3em;
+                caption-side: bottom;
+            }
+    
+            th.last,
+            td.last {
+                border-right: 0;
+            }
+    
+            th:lastchild,
+            td:lastchild {
+                border-right: 0;
+            }
+    
+            tbody tr:nth-child(odd) {
+                background-color: #fff;
+            }
+    
+            tbody tr:nth-child(even) {
+                background-color: #f1f1f1;
+            }
+        </style>
+    
+    </head>
 <div class="row">
     <div class="col-sm-12">
         <h2>Listado de migrantes</h2>
-    </div>
-</div>
-<div class="row">
-    <div class="col-sm-12">
         <h4>Grupo de edades: {{$grupo}}</h4>
     </div>
 </div>
@@ -22,7 +77,7 @@
 <div class="row">
     <div class=" col-sm-12">
         <table class="table" style="width: 100%; font-size: 12px;">
-            <thead style="background-color:beige">
+            <thead>
                 <tr>
                     <th style="width: 7%; text-align: center;">
                         No
@@ -30,25 +85,25 @@
                     <th style="width: 17%; text-align: center;">
                         Nombres completos
                     </th>
-                    <th style="width: 7%; text-align: left;">
+                    <th style="width: 7%; text-align: center;">
                         Identificacion
                     </th>
-                    <th style="width: 10%; text-align: left;">
+                    <th style="width: 10%; text-align: center;">
                         Localización
                     </th>
-                    <th style="width: 5%; text-align: left;">
+                    <th style="width: 5%; text-align: center;">
                         Edad
                     </th>
-                    <th style="width: 5%; text-align: left;">
+                    <th style="width: 5%; text-align: center;">
                         Genero
                     </th>
-                    <th style="width: 10%; text-align: left;">
+                    <th style="width: 10%; text-align: center;">
                         Pais
                     </th>
-                    <th style="width: 10%;text-align: left;">
+                    <th style="width: 10%;text-align: center;">
                         Eps
                     </th>
-                    <th style="width: 10%;text-align: left;">
+                    <th style="width: 10%;text-align: center;">
                         Ocupación
                     </th>
                 </tr>

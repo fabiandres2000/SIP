@@ -9,12 +9,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <style>
-        /* tr:nth-child(even) {
-            background-color: #f2f2f2;
-        } */
+        @page { margin: 20px; }
+        body { margin: 20px; }
+
+        @font-face {
+            font-family: 'Poppins', sans-serif;
+            src: url('{{ public_path('fonts/Poppins/Poppins-Medium.tff') }}');
+        }
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #212529;
+            text-align: left;
+            background-color: #fff;
+        }
+
         table {
             width: 100%;
-            /*border: 1px solid #000;*/
             font-size: 20px;
             border-collapse: collapse;
         }
@@ -32,8 +46,6 @@
             vertical-align: top;
             padding: 0.3em;
             caption-side: bottom;
-            /* border-bottom: 1px solid #999;
-            border-right: 1px solid #000; */
         }
 
         th.last,
@@ -53,25 +65,15 @@
         tbody tr:nth-child(even) {
             background-color: #f1f1f1;
         }
-
     </style>
 </head>
-
-<div class="row">
-    <div class="col-sm-12">
-        <h4>Reporte de Gestantes</h4>
-    </div>
-</div>
-<div class="row">
-    <div class="col-sm-12">
-        <h5><b>Grupo de edades:</b> {{$grupo}}</h5>
-    </div>
-</div>
 @php
 $porceMujeres = (count($gestantes) * 100) / $total_mujeres;
 @endphp
 <div class="row">
     <div class="col-sm-12">
+        <h4>Reporte de Gestantes</h4>
+        <h5><b>Grupo de edades:</b> {{$grupo}}</h5>
         <h5>Tabla de mujeres gestantes: {{ count($gestantes) }} - {{ round($porceMujeres, 2) }}% población en edad fertil</h5>
     </div>
 </div>
@@ -83,13 +85,13 @@ $porceMujeres = (count($gestantes) * 100) / $total_mujeres;
                     <th style="width: 3%; text-align: center;">
                         No
                     </th>
-                    <th style="width: 10%; text-align: left;">
+                    <th style="width: 10%; text-align: center;">
                         Identificación
                     </th>
-                    <th style="width: 15%; text-align: left;">
+                    <th style="width: 15%; text-align: center;">
                         Nombre
                     </th>
-                    <th style="width: 25%; text-align: left;">
+                    <th style="width: 25%; text-align: center;">
                         Ubicación
                     </th>
                     <th style="width: 3%; text-align: center;">
@@ -101,10 +103,10 @@ $porceMujeres = (count($gestantes) * 100) / $total_mujeres;
                     <th style="width: 3%; text-align: center;">
                         Escolaridad
                     </th>
-                    <th style="width: 10%; text-align: left;">
+                    <th style="width: 10%; text-align: center;">
                         Diag. Nutriconal
                     </th>
-                    <th style="width: 10%; text-align: left;">
+                    <th style="width: 10%; text-align: center;">
                         Enfermedad
                     </th>
                     <th style="width: 15%; text-align: center;">
@@ -123,15 +125,15 @@ $porceMujeres = (count($gestantes) * 100) / $total_mujeres;
                             {{ $loop->iteration }}
                         </td>
                         <td
-                            style="text-align: left;font-weight: normal;vertical-align: middle;text-transform: capitalize;">
+                            style="text-align: center;font-weight: normal;vertical-align: middle;text-transform: capitalize;">
                             {{ strtolower($viv->identificacion) }}
                         </td>
                         <td
-                            style="text-align: left;font-weight: normal;vertical-align: middle;text-transform: capitalize;">
+                            style="text-align: center;font-weight: normal;vertical-align: middle;text-transform: capitalize;">
                             {{ strtolower($viv->nombres) }}
                         </td>
                         <td
-                            style="text-align: left;font-weight: normal;vertical-align: middle;text-transform: capitalize;">
+                            style="text-align: center;font-weight: normal;vertical-align: middle;text-transform: capitalize;">
                             {{ strtolower($viv->localizacion) }}
                         </td>
                         <td
@@ -169,5 +171,4 @@ $porceMujeres = (count($gestantes) * 100) / $total_mujeres;
         </table>
     </div>
 </div>
-
 </html>

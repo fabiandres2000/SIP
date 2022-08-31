@@ -1161,7 +1161,6 @@ export default {
                     this.valN = true;
                     this.ruta = store.state.apiURL + respuesta.data.nombre;
                     this.$refs.modalpdf.show();
-                    // this.download(this.ruta);
                 });
             } catch (e) {}
         },

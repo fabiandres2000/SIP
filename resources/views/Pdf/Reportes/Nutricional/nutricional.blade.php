@@ -9,12 +9,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <style>
-        /* tr:nth-child(even) {
-            background-color: #f2f2f2;
-        } */
+        @page { margin: 20px; }
+        body { margin: 20px; }
+
+        @font-face {
+            font-family: 'Poppins', sans-serif;
+            src: url('{{ public_path('fonts/Poppins/Poppins-Medium.tff') }}');
+        }
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #212529;
+            text-align: left;
+            background-color: #fff;
+        }
+
         table {
             width: 100%;
-            /*border: 1px solid #000;*/
             font-size: 20px;
             border-collapse: collapse;
         }
@@ -32,8 +46,6 @@
             vertical-align: top;
             padding: 0.3em;
             caption-side: bottom;
-            /* border-bottom: 1px solid #999;
-            border-right: 1px solid #000; */
         }
 
         th.last,
@@ -53,17 +65,11 @@
         tbody tr:nth-child(even) {
             background-color: #f1f1f1;
         }
-
     </style>
 </head>
-
 <div class="row">
     <div class="col-sm-12">
-        <h4>Reporte de Gestantes</h4>
-    </div>
-</div>
-<div class="row">
-    <div class="col-sm-12">
+        <h4>Reporte Nutricional</h4>
         <h5><b>Grupo de edades:</b> {{ $grupo }}</h5>
     </div>
 </div>
@@ -81,31 +87,31 @@
         <table class="table" style="width: 100%; font-size: 12px;">
             <thead>
                 <tr>
-                    <th style="width: 3%; text-align: center;">
+                    <th style="text-align: center;">
                         No
                     </th>
-                    <th style="width: 10%; text-align: left;">
+                    <th style="text-align: center;">
                         Identificación
                     </th>
-                    <th style="width: 15%; text-align: left;">
+                    <th style="text-align: center;">
                         Nombre
                     </th>
-                    <th style="width: 3%; text-align: center;">
+                    <th style="text-align: center;">
                         Sexo
                     </th>
-                    <th style="width: 3%; text-align: center;">
+                    <th style="text-align: center;">
                         Edad
                     </th>                    
-                    <th style="width: 25%; text-align: left;">
+                    <th style="text-align: center;">
                         Localización
                     </th>
-                    <th style="width: 3%; text-align: center;">
+                    <th style="text-align: center;">
                         Inst. Educativo
                     </th>
-                    <th style="width: 10%; text-align: left;">
+                    <th style="text-align: center;">
                         Enfermedad
                     </th>
-                    <th style="width: 15%; text-align: center;">
+                    <th style="text-align: center;">
                         Eps
                     </th>
                 </tr>
@@ -118,28 +124,28 @@
                             {{ $loop->iteration }}
                         </td>
                         <td
-                            style="text-align: left;font-weight: normal;vertical-align: middle;text-transform: capitalize;">
-                            {{ strtolower($viv->identificacion) }}
-                        </td>
-                        <td
-                            style="text-align: left;font-weight: normal;vertical-align: middle;text-transform: capitalize;">
-                            {{ strtolower($viv->nombres) }}
+                            style="text-align: center;font-weight: normal;vertical-align: middle;text-transform: capitalize;">
+                            {{ $viv->identificacion }}
                         </td>
                         <td
                             style="text-align: center;font-weight: normal;vertical-align: middle;text-transform: capitalize;">
-                            {{ strtolower($viv->sexo) }}
+                            {{ $viv->nombres }}
+                        </td>
+                        <td
+                            style="text-align: center;font-weight: normal;vertical-align: middle;text-transform: capitalize;">
+                            {{ $viv->sexo }}
                         </td>       
                         <td
                             style="text-align: center;font-weight: normal;vertical-align: middle;text-transform: capitalize;">
-                            {{ strtolower($viv->edad) }}
+                            {{ $viv->edad }}
                         </td>                                         
                         <td
-                            style="text-align: left;font-weight: normal;vertical-align: middle;text-transform: capitalize;">
-                            {{ strtolower($viv->localizacion) }}
+                            style="text-align: center;font-weight: normal;vertical-align: middle;text-transform: capitalize;">
+                            {{ $viv->localizacion }}
                         </td>
                         <td
                             style="text-align: center;font-weight: normal;vertical-align: middle;text-transform: capitalize;">
-                            {{ strtolower($viv->textoColegio) }}
+                            {{ $viv->textoColegio }}
                         </td>
                         <td
                             style="text-align: center;font-weight: normal;vertical-align: middle;text-transform: capitalize;">
@@ -147,7 +153,7 @@
                         </td>
                         <td
                             style="text-align: center;font-weight: normal;vertical-align: middle;text-transform: capitalize;">
-                            {{ strtolower($viv->textoEps) }}
+                            {{ $viv->textoEps }}
                         </td>
                     </tr>
                 @endforeach

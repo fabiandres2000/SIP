@@ -356,7 +356,9 @@ class UnidadesProductivas extends Model
             }
 
             $item->producto = $producto[(int)$item->producto - 1];
-            $item->beneficios = $abeneficios[(int)$item->beneficios - 1];
+            if ($item->beneficios != "NA") {
+                $item->beneficios = $abeneficios[(int)$item->beneficios - 1];
+            } 
             $item->unidad_frecuencia_cosecha = $umm[(int)$item->unidad_frecuencia_cosecha - 1];
             $item->unidad_area_cosecha = $auma[(int)$item->unidad_area_cosecha - 1];
             $item->unidad_producion_destinada = $aup[(int)$item->unidad_producion_destinada - 1];

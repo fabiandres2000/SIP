@@ -292,7 +292,8 @@ class Caracterizacion extends Model
                 "corregimientos.descripcion AS CORREGIMIENTO",
                 "caracterizacion.estado AS ESTADO",
                 "caracterizacion.identificacion AS IDENTIFICACION",
-                "caracterizacion.id"
+                "caracterizacion.id",
+                "hogar.direccion"
             )
             ->selectRaw('CONCAT_WS(" ",caracterizacion.pnom," ",caracterizacion.snom," ",caracterizacion.pape," ",caracterizacion.sape) AS USUARIO')
             ->where('caracterizacion.estado', 'Activo')

@@ -4071,6 +4071,7 @@ window.JSZip = jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_5___default.a;
         $(".dataTables_filter label").css("outline", "none");
         $(".dataTables_filter label").css("border", "0");
         $(".dataTables_filter label").css("padding-bottom", "35px");
+        $(".dataTables_filter label input").css("margin-left", "0px");
       });
     },
     obtenerImagen: function obtenerImagen(e) {

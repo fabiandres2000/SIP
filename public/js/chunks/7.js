@@ -871,8 +871,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 
@@ -901,6 +899,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     return {
       caracterizacion: [],
       caracterizacion2: [],
+      nombreCaracterizacion2: "",
       caracterizacion3: [],
       integrantes: [],
       txtbusqueda: "",
@@ -1534,6 +1533,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 };
                 _context8.prev = 1;
                 _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["exportarCaracterizacion"](parametros).then(function (respuesta) {
+                  _this7.nombreCaracterizacion2 = respuesta.data.nombre;
                   _this7.caracterizacion2 = respuesta.data.caracterizacion;
 
                   _this7.$refs.modalExportar.show();
@@ -2804,15 +2804,18 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", { staticClass: "text-right" }, [
                   _c(
-                    "button",
+                    "a",
                     {
                       staticClass: "btn btn-success",
-                      attrs: { type: "button" },
-                      on: { click: _vm.ExportarTodo }
+                      attrs: {
+                        download: "",
+                        href: this.nombreCaracterizacion2,
+                        type: "button"
+                      }
                     },
                     [
                       _c("i", { staticClass: "la la-file-pdf-o" }),
-                      _vm._v(" Imprimir\n          ")
+                      _vm._v(" Imprimir")
                     ]
                   ),
                   _vm._v(" "),

@@ -1265,8 +1265,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   _this5.valN = true;
                   _this5.ruta = _store__WEBPACK_IMPORTED_MODULE_2__["default"].state.apiURL + respuesta.data.nombre;
 
-                  _this5.$refs.modalpdf.show(); // this.download(this.ruta);
-
+                  _this5.$refs.modalpdf.show();
                 });
 
               case 8:

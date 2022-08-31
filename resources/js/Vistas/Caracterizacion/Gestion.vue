@@ -304,9 +304,7 @@
           </div>
           <hr />
           <div class="text-right">
-            <button type="button" class="btn btn-success" @click="ExportarTodo">
-              <i class="la la-file-pdf-o"></i> Imprimir
-            </button>
+            <a download :href="this.nombreCaracterizacion2" type="button" class="btn btn-success"><i class="la la-file-pdf-o"></i> Imprimir</a>
             <button type="button" class="btn btn-warning" @click="cerrarModal">
               <i class="fa fa-window-close"></i> Cerrar
             </button>
@@ -873,6 +871,7 @@
       return {
         caracterizacion: [],
         caracterizacion2: [],
+        nombreCaracterizacion2: "",
         caracterizacion3: [],
         integrantes: [],
         txtbusqueda: "",
@@ -1296,6 +1295,7 @@
           caracterizacionServicios
             .exportarCaracterizacion(parametros)
             .then(respuesta => {
+              this.nombreCaracterizacion2 = respuesta.data.nombre 
               this.caracterizacion2 = respuesta.data.caracterizacion;
               this.$refs.modalExportar.show();
             })
