@@ -215,6 +215,7 @@ class EstablecimientosController extends Controller
         $pdf = app('dompdf.wrapper');
         $pdf->loadView('establecimientosPDF', [
             'establecimientos' => $establecimientos,
+            'ente' => $ente,
         ])->setPaper('a4', 'landscape')->save($ente.'/establecimientos/general.pdf');
 
         $respuesta = [
@@ -233,6 +234,7 @@ class EstablecimientosController extends Controller
         $pdf = app('dompdf.wrapper');
         $pdf->loadView('establecimientoPDF', [
             'establecimiento' => $establecimiento,
+            'ente' => $ente,
         ])->setPaper('a4', 'portrait')->save($ente.'/establecimientos/reporte_'.$id.'.pdf');
 
         $respuesta = [

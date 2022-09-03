@@ -7,3 +7,7 @@ export function listar($data) {
 export function coordenadas($data) {
     return http().post('/coordenadas', $data);
 }
+
+export function consultarPuntosPoblacion() {
+    return http().get('/consultarPuntosPoblacion');
+}

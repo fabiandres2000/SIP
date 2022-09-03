@@ -59,12 +59,27 @@ class DashboardController extends Controller
             $data = request()->all();
             $latitud="";
             $longitud="";
-            $consulta = \App\User::consultarEnte(Auth::user()->id);
+            $consulta = \App\User::consultarCoordenadas(Auth::user()->permisos->where('actual', 1)->first()->ente->alias);
             $respuesta = [
                     'latitud' => $consulta->lat,
                     'longitud' => $consulta->lng,
             ];
 
+            return response()->json(
+                $respuesta,
+                200
+            );
+        } else {
+            return redirect("/index")->with("error", "Su sesion ha terminado");
+        }
+    }
+
+    public function consultarPuntosPoblacion(){
+        if (Auth::check()) {
+            $consulta = \App\Dashboard::consultarPuntosPoblacion(Auth::user()->permisos->where('actual', 1)->first()->ente->alias);
+            $respuesta = [
+                'puntos' => $consulta,     
+            ];
             return response()->json(
                 $respuesta,
                 200

@@ -9,3 +9,7 @@ export function guardarOcupaciones($data) {
 export function eliminarOcupaciones($data) {
     return http().post('/ocupaciones/eliminar', $data);
 }
+
+export function listar_table($data) {
+    return http().post('/ocupaciones/listar_table', $data);
+}

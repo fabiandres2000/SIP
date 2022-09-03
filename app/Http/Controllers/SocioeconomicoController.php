@@ -14,7 +14,13 @@ class SocioeconomicoController extends Controller
         if (Auth::check()) {
             $tipo = request()->get('tipo');
             $id = request()->get('id');
-            $analfabetismo = \App\SocioeconomicoDashboard::tasaAnalfabetismo(Session::get('alias'), $tipo, $id);
+            $consulta = request()->get('consulta');
+            if($consulta == 1){
+                $analfabetismo = \App\SocioeconomicoDashboard::tasaAnalfabetismo(Session::get('alias'), $tipo, $id);
+            }else{
+                $analfabetismo = \App\SocioeconomicoDashboard::tasaAnalfabetismoNinios(Session::get('alias'), $tipo, $id);
+            }
+            
             $respuesta = [
                 'analfabetismo' => $analfabetismo,
             ];

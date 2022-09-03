@@ -240,7 +240,6 @@ class Reportes extends Model
                 "escolaridad.descripcion AS textoNivel",
                 "caracterizacion.sexo",
             )
-       
             ->selectRaw("CASE "
                 . " WHEN caracterizacion.afiliacion_entidad IS NULL THEN '' "
                 . " WHEN caracterizacion.afiliacion_entidad='OTRA' THEN 'OTRA' "
@@ -248,6 +247,7 @@ class Reportes extends Model
                 . " ELSE administradoras.adm_nombre "
                 . " END AS textoEps"
                 . " ")
+            ->selectRaw("CONCAT_WS('','jefe') as tipo")
             ->selectRaw("YEAR(CURDATE())-YEAR(caracterizacion.fecha_nacimiento) +  IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(caracterizacion.fecha_nacimiento,'%m-%d'),0,-1) AS edad")
             ->selectRaw("CONCAT_WS(' ',caracterizacion.pape,caracterizacion.sape,caracterizacion.pnom,caracterizacion.snom) as nombres")
             ->selectRaw("CONCAT_WS('-',dptos.descripcion,muni.descripcion,corregimientos.descripcion,hogar.direccion) as localizacion");
@@ -305,6 +305,7 @@ class Reportes extends Model
                 . " ELSE administradoras.adm_nombre "
                 . " END AS textoEps"
                 . " ")
+            ->selectRaw("CONCAT_WS('','inte') as tipo")
             ->selectRaw("YEAR(CURDATE())-YEAR(integrantes.fecha_nac) +  IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(integrantes.fecha_nac,'%m-%d'),0,-1) AS edad")
             ->selectRaw("CONCAT_WS(' ',integrantes.pape,integrantes.sape,integrantes.pnom,integrantes.snom) as nombres")
             ->selectRaw("CONCAT_WS('-',dptos.descripcion,muni.descripcion,corregimientos.descripcion,hogar.direccion) as localizacion");
@@ -328,10 +329,62 @@ class Reportes extends Model
         $consulta->union($consultai);
         // dd($consulta->get());die;
         if ($tipo == "Todos") {
-            return $consulta->get();
+            $c =  $consulta->get();
         } else {
-            return $consulta->paginate(10);
+            $c =  $consulta->paginate(10);
         }
+
+        //enfermedades infecciosas
+        foreach ($c as &$item) {
+            if($item->tipo == "inte"){
+                $item->enfer_infec =  DB::connection('mysql')->table($alias . '.enfermedades_integrantes')
+                ->join($alias . '.enfermedadesinf', 'enfermedadesinf.id', 'enfermedades_integrantes.id_enfermedad')
+                ->where('enfermedades_integrantes.id_inte', $item->id)
+                ->where('enfermedades_integrantes.tipo', 'Infecciosa')
+                ->select(
+                    "enfermedades_integrantes.tiempo AS tiempo",
+                    "enfermedades_integrantes.tratamiento AS atendido",
+                    "enfermedadesinf.descripcion AS enfermedad",
+                )->get();
+            }else{
+                $item->enfer_infec =  DB::connection('mysql')->table($alias . '.enfermedades_jefes')
+                ->join($alias . '.enfermedadesinf', 'enfermedadesinf.id', 'enfermedades_jefes.id_enfermedad')
+                ->where('enfermedades_jefes.id_jefe', $item->id)
+                ->where('enfermedades_jefes.tipo', 'Infecciosa')
+                ->select(
+                    "enfermedades_jefes.tiempo AS tiempo",
+                    "enfermedades_jefes.tratamiento AS atendido",
+                    "enfermedadesinf.descripcion AS enfermedad",
+                )->get();
+            }
+        }
+
+        //enfermedades cronicas
+        foreach ($c as &$item) {
+            if($item->tipo == "inte"){
+                $item->enfer_cro =  DB::connection('mysql')->table($alias . '.enfermedades_integrantes')
+                ->join($alias . '.enfermedadescro', 'enfermedadescro.id', 'enfermedades_integrantes.id_enfermedad')
+                ->where('enfermedades_integrantes.id_inte', $item->id)
+                ->where('enfermedades_integrantes.tipo', 'Cronica')
+                ->select(
+                    "enfermedades_integrantes.tiempo AS tiempo",
+                    "enfermedades_integrantes.tratamiento AS atendido",
+                    "enfermedadescro.descripcion AS enfermedad",
+                )->get();
+            }else{
+                $item->enfer_cro =  DB::connection('mysql')->table($alias . '.enfermedades_jefes')
+                ->join($alias . '.enfermedadescro', 'enfermedadescro.id', 'enfermedades_jefes.id_enfermedad')
+                ->where('enfermedades_jefes.id_jefe', $item->id)
+                ->where('enfermedades_jefes.tipo', 'Cronica')
+                ->select(
+                    "enfermedades_jefes.tiempo AS tiempo",
+                    "enfermedades_jefes.tratamiento AS atendido",
+                    "enfermedadescro.descripcion AS enfermedad",
+                )->get();
+            }
+        }
+        
+        return $c;
     }
 
     public static function listarcronicas($alias, $data, $tipo)

@@ -82,12 +82,13 @@
     </head>
 <body>
     <footer>
-        Fecha de reporte: <?php echo date("d/m/Y H:i:s");?> 
+      {{$ente}} - Fecha de reporte: <?php echo date("d/m/Y H:i:s");?> 
     </footer>
     <main>
         <div class="row">
             <div class="col-sm-12">
-                <h2>Listado de Establecimientos</h2>
+                <h1 style="color: #5578eb; margin: 2px">{{$ente}}</h1>
+                <h2>Listado de Establecimientos Caracterizados</h2>
             </div>
         </div>
         <hr>

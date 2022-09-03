@@ -3,7 +3,7 @@
     <div class="col-12">
       <div
         class="kt-portlet kt-portlet--height-fluid kt-portlet--mobile"
-        style="margin-top: -4%"
+        style="margin-top: -4%; height: auto;"
       >
         <div
           class="

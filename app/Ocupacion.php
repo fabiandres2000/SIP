@@ -14,6 +14,7 @@ class Ocupacion extends Model
         'estado',
         'id_compania',
     ];
+
     public static function listar($busqueda, $alias)
     {
         if (!empty($busqueda)) {
@@ -29,6 +30,15 @@ class Ocupacion extends Model
             ->paginate(10);
         }
 
+        return $respuesta;
+    }
+
+    public static function listar_table($alias)
+    {
+        $respuesta = DB::connection('mysql')->table($alias . '.ocupaciones')
+        ->select("ocupaciones.*")
+        ->orderBy('id', 'DESC')
+        ->get();   
         return $respuesta;
     }
 

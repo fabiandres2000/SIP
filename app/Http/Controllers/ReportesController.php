@@ -72,9 +72,13 @@ class ReportesController extends Controller
 
             $nombre = 'gestantes' . '.pdf';
             $pdf = app('dompdf.wrapper');
-            $pdf->loadView('Pdf/Reportes/Gestantes/gestantes', ['gestantes' => $gestantes, 'total_mujeres' => $total_mujeres, 'grupo' => $grupo])
-                ->setPaper('a4', 'landscape')
-                ->save( $ente.'/'.$nombre);
+            $pdf->loadView('Pdf/Reportes/Gestantes/gestantes', [
+                'gestantes' => $gestantes, 
+                'total_mujeres' => $total_mujeres, 
+                'grupo' => $grupo,
+                'ente'  => $ente,
+            ])->setPaper('a4', 'landscape')
+            ->save( $ente.'/'.$nombre);
             $respuesta = [
                 'nombre' => $ente.'/'.$nombre,
             ];
@@ -145,9 +149,13 @@ class ReportesController extends Controller
 
             $nombre = 'nutricional' . '.pdf';
             $pdf = app('dompdf.wrapper');
-            $pdf->loadView('Pdf/Reportes/Nutricional/nutricional', ['nutricional' => $nutricional, 'total_mujeres' => $total_mujeres, 'grupo' => $grupo])
-                ->setPaper('a3', 'landscape')
-                ->save($ente.'/'.$nombre);
+            $pdf->loadView('Pdf/Reportes/Nutricional/nutricional', [
+                'nutricional' => $nutricional, 
+                'total_mujeres' => $total_mujeres, 
+                'grupo' => $grupo,
+                'ente'  => $ente,
+            ])->setPaper('a3', 'landscape')
+            ->save($ente.'/'.$nombre);
             $respuesta = [
                 'nombre' => $ente.'/'.$nombre,
             ];
@@ -209,9 +217,12 @@ class ReportesController extends Controller
 
             $integrantes = \App\Reportes::listarcronicas(Session::get('alias'), $datos, $datos["tipo"]);
             $pdf = app('dompdf.wrapper');
-            $pdf->loadView('vistaCronicasPDF', ['integrantes' => $integrantes, 'grupo' => $grupo,
-            'enfermedad' => $enfermedad])
-            ->setPaper('letter', 'landscape')
+            $pdf->loadView('vistaCronicasPDF', [
+                'integrantes' => $integrantes, 
+                'grupo' => $grupo,
+                'enfermedad' => $enfermedad,
+                'ente'  => $ente,
+            ])->setPaper('letter', 'landscape')
             ->save($ente.'/archivocronicas.pdf');
 
             $nombre = 'archivocronicas' . '.pdf';
@@ -273,8 +284,8 @@ class ReportesController extends Controller
             $pdf->loadView('vistaMigrantesPDF', [
                 'integrantes' => $integrantes,
                 'grupo' => $grupo,
-            ])
-            ->setPaper('letter', 'landscape')
+                'ente'  => $ente,
+            ])->setPaper('letter', 'landscape')
             ->save($ente.'/archivomigrantes.pdf');
 
             $respuesta = [

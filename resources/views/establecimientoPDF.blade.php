@@ -86,11 +86,12 @@
     </head>
 <body>
     <footer>
-        Fecha de reporte: <?php echo date("d/m/Y H:i:s");?> 
+      {{$ente}} - Fecha de reporte: <?php echo date("d/m/Y H:i:s");?> 
     </footer>
     <main>
         <div class="row">
             <div class="col-6">
+                <h1 style="color: #5578eb; margin: 2px">{{$ente}}</h1>
                 <h2 style="color: #5578eb">INFORMACIÓN DE ESTABLECIMIENTO</h2>
             </div>
         </div>

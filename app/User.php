@@ -5,6 +5,7 @@ namespace App;
 use Auth;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use DB;
 
 class User extends Authenticatable
 {
@@ -128,6 +129,14 @@ class User extends Authenticatable
             ->where('users.id', $id_user)
             ->select('entes.alias', 'entes.id', 'entes.sigla', 'entes.poblacion', 'entes.viviendas', 'lat', 'lng')
             ->first();
+    }
+
+    public static function consultarCoordenadas($alias)
+    {
+        return DB::connection('mysql')->table('entes')
+        ->where('entes.alias', $alias)
+        ->select('entes.lat', 'entes.lng')
+        ->first();
     }
 
     public static function cambiarclave($data)

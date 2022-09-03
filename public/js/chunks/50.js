@@ -1,1 +1,35 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[50],{674:function(n,e,t){"use strict";t.r(e);var l={},s=t(28),u=Object(s.a)(l,(function(){var n=this.$createElement;return(this._self._c||n)("div")}),[],!1,null,null,null);e.default=u.exports}}]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[50],{
+
+/***/ "./resources/js/Vistas/Indicadores/enfermedades.vue":
+/*!**********************************************************!*\
+  !*** ./resources/js/Vistas/Indicadores/enfermedades.vue ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+  script,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+component.options.__file = "resources/js/Vistas/Indicadores/enfermedades.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ })
+
+}]);

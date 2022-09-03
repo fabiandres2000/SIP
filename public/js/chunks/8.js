@@ -875,7 +875,7 @@ var render = function() {
           {
             staticClass:
               "kt-portlet kt-portlet--height-fluid kt-portlet--mobile",
-            staticStyle: { "margin-top": "-4%" }
+            staticStyle: { "margin-top": "-4%", height: "auto" }
           },
           [
             _c(
@@ -2025,7 +2025,7 @@ function jefespdf($data) {
 /*!*********************************************************!*\
   !*** ./resources/js/Servicios/ocupaciones_servicios.js ***!
   \*********************************************************/
-/*! exports provided: listarOcupaciones, guardarOcupaciones, eliminarOcupaciones */
+/*! exports provided: listarOcupaciones, guardarOcupaciones, eliminarOcupaciones, listar_table */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2033,6 +2033,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "listarOcupaciones", function() { return listarOcupaciones; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "guardarOcupaciones", function() { return guardarOcupaciones; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "eliminarOcupaciones", function() { return eliminarOcupaciones; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "listar_table", function() { return listar_table; });
 /* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
 
 function listarOcupaciones($data) {
@@ -2043,6 +2044,9 @@ function guardarOcupaciones($data) {
 }
 function eliminarOcupaciones($data) {
   return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/ocupaciones/eliminar', $data);
+}
+function listar_table($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/ocupaciones/listar_table', $data);
 }
 
 /***/ }),

@@ -177,9 +177,11 @@ class BarrioController extends Controller
             $barrios = \App\Barrio::listar2($busqueda, Session::get('alias'));
             $nombre = 'barrios.pdf';
             $pdf = app('dompdf.wrapper');
-            $pdf->loadView('Pdf/Barrios/pdf', ['barrios' => $barrios])
-                ->setPaper('letter', 'portrait')
-                ->save($ente.'/'.$nombre);
+            $pdf->loadView('Pdf/Barrios/pdf', [
+                'barrios' => $barrios,
+                'ente'=> $ente
+            ])->setPaper('letter', 'portrait')
+            ->save($ente.'/'.$nombre);
 
             $respuesta = [
                 'nombre' => $ente.'/'.$nombre,

@@ -86,7 +86,7 @@
                                                 </th>
                                             </tr>
                                         </thead>
-                                        <!-- <tbody>
+                                        <tbody>
                                             <tr
                                                 v-for="(item,
                                                 index) in ocupaciones"
@@ -163,7 +163,7 @@
                                                     </button>
                                                 </td>
                                             </tr>
-                                        </tbody> -->
+                                        </tbody>
                                     </table>
                                     <div
                                         class="kt-separator kt-separator--border-dashed"
@@ -433,15 +433,13 @@ export default {
             };
             try {
                 await ocupacionesServicios
-                    .listarOcupaciones(parametros)
+                    .listar_table(parametros)
                     .then(respuesta => {
-                        this.ocupaciones =
-                            respuesta.data.ocupaciones.original.data;
-                        console.log(respuesta.data.ocupaciones.original.data);
-                        // this.paginacion = respuesta.data.paginacion;
+                        this.ocupaciones = respuesta.data.ocupaciones;
                         this.tabla();
                     });
             } catch (error) {
+                console.log(error);
                 switch (error.response.status) {
                     case 422:
                         this.$swal("Error...!", "Ocurrio un error!", "error");
@@ -640,7 +638,6 @@ export default {
         },
         tabla() {
             this.$nextTick(() => {
-                console.log(rutaOcupa);
                 $.fn.DataTable = datatable;
                 let aux = [];
                 // aux = JSON.stringify(this.ocupaciones.original.data);
@@ -971,6 +968,7 @@ export default {
                 $(".dataTables_filter label").css("outline", "none");
                 $(".dataTables_filter label").css("border", "0");
                 $(".dataTables_filter label").css("padding-bottom", "35px");
+                $(".dataTables_filter label input").css("margin-left", "0px");
             });
         }
     }

@@ -3,7 +3,7 @@
     <div class="col-12">
       <div
         class="kt-portlet kt-portlet--height-fluid kt-portlet--mobile"
-        style="margin-top: -4%"
+        style="margin-top: -4%; height: auto;"
       >
         <div
           class="
@@ -1969,6 +1969,7 @@
 <script>
 
 import * as consultas from "../../Servicios/consultas";
+import store from '../../store';
 
 export default {
   mounted() {
@@ -2063,7 +2064,7 @@ export default {
       };
       try {
         await consultas.viviendaspdf(parametros).then((respuesta) => {
-          this.ruta = "http://127.0.0.1:8000/archivo.pdf";
+          this.ruta = store.state.apiURL + respuesta.data.nombre; 
           this.$refs.modalpdf.show();
         });
       } catch (e) {}

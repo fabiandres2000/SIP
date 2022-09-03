@@ -709,7 +709,8 @@ export default {
                 $('.dataTables_filter label').addClass("form-control");
                 $('.dataTables_filter label').css("outline","none");
                 $('.dataTables_filter label').css("border","0");
-                $('.dataTables_filter label').css("padding-bottom","35px");                
+                $('.dataTables_filter label').css("padding-bottom","35px");     
+                $(".dataTables_filter label input").css("margin-left", "0px");           
             });
         }
     }

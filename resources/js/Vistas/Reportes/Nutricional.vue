@@ -126,9 +126,9 @@
                                                 Inst. Educativo
                                             </th>
                                             <th class="text-left">
-                                                Enfermedad
+                                                Enfermedades
                                             </th>
-                                            <th class="text-left">
+                                            <th class="text-left;" style="width: 170px;">
                                                 Eps
                                             </th>
                                         </tr>
@@ -179,7 +179,10 @@
                                             </td>
                                             <td
                                                 style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
-                                            >{{ item.consu }}</td>
+                                            >
+                                                <p v-for="item2 in item.enfer_infec">- {{item2.enfermedad}}</p>
+                                                <p v-for="item3 in item.enfer_cro">- {{item3.enfermedad}}</p>
+                                            </td>
 
                                             <td
                                                 style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"

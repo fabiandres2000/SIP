@@ -95,6 +95,9 @@
     <main>
         <div class="row">
             <div class="col-6">
+                <h1 style="color: #5578eb; margin: 2px">
+                    {{$ente}}
+                </h1>
                 <h2 style="color: #5578eb">INFORME DE UNIDAD PRODUCTIVA</h2>
             </div>
         </div>

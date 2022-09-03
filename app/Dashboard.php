@@ -165,4 +165,13 @@ class Dashboard extends Model
             ->count();
         return $consulta + $consulta1;
     }
+
+    public static function consultarPuntosPoblacion($alias){
+        $consulta = DB::table($alias . ".hogar")
+        ->where("estado", "Activo")
+        ->select("lat", "lng")
+        ->get();
+
+        return $consulta;
+    }
 }

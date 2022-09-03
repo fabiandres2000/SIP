@@ -82,7 +82,7 @@
     </head>
 <body>
     <footer>
-        Fecha de reporte: <?php echo date("d/m/Y H:i:s");?> 
+        {{$ente}} - Fecha de reporte: <?php echo date("d/m/Y H:i:s");?> 
     </footer>
     <main>
         <div class="row">

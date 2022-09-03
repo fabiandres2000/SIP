@@ -41,6 +41,7 @@ Route::post('/etnias/listarClasificacion', 'EtniaController@listarClasificacion'
 Route::post('/ocupaciones', 'OcupacionController@gestion');
 Route::post('/ocupaciones/guardar', 'OcupacionController@guardar');
 Route::post('/ocupaciones/eliminar', 'OcupacionController@eliminar');
+Route::post('/ocupaciones/listar_table', 'OcupacionController@listar_table');
 
 Route::post('/parentescos', 'ParentescoController@gestion');
 Route::post('/parentescos/guardar', 'ParentescoController@guardar');
@@ -134,7 +135,7 @@ Route::post('/unidades/exportarUnidad', 'UnidadesProductivasController@exportarU
 Route::post('/estadisticas', 'AdministracionController@estadisticas');
 
 Route::post('/datosdashboard', 'DashboardController@datos_dashboard');
-
+Route::get('/consultarPuntosPoblacion', 'DashboardController@consultarPuntosPoblacion');
 Route::post('/coordenadas', 'DashboardController@coordenadas');
 
 Route::post('/indicadores/calcular', 'IndicadoresController@calcular');

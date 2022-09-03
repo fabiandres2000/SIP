@@ -15,8 +15,6 @@ class OcupacionController extends Controller
             $busqueda = request()->get('txtbusqueda');
             $ocupaciones = \App\Ocupacion::listar($busqueda, Session::get('alias'));
             if ($ocupaciones) {
-                // $ayuda = Datatables::of($ocupaciones);
-                // dd($ayuda);die;
                 $respuesta = [
                     'paginacion' => [
                         'total' => $ocupaciones->total(),
@@ -26,6 +24,27 @@ class OcupacionController extends Controller
                         'desde' => $ocupaciones->firstItem(),
                         'hasta' => $ocupaciones->lastItem(),
                     ],
+                    'ocupaciones' => $ocupaciones,
+                ];
+                return response()->json($respuesta, 200);
+            } else {
+                $respuesta = [
+                    'MENSAJE' => "Ocurrio un error...",
+                ];
+                return response()->json("Error", 500);
+            }
+        } else {
+            return redirect("/index")->with("error", "Su sesion ha terminado");
+        }
+    }
+
+    public function listar_table()
+    {
+        if (Auth::check()) {
+            $busqueda = request()->get('txtbusqueda');
+            $ocupaciones = \App\Ocupacion::listar_table(Session::get('alias'));
+            if ($ocupaciones) {
+                $respuesta = [
                     'ocupaciones' => $ocupaciones,
                 ];
                 return response()->json($respuesta, 200);

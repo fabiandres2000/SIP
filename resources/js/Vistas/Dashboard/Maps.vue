@@ -10,26 +10,11 @@
                 style="width: 100%;"
                 :height="350"
                 map-type="roadmap"
-                :initial-zoom="12"
+                :initial-zoom="13.2"
                 :lat="latitud"
                 :lng="longitud"
             />
         </div>
-
-        <!--<GmapMap
-      :center="center"
-      :zoom="12"
-      :options="{
-   zoomControl: true,
-   mapTypeControl: false,
-   scaleControl: false,
-   streetViewControl: false,
-   rotateControl: false,
-   fullscreenControl: true,
-   disableDefaultUi: false
- }"
-      style="width:100%;  height: 300px;"
-    />-->
     </div>
 </template>
 
@@ -52,6 +37,7 @@ export default {
     mounted() {},
     created() {
         this.coordenadas();
+        this.densidadPoblacion();
     },
     beforeMount() {},
     methods: {
@@ -66,40 +52,23 @@ export default {
                     this.longitud = Number(respuesta.data["longitud"]);
                     this.center.lat = this.latitud;
                     this.center.lng = this.longitud;
-
-                    this.points.push(
-                        { lat: 10.46314, lng: -73.25322 },
-                        { lat: 10.46414, lng: -73.25322 },
-                        { lat: 10.46514, lng: -73.25322 },
-                        { lat: 10.46614, lng: -73.25322 },
-                        { lat: 10.46714, lng: -73.25322 },
-
-                        { lat: 10.43314, lng: -73.25322 },
-                        { lat: 10.43414, lng: -73.25322 },
-                        { lat: 10.43514, lng: -73.25322 },
-                        { lat: 10.43614, lng: -73.25322 },
-                        { lat: 10.43714, lng: -73.25322 },
-
-                        { lat: 10.42314, lng: -73.25322 },
-                        { lat: 10.42314, lng: -73.25322 },
-                        { lat: 10.42314, lng: -73.25322 },
-                        { lat: 10.42314, lng: -73.25322 },
-                        { lat: 10.42314, lng: -73.25322 },
-                        { lat: 10.42314, lng: -73.25322 },
-                        { lat: 10.41314, lng: -73.25322 },
-                        { lat: 10.41314, lng: -73.25322 },
-                        { lat: 10.41314, lng: -73.25322 },
-                        { lat: 10.41314, lng: -73.25322 },
-                        { lat: 10.41314, lng: -73.25322 },
-                        { lat: 10.46314, lng: -73.25322 },
-                        { lat: 10.46314, lng: -73.25322 },
-                        { lat: 10.46314, lng: -73.25322 }
-                    );
                 })
                 .catch(err => {
                     console.log(err);
                 });
-        }
+        },
+        async densidadPoblacion() {
+            this.points.splice(0);
+            await DashboardService.consultarPuntosPoblacion().then(respuesta => {
+                var data = respuesta.data.puntos;
+                data.forEach(element => {
+                    this.points.push({ lat: element.lat, lng: element.lng });
+                });
+            })
+            .catch(err => {
+                console.log(err);
+            });
+        }   
     }
 };
 </script>

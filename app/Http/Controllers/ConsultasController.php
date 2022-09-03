@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
 use Session;
+use File;
 
 class ConsultasController extends Controller
 {
@@ -122,14 +123,21 @@ class ConsultasController extends Controller
     {
         if (Auth::check()) {
             $datos = request()->all();
-            //dd($datos);die;
+
+            $ente = Auth::user()->permisos->where('actual', 1)->first()->ente->nombre;
+            File::makeDirectory(public_path().'/'.$ente, $mode = 0777, true, true);
+
             $viviendas = \App\Vivienda::listar(Session::get('alias'), $datos, "todos");
             $pdf = app('dompdf.wrapper');
-            $pdf->loadView('vista-pdf', ['viviendas' => $viviendas])
-                ->setPaper('letter', 'portrait')
-                ->save('archivo.pdf');
+            $pdf->loadView('vista-pdf', ['viviendas' => $viviendas, 'ente'=> $ente])
+            ->setPaper('A3', 'landscape')
+            ->save($ente.'/viviendas_caracterizadas_consulta.pdf');
 
-            return null;
+            $respuesta = [
+                'nombre' => $ente.'/viviendas_caracterizadas_consulta.pdf'
+            ];
+
+            return response()->json($respuesta, 200);
         }
     }
 
@@ -166,16 +174,20 @@ class ConsultasController extends Controller
     public function jefeslistarpdf()
     {
         if (Auth::check()) {
+           
+            $ente = Auth::user()->permisos->where('actual', 1)->first()->ente->nombre;
+            File::makeDirectory(public_path().'/'.$ente, $mode = 0777, true, true);
+
             $datos = request()->all();
             //dd($datos);die;
             $jefes = \App\Caracterizacion::listarj(Session::get('alias'), $datos, "todos");
-            $nombre = 'informejefes' . time() . '.pdf';
+            $nombre = 'lista_integrantes_caracterizados_consulta.pdf';
             $pdf = app('dompdf.wrapper');
-            $pdf->loadView('vista-pdfjefe', ['jefes' => $jefes])
-                ->setPaper('letter', 'portrait')
-                ->save($nombre);
+            $pdf->loadView('vista-pdfjefe', ['jefes' => $jefes, 'ente'=> $ente])
+            ->setPaper('A3', 'landscape')
+            ->save($ente.'/'.$nombre);
             $respuesta = [
-                'nombre' => $nombre,
+                'nombre' => $ente.'/'.$nombre,
             ];
             return response()->json($respuesta, 200);
         }
