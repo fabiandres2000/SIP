@@ -502,6 +502,13 @@ class SocioeconomicoDashboard extends Model
 
             // por corregimiento
 
+            $porcenfemeninoTD = 0;
+            $porcenmasculinoTD = 0;
+            if(count($personasBuscaEmpleo) > 0){
+                $porcenfemeninoTD = ($femeninoTD/count($personasBuscaEmpleo))*100;
+                $porcenmasculinoTD = ($masculinoTD/count($personasBuscaEmpleo))*100;
+            }
+
             $info = [
                 'TD' => $TD, 
                 'D' => count($personasBuscaEmpleo),
@@ -509,8 +516,8 @@ class SocioeconomicoDashboard extends Model
                 'listaD' => $personasBuscaEmpleo,
                 'femeninoTD' => $femeninoTD,
                 'masculinoTD' => $masculinoTD,
-                'porcenfemeninoTD' => ($femeninoTD/count($personasBuscaEmpleo))*100,
-                'porcenmasculinoTD' => ($masculinoTD/count($personasBuscaEmpleo))*100,
+                'porcenfemeninoTD' => $porcenfemeninoTD,
+                'porcenmasculinoTD' => $porcenmasculinoTD,
                 'porCorregimeinto' => $porCorregimeinto,
                 'porEdad' => $porEdad
             ];

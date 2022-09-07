@@ -95,6 +95,7 @@
             </div> 
         </div>
         <br>
+        <hr>
         <div class="row">
             <div class="col-lg-6 text-center">
                 <br>
@@ -142,6 +143,8 @@
                 </table>
             </div> 
         </div> 
+        <hr>
+        <br>
     </div>
 </template>
 <script>
