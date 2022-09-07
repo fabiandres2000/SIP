@@ -21051,10 +21051,36 @@ class CaracterizacionController extends Controller
             }
             // ¿ Ingresos  mensuales por Hogar en Ciudad?
 
+            //buscar estratificacion para usarla estratificacion de hogar
+            $estrati_vivienda = \App\RiesgoSocioeconomicoVivienda::buscar(Session::get('alias'),  $id_hogar);
+            $estrati_vivienda = $estrati_vivienda[0];
+
+            switch (true) {
+                case $estrati_vivienda->total>=0 && $estrati_vivienda->total<=100:
+                    $estratificacion_vivienda = 0;
+                    break;
+                case $estrati_vivienda->total>=100.1 && $estrati_vivienda->total<=300:
+                    $estratificacion_vivienda = 10;
+                    break;
+                case $estrati_vivienda->total>=300.1 && $estrati_vivienda->total<=475:
+                    $estratificacion_vivienda = 20;
+                    break;
+                case $estrati_vivienda->total>=475.1 && $estrati_vivienda->total<=650:
+                    $estratificacion_vivienda = 40;
+                    break;  
+                case $estrati_vivienda->total>=650.1 && $estrati_vivienda->total<=825:
+                    $estratificacion_vivienda = 60;
+                    break;
+                case $estrati_vivienda->total>=825.1 && $estrati_vivienda->total<=1000:
+                    $estratificacion_vivienda = 100;
+                    break;  
+            }
+            //buscar estratificacion para usarla estratificacion de hogar
+
             $total = 0;
             $total = $cuenta_internet + $tiene_pc_escritorio + $tiene_pc_portatil + $cuantos_celulares;
             $total = $total + $tiene_equipo_sonido + $cuantos_tv_color + $cuantos_vehiculos;
-            $total = $total + $nivel_instruccion + $afiliacion_salud_privada + $ingresos_zona_rural + $ingresos_ciudad;
+            $total = $total + $nivel_instruccion + $afiliacion_salud_privada + $ingresos_zona_rural + $ingresos_ciudad + $estratificacion_vivienda;
             $data = [
                 'cuenta_internet' => $cuenta_internet,
                 'tiene_pc_escritorio' => $tiene_pc_escritorio,
@@ -21067,6 +21093,7 @@ class CaracterizacionController extends Controller
                 'afiliacion_salud_privada' => $afiliacion_salud_privada,
                 'ingresos_zona_rural' => $ingresos_zona_rural,
                 'ingresos_ciudad' => $ingresos_ciudad,
+                'estratificacion_vivienda' => $estratificacion_vivienda,
                 'id_hogar' => $id_hogar,
                 'id_jefe' => $item->id_jefe,
                 'estado' => 'Activo',

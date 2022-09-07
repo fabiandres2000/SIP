@@ -71,6 +71,7 @@
                                     <button style="position: absolute;top: 55%;left: 10%;" @click="verComparativaF()" :class="(verComparativa ? 'btn btn-primary':'btn btn-secondary')"><i class="fa fa-balance-scale" aria-hidden="true"></i> Comparar riesgos</button>
                                 </div>
                             </div>
+                            <hr>
                             <div class="row" v-if="!verComparativa">
                                 <div class="col-sm-4 col-lg-4 borderbottomright" style="padding: 20px; height: 300px">
                                     <div>

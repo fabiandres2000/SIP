@@ -57,6 +57,7 @@
                     <button style="position: absolute;top: 55%;left: 48%;"  @click="exportToPDF()" class="btn btn-danger"><i class="fa fa-file" aria-hidden="true"></i> Exportar PDF</button>
                 </div>
             </div>
+            <hr>
             <div class="row">
                 <div class="col-lg-4 text-center">
                     <br >

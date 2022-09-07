@@ -11,7 +11,7 @@ class RiesgoSocioeconomicoHogar extends Model
     protected $fillable = [
         'id_hogar', 'id_jefe', 'cuenta_internet', 'tiene_pc_escritorio', 'tiene_pc_portatil',
         'cuantos_celulares', 'tiene_equipo_sonido', 'cuantos_tv_color', 'cuantos_vehiculos', 'nivel_instruccion',
-        'afiliacion_salud_privada', 'ingresos_zona_rural', 'ingresos_ciudad', 'estado', 'id_compania', 'total',
+        'afiliacion_salud_privada', 'ingresos_zona_rural', 'ingresos_ciudad', 'estratificacion_vivienda', 'estado', 'id_compania', 'total',
     ];
 
     public static function guardar($data, $alias)
@@ -34,6 +34,7 @@ class RiesgoSocioeconomicoHogar extends Model
             'afiliacion_salud_privada' => $data['afiliacion_salud_privada'],
             'ingresos_zona_rural' => $data['ingresos_zona_rural'],
             'ingresos_ciudad' => $data['ingresos_ciudad'],
+            'estratificacion_vivienda' => $data['estratificacion_vivienda'],
             'total' => $data['total'],
             'id_compania' => 1,
             'estado' => $data['estado'],

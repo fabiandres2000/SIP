@@ -30,4 +30,36 @@ class SocioeconomicoController extends Controller
             return redirect("/index")->with("error", "Su sesion ha terminado");
         }
     }
+
+    public function desempleo(){
+        if (Auth::check()) {
+            $tipo = request()->get('tipo');
+            $id = request()->get('id');
+           
+            $tasaDesempleo = \App\SocioeconomicoDashboard::tasaDesempleo(Session::get('alias'), $tipo, $id);
+            
+            $respuesta = [
+                'tasaDesempleo' => $tasaDesempleo,
+            ];
+
+            return response()->json($respuesta, 200);
+        }else {
+            return redirect("/index")->with("error", "Su sesion ha terminado");
+        }
+    }
+
+    public function mercadoLaboral(){
+        if (Auth::check()) {
+           
+            $tasaOcupacion = \App\SocioeconomicoDashboard::tasaOcupacion(Session::get('alias'));
+            
+            $respuesta = [
+                'tasaOcupacion' => $tasaOcupacion,
+            ];
+
+            return response()->json($respuesta, 200);
+        }else {
+            return redirect("/index")->with("error", "Su sesion ha terminado");
+        }
+    }
 }
