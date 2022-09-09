@@ -86,6 +86,44 @@ class SocioeconomicoController extends Controller
         }
     }
 
+    public function exportarDesempleo() {
+        if (Auth::check()) {
+            
+            $torta1 = request()->get('torta1');
+            $torta2 = request()->get('torta2');
+            $porcentajes = request()->get('porcentajes');
+            $data = request()->get('data');
+            $filtro = request()->get('filtro');
+            $tipo = request()->get('tipo');
+
+            $ente = Auth::user()->permisos->where('actual', 1)->first()->ente->nombre;
+            File::makeDirectory(public_path().'/'.$ente, $mode = 0777, true, true);
+
+            $nombre = 'desempleo.pdf';
+            $pdf = app('dompdf.wrapper');
+            $pdf->loadView('Pdf/desempleo', [
+                'ente' => $ente, 
+                'torta1' => $torta1,  
+                'torta2' => $torta2, 
+                'porcentajes' => $porcentajes, 
+                'data' => $data, 
+                'filtro' => $filtro,
+                'tipo' => $tipo,
+            ])->setPaper('a4', 'landscape')
+            ->save( $ente.'/'.$nombre);
+
+
+            $respuesta = [
+                'nombre' => $ente.'/'.$nombre,
+            ];
+
+            return response()->json($respuesta, 200);
+
+        }else {
+            return redirect("/index")->with("error", "Su sesion ha terminado");
+        }
+    }
+
     public function mercadoLaboral(){
         if (Auth::check()) {
            

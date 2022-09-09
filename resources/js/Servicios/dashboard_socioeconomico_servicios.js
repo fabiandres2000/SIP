@@ -23,3 +23,7 @@ export function exportarAnalfabetas($data) {
 export function exportarMercadoLaboral($data) {
     return http().post('/socioeconomico/exportar-mc', $data);
 }
+
+export function exportarDesempleo($data) {
+    return http().post('/socioeconomico/exportar-desempleo', $data);
+}

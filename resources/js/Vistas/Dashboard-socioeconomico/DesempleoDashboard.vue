@@ -1,12 +1,21 @@
 <template lang="">
     <div>
-         <div ref="document">
+        <loading
+            :active.sync="isLoading"
+            :can-cancel="true"
+            loader="dots"
+            :height=128
+            :width=128
+            color="#007bff"
+            :is-full-page="true"
+        />
+        <div ref="document">
             <div class="row">
                 <div class="col-lg-12" style="padding: 10px 10px 0px 20px;">
                     <h2>{{ente}}</h2>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" ref="filtro">
                 <div class="col-sm-3 col-lg-3 text-left" style="padding: 10px 10px 10px 20px;">
                     <h4>Aplicar filtro por:</h4>
                     <br/>
@@ -68,13 +77,13 @@
                             </vue-excel-xlsx>
                         </div>
                         <div ref="boton1" class="col-lg-6 text-center" style="padding: 10px 10px 10px 20px;">
-                            <button @click="exportToPDF()" class="btn btn-danger"><i class="fa fa-file" aria-hidden="true"></i> Exportar PDF</button>
+                            <button @click="exportToPDFD()" class="btn btn-danger"><i class="fa fa-file" aria-hidden="true"></i> Exportar PDF</button>
                         </div>
                     </div>
                 </div>
             </div>
             <hr>
-            <div class="row" v-if="finalizado == true">
+            <div class="row"  ref="porcentajes">
                 <div class="col-lg-4 text-center">
                     <br >
                     <h4>Tasa de desempleo</h4>
@@ -158,6 +167,34 @@
                     <hr>
                 </div>
             </div>
+            <b-modal
+                ref="modalpdf"
+                hide-footer
+                title="Reporte de Analfabetismo"
+                size="xl"
+                centered
+                header-bg-variant="danger"
+                header-text-variant="light"
+                :no-close-on-backdrop="true"
+            >
+                <embed
+                    id="divPdf"
+                    :src="rutaPdf"
+                    type="application/pdf"
+                    width="100%"
+                    height="650px"
+                />
+                <hr />
+                <div class="text-right">
+                    <button
+                        type="button"
+                        class="btn btn-warning"
+                        @click="cerrarModal"
+                    >
+                        <i class="fa fa-window-close"></i> Cancelar
+                    </button>
+                </div>
+            </b-modal>
         </div>
     </div>
 </template>
@@ -176,6 +213,7 @@ import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 am4core.useTheme(am4themes_animated);
+import store from "../../store";
 
 export default {
     components: { CircleProgress, Loading },
@@ -251,7 +289,10 @@ export default {
             veredas: [],
             tipoCombo: "todos",
             loading: false,
-            finalizado: false
+            torta1: "",
+            torta2: "",
+            isLoading: false,
+            rutaPdf: ""
         }
     },
     methods: {
@@ -294,20 +335,18 @@ export default {
             });
         },
         async desempleo() {
-            this.finalizado = false;
             this.loading = true;
             this.points.splice(0);
             this.dataExcel.splice(0);
             await DashboardServiceSocioeconomico.desempleo(this.tipo, this.id_combo).then(respuesta => {
                 this.tasaDesempleo = respuesta.data["tasaDesempleo"]; 
-                this.tasaDesempleo.porCorregimeinto.sort(function(a, b){
-                    return a.tasa_odesempleo - b.tasa_odesempleo;
-                });
-                this.crearDataTable();
                 this.loading = false;
-                this.finalizado = true;
                 this.puntosMapa(this.tasaDesempleo.listaD);
                 if(this.tipo == "todos"){
+                    this.tasaDesempleo.porCorregimeinto.sort(function(a, b){
+                        return a.tasa_odesempleo - b.tasa_odesempleo;
+                    });
+                    this.crearDataTable();
                     this.grafica_barras(this.tasaDesempleo.porCorregimeinto);
                 } 
                 this.grafica_torta(this.tasaDesempleo.porEdad);
@@ -449,6 +488,7 @@ export default {
            
            am4core.useTheme(am4themes_animated);
            var chart = am4core.create("chartdiv_desempleo", am4charts.XYChart3D);
+           this.torta1 = chart;
            chart.paddingBottom = 50;
 
            chart.cursor = new am4charts.XYCursor();
@@ -500,6 +540,7 @@ export default {
         },
         async grafica_torta(array) {
             var chart = am4core.create("chartdiv_desempleo_2", am4charts.PieChart3D);
+            this.torta2 = chart;
             chart.data = [
                 {
                     category: "15 - 17 Años",
@@ -521,6 +562,64 @@ export default {
             var series = chart.series.push(new am4charts.PieSeries3D());
             series.dataFields.value = "first";
             series.dataFields.category = "category";
+        },
+        async exportToPDFD(){ 
+            this.isLoading = true;
+
+            // convertir a imagen todos los graficos
+            const options = {
+                type: 'dataURL',
+                useCORS: true,
+            }
+            let filtro = await this.$html2canvas(this.$refs.filtro, options);
+            let porcentajes = await this.$html2canvas(this.$refs.porcentajes, options);
+            let torta1 = await this.torta1.exporting.getImage("png");
+            let torta2 = await this.torta2.exporting.getImage("png");
+            // convertir a imagen todos los graficos
+            let parametros = "";
+            if(this.tipoCombo == "todos"){
+                parametros = {
+                    _token: this.csrf,
+                    torta1: torta1,
+                    torta2: torta2,
+                    porcentajes: porcentajes,
+                    filtro: filtro,
+                    data: this.tasaDesempleo.porCorregimeinto,
+                    tipo: 1
+                };
+            }else{
+                parametros = {
+                    _token: this.csrf,
+                    torta1: "",
+                    torta2: torta2,
+                    porcentajes: porcentajes,
+                    filtro: filtro,
+                    data: [],
+                    tipo: 2
+                };
+            }
+            
+            try {
+                await DashboardServiceSocioeconomico.exportarDesempleo(parametros).then(respuesta => {
+                    this.rutaPdf = store.state.apiURL + respuesta.data.nombre;
+                    this.isLoading = false;
+                    this.$refs.modalpdf.show();
+                });
+            } catch (error) {
+                console.log(error)
+                switch (error.response.status) {
+                    case 422:
+                    this.$swal("Error...!", "Ocurrio un error!", "error");
+                    break;
+                    default:
+                    this.$swal("Error...!", "Ocurrio un error!", "error");
+                    break;
+                }
+                this.isLoading = false;
+            }
+        },
+        cerrarModal() {
+            this.$refs.modalpdf.hide();
         }
     }
 }

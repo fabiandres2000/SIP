@@ -612,6 +612,10 @@ class SocioeconomicoDashboard extends Model
             ->join($alias.'.hogar', 'hogar.id','integrantes.id_hogar')
             ->where('integrantes.estado', 'Activo')
             ->where('hogar.id_'.$tipo, $id)
+            ->where(function ($query) {
+                $query->whereIn('integrantes.tipo_empleo', ['2', '3', '4'])
+                    ->orWhere('integrantes.ocupacion', 9990);
+            })
             ->whereRaw('TIMESTAMPDIFF(YEAR, integrantes.fecha_nac, CURDATE()) >= 15')
             ->count();
             
@@ -619,6 +623,10 @@ class SocioeconomicoDashboard extends Model
             ->join($alias.'.hogar', 'hogar.id','caracterizacion.id_hogar')
             ->where('caracterizacion.estado', 'Activo')
             ->where('hogar.id_'.$tipo, $id)
+            ->where(function ($query) {
+                $query->whereIn('caracterizacion.tipo_empleo', ['2', '3', '4'])
+                    ->orWhere('caracterizacion.ocupacion', 9990);
+            })
             ->whereRaw('TIMESTAMPDIFF(YEAR, caracterizacion.fecha_nacimiento, CURDATE()) >= 15')
             ->count();
 
