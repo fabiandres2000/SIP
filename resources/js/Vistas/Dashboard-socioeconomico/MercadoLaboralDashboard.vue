@@ -1,6 +1,32 @@
 <template>
     <div>
-        <div class="row" v-if="finalizado == true">
+        <loading
+            :active.sync="isLoading"
+            :can-cancel="true"
+            loader="dots"
+            :height=128
+            :width=128
+            color="#007bff"
+            :is-full-page="true"
+        />
+        <div class="row">
+            <div class="col-lg-9"></div>
+            <div class="col-lg-3" style="text-align: right">
+                <button  @click="exportToPDFML()" class="btn btn-danger"><i class="fa fa-file" aria-hidden="true"></i> Exportar PDF</button>
+                <vue-excel-xlsx
+                    :data="tasaOcupacionPorCorregimiento"
+                    :columns="columns"
+                    file-name="tasas-ocupacion"
+                    :file-type="'xlsx'"
+                    :sheet-name="'sheetname'"
+                    style = "    background-color: green;color: white;border: 0px;padding: 10px;border-radius: 3px;"
+                    >
+                    <i class="fa fa-table" aria-hidden="true"></i> Exportar a excel
+                </vue-excel-xlsx>
+            </div>
+        </div>
+        <hr>
+        <div class="row" v-if="finalizado == true" ref="porcentajes">
             <div class="col-lg-4 text-center">
                 <br>
                 <h3>Tasa de Ocupación</h3>
@@ -51,20 +77,8 @@
                 <h3>Tasa de Ocupación</h3>
                 <h4>(Por Tipo de Empleo)</h4>
             </div>
-            <div class="col-lg-5">
+            <div class="col-lg-7">
                 <h3>Tasa de Ocupación (Por Corregimiento)</h3>
-            </div>
-            <div class="col-lg-2">
-                <vue-excel-xlsx
-                    :data="tasaOcupacionPorCorregimiento"
-                    :columns="columns"
-                    file-name="tasas-ocupacion"
-                    :file-type="'xlsx'"
-                    :sheet-name="'sheetname'"
-                    style = "background-color: green; color: white; border: 0px; padding: 5px; border-radius: 10px; width: 100%;"
-                    >
-                    Exportar a excel <i class="fa fa-table" aria-hidden="true"></i>
-                </vue-excel-xlsx>
             </div>
         </div>
         <div class="row">
@@ -202,6 +216,35 @@
                 <div id="chartdiv_pet" style="width: 100%; height: 300px"></div>
             </div>
         </div>
+
+        <b-modal
+            ref="modalpdf"
+            hide-footer
+            title="Reporte de Analfabetismo"
+            size="xl"
+            centered
+            header-bg-variant="danger"
+            header-text-variant="light"
+            :no-close-on-backdrop="true"
+        >
+            <embed
+                id="divPdf"
+                :src="rutaPdf"
+                type="application/pdf"
+                width="100%"
+                height="650px"
+            />
+            <hr />
+            <div class="text-right">
+                <button
+                    type="button"
+                    class="btn btn-warning"
+                    @click="cerrarModal"
+                >
+                    <i class="fa fa-window-close"></i> Cancelar
+                </button>
+            </div>
+        </b-modal>
     </div>
 </template>
 <script>
@@ -216,6 +259,7 @@ import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 am4core.useTheme(am4themes_animated);
+import store from "../../store";
 
 export default {
     components: { CircleProgress, Loading },
@@ -249,7 +293,13 @@ export default {
                     field: "tasa_ocupacion",
                 },
             ],
-            finalizado: false
+            finalizado: false,
+            torta1: "",
+            torta2: "",
+            torta3: "",
+            torta4: "",
+            isLoading: false,
+            rutaPdf: ""
         }
     },
     methods: {
@@ -400,6 +450,7 @@ export default {
         },
         async grafica_torta(array) {
             var chart = am4core.create("chartdiv_ocupacion_pie", am4charts.PieChart3D);
+            this.torta1 = chart;
             chart.data = [
                 {
                     category: "Emp. Formal",
@@ -420,6 +471,7 @@ export default {
         },
         async grafica_torta2(array) {
             var chart = am4core.create("chartdiv_ocupacion_pie_2", am4charts.PieChart3D);
+            this.torta2 = chart;
             chart.data = [
                 {
                     category: "Emp. Formal",
@@ -448,6 +500,7 @@ export default {
         },
         async grafica_torta3(array) {
             var chart = am4core.create("chartdiv_pae", am4charts.PieChart3D);
+            this.torta3 = chart;
             chart.data = [];
 
             for (let index = 0; index < array.length; index++) {
@@ -463,6 +516,7 @@ export default {
         },
         async grafica_torta4(array) {
             var chart = am4core.create("chartdiv_pet", am4charts.PieChart3D);
+            this.torta4 = chart;
             chart.data = [];
 
             for (let index = 0; index < array.length; index++) {
@@ -475,6 +529,54 @@ export default {
             var series = chart.series.push(new am4charts.PieSeries3D());
             series.dataFields.value = "first";
             series.dataFields.category = "category";
+        },
+        async exportToPDFML(){ 
+            this.isLoading = true;
+
+            // convertir a imagen todos los graficos
+            const options = {
+                type: 'dataURL',
+                useCORS: true,
+            }
+            let porcentajes = await this.$html2canvas(this.$refs.porcentajes, options);
+            let torta1 = await this.torta1.exporting.getImage("png");
+            let torta2 = await this.torta2.exporting.getImage("png");
+            let torta3 = await this.torta3.exporting.getImage("png");
+            let torta4 = await this.torta4.exporting.getImage("png");
+            // convertir a imagen todos los graficos
+
+            const parametros = {
+                _token: this.csrf,
+                torta1: torta1,
+                torta2: torta2,
+                torta3: torta3,
+                torta4: torta4,
+                porcentajes: porcentajes,
+                topc: this.tasaOcupacionPorCorregimiento,
+                tasaOcupacion: this.tasaOcupacion,
+                PAE: this.PAE,
+                PET: this.PET
+            };
+            try {
+                await DashboardServiceSocioeconomico.exportarMercadoLaboral(parametros).then(respuesta => {
+                    this.rutaPdf = store.state.apiURL + respuesta.data.nombre;
+                    this.isLoading = false;
+                    this.$refs.modalpdf.show();
+                });
+            } catch (error) {
+                switch (error.response.status) {
+                    case 422:
+                    this.$swal("Error...!", "Ocurrio un error!", "error");
+                    break;
+                    default:
+                    this.$swal("Error...!", "Ocurrio un error!", "error");
+                    break;
+                }
+                this.isLoading = false;
+            }
+        },
+        cerrarModal() {
+            this.$refs.modalpdf.hide();
         }
     }
 }

@@ -83,89 +83,94 @@
     </style>
 </head>
 <body>
-    @if ($tipo == 1)
-        <h2 style="color: #5578eb; margin: 2px">Analfabetismo (Mayores de 15 años)</h2>  
-    @else
-        <h2 style="color: #5578eb; margin: 2px">Analfabetismo (Menores de 15 años)</h2>
-    @endif
-    <div style="padding: 10px">
-        <img src="{{$filtro}}" alt="grafico 1" style="width: 120%;height: auto;max-width: 120%;">
-    </div>
-    <hr>
-    <div style="padding: 10px;">
-        <img src="{{$grafico1}}" alt="grafico 1" style="width: 100%;height: auto;max-width: 100%;">
-    </div>
-    <div style="text-align: center">
-        <h3>Población analfabeta por grupo de edades</h3>
-        <br>
-        <img src="{{$torta}}" alt="grafico 1" style="height: 260px"><br>
-        <img src="{{$hm}}" alt="grafico 1" style="width: 450px">
-    </div>
-    <div style="page-break-after:always;"></div>
-    <div style="padding: 10px">
-        <h1>Listado de personas analfabetas</h1>
-        <br>
-        <table class="table" style="width: 100%; font-size: 13px">
-            <thead>
-            <tr>
-                <th>
-                    ID
-                </th>
-                <th>
-                    Nombre
-                </th>
-                <th>
-                    Sexo
-                </th>
-                <th>
-                    Edad
-                </th>
-                <th>
-                    Localizacion
-                </th>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach($datos["jefesAnalfabetas"] as $item)
+    <footer>
+        {{$ente}} - Fecha de reporte: <?php echo date("d/m/Y H:i:s");?> 
+    </footer>
+    <main>
+        @if ($tipo == 1)
+            <h2 style="color: #5578eb; margin: 2px">Analfabetismo (Mayores de 15 años)</h2>  
+        @else
+            <h2 style="color: #5578eb; margin: 2px">Analfabetismo (Menores de 15 años)</h2>
+        @endif
+        <div style="padding: 10px">
+            <img src="{{$filtro}}" alt="grafico 1" style="width: 120%;height: auto;max-width: 120%;">
+        </div>
+        <hr>
+        <div style="padding: 10px;">
+            <img src="{{$grafico1}}" alt="grafico 1" style="width: 100%;height: auto;max-width: 100%;">
+        </div>
+        <div style="text-align: center">
+            <h3>Población analfabeta por grupo de edades</h3>
+            <br>
+            <img src="{{$torta}}" alt="grafico 1" style="height: 260px"><br>
+            <img src="{{$hm}}" alt="grafico 1" style="width: 450px">
+        </div>
+        <div style="page-break-after:always;"></div>
+        <div style="padding: 10px">
+            <h1>Listado de personas analfabetas</h1>
+            <br>
+            <table class="table" style="width: 100%; font-size: 13px">
+                <thead>
                 <tr>
-                    <td>
-                        {{$item["tipo_id"]}} - {{$item["identificacion"]}}
-                    </td>
-                    <td>
-                        {{$item["pnom"]}} {{$item["snom"]}} {{$item["pape"]}} {{$item["sape"]}}
-                    </td>
-                    <td>
-                        {{$item["sexo"]}}
-                    </td>
-                    <td>
-                        {{$item["edad"]}} Años
-                    </td>
-                    <td>
-                        {{$item["localizacion"]}}
-                    </td>
+                    <th>
+                        ID
+                    </th>
+                    <th>
+                        Nombre
+                    </th>
+                    <th>
+                        Sexo
+                    </th>
+                    <th>
+                        Edad
+                    </th>
+                    <th>
+                        Localizacion
+                    </th>
                 </tr>
-            @endforeach
-            @foreach($datos["integrantesAnalfabetas"] as $item)
-                <tr>
-                    <td>
-                        {{$item["tipo_id"]}} - {{$item["identificacion"]}}
-                    </td>
-                    <td>
-                        {{$item["pnom"]}} {{$item["snom"]}} {{$item["pape"]}} {{$item["sape"]}}
-                    </td>
-                    <td>
-                        {{$item["sexo"]}}
-                    </td>
-                    <td>
-                        {{$item["edad"]}} Años
-                    </td>
-                    <td>
-                        {{$item["localizacion"]}}
-                    </td>
-                </tr>
-            @endforeach
-            </tbody>
-        </table>
-    </div>    
+                </thead>
+                <tbody>
+                @foreach($datos["jefesAnalfabetas"] as $item)
+                    <tr>
+                        <td>
+                            {{$item["tipo_id"]}} - {{$item["identificacion"]}}
+                        </td>
+                        <td>
+                            {{$item["pnom"]}} {{$item["snom"]}} {{$item["pape"]}} {{$item["sape"]}}
+                        </td>
+                        <td>
+                            {{$item["sexo"]}}
+                        </td>
+                        <td>
+                            {{$item["edad"]}} Años
+                        </td>
+                        <td>
+                            {{$item["localizacion"]}}
+                        </td>
+                    </tr>
+                @endforeach
+                @foreach($datos["integrantesAnalfabetas"] as $item)
+                    <tr>
+                        <td>
+                            {{$item["tipo_id"]}} - {{$item["identificacion"]}}
+                        </td>
+                        <td>
+                            {{$item["pnom"]}} {{$item["snom"]}} {{$item["pape"]}} {{$item["sape"]}}
+                        </td>
+                        <td>
+                            {{$item["sexo"]}}
+                        </td>
+                        <td>
+                            {{$item["edad"]}} Años
+                        </td>
+                        <td>
+                            {{$item["localizacion"]}}
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
+    </main>    
 </body>
 </html>

@@ -19,3 +19,7 @@ export function mercadoLaboral() {
 export function exportarAnalfabetas($data) {
     return http().post('/socioeconomico/exportar-analfabetas', $data);
 }
+
+export function exportarMercadoLaboral($data) {
+    return http().post('/socioeconomico/exportar-mc', $data);
+}

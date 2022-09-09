@@ -198,3 +198,4 @@ Route::get('/socioeconomico/por-persona', 'SocioeconomicoController@socioEconomi
 Route::get('/socioeconomico/desempleo', 'SocioeconomicoController@desempleo');
 Route::get('/socioeconomico/mercado-laboral', 'SocioeconomicoController@mercadoLaboral');
 Route::post('/socioeconomico/exportar-analfabetas', 'SocioeconomicoController@exportarAnalfabetas');
+Route::post('/socioeconomico/exportar-mc', 'SocioeconomicoController@exportarMercadoLaboral');
