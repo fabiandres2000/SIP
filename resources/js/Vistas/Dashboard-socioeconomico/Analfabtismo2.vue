@@ -1,12 +1,21 @@
 <template lang="">
     <div>
+        <loading
+            :active.sync="isLoading"
+            :can-cancel="true"
+            loader="dots"
+            :height=128
+            :width=128
+            color="#007bff"
+            :is-full-page="true"
+        />
          <div ref="document">
             <div class="row">
                 <div class="col-lg-12" style="padding: 10px 10px 0px 20px;">
                     <h2>{{ente}}</h2>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" ref="filtro">
                 <div class="col-sm-3 col-lg-3 text-left" style="padding: 10px 10px 10px 20px;">
                     <h4>Aplicar filtro por:</h4>
                     <br/>
@@ -54,11 +63,11 @@
                 <div v-if="tipoCombo == 'corregimiento'" class="col-sm-1 col-lg-1 text-left" style="padding: 10px 10px 10px 20px;"></div>
                 <div v-if="tipoCombo != 'todos' && tipoCombo != 'barrio2'" class="col-sm-2 col-lg-2 text-left" style="padding: 10px 10px 10px 20px;"></div>
                 <div ref="boton1" class="col-sm-3 col-lg-3 text-right" style="padding: 10px 10px 10px 20px;">
-                    <button style="position: absolute;top: 55%;left: 48%;"  @click="exportToPDF()" class="btn btn-danger"><i class="fa fa-file" aria-hidden="true"></i> Exportar PDF</button>
+                    <button style="position: absolute;top: 55%;left: 48%;"  @click="exportToPDFAME15()" class="btn btn-danger"><i class="fa fa-file" aria-hidden="true"></i> Exportar PDF</button>
                 </div>
             </div>
             <hr>
-            <div class="row">
+            <div class="row" ref="grafico1">
                 <div class="col-lg-4 text-center">
                     <br >
                     <h4>Tasa de Analfabetismo</h4>
@@ -106,7 +115,7 @@
                     <h2>Población analfabeta por grupo de edades</h2>
                     <br/>
                     <div id="grafica_tas_ana_2" style="width: 100%; height: 400px"></div>
-                    <div class="row">
+                    <div class="row" ref="hm">
                         <div class="col-3"></div>
                         <div class="col-3"><p><span style="background-color: #67b7dc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> Niños</p></div>
                         <div class="col-2"></div>
@@ -169,6 +178,34 @@
                     </table>
                 </div>
             </div>
+            <b-modal
+                ref="modalpdf"
+                hide-footer
+                title="Reporte de Analfabetismo"
+                size="xl"
+                centered
+                header-bg-variant="danger"
+                header-text-variant="light"
+                :no-close-on-backdrop="true"
+            >
+                <embed
+                    id="divPdf"
+                    :src="rutaPdf"
+                    type="application/pdf"
+                    width="100%"
+                    height="650px"
+                />
+                <hr />
+                <div class="text-right">
+                    <button
+                        type="button"
+                        class="btn btn-warning"
+                        @click="cerrarModal"
+                    >
+                        <i class="fa fa-window-close"></i> Cancelar
+                    </button>
+                </div>
+            </b-modal>
         </div>
     </div>
 </template>
@@ -187,6 +224,7 @@ import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 am4core.useTheme(am4themes_animated);
+import store from "../../store";
 
 export default {
     components: { CircleProgress, Loading },
@@ -253,7 +291,10 @@ export default {
             comboVereda: "",
             veredas: [],
             tipoCombo: "todos",
-            loading: false
+            loading: false,
+            isLoading: false,
+            chartP: "",
+            rutaPdf: ""
         }
     },
     methods: {
@@ -381,7 +422,7 @@ export default {
 
             // Create chart instance
             var chart = am4core.create("grafica_tas_ana_2", am4charts.XYChart);
-
+            this.chartP = chart;
             // Add data
             chart.data = this.serie;
             // Use only absolute numbers
@@ -525,6 +566,50 @@ export default {
             }
 
             this.estadisticas();
+        },
+        async exportToPDFAME15(){ 
+            this.isLoading = true;
+
+            // convertir a imagen todos los graficos
+            const options = {
+                type: 'dataURL',
+                useCORS: true,
+            }
+            let imgData = await this.chartP.exporting.getImage("png");
+            let grafico1 = await this.$html2canvas(this.$refs.grafico1, options);
+            let filtro = await this.$html2canvas(this.$refs.filtro, options);
+            let hm = await this.$html2canvas(this.$refs.hm, options);
+            // convertir a imagen todos los graficos
+
+            const parametros = {
+                tipo: 2,
+                _token: this.csrf,
+                torta: imgData,
+                datos: this.datos,
+                grafico1: grafico1,
+                filtro: filtro,
+                hm: hm
+            };
+            try {
+                await DashboardServiceSocioeconomico.exportarAnalfabetas(parametros).then(respuesta => {
+                    this.rutaPdf = store.state.apiURL + respuesta.data.nombre;
+                    this.isLoading = false;
+                    this.$refs.modalpdf.show();
+                });
+            } catch (error) {
+                switch (error.response.status) {
+                    case 422:
+                    this.$swal("Error...!", "Ocurrio un error!", "error");
+                    break;
+                    default:
+                    this.$swal("Error...!", "Ocurrio un error!", "error");
+                    break;
+                }
+                this.isLoading = false;
+            }
+        },
+        cerrarModal() {
+            this.$refs.modalpdf.hide();
         }
     }
 }
