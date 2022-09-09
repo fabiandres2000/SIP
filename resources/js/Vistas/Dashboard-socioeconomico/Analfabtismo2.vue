@@ -126,23 +126,26 @@
                             :lng="longitud"
                         />
                     </div>
-                    <hr>
+                </div>
+                <div style="height: 385px; padding-top: 10%" class="col-lg-6 text-center" v-if="loading">
+                    <img  src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Loading_2.gif?20170503175831" alt="cargando">
+                </div>
+                <div class="col-lg-8">
+                    <h2>Listado de personas analfabetas</h2>
+                </div>
+                <div class="col-lg-4 text-right">
                     <vue-excel-xlsx
                         :data="dataExcel"
                         :columns="columns"
                         file-name="analfabetas"
                         :file-type="'xlsx'"
                         :sheet-name="'sheetname'"
-                        style = "background-color: green; color: white; border: 0px; padding: 5px; border-radius: 10px"
+                        style = "background-color: green; color: white; border: 0px; padding: 15px; border-radius: 5px"
                         >
                         Exportar a excel <i class="fa fa-table" aria-hidden="true"></i>
                     </vue-excel-xlsx>
                 </div>
-                <div style="height: 385px; padding-top: 10%" class="col-lg-6 text-center" v-if="loading">
-                    <img  src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Loading_2.gif?20170503175831" alt="cargando">
-                </div>
                 <div class="col-lg-12" ref="dataTable">
-                    <h2>Listado de personas analfabetas</h2>
                     <table id="tabla-ana2" class="table_data" style="width: 100%">
                         <thead>
                             <tr>
@@ -347,6 +350,7 @@ export default {
             $("#tabla-ana2").dataTable().fnDestroy();
             setTimeout(() => {
                 $('#tabla-ana2').DataTable({
+                    "lengthChange": false,
                     language: {
                         "decimal": "",
                         "emptyTable": "No hay información",

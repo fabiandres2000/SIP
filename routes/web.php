@@ -197,3 +197,4 @@ Route::get('/riesgos-ambientales/estadisticas-generales', 'RiesgosAmbientalesCon
 Route::get('/socioeconomico/por-persona', 'SocioeconomicoController@socioEconomicoPersonas');
 Route::get('/socioeconomico/desempleo', 'SocioeconomicoController@desempleo');
 Route::get('/socioeconomico/mercado-laboral', 'SocioeconomicoController@mercadoLaboral');
+Route::post('/socioeconomico/exportar-analfabetas', 'SocioeconomicoController@exportarAnalfabetas');

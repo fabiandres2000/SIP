@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
 use Session;
-
+use File;
 
 class SocioeconomicoController extends Controller
 {
@@ -26,6 +26,43 @@ class SocioeconomicoController extends Controller
             ];
 
             return response()->json($respuesta, 200);
+        }else {
+            return redirect("/index")->with("error", "Su sesion ha terminado");
+        }
+    }
+
+    public function exportarAnalfabetas() {
+        if (Auth::check()) {
+            
+            $tipo = request()->get('tipo');
+            $torta = request()->get('torta');
+            $datos = request()->get('datos');
+            $grafico1 = request()->get('grafico1');
+            $filtro = request()->get('filtro');
+            $hm = request()->get('hm');
+
+            $ente = Auth::user()->permisos->where('actual', 1)->first()->ente->nombre;
+            File::makeDirectory(public_path().'/'.$ente, $mode = 0777, true, true);
+
+            $nombre = 'socioeconomico_analfabetas.pdf';
+            $pdf = app('dompdf.wrapper');
+            $pdf->loadView('Pdf/Analfabetas', [
+                'grafico1' => $grafico1,  
+                'filtro' => $filtro, 
+                'torta' => $torta, 
+                'datos' => $datos, 
+                'hm' => $hm, 
+                'tipo' => $tipo, 
+            ])->setPaper('a4', 'landscape')
+            ->save( $ente.'/'.$nombre);
+
+
+            $respuesta = [
+                'nombre' => $ente.'/'.$nombre,
+            ];
+
+            return response()->json($respuesta, 200);
+
         }else {
             return redirect("/index")->with("error", "Su sesion ha terminado");
         }
@@ -52,9 +89,13 @@ class SocioeconomicoController extends Controller
         if (Auth::check()) {
            
             $tasaOcupacion = \App\SocioeconomicoDashboard::tasaOcupacion(Session::get('alias'));
+            $PAE = \App\SocioeconomicoDashboard::poblacionEconomicamenteActiva(Session::get('alias'));
+            $PET = \App\SocioeconomicoDashboard::personasEdadTrabajar(Session::get('alias'));
             
             $respuesta = [
                 'tasaOcupacion' => $tasaOcupacion,
+                'PAE' => $PAE,
+                'PET' => $PET,
             ];
 
             return response()->json($respuesta, 200);

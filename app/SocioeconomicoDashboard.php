@@ -401,11 +401,19 @@ class SocioeconomicoDashboard extends Model
             //  población económicamente activa
             $IFT =  DB::connection('mysql')->table($alias.'.integrantes')
             ->where('integrantes.estado', 'Activo')
+            ->where(function ($query) {
+                $query->whereIn('integrantes.tipo_empleo', ['2', '3', '4'])
+                    ->orWhere('integrantes.ocupacion', 9990);
+            })
             ->whereRaw('TIMESTAMPDIFF(YEAR, integrantes.fecha_nac, CURDATE()) >= 15')
             ->count();
             
             $JFT =  DB::connection('mysql')->table($alias.'.caracterizacion')
             ->where('caracterizacion.estado', 'Activo')
+            ->where(function ($query) {
+                $query->whereIn('caracterizacion.tipo_empleo', ['2', '3', '4'])
+                    ->orWhere('caracterizacion.ocupacion', 9990);
+            })
             ->whereRaw('TIMESTAMPDIFF(YEAR, caracterizacion.fecha_nacimiento, CURDATE()) >= 15')
             ->count();
 
@@ -500,6 +508,33 @@ class SocioeconomicoDashboard extends Model
                 }
             }
 
+            foreach ($porCorregimeinto as &$item) {
+                $personasTrabajarCorregimiento = DB::connection('mysql')->table($alias.'.caracterizacion')
+                ->join($alias.'.hogar', 'hogar.id','caracterizacion.id_hogar')
+                ->where('hogar.id_corre', $item->id_corre)
+                ->where('caracterizacion.estado', 'Activo')
+                ->where(function ($query) {
+                    $query->whereIn('caracterizacion.tipo_empleo', ['2', '3', '4'])
+                        ->orWhere('caracterizacion.ocupacion', 9990);
+                })
+                ->whereRaw('TIMESTAMPDIFF(YEAR, caracterizacion.fecha_nacimiento, CURDATE()) >= 15')
+                ->count();
+    
+                $personasTrabajarCorregimiento += DB::connection('mysql')->table($alias.'.integrantes')
+                ->join($alias.'.hogar', 'hogar.id','integrantes.id_hogar')
+                ->where('hogar.id_corre', $item->id_corre)
+                ->where('integrantes.estado', 'Activo')
+                ->where(function ($query) {
+                    $query->whereIn('integrantes.tipo_empleo', ['2', '3', '4'])
+                        ->orWhere('integrantes.ocupacion', 9990);
+                })
+                ->whereRaw('TIMESTAMPDIFF(YEAR, integrantes.fecha_nac, CURDATE()) >= 15')
+                ->count();
+    
+                $item->personas_edad_trabajo = $personasTrabajarCorregimiento;
+    
+                $item->tasa_odesempleo = ($item->numero_personas / $item->personas_edad_trabajo ) * 100;
+            }
             // por corregimiento
 
             $porcenfemeninoTD = 0;
@@ -755,21 +790,6 @@ class SocioeconomicoDashboard extends Model
         }
         //personas ocupadas general
 
-        // integrantes ocupados  por corregimiento
-        $porCorregimeintoTOI =  DB::connection('mysql')->table($alias.'.integrantes')
-        ->join($alias.'.hogar', 'hogar.id','integrantes.id_hogar')
-        ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
-        ->where('integrantes.estado', 'Activo')
-        ->whereIn('integrantes.tipo_empleo', ['2', '3', '4'])
-        ->select("hogar.id_corre")
-        ->selectRaw("COUNT(integrantes.id) as numero_personas")
-        ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as localizacion")
-        ->whereRaw('TIMESTAMPDIFF(YEAR, integrantes.fecha_nac, CURDATE()) >= 15')
-        ->groupBy("hogar.id_corre")
-        ->orderBy("numero_personas","DESC")
-        ->get();
-        // integrantes ocupados  por corregimiento
-
         // personas con empleo formal
         $personasEmpleoFormal =  DB::connection('mysql')->table($alias.'.caracterizacion')
         ->where('caracterizacion.estado', 'Activo')
@@ -853,6 +873,136 @@ class SocioeconomicoDashboard extends Model
             'porEmpleoIndependiente' => ($personasEmpleoIndependiente / $personasEdadTrabajar) * 100,
             'personasNA' => $personasNA,
             'personasSinEmpleo' => $personasSinEmpleo,
+        ];
+
+        return $info;
+    }
+
+    public static function poblacionEconomicamenteActiva($alias){
+        $PEAJH = DB::connection('mysql')->table($alias.'.caracterizacion')
+        ->join($alias.'.hogar', 'hogar.id','caracterizacion.id_hogar')
+        ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+        ->where('caracterizacion.estado', 'Activo')
+        ->where(function ($query) {
+            $query->whereIn('caracterizacion.tipo_empleo', ['2', '3', '4'])
+                ->orWhere('caracterizacion.ocupacion', 9990);
+        })
+        ->select('hogar.id_corre')
+        ->selectRaw("COUNT(caracterizacion.id) as numero_personas")
+        ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as localizacion")
+        ->whereRaw('TIMESTAMPDIFF(YEAR, caracterizacion.fecha_nacimiento, CURDATE()) >= 15')
+        ->groupBy("hogar.id_corre")
+        ->get();
+
+        $PEAI = DB::connection('mysql')->table($alias.'.integrantes')
+        ->join($alias.'.hogar', 'hogar.id','integrantes.id_hogar')
+        ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+        ->where('integrantes.estado', 'Activo')
+        ->where(function ($query) {
+            $query->whereIn('integrantes.tipo_empleo', ['2', '3', '4'])
+                ->orWhere('integrantes.ocupacion', 9990);
+        })
+        ->select('hogar.id_corre')
+        ->selectRaw("COUNT(integrantes.id) as numero_personas")
+        ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as localizacion")
+        ->whereRaw('TIMESTAMPDIFF(YEAR, integrantes.fecha_nac, CURDATE()) >= 15')
+        ->groupBy("hogar.id_corre")
+        ->get();
+
+        $porCorregimeinto = array();
+        foreach ($PEAI as &$item) {
+            $encontrado = false;
+            foreach ($PEAJH as &$item2) {
+                if($item->id_corre == $item2->id_corre){
+                    $item2->numero_personas += $item->numero_personas;
+                    $encontrado = true;
+                    $itemEncontrado = $item2;
+                }
+            }
+
+            if(!$encontrado){
+                array_push($porCorregimeinto, $item);
+            }else{
+                array_push($porCorregimeinto, $itemEncontrado);
+            }
+        }
+
+        $PAE = 0;
+        foreach ($porCorregimeinto as &$item) {
+            $PAE += $item->numero_personas;
+        }
+
+        $info = [
+            'porCorregimeinto' => $porCorregimeinto,
+            'PAE' => $PAE,
+        ];
+
+        return $info;
+    }
+
+    public static function personasEdadTrabajar($alias){
+
+        $poblacion = DB::connection('mysql')->table($alias.'.caracterizacion')
+        ->where('caracterizacion.estado', 'Activo')
+        ->select('caracterizacion.*')
+        ->count();
+
+        $poblacion += DB::connection('mysql')->table($alias.'.integrantes')
+        ->where('integrantes.estado', 'Activo')
+        ->select('integrantes.*')
+        ->count();
+
+
+        $PETJH = DB::connection('mysql')->table($alias.'.caracterizacion')
+        ->join($alias.'.hogar', 'hogar.id','caracterizacion.id_hogar')
+        ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+        ->where('caracterizacion.estado', 'Activo')
+        ->select('hogar.id_corre')
+        ->selectRaw("COUNT(caracterizacion.id) as numero_personas")
+        ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as localizacion")
+        ->whereRaw('TIMESTAMPDIFF(YEAR, caracterizacion.fecha_nacimiento, CURDATE()) >= 15')
+        ->groupBy("hogar.id_corre")
+        ->get();
+
+        $PETI = DB::connection('mysql')->table($alias.'.integrantes')
+        ->join($alias.'.hogar', 'hogar.id','integrantes.id_hogar')
+        ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+        ->where('integrantes.estado', 'Activo')
+        ->select('hogar.id_corre')
+        ->selectRaw("COUNT(integrantes.id) as numero_personas")
+        ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as localizacion")
+        ->whereRaw('TIMESTAMPDIFF(YEAR, integrantes.fecha_nac, CURDATE()) >= 15')
+        ->groupBy("hogar.id_corre")
+        ->get();
+
+        $porCorregimeinto = array();
+        foreach ($PETI as &$item) {
+            $encontrado = false;
+            foreach ($PETJH as &$item2) {
+                if($item->id_corre == $item2->id_corre){
+                    $item2->numero_personas += $item->numero_personas;
+                    $encontrado = true;
+                    $itemEncontrado = $item2;
+                }
+            }
+
+            if(!$encontrado){
+                array_push($porCorregimeinto, $item);
+            }else{
+                array_push($porCorregimeinto, $itemEncontrado);
+            }
+        }
+
+        $PET = 0;
+        foreach ($porCorregimeinto as &$item) {
+            $PET += $item->numero_personas;
+        }
+
+        $info = [
+            'porCorregimeinto' => $porCorregimeinto,
+            'PET' => $PET,
+            'porcenPET' => ($PET / $poblacion) * 100,
+            'poblacion' => $poblacion,
         ];
 
         return $info;

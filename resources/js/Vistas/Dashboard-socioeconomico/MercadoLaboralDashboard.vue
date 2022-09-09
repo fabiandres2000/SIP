@@ -52,7 +52,7 @@
                 <h4>(Por Tipo de Empleo)</h4>
             </div>
             <div class="col-lg-5">
-                <h3>Tasa de Ocupación por Corregimiento</h3>
+                <h3>Tasa de Ocupación (Por Corregimiento)</h3>
             </div>
             <div class="col-lg-2">
                 <vue-excel-xlsx
@@ -100,16 +100,13 @@
             <div class="col-lg-6 text-center">
                 <br>
                 <h3>Porcentaje de Población</h3>
-                <h3>Por Tipo de Empleo</h3>
-            </div>  
-        </div>
-        <div class="row">
-            <div class="col-lg-6 text-center">
+                <h3>(Por Tipo de Empleo)</h3>
                 <div id="chartdiv_ocupacion_pie_2" style="width: 100%; height: 300px"></div>
             </div>
             <div class="col-lg-6">
                 <br>
-                <br>
+                <h3>Numero de Personas</h3>
+                <h3>(Por Tipo de Empleo)</h3>
                 <br>
                 <table class="table_data" style="width: 100%">
                     <thead>
@@ -145,6 +142,66 @@
         </div> 
         <hr>
         <br>
+        <div class="row">
+            <div class="col-lg-6">
+                <br>
+                <h3>Poblacion Economicamente Activa ({{PAE.PAE}})</h3>
+                <br>
+                <table id="table_pae" class="table_data" style="width: 100%">
+                    <thead>
+                        <tr>
+                            <th>N0</th>
+                            <th>Corregimiento</th>
+                            <th>#Personas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(item, index) in PAE.porCorregimeinto">
+                            <td>{{ index+1 }}</td>
+                            <td>{{item.localizacion==""?'CASCO URBANO':item.localizacion}}</td>
+                            <td>{{item.numero_personas}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div> 
+            <div class="col-lg-6 text-center">
+                <br>
+                <h3>Poblacion Economicamente Activa</h3>
+                <h3>(Por Corregimeinto)</h3>
+                <div id="chartdiv_pae" style="width: 100%; height: 300px"></div>
+            </div>
+        </div>
+        <hr>
+        <br>
+        <div class="row">
+            <div class="col-lg-6">
+                <br>
+                <h3>Poblacion en Edad para Trabajar ({{PET.PET}})</h3>
+                <br>
+                <table id="table_pet" class="table_data" style="width: 100%">
+                    <thead>
+                        <tr>
+                            <th>N0</th>
+                            <th>Corregimiento</th>
+                            <th>#Personas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(item, index) in PET.porCorregimeinto">
+                            <td>{{ index+1 }}</td>
+                            <td>{{item.localizacion==""?'CASCO URBANO':item.localizacion}}</td>
+                            <td>{{item.numero_personas}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div> 
+            <div class="col-lg-6 text-center">
+                <br>
+                <h3>Poblacion en Edad para Trabajar</h3>
+                <h3>(Por Corregimeinto)</h3>
+                <div id="chartdiv_pet" style="width: 100%; height: 300px"></div>
+            </div>
+        </div>
     </div>
 </template>
 <script>
@@ -170,6 +227,8 @@ export default {
     props: [],
     data() {
         return {
+            PET: [],
+            PAE: [],
             tasaOcupacion: [],
             tasaOcupacionPorCorregimiento: [],
             columns: [
@@ -234,10 +293,14 @@ export default {
             await DashboardServiceSocioeconomico.mercadoLaboral()
             .then(respuesta => {
                 this.tasaOcupacion = respuesta.data.tasaOcupacion;
+                this.PAE = respuesta.data.PAE;
+                this.PET = respuesta.data.PET;
                 this.ordenarTasaOcupacion(this.tasaOcupacion.porCorregimeinto);
                 this.crearDataTable();
                 this.grafica_torta(this.tasaOcupacion);
                 this.grafica_torta2(this.tasaOcupacion);
+                this.grafica_torta3(this.PAE.porCorregimeinto);
+                this.grafica_torta4(this.PET.porCorregimeinto);
                 this.finalizado = true;
             })
             .catch(err => {
@@ -254,8 +317,63 @@ export default {
             setTimeout(() => {
                 $('#tabla_tasa_ocupacion').DataTable({
                     "lengthChange": false,
-                    "bFilter": false,
                     "ordering": false,
+                    pageLength : 5,
+                    language: {
+                        "decimal": "",
+                        "emptyTable": "No hay información",
+                        "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+                        "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+                        "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                        "infoPostFix": "",
+                        "thousands": ",",
+                        "lengthMenu": "Mostrar _MENU_ Entradas",
+                        "loadingRecords": "Cargando...",
+                        "processing": "Procesando...",
+                        "search": "Buscar:",
+                        "zeroRecords": "Sin resultados encontrados",
+                        "paginate": {
+                            "first": "Primero",
+                            "last": "Ultimo",
+                            "next": "Siguiente",
+                            "previous": "Anterior"
+                        }
+                    }
+                });
+            }, 500);
+
+            $("#table_pae").dataTable().fnDestroy();
+            setTimeout(() => {
+                $('#table_pae').DataTable({
+                    "lengthChange": false,
+                    pageLength : 5,
+                    language: {
+                        "decimal": "",
+                        "emptyTable": "No hay información",
+                        "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+                        "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+                        "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                        "infoPostFix": "",
+                        "thousands": ",",
+                        "lengthMenu": "Mostrar _MENU_ Entradas",
+                        "loadingRecords": "Cargando...",
+                        "processing": "Procesando...",
+                        "search": "Buscar:",
+                        "zeroRecords": "Sin resultados encontrados",
+                        "paginate": {
+                            "first": "Primero",
+                            "last": "Ultimo",
+                            "next": "Siguiente",
+                            "previous": "Anterior"
+                        }
+                    }
+                });
+            }, 500);
+
+            $("#table_pet").dataTable().fnDestroy();
+            setTimeout(() => {
+                $('#table_pet').DataTable({
+                    "lengthChange": false,
                     pageLength : 5,
                     language: {
                         "decimal": "",
@@ -281,7 +399,7 @@ export default {
             }, 500);
         },
         async grafica_torta(array) {
-            var chart = am4core.create("chartdiv_ocupacion_pie", am4charts.PieChart);
+            var chart = am4core.create("chartdiv_ocupacion_pie", am4charts.PieChart3D);
             chart.data = [
                 {
                     category: "Emp. Formal",
@@ -296,12 +414,12 @@ export default {
                     first: array.personasEmpleoIndependiente,
                 },
             ];
-            var series = chart.series.push(new am4charts.PieSeries());
+            var series = chart.series.push(new am4charts.PieSeries3D());
             series.dataFields.value = "first";
             series.dataFields.category = "category";
         },
         async grafica_torta2(array) {
-            var chart = am4core.create("chartdiv_ocupacion_pie_2", am4charts.PieChart);
+            var chart = am4core.create("chartdiv_ocupacion_pie_2", am4charts.PieChart3D);
             chart.data = [
                 {
                     category: "Emp. Formal",
@@ -324,7 +442,37 @@ export default {
                     first: array.personasSinEmpleo,
                 },
             ];
-            var series = chart.series.push(new am4charts.PieSeries());
+            var series = chart.series.push(new am4charts.PieSeries3D());
+            series.dataFields.value = "first";
+            series.dataFields.category = "category";
+        },
+        async grafica_torta3(array) {
+            var chart = am4core.create("chartdiv_pae", am4charts.PieChart3D);
+            chart.data = [];
+
+            for (let index = 0; index < array.length; index++) {
+                chart.data.push({
+                    category: array[index].localizacion==""?'CASCO URBANO':array[index].localizacion,
+                    first: array[index].numero_personas,
+                });     
+            }
+            
+            var series = chart.series.push(new am4charts.PieSeries3D());
+            series.dataFields.value = "first";
+            series.dataFields.category = "category";
+        },
+        async grafica_torta4(array) {
+            var chart = am4core.create("chartdiv_pet", am4charts.PieChart3D);
+            chart.data = [];
+
+            for (let index = 0; index < array.length; index++) {
+                chart.data.push({
+                    category: array[index].localizacion==""?'CASCO URBANO':array[index].localizacion,
+                    first: array[index].numero_personas,
+                });     
+            }
+            
+            var series = chart.series.push(new am4charts.PieSeries3D());
             series.dataFields.value = "first";
             series.dataFields.category = "category";
         }

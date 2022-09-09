@@ -78,6 +78,7 @@
                 <div class="col-lg-4 text-center">
                     <br >
                     <h4>Tasa de desempleo</h4>
+                    <h5>(General)</h5>
                     <circle-progress
                         stroke-bg-color = "#e3e2e1"
                         :r="80" 
@@ -90,7 +91,8 @@
                 </div> 
                 <div class="col-lg-4 text-center">
                     <br >
-                    <h4>Tasa de desempleo (Femenino)</h4>
+                    <h4>Tasa de desempleo</h4>
+                    <h5>(Femenino)</h5>
                     <circle-progress
                         stroke-bg-color = "#e3e2e1"
                         :r="80" 
@@ -103,7 +105,8 @@
                 </div>  
                 <div class="col-lg-4 text-center">
                     <br >
-                    <h4>Tasa de desempleo (Masculino)</h4>
+                    <h4>Tasa de desempleo</h4>
+                    <h5>(Masculino)</h5>
                     <circle-progress
                         stroke-bg-color = "#e3e2e1"
                         :r="80" 
@@ -118,29 +121,6 @@
             <br>
             <br>
             <div class="row">
-                <div v-if="tipoCombo == 'todos'" class="col-lg-12" ref="dataTable">
-                    <h2>Tasa de desempleo por corregimiento</h2>
-                    <table id="tabla-desempleados" class="table_data" style="width: 100%">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Corregimiento</th>
-                                <th># Personas</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr v-for="item in tasaDesempleo.porCorregimeinto">
-                                <td>{{item.id_corre}}</td>
-                                <td>{{item.localizacion==""?'CASCO URBANO':item.localizacion}}</td>
-                                <td>{{item.numero_personas}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <hr>
-                </div>
-            </div>
-            <br>
-            <div class="row">
                 <div class="col-lg-6" v-if="tipoCombo == 'todos'">
                     <h2>Top 5 corregimientos con mayor tasa de desempleo</h2>
                     <div id="chartdiv_desempleo" style="width: 100%; height: 410px"></div>
@@ -149,6 +129,33 @@
                     <h2>Porcentaje de Desempleados</h2>
                     <h3>(Por grupo de edad)</h3>
                     <div id="chartdiv_desempleo_2" style="width: 100%; height: 370px"></div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div v-if="tipoCombo == 'todos'" class="col-lg-12" ref="dataTable">
+                    <h2>Tasa de desempleo por corregimiento</h2>
+                    <table id="tabla-desempleados" class="table_data" style="width: 100%">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Corregimiento</th>
+                                <th># Personas Desempleadas</th>
+                                <th># Personas FT</th>
+                                <th>Tasa de Desempleo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="(item, index) in tasaDesempleo.porCorregimeinto">
+                                <td>{{ index+1 }}</td>
+                                <td>{{item.localizacion==""?'CASCO URBANO':item.localizacion}}</td>
+                                <td>{{item.numero_personas}}</td>
+                                <td>{{item.personas_edad_trabajo}}</td>
+                                <td>{{Math.floor(item.tasa_odesempleo * 10) / 10}} %</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <hr>
                 </div>
             </div>
         </div>
@@ -293,6 +300,9 @@ export default {
             this.dataExcel.splice(0);
             await DashboardServiceSocioeconomico.desempleo(this.tipo, this.id_combo).then(respuesta => {
                 this.tasaDesempleo = respuesta.data["tasaDesempleo"]; 
+                this.tasaDesempleo.porCorregimeinto.sort(function(a, b){
+                    return a.tasa_odesempleo - b.tasa_odesempleo;
+                });
                 this.crearDataTable();
                 this.loading = false;
                 this.finalizado = true;
@@ -316,6 +326,7 @@ export default {
             $("#tabla-desempleados").dataTable().fnDestroy();
             setTimeout(() => {
                 $('#tabla-desempleados').DataTable({
+                    "ordering": false,
                     language: {
                         "decimal": "",
                         "emptyTable": "No hay información",
@@ -437,7 +448,7 @@ export default {
         async grafica_barras(array) {
            
            am4core.useTheme(am4themes_animated);
-           var chart = am4core.create("chartdiv_desempleo", am4charts.XYChart);
+           var chart = am4core.create("chartdiv_desempleo", am4charts.XYChart3D);
            chart.paddingBottom = 50;
 
            chart.cursor = new am4charts.XYCursor();
@@ -456,7 +467,7 @@ export default {
            axisLabels.fontSize = 10;
 
            function createSeries(value, name) {
-               var series = chart.series.push(new am4charts.ColumnSeries());
+               var series = chart.series.push(new am4charts.ColumnSeries3D());
                series.dataFields.valueY = value;
                series.dataFields.categoryX = "category";
                series.name = name;
@@ -488,7 +499,7 @@ export default {
            createSeries("first", "Hombres");
         },
         async grafica_torta(array) {
-            var chart = am4core.create("chartdiv_desempleo_2", am4charts.PieChart);
+            var chart = am4core.create("chartdiv_desempleo_2", am4charts.PieChart3D);
             chart.data = [
                 {
                     category: "15 - 17 Años",
@@ -507,7 +518,7 @@ export default {
                     first: array.d60,
                 },
             ];
-            var series = chart.series.push(new am4charts.PieSeries());
+            var series = chart.series.push(new am4charts.PieSeries3D());
             series.dataFields.value = "first";
             series.dataFields.category = "category";
         }

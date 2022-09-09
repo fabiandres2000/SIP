@@ -15,3 +15,7 @@ export function desempleo($tipo, $id) {
 export function mercadoLaboral() {
     return http().get('/socioeconomico/mercado-laboral');
 }
+
+export function exportarAnalfabetas($data) {
+    return http().post('/socioeconomico/exportar-analfabetas', $data);
+}
