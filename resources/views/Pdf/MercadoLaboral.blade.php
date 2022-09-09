@@ -89,10 +89,10 @@
     <main>
         <h1 style="color: #5578eb; margin: 2px">{{$ente}}</h1>  
         <h2 style="color: #5578eb; margin: 2px">Mercado Laboral</h2>  
-        <div>
+        <div style="margin-top: 200px">
             <img src="{{$porcentajes}}" alt="grafico 1" style="width: 100%;height: auto;max-width: 100%;">
         </div>
-        <br>
+        <div style="page-break-after:always;"></div>
         <div style="text-align: center">
             <h2>Tasa de Ocupación</h2>
             <h4>(Por Tipo de Empleo)</h4>
