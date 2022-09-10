@@ -170,7 +170,7 @@
             <b-modal
                 ref="modalpdf"
                 hide-footer
-                title="Reporte de Analfabetismo"
+                title="Reporte de Desempleo"
                 size="xl"
                 centered
                 header-bg-variant="danger"

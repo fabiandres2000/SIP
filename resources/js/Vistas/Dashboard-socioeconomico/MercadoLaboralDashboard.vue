@@ -220,7 +220,7 @@
         <b-modal
             ref="modalpdf"
             hide-footer
-            title="Reporte de Analfabetismo"
+            title="Reporte Mercado Laboral"
             size="xl"
             centered
             header-bg-variant="danger"
