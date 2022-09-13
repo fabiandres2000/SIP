@@ -186,5 +186,21 @@ class SocioeconomicoController extends Controller
             return redirect("/index")->with("error", "Su sesion ha terminado");
         }
     }
+
+    public function poblacion() {
+        $tipo = request()->get('tipo');
+        $id = request()->get('id');
+
+        if (Auth::check()) {
+
+            $poblacion = \App\SocioeconomicoDashboard::poblacion(Session::get('alias'), $tipo, $id);
+            
+            $respuesta = [
+                'poblacion' => $poblacion,
+            ];
+
+            return response()->json($respuesta, 200);
+        }
+    }
     
 }

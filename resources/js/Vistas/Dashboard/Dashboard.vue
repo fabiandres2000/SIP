@@ -119,18 +119,14 @@
                                     </p>
                                 </vue-ellipse-progress>
                             </div>
-                            <div class="col-md-4" style="text-align: right;">
+                            <div class="col-md-4" style="text-align: center; padding-top: 25px;">
+                                <h4>Número Total de Personas (Por Sexo)</h4>
                                 <apexchart
                                     type="bar"
                                     height="200"
                                     :options="chartOptions_bar"
                                     :series="series_bar"
                                 ></apexchart>
-                                <a
-                                    href="javascript:void(0);"
-                                    style="font-weight: 500"
-                                    >Ver detalles ></a
-                                >
                             </div>
                         </div>
                     </div>
@@ -139,10 +135,10 @@
         </div>
         <br />
         <div class="row justify-content-center">
-            <div class="col-lg-8" style="overflow: auto">
+            <div class="col-lg-8" style="overflow: auto; ">
                 <div
                     class="card redondo"
-                    style="margin-top: 0px;height: 450px;"
+                    style="margin-top: 0px;height: 450px; padding-top: 70px;"
                 >
                     <div class="card-body">
                         <div class="row">

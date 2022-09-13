@@ -1015,4 +1015,455 @@ class SocioeconomicoDashboard extends Model
 
         return $info;
     }
+
+    public static function poblacion($alias, $tipo, $id){
+        if($tipo == "todos"){
+            $jefes =  DB::connection('mysql')->table($alias.'.caracterizacion')
+            ->where('caracterizacion.estado', 'Activo')
+            ->select("caracterizacion.*")
+            ->selectRaw('TIMESTAMPDIFF(YEAR, caracterizacion.fecha_nacimiento, CURDATE()) as edad')
+            ->get();
+    
+            $integrantes =  DB::connection('mysql')->table($alias.'.integrantes')
+            ->where('integrantes.estado', 'Activo')
+            ->select("integrantes.*")
+            ->selectRaw('TIMESTAMPDIFF(YEAR, integrantes.fecha_nac, CURDATE()) as edad')
+            ->get();
+
+            $personas_caracterizadas = count($jefes)+count($integrantes);
+
+            $arrayPersonas = array();
+
+            foreach ($jefes as &$item) {
+                array_push($arrayPersonas, $item);
+            }
+
+            foreach ($integrantes as &$item) {
+               array_push($arrayPersonas, $item);
+            }
+
+            //dividir por sexo
+            $masculino = 0;
+            $femenino = 0;
+
+            foreach ($arrayPersonas as &$item) {
+                if($item->sexo == "MASCULINO"){
+                    $masculino += 1;
+                }else{
+                    $femenino += 1;
+                } 
+            }
+            //dividir por sexo
+
+            //dividir por edad
+            $personas0_1 = [0,0];
+            $personas1_5 = [0,0];
+            $personas6_11 = [0,0];
+            $personas12_17 = [0,0];
+            $personas18_28 = [0,0];
+            $personas29_59 = [0,0];
+            $personas60 = [0,0];
+            foreach ($arrayPersonas as &$item) {
+                if ($item->edad ==0) {
+                    if($item->sexo == "MASCULINO"){
+                        $personas0_1[0] = $personas0_1[0] + 1;
+                    }else{
+                        $personas0_1[1] = $personas0_1[1] + 1;
+                    } 
+                }
+                if ($item->edad >=1 && $item->edad <=5) {
+                    if($item->sexo == "MASCULINO"){
+                        $personas1_5[0] = $personas1_5[0] + 1;
+                    }else{
+                        $personas1_5[1] = $personas1_5[1] + 1;
+                    } 
+                }
+                if ($item->edad >=6 && $item->edad <=11) {
+                    if($item->sexo == "MASCULINO"){
+                        $personas6_11[0] = $personas6_11[0] + 1;
+                    }else{
+                        $personas6_11[1] = $personas6_11[1] + 1;
+                    } 
+                }
+                if ($item->edad >=12 && $item->edad <=17) {
+                    if($item->sexo == "MASCULINO"){
+                        $personas12_17[0] = $personas12_17[0] + 1;
+                    }else{
+                        $personas12_17[1] = $personas12_17[1] + 1;
+                    } 
+                }
+                if ($item->edad >=18 && $item->edad <=28) {
+                    if($item->sexo == "MASCULINO"){
+                        $personas18_28[0] = $personas18_28[0] + 1;
+                    }else{
+                        $personas18_28[1] = $personas18_28[1] + 1;
+                    } 
+                }
+                if ($item->edad >=29 && $item->edad <=59) {
+                    if($item->sexo == "MASCULINO"){
+                        $personas29_59[0] = $personas29_59[0] + 1;
+                    }else{
+                        $personas29_59[1] = $personas29_59[1] + 1;
+                    } 
+                }
+                if ($item->edad >=60) {
+                    if($item->sexo == "MASCULINO"){
+                        $personas60[0] = $personas60[0] + 1;
+                    }else{
+                        $personas60[1] = $personas60[1] + 1;
+                    } 
+                }
+            }
+            $edades = [
+                'personas0_1' => $personas0_1 ,
+                'personas1_5' => $personas1_5 ,
+                'personas6_11' => $personas6_11 ,
+                'personas12_17' => $personas12_17 ,
+                'personas18_28' => $personas18_28 ,
+                'personas29_59' => $personas29_59 ,
+                'personas60' => $personas60
+            ];
+            //dividir por edad
+
+            //dividir por nivel de escolaridad
+
+            $escol_jefes =  DB::connection('mysql')->table($alias.'.caracterizacion')
+            ->join($alias.'.escolaridad', 'escolaridad.id','caracterizacion.nivel_escolaridad')
+            ->where('caracterizacion.estado', 'Activo')
+            ->select("escolaridad.descripcion as escolaridad_nombre")
+            ->selectRaw("COUNT(caracterizacion.id) as numero_personas")
+            ->groupBy("escolaridad_nombre")
+            ->get();
+    
+            $escol_integ =  DB::connection('mysql')->table($alias.'.integrantes')
+            ->join($alias.'.escolaridad', 'escolaridad.id','integrantes.escolaridad')
+            ->where('integrantes.estado', 'Activo')
+            ->select("escolaridad.descripcion as escolaridad_nombre")
+            ->selectRaw("COUNT(integrantes.id) as numero_personas")
+            ->groupBy("escolaridad_nombre")
+            ->get();
+
+            $porEscolaridad = array();
+            foreach ($escol_integ as &$item) {
+                $encontrado = false;
+                foreach ($escol_jefes as &$item2) {
+                    if($item->escolaridad_nombre == $item2->escolaridad_nombre){
+                        $item2->numero_personas += $item->numero_personas;
+                        $encontrado = true;
+                        $itemEncontrado = $item2;
+                    }
+                }
+
+                if(!$encontrado){
+                    array_push($porEscolaridad, $item);
+                }else{
+                    array_push($porEscolaridad, $itemEncontrado);
+                }
+            }
+
+            foreach ($escol_jefes as &$item) {
+                $encontrado = false;
+                foreach ($escol_integ as &$item2) {
+                    if($item->escolaridad_nombre == $item2->escolaridad_nombre){
+                        $encontrado = true;
+                    }
+                }
+
+                if(!$encontrado){
+                    array_push($porEscolaridad, $item);
+                }
+            }
+
+            //dividir por nivel de escolaridad
+
+            //dividir por poblacion migrante
+            $numero_migrantes = 0;
+            $numero_no_migrantes = 0;
+
+            foreach ($arrayPersonas as &$item) {
+                if($item->migrante == "SI"){
+                    $numero_migrantes += 1;
+                }else{
+                    $numero_no_migrantes +=1;
+                }
+            }
+
+            $migrantes = [
+                'numero_migrantes' => $numero_migrantes,
+                'numero_no_migrantes' => $numero_no_migrantes,
+            ];
+
+            //dividir por poblacion migrante
+
+            // mujeres enbarazadas por edad
+            $me6_11 = 0;
+            $me12_17 = 0;
+            $me17_28 = 0;
+            $me29_59 = 0;
+            foreach ($arrayPersonas as &$item) {
+                if($item->embarazo == "SI"){
+                    if ($item->edad >=6 && $item->edad <=11) {
+                        $me6_11 += 1; 
+                    }
+                    if ($item->edad >=12 && $item->edad <=17) {
+                        $me12_17 += 1;
+                    }
+                    if ($item->edad >=18 && $item->edad <=28) {
+                        $me17_28 += 1;
+                    }
+                    if ($item->edad >=29 && $item->edad <=59) {
+                        $me29_59 += 1;
+                    }
+                }
+            }
+
+            $mujeres_embarazadas = [
+                'me6_11' => $me6_11,
+                'me12_17' => $me12_17,
+                'me17_28' => $me17_28,
+                'me29_59' => $me29_59,
+            ];
+            // mujeres enbarazadas por edad
+            
+            $info = [
+                'personas_caracterizadas' => $personas_caracterizadas,
+                'masculino' => $masculino,
+                'femenino' => $femenino,
+                'edades' => $edades,
+                'porEscolaridad' => $porEscolaridad,
+                'migrantes' => $migrantes,
+                'mujeres_embarazadas' => $mujeres_embarazadas
+            ];
+    
+            return $info;
+        }else{
+
+            $jefes =  DB::connection('mysql')->table($alias.'.caracterizacion')
+            ->join($alias.'.hogar', 'hogar.id','caracterizacion.id_hogar')
+            ->where('caracterizacion.estado', 'Activo')
+            ->where('hogar.id_'.$tipo, $id)
+            ->select("caracterizacion.*")
+            ->selectRaw('TIMESTAMPDIFF(YEAR, caracterizacion.fecha_nacimiento, CURDATE()) as edad')
+            ->get();
+    
+            $integrantes =  DB::connection('mysql')->table($alias.'.integrantes')
+            ->join($alias.'.hogar', 'hogar.id','integrantes.id_hogar')
+            ->where('integrantes.estado', 'Activo')
+            ->where('hogar.id_'.$tipo, $id)
+            ->select("integrantes.*")
+            ->selectRaw('TIMESTAMPDIFF(YEAR, integrantes.fecha_nac, CURDATE()) as edad')
+            ->get();
+
+            $personas_caracterizadas = count($jefes)+count($integrantes);
+
+            $arrayPersonas = array();
+
+            foreach ($jefes as &$item) {
+                array_push($arrayPersonas, $item);
+            }
+
+            foreach ($integrantes as &$item) {
+               array_push($arrayPersonas, $item);
+            }
+
+            //dividir por sexo
+            $masculino = 0;
+            $femenino = 0;
+
+            foreach ($arrayPersonas as &$item) {
+                if($item->sexo == "MASCULINO"){
+                    $masculino += 1;
+                }else{
+                    $femenino += 1;
+                } 
+            }
+            //dividir por sexo
+
+            //dividir por edad
+            $personas0_1 = [0,0];
+            $personas1_5 = [0,0];
+            $personas6_11 = [0,0];
+            $personas12_17 = [0,0];
+            $personas18_28 = [0,0];
+            $personas29_59 = [0,0];
+            $personas60 = [0,0];
+            foreach ($arrayPersonas as &$item) {
+                if ($item->edad ==0) {
+                    if($item->sexo == "MASCULINO"){
+                        $personas0_1[0] = $personas0_1[0] + 1;
+                    }else{
+                        $personas0_1[1] = $personas0_1[1] + 1;
+                    } 
+                }
+                if ($item->edad >=1 && $item->edad <=5) {
+                    if($item->sexo == "MASCULINO"){
+                        $personas1_5[0] = $personas1_5[0] + 1;
+                    }else{
+                        $personas1_5[1] = $personas1_5[1] + 1;
+                    } 
+                }
+                if ($item->edad >=6 && $item->edad <=11) {
+                    if($item->sexo == "MASCULINO"){
+                        $personas6_11[0] = $personas6_11[0] + 1;
+                    }else{
+                        $personas6_11[1] = $personas6_11[1] + 1;
+                    } 
+                }
+                if ($item->edad >=12 && $item->edad <=17) {
+                    if($item->sexo == "MASCULINO"){
+                        $personas12_17[0] = $personas12_17[0] + 1;
+                    }else{
+                        $personas12_17[1] = $personas12_17[1] + 1;
+                    } 
+                }
+                if ($item->edad >=18 && $item->edad <=28) {
+                    if($item->sexo == "MASCULINO"){
+                        $personas18_28[0] = $personas18_28[0] + 1;
+                    }else{
+                        $personas18_28[1] = $personas18_28[1] + 1;
+                    } 
+                }
+                if ($item->edad >=29 && $item->edad <=59) {
+                    if($item->sexo == "MASCULINO"){
+                        $personas29_59[0] = $personas29_59[0] + 1;
+                    }else{
+                        $personas29_59[1] = $personas29_59[1] + 1;
+                    } 
+                }
+                if ($item->edad >=60) {
+                    if($item->sexo == "MASCULINO"){
+                        $personas60[0] = $personas60[0] + 1;
+                    }else{
+                        $personas60[1] = $personas60[1] + 1;
+                    } 
+                }
+            }
+            $edades = [
+                'personas0_1' => $personas0_1 ,
+                'personas1_5' => $personas1_5 ,
+                'personas6_11' => $personas6_11 ,
+                'personas12_17' => $personas12_17 ,
+                'personas18_28' => $personas18_28 ,
+                'personas29_59' => $personas29_59 ,
+                'personas60' => $personas60
+            ];
+            //dividir por edad
+
+            //dividir por nivel de escolaridad
+
+            $escol_jefes =  DB::connection('mysql')->table($alias.'.caracterizacion')
+            ->join($alias.'.hogar', 'hogar.id','caracterizacion.id_hogar')
+            ->join($alias.'.escolaridad', 'escolaridad.id','caracterizacion.nivel_escolaridad')
+            ->where('caracterizacion.estado', 'Activo')
+            ->where('hogar.id_'.$tipo, $id)
+            ->select("escolaridad.descripcion as escolaridad_nombre")
+            ->selectRaw("COUNT(caracterizacion.id) as numero_personas")
+            ->groupBy("escolaridad_nombre")
+            ->get();
+    
+            $escol_integ =  DB::connection('mysql')->table($alias.'.integrantes')
+            ->join($alias.'.hogar', 'hogar.id','integrantes.id_hogar')
+            ->join($alias.'.escolaridad', 'escolaridad.id','integrantes.escolaridad')
+            ->where('integrantes.estado', 'Activo')
+            ->where('hogar.id_'.$tipo, $id)
+            ->select("escolaridad.descripcion as escolaridad_nombre")
+            ->selectRaw("COUNT(integrantes.id) as numero_personas")
+            ->groupBy("escolaridad_nombre")
+            ->get();
+
+            $porEscolaridad = array();
+            foreach ($escol_integ as &$item) {
+                $encontrado = false;
+                foreach ($escol_jefes as &$item2) {
+                    if($item->escolaridad_nombre == $item2->escolaridad_nombre){
+                        $item2->numero_personas += $item->numero_personas;
+                        $encontrado = true;
+                        $itemEncontrado = $item2;
+                    }
+                }
+
+                if(!$encontrado){
+                    array_push($porEscolaridad, $item);
+                }else{
+                    array_push($porEscolaridad, $itemEncontrado);
+                }
+            }
+
+            foreach ($escol_jefes as &$item) {
+                $encontrado = false;
+                foreach ($escol_integ as &$item2) {
+                    if($item->escolaridad_nombre == $item2->escolaridad_nombre){
+                        $encontrado = true;
+                    }
+                }
+
+                if(!$encontrado){
+                    array_push($porEscolaridad, $item);
+                }
+            }
+
+            //dividir por nivel de escolaridad
+
+            //dividir por poblacion migrante
+            $numero_migrantes = 0;
+            $numero_no_migrantes = 0;
+
+            foreach ($arrayPersonas as &$item) {
+                if($item->migrante == "SI"){
+                    $numero_migrantes += 1;
+                }else{
+                    $numero_no_migrantes +=1;
+                }
+            }
+
+            $migrantes = [
+                'numero_migrantes' => $numero_migrantes,
+                'numero_no_migrantes' => $numero_no_migrantes,
+            ];
+
+            //dividir por poblacion migrante
+
+            // mujeres enbarazadas por edad
+            $me6_11 = 0;
+            $me12_17 = 0;
+            $me17_28 = 0;
+            $me29_59 = 0;
+            foreach ($arrayPersonas as &$item) {
+                if($item->embarazo == "SI"){
+                    if ($item->edad >=6 && $item->edad <=11) {
+                        $me6_11 += 1; 
+                    }
+                    if ($item->edad >=12 && $item->edad <=17) {
+                        $me12_17 += 1;
+                    }
+                    if ($item->edad >=18 && $item->edad <=28) {
+                        $me17_28 += 1;
+                    }
+                    if ($item->edad >=29 && $item->edad <=59) {
+                        $me29_59 += 1;
+                    }
+                }
+            }
+
+            $mujeres_embarazadas = [
+                'me6_11' => $me6_11,
+                'me12_17' => $me12_17,
+                'me17_28' => $me17_28,
+                'me29_59' => $me29_59,
+            ];
+            // mujeres enbarazadas por edad
+            
+            $info = [
+                'personas_caracterizadas' => $personas_caracterizadas,
+                'masculino' => $masculino,
+                'femenino' => $femenino,
+                'edades' => $edades,
+                'porEscolaridad' => $porEscolaridad,
+                'migrantes' => $migrantes,
+                'mujeres_embarazadas' => $mujeres_embarazadas
+            ];
+    
+            return $info;
+        }
+    }
 }

@@ -266,7 +266,7 @@ export default {
                     field: "sexo",
                 },
                 {
-                    label: "EDAD",
+                    label: "EDAD (Años)",
                     field: "edad",
                 },
                 {
@@ -289,8 +289,8 @@ export default {
             veredas: [],
             tipoCombo: "todos",
             loading: false,
-            torta1: "",
-            torta2: "",
+            torta1: null,
+            torta2: null,
             isLoading: false,
             rutaPdf: ""
         }
@@ -486,49 +486,52 @@ export default {
         },
         async grafica_barras(array) {
            
-           am4core.useTheme(am4themes_animated);
-           var chart = am4core.create("chartdiv_desempleo", am4charts.XYChart3D);
-           this.torta1 = chart;
-           chart.paddingBottom = 50;
+            am4core.useTheme(am4themes_animated);
+            if(this.torta1 != null){
+                this.torta1.dispose();
+            }
+            var chart = am4core.create("chartdiv_desempleo", am4charts.XYChart3D);
+            this.torta1 = chart;
+            chart.paddingBottom = 50;
 
-           chart.cursor = new am4charts.XYCursor();
-           chart.scrollbarX = new am4core.Scrollbar();
-           chart.scrollbarX.end = 1;
-           chart.colors.step = 3;
+            chart.cursor = new am4charts.XYCursor();
+            chart.scrollbarX = new am4core.Scrollbar();
+            chart.scrollbarX.end = 1;
+            chart.colors.step = 3;
 
-           var xAxis = chart.xAxes.push(new am4charts.CategoryAxis());
-           xAxis.dataFields.category = "category";
-           xAxis.renderer.minGridDistance = 30;
+            var xAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+            xAxis.dataFields.category = "category";
+            xAxis.renderer.minGridDistance = 30;
 
-           var yAxis = chart.yAxes.push(new am4charts.ValueAxis());
-           yAxis.min = 0;
+            var yAxis = chart.yAxes.push(new am4charts.ValueAxis());
+            yAxis.min = 0;
 
-           var axisLabels = xAxis.renderer.labels.template;
-           axisLabels.fontSize = 10;
+            var axisLabels = xAxis.renderer.labels.template;
+            axisLabels.fontSize = 10;
 
-           function createSeries(value, name) {
-               var series = chart.series.push(new am4charts.ColumnSeries3D());
-               series.dataFields.valueY = value;
-               series.dataFields.categoryX = "category";
-               series.name = name;
+            function createSeries(value, name) {
+                var series = chart.series.push(new am4charts.ColumnSeries3D());
+                series.dataFields.valueY = value;
+                series.dataFields.categoryX = "category";
+                series.name = name;
 
-               var bullet = series.bullets.push(new am4charts.LabelBullet());
-               bullet.interactionsEnabled = false;
-               bullet.dy = 30;
-               bullet.label.text = "{valueY}";
-               bullet.label.fill = am4core.color("#ffffff");
-               return series;
-           }
+                var bullet = series.bullets.push(new am4charts.LabelBullet());
+                bullet.interactionsEnabled = false;
+                bullet.dy = 30;
+                bullet.label.text = "{valueY}";
+                bullet.label.fill = am4core.color("#ffffff");
+                return series;
+            }
 
-           chart.data = [];
-           if(array.length <= 5){
+            chart.data = [];
+            if(array.length <= 5){
                 for (let index = 0; index < array.length; index++) {
                     chart.data.push({
                         category: array[index].localizacion==""?'CASCO URBANO':array[index].localizacion,
                         first: array[index].numero_personas,
                     });     
                 }
-           }else{
+            }else{
                 for (let index = 0; index < 5; index++) {
                     chart.data.push({
                         category: array[index].localizacion==""?'CASCO URBANO':array[index].localizacion,
@@ -539,6 +542,9 @@ export default {
            createSeries("first", "Hombres");
         },
         async grafica_torta(array) {
+            if(this.torta2 != null){
+                this.torta2.dispose();
+            }
             var chart = am4core.create("chartdiv_desempleo_2", am4charts.PieChart3D);
             this.torta2 = chart;
             chart.data = [

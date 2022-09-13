@@ -294,10 +294,10 @@ export default {
                 },
             ],
             finalizado: false,
-            torta1: "",
-            torta2: "",
-            torta3: "",
-            torta4: "",
+            torta1: null,
+            torta2: null,
+            torta3: null,
+            torta4: null,
             isLoading: false,
             rutaPdf: ""
         }

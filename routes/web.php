@@ -200,3 +200,4 @@ Route::get('/socioeconomico/mercado-laboral', 'SocioeconomicoController@mercadoL
 Route::post('/socioeconomico/exportar-analfabetas', 'SocioeconomicoController@exportarAnalfabetas');
 Route::post('/socioeconomico/exportar-mc', 'SocioeconomicoController@exportarMercadoLaboral');
 Route::post('/socioeconomico/exportar-desempleo', 'SocioeconomicoController@exportarDesempleo');
+Route::get('/socioeconomico/poblacion', 'SocioeconomicoController@poblacion');

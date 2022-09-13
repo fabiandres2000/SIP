@@ -276,6 +276,10 @@ export default {
                     field: "sape",
                 },
                 {
+                    label: "EDAD (Años)",
+                    field: "edad",
+                },
+                {
                     label: "SEXO",
                     field: "sexo",
                 },
@@ -296,7 +300,7 @@ export default {
             tipoCombo: "todos",
             loading: false,
             isLoading: false,
-            chartP: "",
+            chartP: null,
             rutaPdf: ""
         }
     },
@@ -429,6 +433,9 @@ export default {
             // Themes end
 
             // Create chart instance
+            if(this.chartP != null){
+                this.chartP.dispose();
+            }
             var chart = am4core.create("grafica_tas_ana_1", am4charts.XYChart);
             this.chartP = chart;
             // Add data
