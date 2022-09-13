@@ -202,5 +202,49 @@ class SocioeconomicoController extends Controller
             return response()->json($respuesta, 200);
         }
     }
+
+    public function exportarPoblacion() {
+        if (Auth::check()) {
+            
+            $filtro = request()->get('filtro');
+            $imagenes = request()->get('imagenes');
+            $grafico1 = request()->get('grafico1');
+            $grafico2 = request()->get('grafico2');
+            $hmp = request()->get('hmp');
+            $grafico3 = request()->get('grafico3');
+            $grafico4 = request()->get('grafico4');
+            $grafico5 = request()->get('grafico5');
+            $grafico6 = request()->get('grafico6');
+
+            $ente = Auth::user()->permisos->where('actual', 1)->first()->ente->nombre;
+            File::makeDirectory(public_path().'/'.$ente, $mode = 0777, true, true);
+
+            $nombre = 'poblacional.pdf';
+            $pdf = app('dompdf.wrapper');
+            $pdf->loadView('Pdf/Poblacion', [
+                'filtro' => $filtro,
+                'ente' => $ente, 
+                'imagenes' => $imagenes,  
+                'grafico1' => $grafico1, 
+                'grafico2' => $grafico2, 
+                'hmp' => $hmp, 
+                'grafico3' => $grafico3, 
+                'grafico4' => $grafico4, 
+                'grafico5' => $grafico5, 
+                'grafico6' => $grafico6, 
+            ])->setPaper('a4', 'landscape')
+            ->save( $ente.'/'.$nombre);
+
+
+            $respuesta = [
+                'nombre' => $ente.'/'.$nombre,
+            ];
+
+            return response()->json($respuesta, 200);
+
+        }else {
+            return redirect("/index")->with("error", "Su sesion ha terminado");
+        }
+    }
     
 }

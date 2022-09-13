@@ -31,3 +31,7 @@ export function exportarDesempleo($data) {
 export function poblacion($tipo, $id) {
     return http().get('/socioeconomico/poblacion?tipo='+$tipo+'&id='+$id);
 }
+
+export function exportarPoblacion($data) {
+    return http().post('/socioeconomico/exportar-poblacion', $data);
+}

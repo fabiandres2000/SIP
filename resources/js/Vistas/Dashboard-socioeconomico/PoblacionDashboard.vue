@@ -93,12 +93,26 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-8">
-                                        <h2>Hombres</h2>
-                                        <p style="font-size: 57px; font-weight: 400; margin-bottom: -1rem; margin-top: -23px;">{{poblacion_array.masculino}}</p>
+                                    <div class="col-3">
+                                        <img style="opacity: 0.6" :src="imgWMen" width="120%" height="100%">
                                     </div>
-                                    <div class="col-4">
-                                        <img style="opacity: 0.6" :src="imgWMen" width="100%" height="100%">
+                                    <div class="col-5 justify-content-center align-self-center">
+                                        <h5>Hombres</h5>
+                                    </div>
+                                    <div class="col-4  justify-content-center align-self-center">
+                                        <p style="font-size: 27px; font-weight: 400; margin: 0px;">{{poblacion_array.hombres}}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <img style="opacity: 0.6" :src="imgNinios" width="120%" height="100%">
+                                    </div>
+                                    <div class="col-5  justify-content-center align-self-center">
+                                        <h5>Niños</h5>
+                                    </div>
+                                    <div class="col-4  justify-content-center align-self-center">
+                                        <p style="font-size: 27px; font-weight: 400; margin: 0px;">{{poblacion_array.ninios}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -108,12 +122,26 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-8">
-                                        <h2>Mujeres</h2>
-                                        <p style="font-size: 57px; font-weight: 400; margin-bottom: -1rem;; margin-top: -23px;">{{poblacion_array.femenino}}</p>
+                                    <div class="col-3">
+                                        <img style="opacity: 0.6" :src="imgWomen" width="120%" height="100%">
                                     </div>
-                                    <div class="col-4">
-                                        <img style="opacity: 0.6" :src="imgWomen" width="100%" height="100%">
+                                    <div class="col-5 justify-content-center align-self-center">
+                                        <h5>Mujeres</h5>
+                                    </div>
+                                    <div class="col-4  justify-content-center align-self-center">
+                                        <p style="font-size: 27px; font-weight: 400; margin: 0px;">{{poblacion_array.mujeres}}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <img style="opacity: 0.6" :src="imgNinias" width="120%" height="100%">
+                                    </div>
+                                    <div class="col-5  justify-content-center align-self-center">
+                                        <h5>Niñas</h5>
+                                    </div>
+                                    <div class="col-4  justify-content-center align-self-center">
+                                        <p style="font-size: 27px; font-weight: 400; margin: 0px;">{{poblacion_array.ninias}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -167,6 +195,35 @@
                 <div id="chartdiv_escolaridad" style="width: 100%; height: 370px"></div>
             </div>
         </div>
+
+        <b-modal
+            ref="modalpdf"
+            hide-footer
+            title="Reporte Población"
+            size="xl"
+            centered
+            header-bg-variant="danger"
+            header-text-variant="light"
+            :no-close-on-backdrop="true"
+        >
+            <embed
+                id="divPdf"
+                :src="rutaPdf"
+                type="application/pdf"
+                width="100%"
+                height="650px"
+            />
+            <hr />
+            <div class="text-right">
+                <button
+                    type="button"
+                    class="btn btn-warning"
+                    @click="cerrarModal"
+                >
+                    <i class="fa fa-window-close"></i> Cancelar
+                </button>
+            </div>
+        </b-modal>
     </div>
 </template>
 <script>
@@ -216,6 +273,8 @@ export default {
             tipoCombo: "todos",
             imgWomen: null,
             imgWMen: null,
+            imgNinios: null,
+            imgNinias: null,
             imgPoblacion: null,
             chart_sexo: null,
             chart_edades: null,
@@ -224,6 +283,7 @@ export default {
             chart_escolaridad: null,
             chart_migrantes: null,
             chart_embarazadas: null,
+            rutaPdf: ""
         }
     },
     methods: {
@@ -231,6 +291,8 @@ export default {
             this.imgWomen = `${store.state.serverPath}assets/media/icons/women.png`; 
             this.imgWMen = `${store.state.serverPath}assets/media/icons/men.png`;
             this.imgPoblacion = `${store.state.serverPath}assets/media/icons/poblacion.png`; 
+            this.imgNinios = `${store.state.serverPath}assets/media/icons/ninios.png`; 
+            this.imgNinias = `${store.state.serverPath}assets/media/icons/ninias.png`;
         },
         async iniciar() {
             const parametros = {
@@ -615,15 +677,42 @@ export default {
                 type: 'dataURL',
                 useCORS: true,
             }
+
+            let filtro = await this.$html2canvas(this.$refs.filtro, options);
             let imagenes = await this.$html2canvas(this.$refs.imagenes, options);
             let grafico1 = await this.chart_sexo.exporting.getImage("png");
             let grafico2 = await this.chart_edades.exporting.getImage("png");
             let hmp = await this.$html2canvas(this.$refs.hmp, options);
             let grafico3 = await this.chart_torta_edades.exporting.getImage("png");
-            let grafico4 = await this.chart_escolaridad.exporting.getImage("png");
+            let grafico4 = await this.chart_embarazadas.exporting.getImage("png");
             let grafico5 = await this.chart_migrantes.exporting.getImage("png");
-            let grafico6 = await this.chart_embarazadas.exporting.getImage("png");
-            this.isLoading = false;
+            let grafico6 = await this.chart_escolaridad.exporting.getImage("png");
+
+            const parametros = {
+                _token: this.csrf,
+                filtro: filtro,
+                imagenes: imagenes,
+                grafico1: grafico1,
+                grafico2: grafico2,
+                hmp: hmp,
+                grafico3: grafico3,
+                grafico4: grafico4,
+                grafico5: grafico5,
+                grafico6: grafico6,
+            };
+            try {
+                await DashboardServiceSocioeconomico.exportarPoblacion(parametros).then(respuesta => {
+                    this.rutaPdf = store.state.apiURL + respuesta.data.nombre;
+                    this.isLoading = false;
+                    this.$refs.modalpdf.show();
+                });
+            } catch (error) {     
+                his.$swal("Error...!", "Ocurrio un error!", "error");
+                this.isLoading = false;
+            }
+        },
+        cerrarModal() {
+            this.$refs.modalpdf.hide();
         }
     }
 }

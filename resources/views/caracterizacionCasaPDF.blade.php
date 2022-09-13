@@ -21,7 +21,7 @@
             font-size: 1rem;
             font-weight: 400;
             line-height: 1.5;
-            color: #212529;
+            color: #646c9a;
             text-align: left;
             background-color: #fff;
           }

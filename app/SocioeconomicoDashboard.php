@@ -1045,12 +1045,26 @@ class SocioeconomicoDashboard extends Model
             //dividir por sexo
             $masculino = 0;
             $femenino = 0;
+            $hombres = 0;
+            $mujeres = 0;
+            $ninios = 0;
+            $ninias = 0;
 
             foreach ($arrayPersonas as &$item) {
                 if($item->sexo == "MASCULINO"){
                     $masculino += 1;
+                    if($item->edad >= 12){
+                        $hombres += 1;
+                    }else{
+                        $ninios += 1;
+                    }
                 }else{
                     $femenino += 1;
+                    if($item->edad >= 12){
+                        $mujeres += 1;
+                    }else{
+                        $ninias += 1;
+                    }
                 } 
             }
             //dividir por sexo
@@ -1229,6 +1243,10 @@ class SocioeconomicoDashboard extends Model
                 'personas_caracterizadas' => $personas_caracterizadas,
                 'masculino' => $masculino,
                 'femenino' => $femenino,
+                'hombres' => $hombres,
+                'mujeres' => $mujeres,
+                'ninios' => $ninios,
+                'ninias' => $ninias,
                 'edades' => $edades,
                 'porEscolaridad' => $porEscolaridad,
                 'migrantes' => $migrantes,
@@ -1269,12 +1287,26 @@ class SocioeconomicoDashboard extends Model
             //dividir por sexo
             $masculino = 0;
             $femenino = 0;
+            $hombres = 0;
+            $mujeres = 0;
+            $ninios = 0;
+            $ninias = 0;
 
             foreach ($arrayPersonas as &$item) {
                 if($item->sexo == "MASCULINO"){
                     $masculino += 1;
+                    if($item->edad >= 12){
+                        $hombres += 1;
+                    }else{
+                        $ninios += 1;
+                    }
                 }else{
                     $femenino += 1;
+                    if($item->edad >= 12){
+                        $mujeres += 1;
+                    }else{
+                        $ninias += 1;
+                    }
                 } 
             }
             //dividir por sexo
@@ -1457,6 +1489,10 @@ class SocioeconomicoDashboard extends Model
                 'personas_caracterizadas' => $personas_caracterizadas,
                 'masculino' => $masculino,
                 'femenino' => $femenino,
+                'hombres' => $hombres,
+                'mujeres' => $mujeres,
+                'ninios' => $ninios,
+                'ninias' => $ninias,
                 'edades' => $edades,
                 'porEscolaridad' => $porEscolaridad,
                 'migrantes' => $migrantes,
