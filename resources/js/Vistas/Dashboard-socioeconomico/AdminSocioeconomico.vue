@@ -18,6 +18,7 @@
                     <DesempleoDashboard></DesempleoDashboard>
                 </b-tab>
                 <b-tab title="Viviendas">
+                    <ViviendaDashboard></ViviendaDashboard>
                 </b-tab>
                 <b-tab title="Hogares">
                 </b-tab>
@@ -32,6 +33,7 @@ import Analfabetismo2 from "./Analfabtismo2.vue";
 import DesempleoDashboard from "./DesempleoDashboard.vue";
 import MercadoLaboralDashboard from "./MercadoLaboralDashboard.vue";
 import PoblacionDashboard from "./PoblacionDashboard.vue";
+import ViviendaDashboard from "./ViviendaDashboard.vue";
 
 export default {
     components: {
@@ -39,7 +41,8 @@ export default {
         Analfabetismo2,
         DesempleoDashboard,
         MercadoLaboralDashboard,
-        PoblacionDashboard
+        PoblacionDashboard,
+        ViviendaDashboard
     },  
 }
 </script>

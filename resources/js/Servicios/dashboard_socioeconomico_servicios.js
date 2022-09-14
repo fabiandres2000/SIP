@@ -35,3 +35,7 @@ export function poblacion($tipo, $id) {
 export function exportarPoblacion($data) {
     return http().post('/socioeconomico/exportar-poblacion', $data);
 }
+
+export function vivienda($tipo, $id) {
+    return http().get('/socioeconomico/vivienda?tipo='+$tipo+'&id='+$id);
+}

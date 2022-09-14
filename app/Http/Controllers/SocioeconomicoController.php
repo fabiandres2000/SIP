@@ -246,5 +246,25 @@ class SocioeconomicoController extends Controller
             return redirect("/index")->with("error", "Su sesion ha terminado");
         }
     }
+
+    public function vivienda() {
+        $tipo = request()->get('tipo');
+        $id = request()->get('id');
+        if (Auth::check()) {
+            $inb = \App\SocioeconomicoDashboard::inb(Session::get('alias'), $tipo, $id);
+            $nso = \App\SocioeconomicoDashboard::nivel_socioeconomico(Session::get('alias'), $tipo, $id);
+            $haci = \App\SocioeconomicoDashboard::hacinamiento(Session::get('alias'), $tipo, $id);
+            
+            $respuesta = [
+                'inb' => $inb,
+                'nso' => $nso,
+                'haci' => $haci,
+            ];
+
+            return response()->json($respuesta, 200);
+        }else {
+            return redirect("/index")->with("error", "Su sesion ha terminado");
+        }
+    }
     
 }
