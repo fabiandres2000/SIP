@@ -267,4 +267,42 @@ class SocioeconomicoController extends Controller
         }
     }
     
+    public function exportarVivienda() {
+        if (Auth::check()) {
+            
+            $torta1 = request()->get('torta1');
+            $torta2 = request()->get('torta2');
+            $porcentaje = request()->get('porcentaje');
+            $torta3 = request()->get('torta3');
+            $data = request()->get('data');
+            $filtro = request()->get('filtro');
+
+            $ente = Auth::user()->permisos->where('actual', 1)->first()->ente->nombre;
+            File::makeDirectory(public_path().'/'.$ente, $mode = 0777, true, true);
+
+            $nombre = 'vivienda.pdf';
+            $pdf = app('dompdf.wrapper');
+            $pdf->loadView('Pdf/Vivienda', [
+                'filtro' => $filtro,
+                'ente' => $ente, 
+                'torta1' => $torta1,  
+                'torta2' => $torta2, 
+                'porcentaje' => $porcentaje, 
+                'torta3' => $torta3, 
+                'data' => $data, 
+                'filtro' => $filtro, 
+            ])->setPaper('a4', 'landscape')
+            ->save( $ente.'/'.$nombre);
+
+
+            $respuesta = [
+                'nombre' => $ente.'/'.$nombre,
+            ];
+
+            return response()->json($respuesta, 200);
+
+        }else {
+            return redirect("/index")->with("error", "Su sesion ha terminado");
+        }
+    }
 }

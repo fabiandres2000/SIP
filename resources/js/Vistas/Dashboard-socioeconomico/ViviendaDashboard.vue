@@ -86,7 +86,7 @@
         </div>
         <hr>
         <div class="row">
-            <div class="col-lg-5 text-center">
+            <div class="col-lg-5 text-center" ref="porcentaje">
                 <h2>Necesidades Básicas Insatisfechas</h2>
                 <h4>(Porcentaje de Viviendas)</h4>
                 <br>
@@ -129,7 +129,7 @@
                     <tbody>
                         <tr v-for="(item, index) in inb.viviendas">
                             <td>{{ index+1 }}</td>
-                            <td>{{item.des_corre}}</td>
+                            <td>{{item.des_corre == "" ? '  CASCO URBANO' : item.des_corre}}</td>
                             <td>{{item.des_dire}}</td>
                             <td style="text-align: center"><span :class="item.vivienda_inadecuada == 'NO' ? 'kt-badge kt-badge--inline text-white kt-badge--success': 'kt-badge kt-badge--inline text-white kt-badge--danger'">{{item.vivienda_inadecuada}}</span></td>
                             <td style="text-align: center"><span :class="item.hacinamiento_critico == 'NO' ? 'kt-badge kt-badge--inline text-white kt-badge--success': 'kt-badge kt-badge--inline text-white kt-badge--danger'">{{item.hacinamiento_critico}}</span></td>
@@ -448,7 +448,7 @@ export default {
                 },
                 {
                     category: "Medio - Bajo",
-                    first: array.medioAlto,
+                    first: array.medioBajo,
                 },
                 {
                     category: "Medio",
@@ -472,7 +472,7 @@ export default {
                 this.torta3.dispose();
             }
             var chart = am4core.create("chartdiv_hacinamiento", am4charts.PieChart3D);
-            this.torta2 = chart;
+            this.torta3 = chart;
             chart.data = [
                 {
                     category: "Sin Hacinamiento",
@@ -530,13 +530,24 @@ export default {
                 useCORS: true,
             }
            
+            let torta1 = await this.torta1.exporting.getImage("png");
+            let torta2 = await this.torta2.exporting.getImage("png");
+            let porcentaje = await this.$html2canvas(this.$refs.porcentaje, options);
+            let torta3 = await this.torta3.exporting.getImage("png");
+            let filtro = await this.$html2canvas(this.$refs.filtro, options);
             // convertir a imagen todos los graficos
 
             const parametros = {
                 _token: this.csrf,
+                torta1: torta1,
+                torta2: torta2,
+                porcentaje: porcentaje,
+                torta3: torta3,
+                filtro: filtro,
+                data: this.inb.viviendas
             };
             try {
-                await DashboardServiceSocioeconomico.exportarMercadoLaboral(parametros).then(respuesta => {
+                await DashboardServiceSocioeconomico.exportarVivienda(parametros).then(respuesta => {
                     this.rutaPdf = store.state.apiURL + respuesta.data.nombre;
                     this.isLoading = false;
                     this.$refs.modalpdf.show();

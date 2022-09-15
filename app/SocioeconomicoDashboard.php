@@ -1712,6 +1712,222 @@ class SocioeconomicoDashboard extends Model
 
             //Viviendas con niños en edad escolar que no asisten a la escuela
             return $info;
+        }else{
+            $viviendas =  DB::connection('mysql')->table($alias.'.hogar')
+            ->join($alias.'.vivienda', 'hogar.id','vivienda.id_hogar')
+            ->join($alias . ".dptos", "dptos.codigo", "hogar.id_dpto")
+            ->join($alias . '.muni', function ($join) {
+                $join->on('muni.coddep', '=', 'dptos.codigo');
+                $join->on('muni.codmun', '=', 'hogar.id_mun');
+            })
+            ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+            ->where('hogar.estado', 'Activo')
+            ->where('hogar.id_'.$tipo, $id)
+            ->select("hogar.*", "vivienda.*")
+            ->selectRaw("CONCAT_WS('',muni.descripcion) as des_muni")
+            ->selectRaw("CONCAT_WS('-',corregimientos.descripcion) as des_corre")
+            ->selectRaw("CONCAT_WS('-', hogar.direccion) as des_dire")
+            ->get();
+
+            // vivienda inadecuda
+            foreach ($viviendas as &$item) {
+                // urbano
+                if($item->id_zona == 1){
+                    if($item->tipo_estructura == 5 || $item->tipo_cubierta == 2 || $item->material_predominante == 5){
+                        $item->vivienda_inadecuada = "SI";
+                    }else{
+                        $item->vivienda_inadecuada = "NO";
+                    }
+                }else{
+                    //rural
+                    if($item->id_zona == 2 || $item->id_zona == 3){
+                        if(($item->tipo_estructura == 5 || $item->tipo_estructura == 4) && $item->material_predominante == 5){
+                            $item->vivienda_inadecuada = "SI";
+                        }else{
+                            $item->vivienda_inadecuada = "NO";
+                        }
+                    }
+                }
+            }
+            // vivienda inadecuda
+
+            // Viviendas con hacinamiento crítico
+            foreach ($viviendas as &$item) {
+                $numero_personas =  DB::connection('mysql')->table($alias.'.integrantes')
+                ->where('integrantes.id_hogar', $item->id_hogar)
+                ->where('integrantes.estado', 'Activo')
+                ->count();
+
+                $numero_personas +=  DB::connection('mysql')->table($alias.'.caracterizacion')
+                ->where('caracterizacion.id_hogar', $item->id_hogar)
+                ->where('caracterizacion.estado', 'Activo')
+                ->count();
+
+                $hc = $numero_personas / $item->numero_cuartos;
+
+                if($hc > 3){
+                    $item->hacinamiento_critico = "SI";
+                }else{
+                    $item->hacinamiento_critico = "NO";
+                }
+            }
+            // Viviendas con hacinamiento crítico
+
+            // Viviendas con servicios inadecuados
+            foreach ($viviendas as &$item) {
+                // urbano
+                if($item->id_zona == 1){
+                    if($item->servicio_sanitario == 3 || ($item->fuente_agua != 1 && $item->fuente_agua != 7)){
+                        $item->servicios_inadecuados = "SI";
+                    }else{
+                        $item->servicios_inadecuados = "NO";
+                    }
+                }else{
+                    //rural
+                    if($item->id_zona == 2 || $item->id_zona == 3){
+                        if($item->servicio_sanitario == 3 || $item->fuente_agua == 2 || $item->fuente_agua == 3|| $item->fuente_agua == 4|| $item->fuente_agua == 5){
+                            $item->servicios_inadecuados = "SI";
+                        }else{
+                            $item->servicios_inadecuados = "NO";
+                        }
+                    }
+                }
+            }
+            // Viviendas con servicios inadecuados
+
+            // Viviendas con alta dependencia económica
+            foreach ($viviendas as &$item) {
+                $numero_personas =  DB::connection('mysql')->table($alias.'.integrantes')
+                ->where('integrantes.id_hogar', $item->id_hogar)
+                ->where('integrantes.estado', 'Activo')
+                ->count();
+
+                $numero_personas +=  DB::connection('mysql')->table($alias.'.caracterizacion')
+                ->where('caracterizacion.id_hogar', $item->id_hogar)
+                ->where('caracterizacion.estado', 'Activo')
+                ->count();
+
+                $numero_personas_ocupadas=  DB::connection('mysql')->table($alias.'.integrantes')
+                ->where('integrantes.id_hogar', $item->id_hogar)
+                ->whereIn('integrantes.tipo_empleo', [2,3,4])
+                ->where('integrantes.estado', 'Activo')
+                ->count();
+
+                $numero_personas_ocupadas +=  DB::connection('mysql')->table($alias.'.caracterizacion')
+                ->where('caracterizacion.id_hogar', $item->id_hogar)
+                ->whereIn('caracterizacion.tipo_empleo', [2,3,4])
+                ->where('caracterizacion.estado', 'Activo')
+                ->count();
+
+                $de = $numero_personas / $numero_personas_ocupadas;
+
+                if($de >= 3){
+                    $item->dependencia_economica = "SI";
+                }else{
+                    $item->dependencia_economica = "NO";
+                }
+            }
+            // Viviendas con alta dependencia económica
+
+            //Viviendas con niños en edad escolar que no asisten a la escuela
+            foreach ($viviendas as &$item) {
+                $ninios =  DB::connection('mysql')->table($alias.'.integrantes')
+                ->where('integrantes.id_hogar', $item->id_hogar)
+                ->where('integrantes.estado', 'Activo')
+                ->select('integrantes.*')
+                ->selectRaw('TIMESTAMPDIFF(YEAR, integrantes.fecha_nac, CURDATE()) as edad')
+                ->get();
+
+                $ninios_no_asisten = 0;
+                
+                foreach ($ninios as &$item2) {
+                    if($item2->edad > 6  && $item2->edad < 12){
+                        if($item2->escolaridad == 4 || $item2->escolaridad == 13 || $item2->escolaridad == 1 || $item2->escolaridad == 12 ){
+                            $ninios_no_asisten += 1;
+                        }
+                    }
+                }
+
+                if($ninios_no_asisten > 0){
+                    $item->ninios_descolarizados = "SI";
+                }else{
+                    $item->ninios_descolarizados = "NO";
+                }
+            }
+
+            foreach ($viviendas as &$item) {
+                if($item->ninios_descolarizados == "SI" || $item->dependencia_economica == "SI" || $item->servicios_inadecuados == "SI" || $item->hacinamiento_critico == "SI" || $item->vivienda_inadecuada == "SI"){
+                    $item->inb = "SI";
+                }else{
+                    $item->inb = "NO";
+                }
+            }
+
+            // totales
+            $viviendas_inb = 0;
+            foreach ($viviendas as &$item) {
+                if($item->inb == "SI"){
+                    $viviendas_inb += 1;
+                }
+            }
+
+            $viviendas_ninios_descolarizados = 0;
+            foreach ($viviendas as &$item) {
+                if($item->ninios_descolarizados == "SI"){
+                    $viviendas_ninios_descolarizados += 1;
+                }
+            }
+
+            $viviendas_dependencia_economica = 0;
+            foreach ($viviendas as &$item) {
+                if($item->dependencia_economica == "SI"){
+                    $viviendas_dependencia_economica += 1;
+                }
+            }
+
+            $viviendas_servicios_inadecuados = 0;
+            foreach ($viviendas as &$item) {
+                if($item->servicios_inadecuados == "SI"){
+                    $viviendas_servicios_inadecuados += 1;
+                }
+            }
+
+            $viviendas_hacinamiento_critico = 0;
+            foreach ($viviendas as &$item) {
+                if($item->hacinamiento_critico == "SI"){
+                    $viviendas_hacinamiento_critico += 1;
+                }
+            }
+
+            $viviendas_vivienda_inadecuada = 0;
+            foreach ($viviendas as &$item) {
+                if($item->vivienda_inadecuada == "SI"){
+                    $viviendas_vivienda_inadecuada += 1;
+                }
+            }
+
+            if(count($viviendas) > 0){
+                $porcen_inb = ($viviendas_inb/count($viviendas)) * 100;
+            }else{
+                $porcen_inb = 0;
+            }
+            
+            // totales
+
+            $info = [
+                'porcen_inb' => $porcen_inb,
+                'viviendas' => $viviendas,
+                'viviendas_inb' => $viviendas_inb,
+                'total_viviendas' => count($viviendas),
+                'viviendas_vivienda_inadecuada' => $viviendas_vivienda_inadecuada,
+                'viviendas_hacinamiento_critico' => $viviendas_hacinamiento_critico,
+                'viviendas_servicios_inadecuados' => $viviendas_servicios_inadecuados,
+                'viviendas_dependencia_economica' => $viviendas_dependencia_economica,
+                'viviendas_ninios_descolarizados' => $viviendas_ninios_descolarizados,
+            ];
+
+            //Viviendas con niños en edad escolar que no asisten a la escuela
+            return $info;
         }
     }
 
@@ -1762,6 +1978,53 @@ class SocioeconomicoDashboard extends Model
             ];
 
             return $info;
+        }else{
+            $viviendas =  DB::connection('mysql')->table($alias.'.hogar')
+            ->join($alias.'.riesgo_socioeconomico_vivienda', 'hogar.id','riesgo_socioeconomico_vivienda.id_hogar')
+            ->where('hogar.estado', 'Activo')
+            ->where('hogar.id_'.$tipo, $id)
+            ->select("riesgo_socioeconomico_vivienda.total")
+            ->get();
+
+            $bajBajo = 0;
+            $bajo = 0;
+            $medioBajo = 0;
+            $medio = 0;
+            $medioAlto = 0;
+            $alto = 0;
+            foreach ($viviendas as &$item) {
+                switch (true) {
+                    case $item->total>=0 && $item->total<=100:
+                        $bajBajo += 1;
+                        break;
+                    case $item->total>=100.1 && $item->total<=300:
+                        $bajo += 1;
+                        break;
+                    case $item->total>=300.1 && $item->total<=475:
+                        $medioBajo += 1;
+                        break;
+                    case $item->total>=475.1 && $item->total<=650:
+                        $medio += 1;
+                        break;  
+                    case $item->total>=650.1 && $item->total<=825:
+                        $medioAlto += 1;
+                        break;
+                    case $item->total>=825.1 && $item->total<=1000:
+                        $alto += 1;
+                        break;  
+                }
+            }
+
+            $info = [
+                'bajBajo' => $bajBajo,
+                'bajo' => $bajo,
+                'medioBajo' => $medioBajo,
+                'medio' => $medio,
+                'medioAlto' => $medioAlto,
+                'alto' => $alto
+            ];
+
+            return $info;
         }
     }
 
@@ -1770,6 +2033,51 @@ class SocioeconomicoDashboard extends Model
             $viviendas =  DB::connection('mysql')->table($alias.'.hogar')
             ->join($alias.'.vivienda', 'hogar.id','vivienda.id_hogar')
             ->where('hogar.estado', 'Activo')
+            ->select("*")
+            ->get();
+
+            $sinhacinamiento = 0;
+            $hacinamientoMedio = 0;
+            $hacinamientoCritico = 0;
+
+            foreach ($viviendas as &$item) {
+                $numero_personas =  DB::connection('mysql')->table($alias.'.integrantes')
+                ->where('integrantes.id_hogar', $item->id_hogar)
+                ->where('integrantes.estado', 'Activo')
+                ->count();
+
+                $numero_personas +=  DB::connection('mysql')->table($alias.'.caracterizacion')
+                ->where('caracterizacion.id_hogar', $item->id_hogar)
+                ->where('caracterizacion.estado', 'Activo')
+                ->count();
+
+                $hc = $numero_personas / $item->numero_cuartos;
+
+                if($hc >= 0 && $hc <= 2.4){
+                    $sinhacinamiento += 1;
+                }
+
+                if($hc > 2.4 && $hc <= 4.9){
+                    $hacinamientoMedio += 1;
+                }
+
+                if($hc > 4.9){
+                    $hacinamientoCritico += 1;
+                }
+            }
+
+            $info = [
+                'sinHacinamiento' => $sinhacinamiento,
+                'hacinamientoMedio' => $hacinamientoMedio,
+                'hacinamientoCritico' => $hacinamientoCritico,
+            ];
+
+            return $info;
+        }else{
+            $viviendas =  DB::connection('mysql')->table($alias.'.hogar')
+            ->join($alias.'.vivienda', 'hogar.id','vivienda.id_hogar')
+            ->where('hogar.estado', 'Activo')
+            ->where('hogar.id_'.$tipo, $id)
             ->select("*")
             ->get();
 
