@@ -1938,46 +1938,6 @@ class SocioeconomicoDashboard extends Model
             ->where('hogar.estado', 'Activo')
             ->select("riesgo_socioeconomico_vivienda.total")
             ->get();
-
-            $bajBajo = 0;
-            $bajo = 0;
-            $medioBajo = 0;
-            $medio = 0;
-            $medioAlto = 0;
-            $alto = 0;
-            foreach ($viviendas as &$item) {
-                switch (true) {
-                    case $item->total>=0 && $item->total<=100:
-                        $bajBajo += 1;
-                        break;
-                    case $item->total>=100.1 && $item->total<=300:
-                        $bajo += 1;
-                        break;
-                    case $item->total>=300.1 && $item->total<=475:
-                        $medioBajo += 1;
-                        break;
-                    case $item->total>=475.1 && $item->total<=650:
-                        $medio += 1;
-                        break;  
-                    case $item->total>=650.1 && $item->total<=825:
-                        $medioAlto += 1;
-                        break;
-                    case $item->total>=825.1 && $item->total<=1000:
-                        $alto += 1;
-                        break;  
-                }
-            }
-
-            $info = [
-                'bajBajo' => $bajBajo,
-                'bajo' => $bajo,
-                'medioBajo' => $medioBajo,
-                'medio' => $medio,
-                'medioAlto' => $medioAlto,
-                'alto' => $alto
-            ];
-
-            return $info;
         }else{
             $viviendas =  DB::connection('mysql')->table($alias.'.hogar')
             ->join($alias.'.riesgo_socioeconomico_vivienda', 'hogar.id','riesgo_socioeconomico_vivienda.id_hogar')
@@ -1985,47 +1945,47 @@ class SocioeconomicoDashboard extends Model
             ->where('hogar.id_'.$tipo, $id)
             ->select("riesgo_socioeconomico_vivienda.total")
             ->get();
-
-            $bajBajo = 0;
-            $bajo = 0;
-            $medioBajo = 0;
-            $medio = 0;
-            $medioAlto = 0;
-            $alto = 0;
-            foreach ($viviendas as &$item) {
-                switch (true) {
-                    case $item->total>=0 && $item->total<=100:
-                        $bajBajo += 1;
-                        break;
-                    case $item->total>=100.1 && $item->total<=300:
-                        $bajo += 1;
-                        break;
-                    case $item->total>=300.1 && $item->total<=475:
-                        $medioBajo += 1;
-                        break;
-                    case $item->total>=475.1 && $item->total<=650:
-                        $medio += 1;
-                        break;  
-                    case $item->total>=650.1 && $item->total<=825:
-                        $medioAlto += 1;
-                        break;
-                    case $item->total>=825.1 && $item->total<=1000:
-                        $alto += 1;
-                        break;  
-                }
-            }
-
-            $info = [
-                'bajBajo' => $bajBajo,
-                'bajo' => $bajo,
-                'medioBajo' => $medioBajo,
-                'medio' => $medio,
-                'medioAlto' => $medioAlto,
-                'alto' => $alto
-            ];
-
-            return $info;
         }
+
+        $bajBajo = 0;
+        $bajo = 0;
+        $medioBajo = 0;
+        $medio = 0;
+        $medioAlto = 0;
+        $alto = 0;
+        foreach ($viviendas as &$item) {
+            switch (true) {
+                case $item->total>=0 && $item->total<=100:
+                    $bajBajo += 1;
+                    break;
+                case $item->total>=100.1 && $item->total<=300:
+                    $bajo += 1;
+                    break;
+                case $item->total>=300.1 && $item->total<=475:
+                    $medioBajo += 1;
+                    break;
+                case $item->total>=475.1 && $item->total<=650:
+                    $medio += 1;
+                    break;  
+                case $item->total>=650.1 && $item->total<=825:
+                    $medioAlto += 1;
+                    break;
+                case $item->total>=825.1 && $item->total<=1000:
+                    $alto += 1;
+                    break;  
+            }
+        }
+
+        $info = [
+            'bajBajo' => $bajBajo,
+            'bajo' => $bajo,
+            'medioBajo' => $medioBajo,
+            'medio' => $medio,
+            'medioAlto' => $medioAlto,
+            'alto' => $alto
+        ];
+
+        return $info;
     }
 
     public static function hacinamiento($alias, $tipo, $id){
@@ -2035,44 +1995,6 @@ class SocioeconomicoDashboard extends Model
             ->where('hogar.estado', 'Activo')
             ->select("*")
             ->get();
-
-            $sinhacinamiento = 0;
-            $hacinamientoMedio = 0;
-            $hacinamientoCritico = 0;
-
-            foreach ($viviendas as &$item) {
-                $numero_personas =  DB::connection('mysql')->table($alias.'.integrantes')
-                ->where('integrantes.id_hogar', $item->id_hogar)
-                ->where('integrantes.estado', 'Activo')
-                ->count();
-
-                $numero_personas +=  DB::connection('mysql')->table($alias.'.caracterizacion')
-                ->where('caracterizacion.id_hogar', $item->id_hogar)
-                ->where('caracterizacion.estado', 'Activo')
-                ->count();
-
-                $hc = $numero_personas / $item->numero_cuartos;
-
-                if($hc >= 0 && $hc <= 2.4){
-                    $sinhacinamiento += 1;
-                }
-
-                if($hc > 2.4 && $hc <= 4.9){
-                    $hacinamientoMedio += 1;
-                }
-
-                if($hc > 4.9){
-                    $hacinamientoCritico += 1;
-                }
-            }
-
-            $info = [
-                'sinHacinamiento' => $sinhacinamiento,
-                'hacinamientoMedio' => $hacinamientoMedio,
-                'hacinamientoCritico' => $hacinamientoCritico,
-            ];
-
-            return $info;
         }else{
             $viviendas =  DB::connection('mysql')->table($alias.'.hogar')
             ->join($alias.'.vivienda', 'hogar.id','vivienda.id_hogar')
@@ -2080,45 +2002,45 @@ class SocioeconomicoDashboard extends Model
             ->where('hogar.id_'.$tipo, $id)
             ->select("*")
             ->get();
+        }
 
-            $sinhacinamiento = 0;
-            $hacinamientoMedio = 0;
-            $hacinamientoCritico = 0;
+        $sinhacinamiento = 0;
+        $hacinamientoMedio = 0;
+        $hacinamientoCritico = 0;
 
-            foreach ($viviendas as &$item) {
-                $numero_personas =  DB::connection('mysql')->table($alias.'.integrantes')
-                ->where('integrantes.id_hogar', $item->id_hogar)
-                ->where('integrantes.estado', 'Activo')
-                ->count();
+        foreach ($viviendas as &$item) {
+            $numero_personas =  DB::connection('mysql')->table($alias.'.integrantes')
+            ->where('integrantes.id_hogar', $item->id_hogar)
+            ->where('integrantes.estado', 'Activo')
+            ->count();
 
-                $numero_personas +=  DB::connection('mysql')->table($alias.'.caracterizacion')
-                ->where('caracterizacion.id_hogar', $item->id_hogar)
-                ->where('caracterizacion.estado', 'Activo')
-                ->count();
+            $numero_personas +=  DB::connection('mysql')->table($alias.'.caracterizacion')
+            ->where('caracterizacion.id_hogar', $item->id_hogar)
+            ->where('caracterizacion.estado', 'Activo')
+            ->count();
 
-                $hc = $numero_personas / $item->numero_cuartos;
+            $hc = $numero_personas / $item->numero_cuartos;
 
-                if($hc >= 0 && $hc <= 2.4){
-                    $sinhacinamiento += 1;
-                }
-
-                if($hc > 2.4 && $hc <= 4.9){
-                    $hacinamientoMedio += 1;
-                }
-
-                if($hc > 4.9){
-                    $hacinamientoCritico += 1;
-                }
+            if($hc >= 0 && $hc <= 2.4){
+                $sinhacinamiento += 1;
             }
 
-            $info = [
-                'sinHacinamiento' => $sinhacinamiento,
-                'hacinamientoMedio' => $hacinamientoMedio,
-                'hacinamientoCritico' => $hacinamientoCritico,
-            ];
+            if($hc > 2.4 && $hc <= 4.9){
+                $hacinamientoMedio += 1;
+            }
 
-            return $info;
+            if($hc > 4.9){
+                $hacinamientoCritico += 1;
+            }
         }
+
+        $info = [
+            'sinHacinamiento' => $sinhacinamiento,
+            'hacinamientoMedio' => $hacinamientoMedio,
+            'hacinamientoCritico' => $hacinamientoCritico,
+        ];
+
+        return $info;
     }
 
     public static function nivel_socioeconomico_hogares($alias, $tipo, $id){
@@ -2129,46 +2051,6 @@ class SocioeconomicoDashboard extends Model
             ->where('caracterizacion.estado', 'Activo')
             ->select("caracterizacion.id","riesgo_socioeconomico_hogar.total")
             ->get();
-
-            $bajoBajo = 0;
-            $bajo = 0;
-            $medioBajo = 0;
-            $medio = 0;
-            $medioAlto = 0;
-            $alto = 0;
-            foreach ($hogares as &$item) {
-                switch (true) {
-                    case $item->total>=0 && $item->total<=50:
-                        $bajoBajo += 1;
-                        break;
-                    case $item->total>=51 && $item->total<=110:
-                        $bajo += 1;
-                        break;
-                    case $item->total>=111 && $item->total<=200:
-                        $medioBajo += 1;
-                        break;
-                    case $item->total>=201 && $item->total<=300:
-                        $medio += 1;
-                        break;  
-                    case $item->total>=301 && $item->total<=400:
-                        $medioAlto += 1;
-                        break;
-                    case $item->total>=400 && $item->total<=500:
-                        $alto += 1;
-                        break;  
-                }
-            }
-
-            $info = [
-                'bajoBajo' => $bajoBajo,
-                'bajo' => $bajo,
-                'medioBajo' => $medioBajo,
-                'medio' => $medio,
-                'medioAlto' => $medioAlto,
-                'alto' => $alto
-            ];
-
-            return $info;
         }else{
             $hogares =  DB::connection('mysql')->table($alias.'.caracterizacion')
             ->join($alias.'.hogar', 'hogar.id','caracterizacion.id_hogar')
@@ -2177,47 +2059,47 @@ class SocioeconomicoDashboard extends Model
             ->where('hogar.id_'.$tipo, $id)
             ->select("caracterizacion.id","riesgo_socioeconomico_hogar.total")
             ->get();
-
-            $bajoBajo = 0;
-            $bajo = 0;
-            $medioBajo = 0;
-            $medio = 0;
-            $medioAlto = 0;
-            $alto = 0;
-            foreach ($hogares as &$item) {
-                switch (true) {
-                    case $item->total>=0 && $item->total<=50:
-                        $bajoBajo += 1;
-                        break;
-                    case $item->total>=51 && $item->total<=110:
-                        $bajo += 1;
-                        break;
-                    case $item->total>=111 && $item->total<=200:
-                        $medioBajo += 1;
-                        break;
-                    case $item->total>=201 && $item->total<=300:
-                        $medio += 1;
-                        break;  
-                    case $item->total>=301 && $item->total<=400:
-                        $medioAlto += 1;
-                        break;
-                    case $item->total>=400 && $item->total<=500:
-                        $alto += 1;
-                        break;  
-                }
-            }
-
-            $info = [
-                'bajoBajo' => $bajoBajo,
-                'bajo' => $bajo,
-                'medioBajo' => $medioBajo,
-                'medio' => $medio,
-                'medioAlto' => $medioAlto,
-                'alto' => $alto
-            ];
-
-            return $info;
         }
+
+        $bajoBajo = 0;
+        $bajo = 0;
+        $medioBajo = 0;
+        $medio = 0;
+        $medioAlto = 0;
+        $alto = 0;
+        foreach ($hogares as &$item) {
+            switch (true) {
+                case $item->total>=0 && $item->total<=50:
+                    $bajoBajo += 1;
+                    break;
+                case $item->total>=51 && $item->total<=110:
+                    $bajo += 1;
+                    break;
+                case $item->total>=111 && $item->total<=200:
+                    $medioBajo += 1;
+                    break;
+                case $item->total>=201 && $item->total<=300:
+                    $medio += 1;
+                    break;  
+                case $item->total>=301 && $item->total<=400:
+                    $medioAlto += 1;
+                    break;
+                case $item->total>=400 && $item->total<=500:
+                    $alto += 1;
+                    break;  
+            }
+        }
+
+        $info = [
+            'bajoBajo' => $bajoBajo,
+            'bajo' => $bajo,
+            'medioBajo' => $medioBajo,
+            'medio' => $medio,
+            'medioAlto' => $medioAlto,
+            'alto' => $alto
+        ];
+
+        return $info;
     }
 
     public static function hacinamiento_hogares($alias, $tipo, $id){
@@ -2227,44 +2109,6 @@ class SocioeconomicoDashboard extends Model
             ->where('hogar.estado', 'Activo')
             ->select("*")
             ->get();
-
-            $sinhacinamiento = 0;
-            $hacinamientoMedio = 0;
-            $hacinamientoCritico = 0;
-
-            foreach ($viviendas as &$item) {
-                $numero_integrantes =  DB::connection('mysql')->table($alias.'.integrantes')
-                ->where('integrantes.id_hogar', $item->id_hogar)
-                ->where('integrantes.estado', 'Activo')
-                ->count();
-
-                $numero_hogares =  DB::connection('mysql')->table($alias.'.caracterizacion')
-                ->where('caracterizacion.id_hogar', $item->id_hogar)
-                ->where('caracterizacion.estado', 'Activo')
-                ->count();
-
-                $hc = ($numero_hogares + $numero_integrantes) / $item->numero_cuartos;
-
-                if($hc >= 0 && $hc <= 2.4){
-                    $sinhacinamiento += $numero_hogares;
-                }
-
-                if($hc > 2.4 && $hc <= 4.9){
-                    $hacinamientoMedio += $numero_hogares;
-                }
-
-                if($hc > 4.9){
-                    $hacinamientoCritico += $numero_hogares;
-                }
-            }
-
-            $info = [
-                'sinHacinamiento' => $sinhacinamiento,
-                'hacinamientoMedio' => $hacinamientoMedio,
-                'hacinamientoCritico' => $hacinamientoCritico,
-            ];
-
-            return $info;
         }else{
             $viviendas =  DB::connection('mysql')->table($alias.'.hogar')
             ->join($alias.'.vivienda', 'hogar.id','vivienda.id_hogar')
@@ -2272,45 +2116,45 @@ class SocioeconomicoDashboard extends Model
             ->where('hogar.id_'.$tipo, $id)
             ->select("*")
             ->get();
+        }
 
-            $sinhacinamiento = 0;
-            $hacinamientoMedio = 0;
-            $hacinamientoCritico = 0;
+        $sinhacinamiento = 0;
+        $hacinamientoMedio = 0;
+        $hacinamientoCritico = 0;
 
-            foreach ($viviendas as &$item) {
-                $numero_integrantes =  DB::connection('mysql')->table($alias.'.integrantes')
-                ->where('integrantes.id_hogar', $item->id_hogar)
-                ->where('integrantes.estado', 'Activo')
-                ->count();
+        foreach ($viviendas as &$item) {
+            $numero_integrantes =  DB::connection('mysql')->table($alias.'.integrantes')
+            ->where('integrantes.id_hogar', $item->id_hogar)
+            ->where('integrantes.estado', 'Activo')
+            ->count();
 
-                $numero_hogares =  DB::connection('mysql')->table($alias.'.caracterizacion')
-                ->where('caracterizacion.id_hogar', $item->id_hogar)
-                ->where('caracterizacion.estado', 'Activo')
-                ->count();
+            $numero_hogares =  DB::connection('mysql')->table($alias.'.caracterizacion')
+            ->where('caracterizacion.id_hogar', $item->id_hogar)
+            ->where('caracterizacion.estado', 'Activo')
+            ->count();
 
-                $hc = ($numero_hogares + $numero_integrantes) / $item->numero_cuartos;
+            $hc = ($numero_hogares + $numero_integrantes) / $item->numero_cuartos;
 
-                if($hc >= 0 && $hc <= 2.4){
-                    $sinhacinamiento += $numero_hogares;
-                }
-
-                if($hc > 2.4 && $hc <= 4.9){
-                    $hacinamientoMedio += $numero_hogares;
-                }
-
-                if($hc > 4.9){
-                    $hacinamientoCritico += $numero_hogares;
-                }
+            if($hc >= 0 && $hc <= 2.4){
+                $sinhacinamiento += $numero_hogares;
             }
 
-            $info = [
-                'sinHacinamiento' => $sinhacinamiento,
-                'hacinamientoMedio' => $hacinamientoMedio,
-                'hacinamientoCritico' => $hacinamientoCritico,
-            ];
+            if($hc > 2.4 && $hc <= 4.9){
+                $hacinamientoMedio += $numero_hogares;
+            }
 
-            return $info;
+            if($hc > 4.9){
+                $hacinamientoCritico += $numero_hogares;
+            }
         }
+
+        $info = [
+            'sinHacinamiento' => $sinhacinamiento,
+            'hacinamientoMedio' => $hacinamientoMedio,
+            'hacinamientoCritico' => $hacinamientoCritico,
+        ];
+
+        return $info;
     }
 
     public static function estratificacion($alias, $tipo, $id){
@@ -2321,107 +2165,6 @@ class SocioeconomicoDashboard extends Model
             ->where("caracterizacion.estado", "Activo")
             ->select("hogar.id_zona","estratificacion.ingresos_zona_rural","estratificacion.ingresos_ciudad", "caracterizacion.id")
             ->get();
-            
-            // promedio de ingresos
-            
-            $tipoIn1 = 0;
-            $tipoIn2 = 0;
-            $tipoIn3 = 0;
-            $tipoIn4 = 0;
-            $tipoIn5 = 0;
-            $tipoIn6 = 0;
-            $tipoIn7 = 0;
-            $tipoNA = 0;
-
-            $tipoIn1R = 0;
-            $tipoIn2R = 0;
-            $tipoIn3R = 0;
-            $tipoIn4R = 0;
-            $tipoIn5R = 0;
-            $tipoIn6R = 0;
-            $tipoIn7R = 0;
-            $tipoNAR = 0;
-
-            foreach ($hogares as &$item) {
-                // promedio de ingresos urbano
-                if($item->id_zona == 1){
-                    switch ($item->ingresos_ciudad) {
-                        case '1':
-                            $tipoIn1 += 1;
-                            break;
-                        case '2':
-                            $tipoIn2 += 1;
-                            break;
-                        case '3':
-                            $tipoIn3 += 1;
-                            break;
-                        case '4':
-                            $tipoIn4 += 1;
-                            break;
-                        case '5':
-                            $tipoIn5 += 1;
-                            break;
-                        case '6':
-                            $tipoIn6 += 1;
-                            break;
-                        case '7':
-                            $tipoIn7 += 1;
-                            break;
-                        case '8':
-                            $tipoNA += 1;
-                            break;
-                    }
-                } else {
-                    // promedio de ingresos rural
-                    switch ($item->ingresos_zona_rural) {
-                        case '1':
-                            $tipoIn1R += 1;
-                            break;
-                        case '2':
-                            $tipoIn2R += 1;
-                            break;
-                        case '3':
-                            $tipoIn3R += 1;
-                            break;
-                        case '4':
-                            $tipoIn4R += 1;
-                            break;
-                        case '5':
-                            $tipoIn5R += 1;
-                            break;
-                        case '6':
-                            $tipoIn6R += 1;
-                            break;
-                        case '7':
-                            $tipoIn7R += 1;
-                            break;
-                        case '8':
-                            $tipoNAR += 1;
-                            break;
-                    }
-                }
-            }
-
-            $info = [
-                'tipoIn1' => $tipoIn1,
-                'tipoIn2' => $tipoIn2,
-                'tipoIn3' => $tipoIn3,
-                'tipoIn4' => $tipoIn4,
-                'tipoIn5' => $tipoIn5,
-                'tipoIn6' => $tipoIn6,
-                'tipoIn7' => $tipoIn7,
-                'tipoNA' => $tipoNA,
-                'tipoIn1R' => $tipoIn1R,
-                'tipoIn2R' => $tipoIn2R,
-                'tipoIn3R' => $tipoIn3R,
-                'tipoIn4R' => $tipoIn4R,
-                'tipoIn5R' => $tipoIn5R,
-                'tipoIn6R' => $tipoIn6R,
-                'tipoIn7R' => $tipoIn7R,
-                'tipoNAR' => $tipoNAR,
-            ];
-
-            return $info;
         }else{
             $hogares =  DB::connection('mysql')->table($alias.'.caracterizacion')
             ->join($alias.'.hogar', 'hogar.id','caracterizacion.id_hogar')
@@ -2430,108 +2173,108 @@ class SocioeconomicoDashboard extends Model
             ->where('hogar.id_'.$tipo, $id)
             ->select("hogar.id_zona","estratificacion.ingresos_zona_rural","estratificacion.ingresos_ciudad", "caracterizacion.id")
             ->get();
-            
-            // promedio de ingresos
-            
-            $tipoIn1 = 0;
-            $tipoIn2 = 0;
-            $tipoIn3 = 0;
-            $tipoIn4 = 0;
-            $tipoIn5 = 0;
-            $tipoIn6 = 0;
-            $tipoIn7 = 0;
-            $tipoNA = 0;
+        }
 
-            $tipoIn1R = 0;
-            $tipoIn2R = 0;
-            $tipoIn3R = 0;
-            $tipoIn4R = 0;
-            $tipoIn5R = 0;
-            $tipoIn6R = 0;
-            $tipoIn7R = 0;
-            $tipoNAR = 0;
+        // promedio de ingresos
+            
+        $tipoIn1 = 0;
+        $tipoIn2 = 0;
+        $tipoIn3 = 0;
+        $tipoIn4 = 0;
+        $tipoIn5 = 0;
+        $tipoIn6 = 0;
+        $tipoIn7 = 0;
+        $tipoNA = 0;
 
-            foreach ($hogares as &$item) {
-                // promedio de ingresos urbano
-                if($item->id_zona == 1){
-                    switch ($item->ingresos_ciudad) {
-                        case '1':
-                            $tipoIn1 += 1;
-                            break;
-                        case '2':
-                            $tipoIn2 += 1;
-                            break;
-                        case '3':
-                            $tipoIn3 += 1;
-                            break;
-                        case '4':
-                            $tipoIn4 += 1;
-                            break;
-                        case '5':
-                            $tipoIn5 += 1;
-                            break;
-                        case '6':
-                            $tipoIn6 += 1;
-                            break;
-                        case '7':
-                            $tipoIn7 += 1;
-                            break;
-                        case '8':
-                            $tipoNA += 1;
-                            break;
-                    }
-                } else {
-                    // promedio de ingresos rural
-                    switch ($item->ingresos_zona_rural) {
-                        case '1':
-                            $tipoIn1R += 1;
-                            break;
-                        case '2':
-                            $tipoIn2R += 1;
-                            break;
-                        case '3':
-                            $tipoIn3R += 1;
-                            break;
-                        case '4':
-                            $tipoIn4R += 1;
-                            break;
-                        case '5':
-                            $tipoIn5R += 1;
-                            break;
-                        case '6':
-                            $tipoIn6R += 1;
-                            break;
-                        case '7':
-                            $tipoIn7R += 1;
-                            break;
-                        case '8':
-                            $tipoNAR += 1;
-                            break;
-                    }
+        $tipoIn1R = 0;
+        $tipoIn2R = 0;
+        $tipoIn3R = 0;
+        $tipoIn4R = 0;
+        $tipoIn5R = 0;
+        $tipoIn6R = 0;
+        $tipoIn7R = 0;
+        $tipoNAR = 0;
+
+        foreach ($hogares as &$item) {
+            // promedio de ingresos urbano
+            if($item->id_zona == 1){
+                switch ($item->ingresos_ciudad) {
+                    case '1':
+                        $tipoIn1 += 1;
+                        break;
+                    case '2':
+                        $tipoIn2 += 1;
+                        break;
+                    case '3':
+                        $tipoIn3 += 1;
+                        break;
+                    case '4':
+                        $tipoIn4 += 1;
+                        break;
+                    case '5':
+                        $tipoIn5 += 1;
+                        break;
+                    case '6':
+                        $tipoIn6 += 1;
+                        break;
+                    case '7':
+                        $tipoIn7 += 1;
+                        break;
+                    case '8':
+                        $tipoNA += 1;
+                        break;
+                }
+            } else {
+                // promedio de ingresos rural
+                switch ($item->ingresos_zona_rural) {
+                    case '1':
+                        $tipoIn1R += 1;
+                        break;
+                    case '2':
+                        $tipoIn2R += 1;
+                        break;
+                    case '3':
+                        $tipoIn3R += 1;
+                        break;
+                    case '4':
+                        $tipoIn4R += 1;
+                        break;
+                    case '5':
+                        $tipoIn5R += 1;
+                        break;
+                    case '6':
+                        $tipoIn6R += 1;
+                        break;
+                    case '7':
+                        $tipoIn7R += 1;
+                        break;
+                    case '8':
+                        $tipoNAR += 1;
+                        break;
                 }
             }
-
-            $info = [
-                'tipoIn1' => $tipoIn1,
-                'tipoIn2' => $tipoIn2,
-                'tipoIn3' => $tipoIn3,
-                'tipoIn4' => $tipoIn4,
-                'tipoIn5' => $tipoIn5,
-                'tipoIn6' => $tipoIn6,
-                'tipoIn7' => $tipoIn7,
-                'tipoNA' => $tipoNA,
-                'tipoIn1R' => $tipoIn1R,
-                'tipoIn2R' => $tipoIn2R,
-                'tipoIn3R' => $tipoIn3R,
-                'tipoIn4R' => $tipoIn4R,
-                'tipoIn5R' => $tipoIn5R,
-                'tipoIn6R' => $tipoIn6R,
-                'tipoIn7R' => $tipoIn7R,
-                'tipoNAR' => $tipoNAR,
-            ];
-
-            return $info;
         }
+
+        $info = [
+            'tipoIn1' => $tipoIn1,
+            'tipoIn2' => $tipoIn2,
+            'tipoIn3' => $tipoIn3,
+            'tipoIn4' => $tipoIn4,
+            'tipoIn5' => $tipoIn5,
+            'tipoIn6' => $tipoIn6,
+            'tipoIn7' => $tipoIn7,
+            'tipoNA' => $tipoNA,
+            'tipoIn1R' => $tipoIn1R,
+            'tipoIn2R' => $tipoIn2R,
+            'tipoIn3R' => $tipoIn3R,
+            'tipoIn4R' => $tipoIn4R,
+            'tipoIn5R' => $tipoIn5R,
+            'tipoIn6R' => $tipoIn6R,
+            'tipoIn7R' => $tipoIn7R,
+            'tipoNAR' => $tipoNAR,
+        ];
+
+        return $info;
     }
 
     public static function servicios_hogares($alias, $tipo, $id){
