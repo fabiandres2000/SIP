@@ -21,6 +21,7 @@
                     <ViviendaDashboard></ViviendaDashboard>
                 </b-tab>
                 <b-tab title="Hogares">
+                    <HogaresDashboard></HogaresDashboard>
                 </b-tab>
             </b-tabs>
         </b-card>
@@ -34,6 +35,7 @@ import DesempleoDashboard from "./DesempleoDashboard.vue";
 import MercadoLaboralDashboard from "./MercadoLaboralDashboard.vue";
 import PoblacionDashboard from "./PoblacionDashboard.vue";
 import ViviendaDashboard from "./ViviendaDashboard.vue";
+import HogaresDashboard from "./HogaresDashboard.vue";
 
 export default {
     components: {
@@ -42,7 +44,8 @@ export default {
         DesempleoDashboard,
         MercadoLaboralDashboard,
         PoblacionDashboard,
-        ViviendaDashboard
+        ViviendaDashboard,
+        HogaresDashboard
     },  
 }
 </script>

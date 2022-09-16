@@ -80,7 +80,7 @@
             </div>
             <div class="col-lg-6 text-center">
                 <h2>Viviendas Caracterizadas</h2>
-                <h4>(Por Tipo de Hacinamiento)</h4>
+                <h4>(Con algun tipo de Hacinamiento)</h4>
                 <div id="chartdiv_hacinamiento" style="width: 100%; height: 370px"></div>
             </div>
         </div>

@@ -305,4 +305,28 @@ class SocioeconomicoController extends Controller
             return redirect("/index")->with("error", "Su sesion ha terminado");
         }
     }
+
+    public function hogares() {
+        $tipo = request()->get('tipo');
+        $id = request()->get('id');
+        if (Auth::check()) {
+            $nso = \App\SocioeconomicoDashboard::nivel_socioeconomico_hogares(Session::get('alias'), $tipo, $id);
+            $haci = \App\SocioeconomicoDashboard::hacinamiento_hogares(Session::get('alias'), $tipo, $id);
+            $estra = \App\SocioeconomicoDashboard::estratificacion(Session::get('alias'), $tipo, $id);
+            $servicios = \App\SocioeconomicoDashboard::servicios_hogares(Session::get('alias'), $tipo, $id);
+            $jefes_menores_edad = \App\SocioeconomicoDashboard::jefes_menores_edad(Session::get('alias'), $tipo, $id);
+
+            $respuesta = [
+                'nso' => $nso,
+                'haci' => $haci,
+                'estra' => $estra,
+                'servicios' => $servicios,
+                'jefes_menores_edad' => $jefes_menores_edad
+            ];
+
+            return response()->json($respuesta, 200);
+        }else {
+            return redirect("/index")->with("error", "Su sesion ha terminado");
+        }
+    }
 }

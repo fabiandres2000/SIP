@@ -204,3 +204,4 @@ Route::get('/socioeconomico/poblacion', 'SocioeconomicoController@poblacion');
 Route::post('/socioeconomico/exportar-poblacion', 'SocioeconomicoController@exportarPoblacion');
 Route::get('/socioeconomico/vivienda', 'SocioeconomicoController@vivienda');
 Route::post('/socioeconomico/exportar-vivienda', 'SocioeconomicoController@exportarVivienda');
+Route::get('/socioeconomico/hogares', 'SocioeconomicoController@hogares');

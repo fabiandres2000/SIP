@@ -43,3 +43,7 @@ export function vivienda($tipo, $id) {
 export function exportarVivienda($data) {
     return http().post('/socioeconomico/exportar-vivienda', $data);
 }
+
+export function hogares($tipo, $id) {
+    return http().get('/socioeconomico/hogares?tipo='+$tipo+'&id='+$id);
+}
