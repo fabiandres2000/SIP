@@ -225,7 +225,8 @@ export default {
             ente: "",
             torta1: null,
             torta2: null,
-            torta3: null
+            torta3: null,
+            torta4: null
         }
     },
     methods: {
@@ -564,15 +565,26 @@ export default {
                 type: 'dataURL',
                 useCORS: true,
             }
-           
-           
+
+            let filtro = await this.$html2canvas(this.$refs.filtro, options);
+            let torta1 = await this.torta1.exporting.getImage("png");
+            let torta2 = await this.torta2.exporting.getImage("png");
+            let torta3 = await this.torta3.exporting.getImage("png");
+            let torta4 = await this.torta4.exporting.getImage("png");
+            let porcentajes = await this.$html2canvas(this.$refs.porcentajes, options);
             // convertir a imagen todos los graficos
 
             const parametros = {
                 _token: this.csrf,
+                torta1: torta1,
+                torta2: torta2,
+                torta3: torta3,
+                torta4: torta4,
+                porcentajes: porcentajes,
+                filtro: filtro,
             };
             try {
-                await DashboardServiceSocioeconomico.exportarVivienda(parametros).then(respuesta => {
+                await DashboardServiceSocioeconomico.exportarHogar(parametros).then(respuesta => {
                     this.rutaPdf = store.state.apiURL + respuesta.data.nombre;
                     this.isLoading = false;
                     this.$refs.modalpdf.show();
