@@ -61,7 +61,9 @@
                     <Dashboard></Dashboard>
                 </div>
 
-                <div class="tab-pane" id="tabsalud" role="tabpanel"></div>
+                <div class="tab-pane" id="tabsalud" role="tabpanel">
+                    <AdminRiesgosSalud></AdminRiesgosSalud>
+                </div>
 
                 <div class="tab-pane" id="tabambientales" role="tabpanel">
                     <DashboardRiesgosAmbientalesAdmin></DashboardRiesgosAmbientalesAdmin>
@@ -83,12 +85,14 @@ import * as administracionServicios from "../Servicios/administracion_servicios"
 import Dashboard from "../Vistas/Dashboard/Dashboard";
 import DashboardRiesgosAmbientalesAdmin from "../Vistas/Dashboard-Riesgos-Ambientales/DashboardRiesgosAmbientalesAdmin.vue";
 import AdminSocioeconomico from "../Vistas/Dashboard-socioeconomico/AdminSocioeconomico.vue"
+import AdminRiesgosSalud from "../Vistas/Dashboard-Riesgos-Salud/AdminRiesgosSalud.vue"
 
 export default {
     components: {
         Dashboard,
         DashboardRiesgosAmbientalesAdmin,
-        AdminSocioeconomico
+        AdminSocioeconomico,
+        AdminRiesgosSalud
     },
     mounted() {
         this.nuevo();
