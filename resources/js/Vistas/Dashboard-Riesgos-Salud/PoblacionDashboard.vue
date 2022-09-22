@@ -85,124 +85,60 @@
                         <option value = "riesgos_salud_de60">Mayores de 60 Años</option>
                     </select>
                 </div>
+                <div class="col-sm-4 col-lg-4 text-left" style="padding: 10px 10px 10px 20px;">
+                    <h4>Seleccione un riesgo de salud: </h4>
+                    <br/>
+                    <select id="riesgos_select" class="form-control" @change="data_combo_riesgo()" v-model="combo_riesgo">
+                        <option v-for="item in data_select_riesgo " :value = "item.value">{{item.nombre}}</option>
+                    </select>
+                </div>
             </div>
             <hr>
-            <div class="row" v-if="tipoComboGrupoEdad == 'riesgos_salud_men1' ||  tipoComboGrupoEdad == 'riesgos_salud_de1a5'">
-                <div class="col-lg-4 text-center">
-                    <h4>Trastornos Degenerativos, Neuropatías Y Enfermedades Autoinmunes</h4>
+            <div class="row">
+                <div class="col-lg-6 text-center">
                     <br>
-                    <div id="div_td_t1" style="width: 100%; height: 250px"></div>
+                    <h2>{{ titulo_grafico }}</h2>
+                    <br>
+                    <div id="chartdiv_barras" style="width: 100%; height: 350px"></div>
                 </div>
-                <div class="col-lg-4 text-center">
-                    <h4>Riesgo De Muerte Por Desnutrición </h4>
+                <div class="col-lg-6 text-center">
                     <br>
+                    <h2>{{ titulo_grafico }}</h2>
                     <br>
-                    <div id="div_md_t1" style="width: 100%; height: 250px"></div>
+                    <div id="graf_torta" style="width: 100%; height: 350px"></div>
                 </div>
-                <div class="col-lg-4 text-center">
-                    <h4>Riesgo Sobrepeso </h4>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-lg-12">
                     <br>
+                    <h2>{{ titulo_grafico }}</h2>
                     <br>
-                    <div id="div_s_t1" style="width: 100%; height: 250px"></div>
-                </div>
-                <div class="col-lg-4 text-center">
-                    <br>
-                    <br>
-                    <h4>Enfermedades Infeccisosas </h4>
-                    <div id="div_ei_t1" style="width: 100%; height: 250px"></div>
-                </div>
-                <div class="col-lg-4 text-center">
-                    <br>
-                    <br>
-                    <h4>Cancer </h4>
-                    <div id="div_c_t1" style="width: 100%; height: 250px"></div>
-                </div>
-                <div class="col-lg-4 text-center">
-                    <br>
-                    <br>
-                    <h4>Enfermedades Zoonoticas  </h4>  
-                    <div id="div_ez_t1" style="width: 100%; height: 250px"></div>
-                </div>
-                <div class="col-lg-4 text-center">
-                    <br>
-                    <br>
-                    <h4>Consumo De SPA </h4>
-                    <div id="div_cs_t1" style="width: 100%; height: 250px"></div>
-                </div>
-                <div class="col-lg-4 text-center">
-                    <br>
-                    <br>
-                    <h4>Riesgo Desnutrición Global </h4>
-                    <div id="div_dg_t1" style="width: 100%; height: 250px"></div>
-                </div>
-                <div class="col-lg-4 text-center">
-                    <br>
-                    <br>
-                    <h4>Riesgo De Talla Baja </h4>  
-                    <div id="div_tb_t1" style="width: 100%; height: 250px"></div>
-                </div>
-                <div class="col-lg-4 text-center">
-                    <br>
-                    <br>
-                    <h4>Trastornos Asociados Al Uso De SPA</h4>
-                    <div id="div_tas_t1" style="width: 100%; height: 250px"></div>
-                </div>
-                <div class="col-lg-4 text-center">
-                    <br>
-                    <br>
-                    <h4>Enfermedad Cardiovascular Aterogénica </h4>
-                    <div id="div_eca_t1" style="width: 100%; height: 250px"></div>
-                </div>
-                <div class="col-lg-4 text-center">
-                    <br>
-                    <br>
-                    <h4>Alteraciones Y Transtornos Visuales </h4>  
-                    <div id="div_atv_t1" style="width: 100%; height: 250px"></div>
-                </div>
-                <div class="col-lg-4 text-center">
-                    <br>
-                    <br>
-                    <h4>Alteraciones Y Transtornos De La Audición Y Comunicación</h4>
-                    <div id="div_tac_t1" style="width: 100%; height: 250px"></div>
-                </div>
-                <div class="col-lg-4 text-center">
-                    <br>
-                    <br>
-                    <h4>Salud Bucal </h4>
-                    <div id="div_sb_t1" style="width: 100%; height: 250px"></div>
-                </div>
-                <div class="col-lg-4 text-center">
-                    <br>
-                    <br>
-                    <h4>Problemas En Salud Mental </h4>  
-                    <div id="div_psm_t1" style="width: 100%; height: 250px"></div>
-                </div>
-
-                <div class="col-lg-4 text-center">
-                    <br>
-                    <br>
-                    <h4>Violencias</h4>
-                    <div id="div_v_t1" style="width: 100%; height: 250px"></div>
-                </div>
-                <div class="col-lg-4 text-center">
-                    <br>
-                    <br>
-                    <h4>Enfermedades Respiratorias Crónicas</h4>
-                    <div id="div_erc_t1" style="width: 100%; height: 250px"></div>
-                </div>
-                <div class="col-lg-4 text-center">
-                    <br>
-                    <br>
-                    <h4>Riesgo Desnutrición Aguda  </h4>  
-                    <div id="div_rda_t1" style="width: 100%; height: 250px"></div>
+                    <table style="width: 100%;" class="table_data" id="tabla_riesgos">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th style="text-align: center">Riesgo Inherente</th>
+                                <th style="text-align: center">Riesgo Residual</th>
+                                <th>Corregimiento</th> 
+                                <th>Barrio</th>
+                                <th>Direccion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="item in data_tabla_riesgos">
+                                <td>{{item.nombre}}</td>
+                                <td style="text-align: center"><span :class="item.cInherente">{{item.Inherente}} - {{item.vInherente}}</span></td>
+                                <td style="text-align: center"><span :class="item.cResidual">{{item.Residual}} - {{item.vResidual}}</span></td>
+                                <td><span>{{item.corregimiento}}</span></td>
+                                <td><span>{{item.barrio}}</span></td>
+                                <td><span>{{item.direccion}}</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
-        <hr>
-        <div class="row">
-            
-        </div>
-        
         <b-modal
             ref="modalpdf"
             hide-footer
@@ -240,13 +176,13 @@ import CircleProgress from 'vue-pithy-progress/lib/circle-progress.umd.min.js';
 import Loading from "vue-loading-overlay";
 import * as usuarioServicios from "../../Servicios/usuarios_servicios";
 import * as DashboardService from "../../Servicios/dashboard";
-import $ from "jquery";
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 import * as BarriosService from "../../Servicios/barrios_servicios.js";
 import * as CorregimientoService from "../../Servicios/corregimientos_servicios.js";
 import * as VeredasService from "../../Servicios/veredas_servicios.js";
+import $ from "jquery";
 
 am4core.useTheme(am4themes_animated);
 import store from "../../store";
@@ -284,24 +220,81 @@ export default {
             ente: "",
             tipoComboGrupoEdad: "riesgos_salud_men1",
             poblacion: [],
-            graf_td: null,
-            graf_md: null,
-            graf_s: null,
-            graf_ei: null,
-            graf_c: null,
-            graf_ez: null,
-            graf_cs: null,
-            graf_dg: null,
-            graf_tb: null,
-            graf_tas: null,
-            graf_eca: null,
-            graf_atv: null,
-            graf_tac: null,
-            graf_sb: null,
-            graf_psm: null,
-            graf_v: null,
-            graf_erc: null,
-            graf_rda: null
+            graf_torta: null,
+            graf_barra: null,
+            combo_riesgo: "alteraciones_transtornos_audicion",
+            riesgos_salud_tipo_1:  [
+                { value: "alteraciones_transtornos_audicion", nombre: "Alteraciones Y Transtornos De La Audición Y Comunicación " },
+                { value: "alteraciones_transtornos_visuales", nombre: "Alteraciones Y Transtornos Visuales" },
+                { value: "cancer", nombre: "Cancer" },
+                { value: "consumo_spa", nombre: "Consumo De SPA" },
+                { value: "enfermedad_cardiovascular", nombre: "Enfermedad Cardiovascular Aterogénica" },
+                { value: "enfermedades_infecciosas", nombre: "Enfermedades Infeccisosas" },
+                { value: "enfermedades_respiratorias", nombre: "Enfermedades Respiratorias Crónicas " },
+                { value: "enfermedades_zoonoticas", nombre: "Enfermedades Zoonoticas " },
+                { value: "problemas_salud_mental", nombre: "Problemas En Salud Mental " },
+                { value: "riesgo_muerte", nombre: "Riesgo De Muerte Por Desnutrición " },
+                { value: "riesgo_sobrepeso", nombre: "Riesgo Sobrepeso " },
+                { value: "riesgo_talla_baja", nombre: "Riesgo De Talla Baja " },
+                { value: "riesgos_desnutricion_aguda", nombre: "Riesgo Desnutrición Aguda" },
+                { value: "riesgos_desnutricion_global", nombre: "Riesgo Desnutrición Global " },
+                { value: "salud_bucal", nombre: "Salud Bucal " },
+                { value: "transtornos_asociados_spa", nombre: "Trastornos Asociados Al Uso De SPA" },
+                { value: "transtornos_degenartivos", nombre: "Trastornos Degenerativos, Neuropatías Y Enfermedades Autoinmunes" },
+                { value: "violencias", nombre: "Violencias" },
+            ],
+            riesgos_salud_tipo_2:  [
+                { value: "alteraciones_transtornos_audicion", nombre: "Alteraciones Y Transtornos De La Audición Y Comunicación " },
+                { value: "alteraciones_transtornos_visuales", nombre: "Alteraciones Y Transtornos Visuales" },
+                { value: "cancer", nombre: "Cancer" },
+                { value: "consumo_spa", nombre: "Consumo De SPA" },
+                { value: "enfermedad_cardiovascular", nombre: "Enfermedad Cardiovascular Aterogénica" },
+                { value: "enfermedades_infecciosas", nombre: "Enfermedades Infeccisosas" },
+                { value: "enfermedades_respiratorias", nombre: "Enfermedades Respiratorias Crónicas " },
+                { value: "enfermedades_zoonoticas", nombre: "Enfermedades Zoonoticas " },
+                { value: "problemas_salud_mental", nombre: "Problemas En Salud Mental " },
+                { value: "riesgo_delgadez", nombre: "Riesgo De Delgadez" },
+                { value: "riesgo_talla_baja", nombre: "Riesgo De Talla Baja " },
+                { value: "salud_bucal", nombre: "Salud Bucal " },
+                { value: "transtornos_asociados_spa", nombre: "Trastornos Asociados Al Uso De SPA" },
+                { value: "transtornos_degenartivos", nombre: "Trastornos Degenerativos, Neuropatías Y Enfermedades Autoinmunes" },
+                { value: "violencias", nombre: "Violencias" },
+            ],
+            riesgos_salud_tipo_3:  [
+                { value: "alteraciones_transtornos_audicion", nombre: "Alteraciones Y Transtornos De La Audición Y Comunicación " },
+                { value: "alteraciones_transtornos_visuales", nombre: "Alteraciones Y Transtornos Visuales" },
+                { value: "cancer", nombre: "Cancer" },
+                { value: "consumo_spa", nombre: "Consumo De SPA" },
+                { value: "enfermedad_cardiovascular", nombre: "Enfermedad Cardiovascular Aterogénica" },
+                { value: "enfermedades_infecciosas", nombre: "Enfermedades Infeccisosas" },
+                { value: "enfermedades_respiratorias", nombre: "Enfermedades Respiratorias Crónicas " },
+                { value: "enfermedades_zoonoticas", nombre: "Enfermedades Zoonoticas " },
+                { value: "problemas_salud_mental", nombre: "Problemas En Salud Mental " },
+                { value: "riesgo_delgadez", nombre: "Riesgo De Delgadez" },
+                { value: "salud_bucal", nombre: "Salud Bucal " },
+                { value: "transtornos_asociados_spa", nombre: "Trastornos Asociados Al Uso De SPA" },
+                { value: "transtornos_degenartivos", nombre: "Trastornos Degenerativos, Neuropatías Y Enfermedades Autoinmunes" },
+                { value: "violencias", nombre: "Violencias" },
+            ],
+            riesgos_salud_tipo_4:  [
+                { value: "alteraciones_transtornos_audicion", nombre: "Alteraciones Y Transtornos De La Audición Y Comunicación " },
+                { value: "alteraciones_transtornos_visuales", nombre: "Alteraciones Y Transtornos Visuales" },
+                { value: "cancer", nombre: "Cancer" },
+                { value: "consumo_spa", nombre: "Consumo De SPA" },
+                { value: "enfermedad_cardiovascular", nombre: "Enfermedad Cardiovascular Aterogénica" },
+                { value: "enfermedades_infecciosas", nombre: "Enfermedades Infeccisosas" },
+                { value: "enfermedades_respiratorias", nombre: "Enfermedades Respiratorias Crónicas " },
+                { value: "enfermedades_zoonoticas", nombre: "Enfermedades Zoonoticas " },
+                { value: "problemas_salud_mental", nombre: "Problemas En Salud Mental " },
+                { value: "salud_bucal", nombre: "Salud Bucal " },
+                { value: "transtornos_asociados_spa", nombre: "Trastornos Asociados Al Uso De SPA" },
+                { value: "transtornos_degenartivos", nombre: "Trastornos Degenerativos, Neuropatías Y Enfermedades Autoinmunes" },
+                { value: "violencias", nombre: "Violencias" },
+            ],
+            data_select_riesgo: [],
+            titulo_grafico: "",
+            data_grafico: [],
+            data_tabla_riesgos: []
         }
     },
     methods: {
@@ -438,33 +431,457 @@ export default {
         },
         async poblacionRS(){
             this.isLoading = true;
+            this.combo_riesgo = "alteraciones_transtornos_audicion";
             await DashboardServiceRS.poblacion(this.tipo, this.id_combo, this.tipoComboGrupoEdad).then(respuesta => {
                 this.poblacion = respuesta.data["poblacion"]; 
-                if(this.tipoComboGrupoEdad == "riesgos_salud_men1" || this.tipoComboGrupoEdad == "riesgos_salud_de1a5" ){
-                    this.grafico_trastornos_degenetarivos(this.poblacion.riesgosCantidad.transtornos_degenartivos, "t1");
-                    this.grafico_muerte_desnutricion(this.poblacion.riesgosCantidad.riesgo_muerte, "t1");
-                    this.grafico_sobrepeso(this.poblacion.riesgosCantidad.riesgo_sobrepeso, "t1");
-                    this.grafico_enfermedades_infecciosas(this.poblacion.riesgosCantidad.enfermedades_infecciosas, "t1");
-                    this.grafico_cancer(this.poblacion.riesgosCantidad.cancer, "t1");
-                    this.grafico_enfermedades_zoonaticas(this.poblacion.riesgosCantidad.enfermedades_zoonoticas, "t1");
-                    this.grafico_consumo_spa(this.poblacion.riesgosCantidad.consumo_spa, "t1");
-                    this.grafico_desnutricion_global(this.poblacion.riesgosCantidad.riesgos_desnutricion_global, "t1");
-                    this.grafico_talla_baja(this.poblacion.riesgosCantidad.riesgo_talla_baja, "t1");
-                    this.grafico_trastorno_consumo_spa(this.poblacion.riesgosCantidad.transtornos_asociados_spa, "t1");
-                    this.grafico_enfermedad_cardiovascular(this.poblacion.riesgosCantidad.enfermedad_cardiovascular, "t1");
-                    this.grafico_trastornos_visuales(this.poblacion.riesgosCantidad.alteraciones_transtornos_visuales, "t1");
-                    this.grafico_trastorno_audicion(this.poblacion.riesgosCantidad.alteraciones_transtornos_audicion, "t1");
-                    this.grafico_salud_bucal(this.poblacion.riesgosCantidad.salud_bucal, "t1");
-                    this.grafico_salud_mental(this.poblacion.riesgosCantidad.problemas_salud_mental, "t1");
-                    this.grafico_violencias(this.poblacion.riesgosCantidad.violencias, "t1");
-                    this.grafico_respiratoria_cronica(this.poblacion.riesgosCantidad.enfermedades_respiratorias, "t1");
-                    this.grafico_desnutricion_aguda(this.poblacion.riesgosCantidad.riesgos_desnutricion_aguda, "t1");
-                }
+                this.data_combo_riesgo();
                 this.isLoading = false;
             })
             .catch(err => {
                 console.log(err);
             });
+        },
+        async data_combo_riesgo() {
+            if(this.tipoComboGrupoEdad == "riesgos_salud_men1" || this.tipoComboGrupoEdad == "riesgos_salud_de1a5"){
+                this.data_select_riesgo = this.riesgos_salud_tipo_1;
+                let tipoRiesgo = this.combo_riesgo;
+                this.obtener_data_grafico(tipoRiesgo);
+            }
+            if(this.tipoComboGrupoEdad == "riesgos_salud_de6a11" || this.tipoComboGrupoEdad == "riesgos_salud_de12a17"){
+                this.data_select_riesgo = this.riesgos_salud_tipo_2;
+                let tipoRiesgo = this.combo_riesgo;
+                this.obtener_data_grafico(tipoRiesgo);
+            }
+            if(this.tipoComboGrupoEdad == "riesgos_salud_de18a28" || this.tipoComboGrupoEdad == "riesgos_salud_de29a59"){
+                this.data_select_riesgo = this.riesgos_salud_tipo_3;
+                let tipoRiesgo = this.combo_riesgo;
+                this.obtener_data_grafico(tipoRiesgo);
+            }
+            if(this.tipoComboGrupoEdad == "riesgos_salud_de60"){
+                this.data_select_riesgo = this.riesgos_salud_tipo_4;
+                let tipoRiesgo = this.combo_riesgo;
+                this.obtener_data_grafico(tipoRiesgo);
+            }
+        },
+        async obtener_data_grafico(tipoRiesgo){
+            
+            this.data_select_riesgo.forEach(element => {
+                if(element.value == tipoRiesgo){
+                    this.titulo_grafico = element.nombre;
+                }
+            });
+
+            if(this.tipoComboGrupoEdad == "riesgos_salud_men1" || this.tipoComboGrupoEdad == "riesgos_salud_de1a5" ){
+                let  data = [];
+                switch (tipoRiesgo) {
+                    case "alteraciones_transtornos_audicion":
+                        data =  this.poblacion.riesgosCantidad.alteraciones_transtornos_audicion;
+                        break;
+                    case "alteraciones_transtornos_visuales":
+                         data =  this.poblacion.riesgosCantidad.alteraciones_transtornos_visuales;
+                        break;
+                    case "cancer":
+                        data =  this.poblacion.riesgosCantidad.cancer;
+                        break;
+                    case "consumo_spa":
+                        data =  this.poblacion.riesgosCantidad.consumo_spa;
+                        break;
+                    case "enfermedad_cardiovascular":
+                        data =  this.poblacion.riesgosCantidad.enfermedad_cardiovascular;
+                        break;
+                    case "enfermedades_infecciosas":
+                        data =  this.poblacion.riesgosCantidad.enfermedades_infecciosas;
+                        break;
+                    case "enfermedades_respiratorias":
+                        data =  this.poblacion.riesgosCantidad.enfermedades_respiratorias;
+                        break;
+                    case "enfermedades_zoonoticas":
+                        data =  this.poblacion.riesgosCantidad.enfermedades_zoonoticas;
+                        break;
+                    case "problemas_salud_mental":
+                        data =  this.poblacion.riesgosCantidad.problemas_salud_mental;
+                        break;
+                    case "riesgo_muerte":
+                        data =  this.poblacion.riesgosCantidad.riesgo_muerte;
+                        break;
+                    case "riesgo_sobrepeso":
+                        data =  this.poblacion.riesgosCantidad.riesgo_sobrepeso;
+                        break;
+                    case "riesgo_talla_baja":
+                        data =  this.poblacion.riesgosCantidad.riesgo_talla_baja;
+                        break;
+                    case "riesgos_desnutricion_aguda":
+                        data =  this.poblacion.riesgosCantidad.riesgos_desnutricion_aguda;
+                        break;
+                    case "riesgos_desnutricion_global":
+                        data =  this.poblacion.riesgosCantidad.riesgos_desnutricion_global;
+                        break;
+                    case "salud_bucal":
+                        data =  this.poblacion.riesgosCantidad.salud_bucal;
+                        break;
+                    case "transtornos_asociados_spa":
+                        data =  this.poblacion.riesgosCantidad.transtornos_asociados_spa;
+                        break;
+                    case "transtornos_degenartivos":
+                        data =  this.poblacion.riesgosCantidad.transtornos_degenartivos;
+                        break;
+                    case "violencias":
+                        data =  this.poblacion.riesgosCantidad.violencias;
+                        break;
+                }
+                this.grafico_torta(data);
+                this.grafica_barras(data);
+            }
+
+            if(this.tipoComboGrupoEdad == "riesgos_salud_de6a11" || this.tipoComboGrupoEdad == "riesgos_salud_de12a17" ){
+                let  data = [];
+                switch (tipoRiesgo) {
+                    case "alteraciones_transtornos_audicion":
+                        data =  this.poblacion.riesgosCantidad.alteraciones_transtornos_audicion;
+                        break;
+                    case "alteraciones_transtornos_visuales":
+                         data =  this.poblacion.riesgosCantidad.alteraciones_transtornos_visuales;
+                        break;
+                    case "cancer":
+                        data =  this.poblacion.riesgosCantidad.cancer;
+                        break;
+                    case "consumo_spa":
+                        data =  this.poblacion.riesgosCantidad.consumo_spa;
+                        break;
+                    case "enfermedad_cardiovascular":
+                        data =  this.poblacion.riesgosCantidad.enfermedad_cardiovascular;
+                        break;
+                    case "enfermedades_infecciosas":
+                        data =  this.poblacion.riesgosCantidad.enfermedades_infecciosas;
+                        break;
+                    case "enfermedades_respiratorias":
+                        data =  this.poblacion.riesgosCantidad.enfermedades_respiratorias;
+                        break;
+                    case "enfermedades_zoonoticas":
+                        data =  this.poblacion.riesgosCantidad.enfermedades_zoonoticas;
+                        break;
+                    case "problemas_salud_mental":
+                        data =  this.poblacion.riesgosCantidad.problemas_salud_mental;
+                        break;
+                    case "riesgo_delgadez":
+                        data =  this.poblacion.riesgosCantidad.riesgo_delgadez;
+                        break;
+                    case "riesgo_talla_baja":
+                        data =  this.poblacion.riesgosCantidad.riesgo_talla_baja;
+                        break;
+                    case "salud_bucal":
+                        data =  this.poblacion.riesgosCantidad.salud_bucal;
+                        break;
+                    case "transtornos_asociados_spa":
+                        data =  this.poblacion.riesgosCantidad.transtornos_asociados_spa;
+                        break;
+                    case "transtornos_degenartivos":
+                        data =  this.poblacion.riesgosCantidad.transtornos_degenartivos;
+                        break;
+                    case "violencias":
+                        data =  this.poblacion.riesgosCantidad.violencias;
+                        break;
+                }
+                this.grafico_torta(data);
+                this.grafica_barras(data);
+            }
+
+            if(this.tipoComboGrupoEdad == "riesgos_salud_de18a28" || this.tipoComboGrupoEdad == "riesgos_salud_de29a59" ){
+                let  data = [];
+                switch (tipoRiesgo) {
+                    case "alteraciones_transtornos_audicion":
+                        data =  this.poblacion.riesgosCantidad.alteraciones_transtornos_audicion;
+                        break;
+                    case "alteraciones_transtornos_visuales":
+                         data =  this.poblacion.riesgosCantidad.alteraciones_transtornos_visuales;
+                        break;
+                    case "cancer":
+                        data =  this.poblacion.riesgosCantidad.cancer;
+                        break;
+                    case "consumo_spa":
+                        data =  this.poblacion.riesgosCantidad.consumo_spa;
+                        break;
+                    case "enfermedad_cardiovascular":
+                        data =  this.poblacion.riesgosCantidad.enfermedad_cardiovascular;
+                        break;
+                    case "enfermedades_infecciosas":
+                        data =  this.poblacion.riesgosCantidad.enfermedades_infecciosas;
+                        break;
+                    case "enfermedades_respiratorias":
+                        data =  this.poblacion.riesgosCantidad.enfermedades_respiratorias;
+                        break;
+                    case "enfermedades_zoonoticas":
+                        data =  this.poblacion.riesgosCantidad.enfermedades_zoonoticas;
+                        break;
+                    case "problemas_salud_mental":
+                        data =  this.poblacion.riesgosCantidad.problemas_salud_mental;
+                        break;
+                    case "riesgo_delgadez":
+                        data =  this.poblacion.riesgosCantidad.riesgo_delgadez;
+                        break;
+                    case "salud_bucal":
+                        data =  this.poblacion.riesgosCantidad.salud_bucal;
+                        break;
+                    case "transtornos_asociados_spa":
+                        data =  this.poblacion.riesgosCantidad.transtornos_asociados_spa;
+                        break;
+                    case "transtornos_degenartivos":
+                        data =  this.poblacion.riesgosCantidad.transtornos_degenartivos;
+                        break;
+                    case "violencias":
+                        data =  this.poblacion.riesgosCantidad.violencias;
+                        break;
+                }
+                this.grafico_torta(data);
+                this.grafica_barras(data);
+            }
+
+            if(this.tipoComboGrupoEdad == "riesgos_salud_de60"){
+                let  data = [];
+                switch (tipoRiesgo) {
+                    case "alteraciones_transtornos_audicion":
+                        data =  this.poblacion.riesgosCantidad.alteraciones_transtornos_audicion;
+                        break;
+                    case "alteraciones_transtornos_visuales":
+                         data =  this.poblacion.riesgosCantidad.alteraciones_transtornos_visuales;
+                        break;
+                    case "cancer":
+                        data =  this.poblacion.riesgosCantidad.cancer;
+                        break;
+                    case "consumo_spa":
+                        data =  this.poblacion.riesgosCantidad.consumo_spa;
+                        break;
+                    case "enfermedad_cardiovascular":
+                        data =  this.poblacion.riesgosCantidad.enfermedad_cardiovascular;
+                        break;
+                    case "enfermedades_infecciosas":
+                        data =  this.poblacion.riesgosCantidad.enfermedades_infecciosas;
+                        break;
+                    case "enfermedades_respiratorias":
+                        data =  this.poblacion.riesgosCantidad.enfermedades_respiratorias;
+                        break;
+                    case "enfermedades_zoonoticas":
+                        data =  this.poblacion.riesgosCantidad.enfermedades_zoonoticas;
+                        break;
+                    case "problemas_salud_mental":
+                        data =  this.poblacion.riesgosCantidad.problemas_salud_mental;
+                        break;
+                    case "salud_bucal":
+                        data =  this.poblacion.riesgosCantidad.salud_bucal;
+                        break;
+                    case "transtornos_asociados_spa":
+                        data =  this.poblacion.riesgosCantidad.transtornos_asociados_spa;
+                        break;
+                    case "transtornos_degenartivos":
+                        data =  this.poblacion.riesgosCantidad.transtornos_degenartivos;
+                        break;
+                    case "violencias":
+                        data =  this.poblacion.riesgosCantidad.violencias;
+                        break;
+                }
+                this.grafico_torta(data);
+                this.grafica_barras(data);
+            }
+
+            this.data_tabla(tipoRiesgo);
+        },
+        async grafico_torta(data) {
+            if(this.graf_torta != null){
+                this.graf_torta.dispose();
+            }
+            var chart = am4core.create("graf_torta" , am4charts.PieChart3D);
+            this.graf_torta = chart;
+            chart.data = [
+                {
+                    category: "Inexistente",
+                    first: data.Inexistente,
+                },
+                {
+                    category: "Bajo",
+                    first: data.Bajo,
+                },
+                {
+                    category: "Moderado",
+                    first: data.Moderado,
+                },
+                {
+                    category: "Alto",
+                    first: data.Alto,
+                },
+            ];
+            var series = chart.series.push(new am4charts.PieSeries3D());
+            series.dataFields.value = "first";
+            series.dataFields.category = "category";
+
+            series.slices.template.events.on("hit", function(ev){
+                console.log(ev.target.dataItem)
+            });
+
+            series.slices.template.adapter.add("fill", function(fill, target) {
+                if (target.dataItem && (target.dataItem.dataContext.category == "Inexistente")) {
+                    return am4core.color("#43ad8e");
+                }
+                if (target.dataItem && (target.dataItem.dataContext.category == "Bajo")) {
+                    return am4core.color("#0abb87");
+                }
+                if (target.dataItem && (target.dataItem.dataContext.category == "Moderado")) {
+                    return am4core.color("#ffb822");
+                }
+                if (target.dataItem && (target.dataItem.dataContext.category == "Alto")) {
+                    return am4core.color("#fd397a");
+                }
+            });
+        },
+        async grafica_barras(data) {
+           
+           am4core.useTheme(am4themes_animated);
+           if(this.graf_barra != null){
+               this.graf_barra.dispose();
+           }
+           var chart = am4core.create("chartdiv_barras", am4charts.XYChart3D);
+           this.graf_barra = chart;
+           chart.paddingBottom = 50;
+
+           chart.cursor = new am4charts.XYCursor();
+      
+           var xAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+           xAxis.dataFields.category = "category";
+           xAxis.renderer.minGridDistance = 30;
+
+           var yAxis = chart.yAxes.push(new am4charts.ValueAxis());
+           yAxis.min = 0;
+
+           var axisLabels = xAxis.renderer.labels.template;
+           axisLabels.fontSize = 10;
+
+           function createSeries(value, name) {
+               var series = chart.series.push(new am4charts.ColumnSeries3D());
+               series.dataFields.valueY = value;
+               series.dataFields.categoryX = "category";
+               series.name = name;
+
+               var bullet = series.bullets.push(new am4charts.LabelBullet());
+               bullet.interactionsEnabled = false;
+               bullet.dy = 15;
+               bullet.label.text = "{valueY}";
+               bullet.label.fill = am4core.color("#ffffff");
+
+               series.columns.template.adapter.add("fill", function(fill, target) {
+                    if (target.dataItem && (target.dataItem.categoryX == "Inexistente")) {
+                        return am4core.color("#43ad8e");
+                    }
+                    if (target.dataItem && (target.dataItem.categoryX == "Bajo")) {
+                        return am4core.color("#0abb87");
+                    }
+                    if (target.dataItem && (target.dataItem.categoryX == "Moderado")) {
+                        return am4core.color("#ffb822");
+                    }
+                    if (target.dataItem && (target.dataItem.categoryX == "Alto")) {
+                        return am4core.color("#fd397a");
+                    }
+                });
+
+               return series;
+           }
+
+           chart.data = [
+                {
+                    category: "Inexistente",
+                    first: data.Inexistente,
+                },
+                {
+                    category: "Bajo",
+                    first: data.Bajo,
+                },
+                {
+                    category: "Moderado",
+                    first: data.Moderado,
+                },
+                {
+                    category: "Alto",
+                    first: data.Alto,
+                },
+            ];
+            createSeries("first", "Hombres");
+        },
+        async data_tabla(riesgo){
+            let data_table = [];
+            for (let index = 0; index < this.poblacion.poblacion.length; index++) {
+                var element = this.poblacion.poblacion[index];
+                var snom = element["snom"] != null ? element["snom"] : "";
+                var corre = element["des_corr"] != "" ? element["des_corr"] : "CASCO URBANO";
+                var json = {
+                    nombre: element["pnom"]+" "+ snom +" "+element["pape"]+" "+element["sape"],
+                    Inherente: element[riesgo+"_I"],
+                    Residual: element[riesgo+"_R"],
+                    vInherente: this.valoracion(parseInt(element[riesgo+"_I"])),
+                    vResidual: this.valoracion(parseInt(element[riesgo+"_R"])),
+                    cInherente: this.color(this.valoracion(parseInt(element[riesgo+"_I"]))),
+                    cResidual: this.color(this.valoracion(parseInt(element[riesgo+"_R"]))),
+                    corregimiento: corre,
+                    barrio: element["des_barrio"],
+                    direccion: element["des_direc"],
+                };
+                data_table.push(json);
+            }
+            this.data_tabla_riesgos = data_table;
+
+            $("#tabla_riesgos").dataTable().fnDestroy();
+            setTimeout(() => {
+                $('#tabla_riesgos').DataTable({
+                    "lengthChange": false,
+                    language: {
+                        "decimal": "",
+                        "emptyTable": "No hay información",
+                        "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+                        "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+                        "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                        "infoPostFix": "",
+                        "thousands": ",",
+                        "lengthMenu": "Mostrar _MENU_ Entradas",
+                        "loadingRecords": "Cargando...",
+                        "processing": "Procesando...",
+                        "search": "Buscar:",
+                        "zeroRecords": "Sin resultados encontrados",
+                        "paginate": {
+                            "first": "Primero",
+                            "last": "Ultimo",
+                            "next": "Siguiente",
+                            "previous": "Anterior"
+                        }
+                    }
+                });
+            }, 500);
+        },
+        valoracion(valor){
+            var eficacia = "";
+            if (valor == 1 || valor == 0) {
+                eficacia = "Inexistente";
+            } else {
+                if (valor == 2) {
+                    eficacia = "Bajo";
+                } else {
+                    if (valor == 3) {
+                        eficacia = "Moderado";
+                    } else {
+                        eficacia = "Alto";
+                    }
+                }
+            }
+            return eficacia;
+        },
+        color(valor){
+            var color = "";
+            if (valor == "Bajo" || valor == "Inexistente") {
+                color = "kt-badge kt-badge--inline kt-badge--success";
+            } else {
+                if (valor == "Moderado") {
+                    color = "kt-badge kt-badge--inline kt-badge--warning";
+                } else {
+                    color = "kt-badge kt-badge--inline kt-badge--danger";
+                }
+            }
+            return color;
         },
         async exportToPDFRSP(){ 
             this.isLoading = true;
@@ -494,517 +911,60 @@ export default {
         cerrarModal() {
             this.$refs.modalpdf.hide();
         },
-        async grafico_trastornos_degenetarivos(data, id) {
-            if(this.graf_td != null){
-                this.graf_td.dispose();
-            }
-            var chart = am4core.create("div_td_"+id, am4charts.PieChart3D);
-            this.graf_td = chart;
-            chart.data = [
-                {
-                    category: "Inexistente",
-                    first: data.Inexistente,
-                },
-                {
-                    category: "Bajo",
-                    first: data.Bajo,
-                },
-                {
-                    category: "Moderado",
-                    first: data.Moderado,
-                },
-                {
-                    category: "Alto",
-                    first: data.Alto,
-                },
-            ];
-            var series = chart.series.push(new am4charts.PieSeries3D());
-            series.dataFields.value = "first";
-            series.dataFields.category = "category";
-        },
-        async grafico_muerte_desnutricion(data, id) {
-            if(this.graf_md != null){
-                this.graf_md.dispose();
-            }
-            var chart = am4core.create("div_md_"+id, am4charts.PieChart3D);
-            this.graf_md = chart;
-            chart.data = [
-                {
-                    category: "Inexistente",
-                    first: data.Inexistente,
-                },
-                {
-                    category: "Bajo",
-                    first: data.Bajo,
-                },
-                {
-                    category: "Moderado",
-                    first: data.Moderado,
-                },
-                {
-                    category: "Alto",
-                    first: data.Alto,
-                },
-            ];
-            var series = chart.series.push(new am4charts.PieSeries3D());
-            series.dataFields.value = "first";
-            series.dataFields.category = "category";
-        },
-        async grafico_sobrepeso(data, id) {
-            if(this.graf_s != null){
-                this.graf_s.dispose();
-            }
-            var chart = am4core.create("div_s_"+id, am4charts.PieChart3D);
-            this.graf_s = chart;
-            chart.data = [
-                {
-                    category: "Inexistente",
-                    first: data.Inexistente,
-                },
-                {
-                    category: "Bajo",
-                    first: data.Bajo,
-                },
-                {
-                    category: "Moderado",
-                    first: data.Moderado,
-                },
-                {
-                    category: "Alto",
-                    first: data.Alto,
-                },
-            ];
-            var series = chart.series.push(new am4charts.PieSeries3D());
-            series.dataFields.value = "first";
-            series.dataFields.category = "category";
-        },
-        async grafico_enfermedades_infecciosas(data, id) {
-            if(this.graf_ei != null){
-                this.graf_ei.dispose();
-            }
-            var chart = am4core.create("div_ei_"+id, am4charts.PieChart3D);
-            this.graf_ei = chart;
-            chart.data = [
-                {
-                    category: "Inexistente",
-                    first: data.Inexistente,
-                },
-                {
-                    category: "Bajo",
-                    first: data.Bajo,
-                },
-                {
-                    category: "Moderado",
-                    first: data.Moderado,
-                },
-                {
-                    category: "Alto",
-                    first: data.Alto,
-                },
-            ];
-            var series = chart.series.push(new am4charts.PieSeries3D());
-            series.dataFields.value = "first";
-            series.dataFields.category = "category";
-        },
-        async grafico_cancer(data, id) {
-            if(this.graf_c != null){
-                this.graf_c.dispose();
-            }
-            var chart = am4core.create("div_c_"+id, am4charts.PieChart3D);
-            this.graf_c = chart;
-            chart.data = [
-                {
-                    category: "Inexistente",
-                    first: data.Inexistente,
-                },
-                {
-                    category: "Bajo",
-                    first: data.Bajo,
-                },
-                {
-                    category: "Moderado",
-                    first: data.Moderado,
-                },
-                {
-                    category: "Alto",
-                    first: data.Alto,
-                },
-            ];
-            var series = chart.series.push(new am4charts.PieSeries3D());
-            series.dataFields.value = "first";
-            series.dataFields.category = "category";
-        },
-        async grafico_enfermedades_zoonaticas(data, id) {
-            if(this.graf_ez != null){
-                this.graf_ez.dispose();
-            }
-            var chart = am4core.create("div_ez_"+id, am4charts.PieChart3D);
-            this.graf_ez = chart;
-            chart.data = [
-                {
-                    category: "Inexistente",
-                    first: data.Inexistente,
-                },
-                {
-                    category: "Bajo",
-                    first: data.Bajo,
-                },
-                {
-                    category: "Moderado",
-                    first: data.Moderado,
-                },
-                {
-                    category: "Alto",
-                    first: data.Alto,
-                },
-            ];
-            var series = chart.series.push(new am4charts.PieSeries3D());
-            series.dataFields.value = "first";
-            series.dataFields.category = "category";
-        },
-        async grafico_consumo_spa(data, id) {
-            if(this.graf_cs != null){
-                this.graf_cs.dispose();
-            }
-            var chart = am4core.create("div_cs_"+id, am4charts.PieChart3D);
-            this.graf_cs = chart;
-            chart.data = [
-                {
-                    category: "Inexistente",
-                    first: data.Inexistente,
-                },
-                {
-                    category: "Bajo",
-                    first: data.Bajo,
-                },
-                {
-                    category: "Moderado",
-                    first: data.Moderado,
-                },
-                {
-                    category: "Alto",
-                    first: data.Alto,
-                },
-            ];
-            var series = chart.series.push(new am4charts.PieSeries3D());
-            series.dataFields.value = "first";
-            series.dataFields.category = "category";
-        },
-        async grafico_desnutricion_global(data, id) {
-            if(this.graf_dg != null){
-                this.graf_dg.dispose();
-            }
-            var chart = am4core.create("div_dg_"+id, am4charts.PieChart3D);
-            this.graf_dg = chart;
-            chart.data = [
-                {
-                    category: "Inexistente",
-                    first: data.Inexistente,
-                },
-                {
-                    category: "Bajo",
-                    first: data.Bajo,
-                },
-                {
-                    category: "Moderado",
-                    first: data.Moderado,
-                },
-                {
-                    category: "Alto",
-                    first: data.Alto,
-                },
-            ];
-            var series = chart.series.push(new am4charts.PieSeries3D());
-            series.dataFields.value = "first";
-            series.dataFields.category = "category";
-        },
-        async grafico_talla_baja(data, id) {
-            if(this.graf_tb != null){
-                this.graf_tb.dispose();
-            }
-            var chart = am4core.create("div_tb_"+id, am4charts.PieChart3D);
-            this.graf_tb = chart;
-            chart.data = [
-                {
-                    category: "Inexistente",
-                    first: data.Inexistente,
-                },
-                {
-                    category: "Bajo",
-                    first: data.Bajo,
-                },
-                {
-                    category: "Moderado",
-                    first: data.Moderado,
-                },
-                {
-                    category: "Alto",
-                    first: data.Alto,
-                },
-            ];
-            var series = chart.series.push(new am4charts.PieSeries3D());
-            series.dataFields.value = "first";
-            series.dataFields.category = "category";
-        },
-        async grafico_trastorno_consumo_spa(data, id) {
-            if(this.graf_tas != null){
-                this.graf_tas.dispose();
-            }
-            var chart = am4core.create("div_tas_"+id, am4charts.PieChart3D);
-            this.graf_tas = chart;
-            chart.data = [
-                {
-                    category: "Inexistente",
-                    first: data.Inexistente,
-                },
-                {
-                    category: "Bajo",
-                    first: data.Bajo,
-                },
-                {
-                    category: "Moderado",
-                    first: data.Moderado,
-                },
-                {
-                    category: "Alto",
-                    first: data.Alto,
-                },
-            ];
-            var series = chart.series.push(new am4charts.PieSeries3D());
-            series.dataFields.value = "first";
-            series.dataFields.category = "category";
-        },
-        async grafico_enfermedad_cardiovascular(data, id) {
-            if(this.graf_eca != null){
-                this.graf_eca.dispose();
-            }
-            var chart = am4core.create("div_eca_"+id, am4charts.PieChart3D);
-            this.graf_eca = chart;
-            chart.data = [
-                {
-                    category: "Inexistente",
-                    first: data.Inexistente,
-                },
-                {
-                    category: "Bajo",
-                    first: data.Bajo,
-                },
-                {
-                    category: "Moderado",
-                    first: data.Moderado,
-                },
-                {
-                    category: "Alto",
-                    first: data.Alto,
-                },
-            ];
-            var series = chart.series.push(new am4charts.PieSeries3D());
-            series.dataFields.value = "first";
-            series.dataFields.category = "category";
-        },
-        async grafico_trastornos_visuales(data, id) {
-            if(this.graf_atv != null){
-                this.graf_atv.dispose();
-            }
-            var chart = am4core.create("div_atv_"+id, am4charts.PieChart3D);
-            this.graf_atv = chart;
-            chart.data = [
-                {
-                    category: "Inexistente",
-                    first: data.Inexistente,
-                },
-                {
-                    category: "Bajo",
-                    first: data.Bajo,
-                },
-                {
-                    category: "Moderado",
-                    first: data.Moderado,
-                },
-                {
-                    category: "Alto",
-                    first: data.Alto,
-                },
-            ];
-            var series = chart.series.push(new am4charts.PieSeries3D());
-            series.dataFields.value = "first";
-            series.dataFields.category = "category";
-        },
-        async grafico_trastorno_audicion(data, id) {
-            if(this.graf_tac != null){
-                this.graf_tac.dispose();
-            }
-            var chart = am4core.create("div_tac_"+id, am4charts.PieChart3D);
-            this.graf_tac = chart;
-            chart.data = [
-                {
-                    category: "Inexistente",
-                    first: data.Inexistente,
-                },
-                {
-                    category: "Bajo",
-                    first: data.Bajo,
-                },
-                {
-                    category: "Moderado",
-                    first: data.Moderado,
-                },
-                {
-                    category: "Alto",
-                    first: data.Alto,
-                },
-            ];
-            var series = chart.series.push(new am4charts.PieSeries3D());
-            series.dataFields.value = "first";
-            series.dataFields.category = "category";
-        },
-        async grafico_salud_bucal(data, id) {
-            if(this.graf_sb != null){
-                this.graf_sb.dispose();
-            }
-            var chart = am4core.create("div_sb_"+id, am4charts.PieChart3D);
-            this.graf_sb = chart;
-            chart.data = [
-                {
-                    category: "Inexistente",
-                    first: data.Inexistente,
-                },
-                {
-                    category: "Bajo",
-                    first: data.Bajo,
-                },
-                {
-                    category: "Moderado",
-                    first: data.Moderado,
-                },
-                {
-                    category: "Alto",
-                    first: data.Alto,
-                },
-            ];
-            var series = chart.series.push(new am4charts.PieSeries3D());
-            series.dataFields.value = "first";
-            series.dataFields.category = "category";
-        },
-        async grafico_salud_mental(data, id) {
-            if(this.graf_psm != null){
-                this.graf_psm.dispose();
-            }
-            var chart = am4core.create("div_psm_"+id, am4charts.PieChart3D);
-            this.graf_psm = chart;
-            chart.data = [
-                {
-                    category: "Inexistente",
-                    first: data.Inexistente,
-                },
-                {
-                    category: "Bajo",
-                    first: data.Bajo,
-                },
-                {
-                    category: "Moderado",
-                    first: data.Moderado,
-                },
-                {
-                    category: "Alto",
-                    first: data.Alto,
-                },
-            ];
-            var series = chart.series.push(new am4charts.PieSeries3D());
-            series.dataFields.value = "first";
-            series.dataFields.category = "category";
-        },
-        async grafico_violencias(data, id) {
-            if(this.graf_v != null){
-                this.graf_v.dispose();
-            }
-            var chart = am4core.create("div_v_"+id, am4charts.PieChart3D);
-            this.graf_v = chart;
-            chart.data = [
-                {
-                    category: "Inexistente",
-                    first: data.Inexistente,
-                },
-                {
-                    category: "Bajo",
-                    first: data.Bajo,
-                },
-                {
-                    category: "Moderado",
-                    first: data.Moderado,
-                },
-                {
-                    category: "Alto",
-                    first: data.Alto,
-                },
-            ];
-            var series = chart.series.push(new am4charts.PieSeries3D());
-            series.dataFields.value = "first";
-            series.dataFields.category = "category";
-        },
-        async grafico_respiratoria_cronica(data, id) {
-            if(this.graf_erc != null){
-                this.graf_erc.dispose();
-            }
-            var chart = am4core.create("div_erc_"+id, am4charts.PieChart3D);
-            this.graf_erc = chart;
-            chart.data = [
-                {
-                    category: "Inexistente",
-                    first: data.Inexistente,
-                },
-                {
-                    category: "Bajo",
-                    first: data.Bajo,
-                },
-                {
-                    category: "Moderado",
-                    first: data.Moderado,
-                },
-                {
-                    category: "Alto",
-                    first: data.Alto,
-                },
-            ];
-            var series = chart.series.push(new am4charts.PieSeries3D());
-            series.dataFields.value = "first";
-            series.dataFields.category = "category";
-        },
-        async grafico_desnutricion_aguda(data, id) {
-            if(this.graf_rda != null){
-                this.graf_rda.dispose();
-            }
-            var chart = am4core.create("div_rda_"+id, am4charts.PieChart3D);
-            this.graf_rda = chart;
-            chart.data = [
-                {
-                    category: "Inexistente",
-                    first: data.Inexistente,
-                },
-                {
-                    category: "Bajo",
-                    first: data.Bajo,
-                },
-                {
-                    category: "Moderado",
-                    first: data.Moderado,
-                },
-                {
-                    category: "Alto",
-                    first: data.Alto,
-                },
-            ];
-            var series = chart.series.push(new am4charts.PieSeries3D());
-            series.dataFields.value = "first";
-            series.dataFields.category = "category";
-
-            series.slices.template.events.on("hit", function(ev){
-                console.log(ev.target.dataItem)
-            });
-        }
     }
 }
 </script>
 <style>
-    
+   .progress-content {
+        position: absolute;
+        top: 42%;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .table_data {
+        width: 100%;
+        font-size: 17px;
+        border-collapse: collapse;
+    }
+
+    .table_data thead {
+        padding: 0.3em;
+        color: #fff !important;
+        background: #5578eb;
+    }
+
+    .table_data thead tr th, .table_data tbody tr td {
+        text-align: left;
+        vertical-align: top;
+        padding: 0.3em;
+        caption-side: bottom;
+    }
+
+
+    .table_data tbody tr:nth-child(odd) {
+        background-color: #fff;
+    }
+
+    .table_data tbody tr:nth-child(even) {
+        background-color: #f1f1f1;
+    }
+
+    .dataTable th {
+        color: #ffffff !important;
+    }
+
+    .dataTables_paginate span {
+        padding-left: 10px;
+        padding-right: 10px;
+        color: #ffff !important;
+    }
+
+    .dataTables_paginate span  a{
+        color: #ffff !important;
+    }
+
+    .dataTables_filter label input {
+        margin-left: 20px
+    } 
 </style>
