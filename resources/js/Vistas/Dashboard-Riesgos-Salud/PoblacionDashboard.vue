@@ -86,6 +86,117 @@
                     </select>
                 </div>
             </div>
+            <hr>
+            <div class="row" v-if="tipoComboGrupoEdad == 'riesgos_salud_men1' ||  tipoComboGrupoEdad == 'riesgos_salud_de1a5'">
+                <div class="col-lg-4 text-center">
+                    <h4>Trastornos Degenerativos, Neuropatías Y Enfermedades Autoinmunes</h4>
+                    <br>
+                    <div id="div_td_t1" style="width: 100%; height: 250px"></div>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <h4>Riesgo De Muerte Por Desnutrición </h4>
+                    <br>
+                    <br>
+                    <div id="div_md_t1" style="width: 100%; height: 250px"></div>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <h4>Riesgo Sobrepeso </h4>
+                    <br>
+                    <br>
+                    <div id="div_s_t1" style="width: 100%; height: 250px"></div>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <br>
+                    <br>
+                    <h4>Enfermedades Infeccisosas </h4>
+                    <div id="div_ei_t1" style="width: 100%; height: 250px"></div>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <br>
+                    <br>
+                    <h4>Cancer </h4>
+                    <div id="div_c_t1" style="width: 100%; height: 250px"></div>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <br>
+                    <br>
+                    <h4>Enfermedades Zoonoticas  </h4>  
+                    <div id="div_ez_t1" style="width: 100%; height: 250px"></div>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <br>
+                    <br>
+                    <h4>Consumo De SPA </h4>
+                    <div id="div_cs_t1" style="width: 100%; height: 250px"></div>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <br>
+                    <br>
+                    <h4>Riesgo Desnutrición Global </h4>
+                    <div id="div_dg_t1" style="width: 100%; height: 250px"></div>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <br>
+                    <br>
+                    <h4>Riesgo De Talla Baja </h4>  
+                    <div id="div_tb_t1" style="width: 100%; height: 250px"></div>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <br>
+                    <br>
+                    <h4>Trastornos Asociados Al Uso De SPA</h4>
+                    <div id="div_tas_t1" style="width: 100%; height: 250px"></div>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <br>
+                    <br>
+                    <h4>Enfermedad Cardiovascular Aterogénica </h4>
+                    <div id="div_eca_t1" style="width: 100%; height: 250px"></div>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <br>
+                    <br>
+                    <h4>Alteraciones Y Transtornos Visuales </h4>  
+                    <div id="div_atv_t1" style="width: 100%; height: 250px"></div>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <br>
+                    <br>
+                    <h4>Alteraciones Y Transtornos De La Audición Y Comunicación</h4>
+                    <div id="div_tac_t1" style="width: 100%; height: 250px"></div>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <br>
+                    <br>
+                    <h4>Salud Bucal </h4>
+                    <div id="div_sb_t1" style="width: 100%; height: 250px"></div>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <br>
+                    <br>
+                    <h4>Problemas En Salud Mental </h4>  
+                    <div id="div_psm_t1" style="width: 100%; height: 250px"></div>
+                </div>
+
+                <div class="col-lg-4 text-center">
+                    <br>
+                    <br>
+                    <h4>Violencias</h4>
+                    <div id="div_v_t1" style="width: 100%; height: 250px"></div>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <br>
+                    <br>
+                    <h4>Enfermedades Respiratorias Crónicas</h4>
+                    <div id="div_erc_t1" style="width: 100%; height: 250px"></div>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <br>
+                    <br>
+                    <h4>Riesgo Desnutrición Aguda  </h4>  
+                    <div id="div_rda_t1" style="width: 100%; height: 250px"></div>
+                </div>
+            </div>
         </div>
         <hr>
         <div class="row">
@@ -172,7 +283,25 @@ export default {
             id_combo: 1,
             ente: "",
             tipoComboGrupoEdad: "riesgos_salud_men1",
-            poblacion: []
+            poblacion: [],
+            graf_td: null,
+            graf_md: null,
+            graf_s: null,
+            graf_ei: null,
+            graf_c: null,
+            graf_ez: null,
+            graf_cs: null,
+            graf_dg: null,
+            graf_tb: null,
+            graf_tas: null,
+            graf_eca: null,
+            graf_atv: null,
+            graf_tac: null,
+            graf_sb: null,
+            graf_psm: null,
+            graf_v: null,
+            graf_erc: null,
+            graf_rda: null
         }
     },
     methods: {
@@ -311,6 +440,26 @@ export default {
             this.isLoading = true;
             await DashboardServiceRS.poblacion(this.tipo, this.id_combo, this.tipoComboGrupoEdad).then(respuesta => {
                 this.poblacion = respuesta.data["poblacion"]; 
+                if(this.tipoComboGrupoEdad == "riesgos_salud_men1" || this.tipoComboGrupoEdad == "riesgos_salud_de1a5" ){
+                    this.grafico_trastornos_degenetarivos(this.poblacion.riesgosCantidad.transtornos_degenartivos, "t1");
+                    this.grafico_muerte_desnutricion(this.poblacion.riesgosCantidad.riesgo_muerte, "t1");
+                    this.grafico_sobrepeso(this.poblacion.riesgosCantidad.riesgo_sobrepeso, "t1");
+                    this.grafico_enfermedades_infecciosas(this.poblacion.riesgosCantidad.enfermedades_infecciosas, "t1");
+                    this.grafico_cancer(this.poblacion.riesgosCantidad.cancer, "t1");
+                    this.grafico_enfermedades_zoonaticas(this.poblacion.riesgosCantidad.enfermedades_zoonoticas, "t1");
+                    this.grafico_consumo_spa(this.poblacion.riesgosCantidad.consumo_spa, "t1");
+                    this.grafico_desnutricion_global(this.poblacion.riesgosCantidad.riesgos_desnutricion_global, "t1");
+                    this.grafico_talla_baja(this.poblacion.riesgosCantidad.riesgo_talla_baja, "t1");
+                    this.grafico_trastorno_consumo_spa(this.poblacion.riesgosCantidad.transtornos_asociados_spa, "t1");
+                    this.grafico_enfermedad_cardiovascular(this.poblacion.riesgosCantidad.enfermedad_cardiovascular, "t1");
+                    this.grafico_trastornos_visuales(this.poblacion.riesgosCantidad.alteraciones_transtornos_visuales, "t1");
+                    this.grafico_trastorno_audicion(this.poblacion.riesgosCantidad.alteraciones_transtornos_audicion, "t1");
+                    this.grafico_salud_bucal(this.poblacion.riesgosCantidad.salud_bucal, "t1");
+                    this.grafico_salud_mental(this.poblacion.riesgosCantidad.problemas_salud_mental, "t1");
+                    this.grafico_violencias(this.poblacion.riesgosCantidad.violencias, "t1");
+                    this.grafico_respiratoria_cronica(this.poblacion.riesgosCantidad.enfermedades_respiratorias, "t1");
+                    this.grafico_desnutricion_aguda(this.poblacion.riesgosCantidad.riesgos_desnutricion_aguda, "t1");
+                }
                 this.isLoading = false;
             })
             .catch(err => {
@@ -344,6 +493,514 @@ export default {
         },
         cerrarModal() {
             this.$refs.modalpdf.hide();
+        },
+        async grafico_trastornos_degenetarivos(data, id) {
+            if(this.graf_td != null){
+                this.graf_td.dispose();
+            }
+            var chart = am4core.create("div_td_"+id, am4charts.PieChart3D);
+            this.graf_td = chart;
+            chart.data = [
+                {
+                    category: "Inexistente",
+                    first: data.Inexistente,
+                },
+                {
+                    category: "Bajo",
+                    first: data.Bajo,
+                },
+                {
+                    category: "Moderado",
+                    first: data.Moderado,
+                },
+                {
+                    category: "Alto",
+                    first: data.Alto,
+                },
+            ];
+            var series = chart.series.push(new am4charts.PieSeries3D());
+            series.dataFields.value = "first";
+            series.dataFields.category = "category";
+        },
+        async grafico_muerte_desnutricion(data, id) {
+            if(this.graf_md != null){
+                this.graf_md.dispose();
+            }
+            var chart = am4core.create("div_md_"+id, am4charts.PieChart3D);
+            this.graf_md = chart;
+            chart.data = [
+                {
+                    category: "Inexistente",
+                    first: data.Inexistente,
+                },
+                {
+                    category: "Bajo",
+                    first: data.Bajo,
+                },
+                {
+                    category: "Moderado",
+                    first: data.Moderado,
+                },
+                {
+                    category: "Alto",
+                    first: data.Alto,
+                },
+            ];
+            var series = chart.series.push(new am4charts.PieSeries3D());
+            series.dataFields.value = "first";
+            series.dataFields.category = "category";
+        },
+        async grafico_sobrepeso(data, id) {
+            if(this.graf_s != null){
+                this.graf_s.dispose();
+            }
+            var chart = am4core.create("div_s_"+id, am4charts.PieChart3D);
+            this.graf_s = chart;
+            chart.data = [
+                {
+                    category: "Inexistente",
+                    first: data.Inexistente,
+                },
+                {
+                    category: "Bajo",
+                    first: data.Bajo,
+                },
+                {
+                    category: "Moderado",
+                    first: data.Moderado,
+                },
+                {
+                    category: "Alto",
+                    first: data.Alto,
+                },
+            ];
+            var series = chart.series.push(new am4charts.PieSeries3D());
+            series.dataFields.value = "first";
+            series.dataFields.category = "category";
+        },
+        async grafico_enfermedades_infecciosas(data, id) {
+            if(this.graf_ei != null){
+                this.graf_ei.dispose();
+            }
+            var chart = am4core.create("div_ei_"+id, am4charts.PieChart3D);
+            this.graf_ei = chart;
+            chart.data = [
+                {
+                    category: "Inexistente",
+                    first: data.Inexistente,
+                },
+                {
+                    category: "Bajo",
+                    first: data.Bajo,
+                },
+                {
+                    category: "Moderado",
+                    first: data.Moderado,
+                },
+                {
+                    category: "Alto",
+                    first: data.Alto,
+                },
+            ];
+            var series = chart.series.push(new am4charts.PieSeries3D());
+            series.dataFields.value = "first";
+            series.dataFields.category = "category";
+        },
+        async grafico_cancer(data, id) {
+            if(this.graf_c != null){
+                this.graf_c.dispose();
+            }
+            var chart = am4core.create("div_c_"+id, am4charts.PieChart3D);
+            this.graf_c = chart;
+            chart.data = [
+                {
+                    category: "Inexistente",
+                    first: data.Inexistente,
+                },
+                {
+                    category: "Bajo",
+                    first: data.Bajo,
+                },
+                {
+                    category: "Moderado",
+                    first: data.Moderado,
+                },
+                {
+                    category: "Alto",
+                    first: data.Alto,
+                },
+            ];
+            var series = chart.series.push(new am4charts.PieSeries3D());
+            series.dataFields.value = "first";
+            series.dataFields.category = "category";
+        },
+        async grafico_enfermedades_zoonaticas(data, id) {
+            if(this.graf_ez != null){
+                this.graf_ez.dispose();
+            }
+            var chart = am4core.create("div_ez_"+id, am4charts.PieChart3D);
+            this.graf_ez = chart;
+            chart.data = [
+                {
+                    category: "Inexistente",
+                    first: data.Inexistente,
+                },
+                {
+                    category: "Bajo",
+                    first: data.Bajo,
+                },
+                {
+                    category: "Moderado",
+                    first: data.Moderado,
+                },
+                {
+                    category: "Alto",
+                    first: data.Alto,
+                },
+            ];
+            var series = chart.series.push(new am4charts.PieSeries3D());
+            series.dataFields.value = "first";
+            series.dataFields.category = "category";
+        },
+        async grafico_consumo_spa(data, id) {
+            if(this.graf_cs != null){
+                this.graf_cs.dispose();
+            }
+            var chart = am4core.create("div_cs_"+id, am4charts.PieChart3D);
+            this.graf_cs = chart;
+            chart.data = [
+                {
+                    category: "Inexistente",
+                    first: data.Inexistente,
+                },
+                {
+                    category: "Bajo",
+                    first: data.Bajo,
+                },
+                {
+                    category: "Moderado",
+                    first: data.Moderado,
+                },
+                {
+                    category: "Alto",
+                    first: data.Alto,
+                },
+            ];
+            var series = chart.series.push(new am4charts.PieSeries3D());
+            series.dataFields.value = "first";
+            series.dataFields.category = "category";
+        },
+        async grafico_desnutricion_global(data, id) {
+            if(this.graf_dg != null){
+                this.graf_dg.dispose();
+            }
+            var chart = am4core.create("div_dg_"+id, am4charts.PieChart3D);
+            this.graf_dg = chart;
+            chart.data = [
+                {
+                    category: "Inexistente",
+                    first: data.Inexistente,
+                },
+                {
+                    category: "Bajo",
+                    first: data.Bajo,
+                },
+                {
+                    category: "Moderado",
+                    first: data.Moderado,
+                },
+                {
+                    category: "Alto",
+                    first: data.Alto,
+                },
+            ];
+            var series = chart.series.push(new am4charts.PieSeries3D());
+            series.dataFields.value = "first";
+            series.dataFields.category = "category";
+        },
+        async grafico_talla_baja(data, id) {
+            if(this.graf_tb != null){
+                this.graf_tb.dispose();
+            }
+            var chart = am4core.create("div_tb_"+id, am4charts.PieChart3D);
+            this.graf_tb = chart;
+            chart.data = [
+                {
+                    category: "Inexistente",
+                    first: data.Inexistente,
+                },
+                {
+                    category: "Bajo",
+                    first: data.Bajo,
+                },
+                {
+                    category: "Moderado",
+                    first: data.Moderado,
+                },
+                {
+                    category: "Alto",
+                    first: data.Alto,
+                },
+            ];
+            var series = chart.series.push(new am4charts.PieSeries3D());
+            series.dataFields.value = "first";
+            series.dataFields.category = "category";
+        },
+        async grafico_trastorno_consumo_spa(data, id) {
+            if(this.graf_tas != null){
+                this.graf_tas.dispose();
+            }
+            var chart = am4core.create("div_tas_"+id, am4charts.PieChart3D);
+            this.graf_tas = chart;
+            chart.data = [
+                {
+                    category: "Inexistente",
+                    first: data.Inexistente,
+                },
+                {
+                    category: "Bajo",
+                    first: data.Bajo,
+                },
+                {
+                    category: "Moderado",
+                    first: data.Moderado,
+                },
+                {
+                    category: "Alto",
+                    first: data.Alto,
+                },
+            ];
+            var series = chart.series.push(new am4charts.PieSeries3D());
+            series.dataFields.value = "first";
+            series.dataFields.category = "category";
+        },
+        async grafico_enfermedad_cardiovascular(data, id) {
+            if(this.graf_eca != null){
+                this.graf_eca.dispose();
+            }
+            var chart = am4core.create("div_eca_"+id, am4charts.PieChart3D);
+            this.graf_eca = chart;
+            chart.data = [
+                {
+                    category: "Inexistente",
+                    first: data.Inexistente,
+                },
+                {
+                    category: "Bajo",
+                    first: data.Bajo,
+                },
+                {
+                    category: "Moderado",
+                    first: data.Moderado,
+                },
+                {
+                    category: "Alto",
+                    first: data.Alto,
+                },
+            ];
+            var series = chart.series.push(new am4charts.PieSeries3D());
+            series.dataFields.value = "first";
+            series.dataFields.category = "category";
+        },
+        async grafico_trastornos_visuales(data, id) {
+            if(this.graf_atv != null){
+                this.graf_atv.dispose();
+            }
+            var chart = am4core.create("div_atv_"+id, am4charts.PieChart3D);
+            this.graf_atv = chart;
+            chart.data = [
+                {
+                    category: "Inexistente",
+                    first: data.Inexistente,
+                },
+                {
+                    category: "Bajo",
+                    first: data.Bajo,
+                },
+                {
+                    category: "Moderado",
+                    first: data.Moderado,
+                },
+                {
+                    category: "Alto",
+                    first: data.Alto,
+                },
+            ];
+            var series = chart.series.push(new am4charts.PieSeries3D());
+            series.dataFields.value = "first";
+            series.dataFields.category = "category";
+        },
+        async grafico_trastorno_audicion(data, id) {
+            if(this.graf_tac != null){
+                this.graf_tac.dispose();
+            }
+            var chart = am4core.create("div_tac_"+id, am4charts.PieChart3D);
+            this.graf_tac = chart;
+            chart.data = [
+                {
+                    category: "Inexistente",
+                    first: data.Inexistente,
+                },
+                {
+                    category: "Bajo",
+                    first: data.Bajo,
+                },
+                {
+                    category: "Moderado",
+                    first: data.Moderado,
+                },
+                {
+                    category: "Alto",
+                    first: data.Alto,
+                },
+            ];
+            var series = chart.series.push(new am4charts.PieSeries3D());
+            series.dataFields.value = "first";
+            series.dataFields.category = "category";
+        },
+        async grafico_salud_bucal(data, id) {
+            if(this.graf_sb != null){
+                this.graf_sb.dispose();
+            }
+            var chart = am4core.create("div_sb_"+id, am4charts.PieChart3D);
+            this.graf_sb = chart;
+            chart.data = [
+                {
+                    category: "Inexistente",
+                    first: data.Inexistente,
+                },
+                {
+                    category: "Bajo",
+                    first: data.Bajo,
+                },
+                {
+                    category: "Moderado",
+                    first: data.Moderado,
+                },
+                {
+                    category: "Alto",
+                    first: data.Alto,
+                },
+            ];
+            var series = chart.series.push(new am4charts.PieSeries3D());
+            series.dataFields.value = "first";
+            series.dataFields.category = "category";
+        },
+        async grafico_salud_mental(data, id) {
+            if(this.graf_psm != null){
+                this.graf_psm.dispose();
+            }
+            var chart = am4core.create("div_psm_"+id, am4charts.PieChart3D);
+            this.graf_psm = chart;
+            chart.data = [
+                {
+                    category: "Inexistente",
+                    first: data.Inexistente,
+                },
+                {
+                    category: "Bajo",
+                    first: data.Bajo,
+                },
+                {
+                    category: "Moderado",
+                    first: data.Moderado,
+                },
+                {
+                    category: "Alto",
+                    first: data.Alto,
+                },
+            ];
+            var series = chart.series.push(new am4charts.PieSeries3D());
+            series.dataFields.value = "first";
+            series.dataFields.category = "category";
+        },
+        async grafico_violencias(data, id) {
+            if(this.graf_v != null){
+                this.graf_v.dispose();
+            }
+            var chart = am4core.create("div_v_"+id, am4charts.PieChart3D);
+            this.graf_v = chart;
+            chart.data = [
+                {
+                    category: "Inexistente",
+                    first: data.Inexistente,
+                },
+                {
+                    category: "Bajo",
+                    first: data.Bajo,
+                },
+                {
+                    category: "Moderado",
+                    first: data.Moderado,
+                },
+                {
+                    category: "Alto",
+                    first: data.Alto,
+                },
+            ];
+            var series = chart.series.push(new am4charts.PieSeries3D());
+            series.dataFields.value = "first";
+            series.dataFields.category = "category";
+        },
+        async grafico_respiratoria_cronica(data, id) {
+            if(this.graf_erc != null){
+                this.graf_erc.dispose();
+            }
+            var chart = am4core.create("div_erc_"+id, am4charts.PieChart3D);
+            this.graf_erc = chart;
+            chart.data = [
+                {
+                    category: "Inexistente",
+                    first: data.Inexistente,
+                },
+                {
+                    category: "Bajo",
+                    first: data.Bajo,
+                },
+                {
+                    category: "Moderado",
+                    first: data.Moderado,
+                },
+                {
+                    category: "Alto",
+                    first: data.Alto,
+                },
+            ];
+            var series = chart.series.push(new am4charts.PieSeries3D());
+            series.dataFields.value = "first";
+            series.dataFields.category = "category";
+        },
+        async grafico_desnutricion_aguda(data, id) {
+            if(this.graf_rda != null){
+                this.graf_rda.dispose();
+            }
+            var chart = am4core.create("div_rda_"+id, am4charts.PieChart3D);
+            this.graf_rda = chart;
+            chart.data = [
+                {
+                    category: "Inexistente",
+                    first: data.Inexistente,
+                },
+                {
+                    category: "Bajo",
+                    first: data.Bajo,
+                },
+                {
+                    category: "Moderado",
+                    first: data.Moderado,
+                },
+                {
+                    category: "Alto",
+                    first: data.Alto,
+                },
+            ];
+            var series = chart.series.push(new am4charts.PieSeries3D());
+            series.dataFields.value = "first";
+            series.dataFields.category = "category";
+
+            series.slices.template.events.on("hit", function(ev){
+                console.log(ev.target.dataItem)
+            });
         }
     }
 }

@@ -7,15 +7,10 @@
                 </b-tab>
                 <b-tab title="Hogares">
                 </b-tab>
-                <b-tab title="Viviendas">
-                </b-tab>
                 <b-tab title="SPA">
                 </b-tab>
                 <b-tab title="Embarazo">
                 </b-tab>
-                <b-tab title="Viviendas">
-                </b-tab>
-                <b-tab title="Hogares">
                 </b-tab>
             </b-tabs>
         </b-card>
