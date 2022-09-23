@@ -24719,6 +24719,7 @@
         comodin4: ">=",  
         
         opci_crs: "",
+        estaEditando: false
       };
     },
     validations: {
@@ -25835,189 +25836,198 @@
       async cambiarTab1(opcion, actual) {
         let bandera = false;
         if (actual === "tabIdentificacion") {
-          //VALIDAR DATOS DEL HOGAR
-          if (this.hogar.id_dpto === "") {
-            this.$refs.id_dpto.focus();
+          if(this.estaEditando == true){
             this.$swal(
-              "Error...!",
-              "Por favor seleccione el departamento!",
-              "error"
+              "Alerta...!",
+              "Guarde el registro que esta modificando!",
+              "warning"
             );
             return;
-          }
-          if (this.hogar.id_mun === "") {
-            this.$refs.id_mun.focus();
-            this.$swal(
-              "Error...!",
-              "Por favor seleccione el municipio!",
-              "error"
-            );
-            return;
-          }
-          if (this.hogar.tenencia_vivienda === "") {
-            this.$refs.tenencia_vivienda.focus();
-            this.$swal(
-              "Error...!",
-              "Por favor seleccione la tenencia de vivienda!",
-              "error"
-            );
-            return;
-          }
-          if (this.allLetter(this.hogar.numero_hogares) === false) {
-            this.$refs.numero_hogares.focus();
-            this.hogar.numero_hogares = "";
-            this.$swal(
-              "Error...!",
-              "Por favor digite solo numero en el numero de hogares!",
-              "error"
-            );
-            return;
-          }
-          if (this.hogar.numero_hogares === "") {
-            this.$refs.numero_hogares.focus();
-            this.$swal(
-              "Error...!",
-              "Por favor digite el numero de hogares!",
-              "error"
-            );
-            return;
-          }
-          if (this.hogar.poblacion_especial === "") {
-            this.$refs.poblacion_especial.focus();
-            this.$swal(
-              "Error...!",
-              "Por favor seleccione la población especial!",
-              "error"
-            );
-            return;
-          }
-          if (this.hogar.vias_acceso === "") {
-            this.$refs.vias_acceso.focus();
-            this.$swal(
-              "Error...!",
-              "Por favor seleccione si la comunidad presenta vías de acceso!",
-              "error"
-            );
-            return;
-          }
-          if (this.hogar.servicios_publicos === "") {
-            this.$refs.servicios_publicos.focus();
-            this.$swal(
-              "Error...!",
-              "Por favor seleccione si presenta acceso fácil a los servicios públicos!",
-              "error"
-            );
-            return;
-          }
-          if (this.hogar.direccion === "") {
-            this.$refs.direccion.focus();
-            this.$swal("Error...!", "Por favor digite la dirección!", "error");
-            return;
-          }
-          //VALIDAR DATOS DEL HOGAR
-          //VALIDAR LA TABLA JEFES DE HOGAR
-          if (this.datosJefe.length <= 0) {
-            this.$swal(
-              "Error...!",
-              "Por favor agregue por lo menos un jefe de hogar",
-              "error"
-            );
-            return;
-          } else {
-            let resul = this.valJef1();
-            if (resul) {
-              bandera = true;
-            } else {
-              return false;
+          }else{
+            //VALIDAR DATOS DEL HOGAR
+            if (this.hogar.id_dpto === "") {
+              this.$refs.id_dpto.focus();
+              this.$swal(
+                "Error...!",
+                "Por favor seleccione el departamento!",
+                "error"
+              );
+              return;
             }
-          }
-          //VALIDAR LA TABLA JEFES DE HOGAR
+            if (this.hogar.id_mun === "") {
+              this.$refs.id_mun.focus();
+              this.$swal(
+                "Error...!",
+                "Por favor seleccione el municipio!",
+                "error"
+              );
+              return;
+            }
+            if (this.hogar.tenencia_vivienda === "") {
+              this.$refs.tenencia_vivienda.focus();
+              this.$swal(
+                "Error...!",
+                "Por favor seleccione la tenencia de vivienda!",
+                "error"
+              );
+              return;
+            }
+            if (this.allLetter(this.hogar.numero_hogares) === false) {
+              this.$refs.numero_hogares.focus();
+              this.hogar.numero_hogares = "";
+              this.$swal(
+                "Error...!",
+                "Por favor digite solo numero en el numero de hogares!",
+                "error"
+              );
+              return;
+            }
+            if (this.hogar.numero_hogares === "") {
+              this.$refs.numero_hogares.focus();
+              this.$swal(
+                "Error...!",
+                "Por favor digite el numero de hogares!",
+                "error"
+              );
+              return;
+            }
+            if (this.hogar.poblacion_especial === "") {
+              this.$refs.poblacion_especial.focus();
+              this.$swal(
+                "Error...!",
+                "Por favor seleccione la población especial!",
+                "error"
+              );
+              return;
+            }
+            if (this.hogar.vias_acceso === "") {
+              this.$refs.vias_acceso.focus();
+              this.$swal(
+                "Error...!",
+                "Por favor seleccione si la comunidad presenta vías de acceso!",
+                "error"
+              );
+              return;
+            }
+            if (this.hogar.servicios_publicos === "") {
+              this.$refs.servicios_publicos.focus();
+              this.$swal(
+                "Error...!",
+                "Por favor seleccione si presenta acceso fácil a los servicios públicos!",
+                "error"
+              );
+              return;
+            }
+            if (this.hogar.direccion === "") {
+              this.$refs.direccion.focus();
+              this.$swal("Error...!", "Por favor digite la dirección!", "error");
+              return;
+            }
+            //VALIDAR DATOS DEL HOGAR
+            //VALIDAR LA TABLA JEFES DE HOGAR
+            if (this.datosJefe.length <= 0) {
+              this.$swal(
+                "Error...!",
+                "Por favor agregue por lo menos un jefe de hogar",
+                "error"
+              );
+              return;
+            } else {
+              let resul = this.valJef1();
+              if (resul) {
+                bandera = true;
+              } else {
+                return false;
+              }
+            }
+            //VALIDAR LA TABLA JEFES DE HOGAR
 
-          //VALIDAR LA TABLA INTEGRANTES
-          if (this.datos.length > 0) {
-            let resul = this.valInt1();
-            if (resul) {
-              bandera = true;
-            } else {
-              return false;
+            //VALIDAR LA TABLA INTEGRANTES
+            if (this.datos.length > 0) {
+              let resul = this.valInt1();
+              if (resul) {
+                bandera = true;
+              } else {
+                return false;
+              }
             }
-          }
-          //VALIDAR LA TABLA INTEGRANTES
+            //VALIDAR LA TABLA INTEGRANTES
 
-          //VALIDAR LA TABLA FACTORES
-          if (this.factores.length > 0) {
-            let resul = this.valFactores();
-            if (resul) {
-              bandera = true;
-            } else {
-              return false;
+            //VALIDAR LA TABLA FACTORES
+            if (this.factores.length > 0) {
+              let resul = this.valFactores();
+              if (resul) {
+                bandera = true;
+              } else {
+                return false;
+              }
             }
-          }
-          //VALIDAR LA TABLA FACTORES
-          //VALIDAR LA TABLA AFECTACION
-          if (this.afectacion.length > 0) {
-            let resul = this.valAfectacion();
-            if (resul) {
-              bandera = true;     
-            } else {
-              return false;
+            //VALIDAR LA TABLA FACTORES
+            //VALIDAR LA TABLA AFECTACION
+            if (this.afectacion.length > 0) {
+              let resul = this.valAfectacion();
+              if (resul) {
+                bandera = true;     
+              } else {
+                return false;
+              }
             }
-          }
-          //VALIDAR LA TABLA AFECTACION
-          
-          const parametros = {
-            _token: this.csrf,
-            hogar: this.hogar,
-            caracterizacion: this.datosJefe,
-            integrantes: this.datos,
-            factores: this.factores,
-            CODIGOGENE: this.CODIGOGENE,
-            afectacion: this.afectacion,
-            opcion: "MODIFICAR",
-            opc: "GUAINDEN",
-            id_hogar: this.IDHOGAR
-          };
-          this.valGIden = false;
-          try {
-            await caracterizacionServicios
-              .guardar(parametros)
-              .then(respuesta => {
-                if (respuesta.data.OPC == "E") {
-                  this.GIDEN = true;
-                  this.IDHOGAR = respuesta.data.IDHOGAR;
-                  this.valGIden = true;
-                  bandera = true;
-                  this.datosJefe.length = 0;
-                  this.datos.length = 0;
-                  this.factores.length = 0;
-                  this.afectacion.length = 0;
-                  this.datosJefe = respuesta.data.jefes;
-                  this.datos = respuesta.data.integrantes;
-                  this.factores = respuesta.data.factores;
-                  this.afectacion = respuesta.data.afectacion;                  
-                }
-              })
-              .catch(error => {
-                this.errorDevuelto = error.response.data.errors;
-                this.entrarPorError = true;
-                this.$swal(
-                  "Error...!",
-                  "No se pudo guardar los datos de la pestaña identificación",
-                  "error"
-                );
-                return;
-              });
-          } catch (error) {
-            switch (error.response.status) {
-              case 419:
-                this.$swal("Error...!", "Ocurrio un error!", "error");
-                break;
-              case 422:
-                this.$swal("Error...!", "Ocurrio un error!", "error");
-                break;
-              default:
-                this.$swal("Error...!", "Ocurrio un error!", "error");
-                break;
+            //VALIDAR LA TABLA AFECTACION
+            
+            const parametros = {
+              _token: this.csrf,
+              hogar: this.hogar,
+              caracterizacion: this.datosJefe,
+              integrantes: this.datos,
+              factores: this.factores,
+              CODIGOGENE: this.CODIGOGENE,
+              afectacion: this.afectacion,
+              opcion: "MODIFICAR",
+              opc: "GUAINDEN",
+              id_hogar: this.IDHOGAR
+            };
+            this.valGIden = false;
+            try {
+              await caracterizacionServicios
+                .guardar(parametros)
+                .then(respuesta => {
+                  if (respuesta.data.OPC == "E") {
+                    this.GIDEN = true;
+                    this.IDHOGAR = respuesta.data.IDHOGAR;
+                    this.valGIden = true;
+                    bandera = true;
+                    this.datosJefe.length = 0;
+                    this.datos.length = 0;
+                    this.factores.length = 0;
+                    this.afectacion.length = 0;
+                    this.datosJefe = respuesta.data.jefes;
+                    this.datos = respuesta.data.integrantes;
+                    this.factores = respuesta.data.factores;
+                    this.afectacion = respuesta.data.afectacion;                  
+                  }
+                })
+                .catch(error => {
+                  this.errorDevuelto = error.response.data.errors;
+                  this.entrarPorError = true;
+                  this.$swal(
+                    "Error...!",
+                    "No se pudo guardar los datos de la pestaña identificación",
+                    "error"
+                  );
+                  return;
+                });
+            } catch (error) {
+              switch (error.response.status) {
+                case 419:
+                  this.$swal("Error...!", "Ocurrio un error!", "error");
+                  break;
+                case 422:
+                  this.$swal("Error...!", "Ocurrio un error!", "error");
+                  break;
+                default:
+                  this.$swal("Error...!", "Ocurrio un error!", "error");
+                  break;
+              }
             }
           }
         }
@@ -30042,6 +30052,7 @@
         }
       },
       editarItemJefe: function(index, item) {
+        this.estaEditando = true;
         this.bandeGuaEdiJefe = false;        
         this.indiceEditJefe = index;
         this.caracData.id = item.id;
@@ -30205,6 +30216,7 @@
         //SABER EL INDICE DE LA IDENTIFICACION DE Migra        
       },
       CancelarEditarJefe: function(){
+        this.estaEditando = false;
         this.datosJefe[this.indiceEditJefe].estado = "Activo";
         this.datosJefe.splice(this.indiceEditJefe, 1, this.datosJefe[this.indiceEditJefe]);
         
@@ -30302,7 +30314,7 @@
         this.limpiar2();
       },
       editarJefe: async function(){
-        
+        this.estaEditando = false;
         this.caracData.identificacion = this.caracData.identificacion.replace(
           /[.*+\-?^${}()|[\]\\]/g,
           ""
@@ -32686,6 +32698,7 @@
         }
       },
       editarItemInte: function(index, item) {
+        this.estaEditando = true;
         this.bandeGuaEdiInte = false;        
         this.indiceEditInte = index;
         this.CA1.id = item.id;
@@ -32875,6 +32888,7 @@
                
       },
       CancelarEditarInte: function(){
+        this.estaEditando = false;
         this.datos[this.indiceEditInte].estado = "Activo";
         this.datos.splice(this.indiceEditInte, 1, this.datos[this.indiceEditInte]);
 
@@ -33002,6 +33016,7 @@
         this.limpiar();
       },
       editarInte: async function(){
+        this.estaEditando = false;
         if (this.CA1.tipo_id == "0") {
           this.$swal(
             "Error...!",

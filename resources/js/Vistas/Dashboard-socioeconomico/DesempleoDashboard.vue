@@ -495,9 +495,6 @@ export default {
             chart.paddingBottom = 50;
 
             chart.cursor = new am4charts.XYCursor();
-            chart.scrollbarX = new am4core.Scrollbar();
-            chart.scrollbarX.end = 1;
-            chart.colors.step = 3;
 
             var xAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             xAxis.dataFields.category = "category";
@@ -517,9 +514,10 @@ export default {
 
                 var bullet = series.bullets.push(new am4charts.LabelBullet());
                 bullet.interactionsEnabled = false;
-                bullet.dy = 30;
+                bullet.dy = -20;
                 bullet.label.text = "{valueY}";
-                bullet.label.fill = am4core.color("#ffffff");
+                bullet.label.fill = am4core.color("#646c9a");
+                bullet.label.fontWeight = "bold";
                 return series;
             }
 

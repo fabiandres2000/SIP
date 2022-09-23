@@ -15,82 +15,84 @@
                     <h2>{{ente}}</h2>
                 </div>
             </div>
-            <div class="row" ref="filtro">
-                <div class="col-sm-3 col-lg-3 text-left" style="padding: 10px 10px 10px 20px;">
-                    <h4>Aplicar filtro por:</h4>
-                    <br/>
-                    <select class="form-control" @change="cambiaraTodos()" v-model="tipoCombo">
-                        <option value = "todos">Todos</option>
-                        <option value = "barrio">Barrio - Cabecera Municipal</option>
-                        <option value = "barrio2">Barrio - Corregimiento</option>
-                        <option value = "corregimiento">Corregimiento</option>
-                        <option value = "vereda">Vereda</option>
-                    </select>
-                </div>
-                <div v-if="tipoCombo == 'todos'" class="col-sm-6 col-lg-6 text-left" style="padding: 10px 10px 10px 20px;"></div>
-                <div v-if="tipoCombo == 'barrio'" class="col-sm-4 col-lg-4 text-left" style="padding: 10px 10px 10px 20px;">
-                    <h4>Seleccione un Barrio</h4>
-                    <br/>
-                    <select class="form-control" @change="filtrar('barrio')" v-model="comboBarrio">
-                        <option value = "">Todos</option>
-                        <option v-for="item in barrios" :value="item.value">{{item.texto}}</option>
-                    </select>
-                </div>
-                <div v-if="tipoCombo == 'corregimiento' || tipoCombo == 'barrio2'" class="col-sm-3 col-lg-3 text-left" style="padding: 10px 10px 10px 20px;">
-                    <h4>Seleccione un Corregimiento</h4>
-                    <br/>
-                    <select class="form-control" @change="filtrar('corregimiento')" v-model="comboCorregimiento">
-                        <option value = "">Todos</option>
-                        <option v-for="item in corregimientos" :value="item.id">{{item.descripcion}}</option>
-                    </select>
-                </div>
-                    <div v-if="tipoCombo == 'barrio2'" class="col-sm-3 col-lg-3 text-left" style="padding: 10px 10px 10px 20px;">
-                    <h4>Seleccione un Barrio</h4>
-                    <br/>
-                    <select class="form-control" @change="filtrar('barrio2')" v-model="comboBarrio2">
-                        <option value = "">Todos</option>
-                        <option v-for="item in barriosCorregimiento" :value="item.value">{{item.texto}}</option>
-                    </select>
-                </div>
-                <div v-if="tipoCombo == 'vereda'" class="col-sm-4 col-lg-4 text-left" style="padding: 10px 10px 10px 20px;">
-                    <h4>Seleccione una Vereda</h4>
-                    <br/>
-                    <select class="form-control" @change="filtrar('vereda')" v-model="comboVereda">
-                        <option value = "">Todas</option>
-                        <option v-for="item in veredas" :value="item.id">{{item.descripcion}}</option>
-                    </select>
-                </div>
-                <div v-if="tipoCombo == 'corregimiento'" class="col-sm-1 col-lg-1 text-left" style="padding: 10px 10px 10px 20px;"></div>
-                <div v-if="tipoCombo != 'todos' && tipoCombo != 'barrio2'" class="col-sm-2 col-lg-2 text-left" style="padding: 10px 10px 10px 20px;"></div>
-                <div class="col-lg-3">
-                    <div class="row" style="padding-top: 14%">
-                        <div ref="boton1" class="col-lg-12 text-right" style="padding: 10px 10px 10px 20px;">
-                            <button @click="exportToPDFRSP()" class="btn btn-danger"><i class="fa fa-file" aria-hidden="true"></i> Exportar PDF</button>
+            <div ref="filtro">
+                <div class="row" >
+                    <div class="col-sm-3 col-lg-3 text-left" style="padding: 10px 10px 10px 20px;">
+                        <h4>Aplicar filtro por:</h4>
+                        <br/>
+                        <select class="form-control" @change="cambiaraTodos()" v-model="tipoCombo">
+                            <option value = "todos">Todos</option>
+                            <option value = "barrio">Barrio - Cabecera Municipal</option>
+                            <option value = "barrio2">Barrio - Corregimiento</option>
+                            <option value = "corregimiento">Corregimiento</option>
+                            <option value = "vereda">Vereda</option>
+                        </select>
+                    </div>
+                    <div v-if="tipoCombo == 'todos'" class="col-sm-6 col-lg-6 text-left" style="padding: 10px 10px 10px 20px;"></div>
+                    <div v-if="tipoCombo == 'barrio'" class="col-sm-4 col-lg-4 text-left" style="padding: 10px 10px 10px 20px;">
+                        <h4>Seleccione un Barrio</h4>
+                        <br/>
+                        <select class="form-control" @change="filtrar('barrio')" v-model="comboBarrio">
+                            <option value = "">Todos</option>
+                            <option v-for="item in barrios" :value="item.value">{{item.texto}}</option>
+                        </select>
+                    </div>
+                    <div v-if="tipoCombo == 'corregimiento' || tipoCombo == 'barrio2'" class="col-sm-3 col-lg-3 text-left" style="padding: 10px 10px 10px 20px;">
+                        <h4>Seleccione un Corregimiento</h4>
+                        <br/>
+                        <select class="form-control" @change="filtrar('corregimiento')" v-model="comboCorregimiento">
+                            <option value = "">Todos</option>
+                            <option v-for="item in corregimientos" :value="item.id">{{item.descripcion}}</option>
+                        </select>
+                    </div>
+                        <div v-if="tipoCombo == 'barrio2'" class="col-sm-3 col-lg-3 text-left" style="padding: 10px 10px 10px 20px;">
+                        <h4>Seleccione un Barrio</h4>
+                        <br/>
+                        <select class="form-control" @change="filtrar('barrio2')" v-model="comboBarrio2">
+                            <option value = "">Todos</option>
+                            <option v-for="item in barriosCorregimiento" :value="item.value">{{item.texto}}</option>
+                        </select>
+                    </div>
+                    <div v-if="tipoCombo == 'vereda'" class="col-sm-4 col-lg-4 text-left" style="padding: 10px 10px 10px 20px;">
+                        <h4>Seleccione una Vereda</h4>
+                        <br/>
+                        <select class="form-control" @change="filtrar('vereda')" v-model="comboVereda">
+                            <option value = "">Todas</option>
+                            <option v-for="item in veredas" :value="item.id">{{item.descripcion}}</option>
+                        </select>
+                    </div>
+                    <div v-if="tipoCombo == 'corregimiento'" class="col-sm-1 col-lg-1 text-left" style="padding: 10px 10px 10px 20px;"></div>
+                    <div v-if="tipoCombo != 'todos' && tipoCombo != 'barrio2'" class="col-sm-2 col-lg-2 text-left" style="padding: 10px 10px 10px 20px;"></div>
+                    <div class="col-lg-3">
+                        <div class="row" style="padding-top: 14%">
+                            <div ref="boton1" class="col-lg-12 text-right" style="padding: 10px 10px 10px 20px;">
+                                <button @click="exportToPDFRSP()" class="btn btn-danger"><i class="fa fa-file" aria-hidden="true"></i> Exportar PDF</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <br>
-            <div class="row" ref="filtro">
-                <div class="col-sm-3 col-lg-3 text-left" style="padding: 10px 10px 10px 20px;">
-                    <h4>Seleccione un grupo de edad: </h4>
-                    <br/>
-                    <select class="form-control" @change="poblacionRS()" v-model="tipoComboGrupoEdad">
-                        <option value = "riesgos_salud_men1">Menores de 1 Año</option>
-                        <option value = "riesgos_salud_de1a5">1 a 5 Años</option>
-                        <option value = "riesgos_salud_de6a11">6 a 11 Años</option>
-                        <option value = "riesgos_salud_de12a17">12 a 17 Años</option>
-                        <option value = "riesgos_salud_de18a28">18 a 28 Años</option>
-                        <option value = "riesgos_salud_de29a59">29 a 59 Años</option>
-                        <option value = "riesgos_salud_de60">Mayores de 60 Años</option>
-                    </select>
-                </div>
-                <div class="col-sm-4 col-lg-4 text-left" style="padding: 10px 10px 10px 20px;">
-                    <h4>Seleccione un riesgo de salud: </h4>
-                    <br/>
-                    <select id="riesgos_select" class="form-control" @change="data_combo_riesgo()" v-model="combo_riesgo">
-                        <option v-for="item in data_select_riesgo " :value = "item.value">{{item.nombre}}</option>
-                    </select>
+                <br>
+                <div class="row" ref="filtro">
+                    <div class="col-sm-3 col-lg-3 text-left" style="padding: 10px 10px 10px 20px;">
+                        <h4>Seleccione un grupo de edad: </h4>
+                        <br/>
+                        <select class="form-control" @change="poblacionRS()" v-model="tipoComboGrupoEdad">
+                            <option value = "riesgos_salud_men1">Menores de 1 Año</option>
+                            <option value = "riesgos_salud_de1a5">1 a 5 Años</option>
+                            <option value = "riesgos_salud_de6a11">6 a 11 Años</option>
+                            <option value = "riesgos_salud_de12a17">12 a 17 Años</option>
+                            <option value = "riesgos_salud_de18a28">18 a 28 Años</option>
+                            <option value = "riesgos_salud_de29a59">29 a 59 Años</option>
+                            <option value = "riesgos_salud_de60">Mayores de 60 Años</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-4 col-lg-4 text-left" style="padding: 10px 10px 10px 20px;">
+                        <h4>Seleccione un riesgo de salud: </h4>
+                        <br/>
+                        <select id="riesgos_select" class="form-control" @change="data_combo_riesgo()" v-model="combo_riesgo">
+                            <option v-for="item in data_select_riesgo " :value = "item.value">{{item.nombre}}</option>
+                        </select>
+                    </div>
                 </div>
             </div>
             <hr>
@@ -762,9 +764,10 @@ export default {
 
                var bullet = series.bullets.push(new am4charts.LabelBullet());
                bullet.interactionsEnabled = false;
-               bullet.dy = 15;
+               bullet.dy = -25;
                bullet.label.text = "{valueY}";
-               bullet.label.fill = am4core.color("#ffffff");
+               bullet.label.fill = am4core.color("#646c9a");
+               bullet.label.fontWeight = "bold";
 
                series.columns.template.adapter.add("fill", function(fill, target) {
                     if (target.dataItem && (target.dataItem.categoryX == "Inexistente")) {
@@ -893,12 +896,20 @@ export default {
             }
            
             // convertir a imagen todos los graficos
+            let filtrop = await this.$html2canvas(this.$refs.filtro, options);
+            let grafico1p = await this.graf_torta.exporting.getImage("png");
+            let grafico2p = await this.graf_barra.exporting.getImage("png");
 
             const parametros = {
                 _token: this.csrf,
+                filtro: filtrop,
+                grafico1: grafico1p,
+                grafico2: grafico2p,
+                riesgo: this.titulo_grafico,
+                data: this.data_tabla_riesgos
             };
             try {
-                await DashboardServiceSocioeconomico.exportarMercadoLaboral(parametros).then(respuesta => {
+                await DashboardServiceRS.exportarRiesgoSalud(parametros).then(respuesta => {
                     this.rutaPdf = store.state.apiURL + respuesta.data.nombre;
                     this.isLoading = false;
                     this.$refs.modalpdf.show();
