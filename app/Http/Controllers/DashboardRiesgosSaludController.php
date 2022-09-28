@@ -61,6 +61,27 @@ class DashboardRiesgosSaludController extends Controller
             return redirect("/index")->with("error", "Su sesion ha terminado");
         }
     }
+
+    public function hogares() {
+        $tipo = request()->get('tipo');
+        $id = request()->get('id');
+        if (Auth::check()) {
+           
+            $hogares = \App\DashboardRiesgosSalud::riesgos_hogares(Session::get('alias'), $tipo, $id);
+            $riesgos_infantil_desnutricion = \App\DashboardRiesgosSalud::riesgos_desnutricion(Session::get('alias'), $tipo, $id, 1);
+            $riesgos_adulto_desnutricion = \App\DashboardRiesgosSalud::riesgos_desnutricion(Session::get('alias'), $tipo, $id, 2);
+
+            $respuesta = [
+                'hogares' => $hogares,
+                'riesgos_infantil_desnutricion' => $riesgos_infantil_desnutricion,
+                'riesgos_adulto_desnutricion' => $riesgos_adulto_desnutricion
+            ];
+
+            return response()->json($respuesta, 200);
+        }else {
+            return redirect("/index")->with("error", "Su sesion ha terminado");
+        }
+    }
 }
 
 

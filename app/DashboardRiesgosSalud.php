@@ -7,10 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class DashboardRiesgosSalud extends Model
 {
-    public static function riesgos_poblacion($alias, $tipo, $id, $rango)
-    {
+    public static function riesgos_poblacion($alias, $tipo, $id, $rango){
         if($tipo == "todos"){
-
             if($rango == "riesgos_salud_men1"  || $rango == "riesgos_salud_de1a5" || $rango == "riesgos_salud_de6a11" ){
                 $riesgosSalud = DB::connection('mysql')->table($alias.'.'.$rango)
                 ->join($alias.'.integrantes',$alias.'.integrantes.id',$alias.'.'.$rango.'.id_inte') 
@@ -33,7 +31,7 @@ class DashboardRiesgosSalud extends Model
                 ->where('integrantes.estado', 'Activo')
                 ->where('hogar.estado', 'Activo')
                 ->where($alias.'.'.$rango.'.opci', 'INTE')
-                ->get();;
+                ->get();
     
                 $riesgosSaludJefes = DB::connection('mysql')->table($alias.'.'.$rango)
                 ->join($alias.'.caracterizacion',$alias.'.caracterizacion.id',$alias.'.'.$rango.'.id_inte') 
@@ -57,16 +55,66 @@ class DashboardRiesgosSalud extends Model
                     array_push($riesgosSalud, $item);
                 }
             }
-           
-            $riesgosCantidad = self::cantidad_por_riesgo($riesgosSalud, $rango);
+        }else{
+            if($rango == "riesgos_salud_men1"  || $rango == "riesgos_salud_de1a5" || $rango == "riesgos_salud_de6a11" ){
+                $riesgosSalud = DB::connection('mysql')->table($alias.'.'.$rango)
+                ->join($alias.'.integrantes',$alias.'.integrantes.id',$alias.'.'.$rango.'.id_inte') 
+                ->join($alias.'.hogar',$alias.'.hogar.id',$alias.'.'.$rango.'.id_hogar') 
+                ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+                ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+                ->select($rango.'.*','integrantes.*','hogar.*')
+                ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as des_corr")->selectRaw("CONCAT_WS('',hogar.direccion) as des_direc")->selectRaw("CONCAT_WS('',barrios.barrio) as des_barrio")
+                ->where('integrantes.estado', 'Activo')
+                ->where('hogar.estado', 'Activo')
+                ->where('hogar.id_'.$tipo, $id)
+                ->get();
+            }else{
+                $riesgosSaludIntegrantes = DB::connection('mysql')->table($alias.'.'.$rango)
+                ->join($alias.'.integrantes',$alias.'.integrantes.id',$alias.'.'.$rango.'.id_inte') 
+                ->join($alias.'.hogar',$alias.'.hogar.id',$alias.'.'.$rango.'.id_hogar') 
+                ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+                ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+                ->select($rango.'.*','integrantes.*','hogar.*')
+                ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as des_corr")->selectRaw("CONCAT_WS('',hogar.direccion) as des_direc")->selectRaw("CONCAT_WS('',barrios.barrio) as des_barrio")
+                ->where('integrantes.estado', 'Activo')
+                ->where('hogar.estado', 'Activo')
+                ->where('hogar.id_'.$tipo, $id)
+                ->where($alias.'.'.$rango.'.opci', 'INTE')
+                ->get();
+    
+                $riesgosSaludJefes = DB::connection('mysql')->table($alias.'.'.$rango)
+                ->join($alias.'.caracterizacion',$alias.'.caracterizacion.id',$alias.'.'.$rango.'.id_inte') 
+                ->join($alias.'.hogar',$alias.'.hogar.id',$alias.'.'.$rango.'.id_hogar') 
+                ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+                ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+                ->select($rango.'.*','caracterizacion.*','hogar.*')
+                ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as des_corr")->selectRaw("CONCAT_WS('',hogar.direccion) as des_direc")->selectRaw("CONCAT_WS('',barrios.barrio) as des_barrio")
+                ->where('caracterizacion.estado', 'Activo')
+                ->where('hogar.estado', 'Activo')
+                ->where('hogar.id_'.$tipo, $id)
+                ->where($alias.'.'.$rango.'.opci', 'JEFE')
+                ->get();
+    
+                $riesgosSalud = array();
+                
+                foreach ($riesgosSaludIntegrantes as &$item) {
+                    array_push($riesgosSalud, $item);
+                }
 
-            $info = [
-                "poblacion" =>  $riesgosSalud,
-                "riesgosCantidad" =>  $riesgosCantidad
-            ];
-
-            return $info;
+                foreach ($riesgosSaludJefes as &$item) {
+                    array_push($riesgosSalud, $item);
+                }
+            }
         }
+
+        $riesgosCantidad = self::cantidad_por_riesgo($riesgosSalud, $rango);
+
+        $info = [
+            "poblacion" =>  $riesgosSalud,
+            "riesgosCantidad" =>  $riesgosCantidad
+        ];
+
+        return $info;
     }
 
     public static function cantidad_por_riesgo($data, $rango){
@@ -1379,5 +1427,331 @@ class DashboardRiesgosSalud extends Model
             return $info;
         }
     }
-    
+
+    public static function riesgos_hogares($alias, $tipo, $id){
+        if($tipo == "todos"){
+            $hogares = DB::connection('mysql')->table($alias.'.caracterizacion')
+            ->join($alias . ".hogar", "caracterizacion.id_hogar", "hogar.id")
+            ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+            ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+            ->select('hogar.*', 'caracterizacion.*')
+            ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as des_corr")->selectRaw("CONCAT_WS('',hogar.direccion) as des_direc")->selectRaw("CONCAT_WS('',barrios.barrio) as des_barrio")
+            ->where('hogar.estado', 'Activo')
+            ->orderBy('des_corr', 'asc')
+            ->get();
+        }else{
+            $hogares = DB::connection('mysql')->table($alias.'.caracterizacion')
+            ->join($alias . ".hogar", "caracterizacion.id_hogar", "hogar.id")
+            ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+            ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+            ->select('hogar.*', 'caracterizacion.*')
+            ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as des_corr")->selectRaw("CONCAT_WS('',hogar.direccion) as des_direc")->selectRaw("CONCAT_WS('',barrios.barrio) as des_barrio")
+            ->where('hogar.estado', 'Activo')
+            ->where('hogar.id_'.$tipo, $id)
+            ->orderBy('des_corr', 'asc')
+            ->get();
+        }
+
+        $hogares_alto_riesgo_salud = 0;
+
+        foreach ($hogares as &$item) {
+            $item->riesgos_salud_men1 = self::consultar_riesgos_salud('riesgos_salud_men1', $alias, $item->id);
+            $item->riesgos_salud_de1a5 = self::consultar_riesgos_salud('riesgos_salud_de1a5', $alias, $item->id);
+            $item->riesgos_salud_de6a11 = self::consultar_riesgos_salud('riesgos_salud_de6a11', $alias, $item->id);
+            $item->riesgos_salud_de12a17 = self::consultar_riesgos_salud('riesgos_salud_de12a17', $alias, $item->id);
+            $item->riesgos_salud_de18a28 = self::consultar_riesgos_salud('riesgos_salud_de18a28', $alias, $item->id);
+            $item->riesgos_salud_de29a59 = self::consultar_riesgos_salud('riesgos_salud_de29a59', $alias, $item->id);
+            $item->riesgos_salud_de60 = self::consultar_riesgos_salud('riesgos_salud_de60', $alias, $item->id);
+
+            $item->cantidad_personas =$item->riesgos_salud_men1["cantidad_personas"]+$item->riesgos_salud_de1a5["cantidad_personas"]+$item->riesgos_salud_de6a11["cantidad_personas"]+$item->riesgos_salud_de12a17["cantidad_personas"]+$item->riesgos_salud_de18a28["cantidad_personas"]+$item->riesgos_salud_de29a59["cantidad_personas"]+$item->riesgos_salud_de60["cantidad_personas"];
+            $item->cantidad_personas_riesgo_alto = $item->riesgos_salud_men1["personas_riesgo_alto"]+$item->riesgos_salud_de1a5["personas_riesgo_alto"]+$item->riesgos_salud_de6a11["personas_riesgo_alto"]+$item->riesgos_salud_de12a17["personas_riesgo_alto"]+$item->riesgos_salud_de18a28["personas_riesgo_alto"]+$item->riesgos_salud_de29a59["personas_riesgo_alto"]+$item->riesgos_salud_de60["personas_riesgo_alto"];
+        
+        }
+
+        $hogares_Alto = array();
+        foreach ($hogares as &$item) {
+            if((($item->cantidad_personas_riesgo_alto / $item->cantidad_personas) * 100) >= 50){
+                $hogares_alto_riesgo_salud += 1;
+                array_push($hogares_Alto, $item);
+            }
+        }
+
+        if(count($hogares) == 0){
+            $porcen_hogares_alto_riesgo_salud = 0;
+        }else{
+            $porcen_hogares_alto_riesgo_salud = ($hogares_alto_riesgo_salud / count($hogares) )* 100;
+        }
+
+        return $info = [
+            'hogares_Alto' => $hogares_Alto,
+            'hogares_alto_riesgo_salud' => $hogares_alto_riesgo_salud,
+            'hogares' => $hogares,
+            'NumeroHogares' => count($hogares),
+            'porcen_hogares_alto_riesgo_salud' => $porcen_hogares_alto_riesgo_salud,
+        ];
+    }
+
+    public static function consultar_riesgos_salud($rango, $alias, $idJefe){
+        if($rango == "riesgos_salud_de12a17"  || $rango == "riesgos_salud_de18a28" || $rango == "riesgos_salud_de29a59" || $rango == "riesgos_salud_de60"){     
+            $riesgosSaludIntegrantes = DB::connection('mysql')->table($alias.'.'.$rango)
+            ->join($alias.'.integrantes',$alias.'.integrantes.id',$alias.'.'.$rango.'.id_inte') 
+            ->select($rango.'.*','integrantes.*')
+            ->where('integrantes.estado', 'Activo')
+            ->where('integrantes.jefe', $idJefe)
+            ->where($alias.'.'.$rango.'.opci', 'INTE')
+            ->get();
+
+            $riesgosSaludJefes = DB::connection('mysql')->table($alias.'.'.$rango)
+            ->join($alias.'.caracterizacion',$alias.'.caracterizacion.id',$alias.'.'.$rango.'.id_inte') 
+            ->select($rango.'.*','caracterizacion.*')
+            ->where('caracterizacion.estado', 'Activo')
+            ->where('caracterizacion.id', $idJefe)
+            ->where($alias.'.'.$rango.'.opci', 'JEFE')
+            ->get();
+           
+        }else{
+            $riesgosSaludIntegrantes = DB::connection('mysql')->table($alias.'.'.$rango)
+            ->join($alias.'.integrantes',$alias.'.integrantes.id',$alias.'.'.$rango.'.id_inte') 
+            ->select($rango.'.*','integrantes.*')
+            ->where('integrantes.estado', 'Activo')
+            ->where('integrantes.jefe', $idJefe)
+            ->get();
+
+            $riesgosSaludJefes = array();
+        }
+
+        $riesgosSalud = array();
+        
+        foreach ($riesgosSaludIntegrantes as &$item) {
+            array_push($riesgosSalud, $item);
+        }
+
+        foreach ($riesgosSaludJefes as &$item) {
+            array_push($riesgosSalud, $item);
+        }
+
+        $personas_riesgo_alto = 0;
+        $riesgosSaludAlto = array();
+
+        if ($rango == "riesgos_salud_men1" || $rango == "riesgos_salud_de1a5"){
+            foreach ($riesgosSalud as &$item) {
+                if($item->enfermedades_infecciosas_R >= 4 || $item->transtornos_asociados_spa_R >= 4
+                    || $item->enfermedad_cardiovascular_R >= 4 || $item->cancer_R >= 4
+                    || $item->alteraciones_transtornos_visuales_R >= 4 || $item->alteraciones_transtornos_audicion_R >= 4
+                    || $item->salud_bucal_R >= 4 || $item->problemas_salud_mental_R >= 4
+                    || $item->enfermedades_respiratorias_R >= 4 || $item->enfermedades_zoonoticas_R >= 4
+                    || $item->transtornos_degenartivos_R >= 4 || $item->consumo_spa_R >= 4
+                    || $item->riesgos_desnutricion_aguda_R >= 4 || $item->riesgos_desnutricion_global_R >= 4
+                    || $item->riesgo_talla_baja_R >= 4 || $item->riesgo_muerte_R >= 4
+                    || $item->riesgo_sobrepeso_R >= 4 || $item->violencias_R >= 4){
+
+                    $personas_riesgo_alto += 1;
+                    array_push($riesgosSaludAlto, $item);
+                }
+            }
+        }
+
+        if ($rango == "riesgos_salud_de6a11" || $rango == "riesgos_salud_de12a17"){
+            foreach ($riesgosSalud as &$item) {
+                if($item->enfermedades_infecciosas_R >= 4 || $item->transtornos_asociados_spa_R >= 4
+                    || $item->enfermedad_cardiovascular_R >= 4 || $item->cancer_R >= 4
+                    || $item->alteraciones_transtornos_visuales_R >= 4 || $item->alteraciones_transtornos_audicion_R >= 4
+                    || $item->salud_bucal_R >= 4 || $item->problemas_salud_mental_R >= 4
+                    || $item->violencias_R >= 4 || $item->enfermedades_respiratorias_R >= 4
+                    || $item->enfermedades_zoonoticas_R >= 4 || $item->transtornos_degenartivos_R >= 4
+                    || $item->consumo_spa_R >= 4 || $item->riesgo_talla_baja_R >= 4
+                    || $item->riesgo_delgadez_R >= 4) {
+
+                    $personas_riesgo_alto += 1;
+                    array_push($riesgosSaludAlto, $item);
+                }
+            }
+        }
+
+        if ($rango == "riesgos_salud_de18a28" || $rango == "riesgos_salud_de29a59"){
+            foreach ($riesgosSalud as &$item) {
+                if($item->enfermedades_infecciosas_R >= 4 || $item->transtornos_asociados_spa_R >= 4
+                || $item->enfermedad_cardiovascular_R >= 4 || $item->cancer_R >= 4
+                || $item->alteraciones_transtornos_visuales_R >= 4 || $item->alteraciones_transtornos_audicion_R >= 4
+                || $item->salud_bucal_R >= 4 || $item->problemas_salud_mental_R >= 4
+                || $item->violencias_R >= 4 || $item->enfermedades_respiratorias_R >= 4
+                || $item->enfermedades_zoonoticas_R >= 4 || $item->transtornos_degenartivos_R >= 4
+                || $item->consumo_spa_R >= 4 || $item->riesgo_delgadez_R >= 4) {
+
+                    $personas_riesgo_alto += 1;
+                    array_push($riesgosSaludAlto, $item);
+                }
+            }
+        }
+
+        if ($rango == "riesgos_salud_de60"){
+            foreach ($riesgosSalud as &$item) {
+                if($item->enfermedades_infecciosas_R >= 4 || $item->transtornos_asociados_spa_R >= 4
+                || $item->enfermedad_cardiovascular_R >= 4 || $item->cancer_R >= 4
+                || $item->alteraciones_transtornos_visuales_R >= 4 || $item->alteraciones_transtornos_audicion_R >= 4
+                || $item->salud_bucal_R >= 4 || $item->problemas_salud_mental_R >= 4
+                || $item->violencias_R >= 4 || $item->enfermedades_respiratorias_R >= 4
+                || $item->enfermedades_zoonoticas_R >= 4 || $item->transtornos_degenartivos_R >= 4
+                || $item->consumo_spa_R >= 4 ) {
+
+                    $personas_riesgo_alto += 1;
+                    array_push($riesgosSaludAlto, $item);
+                }
+            }
+        }
+                
+        return $info = [
+            'cantidad_personas' => count($riesgosSalud),
+            'personas_riesgo_alto' => $personas_riesgo_alto,
+            'riesgosSaludAlto' => $riesgosSaludAlto
+        ];
+    }
+
+    public static function riesgos_desnutricion($alias, $tipo, $id, $tipo_des)
+    {
+        if($tipo == "todos"){
+            $hogares = DB::connection('mysql')->table($alias.'.caracterizacion')
+            ->join($alias . ".hogar", "caracterizacion.id_hogar", "hogar.id")
+            ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+            ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+            ->select('hogar.*', 'caracterizacion.*')
+            ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as des_corr")->selectRaw("CONCAT_WS('',hogar.direccion) as des_direc")->selectRaw("CONCAT_WS('',barrios.barrio) as des_barrio")
+            ->where('hogar.estado', 'Activo')
+            ->orderBy('des_corr', 'asc')
+            ->get();
+        }else{
+            $hogares = DB::connection('mysql')->table($alias.'.caracterizacion')
+            ->join($alias . ".hogar", "caracterizacion.id_hogar", "hogar.id")
+            ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+            ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+            ->select('hogar.*', 'caracterizacion.*')
+            ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as des_corr")->selectRaw("CONCAT_WS('',hogar.direccion) as des_direc")->selectRaw("CONCAT_WS('',barrios.barrio) as des_barrio")
+            ->where('hogar.estado', 'Activo')
+            ->where('hogar.id_'.$tipo, $id)
+            ->orderBy('des_corr', 'asc')
+            ->get();
+        }
+
+        if($tipo_des == 1){
+            foreach ($hogares as &$item) {
+                $item->riesgo_men1 = self::consultar_riesgo_desnutricion('riesgos_salud_men1', $alias, $item->id);
+                $item->riesgo_de1a5 = self::consultar_riesgo_desnutricion('riesgos_salud_de1a5', $alias, $item->id);
+                $item->riesgo_de6a11 = self::consultar_riesgo_desnutricion('riesgos_salud_de6a11', $alias, $item->id);
+            
+                $item->cantidad_personas =$item->riesgo_men1["cantidad_personas"]+$item->riesgo_de1a5["cantidad_personas"]+$item->riesgo_de6a11["cantidad_personas"];
+                $item->cantidad_personas_riesgo_alto = $item->riesgo_men1["personas_riesgo_alto"]+$item->riesgo_de1a5["personas_riesgo_alto"]+$item->riesgo_de6a11["personas_riesgo_alto"];
+            
+            }
+        }else{
+            foreach ($hogares as &$item) {
+                $item->riesgo_de12a17 = self::consultar_riesgo_desnutricion('riesgos_salud_de12a17', $alias, $item->id);
+                $item->riesgo_de18a28 = self::consultar_riesgo_desnutricion('riesgos_salud_de18a28', $alias, $item->id);
+                $item->riesgo_de29a59 = self::consultar_riesgo_desnutricion('riesgos_salud_de29a59', $alias, $item->id);
+            
+                $item->cantidad_personas =$item->riesgo_de12a17["cantidad_personas"]+$item->riesgo_de18a28["cantidad_personas"]+$item->riesgo_de29a59["cantidad_personas"];
+                $item->cantidad_personas_riesgo_alto = $item->riesgo_de12a17["personas_riesgo_alto"]+$item->riesgo_de18a28["personas_riesgo_alto"]+$item->riesgo_de29a59["personas_riesgo_alto"];
+            
+            }
+        }
+        
+
+        $hogares_Alto = array();
+        $hogares_alto_riesgo_salud = 0;
+        foreach ($hogares as &$item) {
+            if( $item->cantidad_personas_riesgo_alto > 0){
+                $hogares_alto_riesgo_salud += 1;
+                array_push($hogares_Alto, $item);
+            }
+        }
+
+        if(count($hogares) == 0){
+            $porcen_hogares_alto_riesgo_salud = 0;
+        }else{
+            $porcen_hogares_alto_riesgo_salud = ($hogares_alto_riesgo_salud / count($hogares) )* 100;
+        }
+
+        return $info = [
+            'hogares_Alto_d' => $hogares_Alto,
+            'hogares_alto_riesgo_salud_d' => $hogares_alto_riesgo_salud,
+            'hogares_d' => $hogares,
+            'NumeroHogares_d' => count($hogares),
+            'porcen_hogares_alto_riesgo_salud_d' => $porcen_hogares_alto_riesgo_salud,
+        ];
+    }
+
+    public static function consultar_riesgo_desnutricion($rango, $alias, $idJefe){
+        if($rango == "riesgos_salud_de12a17"  || $rango == "riesgos_salud_de18a28" || $rango == "riesgos_salud_de29a59" || $rango == "riesgos_salud_de60"){     
+            $riesgosSaludIntegrantes = DB::connection('mysql')->table($alias.'.'.$rango)
+            ->join($alias.'.integrantes',$alias.'.integrantes.id',$alias.'.'.$rango.'.id_inte') 
+            ->select($rango.'.*','integrantes.*')
+            ->where('integrantes.estado', 'Activo')
+            ->where('integrantes.jefe', $idJefe)
+            ->where($alias.'.'.$rango.'.opci', 'INTE')
+            ->get();
+
+            $riesgosSaludJefes = DB::connection('mysql')->table($alias.'.'.$rango)
+            ->join($alias.'.caracterizacion',$alias.'.caracterizacion.id',$alias.'.'.$rango.'.id_inte') 
+            ->select($rango.'.*','caracterizacion.*')
+            ->where('caracterizacion.estado', 'Activo')
+            ->where('caracterizacion.id', $idJefe)
+            ->where($alias.'.'.$rango.'.opci', 'JEFE')
+            ->get();
+           
+        }else{
+            $riesgosSaludIntegrantes = DB::connection('mysql')->table($alias.'.'.$rango)
+            ->join($alias.'.integrantes',$alias.'.integrantes.id',$alias.'.'.$rango.'.id_inte') 
+            ->select($rango.'.*','integrantes.*')
+            ->where('integrantes.estado', 'Activo')
+            ->where('integrantes.jefe', $idJefe)
+            ->get();
+
+            $riesgosSaludJefes = array();
+        }
+
+        $riesgosSalud = array();
+        
+        foreach ($riesgosSaludIntegrantes as &$item) {
+            array_push($riesgosSalud, $item);
+        }
+
+        foreach ($riesgosSaludJefes as &$item) {
+            array_push($riesgosSalud, $item);
+        }
+
+        $personas_riesgo_alto = 0;
+        $riesgosSaludAlto = array();
+
+        if ($rango == "riesgos_salud_men1" || $rango == "riesgos_salud_de1a5"){
+            foreach ($riesgosSalud as &$item) {
+                if($item->riesgos_desnutricion_aguda_R >= 4 || $item->riesgos_desnutricion_global_R >= 4){
+                    $personas_riesgo_alto += 1;
+                    array_push($riesgosSaludAlto, $item);
+                }
+            }
+        }
+
+        if ($rango == "riesgos_salud_de6a11" || $rango == "riesgos_salud_de12a17"){
+            foreach ($riesgosSalud as &$item) {
+                if($item->riesgo_delgadez_R >= 4) {
+                    $personas_riesgo_alto += 1;
+                    array_push($riesgosSaludAlto, $item);
+                }
+            }
+        }
+
+        if ($rango == "riesgos_salud_de18a28" || $rango == "riesgos_salud_de29a59"){
+            foreach ($riesgosSalud as &$item) {
+                if($item->riesgo_delgadez_R >= 4) {
+                    $personas_riesgo_alto += 1;
+                    array_push($riesgosSaludAlto, $item);
+                }
+            }
+        }
+                
+        return $info = [
+            'cantidad_personas' => count($riesgosSalud),
+            'personas_riesgo_alto' => $personas_riesgo_alto,
+            'riesgosSaludAlto' => $riesgosSaludAlto
+        ];
+    }
 }

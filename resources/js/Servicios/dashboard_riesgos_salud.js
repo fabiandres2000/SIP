@@ -7,3 +7,7 @@ export function poblacion($tipo, $id, $rangoEdad) {
 export function exportarRiesgoSalud($data) {
     return http().post('/dashboard-riesgos-salud/exportar-rs-dashboard', $data);
 }
+
+export function hogares($tipo, $id) {
+    return http().get('/dashboard-riesgos-salud/hogares?tipo='+$tipo+'&id='+$id);
+}

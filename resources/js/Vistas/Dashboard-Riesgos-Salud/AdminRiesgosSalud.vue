@@ -6,6 +6,7 @@
                     <PoblacionDashboard></PoblacionDashboard>
                 </b-tab>
                 <b-tab title="Hogares">
+                    <HogaresDashboard></HogaresDashboard>
                 </b-tab>
                 <b-tab title="SPA">
                 </b-tab>
@@ -19,10 +20,12 @@
 <script>
 
 import PoblacionDashboard from "./PoblacionDashboard.vue"
+import HogaresDashboard from "./HogaresDashboard.vue"
 
 export default {
     components: {
-        PoblacionDashboard
+        PoblacionDashboard,
+        HogaresDashboard
     },  
 }
 </script>

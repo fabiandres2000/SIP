@@ -17339,7 +17339,7 @@
               <div class="col-md-12" v-if="banConRieSal1=='RiDel'">
                 <center>
                   <p>
-                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Riesgo Desnutrición Global</span>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles Riesgo Delgadez</span>
                   </p>
                 </center>
                 <div class="form-group row">
@@ -18769,7 +18769,7 @@
               <div class="col-md-12" v-if="banConRieSal2=='RiDel'">
                 <center>
                   <p>
-                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Riesgo Desnutrición Global</span>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles Riesgo de Delgadez</span>
                   </p>
                 </center>
                 <div class="form-group row">
@@ -19909,7 +19909,7 @@
               <div class="col-md-12" v-if="banConRieSal2=='RiDel'">
                 <center>
                   <p>
-                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Riesgo Desnutrición Global</span>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles Riesgo de Delgadez</span>
                   </p>
                 </center>
                 <div class="form-group row">
@@ -20987,7 +20987,7 @@
               <div class="col-md-12" v-if="banConRieSal2=='RiDel'">
                 <center>
                   <p>
-                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Riesgo Desnutrición Global</span>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles Riesgo de Delgadez</span>
                   </p>
                 </center>
                 <div class="form-group row">
@@ -39819,7 +39819,7 @@
           valor: this.datosRSDE6A11[this.indiceRSDE6A11]["v_riesgo_delgadez_I"],
           color: this.datosRSDE6A11[this.indiceRSDE6A11]["c_riesgo_delgadez_I"],
           texto: "Riesgo de Delgadez",
-          boton: "RiDeDe",
+          boton: "RiDel",
           id: this.datosRSDE6A11[this.indiceRSDE6A11]["id_inte"],
           riesgo_r: this.datosRSDE6A11[this.indiceRSDE6A11]["riesgo_delgadez_R"],
           valor_r: this.datosRSDE6A11[this.indiceRSDE6A11]["v_riesgo_delgadez_R"],
@@ -41821,7 +41821,7 @@
           valor: this.datosRSDE12A17[this.indiceRSDE12A17]["v_riesgo_delgadez_I"],
           color: this.datosRSDE12A17[this.indiceRSDE12A17]["c_riesgo_delgadez_I"],
           texto: "Riesgo de Delgadez",
-          boton: "RiDeDe",
+          boton: "RiDel",
           id: this.datosRSDE12A17[this.indiceRSDE12A17]["id_inte"],
           riesgo_r: this.datosRSDE12A17[this.indiceRSDE12A17]["riesgo_delgadez_R"],
           valor_r: this.datosRSDE12A17[this.indiceRSDE12A17]["v_riesgo_delgadez_R"],
@@ -43661,7 +43661,7 @@
           valor: this.datosRSDE18A28[this.indiceRSDE18A28]["v_riesgo_delgadez_I"],
           color: this.datosRSDE18A28[this.indiceRSDE18A28]["c_riesgo_delgadez_I"],
           texto: "Riesgo de Delgadez",
-          boton: "RiDeDe",
+          boton: "RiDel",
           id: this.datosRSDE18A28[this.indiceRSDE18A28]["id_inte"],
           riesgo_r: this.datosRSDE18A28[this.indiceRSDE18A28]["riesgo_delgadez_R"],
           valor_r: this.datosRSDE18A28[this.indiceRSDE18A28]["v_riesgo_delgadez_R"],
@@ -43850,7 +43850,7 @@
           valor: this.datosRSDE29A59[this.indiceRSDE29A59]["v_riesgo_delgadez_I"],
           color: this.datosRSDE29A59[this.indiceRSDE29A59]["c_riesgo_delgadez_I"],
           texto: "Riesgo de Delgadez",
-          boton: "RiDeDe",
+          boton: "RiDel",
           id: this.datosRSDE29A59[this.indiceRSDE29A59]["id_inte"],
           riesgo_r: this.datosRSDE29A59[this.indiceRSDE29A59]["riesgo_delgadez_R"],
           valor_r: this.datosRSDE29A59[this.indiceRSDE29A59]["v_riesgo_delgadez_R"],

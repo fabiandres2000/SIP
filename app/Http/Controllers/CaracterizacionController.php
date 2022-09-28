@@ -18804,13 +18804,13 @@ class CaracterizacionController extends Controller
                 // Riesgo Desnutrición Global
                 if ($opcion == "RiDeGl") {
                     $totalDivicion = 3;
-                    $asistencia_RiDeGl = self::valores($datos["asistencia_RiDeGl"]);
-                    $programas_RiDeGl = self::valores($datos["programas_RiDeGl"]);
-                    $suplementacion_RiDeGl = self::valores($datos["suplementacion_RiDeGl"]);
+                    $asistencia_RiDel = self::valores($datos["asistencia_RiDel"]);
+                    $programas_RiDel = self::valores($datos["programas_RiDel"]);
+                    $suplementacion_RiDel = self::valores($datos["suplementacion_RiDel"]);
 
-                    $suma = $suma + ($asistencia_RiDeGl * $detectivo);
-                    $suma = $suma + ($programas_RiDeGl * $preventivo);
-                    $suma = $suma + ($suplementacion_RiDeGl * $preventivo);
+                    $suma = $suma + ($asistencia_RiDel * $detectivo);
+                    $suma = $suma + ($programas_RiDel * $preventivo);
+                    $suma = $suma + ($suplementacion_RiDel * $preventivo);
                 }
                 // Riesgo Desnutrición Global
 
@@ -19082,13 +19082,13 @@ class CaracterizacionController extends Controller
                 // Riesgo Desnutrición Global
                 if ($opcion == "RiDeGl") {
                     $totalDivicion = 3;
-                    $asistencia_RiDeGl = self::valores($datos["asistencia_RiDeGl"]);
-                    $programas_RiDeGl = self::valores($datos["programas_RiDeGl"]);
-                    $suplementacion_RiDeGl = self::valores($datos["suplementacion_RiDeGl"]);
+                    $asistencia_RiDel = self::valores($datos["asistencia_RiDel"]);
+                    $programas_RiDeGl = self::valores($datos["programas_RiDel"]);
+                    $suplementacion_RiDeGl = self::valores($datos["suplementacion_RiDel"]);
 
-                    $suma = $suma + ($asistencia_RiDeGl * $detectivo);
-                    $suma = $suma + ($programas_RiDeGl * $preventivo);
-                    $suma = $suma + ($suplementacion_RiDeGl * $preventivo);
+                    $suma = $suma + ($asistencia_RiDel * $detectivo);
+                    $suma = $suma + ($programas_RiDel * $preventivo);
+                    $suma = $suma + ($suplementacion_RiDel * $preventivo);
                 }
                 // Riesgo Desnutrición Global
 
@@ -19348,9 +19348,9 @@ class CaracterizacionController extends Controller
                 // Riesgo Delgadez
                 if ($opcion == "RiDel") {
                     $totalDivicion = 3;
-                    $asistencia_RiDeGl = self::valores($datos["asistencia_RiDel"]);
-                    $programas_RiDeGl = self::valores($datos["programas_RiDel"]);
-                    $suplementacion_RiDeGl = self::valores($datos["suplementacion_RiDel"]);
+                    $asistencia_RiDel = self::valores($datos["asistencia_RiDel"]);
+                    $programas_RiDel = self::valores($datos["programas_RiDel"]);
+                    $suplementacion_RiDel = self::valores($datos["suplementacion_RiDel"]);
 
                     $suma = $suma + ($asistencia_RiDel * $detectivo);
                     $suma = $suma + ($programas_RiDel * $preventivo);
@@ -19603,9 +19603,9 @@ class CaracterizacionController extends Controller
                 // Riesgo Delgadez
                 if ($opcion == "RiDel") {
                     $totalDivicion = 3;
-                    $asistencia_RiDeGl = self::valores($datos["asistencia_RiDel"]);
-                    $programas_RiDeGl = self::valores($datos["programas_RiDel"]);
-                    $suplementacion_RiDeGl = self::valores($datos["suplementacion_RiDel"]);
+                    $asistencia_RiDel = self::valores($datos["asistencia_RiDel"]);
+                    $programas_RiDel = self::valores($datos["programas_RiDel"]);
+                    $suplementacion_RiDel = self::valores($datos["suplementacion_RiDel"]);
 
                     $suma = $suma + ($asistencia_RiDel * $detectivo);
                     $suma = $suma + ($programas_RiDel * $preventivo);
@@ -19858,9 +19858,9 @@ class CaracterizacionController extends Controller
                 // Riesgo Delgadez
                 if ($opcion == "RiDel") {
                     $totalDivicion = 3;
-                    $asistencia_RiDeGl = self::valores($datos["asistencia_RiDel"]);
-                    $programas_RiDeGl = self::valores($datos["programas_RiDel"]);
-                    $suplementacion_RiDeGl = self::valores($datos["suplementacion_RiDel"]);
+                    $asistencia_RiDel = self::valores($datos["asistencia_RiDel"]);
+                    $programas_RiDel = self::valores($datos["programas_RiDel"]);
+                    $suplementacion_RiDel = self::valores($datos["suplementacion_RiDel"]);
 
                     $suma = $suma + ($asistencia_RiDel * $detectivo);
                     $suma = $suma + ($programas_RiDel * $preventivo);
@@ -20099,9 +20099,9 @@ class CaracterizacionController extends Controller
                 // Riesgo Delgadez
                 if ($opcion == "RiDel") {
                     $totalDivicion = 3;
-                    $asistencia_RiDeGl = self::valores($datos["asistencia_RiDel"]);
-                    $programas_RiDeGl = self::valores($datos["programas_RiDel"]);
-                    $suplementacion_RiDeGl = self::valores($datos["suplementacion_RiDel"]);
+                    $asistencia_RiDel = self::valores($datos["asistencia_RiDel"]);
+                    $programas_RiDel = self::valores($datos["programas_RiDel"]);
+                    $suplementacion_RiDel = self::valores($datos["suplementacion_RiDel"]);
 
                     $suma = $suma + ($asistencia_RiDel * $detectivo);
                     $suma = $suma + ($programas_RiDel * $preventivo);
