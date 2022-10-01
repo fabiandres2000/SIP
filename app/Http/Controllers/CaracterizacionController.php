@@ -1247,6 +1247,12 @@ class CaracterizacionController extends Controller
                     // GUARDAR MENORES DE 1 AÑO
                     for ($i = 0; $i < count($dataMen1A); $i++) {
                         $dataMen1A[$i]['id_hogar'] = $IDHOGAR;
+
+                        $inte = \App\Integrante::buscar($dataMen1A[$i]["identificacion"], Session::get('alias'));
+                        $dataMen1A[$i]['imc'] = self::calcularImcMen1anio($dataMen1A[$i]['peso_actual'], $dataMen1A[$i]['longitud_actual']);
+                        $imc_temp = $dataMen1A[$i]['imc'];
+                        $dataMen1A[$i]["desviacion_imc"] = self::calculoIMC($inte->fecha_nac, "IMC2", $inte->sexo, $imc_temp);
+
                         $Men1Arespuesta = \App\Men1a::guardar($dataMen1A[$i], Session::get('alias'));
 
                         //RIESGOS DE SALUD
@@ -1258,6 +1264,11 @@ class CaracterizacionController extends Controller
                     // GUARDAR DE 1 A 5
                     for ($i = 0; $i < count($dataDe1A5); $i++) {
                         $dataDe1A5[$i]['id_hogar'] = $IDHOGAR;
+
+                        $inte = \App\Integrante::buscar($dataDe1A5[$i]["identificacion"], Session::get('alias'));
+                        $imc_temp = $dataDe1A5[$i]['imc'];
+                        $dataDe1A5[$i]["desviacion_imc"] = self::calculoIMC($inte->fecha_nac, "IMC2", $inte->sexo, $imc_temp);
+
                         $De1a5respuesta = \App\De1a5::guardar($dataDe1A5[$i], Session::get('alias'));
 
                         //RIESGOS DE SALUD
@@ -1269,6 +1280,11 @@ class CaracterizacionController extends Controller
                     // GUARDAR DE 6 A 11
                     for ($i = 0; $i < count($dataDe6A11); $i++) {
                         $dataDe6A11[$i]['id_hogar'] = $IDHOGAR;
+                        
+                        $inte = \App\Integrante::buscar($dataDe6A11[$i]["identificacion"], Session::get('alias'));
+                        $imc_temp = $dataDe6A11[$i]['imc'];
+                        $dataDe6A11[$i]["desviacion_imc"] = self::calculoIMC($inte->fecha_nac, "IMC1", $inte->sexo, $imc_temp);
+
                         $De6a11respuesta = \App\De6a11::guardar($dataDe6A11[$i], Session::get('alias'));
 
                         //RIESGOS DE SALUD
@@ -1630,6 +1646,15 @@ class CaracterizacionController extends Controller
                     // GUARDAR DE 12 A 17
                     for ($i = 0; $i < count($dataDe12A17); $i++) {
                         $dataDe12A17[$i]['id_hogar'] = $IDHOGAR;
+                        
+                        if( $dataDe12A17[$i]['opci'] == "INTE"){
+                            $inte = \App\Integrante::buscar($dataDe12A17[$i]["identificacion"], Session::get('alias'));
+                        }else{
+                            $inte = \App\Caracterizacion::buscar($dataDe12A17[$i]["identificacion"], Session::get('alias'));
+                        }
+                        
+                        $imc_temp = $dataDe12A17[$i]['imc'];
+                        $dataDe12A17[$i]["desviacion_imc"] = self::calculoIMC($inte->fecha_nac, "IMC1", $inte->sexo, $imc_temp);
                         $De12A17respuesta = \App\De12a17::guardar($dataDe12A17[$i], Session::get('alias'));
 
                         //RIESGOS DE SALUD
@@ -2355,7 +2380,12 @@ class CaracterizacionController extends Controller
                     // GUARDAR MENORES DE 1 AÑO
                     for ($i = 0; $i < count($dataMen1A); $i++) {
                         $dataMen1A[$i]['id_hogar'] = $IDHOGAR;
-                        $integrante = \App\Integrante::buscar($dataMen1A[$i]['identificacion'], Session::get('alias'));
+
+                        $inte = \App\Integrante::buscar($dataMen1A[$i]["identificacion"], Session::get('alias'));
+                        $dataMen1A[$i]['imc'] = self::calcularImcMen1anio($dataMen1A[$i]['peso_actual'], $dataMen1A[$i]['longitud_actual']);
+                        $imc_temp = $dataMen1A[$i]['imc'];
+                        $dataMen1A[$i]["desviacion_imc"] = self::calculoIMC($inte->fecha_nac, "IMC2", $inte->sexo, $imc_temp);
+
                         $Men1Arespuesta = \App\Men1a::guardar($dataMen1A[$i], Session::get('alias'));
 
                         //RIESGOS DE SALUD
@@ -2367,6 +2397,11 @@ class CaracterizacionController extends Controller
                     // GUARDAR DE 1 A 5
                     for ($i = 0; $i < count($dataDe1A5); $i++) {
                         $dataDe1A5[$i]['id_hogar'] = $IDHOGAR;
+
+                        $inte = \App\Integrante::buscar($dataDe1A5[$i]["identificacion"], Session::get('alias'));
+                        $imc_temp = $dataDe1A5[$i]['imc'];
+                        $dataDe1A5[$i]["desviacion_imc"] = self::calculoIMC($inte->fecha_nac, "IMC2", $inte->sexo, $imc_temp);
+
                         $De1a5respuesta = \App\De1a5::guardar($dataDe1A5[$i], Session::get('alias'));
 
                         //RIESGOS DE SALUD
@@ -2378,6 +2413,11 @@ class CaracterizacionController extends Controller
                     // GUARDAR DE 6 A 11
                     for ($i = 0; $i < count($dataDe6A11); $i++) {
                         $dataDe6A11[$i]['id_hogar'] = $IDHOGAR;
+      
+                        $inte = \App\Integrante::buscar($dataDe6A11[$i]["identificacion"], Session::get('alias'));
+                        $imc_temp = $dataDe6A11[$i]['imc'];
+                        $dataDe6A11[$i]["desviacion_imc"] = self::calculoIMC($inte->fecha_nac, "IMC1", $inte->sexo, $imc_temp);
+                       
                         $De6a11respuesta = \App\De6a11::guardar($dataDe6A11[$i], Session::get('alias'));
 
                         //RIESGOS DE SALUD
@@ -2740,6 +2780,15 @@ class CaracterizacionController extends Controller
                     // GUARDAR DE 12 A 17
                     for ($i = 0; $i < count($dataDe12A17); $i++) {
                         $dataDe12A17[$i]['id_hogar'] = $IDHOGAR;
+
+                        if( $dataDe12A17[$i]['opci'] == "INTE"){
+                            $inte = \App\Integrante::buscar($dataDe12A17[$i]["identificacion"], Session::get('alias'));
+                        }else{
+                            $inte = \App\Caracterizacion::buscar($dataDe12A17[$i]["identificacion"], Session::get('alias'));
+                        }
+                        
+                        $imc_temp = $dataDe12A17[$i]['imc'];
+                        $dataDe12A17[$i]["desviacion_imc"] = self::calculoIMC($inte->fecha_nac, "IMC1", $inte->sexo, $imc_temp);
                         $De12A17respuesta = \App\De12a17::guardar($dataDe12A17[$i], Session::get('alias'));
 
                         //RIESGOS DE SALUD
@@ -3283,6 +3332,101 @@ class CaracterizacionController extends Controller
             }
         } else {
             return redirect("/login")->with("error", "Su sesion ha terminado");
+        }
+    }
+
+    public function calculoIMC($fecha, $variable, $sexo, $imc_temp){
+        switch ($variable) {
+            case "IMC1":
+                $resul = [];
+                $array = [];
+
+                $meses = self::mesesPorAnios($fecha);
+                $IMCEDA = false;
+                $imc_eda = "";
+                $resul = [-2, -1, 0, 1, 2, 3];
+                if ($sexo == "MASCULINO") {
+                    $IMCEDA = \App\ImcEdadNinos517::buscar(Session::get('alias'), $meses);
+                } else {
+                    $IMCEDA = \App\ImcEdadNinas517::buscar(Session::get('alias'), $meses);
+                }
+                if ($IMCEDA) {
+                    // CREAR ARRAY DE DATOS
+                    array_push($array, $IMCEDA->SD2neg);
+                    array_push($array, $IMCEDA->SD1neg);
+                    array_push($array, $IMCEDA->SD0);
+                    array_push($array, $IMCEDA->SD1);
+                    array_push($array, $IMCEDA->SD2);
+                    array_push($array, $IMCEDA->SD3);
+                    // CREAR ARRAY DE DATOS
+
+                    // METODO DE BUSQUEDA
+                    $pe = self::buscarDistancias($imc_temp, $array);
+                    $imc_eda = $resul[$pe];
+                    // METODO DE BUSQUEDA
+                }
+                return $imc_eda;
+                break;
+            case "IMC2":
+                $resul = [];
+                $array = [];
+
+                $dias = self::diasPorAnios($fecha);
+                if($dias > 1856){
+                    $meses = self::mesesPorAnios($fecha);
+                    $IMCEDA = false;
+                    $imc_eda = "";
+                    $resul = [-2, -1, 0, 1, 2, 3];
+                    if ($sexo == "MASCULINO") {
+                        $IMCEDA = \App\ImcEdadNinos517::buscar(Session::get('alias'), $meses);
+                    } else {
+                        $IMCEDA = \App\ImcEdadNinas517::buscar(Session::get('alias'), $meses);
+                    }
+                    if ($IMCEDA) {
+                        // CREAR ARRAY DE DATOS
+                        array_push($array, $IMCEDA->SD2neg);
+                        array_push($array, $IMCEDA->SD1neg);
+                        array_push($array, $IMCEDA->SD0);
+                        array_push($array, $IMCEDA->SD1);
+                        array_push($array, $IMCEDA->SD2);
+                        array_push($array, $IMCEDA->SD3);
+                        // CREAR ARRAY DE DATOS
+
+                        // METODO DE BUSQUEDA
+                        $pe = self::buscarDistancias($imc_temp, $array);
+                        $imc_eda = $resul[$pe];
+                        // METODO DE BUSQUEDA
+                    }
+                }else{
+                    $IMCEDA = false;
+                    $imc_eda = "";
+                    $resul = [-4, -3, -2, -1, 0, 1, 2, 3, 4];
+                    if ($sexo == "MASCULINO") {
+                        $IMCEDA = \App\ImcNinos05::buscar(Session::get('alias'), $dias);
+                    } else {
+                        $IMCEDA = \App\ImcNinas05::buscar(Session::get('alias'), $dias);
+                    }
+                    if ($IMCEDA) {
+                        // CREAR ARRAY DE DATOS
+                        array_push($array, $IMCEDA->SD4neg);
+                        array_push($array, $IMCEDA->SD3neg);
+                        array_push($array, $IMCEDA->SD2neg);
+                        array_push($array, $IMCEDA->SD1neg);
+                        array_push($array, $IMCEDA->SD0);
+                        array_push($array, $IMCEDA->SD1);
+                        array_push($array, $IMCEDA->SD2);
+                        array_push($array, $IMCEDA->SD3);
+                        array_push($array, $IMCEDA->SD4);
+                        // CREAR ARRAY DE DATOS
+
+                        // METODO DE BUSQUEDA
+                        $pe = self::buscarDistancias($imc_temp, $array);
+                        $imc_eda = $resul[$pe];
+                        // METODO DE BUSQUEDA
+                    }
+                }
+                return $imc_eda;
+                break;
         }
     }
 
@@ -30455,5 +30599,17 @@ class CaracterizacionController extends Controller
             }
             // // // // // // // // // //  Riesgo de delgadez   // // // // // // // // // //                      
         }
+    }
+
+    public function calcularImcMen1anio($peso, $talla) {
+        if ($peso === "") {
+          $peso = 0;
+        }
+        if ($talla === "") {
+          $talla = 1;
+        }
+        $talla = $talla/100;     
+        $imc = $peso / ($talla * $talla);
+        return round($imc , 2);
     }
 }

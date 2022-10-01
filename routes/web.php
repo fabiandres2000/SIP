@@ -210,3 +210,4 @@ Route::post('/socioeconomico/exportar-hogar', 'SocioeconomicoController@exportar
 Route::get('/dashboard-riesgos-salud/poblacion', 'DashboardRiesgosSaludController@poblacion');
 Route::post('/dashboard-riesgos-salud/exportar-rs-dashboard', 'DashboardRiesgosSaludController@exportarPoblacion');
 Route::get('/dashboard-riesgos-salud/hogares', 'DashboardRiesgosSaludController@hogares');
+Route::post('/dashboard-riesgos-salud/exportar-hogares-dashboard', 'DashboardRiesgosSaludController@exportarHogares');

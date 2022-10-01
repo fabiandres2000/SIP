@@ -14,7 +14,7 @@ class De12a17 extends Model
         'visuales', 'auditivos', 'conducta', 'enfermedades_cronicas', 'dientes_sanos', 'consultaodon',
         'nocepillado', 'maltrato', 'alcohol', 'fuma', 'spa', 'desparacitado',
         'empleo', 'religion', 'queesvih', 'queescancerutero', 'queespapiloma',
-        'queescancerseno', 'padre', 'madre', 'hermanos', 'conyuge', 'estado', 'id_compania', 'opci',
+        'queescancerseno', 'padre', 'madre', 'hermanos', 'conyuge', 'estado', 'id_compania', 'opci', 'desviacion_imc'
     ];
 
     public static function guardar($data, $alias)
@@ -74,6 +74,7 @@ class De12a17 extends Model
             'estado' => $data['estado'],
             'id_compania' => 1,
             'opci' => $data['opci'],
+            'desviacion_imc' => $data['desviacion_imc'],
         ]);
     }
 

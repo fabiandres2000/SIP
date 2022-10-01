@@ -14,7 +14,7 @@ class De6a11 extends Model
         'imc', 'pb', 'pt', 'te', 'conducta', 'visuales',
         'auditivos', 'dientes_sanos', 'consultaodon', 'nofluor', 'nocepillado', 'maltrato',
         'sustanciaspsico', 'desparacitado', 'enfermedad', 'medicamento', 'padre', 'madre',
-        'hermanos', 'conyuge', 'estado', 'id_compania', 'opci',
+        'hermanos', 'conyuge', 'estado', 'id_compania', 'opci', 'desviacion_imc'
     ];
 
     public static function guardar($data, $alias)
@@ -63,6 +63,7 @@ class De6a11 extends Model
             'estado' => $data['estado'],
             'id_compania' => 1,
             'opci' => $data['opci'],
+            'desviacion_imc' => $data['desviacion_imc'],
         ]);
     }
 

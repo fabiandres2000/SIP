@@ -73,7 +73,7 @@
         </div>
         <hr>
         <div class="row">
-            <div class="col-lg-4 text-center">
+            <div class="col-lg-4 text-center" ref="porcen1">
                 <br>
                 <h4>HOGARES CON ALTO RIESGOS EN SALUD</h4>
                 <br>
@@ -89,7 +89,7 @@
                 <h4>{{hogares_alto_riesgo_salud}} / {{NumeroHogares}}</h4> 
                 <h6><a href="#" @click="verDetalles(1)">Ver detalles</a></h6>
             </div>
-            <div class="col-lg-4 text-center">
+            <div class="col-lg-4 text-center" ref="porcen2">
                 <br>
                 <h4>RIESGO INFANTIL DE DESNUTRICIÓN</h4>
                 <br>
@@ -105,7 +105,7 @@
                 <h4>{{riesgos_infantil_desnutricion.hogares_alto_riesgo_salud_d}} / {{riesgos_infantil_desnutricion.NumeroHogares_d}}</h4> 
                 <h6><a href="#" @click="verDetalles(2)">Ver detalles</a></h6>
             </div>
-            <div class="col-lg-4 text-center">
+            <div class="col-lg-4 text-center" ref="porcen3">
                 <br>
                 <h4>RIESGO DE DESNUTRICIÓN EN ADULTOS MAYORES</h4>
                 <h6 style="padding: 5px">Son los hogares que poseen integrantes menores de 59 años con riesgos altos de desnutrición</h6>
@@ -119,6 +119,68 @@
                 <br>
                 <h4>{{riesgos_adulto_desnutricion.hogares_alto_riesgo_salud_d}} / {{riesgos_adulto_desnutricion.NumeroHogares_d}}</h4> 
                 <h6><a href="#" @click="verDetalles(3)">Ver detalles</a></h6>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 text-center" ref="porcen4">
+                <br>
+                <h4>HOGARES CON RIESGOS DE CONSUMO DE SPA</h4>
+                <br>
+                <circle-progress
+                    stroke-bg-color = "#e3e2e1"
+                    :r="80" 
+                    :stroke-width="12"  
+                    :stroke-color="consumo_spa.porcen_hogares_alto_riesgo < 20 ? '#1abf03': consumo_spa.porcen_hogares_alto_riesgo >= 20  && consumo_spa.porcen_hogares_alto_riesgo  < 60 ? '#f2ce1a' : '#f2451a'" 
+                    :percentage="Math.floor(consumo_spa.porcen_hogares_alto_riesgo  * 10) / 10"> 
+                </circle-progress>
+                <br>
+                <h4>{{consumo_spa.cantidad_hogares_alto}} / {{consumo_spa.numero_hogares}}</h4> 
+                <h6><a href="#" @click="verDetalles(4)">Ver detalles</a></h6>
+            </div>
+            <div class="col-lg-4 text-center" ref="porcen5">
+                <br>
+                <h4>HOGARES CON RIESGOS DE VIOLENCIA</h4>
+                <br>
+                <circle-progress
+                    stroke-bg-color = "#e3e2e1"
+                    :r="80" 
+                    :stroke-width="12"  
+                    :stroke-color="riesgos_violencia.porcen_hogares_alto_riesgo < 20 ? '#1abf03': riesgos_violencia.porcen_hogares_alto_riesgo >= 20  && riesgos_violencia.porcen_hogares_alto_riesgo  < 60 ? '#f2ce1a' : '#f2451a'" 
+                    :percentage="Math.floor(riesgos_violencia.porcen_hogares_alto_riesgo  * 10) / 10"> 
+                </circle-progress>
+                <br>
+                <h4>{{riesgos_violencia.cantidad_hogares_alto}} / {{riesgos_violencia.numero_hogares}}</h4> 
+                <h6><a href="#" @click="verDetalles(5)">Ver detalles</a></h6>
+            </div>
+            <div class="col-lg-4 text-center" ref="porcen6">
+                <br>
+                <h4>HOGARES CON NIÑOS EN OBESIDAD Y SOBREPESO</h4>
+                <circle-progress
+                    stroke-bg-color = "#e3e2e1"
+                    :r="80" 
+                    :stroke-width="12"  
+                    :stroke-color="ninios_obesidad.porcen_hogares_alto_riesgo < 20 ? '#1abf03': ninios_obesidad.porcen_hogares_alto_riesgo >= 20  && ninios_obesidad.porcen_hogares_alto_riesgo  < 60 ? '#f2ce1a' : '#f2451a'" 
+                    :percentage="Math.floor(ninios_obesidad.porcen_hogares_alto_riesgo  * 10) / 10"> 
+                </circle-progress>
+                <br>
+                <h4>{{ninios_obesidad.cantidad_hogares_alto}} / {{ninios_obesidad.numero_hogares}}</h4> 
+                <h6><a href="#" @click="verDetalles(6)">Ver detalles</a></h6>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 text-center" ref="porcen7">
+                <br>
+                <h4>HOGARES CON  INTEGRANTES MAYORES DE 12 AÑOS EN OBESIDAD Y SOBREPESO</h4>
+                <circle-progress
+                    stroke-bg-color = "#e3e2e1"
+                    :r="80" 
+                    :stroke-width="12"  
+                    :stroke-color="mayores_obesidad.porcen_hogares_alto_riesgo < 20 ? '#1abf03': mayores_obesidad.porcen_hogares_alto_riesgo >= 20  && mayores_obesidad.porcen_hogares_alto_riesgo  < 60 ? '#f2ce1a' : '#f2451a'" 
+                    :percentage="Math.floor(mayores_obesidad.porcen_hogares_alto_riesgo  * 10) / 10"> 
+                </circle-progress>
+                <br>
+                <h4>{{mayores_obesidad.cantidad_hogares_alto}} / {{mayores_obesidad.numero_hogares}}</h4> 
+                <h6><a href="#" @click="verDetalles(7)">Ver detalles</a></h6>
             </div>
         </div>
         <b-modal
@@ -225,9 +287,141 @@
                         </tbody>
                     </table>
                 </div>  
+
+                <div v-if="tipo_data == 4">
+                    <table style="width: 100%;" class="table_data">
+                        <thead>
+                            <tr>
+                                <th>Jefe</th>
+                                <th>Corregimiento / Vereda</th>
+                                <th>Barrio</th>
+                                <th>Direccion</th>
+                                <th style="text-align: center">Integrantes (Riesgo - ALto)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="item in consumo_spa.array_hogares_alto">
+                                <td>{{item.tipo_id}}: {{item.identificacion}} - {{item.pnom}} {{item.snom}} {{item.pape}} {{item.sape}}</td>
+                                <td><span>{{item.des_corr != "" ? item.des_corr : "CASCO URBANO"}}</span></td>
+                                <td><span>{{item.des_barrio}}</span></td>
+                                <td><span>{{item.des_direc}}</span></td>
+                                <td>
+                                    <ul>
+                                        <li v-for="item2 in item.riesgos_salud_men1.personas_riesgos_alto">{{item2.tipo_id}}: {{item2.identificacion}} - {{item2.pnom}} {{item2.snom}} {{item2.pape}} {{item2.sape}}</li>
+                                        <li v-for="item2 in item.riesgos_salud_de1a5.personas_riesgos_alto">{{item2.tipo_id}}: {{item2.identificacion}} - {{item2.pnom}} {{item2.snom}} {{item2.pape}} {{item2.sape}}</li>
+                                        <li v-for="item2 in item.riesgos_salud_de6a11.personas_riesgos_alto">{{item2.tipo_id}}: {{item2.identificacion}} - {{item2.pnom}} {{item2.snom}} {{item2.pape}} {{item2.sape}}</li>
+                                        <li v-for="item2 in item.riesgos_salud_de12a17.personas_riesgos_alto">{{item2.tipo_id}}: {{item2.identificacion}} - {{item2.pnom}} {{item2.snom}} {{item2.pape}} {{item2.sape}}</li>
+                                        <li v-for="item2 in item.riesgos_salud_de18a28.personas_riesgos_alto">{{item2.tipo_id}}: {{item2.identificacion}} - {{item2.pnom}} {{item2.snom}} {{item2.pape}} {{item2.sape}}</li>
+                                        <li v-for="item2 in item.riesgos_salud_de29a59.personas_riesgos_alto">{{item2.tipo_id}}: {{item2.identificacion}} - {{item2.pnom}} {{item2.snom}} {{item2.pape}} {{item2.sape}}</li>
+                                        <li v-for="item2 in item.riesgos_salud_de60.personas_riesgos_alto">{{item2.tipo_id}}: {{item2.identificacion}} - {{item2.pnom}} {{item2.snom}} {{item2.pape}} {{item2.sape}}</li>
+                                    </ul> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>  
+
+                <div v-if="tipo_data == 5">
+                    <table style="width: 100%;" class="table_data">
+                        <thead>
+                            <tr>
+                                <th>Jefe</th>
+                                <th>Corregimiento / Vereda</th>
+                                <th>Barrio</th>
+                                <th>Direccion</th>
+                                <th style="text-align: center">Integrantes (Riesgo - ALto)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="item in riesgos_violencia.array_hogares_alto">
+                                <td>{{item.tipo_id}}: {{item.identificacion}} - {{item.pnom}} {{item.snom}} {{item.pape}} {{item.sape}}</td>
+                                <td><span>{{item.des_corr != "" ? item.des_corr : "CASCO URBANO"}}</span></td>
+                                <td><span>{{item.des_barrio}}</span></td>
+                                <td><span>{{item.des_direc}}</span></td>
+                                <td>
+                                    <ul>
+                                        <li v-for="item2 in item.riesgos_salud_men1.personas_riesgos_alto">{{item2.tipo_id}}: {{item2.identificacion}} - {{item2.pnom}} {{item2.snom}} {{item2.pape}} {{item2.sape}}</li>
+                                        <li v-for="item2 in item.riesgos_salud_de1a5.personas_riesgos_alto">{{item2.tipo_id}}: {{item2.identificacion}} - {{item2.pnom}} {{item2.snom}} {{item2.pape}} {{item2.sape}}</li>
+                                        <li v-for="item2 in item.riesgos_salud_de6a11.personas_riesgos_alto">{{item2.tipo_id}}: {{item2.identificacion}} - {{item2.pnom}} {{item2.snom}} {{item2.pape}} {{item2.sape}}</li>
+                                        <li v-for="item2 in item.riesgos_salud_de12a17.personas_riesgos_alto">{{item2.tipo_id}}: {{item2.identificacion}} - {{item2.pnom}} {{item2.snom}} {{item2.pape}} {{item2.sape}}</li>
+                                        <li v-for="item2 in item.riesgos_salud_de18a28.personas_riesgos_alto">{{item2.tipo_id}}: {{item2.identificacion}} - {{item2.pnom}} {{item2.snom}} {{item2.pape}} {{item2.sape}}</li>
+                                        <li v-for="item2 in item.riesgos_salud_de29a59.personas_riesgos_alto">{{item2.tipo_id}}: {{item2.identificacion}} - {{item2.pnom}} {{item2.snom}} {{item2.pape}} {{item2.sape}}</li>
+                                        <li v-for="item2 in item.riesgos_salud_de60.personas_riesgos_alto">{{item2.tipo_id}}: {{item2.identificacion}} - {{item2.pnom}} {{item2.snom}} {{item2.pape}} {{item2.sape}}</li>
+                                    </ul> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div> 
+                
+                <div v-if="tipo_data == 6">
+                    <table style="width: 100%;" class="table_data">
+                        <thead>
+                            <tr>
+                                <th>Jefe</th>
+                                <th>Corregimiento / Vereda</th>
+                                <th>Barrio</th>
+                                <th>Direccion</th>
+                                <th style="text-align: center">Integrantes con Obesidad o Sobrepeso</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="item in ninios_obesidad.array_hogares_alto">
+                                <td>{{item.tipo_id}}: {{item.identificacion}} - {{item.pnom}} {{item.snom}} {{item.pape}} {{item.sape}}</td>
+                                <td><span>{{item.des_corr != "" ? item.des_corr : "CASCO URBANO"}}</span></td>
+                                <td><span>{{item.des_barrio}}</span></td>
+                                <td><span>{{item.des_direc}}</span></td>
+                                <td>
+                                    <ul>
+                                        <li v-for="item2 in item.men1a.personas_obesidad">{{item2.tipo_id}}: {{item2.identificacion}} - {{item2.pnom}} {{item2.snom}} {{item2.pape}} {{item2.sape}} - Obesidad</li>
+                                        <li v-for="item2 in item.de1a5.personas_obesidad">{{item2.tipo_id}}: {{item2.identificacion}} - {{item2.pnom}} {{item2.snom}} {{item2.pape}} {{item2.sape}} - Obesidad</li>
+                                        <li v-for="item2 in item.de6a11.personas_obesidad">{{item2.tipo_id}}: {{item2.identificacion}} - {{item2.pnom}} {{item2.snom}} {{item2.pape}} {{item2.sape}} - Obesidad</li>
+                                        <li v-for="item2 in item.men1a.personas_sobrepeso">{{item2.tipo_id}}: {{item2.identificacion}} - {{item2.pnom}} {{item2.snom}} {{item2.pape}} {{item2.sape}} - Sobrepeso</li>
+                                        <li v-for="item2 in item.de1a5.personas_sobrepeso">{{item2.tipo_id}}: {{item2.identificacion}} - {{item2.pnom}} {{item2.snom}} {{item2.pape}} {{item2.sape}} - Sobrepeso</li>
+                                        <li v-for="item2 in item.de6a11.personas_sobrepeso">{{item2.tipo_id}}: {{item2.identificacion}} - {{item2.pnom}} {{item2.snom}} {{item2.pape}} {{item2.sape}} - Sobrepeso</li>
+                                    </ul> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>  
+                <div v-if="tipo_data == 7">
+                    <table style="width: 100%;" class="table_data">
+                        <thead>
+                            <tr>
+                                <th>Jefe</th>
+                                <th>Corregimiento / Vereda</th>
+                                <th>Barrio</th>
+                                <th>Direccion</th>
+                                <th style="text-align: center">Integrantes con Obesidad o Sobrepeso</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="item in mayores_obesidad.array_hogares_alto">
+                                <td>{{item.tipo_id}}: {{item.identificacion}} - {{item.pnom}} {{item.snom}} {{item.pape}} {{item.sape}}</td>
+                                <td><span>{{item.des_corr != "" ? item.des_corr : "CASCO URBANO"}}</span></td>
+                                <td><span>{{item.des_barrio}}</span></td>
+                                <td><span>{{item.des_direc}}</span></td>
+                                <td>
+                                    <ul>
+                                        <li v-for="item2 in item.de12a17.personas_obesidad">{{item2.tipo_id}}: {{item2.identificacion}} - {{item2.pnom}} {{item2.snom}} {{item2.pape}} {{item2.sape}} - Obesidad</li>
+                                        <li v-for="item2 in item.de18a28.personas_obesidad">{{item2.tipo_id}}: {{item2.identificacion}} - {{item2.pnom}} {{item2.snom}} {{item2.pape}} {{item2.sape}} - Obesidad</li>
+                                        <li v-for="item2 in item.de29a59.personas_obesidad">{{item2.tipo_id}}: {{item2.identificacion}} - {{item2.pnom}} {{item2.snom}} {{item2.pape}} {{item2.sape}} - Obesidad</li>
+                                        <li v-for="item2 in item.de60.personas_obesidad">{{item2.tipo_id}}: {{item2.identificacion}} - {{item2.pnom}} {{item2.snom}} {{item2.pape}} {{item2.sape}} - Obesidad</li>
+                                        <li v-for="item2 in item.de12a17.personas_sobrepeso">{{item2.tipo_id}}: {{item2.identificacion}} - {{item2.pnom}} {{item2.snom}} {{item2.pape}} {{item2.sape}} - Sobrepeso</li>
+                                        <li v-for="item2 in item.de18a28.personas_sobrepeso">{{item2.tipo_id}}: {{item2.identificacion}} - {{item2.pnom}} {{item2.snom}} {{item2.pape}} {{item2.sape}} - Sobrepeso</li>
+                                        <li v-for="item2 in item.de29a59.personas_sobrepeso">{{item2.tipo_id}}: {{item2.identificacion}} - {{item2.pnom}} {{item2.snom}} {{item2.pape}} {{item2.sape}} - Sobrepeso</li>
+                                        <li v-for="item2 in item.de60.personas_sobrepeso">{{item2.tipo_id}}: {{item2.identificacion}} - {{item2.pnom}} {{item2.snom}} {{item2.pape}} {{item2.sape}} - Sobrepeso</li>
+                                    </ul> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>  
             </div>
             <hr>
             <div class="text-right">
+                <button @click="exportToPDFHRS()" class="btn btn-danger"><i class="fa fa-file" aria-hidden="true"></i> Exportar PDF</button>
                 <button
                     type="button"
                     class="btn btn-warning"
@@ -327,7 +521,11 @@ export default {
             tipo_data: 0,
             titulo_detalles: "",
             riesgos_infantil_desnutricion: [],
-            riesgos_adulto_desnutricion: []
+            riesgos_adulto_desnutricion: [],
+            consumo_spa: [],
+            riesgos_violencia: [],
+            ninios_obesidad: [],
+            mayores_obesidad: []
         }
     },
     methods: {
@@ -377,6 +575,10 @@ export default {
                 this.hogares = respuesta.data.hogares.hogares;
                 this.riesgos_infantil_desnutricion = respuesta.data.riesgos_infantil_desnutricion; 
                 this.riesgos_adulto_desnutricion = respuesta.data.riesgos_adulto_desnutricion; 
+                this.consumo_spa = respuesta.data.consumo_spa; 
+                this.riesgos_violencia = respuesta.data.violencias; 
+                this.ninios_obesidad = respuesta.data.obesidad_ninios; 
+                this.mayores_obesidad = respuesta.data.obesidad_adultos; 
                 this.isLoading = false;
             })
             .catch(err => {
@@ -533,6 +735,67 @@ export default {
                 this.isLoading = false;
             }
         },
+        async exportToPDFHRS(){
+            this.isLoading = true;
+            // convertir a imagen todos los graficos
+            const options = {
+                type: 'dataURL',
+                useCORS: true,
+            }
+
+            // convertir a imagen todos los graficos
+            let torta = "";
+            let data = [];
+            let filtro =  await this.$html2canvas(this.$refs.filtro, options);
+
+            if(this.tipo_data == 1){
+                torta =  await this.$html2canvas(this.$refs.porcen1, options);
+                data = this.hogares_Alto;
+            }
+            if(this.tipo_data == 2){
+                torta =  await this.$html2canvas(this.$refs.porcen2, options);
+                data = this.riesgos_infantil_desnutricion.hogares_Alto_d;
+            }
+            if(this.tipo_data == 3){
+                torta =  await this.$html2canvas(this.$refs.porcen3, options);
+                data = this.riesgos_adulto_desnutricion.hogares_Alto_d;
+            }
+            if(this.tipo_data == 4){
+                torta =  await this.$html2canvas(this.$refs.porcen4, options);
+                data =  this.consumo_spa.array_hogares_alto;
+            }
+            if(this.tipo_data == 5){
+                torta =  await this.$html2canvas(this.$refs.porcen5, options);
+                data =  this.riesgos_violencia.array_hogares_alto;
+            }
+            if(this.tipo_data == 6){
+                torta =  await this.$html2canvas(this.$refs.porcen6, options);
+                data =  this.ninios_obesidad.array_hogares_alto;
+            }
+            if(this.tipo_data == 7){
+                torta =  await this.$html2canvas(this.$refs.porcen7, options);
+                data =  this.mayores_obesidad.array_hogares_alto;
+            }
+
+            const parametros = {
+                _token: this.csrf,
+                data: data,
+                grafica: torta,
+                filtro: filtro,
+                tipo_data: this.tipo_data
+            };
+
+            try {
+                await DashboardServiceRS.exportarHogares(parametros).then(respuesta => {
+                    this.rutaPdf = store.state.apiURL + respuesta.data.nombre;
+                    this.isLoading = false;
+                    this.$refs.modalpdf.show();
+                });
+            } catch (error) { 
+                this.$swal("Error...!", "Ocurrio un error!", "error");    
+                this.isLoading = false;
+            }
+        },
         verDetalles(tipo){
             this.tipo_data = tipo;
             this.$refs.detalles1.show();
@@ -544,6 +807,18 @@ export default {
             }
             if(tipo == 3){
                 this.titulo_detalles = "HOGARES CON RIESGO DE DESNUTRICIÓN EN ADULTOS MAYORES";
+            }
+            if(tipo == 4){
+                this.titulo_detalles = "HOGARES CON RIESGOS DE CONSUMO DE SPA";
+            }
+            if(tipo == 5){
+                this.titulo_detalles = "HOGARES CON RIESGOS DE VIOLENCIA";
+            }
+            if(tipo == 6){
+                this.titulo_detalles = "HOGARES CON NIÑOS EN OBESIDAD Y SOBREPESO";
+            }
+            if(tipo == 7){
+                this.titulo_detalles = "HOGARES CON  INTEGRANTES MAYORES DE 12 AÑOS EN OBESIDAD Y SOBREPESO";
             }
         },
         cerrarModal() {

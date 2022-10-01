@@ -11,3 +11,7 @@ export function exportarRiesgoSalud($data) {
 export function hogares($tipo, $id) {
     return http().get('/dashboard-riesgos-salud/hogares?tipo='+$tipo+'&id='+$id);
 }
+
+export function exportarHogares($data) {
+    return http().post('/dashboard-riesgos-salud/exportar-hogares-dashboard', $data);
+}
