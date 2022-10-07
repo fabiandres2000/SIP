@@ -976,6 +976,7 @@ class Indicadores extends Model
             ->join($alias . ".integrantes", "integrantes.id", "de6a11.id_integrante")
             ->where("integrantes.sexo", "MASCULINO")
             ->where("sustanciaspsico", "<>", "NO")
+            ->where("de6a11.estado", "Activo")
             ->where("integrantes.estado", "Activo")->count();
         return $total_consumidores;
     }
@@ -986,6 +987,7 @@ class Indicadores extends Model
             ->join($alias . ".integrantes", "integrantes.id", "de6a11.id_integrante")
             ->where("integrantes.sexo", "FEMENINO")
             ->where("sustanciaspsico", "<>", "NO")
+            ->where("de6a11.estado", "Activo")
             ->where("integrantes.estado", "Activo")->count();
         return $total_consumidores;
     }
@@ -997,10 +999,13 @@ class Indicadores extends Model
             ->where("integrantes.sexo", "MASCULINO")
             ->where(function ($query) use ($alias) {
                 $query->where('alcohol', "SI")
-                    ->orWhere('fuma', "SI")
-                    ->orWhere('spa', "SI");
+                ->orWhere('fuma', "SI")
+                ->orWhere(function ($query2) use ($alias) {
+                    $query2->whereNotIn('spa', ["NO", "NA"]);
+                });
             })
             ->where("opci", "INTE")
+            ->where("de12a17.estado", "Activo")
             ->where("integrantes.estado", "Activo")->count();
         return $total_consumidores;
     }
@@ -1012,10 +1017,13 @@ class Indicadores extends Model
             ->where("caracterizacion.sexo", "MASCULINO")
             ->where(function ($query) use ($alias) {
                 $query->where('alcohol', "SI")
-                    ->orWhere('fuma', "SI")
-                    ->orWhere('spa', "SI");
+                ->orWhere('fuma', "SI")
+                ->orWhere(function ($query2) use ($alias) {
+                    $query2->whereNotIn('spa', ["NO", "NA"]);
+                });
             })
             ->where("opci", "JEFE")
+            ->where("de12a17.estado", "Activo")
             ->where("caracterizacion.estado", "Activo")->count();
         return $total_consumidores;
     }
@@ -1027,10 +1035,13 @@ class Indicadores extends Model
             ->where("integrantes.sexo", "FEMENINO")
             ->where(function ($query) use ($alias) {
                 $query->where('alcohol', "SI")
-                    ->orWhere('fuma', "SI")
-                    ->orWhere('spa', "SI");
+                ->orWhere('fuma', "SI")
+                ->orWhere(function ($query2) use ($alias) {
+                    $query2->whereNotIn('spa', ["NO", "NA"]);
+                });
             })
             ->where("opci", "INTE")
+            ->where("de12a17.estado", "Activo")
             ->where("integrantes.estado", "Activo")->count();
         return $total_consumidores;
     }
@@ -1042,10 +1053,13 @@ class Indicadores extends Model
             ->where("caracterizacion.sexo", "FEMENINO")
             ->where(function ($query) use ($alias) {
                 $query->where('alcohol', "SI")
-                    ->orWhere('fuma', "SI")
-                    ->orWhere('spa', "SI");
+                ->orWhere('fuma', "SI")
+                ->orWhere(function ($query2) use ($alias) {
+                    $query2->whereNotIn('spa', ["NO", "NA"]);
+                });
             })
             ->where("opci", "JEFE")
+            ->where("de12a17.estado", "Activo")
             ->where("caracterizacion.estado", "Activo")->count();
         return $total_consumidores;
     }
@@ -1059,10 +1073,13 @@ class Indicadores extends Model
             ->where("integrantes.sexo", "MASCULINO")
             ->where(function ($query) use ($alias) {
                 $query->where('alcohol', "SI")
-                    ->orWhere('fuma', "SI")
-                    ->orWhere('spa', "SI");
+                ->orWhere('fuma', "SI")
+                ->orWhere(function ($query2) use ($alias) {
+                    $query2->whereNotIn('spa', ["NO", "NA"]);
+                });
             })
             ->where("opci", "INTE")
+            ->where("de18a28.estado", "Activo")
             ->where("integrantes.estado", "Activo")->count();
         return $total_consumidores;
     }
@@ -1074,10 +1091,13 @@ class Indicadores extends Model
             ->where("caracterizacion.sexo", "MASCULINO")
             ->where(function ($query) use ($alias) {
                 $query->where('alcohol', "SI")
-                    ->orWhere('fuma', "SI")
-                    ->orWhere('spa', "SI");
+                ->orWhere('fuma', "SI")
+                ->orWhere(function ($query2) use ($alias) {
+                    $query2->whereNotIn('spa', ["NO", "NA"]);
+                });
             })
             ->where("opci", "JEFE")
+            ->where("de18a28.estado", "Activo")
             ->where("caracterizacion.estado", "Activo")->count();
         return $total_consumidores;
     }
@@ -1089,10 +1109,13 @@ class Indicadores extends Model
             ->where("integrantes.sexo", "FEMENINO")
             ->where(function ($query) use ($alias) {
                 $query->where('alcohol', "SI")
-                    ->orWhere('fuma', "SI")
-                    ->orWhere('spa', "SI");
+                ->orWhere('fuma', "SI")
+                ->orWhere(function ($query2) use ($alias) {
+                    $query2->whereNotIn('spa', ["NO", "NA"]);
+                });
             })
             ->where("opci", "INTE")
+            ->where("de18a28.estado", "Activo")
             ->where("integrantes.estado", "Activo")->count();
         return $total_consumidores;
     }
@@ -1104,10 +1127,13 @@ class Indicadores extends Model
             ->where("caracterizacion.sexo", "FEMENINO")
             ->where(function ($query) use ($alias) {
                 $query->where('alcohol', "SI")
-                    ->orWhere('fuma', "SI")
-                    ->orWhere('spa', "SI");
+                ->orWhere('fuma', "SI")
+                ->orWhere(function ($query2) use ($alias) {
+                    $query2->whereNotIn('spa', ["NO", "NA"]);
+                });
             })
             ->where("opci", "JEFE")
+            ->where("de18a28.estado", "Activo")
             ->where("caracterizacion.estado", "Activo")->count();
         return $total_consumidores;
     }
@@ -1121,9 +1147,12 @@ class Indicadores extends Model
             ->where("integrantes.sexo", "MASCULINO")
             ->where(function ($query) use ($alias) {
                 $query->where('alcohol', "SI")
-                    ->orWhere('fuma', "SI")
-                    ->orWhere('spa', "SI");
+                ->orWhere('fuma', "SI")
+                ->orWhere(function ($query2) use ($alias) {
+                    $query2->whereNotIn('spa', ["NO", "NA"]);
+                });
             })
+            ->where("de29a59.estado", "Activo")
             ->where("opci", "INTE")
             ->where("integrantes.estado", "Activo")->count();
         return $total_consumidores;
@@ -1136,9 +1165,12 @@ class Indicadores extends Model
             ->where("caracterizacion.sexo", "MASCULINO")
             ->where(function ($query) use ($alias) {
                 $query->where('alcohol', "SI")
-                    ->orWhere('fuma', "SI")
-                    ->orWhere('spa', "SI");
+                ->orWhere('fuma', "SI")
+                ->orWhere(function ($query2) use ($alias) {
+                    $query2->whereNotIn('spa', ["NO", "NA"]);
+                });
             })
+            ->where("de29a59.estado", "Activo")
             ->where("opci", "JEFE")
             ->where("caracterizacion.estado", "Activo")->count();
         return $total_consumidores;
@@ -1151,9 +1183,12 @@ class Indicadores extends Model
             ->where("integrantes.sexo", "FEMENINO")
             ->where(function ($query) use ($alias) {
                 $query->where('alcohol', "SI")
-                    ->orWhere('fuma', "SI")
-                    ->orWhere('spa', "SI");
+                ->orWhere('fuma', "SI")
+                ->orWhere(function ($query2) use ($alias) {
+                    $query2->whereNotIn('spa', ["NO", "NA"]);
+                });
             })
+            ->where("de29a59.estado", "Activo")
             ->where("opci", "INTE")
             ->where("integrantes.estado", "Activo")->count();
         return $total_consumidores;
@@ -1166,9 +1201,12 @@ class Indicadores extends Model
             ->where("caracterizacion.sexo", "FEMENINO")
             ->where(function ($query) use ($alias) {
                 $query->where('alcohol', "SI")
-                    ->orWhere('fuma', "SI")
-                    ->orWhere('spa', "SI");
+                ->orWhere('fuma', "SI")
+                ->orWhere(function ($query2) use ($alias) {
+                    $query2->whereNotIn('spa', ["NO", "NA"]);
+                });
             })
+            ->where("de29a59.estado", "Activo")
             ->where("opci", "JEFE")
             ->where("caracterizacion.estado", "Activo")->count();
         return $total_consumidores;
@@ -1187,6 +1225,7 @@ class Indicadores extends Model
                     ->orWhere('glicemia', "SI");
             })
             ->where("opci", "INTE")
+            ->where("de60.estado", "Activo")
             ->where("integrantes.estado", "Activo")->count();
         return $total_consumidores;
     }
@@ -1202,6 +1241,7 @@ class Indicadores extends Model
                     ->orWhere('glicemia', "SI");
             })
             ->where("opci", "JEFE")
+            ->where("de60.estado", "Activo")
             ->where("caracterizacion.estado", "Activo")->count();
         return $total_consumidores;
     }
@@ -1217,6 +1257,7 @@ class Indicadores extends Model
                     ->orWhere('glicemia', "SI");
             })
             ->where("opci", "INTE")
+            ->where("de60.estado", "Activo")
             ->where("integrantes.estado", "Activo")->count();
         return $total_consumidores;
     }
@@ -1232,6 +1273,7 @@ class Indicadores extends Model
                     ->orWhere('glicemia', "SI");
             })
             ->where("opci", "JEFE")
+            ->where("de60.estado", "Activo")
             ->where("caracterizacion.estado", "Activo")->count();
         return $total_consumidores;
     }
@@ -1248,7 +1290,8 @@ class Indicadores extends Model
         $total_consumidores = DB::table($alias . ".de6a11")
             ->join($alias . ".integrantes", "integrantes.id", "de6a11.id_integrante")
             ->where("integrantes.sexo", "MASCULINO")
-            ->where("sustanciaspsico", "<>", $bus)
+            ->where("sustanciaspsico", "<>", "NO")
+            ->where("de6a11.estado", "Activo")
             ->where("integrantes.estado", "Activo")->count();
         return $total_consumidores;
     }
@@ -1258,7 +1301,8 @@ class Indicadores extends Model
         $total_consumidores = DB::table($alias . ".de6a11")
             ->join($alias . ".integrantes", "integrantes.id", "de6a11.id_integrante")
             ->where("integrantes.sexo", "FEMENINO")
-            ->where("sustanciaspsico", "<>", $bus)
+            ->where("sustanciaspsico", "<>", "NO")
+            ->where("de6a11.estado", "Activo")
             ->where("integrantes.estado", "Activo")->count();
         return $total_consumidores;
     }
@@ -1268,8 +1312,9 @@ class Indicadores extends Model
         $total_consumidores = DB::table($alias . ".de12a17")
             ->join($alias . ".integrantes", "integrantes.id", "de12a17.id_integrante")
             ->where("integrantes.sexo", "MASCULINO")
-            ->where($bus, "SI")
+            ->whereNotIn($bus, ["NO", "NA"])
             ->where("opci", "INTE")
+            ->where("de12a17.estado", "Activo")
             ->where("integrantes.estado", "Activo")->count();
         return $total_consumidores;
     }
@@ -1279,8 +1324,9 @@ class Indicadores extends Model
         $total_consumidores = DB::table($alias . ".de12a17")
             ->join($alias . ".caracterizacion", "caracterizacion.id", "de12a17.id_integrante")
             ->where("caracterizacion.sexo", "MASCULINO")
-            ->where($bus, "SI")
+            ->whereNotIn($bus, ["NO", "NA"])
             ->where("opci", "JEFE")
+            ->where("de12a17.estado", "Activo")
             ->where("caracterizacion.estado", "Activo")->count();
         return $total_consumidores;
     }
@@ -1290,8 +1336,9 @@ class Indicadores extends Model
         $total_consumidores = DB::table($alias . ".de12a17")
             ->join($alias . ".integrantes", "integrantes.id", "de12a17.id_integrante")
             ->where("integrantes.sexo", "FEMENINO")
-            ->where($bus, "SI")
+            ->whereNotIn($bus, ["NO", "NA"])
             ->where("opci", "INTE")
+            ->where("de12a17.estado", "Activo")
             ->where("integrantes.estado", "Activo")->count();
         return $total_consumidores;
     }
@@ -1301,8 +1348,9 @@ class Indicadores extends Model
         $total_consumidores = DB::table($alias . ".de12a17")
             ->join($alias . ".caracterizacion", "caracterizacion.id", "de12a17.id_integrante")
             ->where("caracterizacion.sexo", "FEMENINO")
-            ->where($bus, "SI")
+            ->whereNotIn($bus, ["NO", "NA"])
             ->where("opci", "JEFE")
+            ->where("de12a17.estado", "Activo")
             ->where("caracterizacion.estado", "Activo")->count();
         return $total_consumidores;
     }
@@ -1314,8 +1362,9 @@ class Indicadores extends Model
         $total_consumidores = DB::table($alias . ".de18a28")
             ->join($alias . ".integrantes", "integrantes.id", "de18a28.id_integrante")
             ->where("integrantes.sexo", "MASCULINO")
-            ->where($bus, "SI")
+            ->whereNotIn($bus, ["NO", "NA"])
             ->where("opci", "INTE")
+            ->where("de18a28.estado", "Activo")
             ->where("integrantes.estado", "Activo")->count();
         return $total_consumidores;
     }
@@ -1325,8 +1374,9 @@ class Indicadores extends Model
         $total_consumidores = DB::table($alias . ".de18a28")
             ->join($alias . ".caracterizacion", "caracterizacion.id", "de18a28.id_integrante")
             ->where("caracterizacion.sexo", "MASCULINO")
-            ->where($bus, "SI")
+            ->whereNotIn($bus, ["NO", "NA"])
             ->where("opci", "JEFE")
+            ->where("de18a28.estado", "Activo")
             ->where("caracterizacion.estado", "Activo")->count();
         return $total_consumidores;
     }
@@ -1336,8 +1386,9 @@ class Indicadores extends Model
         $total_consumidores = DB::table($alias . ".de18a28")
             ->join($alias . ".integrantes", "integrantes.id", "de18a28.id_integrante")
             ->where("integrantes.sexo", "FEMENINO")
-            ->where($bus, "SI")
+            ->whereNotIn($bus, ["NO", "NA"])
             ->where("opci", "INTE")
+            ->where("de18a28.estado", "Activo")
             ->where("integrantes.estado", "Activo")->count();
         return $total_consumidores;
     }
@@ -1347,8 +1398,9 @@ class Indicadores extends Model
         $total_consumidores = DB::table($alias . ".de18a28")
             ->join($alias . ".caracterizacion", "caracterizacion.id", "de18a28.id_integrante")
             ->where("caracterizacion.sexo", "FEMENINO")
-            ->where($bus, "SI")
+            ->whereNotIn($bus, ["NO", "NA"])
             ->where("opci", "JEFE")
+            ->where("de18a28.estado", "Activo")
             ->where("caracterizacion.estado", "Activo")->count();
         return $total_consumidores;
     }
@@ -1360,8 +1412,9 @@ class Indicadores extends Model
         $total_consumidores = DB::table($alias . ".de29a59")
             ->join($alias . ".integrantes", "integrantes.id", "de29a59.id_integrante")
             ->where("integrantes.sexo", "MASCULINO")
-            ->where($bus, "SI")
+            ->whereNotIn($bus, ["NO", "NA"])
             ->where("opci", "INTE")
+            ->where("de29a59.estado", "Activo")
             ->where("integrantes.estado", "Activo")->count();
         return $total_consumidores;
     }
@@ -1371,8 +1424,9 @@ class Indicadores extends Model
         $total_consumidores = DB::table($alias . ".de29a59")
             ->join($alias . ".caracterizacion", "caracterizacion.id", "de29a59.id_integrante")
             ->where("caracterizacion.sexo", "MASCULINO")
-            ->where($bus, "SI")
+            ->whereNotIn($bus, ["NO", "NA"])
             ->where("opci", "JEFE")
+            ->where("de29a59.estado", "Activo")
             ->where("caracterizacion.estado", "Activo")->count();
         return $total_consumidores;
     }
@@ -1382,8 +1436,9 @@ class Indicadores extends Model
         $total_consumidores = DB::table($alias . ".de29a59")
             ->join($alias . ".integrantes", "integrantes.id", "de29a59.id_integrante")
             ->where("integrantes.sexo", "FEMENINO")
-            ->where($bus, "SI")
+            ->whereNotIn($bus, ["NO", "NA"])
             ->where("opci", "INTE")
+            ->where("de29a59.estado", "Activo")
             ->where("integrantes.estado", "Activo")->count();
         return $total_consumidores;
     }
@@ -1393,8 +1448,9 @@ class Indicadores extends Model
         $total_consumidores = DB::table($alias . ".de29a59")
             ->join($alias . ".caracterizacion", "caracterizacion.id", "de29a59.id_integrante")
             ->where("caracterizacion.sexo", "FEMENINO")
-            ->where($bus, "SI")
+            ->whereNotIn($bus, ["NO", "NA"])
             ->where("opci", "JEFE")
+            ->where("de29a59.estado", "Activo")
             ->where("caracterizacion.estado", "Activo")->count();
         return $total_consumidores;
     }
@@ -1406,8 +1462,9 @@ class Indicadores extends Model
         $total_consumidores = DB::table($alias . ".de60")
             ->join($alias . ".integrantes", "integrantes.id", "de60.id_integrante")
             ->where("integrantes.sexo", "MASCULINO")
-            ->where($bus, "SI")
+            ->whereNotIn($bus, ["NO", "NA"])
             ->where("opci", "INTE")
+            ->where("de60.estado", "Activo")
             ->where("integrantes.estado", "Activo")->count();
         return $total_consumidores;
     }
@@ -1417,8 +1474,9 @@ class Indicadores extends Model
         $total_consumidores = DB::table($alias . ".de60")
             ->join($alias . ".caracterizacion", "caracterizacion.id", "de60.id_integrante")
             ->where("caracterizacion.sexo", "MASCULINO")
-            ->where($bus, "SI")
+            ->whereNotIn($bus, ["NO", "NA"])
             ->where("opci", "JEFE")
+            ->where("de60.estado", "Activo")
             ->where("caracterizacion.estado", "Activo")->count();
         return $total_consumidores;
     }
@@ -1428,8 +1486,9 @@ class Indicadores extends Model
         $total_consumidores = DB::table($alias . ".de60")
             ->join($alias . ".integrantes", "integrantes.id", "de60.id_integrante")
             ->where("integrantes.sexo", "FEMENINO")
-            ->where($bus, "SI")
+            ->whereNotIn($bus, ["NO", "NA"])
             ->where("opci", "INTE")
+            ->where("de60.estado", "Activo")
             ->where("integrantes.estado", "Activo")->count();
         return $total_consumidores;
     }
@@ -1439,8 +1498,9 @@ class Indicadores extends Model
         $total_consumidores = DB::table($alias . ".de60")
             ->join($alias . ".caracterizacion", "caracterizacion.id", "de60.id_integrante")
             ->where("caracterizacion.sexo", "FEMENINO")
-            ->where($bus, "SI")
+            ->whereNotIn($bus, ["NO", "NA"])
             ->where("opci", "JEFE")
+            ->where("de60.estado", "Activo")
             ->where("caracterizacion.estado", "Activo")->count();
         return $total_consumidores;
     }
@@ -1453,8 +1513,10 @@ class Indicadores extends Model
             ->where("caracterizacion.estado", "Activo")
             ->where(function ($query) use ($alias) {
                 $query->where('bebidas', "SI")
-                    ->orWhere('fuma', "SI")
-                    ->orWhere('consumo', "SI");
+                ->orWhere('fuma', "SI")
+                ->orWhere(function ($query2) use ($alias) {
+                    $query2->whereNotIn('consumo', ["NO", "NA"]);
+                });
             })->count();
         return $total_consumidores;
     }
@@ -1467,8 +1529,10 @@ class Indicadores extends Model
             ->where("integrantes.estado", "Activo")
             ->where(function ($query) use ($alias) {
                 $query->where('bebidas', "SI")
-                    ->orWhere('fuma', "SI")
-                    ->orWhere('consumo', "SI");
+                ->orWhere('fuma', "SI")
+                ->orWhere(function ($query2) use ($alias) {
+                    $query2->whereNotIn('consumo', ["NO", "NA"]);
+                });
             })->count();
         return $total_consumidores;
     }

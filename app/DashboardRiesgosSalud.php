@@ -2056,4 +2056,470 @@ class DashboardRiesgosSalud extends Model
         ];
         
     }
+
+    public static function enfermedades_por_edad($alias, $tipo, $id, $rango, $tipo_enfer){
+        if($tipo == "todos"){
+            if($rango == "de12a17"  || $rango == "de18a28" || $rango == "de29a59" || $rango == "de60"){
+                $integrantes = DB::connection('mysql')->table($alias.'.integrantes')
+                ->join($alias . ".hogar", "hogar.id", "integrantes.id_hogar")
+                ->join($alias . ".".$rango, $rango.".id_integrante", "integrantes.id")
+                ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+                ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+                ->select('integrantes.id','integrantes.id_hogar','integrantes.tipo_id','integrantes.identificacion','integrantes.sexo', $rango.'.opci')
+                ->selectRaw("CONCAT_WS(' ',integrantes.pnom, integrantes.snom, integrantes.pape, integrantes.sape) as nombre")
+                ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as des_corr")->selectRaw("CONCAT_WS('',hogar.direccion) as des_direc")->selectRaw("CONCAT_WS('',barrios.barrio) as des_barrio")
+                ->where('hogar.estado', 'Activo')
+                ->where('integrantes.estado', 'Activo')
+                ->where($rango.'.estado', 'Activo')
+                ->where($rango.'.opci', 'INTE')
+                ->orderBy('des_corr', 'asc')
+                ->get();
+
+                $jefes = DB::connection('mysql')->table($alias.'.caracterizacion')
+                ->join($alias . ".hogar", "hogar.id", "caracterizacion.id_hogar")
+                ->join($alias . ".".$rango, $rango.".id_integrante", "caracterizacion.id")
+                ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+                ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+                ->select('caracterizacion.id','caracterizacion.id_hogar','caracterizacion.tipo_id','caracterizacion.identificacion','caracterizacion.sexo', $rango.'.opci')
+                ->selectRaw("CONCAT_WS(' ',caracterizacion.pnom, caracterizacion.snom, caracterizacion.pape, caracterizacion.sape) as nombre")
+                ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as des_corr")->selectRaw("CONCAT_WS('',hogar.direccion) as des_direc")->selectRaw("CONCAT_WS('',barrios.barrio) as des_barrio")
+                ->where('hogar.estado', 'Activo')
+                ->where('caracterizacion.estado', 'Activo')
+                ->where($rango.'.estado', 'Activo')
+                ->where($rango.'.opci', 'JEFE')
+                ->orderBy('des_corr', 'asc')
+                ->get();
+
+            }else{
+                $integrantes = DB::connection('mysql')->table($alias.'.integrantes')
+                ->join($alias . ".hogar", "hogar.id", "integrantes.id_hogar")
+                ->join($alias . ".".$rango, $rango.".id_integrante", "integrantes.id")
+                ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+                ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+                ->select('integrantes.id','integrantes.id_hogar','integrantes.tipo_id','integrantes.identificacion','integrantes.sexo')
+                ->selectRaw("CONCAT_WS(' ',integrantes.pnom, integrantes.snom, integrantes.pape, integrantes.sape) as nombre")
+                ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as des_corr")->selectRaw("CONCAT_WS('',hogar.direccion) as des_direc")->selectRaw("CONCAT_WS('',barrios.barrio) as des_barrio")
+                ->where('hogar.estado', 'Activo')
+                ->where('integrantes.estado', 'Activo')
+                ->where($rango.'.estado', 'Activo')
+                ->orderBy('des_corr', 'asc')
+                ->get();
+
+                $jefes = [];
+            }
+            
+        }else{
+            if($rango == "de12a17"  || $rango == "de18a28" || $rango == "de29a59" || $rango == "de60"){
+                $integrantes = DB::connection('mysql')->table($alias.'.integrantes')
+                ->join($alias . ".hogar", "hogar.id", "integrantes.id_hogar")
+                ->join($alias . ".".$rango, $rango.".id_integrante", "integrantes.id")
+                ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+                ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+                ->select('integrantes.id','integrantes.id_hogar','integrantes.tipo_id','integrantes.identificacion','integrantes.sexo',$rango.'.opci')
+                ->selectRaw("CONCAT_WS(' ',integrantes.pnom, integrantes.snom, integrantes.pape, integrantes.sape) as nombre")
+                ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as des_corr")->selectRaw("CONCAT_WS('',hogar.direccion) as des_direc")->selectRaw("CONCAT_WS('',barrios.barrio) as des_barrio")
+                ->where('hogar.estado', 'Activo')
+                ->where('integrantes.estado', 'Activo')
+                ->where($rango.'.estado', 'Activo')
+                ->where($rango.'.opci', 'INTE')
+                ->where('hogar.id_'.$tipo, $id)
+                ->orderBy('des_corr', 'asc')
+                ->get();
+
+                $jefes = DB::connection('mysql')->table($alias.'.caracterizacion')
+                ->join($alias . ".hogar", "hogar.id", "caracterizacion.id_hogar")
+                ->join($alias . ".".$rango, $rango.".id_integrante", "caracterizacion.id")
+                ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+                ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+                ->select('caracterizacion.id','caracterizacion.id_hogar','caracterizacion.tipo_id','caracterizacion.identificacion','caracterizacion.sexo',$rango.'.opci')
+                ->selectRaw("CONCAT_WS(' ',caracterizacion.pnom, caracterizacion.snom, caracterizacion.pape, caracterizacion.sape) as nombre")
+                ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as des_corr")->selectRaw("CONCAT_WS('',hogar.direccion) as des_direc")->selectRaw("CONCAT_WS('',barrios.barrio) as des_barrio")
+                ->where('hogar.estado', 'Activo')
+                ->where('caracterizacion.estado', 'Activo')
+                ->where($rango.'.estado', 'Activo')
+                ->where($rango.'.opci', 'JEFE')
+                ->where('hogar.id_'.$tipo, $id)
+                ->orderBy('des_corr', 'asc')
+                ->get();
+            }else{
+                $integrantes = DB::connection('mysql')->table($alias.'.integrantes')
+                ->join($alias . ".hogar", "hogar.id", "integrantes.id_hogar")
+                ->join($alias . ".".$rango, $rango.".id_integrante", "integrantes.id")
+                ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+                ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+                ->select('integrantes.id','integrantes.id_hogar','integrantes.tipo_id','integrantes.identificacion','integrantes.sexo')
+                ->selectRaw("CONCAT_WS(' ',integrantes.pnom, integrantes.snom, integrantes.pape, integrantes.sape) as nombre")
+                ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as des_corr")->selectRaw("CONCAT_WS('',hogar.direccion) as des_direc")->selectRaw("CONCAT_WS('',barrios.barrio) as des_barrio")
+                ->where('hogar.estado', 'Activo')
+                ->where('integrantes.estado', 'Activo')
+                ->where($rango.'.estado', 'Activo')
+                ->where('hogar.id_'.$tipo, $id)
+                ->orderBy('des_corr', 'asc')
+                ->get();
+
+                $jefes = [];
+            }
+        }
+
+        if($tipo_enfer == "Cronica"){
+            $tabla = "enfermedadescro";
+        }else{
+            $tabla = "enfermedadesinf";
+        }
+
+        $personas_enfermedad = 0;
+        $personas_enfermedad_m = 0;
+        $personas_enfermedad_f = 0;
+        $array_personas_enfermedad = array();
+        $personas = array();
+
+        foreach ($integrantes as &$item) {
+            $item->enfermedades = DB::connection('mysql')->table($alias.'.enfermedades_integrantes')
+            ->join($alias.'.'.$tabla , $alias.'.'.$tabla.'.id', $alias.'.enfermedades_integrantes.id_enfermedad') 
+            ->select($alias.'.'.$tabla.'.*')
+            ->where($alias.'.enfermedades_integrantes.tipo', $tipo_enfer)
+            ->where($alias.'.enfermedades_integrantes.id_inte', $item->id)
+            ->get();
+
+            if(count($item->enfermedades) > 0){
+                $personas_enfermedad += 1;
+                if($item->sexo == "MASCULINO"){
+                    $personas_enfermedad_m += 1;
+                }else{
+                    $personas_enfermedad_f += 1;
+                }
+                array_push($array_personas_enfermedad, $item); 
+            }
+
+            array_push($personas, $item); 
+        }
+
+        foreach ($jefes as &$item) {
+            $item->enfermedades = DB::connection('mysql')->table($alias.'.enfermedades_jefes')
+            ->join($alias.'.'.$tabla , $alias.'.'.$tabla.'.id', $alias.'.enfermedades_jefes.id_enfermedad') 
+            ->select($alias.'.'.$tabla.'.*')
+            ->where($alias.'.enfermedades_jefes.tipo', $tipo_enfer)
+            ->where($alias.'.enfermedades_jefes.id_jefe', $item->id)
+            ->get();
+
+            if(count($item->enfermedades) > 0){
+                $personas_enfermedad += 1;
+                if($item->sexo == "MASCULINO"){
+                    $personas_enfermedad_m += 1;
+                }else{
+                    $personas_enfermedad_f += 1;
+                }
+                array_push($array_personas_enfermedad, $item); 
+            }
+
+            array_push($personas, $item);
+        }
+
+        $porcen_personas_enfermedad = 0;
+
+        if(count($personas) > 0){
+            $porcen_personas_enfermedad = (count($array_personas_enfermedad) / count($personas)) * 100;
+        }
+
+        return $info = [
+            'personas' => $personas,
+            'numero_personas' => count($personas),
+            'personas_enfermedad' => $personas_enfermedad,
+            'array_personas_enfermedad' => $array_personas_enfermedad,
+            'personas_enfermedad_f' => $personas_enfermedad_f,
+            'personas_enfermedad_m' => $personas_enfermedad_m,
+            'porcen_personas_enfermedad' => $porcen_personas_enfermedad
+        ];
+    }
+
+    public static function spa($alias, $tipo, $id, $rango){
+        if($tipo == "todos"){
+            if($rango == "de12a17"  || $rango == "de18a28" || $rango == "de29a59" ){
+                $integrantes = DB::connection('mysql')->table($alias.'.integrantes')
+                ->join($alias . ".hogar", "hogar.id", "integrantes.id_hogar")
+                ->join($alias . ".".$rango, $rango.".id_integrante", "integrantes.id")
+                ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+                ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+                ->select('integrantes.id','integrantes.id_hogar','integrantes.tipo_id','integrantes.identificacion','integrantes.sexo',$rango.'.opci',$rango.'.alcohol',$rango.'.fuma',$rango.'.spa', 'integrantes.embarazo')
+                ->selectRaw("CONCAT_WS(' ',integrantes.pnom, integrantes.snom, integrantes.pape, integrantes.sape) as nombre")
+                ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as des_corr")->selectRaw("CONCAT_WS('',hogar.direccion) as des_direc")->selectRaw("CONCAT_WS('',barrios.barrio) as des_barrio")
+                ->where('hogar.estado', 'Activo')
+                ->where('integrantes.estado', 'Activo')
+                ->where($rango.'.estado', 'Activo')
+                ->where($rango.'.opci', 'INTE')
+                ->orderBy('des_corr', 'asc')
+                ->get();
+
+                $jefes = DB::connection('mysql')->table($alias.'.caracterizacion')
+                ->join($alias . ".hogar", "hogar.id", "caracterizacion.id_hogar")
+                ->join($alias . ".".$rango, $rango.".id_integrante", "caracterizacion.id")
+                ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+                ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+                ->select('caracterizacion.id','caracterizacion.id_hogar','caracterizacion.tipo_id','caracterizacion.identificacion','caracterizacion.sexo', $rango.'.opci',$rango.'.alcohol',$rango.'.fuma',$rango.'.spa', 'caracterizacion.embarazo')
+                ->selectRaw("CONCAT_WS(' ',caracterizacion.pnom, caracterizacion.snom, caracterizacion.pape, caracterizacion.sape) as nombre")
+                ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as des_corr")->selectRaw("CONCAT_WS('',hogar.direccion) as des_direc")->selectRaw("CONCAT_WS('',barrios.barrio) as des_barrio")
+                ->where('hogar.estado', 'Activo')
+                ->where('caracterizacion.estado', 'Activo')
+                ->where($rango.'.estado', 'Activo')
+                ->where($rango.'.opci', 'JEFE')
+                ->orderBy('des_corr', 'asc')
+                ->get();
+
+            }else{
+                if($rango == "de60"){
+                    $integrantes = DB::connection('mysql')->table($alias.'.integrantes')
+                    ->join($alias . ".hogar", "hogar.id", "integrantes.id_hogar")
+                    ->join($alias . ".".$rango, $rango.".id_integrante", "integrantes.id")
+                    ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+                    ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+                    ->select('integrantes.id','integrantes.id_hogar','integrantes.tipo_id','integrantes.identificacion','integrantes.sexo', 'alcohol','cigarrillo','glicemia', 'integrantes.embarazo')
+                    ->selectRaw("CONCAT_WS(' ',integrantes.pnom, integrantes.snom, integrantes.pape, integrantes.sape) as nombre")
+                    ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as des_corr")->selectRaw("CONCAT_WS('',hogar.direccion) as des_direc")->selectRaw("CONCAT_WS('',barrios.barrio) as des_barrio")
+                    ->where('hogar.estado', 'Activo')
+                    ->where('integrantes.estado', 'Activo')
+                    ->where($rango.'.estado', 'Activo')
+                    ->where($rango.'.opci', 'INTE')
+                    ->get();
+
+                    $jefes = DB::connection('mysql')->table($alias.'.caracterizacion')
+                    ->join($alias . ".hogar", "hogar.id", "caracterizacion.id_hogar")
+                    ->join($alias . ".".$rango, $rango.".id_integrante", "caracterizacion.id")
+                    ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+                    ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+                    ->select('caracterizacion.id','caracterizacion.id_hogar','caracterizacion.tipo_id','caracterizacion.identificacion','caracterizacion.sexo', 'alcohol','cigarrillo','glicemia', 'caracterizacion.embarazo')
+                    ->selectRaw("CONCAT_WS(' ',caracterizacion.pnom, caracterizacion.snom, caracterizacion.pape, caracterizacion.sape) as nombre")
+                    ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as des_corr")->selectRaw("CONCAT_WS('',hogar.direccion) as des_direc")->selectRaw("CONCAT_WS('',barrios.barrio) as des_barrio")
+                    ->where('hogar.estado', 'Activo')
+                    ->where('caracterizacion.estado', 'Activo')
+                    ->where($rango.'.estado', 'Activo')
+                    ->where($rango.'.opci', 'JEFE')
+                    ->get();
+
+                }else{
+                    $integrantes = DB::connection('mysql')->table($alias.'.integrantes')
+                    ->join($alias . ".hogar", "hogar.id", "integrantes.id_hogar")
+                    ->join($alias . ".".$rango, $rango.".id_integrante", "integrantes.id")
+                    ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+                    ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+                    ->select('integrantes.id','integrantes.id_hogar','integrantes.tipo_id','integrantes.identificacion','integrantes.sexo', 'integrantes.excepciones', 'sustanciaspsico', 'integrantes.embarazo')
+                    ->selectRaw("CONCAT_WS(' ',integrantes.pnom, integrantes.snom, integrantes.pape, integrantes.sape) as nombre")
+                    ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as des_corr")->selectRaw("CONCAT_WS('',hogar.direccion) as des_direc")->selectRaw("CONCAT_WS('',barrios.barrio) as des_barrio")
+                    ->where('hogar.estado', 'Activo')
+                    ->where('integrantes.estado', 'Activo')
+                    ->where($rango.'.estado', 'Activo')
+                    ->get();
+                    $jefes = [];
+                }
+                
+            }
+            
+        }else{
+            if($rango == "de12a17"  || $rango == "de18a28" || $rango == "de29a59" ){
+                $integrantes = DB::connection('mysql')->table($alias.'.integrantes')
+                ->join($alias . ".hogar", "hogar.id", "integrantes.id_hogar")
+                ->join($alias . ".".$rango, $rango.".id_integrante", "integrantes.id")
+                ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+                ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+                ->select('integrantes.id','integrantes.id_hogar','integrantes.tipo_id','integrantes.identificacion','integrantes.sexo',$rango.'.opci',$rango.'.alcohol',$rango.'.fuma',$rango.'.spa', 'integrantes.embarazo')
+                ->selectRaw("CONCAT_WS(' ',integrantes.pnom, integrantes.snom, integrantes.pape, integrantes.sape) as nombre")
+                ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as des_corr")->selectRaw("CONCAT_WS('',hogar.direccion) as des_direc")->selectRaw("CONCAT_WS('',barrios.barrio) as des_barrio")
+                ->where('hogar.estado', 'Activo')
+                ->where('integrantes.estado', 'Activo')
+                ->where($rango.'.estado', 'Activo')
+                ->where($rango.'.opci', 'INTE')
+                ->where('hogar.id_'.$tipo, $id)
+                ->orderBy('des_corr', 'asc')
+                ->get();
+
+                $jefes = DB::connection('mysql')->table($alias.'.caracterizacion')
+                ->join($alias . ".hogar", "hogar.id", "caracterizacion.id_hogar")
+                ->join($alias . ".".$rango, $rango.".id_integrante", "caracterizacion.id")
+                ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+                ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+                ->select('caracterizacion.id','caracterizacion.id_hogar','caracterizacion.tipo_id','caracterizacion.identificacion','caracterizacion.sexo',$rango.'.opci',$rango.'.alcohol',$rango.'.fuma',$rango.'.spa', 'caracterizacion.embarazo')
+                ->selectRaw("CONCAT_WS(' ',caracterizacion.pnom, caracterizacion.snom, caracterizacion.pape, caracterizacion.sape) as nombre")
+                ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as des_corr")->selectRaw("CONCAT_WS('',hogar.direccion) as des_direc")->selectRaw("CONCAT_WS('',barrios.barrio) as des_barrio")
+                ->where('hogar.estado', 'Activo')
+                ->where('caracterizacion.estado', 'Activo')
+                ->where($rango.'.estado', 'Activo')
+                ->where($rango.'.opci', 'JEFE')
+                ->where('hogar.id_'.$tipo, $id)
+                ->orderBy('des_corr', 'asc')
+                ->get();
+            }else{
+                if($rango == "de60"){
+                    $integrantes = DB::connection('mysql')->table($alias.'.integrantes')
+                    ->join($alias . ".hogar", "hogar.id", "integrantes.id_hogar")
+                    ->join($alias . ".".$rango, $rango.".id_integrante", "integrantes.id")
+                    ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+                    ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+                    ->select('integrantes.id','integrantes.id_hogar','integrantes.tipo_id','integrantes.identificacion','integrantes.sexo', 'alcohol','cigarrillo','glicemia', 'integrantes.embarazo')
+                    ->selectRaw("CONCAT_WS(' ',integrantes.pnom, integrantes.snom, integrantes.pape, integrantes.sape) as nombre")
+                    ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as des_corr")->selectRaw("CONCAT_WS('',hogar.direccion) as des_direc")->selectRaw("CONCAT_WS('',barrios.barrio) as des_barrio")
+                    ->where('hogar.estado', 'Activo')
+                    ->where('integrantes.estado', 'Activo')
+                    ->where($rango.'.opci', 'INTE')
+                    ->where('hogar.id_'.$tipo, $id)
+                    ->where($rango.'.estado', 'Activo')
+                    ->get();
+
+                    $jefes = DB::connection('mysql')->table($alias.'.caracterizacion')
+                    ->join($alias . ".hogar", "hogar.id", "caracterizacion.id_hogar")
+                    ->join($alias . ".".$rango, $rango.".id_integrante", "caracterizacion.id")
+                    ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+                    ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+                    ->select('caracterizacion.id','caracterizacion.id_hogar','caracterizacion.tipo_id','caracterizacion.identificacion','caracterizacion.sexo', 'alcohol','cigarrillo','glicemia', 'caracterizacion.embarazo')
+                    ->selectRaw("CONCAT_WS(' ',caracterizacion.pnom, caracterizacion.snom, caracterizacion.pape, caracterizacion.sape) as nombre")
+                    ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as des_corr")->selectRaw("CONCAT_WS('',hogar.direccion) as des_direc")->selectRaw("CONCAT_WS('',barrios.barrio) as des_barrio")
+                    ->where('hogar.estado', 'Activo')
+                    ->where('caracterizacion.estado', 'Activo')
+                    ->where($rango.'.opci', 'JEFE')
+                    ->where('hogar.id_'.$tipo, $id)
+                    ->where($rango.'.estado', 'Activo')
+                    ->get();
+
+                }else{
+                    $integrantes = DB::connection('mysql')->table($alias.'.integrantes')
+                    ->join($alias . ".hogar", "hogar.id", "integrantes.id_hogar")
+                    ->join($alias . ".".$rango, $rango.".id_integrante", "integrantes.id")
+                    ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+                    ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+                    ->select('integrantes.id','integrantes.id_hogar','integrantes.tipo_id','integrantes.identificacion','integrantes.sexo', 'integrantes.excepciones', 'sustanciaspsico', 'integrantes.embarazo')
+                    ->selectRaw("CONCAT_WS(' ',integrantes.pnom, integrantes.snom, integrantes.pape, integrantes.sape) as nombre")
+                    ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as des_corr")->selectRaw("CONCAT_WS('',hogar.direccion) as des_direc")->selectRaw("CONCAT_WS('',barrios.barrio) as des_barrio")
+                    ->where('hogar.estado', 'Activo')
+                    ->where('integrantes.estado', 'Activo')
+                    ->where('hogar.id_'.$tipo, $id)
+                    ->where($rango.'.estado', 'Activo')
+                    ->get();
+
+                    $jefes = [];
+                }
+            }
+        }
+
+        $array_personas_consumen = array();
+        $personas_consumen_spa = 0;
+        $personas_consumen_alcohol = 0;
+        $personas_consumen_tabaco = 0;
+
+        if($rango == "de12a17"  || $rango == "de18a28" || $rango == "de29a59" ){
+            foreach ($integrantes as &$item) {
+                if(($item->alcohol != "NO" || $item->fuma != "NO" || $item->spa != "NO") && ($item->alcohol != "NA" || $item->fuma != "NA" || $item->spa != "NA")){
+                    array_push($array_personas_consumen, $item);
+                }
+
+                if($item->alcohol != "NO" && $item->alcohol != "NA"){
+                    $personas_consumen_alcohol += 1;
+                    $item->consume_a = "Alcohol";
+                }
+
+                if($item->fuma != "NO" && $item->fuma != "NA"){
+                   $personas_consumen_tabaco += 1;
+                   $item->consume_t = "Fuma";
+                }
+
+                if($item->spa != "NO" && $item->spa != "NA"){
+                    $personas_consumen_spa += 1;
+                    $item->consume_spa = "SPA";
+                }
+            }
+
+            foreach ($jefes as &$item) {
+                if(($item->alcohol != "NO" || $item->fuma != "NO" || $item->spa != "NO") && ($item->alcohol != "NA" || $item->fuma != "NA" || $item->spa != "NA")){
+                    array_push($array_personas_consumen, $item);
+                }
+
+                if($item->alcohol != "NO" && $item->alcohol != "NA"){
+                    $personas_consumen_alcohol += 1;
+                    $item->consume_a = "Alcohol";
+                }
+
+                if($item->fuma != "NO" && $item->fuma != "NA"){
+                   $personas_consumen_tabaco += 1;
+                   $item->consume_t = "Fuma";
+                }
+
+                if($item->spa != "NO" && $item->spa != "NA"){
+                    $personas_consumen_spa += 1;
+                    $item->consume_spa = "SPA";
+                }
+            } 
+        }else{
+            if($rango == "de60" ){
+                foreach ($integrantes as &$item) {
+                    if(($item->alcohol != "NO" && $item->alcohol != "NA") || ($item->cigarrillo != "NO" && $item->cigarrillo != "NA") || ($item->glicemia != "NO" && $item->glicemia != "NA" && $item->glicemia != null)){
+                        array_push($array_personas_consumen, $item);
+                    }
+    
+                    if($item->alcohol != "NO" && $item->alcohol != "NA"){
+                        $personas_consumen_alcohol += 1;
+                        $item->consume_a = "Alcohol";
+                    }
+    
+                    if($item->cigarrillo != "NO" && $item->cigarrillo != "NA"){
+                       $personas_consumen_tabaco += 1;
+                       $item->consume_t = "Fuma";
+                    }
+    
+                    if($item->glicemia != "NO" && $item->glicemia != "NA" && $item->glicemia != null){
+                        $personas_consumen_spa += 1;
+                        $item->consume_spa = "SPA";
+                    }
+                }
+    
+                foreach ($jefes as &$item) {
+                    if(($item->alcohol != "NO" && $item->alcohol != "NA") || ($item->cigarrillo != "NO" && $item->cigarrillo != "NA") || ($item->glicemia != "NO" && $item->glicemia != "NA" && $item->glicemia != null)){
+                        array_push($array_personas_consumen, $item);
+                    }
+    
+                    if($item->alcohol != "NO" && $item->alcohol != "NA"){
+                        $personas_consumen_alcohol += 1;
+                        $item->consume_a = "Alcohol";
+                    }
+    
+                    if($item->cigarrillo != "NO" && $item->cigarrillo != "NA"){
+                       $personas_consumen_tabaco += 1;
+                       $item->consume_t = "Fuma";
+                    }
+    
+                    if($item->glicemia != "NO" && $item->glicemia != "NA" && $item->glicemia != null){
+                        $personas_consumen_spa += 1;
+                        $item->consume_spa = "SPA";
+                    }
+                }
+            }else{
+                foreach ($integrantes as &$item) {
+                    if(($item->excepciones == '2' || $item->excepciones == '4') || ($item->sustanciaspsico != 'NA' && $item->sustanciaspsico != 'NO')){
+                        array_push($array_personas_consumen, $item);
+                    }
+    
+                    if($item->excepciones == '4'){
+                        $personas_consumen_alcohol += 1;
+                        $item->consume_a = "Alcohol";
+                    }
+    
+                    if($item->excepciones == '2'){
+                       $personas_consumen_tabaco += 1;
+                       $item->consume_t = "Fuma";
+                    }
+    
+                    if($item->sustanciaspsico != "NA" && $item->sustanciaspsico != "NO"){
+                        $personas_consumen_spa += 1;
+                        $item->consume_spa = "SPA";
+                    }
+                }
+            }
+        }
+
+        return $info = [
+            'personas_consumen_spa' => $personas_consumen_spa,
+            'personas_consumen_tabaco' => $personas_consumen_tabaco,
+            'personas_consumen_alcohol' => $personas_consumen_alcohol,
+            'array_personas_consumen' => $array_personas_consumen,
+            'integrantes' => $integrantes,
+            'jefes' => $jefes,
+            'numero_personas' => count($array_personas_consumen)
+        ];
+    }
 }

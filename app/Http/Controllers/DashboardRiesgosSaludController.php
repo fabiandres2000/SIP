@@ -123,6 +123,115 @@ class DashboardRiesgosSaludController extends Controller
             return redirect("/index")->with("error", "Su sesion ha terminado");
         }
     }
+
+    public function enfermedades() {
+        $tipo = request()->get('tipo');
+        $id = request()->get('id');
+        $rango = request()->get('rango');
+        $tipo_enfer = request()->get('tipo_enfer');
+
+        if (Auth::check()) {
+           
+            $enfermedades_por_edad = \App\DashboardRiesgosSalud::enfermedades_por_edad(Session::get('alias'), $tipo, $id, $rango, $tipo_enfer);
+            
+
+            $men1a = \App\DashboardRiesgosSalud::enfermedades_por_edad(Session::get('alias'), $tipo, $id, 'men1a', $tipo_enfer);
+            $de1a5 = \App\DashboardRiesgosSalud::enfermedades_por_edad(Session::get('alias'), $tipo, $id, 'de1a5', $tipo_enfer);
+            $de6a11 = \App\DashboardRiesgosSalud::enfermedades_por_edad(Session::get('alias'), $tipo, $id, 'de6a11', $tipo_enfer);
+            $de12a17 = \App\DashboardRiesgosSalud::enfermedades_por_edad(Session::get('alias'), $tipo, $id, 'de12a17', $tipo_enfer);
+            $de18a28 = \App\DashboardRiesgosSalud::enfermedades_por_edad(Session::get('alias'), $tipo, $id, 'de18a28', $tipo_enfer);
+            $de29a59 = \App\DashboardRiesgosSalud::enfermedades_por_edad(Session::get('alias'), $tipo, $id, 'de29a59', $tipo_enfer);
+            $de60 = \App\DashboardRiesgosSalud::enfermedades_por_edad(Session::get('alias'), $tipo, $id, 'de60', $tipo_enfer);
+
+
+            $respuesta = [
+                'enfermedades_por_edad' => $enfermedades_por_edad,
+                'comparativa' => [
+                    'men1a' => $men1a,
+                    'de6a11' => $de6a11,
+                    'de1a5' => $de1a5,
+                    'de12a17' => $de12a17,
+                    'de18a28' => $de18a28,
+                    'de29a59' => $de29a59,
+                    'de60' => $de60
+                ]
+            ];
+
+            return response()->json($respuesta, 200);
+        }else {
+            return redirect("/index")->with("error", "Su sesion ha terminado");
+        }
+    }
+
+    public function exportarEnfermedades() {
+        if (Auth::check()) {
+            
+            $filtro = request()->get('filtro');
+            $filtro2 = request()->get('filtro2');
+            $imagenes = request()->get('imagenes');
+            $grafico1 = request()->get('grafico1');
+            $grafico2 = request()->get('grafico2');
+            $data = request()->get('data');
+            $hmp = request()->get('hmp');
+            $tipo_enfermedad = request()->get('tipo_enfermedad');
+           
+            $ente = Auth::user()->permisos->where('actual', 1)->first()->ente->nombre;
+            File::makeDirectory(public_path().'/'.$ente, $mode = 0777, true, true);
+
+            $nombre = 'Riesgo-Salud-Enfermedades.pdf';
+            $pdf = app('dompdf.wrapper');
+            $pdf->loadView('Pdf/RSDashboardEnfermedad', [
+                'ente' => $ente, 
+                'filtro' => $filtro,  
+                'filtro2' => $filtro2, 
+                'imagenes' => $imagenes,  
+                'grafico1' => $grafico1, 
+                'grafico2' => $grafico2, 
+                'data' => $data, 
+                'hmp' => $hmp,
+                'tipo_enfermedad' => $tipo_enfermedad
+            ])->setPaper('a4', 'landscape')
+            ->save( $ente.'/'.$nombre);
+
+            $respuesta = [
+                'nombre' => $ente.'/'.$nombre,
+            ];
+
+            return response()->json($respuesta, 200);
+
+        }else {
+            return redirect("/index")->with("error", "Su sesion ha terminado");
+        }
+    }
+
+    public function spa() {
+
+        $tipo = request()->get('tipo');
+        $id = request()->get('id');
+
+        if (Auth::check()) {
+            $de6a11 = \App\DashboardRiesgosSalud::spa(Session::get('alias'), $tipo, $id, 'de6a11');
+            $de12a17 = \App\DashboardRiesgosSalud::spa(Session::get('alias'), $tipo, $id, 'de12a17');
+            $de18a28 = \App\DashboardRiesgosSalud::spa(Session::get('alias'), $tipo, $id, 'de18a28');
+            $de29a59 = \App\DashboardRiesgosSalud::spa(Session::get('alias'), $tipo, $id, 'de29a59');
+            $de60 = \App\DashboardRiesgosSalud::spa(Session::get('alias'), $tipo, $id, 'de60');
+            $gestantes_consumidores = \App\Indicadores::total_gestantes_spa_integrantes(Session::get('alias'))+\App\Indicadores::total_gestantes_spa_jefe(Session::get('alias'));
+
+            $respuesta = [
+                'data_por_tipo' => [  
+                    'de6a11' => $de6a11,
+                    'de12a17' => $de12a17,
+                    'de18a28' => $de18a28,
+                    'de29a59' => $de29a59,
+                    'de60' => $de60,
+                    'gestantes_consumidores' => $gestantes_consumidores,
+                ],
+            ];
+            return response()->json($respuesta, 200);
+        }else {
+            return redirect("/index")->with("error", "Su sesion ha terminado");
+        }
+    }
 }
 
 

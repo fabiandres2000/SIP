@@ -104,6 +104,27 @@
     </footer>
     <main>
         <h3 style="color: #5578eb; margin: 2px">Ente - ({{$ente}})</h3>  
+        @if ($tipo_data == 1)
+            <h4>HOGARES CON ALTO RIESGOS EN SALUD</h4>
+        @endif
+        @if ($tipo_data == 2)
+            <h4>HOGARES CON RIESGO INFANTIL DE DESNUTRICIÓN</h4>
+        @endif
+        @if ($tipo_data == 3)
+            <h4>HOGARES CON RIESGO DE DESNUTRICIÓN EN ADULTOS MAYORES</h4>  
+        @endif
+        @if ($tipo_data == 4)
+            <h4>HOGARES CON RIESGOS DE CONSUMO DE SPA</h4>
+        @endif
+        @if ($tipo_data == 5)
+            <h4>HOGARES CON RIESGOS DE VIOLENCIA</h4>
+        @endif  
+        @if ($tipo_data == 6)
+            <h4>HOGARES CON NIÑOS EN OBESIDAD Y SOBREPESO</h4>
+        @endif
+        @if ($tipo_data == 7)
+            <h4>HOGARES CON  INTEGRANTES MAYORES DE 12 AÑOS EN OBESIDAD Y SOBREPESO</h4>
+        @endif 
         <div>
             <img src="{{$filtro}}" alt="grafico 1" style="width: 135%;height: auto;max-width: 135%;">
         </div>
@@ -343,7 +364,6 @@
                     </tbody>
                 </table> 
             @endif 
-            
             @if ($tipo_data == 6)
                 <h4>HOGARES CON NIÑOS EN OBESIDAD Y SOBREPESO</h4>
                 <br>

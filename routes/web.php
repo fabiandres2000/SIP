@@ -211,3 +211,6 @@ Route::get('/dashboard-riesgos-salud/poblacion', 'DashboardRiesgosSaludControlle
 Route::post('/dashboard-riesgos-salud/exportar-rs-dashboard', 'DashboardRiesgosSaludController@exportarPoblacion');
 Route::get('/dashboard-riesgos-salud/hogares', 'DashboardRiesgosSaludController@hogares');
 Route::post('/dashboard-riesgos-salud/exportar-hogares-dashboard', 'DashboardRiesgosSaludController@exportarHogares');
+Route::get('/dashboard-riesgos-salud/enfermedades', 'DashboardRiesgosSaludController@enfermedades');
+Route::post('/dashboard-riesgos-salud/exportar-enfermedades', 'DashboardRiesgosSaludController@exportarEnfermedades');
+Route::get('/dashboard-riesgos-salud/spa', 'DashboardRiesgosSaludController@spa');

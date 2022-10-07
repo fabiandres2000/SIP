@@ -15,3 +15,15 @@ export function hogares($tipo, $id) {
 export function exportarHogares($data) {
     return http().post('/dashboard-riesgos-salud/exportar-hogares-dashboard', $data);
 }
+
+export function enfermedades($tipo, $id, $rangoEdad, $tipoEnfermedad) {
+    return http().get('/dashboard-riesgos-salud/enfermedades?tipo='+$tipo+'&id='+$id+'&rango='+$rangoEdad+'&tipo_enfer='+$tipoEnfermedad);
+}
+
+export function exportarPestanaEnfermedad($data) {
+    return http().post('/dashboard-riesgos-salud/exportar-enfermedades', $data);
+}
+
+export function spa($tipo, $id) {
+    return http().get('/dashboard-riesgos-salud/spa?tipo='+$tipo+'&id='+$id);
+}
