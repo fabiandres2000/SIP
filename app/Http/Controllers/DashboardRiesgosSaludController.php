@@ -215,7 +215,8 @@ class DashboardRiesgosSaludController extends Controller
             $de18a28 = \App\DashboardRiesgosSalud::spa(Session::get('alias'), $tipo, $id, 'de18a28');
             $de29a59 = \App\DashboardRiesgosSalud::spa(Session::get('alias'), $tipo, $id, 'de29a59');
             $de60 = \App\DashboardRiesgosSalud::spa(Session::get('alias'), $tipo, $id, 'de60');
-            $gestantes_consumidores = \App\Indicadores::total_gestantes_spa_integrantes(Session::get('alias'))+\App\Indicadores::total_gestantes_spa_jefe(Session::get('alias'));
+            $gestantes_consumidores = \App\Indicadores::total_gestantes_spa_integrantes_f(Session::get('alias'), $tipo, $id)+\App\Indicadores::total_gestantes_spa_jefe_f(Session::get('alias'), $tipo, $id);
+            $gestantes = \App\Indicadores::mujeres_embarazadas(Session::get('alias'));;
 
             $respuesta = [
                 'data_por_tipo' => [  
@@ -224,10 +225,51 @@ class DashboardRiesgosSaludController extends Controller
                     'de18a28' => $de18a28,
                     'de29a59' => $de29a59,
                     'de60' => $de60,
-                    'gestantes_consumidores' => $gestantes_consumidores,
+                    'gestantes_consumidores' => [
+                        'porcen' => ($gestantes_consumidores / $gestantes) * 100,
+                        'mujeres_spa' => $gestantes_consumidores,
+                        'gestantes' => $gestantes
+                    ],
                 ],
             ];
             return response()->json($respuesta, 200);
+        }else {
+            return redirect("/index")->with("error", "Su sesion ha terminado");
+        }
+    }
+
+    public function exportarSpa() {
+        if (Auth::check()) {
+            
+            $filtro = request()->get('filtro');
+            $grafico1 = request()->get('grafico1');
+            $grafico2 = request()->get('grafico2');
+            $grafico3 = request()->get('grafico3');
+            $imagen1 = request()->get('imagen1');
+            $data = request()->get('data');
+           
+            $ente = Auth::user()->permisos->where('actual', 1)->first()->ente->nombre;
+            File::makeDirectory(public_path().'/'.$ente, $mode = 0777, true, true);
+
+            $nombre = 'Riesgo-Salud-SPA.pdf';
+            $pdf = app('dompdf.wrapper');
+            $pdf->loadView('Pdf/RSDashboardSpa', [
+                'ente' => $ente, 
+                'filtro' => $filtro,  
+                'grafico1' => $grafico1, 
+                'grafico2' => $grafico2, 
+                'grafico3' => $grafico3, 
+                'imagen1' => $imagen1,
+                'data' => $data
+            ])->setPaper('a4', 'landscape')
+            ->save( $ente.'/'.$nombre);
+
+            $respuesta = [
+                'nombre' => $ente.'/'.$nombre,
+            ];
+
+            return response()->json($respuesta, 200);
+
         }else {
             return redirect("/index")->with("error", "Su sesion ha terminado");
         }

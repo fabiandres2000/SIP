@@ -65,7 +65,8 @@
                 <div class="col-lg-3">
                     <div class="row" style="padding-top: 14%">
                         <div ref="boton1" class="col-lg-12 text-right" style="padding: 10px 10px 10px 20px;">
-                            <button @click="exportToPDFV()" class="btn btn-danger"><i class="fa fa-file" aria-hidden="true"></i> Exportar PDF</button>
+                            <button @click="verDetalle()" class="btn btn-info"><i class="fa fa-eye" aria-hidden="true"></i> Ver Detalles</button>
+                            <button @click="exportToPDFSPA()" class="btn btn-danger"><i class="fa fa-file" aria-hidden="true"></i> Exportar PDF</button>
                         </div>
                     </div>
                 </div>
@@ -97,7 +98,7 @@
                 <br>
                 <div id="chartdiv_tipo_consumo" style="width: 100%; height: 350px"></div>
             </div>
-            <div class="col-lg-6 text-center">
+            <div class="col-lg-6 text-center" ref="imagen1">
                 <br>
                 <br>
                 <br>
@@ -106,29 +107,133 @@
                 <h2>Gestantes consumidores</h2>
                 <br>
                 <br>
-                <vue-ellipse-progress
-                  :progress="Math.round(embarazo_spa)"
-                  :size="280"
-                  :angle="-90"
-                  :gap="20"
-                  :legend="true"
-                  :thickness="5"
-                  emptyThickness="5%"
-                  dash="60 0.9"
-                  color="#891481"
-                  :noData="false"
-                  :loading="false"
-                  fontColor="white"
-                  :half="false"
-                  line-mode="out 2"
-                >
-                  <p
-                    slot="legend-caption"
-                    style="font-size: 54px; font-weight: bold;"
-                  >{{Math.round(embarazo_spa)}}</p>
-                </vue-ellipse-progress>
-              </div>
+                <circle-progress
+                    stroke-bg-color = "#e3e2e1"
+                    :r="120" 
+                    :stroke-width="20"  
+                    stroke-color="#1abf03" 
+                    :percentage="Math.floor(embarazo_spa.porcen  * 10) / 10"> 
+                </circle-progress>
+                <br>
+                <h4>{{embarazo_spa.mujeres_spa}} / {{embarazo_spa.gestantes}}</h4> 
+            </div>
         </div>
+        <b-modal
+            ref="modaldetalles"
+            hide-footer
+            title="Detalles Consumo de SPA"
+            size="xl"
+            centered
+            header-bg-variant="danger"
+            header-text-variant="light"
+            :no-close-on-backdrop="true"
+        >
+            <h3>Personas que Consumen SPA</h3>
+            <h4>Seleccione un Rango de Edad</h4>
+            <br/>
+            <select class="form-control" v-model="mostrarDetalleR" style="width: 50%">
+                <option value = "1">6 a 11 Años</option>
+                <option value = "2">12 a 17 Años</option>
+                <option value = "3">18 a 28 Años</option>
+                <option value = "4">29 a 59 Años</option>
+                <option value = "5">+ 60 Años</option>
+            </select>
+            <br>
+            <div style="max-height: 400px; overflow-y: auto">
+                <table style="width: 100%;" class="table_data" id="tabla_riesgos">
+                    <thead>
+                        <tr>
+                            <th>Identificacion</th>
+                            <th>Nombre</th>
+                            <th>Corregimiento</th> 
+                            <th>Barrio</th>
+                            <th>Direccion</th>
+                            <th style="text-align: center">Tipo Consumo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-if="mostrarDetalleR == '1'" v-for="item in array_de6a11">
+                            <td>{{item.tipo_id}}: {{item.identificacion}}</td>
+                            <td>{{item.nombre}}</td>
+                            <td>{{item.des_corr != "" ? item.des_corr : "CASCO URBANO"}}</td>
+                            <td>{{item.des_barrio}}</td>
+                            <td>{{item.des_direc}}</td>
+                            <td>
+                                <ul>
+                                    <li v-if="item.sustanciaspsico != 'NO' && item.sustanciaspsico != 'NA'">{{item.sustanciaspsico}}</li>
+                                </ul>       
+                            </td>
+                        </tr>
+                        <tr  v-if="mostrarDetalleR == '2'" v-for="item in array_de12a17">
+                            <td>{{item.tipo_id}}: {{item.identificacion}}</td>
+                            <td>{{item.nombre}}</td>
+                            <td>{{item.des_corr != "" ? item.des_corr : "CASCO URBANO"}}</td>
+                            <td>{{item.des_barrio}}</td>
+                            <td>{{item.des_direc}}</td>
+                            <td>
+                                <ul>
+                                    <li v-if="item.spa != 'NO' && item.spa != 'NA'">{{item.spa}}</li>
+                                    <li v-if="item.consume_a != undefined">{{item.consume_a}}</li>
+                                    <li v-if="item.consume_t != undefined">{{item.consume_t}}</li>
+                                </ul>       
+                            </td>
+                        </tr>
+                        <tr  v-if="mostrarDetalleR == '3'" v-for="item in array_de18a28">
+                            <td>{{item.tipo_id}}: {{item.identificacion}}</td>
+                            <td>{{item.nombre}}</td>
+                            <td>{{item.des_corr != "" ? item.des_corr : "CASCO URBANO"}}</td>
+                            <td>{{item.des_barrio}}</td>
+                            <td>{{item.des_direc}}</td>
+                            <td>
+                                <ul>
+                                    <li v-if="item.spa != 'NO' && item.spa != 'NA'">{{item.spa}}</li>
+                                    <li v-if="item.consume_a != undefined">{{item.consume_a}}</li>
+                                    <li v-if="item.consume_t != undefined">{{item.consume_t}}</li>
+                                </ul>       
+                            </td>
+                        </tr>
+                        <tr  v-if="mostrarDetalleR == '4'" v-for="item in array_de29a59">
+                            <td>{{item.tipo_id}}: {{item.identificacion}}</td>
+                            <td>{{item.nombre}}</td>
+                            <td>{{item.des_corr != "" ? item.des_corr : "CASCO URBANO"}}</td>
+                            <td>{{item.des_barrio}}</td>
+                            <td>{{item.des_direc}}</td>
+                            <td>
+                                <ul>
+                                    <li v-if="item.spa != 'NO' && item.spa != 'NA'">{{item.spa}}</li>
+                                    <li v-if="item.consume_a != undefined">{{item.consume_a}}</li>
+                                    <li v-if="item.consume_t != undefined">{{item.consume_t}}</li>
+                                </ul>       
+                            </td>
+                        </tr>
+                        <tr  v-if="mostrarDetalleR == '5'" v-for="item in array_de60">
+                            <td>{{item.tipo_id}}: {{item.identificacion}}</td>
+                            <td>{{item.nombre}}</td>
+                            <td>{{item.des_corr != "" ? item.des_corr : "CASCO URBANO"}}</td>
+                            <td>{{item.des_barrio}}</td>
+                            <td>{{item.des_direc}}</td>
+                            <td>
+                                <ul>
+                                    <li v-if="item.glicemia != null">Consume SPA</li>
+                                    <li v-if="item.consume_a != undefined">{{item.consume_a}}</li>
+                                    <li v-if="item.consume_t != undefined">{{item.consume_t}}</li>
+                                </ul>       
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>  
+            <hr />
+            <div class="text-right">
+                <button
+                    type="button"
+                    class="btn btn-warning"
+                    @click="cerrarModal"
+                >
+                    <i class="fa fa-window-close"></i> Cancelar
+                </button>
+            </div>
+        </b-modal>
         <b-modal
             ref="modalpdf"
             hide-footer
@@ -221,7 +326,13 @@ export default {
             de60: 0,
             tipo_spa: [],
             chart_tipo_consumo: null,
-            embarazo_spa: 0
+            embarazo_spa: 0,
+            array_de6a11: [],
+            array_de12a17: [],
+            array_de18a28: [],
+            array_de29a59: [],
+            array_de60: [],
+            mostrarDetalleR: "1"
         }
     },
     methods: {
@@ -265,6 +376,13 @@ export default {
             this.isLoading = true;
             await DashboardServiceRS.spa(this.tipo, this.id_combo).then(respuesta => {
                 this.data_por_tipo = respuesta.data.data_por_tipo;
+
+                this.array_de6a11 = respuesta.data.data_por_tipo.de6a11.array_personas_consumen;
+                this.array_de12a17 = respuesta.data.data_por_tipo.de12a17.array_personas_consumen;
+                this.array_de18a28 = respuesta.data.data_por_tipo.de18a28.array_personas_consumen;
+                this.array_de29a59 = respuesta.data.data_por_tipo.de29a59.array_personas_consumen;
+                this.array_de60 = respuesta.data.data_por_tipo.de60.array_personas_consumen;
+
                 this.embarazo_spa = respuesta.data.data_por_tipo.gestantes_consumidores;
                 this.calcular_totales();
                 this.agrupar_tipo_consumo();
@@ -399,7 +517,7 @@ export default {
                 });
             }, 500);
         },
-        async exportToPDFV(){ 
+        async exportToPDFSPA(){ 
             this.isLoading = true;
 
             // convertir a imagen todos los graficos
@@ -409,12 +527,29 @@ export default {
             }
            
             // convertir a imagen todos los graficos
+            let filtro = await this.$html2canvas(this.$refs.filtro, options);
+            let grafico1 = await this.graf_barra.exporting.getImage("png");
+            let grafico2 = await this.graf_barra2.exporting.getImage("png");
+            let grafico3 = await this.chart_tipo_consumo.exporting.getImage("png");
+            let imagen1 = await this.$html2canvas(this.$refs.imagen1, options);
 
             const parametros = {
                 _token: this.csrf,
+                filtro: filtro,
+                grafico1: grafico1,
+                grafico2: grafico2,
+                grafico3:grafico3,
+                imagen1: imagen1,
+                data: {
+                    array_de6a11: this.array_de6a11 ,
+                    array_de12a17: this.array_de12a17,
+                    array_de18a28: this.array_de18a28,
+                    array_de29a59: this.array_de29a59,
+                    array_de60: this.array_de60 
+                }
             };
             try {
-                await DashboardServiceSocioeconomico.exportarMercadoLaboral(parametros).then(respuesta => {
+                await DashboardServiceRS.exportarRSSPA(parametros).then(respuesta => {
                     this.rutaPdf = store.state.apiURL + respuesta.data.nombre;
                     this.isLoading = false;
                     this.$refs.modalpdf.show();
@@ -425,6 +560,7 @@ export default {
             }
         },
         cerrarModal() {
+            this.$refs.modaldetalles.hide();
             this.$refs.modalpdf.hide();
         },
         async calcular_totales(){
@@ -654,7 +790,7 @@ export default {
             });
             this.grafica_torta_tipo_consumo();
         },
-        async grafica_torta_tipo_consumo(array) {
+        async grafica_torta_tipo_consumo() {
             if(this.chart_tipo_consumo != null){
                 this.chart_tipo_consumo.dispose();
             }
@@ -675,9 +811,14 @@ export default {
             series.dataFields.value = "first";
             series.dataFields.category = "category";
         },
+        async verDetalle() {
+            this.$refs.modaldetalles.show();
+        }
     },
 }
 </script>
 <style>
-    
+    .percent-text{
+        font-size: 32px !important;
+    }
 </style>

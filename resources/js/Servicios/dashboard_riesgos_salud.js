@@ -27,3 +27,7 @@ export function exportarPestanaEnfermedad($data) {
 export function spa($tipo, $id) {
     return http().get('/dashboard-riesgos-salud/spa?tipo='+$tipo+'&id='+$id);
 }
+
+export function exportarRSSPA($data) {
+    return http().post('/dashboard-riesgos-salud/exportar-spa', $data);
+}

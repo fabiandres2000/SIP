@@ -10,9 +10,9 @@ class Indicadores extends Model
     //
     public static function mujeres_embarazadas($alias)
     {
-        $consulta = DB::select("SELECT SUM(cont) as total FROM (SELECT COUNT(*) as cont FROM " . $alias . ".integrantes WHERE embarazo_multiple = 'SI' AND estado='Activo'
+        $consulta = DB::select("SELECT SUM(cont) as total FROM (SELECT COUNT(*) as cont FROM " . $alias . ".integrantes WHERE embarazo = 'SI' AND estado='Activo'
         UNION
-        SELECT COUNT(*) as cont FROM " . $alias . ".caracterizacion where embarazo_multiple = 'SI' AND estado='Activo') as cons;");
+        SELECT COUNT(*) as cont FROM " . $alias . ".caracterizacion where embarazo = 'SI' AND estado='Activo') as cons;");
 
         //dd($consulta[0]->total);die;
         return $consulta[0]->total;
@@ -1534,6 +1534,71 @@ class Indicadores extends Model
                     $query2->whereNotIn('consumo', ["NO", "NA"]);
                 });
             })->count();
+        return $total_consumidores;
+    }
+
+    public static function total_gestantes_spa_jefe_f($alias, $tipo, $id)
+    {
+        if($tipo == "todos"){
+            $total_consumidores = DB::table($alias . ".parpost")
+            ->join($alias . ".caracterizacion", "caracterizacion.id", "parpost.id_integrante")
+            ->where("opci", "JEFE")
+            ->where("caracterizacion.estado", "Activo")
+            ->where(function ($query) use ($alias) {
+                $query->where('bebidas', "SI")
+                ->orWhere('fuma', "SI")
+                ->orWhere(function ($query2) use ($alias) {
+                    $query2->whereNotIn('consumo', ["NO", "NA"]);
+                });
+            })->count();
+        }else{
+            $total_consumidores = DB::table($alias . ".parpost")
+            ->join($alias . ".caracterizacion", "caracterizacion.id", "parpost.id_integrante")
+            ->join($alias . ".hogar", "hogar.id", "caracterizacion.id_hogar")
+            ->where("opci", "JEFE")
+            ->where("caracterizacion.estado", "Activo")
+            ->where('hogar.id_'.$tipo, $id)
+            ->where(function ($query) use ($alias) {
+                $query->where('bebidas', "SI")
+                ->orWhere('fuma', "SI")
+                ->orWhere(function ($query2) use ($alias) {
+                    $query2->whereNotIn('consumo', ["NO", "NA"]);
+                });
+            })->count();
+        }
+        return $total_consumidores;
+    }
+
+    public static function total_gestantes_spa_integrantes_f($alias, $tipo, $id)
+    {
+        if($tipo == "todos"){
+            $total_consumidores = DB::table($alias . ".parpost")
+            ->join($alias . ".integrantes", "integrantes.id", "parpost.id_integrante")
+            ->where("opci", "INTE")
+            ->where("integrantes.estado", "Activo")
+            ->where(function ($query) use ($alias) {
+                $query->where('bebidas', "SI")
+                ->orWhere('fuma', "SI")
+                ->orWhere(function ($query2) use ($alias) {
+                    $query2->whereNotIn('consumo', ["NO", "NA"]);
+                });
+            })->count();
+        }else{
+            $total_consumidores = DB::table($alias . ".parpost")
+            ->join($alias . ".integrantes", "integrantes.id", "parpost.id_integrante")
+            ->join($alias . ".hogar", "hogar.id", "integrantes.id_hogar")
+            ->where("opci", "INTE")
+            ->where("integrantes.estado", "Activo")
+            ->where('hogar.id_'.$tipo, $id)
+            ->where(function ($query) use ($alias) {
+                $query->where('bebidas', "SI")
+                ->orWhere('fuma', "SI")
+                ->orWhere(function ($query2) use ($alias) {
+                    $query2->whereNotIn('consumo', ["NO", "NA"]);
+                });
+            })->count();
+        }
+        
         return $total_consumidores;
     }
 
