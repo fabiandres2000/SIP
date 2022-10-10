@@ -15,7 +15,7 @@ class Integrante extends Model
         'colegio', 'grado', 'etnia', 'entiende', 'pyp', 'migrante',
         'id_compania', 'estado', 'clasificacion', 'puntaje_sisben', 'otra_eps',
         'jefe', 'orientacion', 'identidad_genero', 'telefono', 'perdida_peso', 'programa_icbf', 'identi_auxi', 'excepciones',
-        'peso', 'talla','tipo_empleo','actividad_fisica','vacuna'
+        'peso', 'talla','tipo_empleo','actividad_fisica','vacuna','lactante'
     ];
     public static function guardar($data, $alias)
     {
@@ -78,6 +78,7 @@ class Integrante extends Model
             'tipo_empleo' => $data['tipo_empleo'],
             'actividad_fisica' => $data['actividad_fisica'],
             'vacuna' => $data['vacuna'],
+            'lactante' => $data['lactante'],
         ]);
     }
 
@@ -142,6 +143,7 @@ class Integrante extends Model
             'tipo_empleo' => $data['tipo_empleo'],
             'actividad_fisica' => $data['actividad_fisica'],
             'vacuna' => $data['vacuna'],
+            'lactante' => $data['lactante'],
         ]);
     }
 

@@ -16,7 +16,7 @@ class Caracterizacion extends Model
         'tipo_afiliacion', 'embarazo', 'embarazo_multiple', 'discapacidad', 'nivel_escolaridad',
         'ocupacion', 'colegio', 'grado', 'etnia', 'clasificacion', 'entiende', 'pyp', 'migrante', 'otra_eps',
         'orientacion', 'identidad_genero', 'perdida_peso', 'programa_icbf', 'identi_auxi', 'peso', 'talla',
-        'tipo_empleo', 'percargo', 'actividad_fisica', 'vacuna',
+        'tipo_empleo', 'percargo', 'actividad_fisica', 'vacuna','lactante'
     ];
 
     public static function listar($busqueda, $alias)
@@ -205,7 +205,8 @@ class Caracterizacion extends Model
             'tipo_empleo' => $data['tipo_empleo'],
             'percargo' => $data['percargo'],
             'actividad_fisica' => $data['actividad_fisica'],
-            'vacuna' => $data['vacuna'],            
+            'vacuna' => $data['vacuna'],      
+            'lactante' => $data['lactante'],      
         ]);
     }
     public static function modificar($data, $alias, $id)
@@ -267,6 +268,7 @@ class Caracterizacion extends Model
             'percargo' => $data['percargo'],
             'actividad_fisica' => $data['actividad_fisica'],
             'vacuna' => $data['vacuna'],
+            'lactante' => $data['lactante'],
         ]);
     }
     public static function verificar($identificacion, $alias)

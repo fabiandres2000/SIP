@@ -425,16 +425,30 @@
                 </div>
               </div>
               <div class="form-group row">
-                <div class="col-lg-4">
+                <div class="col-lg-2">
                   <label>Sexo (*):</label>
                   <b-form-select
                     v-model.trim="caracData.sexo"
                     :class="caracData.sexo==''?'':'is-valid'"
                     ref="sexo"
+                    @change="cambiarSexo('caracData')"
                   >
                     <option value selected>Seleccione</option>
                     <option value="MASCULINO">MASCULINO</option>
                     <option value="FEMENINO">FEMENINO</option>
+                  </b-form-select>
+                </div>
+                <div class="col-lg-2">
+                  <label>Lactante (*):</label>
+                  <b-form-select
+                    v-model.trim="caracData.lactante"
+                    :class="caracData.lactante==''?'is-invalid':'is-valid'"
+                    ref="sexo"
+                  >
+                    <option value selected>Seleccione</option>
+                    <option value="SI">SI</option>
+                    <option value="NO">NO</option>
+                    <option value="NA">No Aplica</option>
                   </b-form-select>
                 </div>
                 <div class="col-lg-4">
@@ -1793,12 +1807,25 @@
                 </div>
               </div>
               <div class="form-group row">
-                <div class="col-lg-4">
+                <div class="col-lg-2">
                   <label>Sexo:</label>
-                  <b-form-select v-model="CA1.sexo" :class="CA1.sexo=='0'?'':'is-valid'">
+                  <b-form-select v-model="CA1.sexo" :class="CA1.sexo=='0'?'':'is-valid'" @change="cambiarSexo('CA1')">
                     <option value="0" selected>Seleccione</option>
                     <option value="MASCULINO">MASCULINO</option>
                     <option value="FEMENINO">FEMENINO</option>
+                  </b-form-select>
+                </div>
+                <div class="col-lg-2">
+                  <label>Lactante (*):</label>
+                  <b-form-select
+                    v-model.trim="CA1.lactante"
+                    :class="CA1.lactante==''?'is-invalid':'is-valid'"
+                    ref="sexo"
+                  >
+                    <option value selected>Seleccione</option>
+                    <option value="SI">SI</option>
+                    <option value="NO">NO</option>
+                    <option value="NA">No Aplica</option>
                   </b-form-select>
                 </div>
                 <div class="col-lg-4">
@@ -23445,7 +23472,8 @@
           tipo_empleo: "",
           percargo: "",
           actividad_fisica: "",
-          vacuna: ""
+          vacuna: "",
+          lactante: "" 
         },
         carac2: [],
         CA1: {
@@ -23496,7 +23524,8 @@
           antec: "",
           tipo_empleo: "0",
           actividad_fisica: "0",
-          vacuna: ""                        
+          vacuna: "",
+          lactante: ""                     
         },
         CA2: [],       
         viviendaData: {
@@ -28616,7 +28645,8 @@
                       tipo_empleo: this.caracData.tipo_empleo,
                       percargo: this.caracData.percargo,
                       actividad_fisica: this.caracData.actividad_fisica,
-                      vacuna: this.caracData.vacuna
+                      vacuna: this.caracData.vacuna,
+                      lactante: this.caracData.lactante
                     });
                     for(let i=0;i<this.caracData.enfermedades.length;i++){
                       this.datosJefe[this.datosJefe.length-1].enfermedades.push({
@@ -28934,6 +28964,10 @@
           this.$swal("Error...!", "Por favor digite el numero de personas a cargo!", "error");
           return;
         }
+        if (this.caracData.lactante == "") {
+          this.$swal("Error...!", "Por favor si es  mujer lactante!", "error");
+          return;
+        }  
                 
         return bande;
         e.preventDefault();
@@ -29229,6 +29263,7 @@
         this.caracData.percargo = "";
         this.caracData.actividad_fisica = "";
         this.caracData.vacuna = "";
+        this.caracData.lactante = "";
       },
       updateJefe(item, valor, opcion, index) {
         if (opcion === "tipo_id") {
@@ -30108,6 +30143,8 @@
         this.caracData.actividad_fisica = item.actividad_fisica;
         
         this.caracData.vacuna = item.vacuna;
+        this.caracData.lactante = item.lactante;
+
         this.$refs.identificacionJefe.focus();
 
         this.idEditar = item.id;
@@ -31011,6 +31048,8 @@
         this.datosJefe[this.indiceEditJefe].percargo = this.caracData.percargo;
         this.datosJefe[this.indiceEditJefe].actividad_fisica = this.caracData.actividad_fisica;
         this.datosJefe[this.indiceEditJefe].vacuna = this.caracData.vacuna;
+        this.datosJefe[this.indiceEditJefe].lactante = this.caracData.lactante;
+
         this.datosJefe.splice(this.indiceEditJefe, 1, this.datosJefe[this.indiceEditJefe]);                
         
         setTimeout(() => {
@@ -31321,7 +31360,11 @@
         if (this.CA1.vacuna === "") {
           this.$swal("Error...!", "Por favor seleccione si si se encuentra vacunado!", "error");
           return;
-        }                                     
+        }      
+        if (this.CA1.lactante == "0") {
+          this.$swal("Error...!", "Por favor seleccione si es una mujer lactante!", "error");
+          return;
+        }                                 
         // VALIDAR SI EL INTEGRANTE SE ENCUENTRA AGREGADO
         this.CA1.identificacion = this.CA1.identificacion.replace(
           /[.*+\-?^${}()|[\]\\]/g,
@@ -31478,6 +31521,7 @@
                     tipo_empleo: this.CA1.tipo_empleo,
                     actividad_fisica: this.CA1.actividad_fisica,
                     vacuna: this.CA1.vacuna,
+                    lactante: this.CA1.lactante,
                   });
                   
                   for(let i=0;i<this.CA1.enfermedades.length;i++){
@@ -32358,7 +32402,8 @@
         this.CA1.antec = "";
         this.CA1.tipo_empleo = "";
         this.CA1.actividad_fisica = "0";
-        this.CA1.vacuna = "";       
+        this.CA1.vacuna = "";  
+        this.CA1.lactante = "";     
       },
       eliminarItem: function(index, item) {
         let nombre = " " + item.pnom + " " + item.snom + " " + item.pape + " " + item.sape;
@@ -32751,6 +32796,8 @@
         this.CA1.tipo_empleo = item.tipo_empleo;
         this.CA1.actividad_fisica = item.actividad_fisica;
         this.CA1.vacuna = item.vacuna;
+        this.CA1.lactante = item.lactante;
+
         this.$refs.identificacionInte.focus();
 
         this.idEditar = item.id;
@@ -33168,7 +33215,12 @@
         if (this.CA1.vacuna === "") {
           this.$swal("Error...!", "Por favor seleccione si se encuentra vacunado!", "error");
           return;
-        }                     
+        }          
+        if (this.CA1.lactante == "0") {
+          this.$swal("Error...!", "Por favor seleccione si es una mujer lactante!", "error");
+          return;
+        } 
+
         this.CA1.identificacion = this.CA1.identificacion.replace(
           /[.*+\-?^${}()|[\]\\]/g,
           ""
@@ -33838,6 +33890,7 @@
         this.datos[this.indiceEditInte].tipo_empleo = this.CA1.tipo_empleo;
         this.datos[this.indiceEditInte].actividad_fisica = this.CA1.actividad_fisica;
         this.datos[this.indiceEditInte].vacuna = this.CA1.vacuna;
+        this.datos[this.indiceEditInte].lactante = this.CA1.lactante;
         this.datos.splice(this.indiceEditInte, 1, this.datos[this.indiceEditInte]);   
         setTimeout(() => {
           this.limpiar();
@@ -45745,7 +45798,16 @@
       },
       cambiarTab(tab){
         setTimeout(() => $('.nav-tabs a[href="' + tab + '"]').tab("show"), 200);        
-      }                  
+      } ,
+      cambiarSexo(tipo){
+        if(tipo == "CA1" && this.CA1.sexo == "MASCULINO"){
+          this.CA1.lactante = "NA";
+        }
+
+        if(tipo == "caracData" && this.caracData.sexo == "MASCULINO"){
+          this.caracData.lactante = "NA";
+        }
+      }                
     }
   };
 </script>
