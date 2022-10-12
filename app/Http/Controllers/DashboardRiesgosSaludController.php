@@ -274,6 +274,63 @@ class DashboardRiesgosSaludController extends Controller
             return redirect("/index")->with("error", "Su sesion ha terminado");
         }
     }
+
+    public function embarazo() {
+
+        $tipo = request()->get('tipo');
+        $id = request()->get('id');
+
+        if (Auth::check()) {
+            $embarazo = \App\DashboardRiesgosSalud::embarazo(Session::get('alias'), $tipo, $id);
+            $lactantes = \App\DashboardRiesgosSalud::lactantes(Session::get('alias'), $tipo, $id);
+
+            $respuesta = [
+                'embarazo' => $embarazo,
+                'lactantes' => $lactantes
+            ];
+            return response()->json($respuesta, 200);
+        }else {
+            return redirect("/index")->with("error", "Su sesion ha terminado");
+        }
+    }
+
+    public function exportarEmbarazo() {
+        if (Auth::check()) {
+            
+            $filtro = request()->get('filtro');
+            $imagen1 = request()->get('imagen1');
+            $grafico1 = request()->get('grafico1');
+            $graficos = request()->get('graficos');
+            $embarazadas = request()->get('embarazadas');
+            $lactantes = request()->get('lactantes');
+           
+            $ente = Auth::user()->permisos->where('actual', 1)->first()->ente->nombre;
+            File::makeDirectory(public_path().'/'.$ente, $mode = 0777, true, true);
+
+            $nombre = 'Riesgo-Salud-Gestante.pdf';
+            $pdf = app('dompdf.wrapper');
+            $pdf->loadView('Pdf/RSDashboardGestante', [
+                'ente' => $ente, 
+                'filtro' => $filtro,  
+                'imagen1' => $imagen1, 
+                'grafico1' => $grafico1, 
+                'graficos' => $graficos, 
+                'embarazadas' => $embarazadas,
+                'lactantes' => $lactantes,
+            ])->setPaper('a4', 'landscape')
+            ->save( $ente.'/'.$nombre);
+
+            $respuesta = [
+                'nombre' => $ente.'/'.$nombre,
+            ];
+
+            return response()->json($respuesta, 200);
+
+        }else {
+            return redirect("/index")->with("error", "Su sesion ha terminado");
+        }
+    }
+
 }
 
 

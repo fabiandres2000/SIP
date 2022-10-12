@@ -31,3 +31,11 @@ export function spa($tipo, $id) {
 export function exportarRSSPA($data) {
     return http().post('/dashboard-riesgos-salud/exportar-spa', $data);
 }
+
+export function embarazo($tipo, $id) {
+    return http().get('/dashboard-riesgos-salud/embarazo?tipo='+$tipo+'&id='+$id);
+}
+
+export function exportarEmbarazo($data) {
+    return http().post('/dashboard-riesgos-salud/exportar-embarazo', $data);
+}

@@ -215,3 +215,5 @@ Route::get('/dashboard-riesgos-salud/enfermedades', 'DashboardRiesgosSaludContro
 Route::post('/dashboard-riesgos-salud/exportar-enfermedades', 'DashboardRiesgosSaludController@exportarEnfermedades');
 Route::get('/dashboard-riesgos-salud/spa', 'DashboardRiesgosSaludController@spa');
 Route::post('/dashboard-riesgos-salud/exportar-spa', 'DashboardRiesgosSaludController@exportarSpa');
+Route::get('/dashboard-riesgos-salud/embarazo', 'DashboardRiesgosSaludController@embarazo');
+Route::post('/dashboard-riesgos-salud/exportar-embarazo', 'DashboardRiesgosSaludController@exportarEmbarazo');

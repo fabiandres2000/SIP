@@ -2522,4 +2522,263 @@ class DashboardRiesgosSalud extends Model
             'numero_personas' => count($array_personas_consumen)
         ];
     }
+
+    public static function embarazo($alias, $tipo, $id){
+        if($tipo == "todos"){
+            
+            $integrantes_embarazadas = DB::connection('mysql')->table($alias.'.integrantes')
+            ->join($alias . ".hogar", "hogar.id", "integrantes.id_hogar")
+            ->join($alias . ".parpost", "parpost.id_integrante", "integrantes.id")
+            ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+            ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+            ->select('integrantes.id','integrantes.id_hogar','integrantes.tipo_id','integrantes.identificacion','parpost.control_prenatal','integrantes.escolaridad')
+            ->selectRaw("CONCAT_WS(' ',integrantes.pnom, integrantes.snom, integrantes.pape, integrantes.sape) as nombre")
+            ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as des_corr")->selectRaw("CONCAT_WS('',hogar.direccion) as des_direc")->selectRaw("CONCAT_WS('',barrios.barrio) as des_barrio")
+            ->selectRaw("TIMESTAMPDIFF(YEAR, fecha_nac, CURDATE()) as edad")
+            ->where('hogar.estado', 'Activo')
+            ->where('integrantes.estado', 'Activo')
+            ->where('integrantes.embarazo', 'SI')
+            ->where('parpost.estado', 'Activo')
+            ->where('parpost.opci', 'INTE')
+            ->get();
+
+            $jefes_embarazadas = DB::connection('mysql')->table($alias.'.caracterizacion')
+            ->join($alias . ".hogar", "hogar.id", "caracterizacion.id_hogar")
+            ->join($alias . ".parpost", "parpost.id_integrante", "caracterizacion.id")
+            ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+            ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+            ->select('caracterizacion.id','caracterizacion.id_hogar','caracterizacion.tipo_id','caracterizacion.identificacion','parpost.control_prenatal','caracterizacion.nivel_escolaridad as escolaridad')
+            ->selectRaw("CONCAT_WS(' ',caracterizacion.pnom, caracterizacion.snom, caracterizacion.pape, caracterizacion.sape) as nombre")
+            ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as des_corr")->selectRaw("CONCAT_WS('',hogar.direccion) as des_direc")->selectRaw("CONCAT_WS('',barrios.barrio) as des_barrio")
+            ->selectRaw("TIMESTAMPDIFF(YEAR, fecha_nacimiento, CURDATE()) as edad")
+            ->where('hogar.estado', 'Activo')
+            ->where('caracterizacion.estado', 'Activo')
+            ->where('caracterizacion.embarazo', 'SI')
+            ->where('parpost.estado', 'Activo')
+            ->where('parpost.opci', 'JEFE')
+            ->get();
+ 
+        }else{
+
+            $integrantes_embarazadas = DB::connection('mysql')->table($alias.'.integrantes')
+            ->join($alias . ".hogar", "hogar.id", "integrantes.id_hogar")
+            ->join($alias . ".parpost", "parpost.id_integrante", "integrantes.id")
+            ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+            ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+            ->select('integrantes.id','integrantes.id_hogar','integrantes.tipo_id','integrantes.identificacion','parpost.control_prenatal','integrantes.escolaridad')
+            ->selectRaw("CONCAT_WS(' ',integrantes.pnom, integrantes.snom, integrantes.pape, integrantes.sape) as nombre")
+            ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as des_corr")->selectRaw("CONCAT_WS('',hogar.direccion) as des_direc")->selectRaw("CONCAT_WS('',barrios.barrio) as des_barrio")
+            ->selectRaw("TIMESTAMPDIFF(YEAR, fecha_nac, CURDATE()) as edad")
+            ->where('hogar.estado', 'Activo')
+            ->where('integrantes.estado', 'Activo')
+            ->where('integrantes.embarazo', 'SI')
+            ->where('parpost.estado', 'Activo')
+            ->where('parpost.opci', 'INTE')
+            ->where('hogar.id_'.$tipo, $id)
+            ->get();
+
+            $jefes_embarazadas = DB::connection('mysql')->table($alias.'.caracterizacion')
+            ->join($alias . ".hogar", "hogar.id", "caracterizacion.id_hogar")
+            ->join($alias . ".parpost", "parpost.id_integrante", "caracterizacion.id")
+            ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+            ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+            ->select('caracterizacion.id','caracterizacion.id_hogar','caracterizacion.tipo_id','caracterizacion.identificacion','parpost.control_prenatal','caracterizacion.nivel_escolaridad as escolaridad')
+            ->selectRaw("CONCAT_WS(' ',caracterizacion.pnom, caracterizacion.snom, caracterizacion.pape, caracterizacion.sape) as nombre")
+            ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as des_corr")->selectRaw("CONCAT_WS('',hogar.direccion) as des_direc")->selectRaw("CONCAT_WS('',barrios.barrio) as des_barrio")
+            ->selectRaw("TIMESTAMPDIFF(YEAR, fecha_nacimiento, CURDATE()) as edad")
+            ->where('hogar.estado', 'Activo')
+            ->where('caracterizacion.estado', 'Activo')
+            ->where('caracterizacion.embarazo', 'SI')
+            ->where('parpost.estado', 'Activo')
+            ->where('parpost.opci', 'JEFE')
+            ->where('hogar.id_'.$tipo, $id)
+            ->get();
+
+        }
+
+        $embarazadas_vih = 0;
+        // vih sida
+            foreach ($integrantes_embarazadas as &$item) {
+                $vih = DB::connection('mysql')->table($alias.'.enfermedades_integrantes')  
+                ->select('*')
+                ->where('enfermedades_integrantes.id_inte', $item->id)
+                ->where('enfermedades_integrantes.tipo', 'Infecciosa')
+                ->where('enfermedades_integrantes.id_enfermedad', 2)
+                ->where('enfermedades_integrantes.estado', 'Activo')
+                ->count();
+
+                if($vih > 0 ){
+                    $item->vih = "Positivo";
+                    $embarazadas_vih += 1;
+                }else{
+                    $item->vih = "Negativo";
+                }
+            }
+
+            foreach ($jefes_embarazadas as &$item) {
+                $vih = DB::connection('mysql')->table($alias.'.enfermedades_jefes')  
+                ->select('*')
+                ->where('enfermedades_jefes.id_jefe', $item->id)
+                ->where('enfermedades_jefes.tipo', 'Infecciosa')
+                ->where('enfermedades_jefes.id_enfermedad', 2)
+                ->where('enfermedades_jefes.estado', 'Activo')
+                ->count();
+
+                if($vih > 0 ){
+                    $item->vih = "Positivo";
+                    $embarazadas_vih += 1;
+                }else{
+                    $item->vih = "Negativo";
+                }
+            }
+        // vih sida
+
+        $embarazadas = array();
+
+        foreach ($integrantes_embarazadas as &$item) {
+            array_push($embarazadas, $item);
+        }
+
+        foreach ($jefes_embarazadas as &$item) {
+            array_push($embarazadas, $item);
+        }
+
+        // atencion prenatal y adolescentes
+        $con_atencion = 0;
+        $sin_atencion = 0;
+        $adolescentes_embarazo = 0;
+        $adolescentes_embarazadas_descolarizadas = 0;
+
+        foreach ($embarazadas as &$item) {
+            if($item->control_prenatal == "SI"){
+                $con_atencion += 1;
+            }else{
+                $sin_atencion += 1;
+            }
+
+            if($item->edad >= 12 && $item->edad<= 17 ){
+                $adolescentes_embarazo += 1;
+                //adolescentes descolarizdas
+                if($item->escolaridad == "1" || $item->escolaridad == "4" || $item->escolaridad == "12" || $item->escolaridad == "13"){
+                    $adolescentes_embarazadas_descolarizadas += 1;
+                    $item->descolarizada = "SI";
+                }else{
+                    $item->descolarizada = "NO";
+                }
+            }else{
+                if($item->escolaridad == "1" || $item->escolaridad == "4" || $item->escolaridad == "12" || $item->escolaridad == "13"){
+                    $item->descolarizada = "SI";
+                }else{
+                    $item->descolarizada = "NO";
+                }
+            }
+           
+        }
+        // atencion prenatal y adolescentes
+
+        $porcen_con_atencion = 0;
+        $porcen_sin_atencion = 0;
+        $porcen_adolescentes_embarazo = 0;
+        $porcen_embarazadas_vih = 0;
+        $porcen_adolescentes_embarazadas_descolarizadas = 0;
+
+        if(count($embarazadas) > 0 ){
+            $porcen_con_atencion = ($con_atencion / count($embarazadas)) * 100;
+            $porcen_sin_atencion =  ($sin_atencion / count($embarazadas)) * 100;
+            $porcen_adolescentes_embarazo =  ($adolescentes_embarazo / count($embarazadas)) * 100;
+            $porcen_embarazadas_vih =  ($embarazadas_vih / count($embarazadas)) * 100;
+        }
+
+        if($adolescentes_embarazo  > 0 ){
+            $porcen_adolescentes_embarazadas_descolarizadas =  ($adolescentes_embarazadas_descolarizadas / $adolescentes_embarazo) * 100;
+        }
+        return $info = [
+            'embarazadas' => $embarazadas,
+            'con_atencion' => $con_atencion,
+            'sin_atencion' => $sin_atencion,
+            'numero_embarazadas' => count($embarazadas),
+            'porcen_con_atencion' => $porcen_con_atencion,
+            'porcen_sin_atencion' => $porcen_sin_atencion,
+            'embarazadas_vih' => $embarazadas_vih,
+            'adolescentes_embarazo' => $adolescentes_embarazo,
+            'porcen_adolescentes_embarazo' => $porcen_adolescentes_embarazo,
+            'porcen_embarazadas_vih' => $porcen_embarazadas_vih,
+            'adolescentes_embarazadas_descolarizadas' => $adolescentes_embarazadas_descolarizadas,
+            'porcen_adolescentes_embarazadas_descolarizadas' => $porcen_adolescentes_embarazadas_descolarizadas,
+        ];
+
+    }
+
+    public static function lactantes($alias, $tipo, $id){
+        if($tipo == "todos"){
+    
+            $integrantes_lactantes = DB::connection('mysql')->table($alias.'.integrantes')
+            ->join($alias . ".hogar", "hogar.id", "integrantes.id_hogar")
+            ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+            ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+            ->select('integrantes.id','integrantes.id_hogar','integrantes.tipo_id','integrantes.identificacion','integrantes.lactante')
+            ->selectRaw("CONCAT_WS(' ',integrantes.pnom, integrantes.snom, integrantes.pape, integrantes.sape) as nombre")
+            ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as des_corr")->selectRaw("CONCAT_WS('',hogar.direccion) as des_direc")->selectRaw("CONCAT_WS('',barrios.barrio) as des_barrio")
+            ->where('hogar.estado', 'Activo')
+            ->where('integrantes.lactante', 'SI')
+            ->where('integrantes.estado', 'Activo')
+            ->get();
+
+            $jefes_lactantes = DB::connection('mysql')->table($alias.'.caracterizacion')
+            ->join($alias . ".hogar", "hogar.id", "caracterizacion.id_hogar")
+            ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+            ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+            ->select('caracterizacion.id','caracterizacion.id_hogar','caracterizacion.tipo_id','caracterizacion.identificacion','caracterizacion.lactante')
+            ->selectRaw("CONCAT_WS(' ',caracterizacion.pnom, caracterizacion.snom, caracterizacion.pape, caracterizacion.sape) as nombre")
+            ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as des_corr")->selectRaw("CONCAT_WS('',hogar.direccion) as des_direc")->selectRaw("CONCAT_WS('',barrios.barrio) as des_barrio")
+            ->where('hogar.estado', 'Activo')
+            ->where('caracterizacion.lactante', 'SI')
+            ->where('caracterizacion.estado', 'Activo')
+            ->get();
+ 
+        }else{
+            $integrantes_lactantes = DB::connection('mysql')->table($alias.'.integrantes')
+            ->join($alias . ".hogar", "hogar.id", "integrantes.id_hogar")
+            ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+            ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+            ->select('integrantes.id','integrantes.id_hogar','integrantes.tipo_id','integrantes.identificacion','integrantes.lactante')
+            ->selectRaw("CONCAT_WS(' ',integrantes.pnom, integrantes.snom, integrantes.pape, integrantes.sape) as nombre")
+            ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as des_corr")->selectRaw("CONCAT_WS('',hogar.direccion) as des_direc")->selectRaw("CONCAT_WS('',barrios.barrio) as des_barrio")
+            ->where('hogar.estado', 'Activo')
+            ->where('integrantes.lactante', 'SI')
+            ->where('hogar.id_'.$tipo, $id)
+            ->where('integrantes.estado', 'Activo')
+            ->get();
+
+            $jefes_lactantes = DB::connection('mysql')->table($alias.'.caracterizacion')
+            ->join($alias . ".hogar", "hogar.id", "caracterizacion.id_hogar")
+            ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+            ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+            ->select('caracterizacion.id','caracterizacion.id_hogar','caracterizacion.tipo_id','caracterizacion.identificacion','caracterizacion.lactante')
+            ->selectRaw("CONCAT_WS(' ',caracterizacion.pnom, caracterizacion.snom, caracterizacion.pape, caracterizacion.sape) as nombre")
+            ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as des_corr")->selectRaw("CONCAT_WS('',hogar.direccion) as des_direc")->selectRaw("CONCAT_WS('',barrios.barrio) as des_barrio")
+            ->where('hogar.estado', 'Activo')
+            ->where('caracterizacion.lactante', 'SI')
+            ->where('hogar.id_'.$tipo, $id)
+            ->where('caracterizacion.estado', 'Activo')
+            ->get();
+
+        }
+
+        $lactantes = array();
+
+        foreach ($integrantes_lactantes as &$item) {
+            array_push($lactantes, $item);
+        }
+
+        foreach ($jefes_lactantes as &$item) {
+            array_push($lactantes, $item);
+        }
+      
+        return $info = [
+            'lactantes' => $lactantes,
+            'numero_lactantes' => count($lactantes),  
+        ];
+
+    }
 }

@@ -15,6 +15,7 @@
                     <SpaDashboard></SpaDashboard>
                 </b-tab>
                 <b-tab title="Embarazo">
+                    <EmbarazoDashboard></EmbarazoDashboard>
                 </b-tab>
                 </b-tab>
             </b-tabs>
@@ -27,13 +28,15 @@ import PoblacionDashboard from "./PoblacionDashboard.vue"
 import HogaresDashboard from "./HogaresDashboard.vue"
 import enfermedadesDashboard from "./enfermedadesDashboard.vue"
 import SpaDashboard from "./SpaDashboard.vue"
+import EmbarazoDashboard from "./EmbarazoDashboard.vue"
 
 export default {
     components: {
         PoblacionDashboard,
         HogaresDashboard,
         enfermedadesDashboard,
-        SpaDashboard
+        SpaDashboard,
+        EmbarazoDashboard
     },  
 }
 </script>
