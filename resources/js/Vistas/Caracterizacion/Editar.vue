@@ -6354,7 +6354,7 @@
                           <th
                             class="kt-bg-fill-dark"
                             style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
-                            colspan="8"
+                            colspan="12"
                           >Vacunación</th>
                         </tr>
                         <tr>
@@ -6381,7 +6381,7 @@
                           >Problemas</th>
                           <th
                             class="kt-bg-fill-dark"
-                            colspan="8"
+                            colspan="12"
                             style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
                           ></th>
                         </tr>
@@ -6416,7 +6416,11 @@
                           <th class="kt-bg-fill-dark">BCG</th>
                           <th class="kt-bg-fill-dark">HEP-B</th>
                           <th class="kt-bg-fill-dark">POLIO</th>
+                          <th class="kt-bg-fill-dark">ROTAVIRUS</th>
+                          <th class="kt-bg-fill-dark">NEUMOCOCO</th>
+                          <th class="kt-bg-fill-dark">INFLUENZA</th>
                           <th class="kt-bg-fill-dark">PENTAVALENTE</th>
+                          <th class="kt-bg-fill-dark">VARICELA</th>
                           <th class="kt-bg-fill-dark">Maltrato</th>
                           <th class="kt-bg-fill-dark">Morbilidad</th>
                           <th class="kt-bg-fill-dark">TSH</th>
@@ -6855,6 +6859,54 @@
                           >
                             <b-form-select
                               style="width:150px;"
+                              v-model="item.rotaviruz"
+                              @input="rotaviruz=>updateMenA1(item,rotaviruz,'rotaviruz')"
+                              :class="item.rotaviruz==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="D1">D1</option>
+                              <option value="D2">D2</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.neumococo"
+                              @input="neumococo=>updateMenA1(item,neumococo,'neumococo')"
+                              :class="item.neumococo==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="D1">D1</option>
+                              <option value="D2">D2</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.influenza"
+                              @input="influenza=>updateMenA1(item,influenza,'influenza')"
+                              :class="item.influenza==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="D1">D1</option>
+                              <option value="D2">D2</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
                               v-model="item.pentavalente"
                               @input="pentavalente=>updateMenA1(item,pentavalente,'pentavalente')"
                               :class="item.pentavalente==''?'is-invalid':'is-valid'"
@@ -6863,6 +6915,21 @@
                               <option value="D1">D1</option>
                               <option value="D2">D2</option>
                               <option value="D3">D3</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.varicela"
+                              @input="varicela=>updateMenA1(item,varicela,'varicela')"
+                              :class="item.varicela==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="D1">D1</option>
                               <option value="NO">NO</option>
                               <option value="NA">No Aplica</option>
                             </b-form-select>
@@ -6949,7 +7016,7 @@
                           <th
                             class="kt-bg-fill-info"
                             style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
-                            colspan="8"
+                            colspan="9"
                           >Vacunación</th>
                           <th
                             class="kt-bg-fill-dark"
@@ -6986,7 +7053,7 @@
                           ></th>
                           <th
                             class="kt-bg-fill-info"
-                            colspan="8"
+                            colspan="9"
                             style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
                           ></th>
                           <th
@@ -7028,6 +7095,7 @@
                           <td class="kt-bg-fill-info">Fiebre Amarilla</td>
                           <td class="kt-bg-fill-info">Triple Viral</td>
                           <td class="kt-bg-fill-info">Pentavalente</td>
+                          <td class="kt-bg-fill-info">Varicela</td>
                           <td class="kt-bg-fill-info">Otras</td>
                           <td class="kt-bg-fill-dark">Desparasitado</td>
                           <td class="kt-bg-fill-dark">Señales de Maltrato</td>
@@ -7440,6 +7508,8 @@
                               <option value="D3">D3</option>
                               <option value="D4">D4</option>
                               <option value="D5">D5</option>
+                              <option value="R1">R1</option>
+                              <option value="R2">R2</option>
                               <option value="NO">NO</option>
                               <option value="NA">No Aplica</option>
                             </b-form-select>
@@ -7472,6 +7542,7 @@
                               <option value selected>Seleccione</option>
                               <option value="D1">D1</option>
                               <option value="D2">D2</option>
+                              <option value="1R">1R</option>
                               <option value="NO">NO</option>
                               <option value="NA">No Aplica</option>
                             </b-form-select>
@@ -7489,6 +7560,21 @@
                               <option value="D1">D1</option>
                               <option value="D2">D2</option>
                               <option value="D3">D3</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.varicela"
+                              @input="varicela=>updateDe1A5(item,varicela,'varicela')"
+                              :class="item.varicela==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="R1">R1</option>
                               <option value="NO">NO</option>
                               <option value="NA">No Aplica</option>
                             </b-form-select>
@@ -26865,7 +26951,19 @@
               if (this.Men1A[i].polio === "") {
                 valid = true;
               }
+              if (this.Men1A[i].rotaviruz === "") {
+                valid = true;
+              }
+              if (this.Men1A[i].neumococo === "") {
+                valid = true;
+              }
+              if (this.Men1A[i].influenza === "") {
+                valid = true;
+              }
               if (this.Men1A[i].pentavalente === "") {
+                valid = true;
+              }
+              if (this.Men1A[i].varicela === "") {
                 valid = true;
               }
               if (this.Men1A[i].maltrato === "") {
@@ -26985,6 +27083,9 @@
                 valid = true;
               }
               if (this.De1A5[i].pentavalente === "") {
+                valid = true;
+              }  
+              if (this.De1A5[i].varicela === "") {
                 valid = true;
               }                    
               if (this.De1A5[i].desparacitado === "") {
@@ -35049,10 +35150,50 @@
             );
             return false;
           }
+          if (this.Men1A[i].rotaviruz === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione de la vacunación si tiene la vacuna <b>ROTAVIRUS</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) menores de 1 año",
+              "error"
+            );
+            return false;
+          }
+          if (this.Men1A[i].neumococo === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione de la vacunación si tiene la vacuna <b>NEUMOCOCO</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) menores de 1 año",
+              "error"
+            );
+            return false;
+          }
+          if (this.Men1A[i].influenza === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione de la vacunación si tiene la vacuna <b>INFLUENZA</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) menores de 1 año",
+              "error"
+            );
+            return false;
+          }
           if (this.Men1A[i].pentavalente === "") {
             this.$swal(
               "Error...!",
               "Por favor seleccione de la vacunación si tiene la vacuna <b>PENTAVALENTE</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) menores de 1 año",
+              "error"
+            );
+            return false;
+          }
+          if (this.Men1A[i].varicela === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione de la vacunación si tiene la vacuna <b>VARICELA</b> en la fila " +
                 (i + 1) +
                 " de la tabla primera infancia, niños(as) menores de 1 año",
               "error"
@@ -35364,7 +35505,16 @@
             );
             return false;
           }          
-          
+          if (this.De1A5[i].varicela === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione de Vacunación la <b>Varicela</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) de 1 a 5 años",
+              "error"
+            );
+            return false;
+          }   
           if (this.De1A5[i].desparacitado === "") {
             this.$swal(
               "Error...!",
@@ -37835,7 +37985,11 @@
           bcg: "",
           hepb: "",
           polio: "",
+          rotaviruz: "",
+          neumococo: "",
+          influenza: "",
           pentavalente: "",
+          varicela: "",
           maltrato: "",
           morbilidad: "",
           tsh: "",
@@ -37925,8 +38079,20 @@
         if (opcion === "polio") {
           item.polio = valor;
         }
+        if (opcion === "rotaviruz") {
+          item.rotaviruz = valor;
+        }
+        if (opcion === "neumococo") {
+          item.neumococo = valor;
+        }
+        if (opcion === "influenza") {
+          item.influenza = valor;
+        }
         if (opcion === "pentavalente") {
           item.pentavalente = valor;
+        }
+        if (opcion === "varicela") {
+          item.varicela = valor;
         }
         if (opcion === "maltrato") {
           item.maltrato = valor;
@@ -37991,6 +38157,7 @@
           fiebrea: "",
           tripleviral: "",
           pentavalente: "",
+          varicela: "",
           otras: "",
           desparacitado: "",
           maltrato: "",
@@ -38090,7 +38257,9 @@
         if (opcion === "pentavalente") {
           item.pentavalente = valor;
         }        
-        
+        if (opcion === "varicela") {
+          item.varicela = valor;
+        } 
         if (opcion === "desparacitado") {
           item.desparacitado = valor;
         }
@@ -45827,5 +45996,9 @@
     border: 1px solid #ddd;
     padding: 0em 1em 1em;
     margin-bottom: 2em;
+  }
+
+  .nav-pills, .nav-tabs {
+    margin: 0 0 10px 0 !important;
   }
 </style>

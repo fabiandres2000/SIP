@@ -17,6 +17,8 @@
                 <b-tab title="Embarazo">
                     <EmbarazoDashboard></EmbarazoDashboard>
                 </b-tab>
+                <b-tab title="Inmunización">
+                    <InmunizacionDashboard></InmunizacionDashboard>
                 </b-tab>
             </b-tabs>
         </b-card>
@@ -29,6 +31,7 @@ import HogaresDashboard from "./HogaresDashboard.vue"
 import enfermedadesDashboard from "./enfermedadesDashboard.vue"
 import SpaDashboard from "./SpaDashboard.vue"
 import EmbarazoDashboard from "./EmbarazoDashboard.vue"
+import InmunizacionDashboard from "./InmunizacionDashboard.vue"
 
 export default {
     components: {
@@ -36,7 +39,8 @@ export default {
         HogaresDashboard,
         enfermedadesDashboard,
         SpaDashboard,
-        EmbarazoDashboard
+        EmbarazoDashboard,
+        InmunizacionDashboard
     },  
 }
 </script>

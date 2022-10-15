@@ -657,4 +657,7 @@ export default {
     padding: 0em 1em 1em;
     margin-bottom: 2em;
 }
+.nav-pills, .nav-tabs {
+    margin: 0 0 -10px 0 !important;
+}
 </style>

@@ -555,5 +555,9 @@ export default {
 }
 </script>
 <style>
-    
+
+.nav-pills, .nav-tabs {
+    margin: 0 0 -10px 0 !important;
+}
+
 </style>

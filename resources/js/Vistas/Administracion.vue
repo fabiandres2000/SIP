@@ -7,6 +7,7 @@
                 >
             </h4>
             <ul
+                style="padding-bottom: 44px;"
                 class="nav nav-tabs nav-tabs-line nav-tabs-bold nav-tabs-line-3x nav-tabs-line-success"
             >
                 <li class="nav-item">

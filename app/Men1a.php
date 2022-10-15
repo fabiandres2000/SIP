@@ -14,8 +14,8 @@ class Men1a extends Model
         'cyc', 'valoracion_23', 'valoracion_68', 'valoracion_911', 'lactancia', 'peso_nacer',
         'peso_actual', 'longitud_nacer', 'longitud_actual', 'peso_long', 'cinta', 'edemas',
         'lenguaje', 'motora', 'conducta', 'visuales', 'auditivos', 'carnet',
-        'bcg', 'hepb', 'polio', 'pentavalente', 'maltrato', 'morbilidad',
-        'tsh', 'estado', 'id_compania', 'opci', 'pb', 'desviacion_imc'
+        'bcg', 'hepb', 'polio','pentavalente', 'maltrato', 'morbilidad',
+        'tsh', 'estado', 'id_compania', 'opci', 'pb', 'desviacion_imc', 'rotaviruz', 'neumococo', 'influenza', 'varicela'
     ];
 
     public static function guardar($data, $alias)
@@ -69,6 +69,10 @@ class Men1a extends Model
             'opci' => $data['opci'],
             'pb' => $data['pb'],
             'desviacion_imc' => $data['desviacion_imc'],
+            'rotaviruz' => $data['rotaviruz'],
+            'neumococo' => $data['neumococo'],
+            'influenza' => $data['influenza'],
+            'varicela' => $data['varicela'],
         ]);
     }
 
@@ -122,7 +126,11 @@ class Men1a extends Model
             ->selectRaw("IFNULL(men1a.morbilidad,'') AS morbilidad")
             ->selectRaw("IFNULL(men1a.tsh,'') AS tsh")
             ->selectRaw("IFNULL(men1a.opci,'INTE') AS opci")
-            ->selectRaw("IFNULL(men1a.pb,'') AS pb");
+            ->selectRaw("IFNULL(men1a.pb,'') AS pb")
+            ->selectRaw("IFNULL(men1a.rotaviruz,'') AS rotaviruz")
+            ->selectRaw("IFNULL(men1a.neumococo,'') AS neumococo")
+            ->selectRaw("IFNULL(men1a.influenza,'') AS influenza")
+            ->selectRaw("IFNULL(men1a.varicela,'') AS varicela");
 
         return $men1a->get();
     }
@@ -192,7 +200,11 @@ class Men1a extends Model
             ->selectRaw("IFNULL(men1a.morbilidad,'') AS morbilidad")
             ->selectRaw("IFNULL(men1a.tsh,'') AS tsh")
             ->selectRaw("IFNULL(men1a.opci,'INTE') AS opci")
-            ->selectRaw("IFNULL(men1a.pb,'') AS pb");
+            ->selectRaw("IFNULL(men1a.pb,'') AS pb")
+            ->selectRaw("IFNULL(men1a.rotaviruz,'') AS rotaviruz")
+            ->selectRaw("IFNULL(men1a.neumococo,'') AS neumococo")
+            ->selectRaw("IFNULL(men1a.influenza,'') AS influenza")
+            ->selectRaw("IFNULL(men1a.varicela,'') AS varicela");
 
         return $men1a->first();
     }    

@@ -881,4 +881,8 @@ export default {
     .dataTables_filter label input {
         margin-left: 20px
     } 
+
+    .nav-pills, .nav-tabs {
+        margin: 0 0 -10px 0 !important;
+    }
 </style>

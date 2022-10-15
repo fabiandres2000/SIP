@@ -15,7 +15,7 @@ class De1a5 extends Model
         'te', 'lenguaje', 'motora', 'conducta', 'visuales', 'auditivos',
         'caries', 'nocepillado', 'consultaodon', 'carnet', 'bcg', 'polio',
         'dpt', 'fiebrea', 'tripleviral', 'otras', 'desparacitado', 'maltrato',
-        'enfermedad', 'medicamento', 'estado', 'id_compania', 'opci', 'pentavalente', 'pcefalico', 'desviacion_imc'
+        'enfermedad', 'medicamento', 'estado', 'id_compania', 'opci', 'pentavalente', 'pcefalico', 'desviacion_imc', 'varicela'
     ];
 
     public static function guardar($data, $alias)
@@ -73,6 +73,7 @@ class De1a5 extends Model
             'opci' => $data['opci'],
             'pcefalico' => $data['pcefalico'],
             'desviacion_imc' => $data['desviacion_imc'],
+            'varicela' => $data['varicela'],
         ]);
     }
 
@@ -129,7 +130,8 @@ class De1a5 extends Model
             ->selectRaw("IFNULL(de1a5.medicamento,'') AS medicamento")
             ->selectRaw("IFNULL(de1a5.opci,'INTE') AS opci")
             ->selectRaw("IFNULL(de1a5.pentavalente,'') AS pentavalente")
-            ->selectRaw("IFNULL(de1a5.pcefalico,'') AS pcefalico");
+            ->selectRaw("IFNULL(de1a5.pcefalico,'') AS pcefalico")
+            ->selectRaw("IFNULL(de1a5.varicela,'') AS varicela");
 
         return $de1a5->get();
 
@@ -194,7 +196,8 @@ class De1a5 extends Model
             ->selectRaw("IFNULL(de1a5.medicamento,'') AS medicamento")
             ->selectRaw("IFNULL(de1a5.opci,'INTE') AS opci")
             ->selectRaw("IFNULL(de1a5.pentavalente,'') AS pentavalente")
-            ->selectRaw("IFNULL(de1a5.pcefalico,'') AS pcefalico");
+            ->selectRaw("IFNULL(de1a5.pcefalico,'') AS pcefalico")
+            ->selectRaw("IFNULL(de1a5.varicela,'') AS varicela");
 
             return $de1a5->first();       
     }

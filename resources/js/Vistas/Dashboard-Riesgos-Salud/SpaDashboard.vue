@@ -821,4 +821,9 @@ export default {
     .percent-text{
         font-size: 32px !important;
     }
+
+    .nav-pills, .nav-tabs {
+        margin: 0 0 -10px 0 !important;
+    }
+
 </style>

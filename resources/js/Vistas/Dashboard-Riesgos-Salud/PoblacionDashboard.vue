@@ -96,49 +96,59 @@
                 </div>
             </div>
             <hr>
-            <div class="row">
-                <div class="col-lg-6 text-center">
-                    <br>
-                    <h2>{{ titulo_grafico }}</h2>
-                    <br>
-                    <div id="chartdiv_barras" style="width: 100%; height: 350px"></div>
+            <div v-if="bandera_data == true">
+                <div class="row">
+                    <div class="col-lg-6 text-center">
+                        <br>
+                        <h2>{{ titulo_grafico }}</h2>
+                        <br>
+                        <div id="chartdiv_barras" style="width: 100%; height: 350px"></div>
+                    </div>
+                    <div class="col-lg-6 text-center">
+                        <br>
+                        <h2>{{ titulo_grafico }}</h2>
+                        <br>
+                        <div id="graf_torta" style="width: 100%; height: 350px"></div>
+                    </div>
                 </div>
-                <div class="col-lg-6 text-center">
-                    <br>
-                    <h2>{{ titulo_grafico }}</h2>
-                    <br>
-                    <div id="graf_torta" style="width: 100%; height: 350px"></div>
+                <br>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <br>
+                        <h2>{{ titulo_grafico }}</h2>
+                        <br>
+                        <table style="width: 100%;" class="table_data" id="tabla_riesgos">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th style="text-align: center">Riesgo Inherente</th>
+                                    <th style="text-align: center">Riesgo Residual</th>
+                                    <th>Corregimiento</th> 
+                                    <th>Barrio</th>
+                                    <th>Direccion</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="item in data_tabla_riesgos">
+                                    <td>{{item.nombre}}</td>
+                                    <td style="text-align: center"><span :class="item.cInherente">{{item.Inherente}} - {{item.vInherente}}</span></td>
+                                    <td style="text-align: center"><span :class="item.cResidual">{{item.Residual}} - {{item.vResidual}}</span></td>
+                                    <td><span>{{item.corregimiento}}</span></td>
+                                    <td><span>{{item.barrio}}</span></td>
+                                    <td><span>{{item.direccion}}</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
-            <br>
-            <div class="row">
-                <div class="col-lg-12">
-                    <br>
-                    <h2>{{ titulo_grafico }}</h2>
-                    <br>
-                    <table style="width: 100%;" class="table_data" id="tabla_riesgos">
-                        <thead>
-                            <tr>
-                                <th>Nombre</th>
-                                <th style="text-align: center">Riesgo Inherente</th>
-                                <th style="text-align: center">Riesgo Residual</th>
-                                <th>Corregimiento</th> 
-                                <th>Barrio</th>
-                                <th>Direccion</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr v-for="item in data_tabla_riesgos">
-                                <td>{{item.nombre}}</td>
-                                <td style="text-align: center"><span :class="item.cInherente">{{item.Inherente}} - {{item.vInherente}}</span></td>
-                                <td style="text-align: center"><span :class="item.cResidual">{{item.Residual}} - {{item.vResidual}}</span></td>
-                                <td><span>{{item.corregimiento}}</span></td>
-                                <td><span>{{item.barrio}}</span></td>
-                                <td><span>{{item.direccion}}</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+            <div v-if="bandera_data == false" style="text-align: center; padding: 50px">
+                <h1>¡Importante!</h1>
+                <br>
+                <br>
+                <h2>Este riesgo no se calcula para el grupo de edad seleccionado.</h2>
+                <br>
+                <h2>Seleccione otro riesgo...</h2>
             </div>
         </div>
         <b-modal
@@ -235,6 +245,7 @@ export default {
                 { value: "enfermedades_respiratorias", nombre: "Enfermedades Respiratorias Crónicas " },
                 { value: "enfermedades_zoonoticas", nombre: "Enfermedades Zoonoticas " },
                 { value: "problemas_salud_mental", nombre: "Problemas En Salud Mental " },
+                { value: "riesgo_delgadez", nombre: "Riesgo De Delgadez" },
                 { value: "riesgo_muerte", nombre: "Riesgo De Muerte Por Desnutrición " },
                 { value: "riesgo_sobrepeso", nombre: "Riesgo Sobrepeso " },
                 { value: "riesgo_talla_baja", nombre: "Riesgo De Talla Baja " },
@@ -245,58 +256,11 @@ export default {
                 { value: "transtornos_degenartivos", nombre: "Trastornos Degenerativos, Neuropatías Y Enfermedades Autoinmunes" },
                 { value: "violencias", nombre: "Violencias" },
             ],
-            riesgos_salud_tipo_2:  [
-                { value: "alteraciones_transtornos_audicion", nombre: "Alteraciones Y Transtornos De La Audición Y Comunicación " },
-                { value: "alteraciones_transtornos_visuales", nombre: "Alteraciones Y Transtornos Visuales" },
-                { value: "cancer", nombre: "Cancer" },
-                { value: "consumo_spa", nombre: "Consumo De SPA" },
-                { value: "enfermedad_cardiovascular", nombre: "Enfermedad Cardiovascular Aterogénica" },
-                { value: "enfermedades_infecciosas", nombre: "Enfermedades Infeccisosas" },
-                { value: "enfermedades_respiratorias", nombre: "Enfermedades Respiratorias Crónicas " },
-                { value: "enfermedades_zoonoticas", nombre: "Enfermedades Zoonoticas " },
-                { value: "problemas_salud_mental", nombre: "Problemas En Salud Mental " },
-                { value: "riesgo_delgadez", nombre: "Riesgo De Delgadez" },
-                { value: "riesgo_talla_baja", nombre: "Riesgo De Talla Baja " },
-                { value: "salud_bucal", nombre: "Salud Bucal " },
-                { value: "transtornos_asociados_spa", nombre: "Trastornos Asociados Al Uso De SPA" },
-                { value: "transtornos_degenartivos", nombre: "Trastornos Degenerativos, Neuropatías Y Enfermedades Autoinmunes" },
-                { value: "violencias", nombre: "Violencias" },
-            ],
-            riesgos_salud_tipo_3:  [
-                { value: "alteraciones_transtornos_audicion", nombre: "Alteraciones Y Transtornos De La Audición Y Comunicación " },
-                { value: "alteraciones_transtornos_visuales", nombre: "Alteraciones Y Transtornos Visuales" },
-                { value: "cancer", nombre: "Cancer" },
-                { value: "consumo_spa", nombre: "Consumo De SPA" },
-                { value: "enfermedad_cardiovascular", nombre: "Enfermedad Cardiovascular Aterogénica" },
-                { value: "enfermedades_infecciosas", nombre: "Enfermedades Infeccisosas" },
-                { value: "enfermedades_respiratorias", nombre: "Enfermedades Respiratorias Crónicas " },
-                { value: "enfermedades_zoonoticas", nombre: "Enfermedades Zoonoticas " },
-                { value: "problemas_salud_mental", nombre: "Problemas En Salud Mental " },
-                { value: "riesgo_delgadez", nombre: "Riesgo De Delgadez" },
-                { value: "salud_bucal", nombre: "Salud Bucal " },
-                { value: "transtornos_asociados_spa", nombre: "Trastornos Asociados Al Uso De SPA" },
-                { value: "transtornos_degenartivos", nombre: "Trastornos Degenerativos, Neuropatías Y Enfermedades Autoinmunes" },
-                { value: "violencias", nombre: "Violencias" },
-            ],
-            riesgos_salud_tipo_4:  [
-                { value: "alteraciones_transtornos_audicion", nombre: "Alteraciones Y Transtornos De La Audición Y Comunicación " },
-                { value: "alteraciones_transtornos_visuales", nombre: "Alteraciones Y Transtornos Visuales" },
-                { value: "cancer", nombre: "Cancer" },
-                { value: "consumo_spa", nombre: "Consumo De SPA" },
-                { value: "enfermedad_cardiovascular", nombre: "Enfermedad Cardiovascular Aterogénica" },
-                { value: "enfermedades_infecciosas", nombre: "Enfermedades Infeccisosas" },
-                { value: "enfermedades_respiratorias", nombre: "Enfermedades Respiratorias Crónicas " },
-                { value: "enfermedades_zoonoticas", nombre: "Enfermedades Zoonoticas " },
-                { value: "problemas_salud_mental", nombre: "Problemas En Salud Mental " },
-                { value: "salud_bucal", nombre: "Salud Bucal " },
-                { value: "transtornos_asociados_spa", nombre: "Trastornos Asociados Al Uso De SPA" },
-                { value: "transtornos_degenartivos", nombre: "Trastornos Degenerativos, Neuropatías Y Enfermedades Autoinmunes" },
-                { value: "violencias", nombre: "Violencias" },
-            ],
             data_select_riesgo: [],
             titulo_grafico: "",
             data_grafico: [],
-            data_tabla_riesgos: []
+            data_tabla_riesgos: [],
+            bandera_data: true
         }
     },
     methods: {
@@ -433,7 +397,6 @@ export default {
         },
         async poblacionRS(){
             this.isLoading = true;
-            this.combo_riesgo = "alteraciones_transtornos_audicion";
             await DashboardServiceRS.poblacion(this.tipo, this.id_combo, this.tipoComboGrupoEdad).then(respuesta => {
                 this.poblacion = respuesta.data["poblacion"]; 
                 this.data_combo_riesgo();
@@ -444,37 +407,22 @@ export default {
             });
         },
         async data_combo_riesgo() {
-            if(this.tipoComboGrupoEdad == "riesgos_salud_men1" || this.tipoComboGrupoEdad == "riesgos_salud_de1a5"){
-                this.data_select_riesgo = this.riesgos_salud_tipo_1;
-                let tipoRiesgo = this.combo_riesgo;
-                this.obtener_data_grafico(tipoRiesgo);
-            }
-            if(this.tipoComboGrupoEdad == "riesgos_salud_de6a11" || this.tipoComboGrupoEdad == "riesgos_salud_de12a17"){
-                this.data_select_riesgo = this.riesgos_salud_tipo_2;
-                let tipoRiesgo = this.combo_riesgo;
-                this.obtener_data_grafico(tipoRiesgo);
-            }
-            if(this.tipoComboGrupoEdad == "riesgos_salud_de18a28" || this.tipoComboGrupoEdad == "riesgos_salud_de29a59"){
-                this.data_select_riesgo = this.riesgos_salud_tipo_3;
-                let tipoRiesgo = this.combo_riesgo;
-                this.obtener_data_grafico(tipoRiesgo);
-            }
-            if(this.tipoComboGrupoEdad == "riesgos_salud_de60"){
-                this.data_select_riesgo = this.riesgos_salud_tipo_4;
-                let tipoRiesgo = this.combo_riesgo;
-                this.obtener_data_grafico(tipoRiesgo);
-            }
+            this.data_select_riesgo = this.riesgos_salud_tipo_1;
+            let tipoRiesgo = this.combo_riesgo;
+            this.obtener_data_grafico(tipoRiesgo);
         },
         async obtener_data_grafico(tipoRiesgo){
-            
+            this.bandera_data = true;
+
             this.data_select_riesgo.forEach(element => {
                 if(element.value == tipoRiesgo){
                     this.titulo_grafico = element.nombre;
                 }
             });
 
+            let  data = [];
+
             if(this.tipoComboGrupoEdad == "riesgos_salud_men1" || this.tipoComboGrupoEdad == "riesgos_salud_de1a5" ){
-                let  data = [];
                 switch (tipoRiesgo) {
                     case "alteraciones_transtornos_audicion":
                         data =  this.poblacion.riesgosCantidad.alteraciones_transtornos_audicion;
@@ -530,13 +478,14 @@ export default {
                     case "violencias":
                         data =  this.poblacion.riesgosCantidad.violencias;
                         break;
+                    default:
+                        this.$swal("Importante...!", "Este riesgo no se calcula para el grupo de edad seleccionado", "warning");
+                        this.bandera_data = false;
+                        break;
                 }
-                this.grafico_torta(data);
-                this.grafica_barras(data);
             }
 
             if(this.tipoComboGrupoEdad == "riesgos_salud_de6a11" || this.tipoComboGrupoEdad == "riesgos_salud_de12a17" ){
-                let  data = [];
                 switch (tipoRiesgo) {
                     case "alteraciones_transtornos_audicion":
                         data =  this.poblacion.riesgosCantidad.alteraciones_transtornos_audicion;
@@ -583,13 +532,14 @@ export default {
                     case "violencias":
                         data =  this.poblacion.riesgosCantidad.violencias;
                         break;
+                    default:
+                        this.$swal("Importante...!", "Este riesgo no se calcula para el grupo de edad seleccionado", "warning");
+                        this.bandera_data = false;
+                        break;
                 }
-                this.grafico_torta(data);
-                this.grafica_barras(data);
             }
 
             if(this.tipoComboGrupoEdad == "riesgos_salud_de18a28" || this.tipoComboGrupoEdad == "riesgos_salud_de29a59" ){
-                let  data = [];
                 switch (tipoRiesgo) {
                     case "alteraciones_transtornos_audicion":
                         data =  this.poblacion.riesgosCantidad.alteraciones_transtornos_audicion;
@@ -633,13 +583,14 @@ export default {
                     case "violencias":
                         data =  this.poblacion.riesgosCantidad.violencias;
                         break;
+                    default:
+                        this.$swal("Importante...!", "Este riesgo no se calcula para el grupo de edad seleccionado", "warning");
+                        this.bandera_data = false;
+                        break;
                 }
-                this.grafico_torta(data);
-                this.grafica_barras(data);
             }
 
             if(this.tipoComboGrupoEdad == "riesgos_salud_de60"){
-                let  data = [];
                 switch (tipoRiesgo) {
                     case "alteraciones_transtornos_audicion":
                         data =  this.poblacion.riesgosCantidad.alteraciones_transtornos_audicion;
@@ -680,12 +631,25 @@ export default {
                     case "violencias":
                         data =  this.poblacion.riesgosCantidad.violencias;
                         break;
-                }
-                this.grafico_torta(data);
-                this.grafica_barras(data);
+                    default:
+                        this.$swal("Importante...!", "Este riesgo no se calcula para el grupo de edad seleccionado", "warning");
+                        this.bandera_data = false;
+                        break;
+                } 
             }
 
-            this.data_tabla(tipoRiesgo);
+            setTimeout(() => {
+                this.grafico_torta(data);
+                this.grafica_barras(data);
+            }, 1000);
+
+            if(this.bandera_data){
+                this.data_tabla(tipoRiesgo);
+            }else{
+                this.data_tabla_riesgos = [];
+                $("#tabla_riesgos").dataTable().fnDestroy();
+            }
+            
         },
         async grafico_torta(data) {
             if(this.graf_torta != null){
@@ -977,5 +941,9 @@ export default {
 
     .dataTables_filter label input {
         margin-left: 20px
-    } 
+    }
+    
+    .nav-pills, .nav-tabs {
+        margin: 0 0 -10px 0 !important;
+    }
 </style>
