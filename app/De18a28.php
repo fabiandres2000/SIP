@@ -13,7 +13,7 @@ class De18a28 extends Model
         'sape', 'sexo', 'edad', 'peso', 'talla', 'imc', 'pcintura', 'pb',
         'visuales', 'auditivos', 'conducta', 'enfermedades_cronicas', 'dientes_sanos', 'consultaodon',
         'nocepillado', 'maltrato', 'alcohol', 'fuma', 'spa', 'desparacitado',
-        'empleo', 'religion', 'queesvih', 'queescancerutero', 'queespapiloma', 'estado', 'id_compania', 'opci',
+        'empleo', 'religion', 'queesvih', 'queescancerutero', 'queespapiloma', 'estado', 'id_compania', 'opci', 'papiloma'
     ];
 
     public static function guardar($data, $alias)
@@ -68,6 +68,7 @@ class De18a28 extends Model
             'estado' => $data['estado'],
             'id_compania' => 1,
             'opci' => $data['opci'],
+            'papiloma' => $data['papiloma'],
         ]);
     }
 
@@ -115,7 +116,8 @@ class De18a28 extends Model
             ->selectRaw("IFNULL(de18a28.queesvih,'') AS queesvih")
             ->selectRaw("IFNULL(de18a28.queescancerutero,'') AS queescancerutero")
             ->selectRaw("IFNULL(de18a28.queespapiloma,'') AS queespapiloma")
-            ->selectRaw("IFNULL(de18a28.opci,'JEFE') AS opci");
+            ->selectRaw("IFNULL(de18a28.opci,'JEFE') AS opci")
+            ->selectRaw("IFNULL(de18a28.papiloma,'') AS papiloma");
 
         $de18a282 = DB::connection('mysql')->table($alias . '.de18a28')
             ->join($alias . '.integrantes', 'integrantes.id', 'de18a28.id_integrante')
@@ -159,7 +161,8 @@ class De18a28 extends Model
             ->selectRaw("IFNULL(de18a28.queesvih,'') AS queesvih")
             ->selectRaw("IFNULL(de18a28.queescancerutero,'') AS queescancerutero")
             ->selectRaw("IFNULL(de18a28.queespapiloma,'') AS queespapiloma")
-            ->selectRaw("IFNULL(de18a28.opci,'INTE') AS opci");
+            ->selectRaw("IFNULL(de18a28.opci,'INTE') AS opci")
+            ->selectRaw("IFNULL(de18a28.papiloma,'') AS papiloma");
 
         return $de18a281->unionAll($de18a282)->get();
 
@@ -216,7 +219,9 @@ class De18a28 extends Model
             ->selectRaw("IFNULL(de18a28.queesvih,'') AS queesvih")
             ->selectRaw("IFNULL(de18a28.queescancerutero,'') AS queescancerutero")
             ->selectRaw("IFNULL(de18a28.queespapiloma,'') AS queespapiloma")
-            ->selectRaw("IFNULL(de18a28.opci,'JEFE') AS opci");
+            ->selectRaw("IFNULL(de18a28.opci,'JEFE') AS opci")
+            ->selectRaw("IFNULL(de18a28.papiloma,'') AS papiloma");
+
 
         $de18a282 = DB::connection('mysql')->table($alias . '.de18a28')
             ->join($alias . '.integrantes', 'integrantes.id', 'de18a28.id_integrante')
@@ -260,7 +265,9 @@ class De18a28 extends Model
             ->selectRaw("IFNULL(de18a28.queesvih,'') AS queesvih")
             ->selectRaw("IFNULL(de18a28.queescancerutero,'') AS queescancerutero")
             ->selectRaw("IFNULL(de18a28.queespapiloma,'') AS queespapiloma")
-            ->selectRaw("IFNULL(de18a28.opci,'INTE') AS opci");
+            ->selectRaw("IFNULL(de18a28.opci,'INTE') AS opci")
+            ->selectRaw("IFNULL(de18a28.papiloma,'') AS papiloma");
+
 
         return $de18a281->unionAll($de18a282)->first();    
 

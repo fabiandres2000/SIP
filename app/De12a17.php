@@ -14,7 +14,7 @@ class De12a17 extends Model
         'visuales', 'auditivos', 'conducta', 'enfermedades_cronicas', 'dientes_sanos', 'consultaodon',
         'nocepillado', 'maltrato', 'alcohol', 'fuma', 'spa', 'desparacitado',
         'empleo', 'religion', 'queesvih', 'queescancerutero', 'queespapiloma',
-        'queescancerseno', 'padre', 'madre', 'hermanos', 'conyuge', 'estado', 'id_compania', 'opci', 'desviacion_imc'
+        'queescancerseno', 'padre', 'madre', 'hermanos', 'conyuge', 'estado', 'id_compania', 'opci', 'desviacion_imc', 'papiloma'
     ];
 
     public static function guardar($data, $alias)
@@ -75,6 +75,7 @@ class De12a17 extends Model
             'id_compania' => 1,
             'opci' => $data['opci'],
             'desviacion_imc' => $data['desviacion_imc'],
+            'papiloma' => $data['papiloma'],
         ]);
     }
 
@@ -126,7 +127,8 @@ class De12a17 extends Model
             ->selectRaw("IFNULL(de12a17.madre,'') AS madre")
             ->selectRaw("IFNULL(de12a17.hermanos,'') AS hermanos")
             ->selectRaw("IFNULL(de12a17.conyuge,'') AS conyuge")
-            ->selectRaw("IFNULL(de12a17.opci,'JEFE') AS opci");
+            ->selectRaw("IFNULL(de12a17.opci,'JEFE') AS opci")
+            ->selectRaw("IFNULL(de12a17.papiloma,'') AS papiloma");
 
         $de12a172 = DB::connection('mysql')->table($alias . '.de12a17')
             ->join($alias . '.integrantes', 'integrantes.id', 'de12a17.id_integrante')
@@ -174,7 +176,8 @@ class De12a17 extends Model
             ->selectRaw("IFNULL(de12a17.madre,'') AS madre")
             ->selectRaw("IFNULL(de12a17.hermanos,'') AS hermanos")
             ->selectRaw("IFNULL(de12a17.conyuge,'') AS conyuge")
-            ->selectRaw("IFNULL(de12a17.opci,'INTE') AS opci");
+            ->selectRaw("IFNULL(de12a17.opci,'INTE') AS opci")
+            ->selectRaw("IFNULL(de12a17.papiloma,'') AS papiloma");
 
         return $de12a171->unionAll($de12a172)->get();
 
@@ -235,7 +238,8 @@ class De12a17 extends Model
             ->selectRaw("IFNULL(de12a17.madre,'') AS madre")
             ->selectRaw("IFNULL(de12a17.hermanos,'') AS hermanos")
             ->selectRaw("IFNULL(de12a17.conyuge,'') AS conyuge")
-            ->selectRaw("IFNULL(de12a17.opci,'JEFE') AS opci");
+            ->selectRaw("IFNULL(de12a17.opci,'JEFE') AS opci")
+            ->selectRaw("IFNULL(de12a17.papiloma,'') AS papiloma");
 
         $de12a172 = DB::connection('mysql')->table($alias . '.de12a17')
             ->join($alias . '.integrantes', 'integrantes.id', 'de12a17.id_integrante')
@@ -283,7 +287,8 @@ class De12a17 extends Model
             ->selectRaw("IFNULL(de12a17.madre,'') AS madre")
             ->selectRaw("IFNULL(de12a17.hermanos,'') AS hermanos")
             ->selectRaw("IFNULL(de12a17.conyuge,'') AS conyuge")
-            ->selectRaw("IFNULL(de12a17.opci,'INTE') AS opci");
+            ->selectRaw("IFNULL(de12a17.opci,'INTE') AS opci")
+            ->selectRaw("IFNULL(de12a17.papiloma,'') AS papiloma");
 
         return $de12a171->unionAll($de12a172)->first();
 

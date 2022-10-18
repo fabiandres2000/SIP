@@ -14,7 +14,7 @@ class De6a11 extends Model
         'imc', 'pb', 'pt', 'te', 'conducta', 'visuales',
         'auditivos', 'dientes_sanos', 'consultaodon', 'nofluor', 'nocepillado', 'maltrato',
         'sustanciaspsico', 'desparacitado', 'enfermedad', 'medicamento', 'padre', 'madre',
-        'hermanos', 'conyuge', 'estado', 'id_compania', 'opci', 'desviacion_imc'
+        'hermanos', 'conyuge', 'estado', 'id_compania', 'opci', 'desviacion_imc', 'papiloma'
     ];
 
     public static function guardar($data, $alias)
@@ -64,6 +64,7 @@ class De6a11 extends Model
             'id_compania' => 1,
             'opci' => $data['opci'],
             'desviacion_imc' => $data['desviacion_imc'],
+            'papiloma' => $data['papiloma'],
         ]);
     }
 
@@ -112,7 +113,8 @@ class De6a11 extends Model
             ->selectRaw("IFNULL(de6a11.madre,'') AS madre")
             ->selectRaw("IFNULL(de6a11.hermanos,'') AS hermanos")
             ->selectRaw("IFNULL(de6a11.conyuge,'') AS conyuge")
-            ->selectRaw("IFNULL(de6a11.opci,'INTE') AS opci");
+            ->selectRaw("IFNULL(de6a11.opci,'INTE') AS opci")
+            ->selectRaw("IFNULL(de6a11.papiloma,'INTE') AS papiloma");
         return $de6a11->get();
 
     }
@@ -169,7 +171,8 @@ class De6a11 extends Model
             ->selectRaw("IFNULL(de6a11.madre,'') AS madre")
             ->selectRaw("IFNULL(de6a11.hermanos,'') AS hermanos")
             ->selectRaw("IFNULL(de6a11.conyuge,'') AS conyuge")
-            ->selectRaw("IFNULL(de6a11.opci,'INTE') AS opci");
+            ->selectRaw("IFNULL(de6a11.opci,'INTE') AS opci")
+            ->selectRaw("IFNULL(de6a11.papiloma,'INTE') AS papiloma");
         return $de6a11->first();
 
     }    

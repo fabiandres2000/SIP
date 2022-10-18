@@ -7691,6 +7691,12 @@
                             style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
                             colspan="4"
                           >Relación Familiar</th>
+                          <th
+                            class="kt-bg-fill-info"
+                            colspan="1"
+                            rowspan="2"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          >Vacunación</th>
                         </tr>
                         <tr>
                           <th class="kt-bg-fill-success" colspan="6"></th>
@@ -7751,6 +7757,7 @@
                           <td class="kt-bg-fill-dark">Madre</td>
                           <td class="kt-bg-fill-dark">Hermanos</td>
                           <td class="kt-bg-fill-dark">Conyuge</td>
+                          <td class="kt-bg-fill-info text-center">Papiloma</td>
                         </tr>
                       </thead>
                       <tbody>
@@ -8159,6 +8166,22 @@
                               <option value="2">MUY BUENA</option>
                               <option value="3">REGULAR</option>
                               <option value="4">MALA</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.papiloma"
+                              @input="papiloma=>updateDe6A11(item,papiloma,'papiloma')"
+                              :class="item.papiloma==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="D2">D1</option>
+                              <option value="D2">D2</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">NO APLICA</option>
                             </b-form-select>
                           </td>
                         </tr>
@@ -9367,6 +9390,11 @@
                             style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
                             colspan="4"
                           >Relación Familiar</th>
+                          <th
+                            class="kt-bg-fill-info"
+                            colspan="1"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          >Vacunación</th>
                         </tr>
                         <tr class="kt-bg-fill-warning">
                           <td class="kt-bg-fill-success">No.</td>
@@ -9400,6 +9428,7 @@
                           <td class="kt-bg-fill-danger">Madre</td>
                           <td class="kt-bg-fill-danger">Hermanos</td>
                           <td class="kt-bg-fill-danger">Conyuge</td>
+                          <td class="kt-bg-fill-info text-center">Papiloma</td>
                         </tr>
                       </thead>
                       <tbody>
@@ -9848,6 +9877,22 @@
                               <option value="4">MALA</option>
                             </b-form-select>
                           </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.papiloma"
+                              @input="papiloma=>updateDe12A17(item,papiloma,'papiloma')"
+                              :class="item.papiloma==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="D1">D1</option>
+                              <option value="D2">D2</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">NO APLICA</option>
+                            </b-form-select>
+                          </td>
                         </tr>
                       </tbody>
                     </table>
@@ -9892,7 +9937,7 @@
                           <th
                             class="kt-bg-fill-success"
                             style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
-                            colspan="6"
+                            colspan="7"
                           ></th>
                         </tr>
                         <tr>
@@ -9932,6 +9977,11 @@
                             colspan="6"
                             style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
                           ></th>
+                          <th
+                            class="kt-bg-fill-info"
+                            colspan="1"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          >Vacunación</th>
                         </tr>
                         <tr class="kt-bg-fill-success">
                           <td>No.</td>
@@ -9961,6 +10011,7 @@
                           <td>Sabe que es VIH</td>
                           <td>Sabe que es Cancer de Utero</td>
                           <td>Sabe que es el Papiloma</td>
+                          <td class="kt-bg-fill-info text-center">Papiloma</td>
                         </tr>
                       </thead>
                       <tbody>
@@ -10322,7 +10373,6 @@
                               <option value="NO">NO</option>
                             </b-form-select>
                           </td>
-
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
@@ -10335,6 +10385,22 @@
                               <option value selected>Seleccione</option>
                               <option value="SI">SI</option>
                               <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.papiloma"
+                              @input="papiloma=>updateDe18A28(item,papiloma,'papiloma')"
+                              :class="item.papiloma==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="D1">D1</option>
+                              <option value="D2">D2</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">NO APLICA</option>
                             </b-form-select>
                           </td>
                         </tr>
@@ -10390,7 +10456,7 @@
                           <th
                             class="kt-bg-fill-success"
                             style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
-                            colspan="6"
+                            colspan="5"
                           ></th>
                         </tr>
                         <tr>
@@ -10437,9 +10503,14 @@
                           ></th>
                           <th
                             class="kt-bg-fill-success"
-                            colspan="4"
+                            colspan="1"
                             style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
                           ></th>
+                          <th
+                            class="kt-bg-fill-info"
+                            colspan="1"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          >Vacunación</th>
                         </tr>
                         <tr class="kt-bg-fill-success">
                           <td>No.</td>
@@ -10472,6 +10543,7 @@
                           <td>Sabe que es VIH</td>
                           <td>Sabe que es Cancer de Utero</td>
                           <td>Sabe que es el Papiloma</td>
+                          <td class="kt-bg-fill-info text-center">Papiloma</td>
                         </tr>
                       </thead>
                       <tbody>
@@ -10884,7 +10956,6 @@
                               <option value="NO">NO</option>
                             </b-form-select>
                           </td>
-
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
@@ -10897,6 +10968,22 @@
                               <option value selected>Seleccione</option>
                               <option value="SI">SI</option>
                               <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.papiloma"
+                              @input="papiloma=>updateDe29A59(item,papiloma,'papiloma')"
+                              :class="item.papiloma==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="D1">D1</option>
+                              <option value="D2">D2</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">NO APLICA</option>
                             </b-form-select>
                           </td>
                         </tr>
@@ -27198,6 +27285,9 @@
               if (this.De6A11[i].conyuge === "") {
                 valid = true;
               }
+              if (this.De6A11[i].papiloma === "") {
+                valid = true;
+              }
               if(valid){
                 i = this.De6A11.length;
               }                    
@@ -27514,6 +27604,9 @@
               if (this.De12A17[i].conyuge === "") {
                 valid = true;
               }
+              if (this.De12A17[i].papiloma === "") {
+                valid = true;
+              }
               if(valid){
                 i = this.De12A17.length;
               }                                                                                                                                                                                                                                                           
@@ -27604,6 +27697,9 @@
                 valid = true;
               }
               if (this.De18A28[i].queespapiloma === "") {
+                valid = true;
+              }
+              if (this.De18A28[i].papiloma === "") {
                 valid = true;
               }
               if(valid){
@@ -27708,6 +27804,9 @@
                 valid = true;
               }
               if (this.De29A59[i].queespapiloma === "") {
+                valid = true;
+              }
+              if (this.De29A59[i].papiloma === "") {
                 valid = true;
               }
               if(valid){
@@ -35799,7 +35898,17 @@
               "error"
             );
             return false;
-          }          
+          }   
+          if (this.De6A11[i].papiloma === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione Relación Familiar <b>PAPILOMA</b> en la fila " +
+                (i + 1) +
+                " de la tabla infancia, niños(as) de 6 a 11 años",
+              "error"
+            );
+            return false;
+          }            
         }
         return true;
       },
@@ -36584,7 +36693,17 @@
               "error"
             );
             return false;
-          }                                                                                                                                                                                                                                                 
+          }  
+          if (this.De12A17[i].papiloma === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione Relación Familiar <b>PAPILOMA</b> en la fila " +
+                (i + 1) +
+                " de la tabla infancia, niños(as) de 6 a 11 años",
+              "error"
+            );
+            return false;
+          }                                                                                                                                                                                                                                                
         }
         return true;
       },
@@ -36809,7 +36928,17 @@
               "error"
             );
             return false;
-          }          
+          }      
+          if (this.De18A28[i].papiloma === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>PAPILOMA</b> en la fila " +
+                (i + 1) +
+                " de la tabla juventud, jovenes de 18 a 28 años",
+              "error"
+            );
+            return false;
+          }         
         }
         return true;
       },
@@ -37059,6 +37188,16 @@
             this.$swal(
               "Error...!",
               "Por favor seleccione la opcion <b>Sabe que es el Papiloma</b> en la fila " +
+                (i + 1) +
+                " de la tabla hombres y mujeres de 29 a 59 años",
+              "error"
+            );
+            return false;
+          }   
+          if (this.De29A59[i].papiloma === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>PAPILOMA</b> en la fila " +
                 (i + 1) +
                 " de la tabla hombres y mujeres de 29 a 59 años",
               "error"
@@ -38322,6 +38461,7 @@
           madre: "",
           hermanos: "",
           conyuge: "",
+          papiloma: "",
           opci: opcion,
           estado: "Activo"
         });
@@ -38400,6 +38540,9 @@
         }
         if (opcion === "conyuge") {
           item.conyuge = valor;
+        }
+        if (opcion === "papiloma") {
+          item.papiloma = valor;
         }
         if (opcion === "nofluor") {
           item.nofluor = valor;
@@ -38857,6 +39000,7 @@
           madre: "",
           hermanos: "",
           conyuge: "",
+          papiloma: "",
           opci: opcion,
           estado: "Activo"
         });
@@ -38944,6 +39088,9 @@
         if (opcion === "conyuge") {
           item.conyuge = valor;
         }
+        if (opcion === "papiloma") {
+          item.papiloma = valor;
+        }
       },
       Ade18a28Anio(vector, edad, opcion) {
         this.De18A28.push({
@@ -38979,6 +39126,7 @@
           queescancerutero: "",
           queespapiloma: "",
           opci: opcion,
+          papiloma: "",
           estado: "Activo"
         });
       },
@@ -39053,6 +39201,9 @@
         if (opcion === "queespapiloma") {
           item.queespapiloma = valor;
         }
+        if (opcion === "papiloma") {
+          item.papiloma = valor;
+        }
       },
       Ade29a59Anio(vector, edad, opcion) {
         this.De29A59.push({
@@ -39091,7 +39242,8 @@
           queescancerutero: "",
           queespapiloma: "",
           opci: opcion,
-          estado: "Activo"
+          estado: "Activo",
+          papiloma: ""
         });
       },
       changeupdateDe29A59(item, event, opcion) {
@@ -39173,6 +39325,9 @@
         }
         if (opcion === "queespapiloma") {
           item.queespapiloma = valor;
+        }
+        if (opcion === "papiloma") {
+          item.papiloma = valor;
         }
       },
       Ade60Anio(vector, edad, opcion) {

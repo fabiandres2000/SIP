@@ -14,7 +14,7 @@ class De29a59 extends Model
         'visuales', 'auditivos', 'conducta', 'enfermedades_cronicas', 'dientes_sanos', 'consultaodon',
         'nocepillado', 'maltrato', 'alcohol', 'fuma', 'spa', 'desparacitado',
         'empleo', 'examen_prostata', 'citologia', 'examen_mama',
-        'religion', 'queesvih', 'queescancerutero', 'queespapiloma', 'estado', 'id_compania', 'opci',
+        'religion', 'queesvih', 'queescancerutero', 'queespapiloma', 'estado', 'id_compania', 'opci', 'papiloma'
     ];
 
     public static function guardar($data, $alias)
@@ -72,6 +72,7 @@ class De29a59 extends Model
             'estado' => $data['estado'],
             'id_compania' => 1,
             'opci' => $data['opci'],
+            'papiloma' => $data['papiloma'],
         ]);
     }
 
@@ -122,7 +123,8 @@ class De29a59 extends Model
             ->selectRaw("IFNULL(de29a59.queesvih,'') AS queesvih")
             ->selectRaw("IFNULL(de29a59.queescancerutero,'') AS queescancerutero")
             ->selectRaw("IFNULL(de29a59.queespapiloma,'') AS queespapiloma")
-            ->selectRaw("IFNULL(de29a59.opci,'JEFE') AS opci");
+            ->selectRaw("IFNULL(de29a59.opci,'JEFE') AS opci")
+            ->selectRaw("IFNULL(de29a59.papiloma,'') AS papiloma");
 
         $de29a592 = DB::connection('mysql')->table($alias . '.de29a59')
             ->join($alias . '.integrantes', 'integrantes.id', 'de29a59.id_integrante')
@@ -169,7 +171,8 @@ class De29a59 extends Model
             ->selectRaw("IFNULL(de29a59.queesvih,'') AS queesvih")
             ->selectRaw("IFNULL(de29a59.queescancerutero,'') AS queescancerutero")
             ->selectRaw("IFNULL(de29a59.queespapiloma,'') AS queespapiloma")
-            ->selectRaw("IFNULL(de29a59.opci,'INTE') AS opci");
+            ->selectRaw("IFNULL(de29a59.opci,'INTE') AS opci")
+            ->selectRaw("IFNULL(de29a59.papiloma,'') AS papiloma");
 
         return $de29a591->unionAll($de29a592)->get();
     }
@@ -228,7 +231,8 @@ class De29a59 extends Model
             ->selectRaw("IFNULL(de29a59.queesvih,'') AS queesvih")
             ->selectRaw("IFNULL(de29a59.queescancerutero,'') AS queescancerutero")
             ->selectRaw("IFNULL(de29a59.queespapiloma,'') AS queespapiloma")
-            ->selectRaw("IFNULL(de29a59.opci,'JEFE') AS opci");
+            ->selectRaw("IFNULL(de29a59.opci,'JEFE') AS opci")
+            ->selectRaw("IFNULL(de29a59.papiloma,'') AS papiloma");
 
         $de29a592 = DB::connection('mysql')->table($alias . '.de29a59')
             ->join($alias . '.integrantes', 'integrantes.id', 'de29a59.id_integrante')
@@ -275,7 +279,8 @@ class De29a59 extends Model
             ->selectRaw("IFNULL(de29a59.queesvih,'') AS queesvih")
             ->selectRaw("IFNULL(de29a59.queescancerutero,'') AS queescancerutero")
             ->selectRaw("IFNULL(de29a59.queespapiloma,'') AS queespapiloma")
-            ->selectRaw("IFNULL(de29a59.opci,'INTE') AS opci");
+            ->selectRaw("IFNULL(de29a59.opci,'INTE') AS opci")
+            ->selectRaw("IFNULL(de29a59.papiloma,'') AS papiloma");
 
         return $de29a591->unionAll($de29a592)->first();
     }    
