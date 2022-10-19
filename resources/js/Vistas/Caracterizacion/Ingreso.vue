@@ -6905,7 +6905,7 @@
                           <th
                             class="kt-bg-fill-info"
                             style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
-                            colspan="9"
+                            colspan="10"
                           >Vacunación</th>
                           <th
                             class="kt-bg-fill-dark"
@@ -6942,7 +6942,7 @@
                           ></th>
                           <th
                             class="kt-bg-fill-info"
-                            colspan="9"
+                            colspan="10"
                             style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
                           ></th>
                           <th
@@ -6985,6 +6985,7 @@
                           <td class="kt-bg-fill-info">Triple Viral</td>
                           <td class="kt-bg-fill-info">Pentavalente</td>
                           <td class="kt-bg-fill-info">Varicela</td>
+                          <td class="kt-bg-fill-info">Neumococo</td>
                           <td class="kt-bg-fill-info">Otras</td>
                           <td class="kt-bg-fill-dark">Desparasitado</td>
                           <td class="kt-bg-fill-dark">Señales de Maltrato</td>
@@ -7464,7 +7465,22 @@
                               <option value="NO">NO</option>
                               <option value="NA">No Aplica</option>
                             </b-form-select>
-                          </td>                       
+                          </td>  
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.neumococo"
+                              @input="neumococo=>updateDe1A5(item,neumococo,'neumococo')"
+                              :class="item.neumococo==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="R1">R1</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>                     
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
@@ -7643,7 +7659,7 @@
                           <td class="kt-bg-fill-dark">Madre</td>
                           <td class="kt-bg-fill-dark">Hermanos</td>
                           <td class="kt-bg-fill-dark">Conyuge</td>
-                          <td class="kt-bg-fill-info text-center">Papiloma</td>
+                          <td class="kt-bg-fill-info text-center">Virus del Papiloma</td>
                         </tr>
                       </thead>
                       <tbody>
@@ -9318,7 +9334,7 @@
                           <td class="kt-bg-fill-danger">Madre</td>
                           <td class="kt-bg-fill-danger">Hermanos</td>
                           <td class="kt-bg-fill-danger">Conyuge</td>
-                          <td class="kt-bg-fill-info text-center">Papiloma</td>
+                          <td class="kt-bg-fill-info text-center">Virus del Papiloma</td>
                         </tr>
                       </thead>
                       <tbody>
@@ -9901,7 +9917,7 @@
                           <td>Sabe que es VIH</td>
                           <td>Sabe que es Cancer de Utero</td>
                           <td>Sabe que es el Papiloma</td>
-                          <td class="kt-bg-fill-info text-center">Papiloma</td>
+                          <td class="kt-bg-fill-info text-center">Virus del Papiloma</td>
                         </tr>
                       </thead>
                       <tbody>
@@ -10433,7 +10449,7 @@
                           <td>Sabe que es VIH</td>
                           <td>Sabe que es Cancer de Utero</td>
                           <td>Sabe que es el Papiloma</td>
-                          <td class="kt-bg-fill-info text-center">Papiloma</td>
+                          <td class="kt-bg-fill-info text-center">Virus del Papiloma</td>
                         </tr>
                       </thead>
                       <tbody>
@@ -27294,6 +27310,16 @@
             );
             return false;
           }  
+          if (this.De1A5[i].neumococo === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione de Vacunación la <b>Neumococo</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) de 1 a 5 años",
+              "error"
+            );
+            return false;
+          }  
           if (this.De1A5[i].desparacitado === "") {
             this.$swal(
               "Error...!",
@@ -34119,6 +34145,9 @@
               }  
               if (this.De1A5[i].varicela === "") {
                 valid = true;
+              }  
+              if (this.De1A5[i].neumococo === "") {
+                valid = true;
               }                   
               if (this.De1A5[i].desparacitado === "") {
                 valid = true;
@@ -35816,6 +35845,7 @@
           tripleviral: "",
           pentavalente: "",
           varicela: "",
+          neumococo: "",
           otras: "",
           desparacitado: "",
           maltrato: "",
@@ -35917,6 +35947,9 @@
         }        
         if (opcion === "varicela") {
           item.varicela = valor;
+        }
+        if (opcion === "neumococo") {
+          item.neumococo = valor;
         }
         if (opcion === "desparacitado") {
           item.desparacitado = valor;
