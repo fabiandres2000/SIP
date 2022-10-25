@@ -171,6 +171,7 @@ class DashboardRiesgosSaludController extends Controller
             $imagenes = request()->get('imagenes');
             $grafico1 = request()->get('grafico1');
             $grafico2 = request()->get('grafico2');
+            $grafico3 = request()->get('grafico3');
             $data = request()->get('data');
             $hmp = request()->get('hmp');
             $tipo_enfermedad = request()->get('tipo_enfermedad');
@@ -187,6 +188,7 @@ class DashboardRiesgosSaludController extends Controller
                 'imagenes' => $imagenes,  
                 'grafico1' => $grafico1, 
                 'grafico2' => $grafico2, 
+                'grafico3' => $grafico3, 
                 'data' => $data, 
                 'hmp' => $hmp,
                 'tipo_enfermedad' => $tipo_enfermedad
@@ -317,6 +319,64 @@ class DashboardRiesgosSaludController extends Controller
                 'graficos' => $graficos, 
                 'embarazadas' => $embarazadas,
                 'lactantes' => $lactantes,
+            ])->setPaper('a4', 'landscape')
+            ->save( $ente.'/'.$nombre);
+
+            $respuesta = [
+                'nombre' => $ente.'/'.$nombre,
+            ];
+
+            return response()->json($respuesta, 200);
+
+        }else {
+            return redirect("/index")->with("error", "Su sesion ha terminado");
+        }
+    }
+ 
+    public function inmunizacion() {
+
+        $tipo = request()->get('tipo');
+        $id = request()->get('id');
+        $rango = request()->get('rango');
+
+        if (Auth::check()) {
+            
+            if($rango == "men1a"){
+                $data = \App\DashboardRiesgosSalud::inmunizacion_men_1(Session::get('alias'), $tipo, $id);
+            }
+            
+            $respuesta = [
+                'inmunizacion_data' => $data
+            ];
+
+            return response()->json($respuesta, 200);
+        }else {
+            return redirect("/index")->with("error", "Su sesion ha terminado");
+        }
+    }
+
+    public function exportarInmunizacion() {
+        if (Auth::check()) {
+            
+            $filtro = request()->get('filtro');
+            $filtro2 = request()->get('filtro2');
+            $tipo = request()->get('tipo');
+            $graficos = request()->get('graficos');
+            $data = request()->get('data');
+            
+           
+            $ente = Auth::user()->permisos->where('actual', 1)->first()->ente->nombre;
+            File::makeDirectory(public_path().'/'.$ente, $mode = 0777, true, true);
+
+            $nombre = 'Riesgo-Salud-Inunizacion.pdf';
+            $pdf = app('dompdf.wrapper');
+            $pdf->loadView('Pdf/RSDashboardInunizacion', [
+                'ente' => $ente, 
+                'filtro' => $filtro,  
+                'filtro2' => $filtro2, 
+                'graficos' => $graficos, 
+                'data' => $data, 
+                'tipo' => $tipo,
             ])->setPaper('a4', 'landscape')
             ->save( $ente.'/'.$nombre);
 

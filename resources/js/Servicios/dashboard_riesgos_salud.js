@@ -39,3 +39,11 @@ export function embarazo($tipo, $id) {
 export function exportarEmbarazo($data) {
     return http().post('/dashboard-riesgos-salud/exportar-embarazo', $data);
 }
+
+export function inmunizacion($tipo, $id, $rango) {
+    return http().get('/dashboard-riesgos-salud/inmunizacion?tipo='+$tipo+'&id='+$id+'&rango='+$rango);
+}
+
+export function exportToPDFINM($data) {
+    return http().post('/dashboard-riesgos-salud/exportar-inmunizacion', $data);
+}

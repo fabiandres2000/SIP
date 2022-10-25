@@ -104,7 +104,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-8">
-                                        <h2>Personas caracterizadas en este grupod de edad</h2>
+                                        <h2>Personas caracterizadas en este grupo de edad</h2>
                                         <p style="font-size: 57px; font-weight: 400; margin-bottom: -1rem;">{{enfermedades_por_edad.numero_personas}}</p>
                                     </div>
                                     <div class="col-4">
@@ -184,7 +184,11 @@
         </div>
         <hr>
         <div class="row">
-            <div class="col-lg-3"></div>
+            <div class="col-lg-6 text-center">
+                <h3>Comparativa de Personas Con Enfermedades {{tipoComboEnfermedad}}s</h3>
+                <h3>(Numero de personas por enfermedad)</h3>
+                <div id="chartdiv_enfermedad" style="width: 100%; height: 370px"></div>
+            </div>
             <div class="col-lg-6 text-center">
                 <h3>Comparativa de Personas Con Enfermedades {{tipoComboEnfermedad}}s</h3>
                 <h3>(Por Grupo de Edad y Sexo)</h3>
@@ -196,7 +200,6 @@
                     <div class="col-3"><p><span style="background-color: #6794dc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> Mujeres</p></div>
                 </div>
             </div>
-            <div class="col-lg-3"></div>
         </div>
         <b-modal
             ref="modalpdf_rs_e"
@@ -342,7 +345,8 @@ export default {
             sexo_modal: "",
             comparativa: [],
             serie_edades: [],
-            chart_edades: null
+            chart_edades: null,
+            graf_barra2: null
         }
     },
     methods: {
@@ -396,6 +400,7 @@ export default {
                 this.comparativa = respuesta.data.comparativa;
                 this.grafica_torta_sexo(this.enfermedades_por_edad);
                 this.crearSerieEdadesRS();
+                this.agrupar_por_tipo_enfermedad();
                 this.isLoading = false;
             })
             .catch(err => {
@@ -542,6 +547,7 @@ export default {
             let imagenes = await this.$html2canvas(this.$refs.imagenes_rs_e, options);
             let grafico1 = await this.chart_sexo.exporting.getImage("png");
             let grafico2 = await this.chart_edades.exporting.getImage("png");
+            let grafico3 = await this.graf_barra2.exporting.getImage("png");
             let hmp = await this.$html2canvas(this.$refs.hmp, options);
 
             const parametros = {
@@ -551,6 +557,7 @@ export default {
                 imagenes: imagenes,
                 grafico1: grafico1,
                 grafico2: grafico2,
+                grafico3: grafico3,
                 data: this.enfermedades_por_edad.array_personas_enfermedad,
                 hmp: hmp,
                 tipo_enfermedad: this.tipoComboEnfermedad
@@ -705,6 +712,71 @@ export default {
 
             this.loading = false;
         },
+        agrupar_por_tipo_enfermedad() {
+            let por_tipo = [];
+            this.enfermedades_por_edad.array_personas_enfermedad.forEach(element => {
+                let encontrado = false;
+                element.enfermedades.forEach(enfermedad => {
+                    por_tipo.forEach(element2 => {
+                        if(element2.nombre == enfermedad.descripcion){
+                            encontrado = true;
+                            element2.cantidad += 1;
+                        }
+                    });
+
+                    if(encontrado == false){
+                        por_tipo.push({
+                            'nombre': enfermedad.descripcion,
+                            'cantidad': 1
+                        });
+                    }
+                });
+            });
+
+            am4core.useTheme(am4themes_animated);
+            if(this.graf_barra2 != null){
+                this.graf_barra2.dispose();
+            }
+            var chart = am4core.create("chartdiv_enfermedad", am4charts.XYChart3D);
+            this.graf_barra2 = chart;
+            chart.paddingBottom = 50;
+
+            chart.cursor = new am4charts.XYCursor();
+        
+            var xAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+            xAxis.dataFields.category = "category";
+            xAxis.renderer.minGridDistance = 30;
+
+            var yAxis = chart.yAxes.push(new am4charts.ValueAxis());
+            yAxis.min = 0;
+
+            var axisLabels = xAxis.renderer.labels.template;
+            axisLabels.fontSize = 13;
+
+            function createSeries(value, name) {
+                var series = chart.series.push(new am4charts.ColumnSeries3D());
+                series.dataFields.valueY = value;
+                series.dataFields.categoryX = "category";
+                series.name = name;
+
+                var bullet = series.bullets.push(new am4charts.LabelBullet());
+                bullet.interactionsEnabled = false;
+                bullet.dy = 30;
+                bullet.label.text = "{valueY}";
+                bullet.label.fill = am4core.color("#ffffff");
+                return series;
+            }
+
+            chart.data = [];
+
+            por_tipo.forEach(element => {
+                chart.data.push({
+                    category: element.nombre,
+                    first: element.cantidad,
+                });
+            });
+            createSeries("first", "Enfermedad");
+        }
     }
 }
 </script>

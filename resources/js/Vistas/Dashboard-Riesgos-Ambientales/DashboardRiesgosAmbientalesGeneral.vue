@@ -735,7 +735,7 @@ export default {
 <style>
     .progress-content {
         position: absolute;
-        top: 42%;
+        top: 38%;
         font-size: 20px;
         font-weight: bold;
     }

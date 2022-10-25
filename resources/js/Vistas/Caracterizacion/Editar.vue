@@ -7575,6 +7575,7 @@
                               :class="item.varicela==''?'is-invalid':'is-valid'"
                             >
                               <option value selected>Seleccione</option>
+                              <option value="D1">D1</option>
                               <option value="R1">R1</option>
                               <option value="NO">NO</option>
                               <option value="NA">No Aplica</option>
@@ -7590,6 +7591,8 @@
                               :class="item.neumococo==''?'is-invalid':'is-valid'"
                             >
                               <option value selected>Seleccione</option>
+                              <option value="D1">D1</option>
+                              <option value="D2">D2</option>
                               <option value="R1">R1</option>
                               <option value="NO">NO</option>
                               <option value="NA">No Aplica</option>

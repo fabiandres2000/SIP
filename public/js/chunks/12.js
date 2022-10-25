@@ -1,1 +1,2152 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[12],{347:function(t,a,e){"use strict";e.d(a,"c",(function(){return i})),e.d(a,"b",(function(){return r})),e.d(a,"a",(function(){return s}));var o=e(18);function i(t){return Object(o.a)().post("/actividad",t)}function r(t){return Object(o.a)().post("/actividad/guardar",t)}function s(t){return Object(o.a)().post("/actividad/eliminar",t)}},368:function(t,a,e){"use strict";e.d(a,"f",(function(){return i})),e.d(a,"g",(function(){return r})),e.d(a,"e",(function(){return s})),e.d(a,"b",(function(){return n})),e.d(a,"a",(function(){return c})),e.d(a,"d",(function(){return d})),e.d(a,"c",(function(){return l}));var o=e(18);function i(t){return Object(o.a)().post("/establecimientos-listar",t)}function r(t){return Object(o.a)().post("/establecimientos/nuevo",t)}function s(t){return Object(o.a)().post("/establecimientos/guardar",t)}function n(t){return Object(o.a)().post("/establecimientos/eliminar",t)}function c(t){return Object(o.a)().post("/establecimientos/editar",t)}function d(t){return Object(o.a)().post("/establecimientos/exportarEstablecimientosPDF",t)}function l(t){return Object(o.a)().post("/establecimientos/exportarEstablecimientoPDF",t)}},446:function(t,a,e){var o=e(574);"string"==typeof o&&(o=[[t.i,o,""]]);var i={hmr:!0,transform:void 0,insertInto:void 0};e(45)(o,i);o.locals&&(t.exports=o.locals)},573:function(t,a,e){"use strict";e(446)},574:function(t,a,e){(t.exports=e(44)(!1)).push([t.i,"\n.modal-backdrop {\n  background-color: rgba(0, 0, 0, 0.5) !important;\n}\n.modal-title {\n  color: #f8f9fa !important;\n}\n.close {\n  display: none;\n}\n",""])},716:function(t,a,e){"use strict";e.r(a);var o=e(4),i=e.n(o),r=e(347),s=e(368),n=e(31),c=e(381),d=e.n(c),l=e(35),p=e.n(l);e(155);function v(t,a,e,o,i,r,s){try{var n=t[r](s),c=n.value}catch(t){return void e(t)}n.done?a(c):Promise.resolve(c).then(o,i)}function u(t){return function(){var a=this,e=arguments;return new Promise((function(o,i){var r=t.apply(a,e);function s(t){v(r,o,i,s,n,"next",t)}function n(t){v(r,o,i,s,n,"throw",t)}s(void 0)}))}}var _,m,f,h={components:{Loading:p.a,Multiselect:d.a},mounted:function(){this.hoy=moment(),this.IDHOGAR=this.$route.params.IDHOGAR,this.IDESTA=this.$route.params.id,null==this.IDESTA?this.$router.push("/gestion"):this.nuevo(this.IDESTA)},data:function(){return{IDHOGAR:0,IDESTA:0,dpto_options:[],muni_options:{},corregi_options:{},barrio_options:{},vereda_options:{},txtbusquedaAct:"",actividadesVector:[],actividadesAuxiliar:"",actividad_economica:"",hoy:"",datos:{id:0,id_hogar:0,id_dpto:"",id_mun:"",id_corre:"",id_vereda:"",id_barrio:"",registrado:"",num_matricula:"",naturaleza:"",otra_naturaleza:"",tipo:"",capital_extranjero:"",permiso:"",otro_permiso:"",anio:"",num_empleados:"",tiempo_sin_operacion:"",fecha_retorno:"",promedio_ingresos_anterior:"",promedio_ingresos_durante:"",promedio_ingresos_posterior:"",carga_economica:"",protocolo_bioseguridad:"",tipo_afectacion:[],otro_tipo_afectacion:"",ayuda:"",tiempo_recuperacion:"",principal_problema:"",internet:"",estado:"Activo",id_compania:1,fecha:"",usuario_crear:"",fecha_editar:"",usuario_editar:"",otro_principal_problema:"",nit:"",representante:"",direccion:"",razon:"",tipo_tiempo:""},mOMM:!1,mONJ:!1,mOMP:!1,mOTA:!1,mOPP:!1,valG:!0,tipo:[{value:1,texto:"Reducción de personal"},{value:2,texto:"Reducción de salarios"},{value:3,texto:"Desabastecimiento de insumos y materia prima"},{value:4,texto:"Disminución de demanda"},{value:5,texto:"Ninguna afectación"}],ActividadData:[]}},computed:{spinG:function(){return this.valG?{}:["kt-spinner","kt-spinner--right","kt-spinner--sm","kt-spinner--light"]}},filters:{moneda:function(t){var a=+t.replace(/[^\d.]/g,"");return isNaN(a)?0:a},moment:function(t){function a(a){return t.apply(this,arguments)}return a.toString=function(){return t.toString()},a}((function(t){return moment(t).format("YYYY-MM-DD")}))},methods:{nuevo:(f=u(i.a.mark((function t(a){var e,o=this;return i.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:return e={_token:this.csrf,id:a},t.prev=1,t.next=4,s.a(e).then((function(t){o.dpto_options=t.data.arrayDpto,o.muni_options=t.data.arrayMuni,o.corregi_options=t.data.arrayCorregi,o.vereda_options=t.data.arrayVeredas,o.IDHOGAR=t.data.establecimientos.id_hogar,o.datos.id=t.data.establecimientos.id,o.datos.id_dpto=t.data.establecimientos.id_dpto,o.datos.id_mun=t.data.establecimientos.id_mun.padStart(3,0),o.cambiarCombo("muni"),o.datos.id_corre=""+t.data.establecimientos.id_corre,"0"!==o.datos.id_corre&&o.cambiarCombo("corregi"),o.datos.id_vereda=""+t.data.establecimientos.id_vereda,o.datos.id_barrio=""+t.data.establecimientos.id_barrio,o.datos.registrado=""+t.data.establecimientos.registrado,"SI"===o.datos.registrado?o.mOMM=!0:o.mOMM=!1,o.datos.num_matricula=""+t.data.establecimientos.num_matricula,o.datos.naturaleza=""+t.data.establecimientos.naturaleza,"7"===o.datos.naturaleza?o.mONJ=!0:o.mONJ=!1,o.datos.otra_naturaleza=""+t.data.establecimientos.otra_naturaleza,o.datos.tipo=""+t.data.establecimientos.tipo,o.datos.capital_extranjero=""+t.data.establecimientos.capital_extranjero,o.datos.permiso=""+t.data.establecimientos.permiso,"5"===o.datos.permiso?o.mOMP=!0:o.mOMP=!1,o.datos.otro_permiso=""+t.data.establecimientos.otro_permiso,o.datos.anio=""+t.data.establecimientos.anio,o.datos.num_empleados=""+t.data.establecimientos.num_empleados,o.datos.tiempo_sin_operacion=""+t.data.establecimientos.tiempo_sin_operacion,o.datos.tipo_tiempo=""+t.data.establecimientos.tipo_tiempo,o.datos.fecha_retorno=""+t.data.establecimientos.fecha_retorno,o.datos.promedio_ingresos_anterior=""+t.data.establecimientos.promedio_ingresos_anterior,o.datos.promedio_ingresos_durante=""+t.data.establecimientos.promedio_ingresos_durante,o.datos.promedio_ingresos_posterior=""+t.data.establecimientos.promedio_ingresos_posterior,o.datos.carga_economica=""+t.data.establecimientos.carga_economica,o.datos.protocolo_bioseguridad=""+t.data.establecimientos.protocolo_bioseguridad,o.datos.tipo_afectacion=JSON.parse(t.data.establecimientos.tipo_afectacion),"6"===o.datos.tipo_afectacion?o.mOTA=!0:o.mOTA=!1,o.datos.otro_tipo_afectacion=""+t.data.establecimientos.otro_tipo_afectacion,o.datos.ayuda=""+t.data.establecimientos.ayuda,o.datos.tiempo_recuperacion=""+t.data.establecimientos.tiempo_recuperacion,o.datos.principal_problema=""+t.data.establecimientos.principal_problema,"5"===o.datos.principal_problema?o.mOPP=!0:o.mOPP=!1,o.datos.internet=""+t.data.establecimientos.internet,o.datos.estado=""+t.data.establecimientos.estado,o.datos.id_compania=""+t.data.establecimientos.id_compania,o.datos.fecha=""+t.data.establecimientos.fecha,o.datos.usuario_crear=""+t.data.establecimientos.usuario_crear,o.datos.fecha_editar=""+t.data.establecimientos.fecha_editar,o.datos.usuario_editar=""+t.data.establecimientos.usuario_editar,o.datos.otro_principal_problema=""+t.data.establecimientos.otro_principal_problema,o.datos.nit=""+t.data.establecimientos.nit,o.datos.representante=""+t.data.establecimientos.representante,o.datos.direccion=""+t.data.establecimientos.direccion,o.datos.razon=""+t.data.establecimientos.razon,o.ActividadData=t.data.actividad_establecimientos}));case 4:t.next=15;break;case 6:t.prev=6,t.t0=t.catch(1),t.t1=t.t0.response.status,t.next=422===t.t1?11:13;break;case 11:case 13:return this.$swal("Error...!","Ocurrio un error!","error"),t.abrupt("break",15);case 15:case"end":return t.stop()}}),t,this,[[1,6]])}))),function(t){return f.apply(this,arguments)}),cambiarCombo:(m=u(i.a.mark((function t(a){var e,o,r,s,c=this;return i.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:if("dpto"===a&&(this.datos.id_mun="",this.datos.id_corre="",this.datos.id_vereda="",this.datos.id_barrio=""),"muni"!==a){t.next=20;break}return this.datos.id_corre="",this.datos.id_vereda="",this.datos.id_barrio="",e={_token:this.csrf,id:this.datos.id_mun,opcion:"MUN"},t.prev=6,t.next=9,n.a(e).then((function(t){c.barrio_options=t.data.arrayBarrios}));case 9:t.next=20;break;case 11:t.prev=11,t.t0=t.catch(6),t.t1=t.t0.response.status,t.next=422===t.t1?16:18;break;case 16:case 18:return this.$swal("Error...!","Ocurrio un error!","error"),t.abrupt("break",20);case 20:if("corregi"!==a){t.next=42;break}if(this.datos.id_vereda="",this.datos.id_barrio="","0"===this.datos.id_corre||""===this.datos.id_corre){t.next=41;break}return o={_token:this.csrf,id:this.datos.id_corre,opcion:"CORRE"},t.prev=25,t.next=28,n.a(o).then((function(t){c.barrio_options=t.data.arrayBarrios}));case 28:t.next=39;break;case 30:t.prev=30,t.t2=t.catch(25),t.t3=t.t2.response.status,t.next=422===t.t3?35:37;break;case 35:case 37:return this.$swal("Error...!","Ocurrio un error!","error"),t.abrupt("break",39);case 39:t.next=42;break;case 41:"0"===this.datos.id_corre?(this.cambiarCombo("muni"),this.datos.id_corre="0"):this.cambiarCombo("muni");case 42:if("vereda"!==a){t.next=61;break}return this.datos.id_barrio="0",r={_token:this.csrf,id:this.datos.id_corre,opcion:"VERE"},t.prev=45,t.next=48,n.a(r).then((function(t){c.barrio_options=t.data.arrayBarrios}));case 48:t.next=59;break;case 50:t.prev=50,t.t4=t.catch(45),t.t5=t.t4.response.status,t.next=422===t.t5?55:57;break;case 55:case 57:return this.$swal("Error...!","Ocurrio un error!","error"),t.abrupt("break",59);case 59:s="",""!==this.datos.id_vereda&&"0"!==this.datos.id_vereda||(s=this.datos.id_vereda,this.cambiarCombo("corregi"),"0"===s&&(this.datos.id_vereda="0"));case 61:case"end":return t.stop()}}),t,this,[[6,11],[25,30],[45,50]])}))),function(t){return m.apply(this,arguments)}),volver:function(){this.$router.push("/gestion")},mostrarOtro:function(t){"MM"===t&&("SI"===this.datos.registrado?this.mOMM=!0:this.mOMM=!1,this.datos.num_matricula=""),"NJ"===t&&("7"===this.datos.naturaleza?this.mONJ=!0:this.mONJ=!1,this.datos.otra_naturaleza=""),"MP"===t&&("5"===this.datos.permiso?this.mOMP=!0:this.mOMP=!1,this.datos.otro_permiso=""),"TA"===t&&("6"===this.datos.tipo_afectacion?this.mOTA=!0:this.mOTA=!1,this.datos.otro_tipo_afectacion=""),"PP"===t&&("5"===this.datos.principal_problema?this.mOPP=!0:this.mOPP=!1,this.datos.otro_principal_problema="")},cerrarModal:function(){this.$refs.modalActividad.hide()},abrirModalActividades:function(){this.txtbusquedaAct="",this.consultarActividades(1),this.$refs.modalActividad.show()},consultarActividades:function(t){var a=this;return u(i.a.mark((function e(){var o;return i.a.wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return o={txtbusqueda:a.txtbusquedaAct.trim(),_token:a.csrf,page:t},e.prev=1,e.next=4,r.c(o).then((function(t){a.actividadesVector=t.data.actividades.data}));case 4:e.next=15;break;case 6:e.prev=6,e.t0=e.catch(1),e.t1=e.t0.response.status,e.next=422===e.t1?11:13;break;case 11:case 13:return a.$swal("Error...!","Ocurrio un error!","error"),e.abrupt("break",15);case 15:case"end":return e.stop()}}),e,null,[[1,6]])})))()},seleccionarActividades:function(t){this.actividad_economica=t.id,this.actividadesAuxiliar=t.descripcion,this.$refs.modalActividad.hide()},guardar:(_=u(i.a.mark((function t(){var a,e=this;return i.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:if(this.checkForm()){t.next=3;break}t.next=26;break;case 3:if(!(this.ActividadData.length<=0)){t.next=6;break}return this.$swal("Error...!","Por favor agrege por lo menos una actividad economica!","error"),t.abrupt("return");case 6:return this.datos.id_hogar=this.IDHOGAR,a={_token:this.csrf,datos:this.datos,actividad_establecimientos:this.ActividadData,opcion:"editar",id:this.IDESTA},this.valG=!1,t.prev=9,t.next=12,s.e(a).then((function(t){"SI"==t.data.OPC?(e.$swal("Guardar...!","Datos Guardados Exitosamente!","success"),e.volver()):e.$swal("Guardar...!","Ocurrio un problema!","warning"),e.valG=!0})).catch((function(t){}));case 12:t.next=25;break;case 14:t.prev=14,t.t0=t.catch(9),t.t1=t.t0.response.status,t.next=419===t.t1?19:422===t.t1?21:23;break;case 19:case 21:case 23:return this.$swal("Error...!","Ocurrio un error!","error"),t.abrupt("break",25);case 25:this.valG=!0;case 26:case"end":return t.stop()}}),t,this,[[9,14]])}))),function(){return _.apply(this,arguments)}),checkForm:function(t){var a=!0;if(""===this.datos.id_dpto)return this.$refs.id_dpto.focus(),a=!1,void this.$swal("Error...!","Por favor seleccione la opción departamento!","error");if(""===this.datos.id_mun)return this.$refs.id_mun.focus(),a=!1,void this.$swal("Error...!","Por favor seleccione la opción municipio!","error");if(""===this.datos.id_corre)return this.$refs.id_corre.focus(),a=!1,void this.$swal("Error...!","Por favor seleccione la opción corregimiento!","error");if(""===this.datos.id_vereda)return this.$refs.id_vereda.focus(),a=!1,void this.$swal("Error...!","Por favor seleccione la opción vereda!","error");if(""===this.datos.id_barrio)return this.$refs.id_barrio.focus(),a=!1,void this.$swal("Error...!","Por favor seleccione la opción barrio!","error");if(""===this.datos.razon)return this.$refs.razon.focus(),a=!1,void this.$swal("Error...!","Por favor digite la razón social!","error");if(""===this.datos.direccion)return this.$refs.direccion.focus(),a=!1,void this.$swal("Error...!","Por favor digite la direccion!","error");if(""===this.datos.nit)return this.$refs.nit.focus(),a=!1,void this.$swal("Error...!","Por favor digite el nit del establecimiento!","error");if(""===this.datos.representante)return this.$refs.representante.focus(),a=!1,void this.$swal("Error...!","Por favor digite el representante legal del establecimiento!","error");if(""===this.datos.registrado)return this.$refs.registrado.focus(),a=!1,void this.$swal("Error...!","Por favor seleccione la opción registro camara de comercio!","error");if(""===this.datos.naturaleza)return this.$refs.naturaleza.focus(),a=!1,void this.$swal("Error...!","Por favor seleccione la opción naturaleza juridica del establecimiento!","error");if(""===this.datos.tipo)return this.$refs.tipo.focus(),a=!1,void this.$swal("Error...!","Por favor seleccione la opción tipo de establecimiento comercial!","error");if(""===this.datos.capital_extranjero)return this.$refs.capital_extranjero.focus(),a=!1,void this.$swal("Error...!","Por favor seleccione la opción participación de capital extranjero!","error");if(""===this.datos.permiso)return this.$refs.permiso.focus(),a=!1,void this.$swal("Error...!","Por favor seleccione la opción recibe el permiso de operar como!","error");if(""===this.datos.anio)return this.$refs.anio.focus(),a=!1,void this.$swal("Error...!","Por favor digite el año de inicio de operación!","error");if(""===this.datos.num_empleados)return this.$refs.num_empleados.focus(),a=!1,void this.$swal("Error...!","Por favor digite el numero de empleados directos!","error");if(""===this.datos.tiempo_sin_operacion)return this.$refs.tiempo_sin_operacion.focus(),a=!1,void this.$swal("Error...!","Por favor digite el tiempo sin operación debido al covid 19!","error");if(this.datos.tiempo_sin_operacion<"0"){if(""===this.datos.tipo_tiempo)return this.$refs.tipo_tiempo.focus(),a=!1,void this.$swal("Error...!","Por favor seleccione la opción tiempo en!","error");if(""===this.datos.fecha_retorno)return this.$refs.fecha_retorno.focus(),a=!1,void this.$swal("Error...!","Por favor seleccione la fecha de retorno a labores!","error")}return""===this.datos.promedio_ingresos_anterior?(this.$refs.promedio_ingresos_anterior.focus(),a=!1,void this.$swal("Error...!","Por favor digite el promedio de ingresos anterior a la contingencia!","error")):""===this.datos.promedio_ingresos_durante?(this.$refs.promedio_ingresos_durante.focus(),a=!1,void this.$swal("Error...!","Por favor digite el promedio de ingresos durante la contingencia!","error")):""===this.datos.promedio_ingresos_posterior?(this.$refs.promedio_ingresos_posterior.focus(),a=!1,void this.$swal("Error...!","Por favor digite el promedio de ingresos posterior a la contingencia!","error")):""===this.datos.carga_economica?(this.$refs.carga_economica.focus(),a=!1,void this.$swal("Error...!","Por favor seleccione la opción principal carga economica!","error")):""===this.datos.protocolo_bioseguridad?(this.$refs.protocolo_bioseguridad.focus(),a=!1,void this.$swal("Error...!","Por favor seleccione la opción cuenta con protocolos de bioseguridad!","error")):this.datos.tipo_afectacion.length<=0?(a=!1,void this.$swal("Error...!","Por favor seleccione la opción tipo de afectación del establecimiento!","error")):""===this.datos.ayuda?(this.$refs.ayuda.focus(),a=!1,void this.$swal("Error...!","Por favor seleccione la opción recibió ayuda por parte del gobierno!","error")):""===this.datos.internet?(this.$refs.internet.focus(),a=!1,void this.$swal("Error...!","Por favor seleccione la opción cuenta con servicio de internet!","error")):""===this.datos.tiempo_recuperacion?(this.$refs.tiempo_recuperacion.focus(),a=!1,void this.$swal("Error...!","Por favor seleccione la opción Dentro de cuanto tiempo, creen que el establecimiento pueda recuperarse económicamente de las afectaciones por la emergencia Covid- 19!","error")):""===this.datos.principal_problema?(this.$refs.principal_problema.focus(),a=!1,void this.$swal("Error...!","Por favor seleccione la opción Cuál cree usted que es el principal problema del sector en el que está ubicado el establecimiento comercial!","error")):a},formato:function(t){if("anio"===t&&(this.datos.anio=this.datos.anio.replace(/[^.\d]/g,"").trim(),"NaN"==this.datos.anio&&(this.datos.anio=""),"0"==this.datos.anio&&(this.datos.anio="")),"nume"===t&&(this.datos.num_empleados=this.datos.num_empleados.replace(/[^.\d]/g,"").trim(),"NaN"==this.datos.num_empleados&&(this.datos.num_empleados=""),"0"==this.datos.num_empleados&&(this.datos.num_empleados="")),"tiempo_sin_operacion"==t&&(this.datos.tiempo_sin_operacion=this.datos.tiempo_sin_operacion.replace(/[^.\d]/g,"").trim(),"NaN"==this.datos.tiempo_sin_operacion&&(this.datos.tiempo_sin_operacion=""),this.datos.tiempo_sin_operacion<"0"&&(this.datos.tiempo_sin_operacion=""),"0"===this.datos.tiempo_sin_operacion&&(this.datos.tipo_tiempo="",this.datos.fecha_retorno="")),"promedio_ingresos_anterior"==t){this.datos.promedio_ingresos_anterior=this.datos.promedio_ingresos_anterior.replace(/[.*+\-?^${}()|[\]\\]/g,"");var a=(this.datos.promedio_ingresos_anterior/1).toFixed(0).replace(".",",");this.datos.promedio_ingresos_anterior=a.toString().replace(/\B(?=(\d{3})+(?!\d))/g,"."),"NaN"==this.datos.promedio_ingresos_anterior&&(this.datos.promedio_ingresos_anterior=""),"0"==this.datos.promedio_ingresos_anterior&&(this.datos.promedio_ingresos_anterior="")}if("promedio_ingresos_durante"==t){this.datos.promedio_ingresos_durante=this.datos.promedio_ingresos_durante.replace(/[.*+\-?^${}()|[\]\\]/g,"");var e=(this.datos.promedio_ingresos_durante/1).toFixed(0).replace(".",",");this.datos.promedio_ingresos_durante=e.toString().replace(/\B(?=(\d{3})+(?!\d))/g,"."),"NaN"==this.datos.promedio_ingresos_durante&&(this.datos.promedio_ingresos_durante=""),"0"==this.datos.promedio_ingresos_durante&&(this.datos.promedio_ingresos_durante="")}if("promedio_ingresos_posterior"==t){this.datos.promedio_ingresos_posterior=this.datos.promedio_ingresos_posterior.replace(/[.*+\-?^${}()|[\]\\]/g,"");var o=(this.datos.promedio_ingresos_posterior/1).toFixed(0).replace(".",",");this.datos.promedio_ingresos_posterior=o.toString().replace(/\B(?=(\d{3})+(?!\d))/g,"."),"NaN"==this.datos.promedio_ingresos_posterior&&(this.datos.promedio_ingresos_posterior=""),"0"==this.datos.promedio_ingresos_posterior&&(this.datos.promedio_ingresos_posterior="")}},AgregarActividad:function(){if(""===this.actividadesAuxiliar)return this.$refs.actividadesAuxiliar.focus(),void this.$swal("Error...!","Por favor seleccione una actividad economica!","error");this.ActividadData.push({id:0,id_actividad:this.actividad_economica,actividad:this.actividadesAuxiliar,estado:"Activo"}),this.limpiarActividad()},limpiarActividad:function(){this.actividadesAuxiliar="",this.actividad_economica=""},eliminarItemActividad:function(t,a){0!==t.id?(this.ActividadData[a].estado="Inactivo",this.ActividadData.splice(a,1,this.ActividadData[a])):this.ActividadData.splice(a,1)}}},b=(e(382),e(573),e(26)),g=Object(b.a)(h,(function(){var t=this,a=t.$createElement,e=t._self._c||a;return e("div",[e("div",{staticClass:"kt-portlet",staticStyle:{"margin-top":"-4%"}},[e("div",{staticClass:"kt-portlet__head"},[t._m(0),t._v(" "),e("div",{staticClass:"kt-portlet__head-toolbar"},[e("a",{staticClass:"btn btn-danger kt-margin-r-10",attrs:{href:"#"},on:{click:function(a){return a.preventDefault(),t.volver.apply(null,arguments)}}},[e("i",{staticClass:"la la-arrow-left"}),t._v(" "),e("span",{staticClass:"kt-hidden-mobile"},[t._v("Volver")])]),t._v(" "),e("div",{staticClass:"btn-group"},[e("button",{staticClass:"btn btn-brand",class:t.spinG,attrs:{type:"button",disabled:!t.valG},on:{click:function(a){return a.preventDefault(),t.guardar.apply(null,arguments)}}},[e("i",{staticClass:"la la-edit"}),t._v(" "),e("span",{staticClass:"kt-hidden-mobile"},[t._v("Guardar")])])])])]),t._v(" "),e("div",{staticClass:"kt-portlet__body"},[e("div",{staticClass:"kt-section"},[e("div",{staticClass:"kt-section__content"},[e("div",{staticClass:"form-group row"},[e("div",{staticClass:"col-lg-4"},[e("label",[t._v("Departamento (*):")]),t._v(" "),e("b-form-select",{ref:"id_dpto",class:""==t.datos.id_dpto?"is-invalid":"is-valid",on:{change:function(a){return t.cambiarCombo("dpto")}},model:{value:t.datos.id_dpto,callback:function(a){t.$set(t.datos,"id_dpto","string"==typeof a?a.trim():a)},expression:"datos.id_dpto"}},[e("option",{attrs:{value:"",selected:""}},[t._v("Seleccione")]),t._v(" "),t._l(t.dpto_options,(function(a){return e("option",{key:a.value,domProps:{value:a.value}},[t._v(t._s(a.texto))])}))],2),t._v(" "),""!=t.datos.id_dpto?e("div",{staticClass:"valid-feedback"},[t._v("Departamento Valido")]):t._e(),t._v(" "),e("div",{staticClass:"invalid-feedback"},[""==t.datos.id_dpto?e("span",[t._v("El departamento es obligatorio")]):t._e()])],1),t._v(" "),e("div",{staticClass:"col-lg-4"},[e("label",[t._v("Municipio (*):")]),t._v(" "),e("b-form-select",{ref:"id_mun",class:""==t.datos.id_mun?"is-invalid":"is-valid",on:{change:function(a){return t.cambiarCombo("muni")}},model:{value:t.datos.id_mun,callback:function(a){t.$set(t.datos,"id_mun","string"==typeof a?a.trim():a)},expression:"datos.id_mun"}},[e("option",{attrs:{value:"",selected:""}},[t._v("Seleccione")]),t._v(" "),t._l(t.muni_options[t.datos.id_dpto],(function(a){return e("option",{key:a.value,domProps:{value:a.value}},[t._v(t._s(a.texto))])}))],2),t._v(" "),""!=t.datos.id_mun?e("div",{staticClass:"valid-feedback"},[t._v("Municipio Valido")]):t._e(),t._v(" "),e("div",{staticClass:"invalid-feedback"},[""==t.datos.id_mun?e("span",[t._v("El municipio es obligatorio")]):t._e()])],1),t._v(" "),e("div",{staticClass:"col-lg-4"},[e("label",[t._v("Corregimiento:")]),t._v(" "),e("b-form-select",{ref:"id_corre",class:""==t.datos.id_corre?"is-invalid":"is-valid",on:{change:function(a){return t.cambiarCombo("corregi")}},model:{value:t.datos.id_corre,callback:function(a){t.$set(t.datos,"id_corre",a)},expression:"datos.id_corre"}},[e("option",{attrs:{value:"",selected:""}},[t._v("Seleccione")]),t._v(" "),e("option",{attrs:{value:"0"}},[t._v("No Aplica")]),t._v(" "),t._l(t.corregi_options[t.datos.id_mun],(function(a){return e("option",{key:a.value,domProps:{value:a.value}},[t._v(t._s(a.texto))])}))],2),t._v(" "),""!=t.datos.id_corre?e("div",{staticClass:"valid-feedback"},[t._v("Corregimiento Valido")]):t._e(),t._v(" "),e("div",{staticClass:"invalid-feedback"},[""==t.datos.id_corre?e("span",[t._v("El corregimiento es obligatorio")]):t._e()])],1)]),t._v(" "),e("div",{staticClass:"form-group row"},[e("div",{staticClass:"col-lg-4"},[e("label",[t._v("Vereda:")]),t._v(" "),e("b-form-select",{ref:"id_vereda",class:""==t.datos.id_vereda?"is-invalid":"is-valid",on:{change:function(a){return t.cambiarCombo("vereda")}},model:{value:t.datos.id_vereda,callback:function(a){t.$set(t.datos,"id_vereda",a)},expression:"datos.id_vereda"}},[e("option",{attrs:{value:"",selected:""}},[t._v("Seleccione")]),t._v(" "),e("option",{attrs:{value:"0"}},[t._v("No Aplica")]),t._v(" "),t._l(t.vereda_options[t.datos.id_corre],(function(a){return e("option",{key:a.value,domProps:{value:a.value}},[t._v(t._s(a.texto))])}))],2),t._v(" "),""!=t.datos.id_vereda?e("div",{staticClass:"valid-feedback"},[t._v("Vereda Valida")]):t._e()],1),t._v(" "),e("div",{staticClass:"col-lg-4"},[e("label",[t._v("Barrio:")]),t._v(" "),e("b-form-select",{ref:"id_barrio",class:""==t.datos.id_barrio?"is-invalid":"is-valid",model:{value:t.datos.id_barrio,callback:function(a){t.$set(t.datos,"id_barrio",a)},expression:"datos.id_barrio"}},[e("option",{attrs:{value:"",selected:""}},[t._v("Seleccione")]),t._v(" "),e("option",{attrs:{value:"0"}},[t._v("No Aplica")]),t._v(" "),t._l(t.barrio_options,(function(a){return e("option",{key:a.value,domProps:{value:a.value}},[t._v(t._s(a.texto))])}))],2),t._v(" "),""!=t.datos.id_barrio?e("div",{staticClass:"valid-feedback"},[t._v("Barrio Valido")]):t._e()],1)]),t._v(" "),e("div",{staticClass:"form-group row"},[e("div",{staticClass:"col-lg-12"},[e("label",[t._v("Razón Social:")]),t._v(" "),e("input",{directives:[{name:"model",rawName:"v-model.trim",value:t.datos.razon,expression:"datos.razon",modifiers:{trim:!0}}],ref:"razon",staticClass:"form-control text-capitalize",class:""==t.datos.razon?"is-invalid":"is-valid",attrs:{type:"text",placeholder:"Razón Social"},domProps:{value:t.datos.razon},on:{input:function(a){a.target.composing||t.$set(t.datos,"razon",a.target.value.trim())},blur:function(a){return t.$forceUpdate()}}}),t._v(" "),""!=t.datos.razon?e("div",{staticClass:"valid-feedback"},[t._v("La Razón Social es Valida")]):t._e(),t._v(" "),e("div",{staticClass:"invalid-feedback"},[""==t.datos.razon?e("span",[t._v("La razón social es obligatoria")]):t._e()])])]),t._v(" "),e("div",{staticClass:"form-group row"},[e("div",{staticClass:"col-lg-12"},[e("label",[t._v("Dirección:")]),t._v(" "),e("input",{directives:[{name:"model",rawName:"v-model.trim",value:t.datos.direccion,expression:"datos.direccion",modifiers:{trim:!0}}],ref:"direccion",staticClass:"form-control text-capitalize",class:""==t.datos.direccion?"is-invalid":"is-valid",attrs:{type:"text",placeholder:"Dirección"},domProps:{value:t.datos.direccion},on:{input:function(a){a.target.composing||t.$set(t.datos,"direccion",a.target.value.trim())},blur:function(a){return t.$forceUpdate()}}}),t._v(" "),""!=t.datos.direccion?e("div",{staticClass:"valid-feedback"},[t._v("La Dirección es Valida")]):t._e(),t._v(" "),e("div",{staticClass:"invalid-feedback"},[""==t.datos.direccion?e("span",[t._v("La dirección es obligatoria")]):t._e()])])]),t._v(" "),e("div",{staticClass:"form-group row"},[e("div",{staticClass:"col-lg-4"},[e("label",[t._v("Nit:")]),t._v(" "),e("input",{directives:[{name:"model",rawName:"v-model.trim",value:t.datos.nit,expression:"datos.nit",modifiers:{trim:!0}}],ref:"nit",staticClass:"form-control text-capitalize",class:""==t.datos.nit?"":"is-valid",attrs:{type:"text",placeholder:"Nit"},domProps:{value:t.datos.nit},on:{input:function(a){a.target.composing||t.$set(t.datos,"nit",a.target.value.trim())},blur:function(a){return t.$forceUpdate()}}})]),t._v(" "),e("div",{staticClass:"col-lg-8"},[e("label",[t._v("Representante Legal:")]),t._v(" "),e("input",{directives:[{name:"model",rawName:"v-model.trim",value:t.datos.representante,expression:"datos.representante",modifiers:{trim:!0}}],ref:"representante",staticClass:"form-control text-capitalize",class:""==t.datos.representante?"":"is-valid",attrs:{type:"text",placeholder:"Representante Legal"},domProps:{value:t.datos.representante},on:{input:function(a){a.target.composing||t.$set(t.datos,"representante",a.target.value.trim())},blur:function(a){return t.$forceUpdate()}}})])]),t._v(" "),e("div",{staticClass:"form-group row"},[e("div",{staticClass:"col-lg-4"},[e("label",[t._v("Registro Camara de Comercio:")]),t._v(" "),e("b-form-select",{ref:"registrado",class:""==t.datos.registrado?"":"is-valid",on:{change:function(a){return t.mostrarOtro("MM")}},model:{value:t.datos.registrado,callback:function(a){t.$set(t.datos,"registrado",a)},expression:"datos.registrado"}},[e("option",{attrs:{value:"",selected:""}},[t._v("Seleccione")]),t._v(" "),e("option",{attrs:{value:"SI"}},[t._v("SI")]),t._v(" "),e("option",{attrs:{value:"NO"}},[t._v("NO")])])],1),t._v(" "),e("div",{directives:[{name:"show",rawName:"v-show",value:t.mOMM,expression:"mOMM"}],staticClass:"col-lg-4"},[e("label",[t._v("Número Matrícula Mercantil:")]),t._v(" "),e("input",{directives:[{name:"model",rawName:"v-model.trim",value:t.datos.num_matricula,expression:"datos.num_matricula",modifiers:{trim:!0}}],ref:"num_matricula",staticClass:"form-control text-capitalize",class:""==t.datos.num_matricula?"":"is-valid",attrs:{type:"text",placeholder:"Número Matrícula Mercantil"},domProps:{value:t.datos.num_matricula},on:{input:function(a){a.target.composing||t.$set(t.datos,"num_matricula",a.target.value.trim())},blur:function(a){return t.$forceUpdate()}}})]),t._v(" "),e("div",{staticClass:"col-lg-4"},[e("label",[t._v("Naturaleza Juridica del Establecimiento:")]),t._v(" "),e("b-form-select",{ref:"naturaleza",class:""==t.datos.naturaleza?"":"is-valid",on:{change:function(a){return t.mostrarOtro("NJ")}},model:{value:t.datos.naturaleza,callback:function(a){t.$set(t.datos,"naturaleza",a)},expression:"datos.naturaleza"}},[e("option",{attrs:{value:"",selected:""}},[t._v("Seleccione")]),t._v(" "),e("option",{attrs:{value:"1"}},[t._v("Persona Natural")]),t._v(" "),e("option",{attrs:{value:"2"}},[t._v("Sociedad Anónima S.A.")]),t._v(" "),e("option",{attrs:{value:"3"}},[t._v("Sociedad por acciones simplificadas. S.A.S")]),t._v(" "),e("option",{attrs:{value:"4"}},[t._v("Sociedad Limitada LTDA.")]),t._v(" "),e("option",{attrs:{value:"5"}},[t._v("Cooperativa")]),t._v(" "),e("option",{attrs:{value:"6"}},[t._v("No registra")]),t._v(" "),e("option",{attrs:{value:"7"}},[t._v("Otra")])])],1)]),t._v(" "),e("div",{staticClass:"form-group row"},[e("div",{directives:[{name:"show",rawName:"v-show",value:t.mONJ,expression:"mONJ"}],staticClass:"col-lg-12"},[e("label",[t._v("Otra Naturaleza Juridica del Establecimiento:")]),t._v(" "),e("input",{directives:[{name:"model",rawName:"v-model.trim",value:t.datos.otra_naturaleza,expression:"datos.otra_naturaleza",modifiers:{trim:!0}}],ref:"otra_naturaleza",staticClass:"form-control text-capitalize",class:""==t.datos.otra_naturaleza?"":"is-valid",attrs:{type:"text",placeholder:"Cual?"},domProps:{value:t.datos.otra_naturaleza},on:{input:function(a){a.target.composing||t.$set(t.datos,"otra_naturaleza",a.target.value.trim())},blur:function(a){return t.$forceUpdate()}}})])]),t._v(" "),e("div",{staticClass:"form-group row"},[e("div",{staticClass:"col-lg-4"},[e("label",[t._v("Tipo de Establecimiento Comercial:")]),t._v(" "),e("b-form-select",{ref:"tipo",class:""==t.datos.tipo?"":"is-valid",model:{value:t.datos.tipo,callback:function(a){t.$set(t.datos,"tipo",a)},expression:"datos.tipo"}},[e("option",{attrs:{value:"",selected:""}},[t._v("Seleccione")]),t._v(" "),e("option",{attrs:{value:"1"}},[t._v("Tienda de Ropa")]),t._v(" "),e("option",{attrs:{value:"2"}},[t._v("Almacen")]),t._v(" "),e("option",{attrs:{value:"3"}},[t._v("Centros de Belleza")]),t._v(" "),e("option",{attrs:{value:"4"}},[t._v("Restaurantes")]),t._v(" "),e("option",{attrs:{value:"5"}},[t._v("Talleres mecánicos")]),t._v(" "),e("option",{attrs:{value:"6"}},[t._v("Café Internet")]),t._v(" "),e("option",{attrs:{value:"7"}},[t._v("Comidas Rapidas")]),t._v(" "),e("option",{attrs:{value:"8"}},[t._v("Panaderia/ pasteliría")]),t._v(" "),e("option",{attrs:{value:"9"}},[t._v("Ferretería")]),t._v(" "),e("option",{attrs:{value:"10"}},[t._v("Miscelania")]),t._v(" "),e("option",{attrs:{value:"11"}},[t._v("Papelería y Librerías")]),t._v(" "),e("option",{attrs:{value:"12"}},[t._v("Cafetería")]),t._v(" "),e("option",{attrs:{value:"13"}},[t._v("Frutería")]),t._v(" "),e("option",{attrs:{value:"14"}},[t._v("Venta de loterías o juegos de azar")]),t._v(" "),e("option",{attrs:{value:"15"}},[t._v("Carnicería")]),t._v(" "),e("option",{attrs:{value:"16"}},[t._v("Asaderos")]),t._v(" "),e("option",{attrs:{value:"17"}},[t._v("Lavaderos de Vehículos")]),t._v(" "),e("option",{attrs:{value:"18"}},[t._v("Licorería")]),t._v(" "),e("option",{attrs:{value:"19"}},[t._v("Parqueaderos")]),t._v(" "),e("option",{attrs:{value:"20"}},[t._v("Colegios o centros de estudios")]),t._v(" "),e("option",{attrs:{value:"21"}},[t._v("Consultorios medicos")]),t._v(" "),e("option",{attrs:{value:"22"}},[t._v("Consultorios Juridicos")]),t._v(" "),e("option",{attrs:{value:"23"}},[t._v("Micelania y Cacharrerias")]),t._v(" "),e("option",{attrs:{value:"24"}},[t._v("Agencias de Viajes")]),t._v(" "),e("option",{attrs:{value:"25"}},[t._v("Discotecas y Bares")]),t._v(" "),e("option",{attrs:{value:"26"}},[t._v("Estaciones de servicios")]),t._v(" "),e("option",{attrs:{value:"27"}},[t._v("Hoteles")]),t._v(" "),e("option",{attrs:{value:"28"}},[t._v("Joyerias")]),t._v(" "),e("option",{attrs:{value:"29"}},[t._v("Puesto de Mercado")]),t._v(" "),e("option",{attrs:{value:"30"}},[t._v("Sex Shop")]),t._v(" "),e("option",{attrs:{value:"31"}},[t._v("Supermercados")]),t._v(" "),e("option",{attrs:{value:"32"}},[t._v("Otras Tienda especializada")]),t._v(" "),e("option",{attrs:{value:"33"}},[t._v("Otros Establecimiento de servicios")])])],1)]),t._v(" "),e("div",{staticClass:"form-group row"},[e("div",{staticClass:"col-lg-10"},[e("label",[t._v("Actividad Económica:")]),t._v(" "),e("input",{directives:[{name:"model",rawName:"v-model",value:t.actividadesAuxiliar,expression:"actividadesAuxiliar"}],ref:"actividadesAuxiliar",staticClass:"form-control text-capitalize",class:""==t.actividadesAuxiliar?"":"is-valid",attrs:{type:"text",placeholder:"Actividad Económica",readonly:!0},domProps:{value:t.actividadesAuxiliar},on:{click:function(a){return t.abrirModalActividades()},input:function(a){a.target.composing||(t.actividadesAuxiliar=a.target.value)}}})]),t._v(" "),e("div",{staticClass:"col-lg-1"},[e("br"),t._v(" "),e("label",[t._v("           ")]),t._v(" "),e("a",{staticClass:"btn btn-outline-info btn-icon",attrs:{href:"javascript:;","data-skin":"dark","data-toggle":"kt-tooltip","data-placement":"top",title:"Agregar"},on:{click:function(a){return a.preventDefault(),t.AgregarActividad.apply(null,arguments)}}},[e("i",{staticClass:"fa fa-plus"})]),t._v(" \n            ")]),t._v(" "),e("div",{staticClass:"col-lg-1"},[e("br"),t._v(" "),e("label",[t._v("           ")]),t._v(" "),e("a",{staticClass:"btn btn-outline-danger btn-icon",attrs:{href:"javascript:;","data-skin":"dark","data-toggle":"kt-tooltip","data-placement":"top",title:"Limpiar"},on:{click:function(a){return a.preventDefault(),t.limpiarActividad.apply(null,arguments)}}},[e("i",{staticClass:"fa fa-trash"})]),t._v(" \n            ")])]),t._v(" "),e("div",{staticClass:"row"},[e("div",{staticClass:"col-md-12"},[e("div",{staticClass:"table-responsive"},[e("table",{staticClass:"table table-sm table-hover"},[t._m(1),t._v(" "),e("tbody",t._l(t.ActividadData,(function(a,o){return e("tr",{directives:[{name:"show",rawName:"v-show",value:"Activo"==a.estado,expression:"item.estado=='Activo'"}],key:o},[e("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle"}},[t._v(t._s(o+1))]),t._v(" "),e("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle","text-align":"left","text-transform":"capitalize"}},[e("span",{staticClass:"text-capitalize"},[t._v(t._s(a.actividad))])]),t._v(" "),e("td",{staticStyle:{"text-align":"center","vertical-align":"middle"}},[e("button",{staticClass:"btn btn-icon btn-sm btn-outline-danger",attrs:{type:"button",title:"Eliminar"},on:{click:function(e){return t.eliminarItemActividad(a,o)}}},[e("i",{staticClass:"fa fa-trash"})])])])})),0)]),t._v(" "),e("div",{staticClass:"kt-separator kt-separator--border-dashed"})])])]),t._v(" "),e("div",{staticClass:"form-group row"},[e("div",{staticClass:"col-lg-4"},[e("label",[t._v("Participación de Capital Extranjero:")]),t._v(" "),e("b-form-select",{ref:"capital_extranjero",class:""==t.datos.capital_extranjero?"":"is-valid",model:{value:t.datos.capital_extranjero,callback:function(a){t.$set(t.datos,"capital_extranjero",a)},expression:"datos.capital_extranjero"}},[e("option",{attrs:{value:"",selected:""}},[t._v("Seleccione")]),t._v(" "),e("option",{attrs:{value:"SI"}},[t._v("SI")]),t._v(" "),e("option",{attrs:{value:"NO"}},[t._v("NO")])])],1),t._v(" "),e("div",{staticClass:"col-lg-4"},[e("label",[t._v("¿Recibe el Permiso de Operar Como?:")]),t._v(" "),e("b-form-select",{ref:"permiso",class:""==t.datos.permiso?"":"is-valid",on:{change:function(a){return t.mostrarOtro("MP")}},model:{value:t.datos.permiso,callback:function(a){t.$set(t.datos,"permiso",a)},expression:"datos.permiso"}},[e("option",{attrs:{value:"",selected:""}},[t._v("Seleccione")]),t._v(" "),e("option",{attrs:{value:"1"}},[t._v("Franquicia")]),t._v(" "),e("option",{attrs:{value:"2"}},[t._v("Concesión")]),t._v(" "),e("option",{attrs:{value:"3"}},[t._v("Patente")]),t._v(" "),e("option",{attrs:{value:"4"}},[t._v("Ninguna")]),t._v(" "),e("option",{attrs:{value:"5"}},[t._v("Otro")])])],1)]),t._v(" "),e("div",{staticClass:"form-group row"},[e("div",{directives:[{name:"show",rawName:"v-show",value:t.mOMP,expression:"mOMP"}],staticClass:"col-lg-12"},[e("label",[t._v("¿Cual?:")]),t._v(" "),e("input",{directives:[{name:"model",rawName:"v-model.trim",value:t.datos.otro_permiso,expression:"datos.otro_permiso",modifiers:{trim:!0}}],ref:"otro_permiso",staticClass:"form-control text-capitalize",class:""==t.datos.otro_permiso?"":"is-valid",attrs:{type:"text",placeholder:"¿Cual?"},domProps:{value:t.datos.otro_permiso},on:{input:function(a){a.target.composing||t.$set(t.datos,"otro_permiso",a.target.value.trim())},blur:function(a){return t.$forceUpdate()}}})])]),t._v(" "),e("div",{staticClass:"form-group row"},[e("div",{staticClass:"col-lg-4"},[e("label",[t._v("Año de Inicio de Operación:")]),t._v(" "),e("input",{directives:[{name:"model",rawName:"v-model.trim",value:t.datos.anio,expression:"datos.anio",modifiers:{trim:!0}}],ref:"anio",staticClass:"form-control text-capitalize",class:""==t.datos.anio?"":"is-valid",attrs:{type:"text",placeholder:"Año de Inicio de Operación"},domProps:{value:t.datos.anio},on:{change:function(a){return t.formato("anio")},input:function(a){a.target.composing||t.$set(t.datos,"anio",a.target.value.trim())},blur:function(a){return t.$forceUpdate()}}})]),t._v(" "),e("div",{staticClass:"col-lg-4"},[e("label",[t._v("Numero de Empleados Directos:")]),t._v(" "),e("input",{directives:[{name:"model",rawName:"v-model.trim",value:t.datos.num_empleados,expression:"datos.num_empleados",modifiers:{trim:!0}}],ref:"num_empleados",staticClass:"form-control text-capitalize",class:""==t.datos.num_empleados?"":"is-valid",attrs:{type:"text",placeholder:"Numero de Empleados Directos"},domProps:{value:t.datos.num_empleados},on:{change:function(a){return t.formato("nume")},input:function(a){a.target.composing||t.$set(t.datos,"num_empleados",a.target.value.trim())},blur:function(a){return t.$forceUpdate()}}})])]),t._v(" "),e("div",{staticClass:"form-group row"},[e("div",{staticClass:"col-lg-4"},[e("label",[t._v("Tiempo Sin Operación Debido al Covid 19:")]),t._v(" "),e("input",{directives:[{name:"model",rawName:"v-model.trim",value:t.datos.tiempo_sin_operacion,expression:"datos.tiempo_sin_operacion",modifiers:{trim:!0}}],ref:"tiempo_sin_operacion",staticClass:"form-control text-capitalize",class:""==t.datos.tiempo_sin_operacion?"":"is-valid",attrs:{type:"text",placeholder:"Tiempo Sin Operación Debido al Covid 19"},domProps:{value:t.datos.tiempo_sin_operacion},on:{change:function(a){return t.formato("tiempo_sin_operacion")},input:function(a){a.target.composing||t.$set(t.datos,"tiempo_sin_operacion",a.target.value.trim())},blur:function(a){return t.$forceUpdate()}}})]),t._v(" "),e("div",{staticClass:"col-lg-3"},[e("label",[t._v("Tiempo en:")]),t._v(" "),e("b-form-select",{ref:"tipo_tiempo",class:""==t.datos.tipo_tiempo?"":"is-valid",attrs:{disabled:!(t.datos.tiempo_sin_operacion>0)},model:{value:t.datos.tipo_tiempo,callback:function(a){t.$set(t.datos,"tipo_tiempo",a)},expression:"datos.tipo_tiempo"}},[e("option",{attrs:{value:"",selected:""}},[t._v("Seleccione")]),t._v(" "),e("option",{attrs:{value:"DIAS"}},[t._v("DIAS")]),t._v(" "),e("option",{attrs:{value:"MESES"}},[t._v("MESES")]),t._v(" "),e("option",{attrs:{value:"ANIOS"}},[t._v("AÑOS")])])],1),t._v(" "),e("div",{staticClass:"col-lg-3"},[e("label",[t._v("Fecha de Retorno a Labores")]),t._v(" "),e("input",{directives:[{name:"model",rawName:"v-model",value:t.datos.fecha_retorno,expression:"datos.fecha_retorno"},{name:"show",rawName:"v-show",value:0!=t.datos.tiempo_sin_operacion,expression:"datos.tiempo_sin_operacion!=0"}],ref:"fecha_retorno",staticClass:"form-control text-capitalize",class:""==t.datos.fecha_retorno?"":"is-valid",attrs:{id:"date",type:"date",placeholder:"Fecha de Retorno a Labores",max:t._f("moment")(t.hoy),readonly:!(t.datos.tiempo_sin_operacion>0)},domProps:{value:t.datos.fecha_retorno},on:{input:function(a){a.target.composing||t.$set(t.datos,"fecha_retorno",a.target.value)}}}),t._v(" "),e("input",{directives:[{name:"show",rawName:"v-show",value:0==t.datos.tiempo_sin_operacion,expression:"datos.tiempo_sin_operacion==0"}],ref:"fecha_retorno",staticClass:"form-control text-capitalize",attrs:{id:"date",type:"text",placeholder:"Fecha de Retorno a Labores",readonly:!(t.datos.tiempo_sin_operacion>0)}})])]),t._v(" "),e("div",{staticClass:"form-group row"},[e("div",{staticClass:"col-lg-4"},[e("label",[t._v("Ingresos Anterior a la Contingencia:")]),t._v(" "),e("input",{directives:[{name:"model",rawName:"v-model.trim",value:t.datos.promedio_ingresos_anterior,expression:"datos.promedio_ingresos_anterior",modifiers:{trim:!0}}],ref:"promedio_ingresos_anterior",staticClass:"form-control text-capitalize",class:""==t.datos.promedio_ingresos_anterior?"":"is-valid",attrs:{type:"text",placeholder:"Ingresos Anterior a la Contingencia"},domProps:{value:t.datos.promedio_ingresos_anterior},on:{change:function(a){return t.formato("promedio_ingresos_anterior")},input:function(a){a.target.composing||t.$set(t.datos,"promedio_ingresos_anterior",a.target.value.trim())},blur:function(a){return t.$forceUpdate()}}})]),t._v(" "),e("div",{staticClass:"col-lg-4"},[e("label",[t._v("Ingresos Durante a la Contingencia:")]),t._v(" "),e("input",{directives:[{name:"model",rawName:"v-model.trim",value:t.datos.promedio_ingresos_durante,expression:"datos.promedio_ingresos_durante",modifiers:{trim:!0}}],ref:"promedio_ingresos_durante",staticClass:"form-control text-capitalize",class:""==t.datos.promedio_ingresos_durante?"":"is-valid",attrs:{type:"text",placeholder:"Ingresos Durante a la Contingencia"},domProps:{value:t.datos.promedio_ingresos_durante},on:{change:function(a){return t.formato("promedio_ingresos_durante")},input:function(a){a.target.composing||t.$set(t.datos,"promedio_ingresos_durante",a.target.value.trim())},blur:function(a){return t.$forceUpdate()}}})]),t._v(" "),e("div",{staticClass:"col-lg-4"},[e("label",[t._v("Ingresos Posterior a la Contingencia:")]),t._v(" "),e("input",{directives:[{name:"model",rawName:"v-model.trim",value:t.datos.promedio_ingresos_posterior,expression:"datos.promedio_ingresos_posterior",modifiers:{trim:!0}}],ref:"promedio_ingresos_posterior",staticClass:"form-control text-capitalize",class:""==t.datos.promedio_ingresos_posterior?"":"is-valid",attrs:{type:"text",placeholder:"Ingresos Posterior a la Contingencia"},domProps:{value:t.datos.promedio_ingresos_posterior},on:{change:function(a){return t.formato("promedio_ingresos_posterior")},input:function(a){a.target.composing||t.$set(t.datos,"promedio_ingresos_posterior",a.target.value.trim())},blur:function(a){return t.$forceUpdate()}}})])]),t._v(" "),e("div",{staticClass:"form-group row"},[e("div",{staticClass:"col-lg-4"},[e("label",[t._v("Principal Carga Economica:")]),t._v(" "),e("b-form-select",{ref:"carga_economica",class:""==t.datos.carga_economica?"":"is-valid",model:{value:t.datos.carga_economica,callback:function(a){t.$set(t.datos,"carga_economica",a)},expression:"datos.carga_economica"}},[e("option",{attrs:{value:"",selected:""}},[t._v("Seleccione")]),t._v(" "),e("option",{attrs:{value:"1"}},[t._v("Pago de Nóminas.")]),t._v(" "),e("option",{attrs:{value:"2"}},[t._v("Pago a proveedores.")]),t._v(" "),e("option",{attrs:{value:"3"}},[t._v("Arrendamiento y servicios públicos.")])])],1),t._v(" "),e("div",{staticClass:"col-lg-4"},[e("label",[t._v("¿Cuenta Con Protocolos de Seguridad?:")]),t._v(" "),e("b-form-select",{ref:"protocolo_bioseguridad",class:""==t.datos.protocolo_bioseguridad?"":"is-valid",model:{value:t.datos.protocolo_bioseguridad,callback:function(a){t.$set(t.datos,"protocolo_bioseguridad",a)},expression:"datos.protocolo_bioseguridad"}},[e("option",{attrs:{value:"",selected:""}},[t._v("Seleccione")]),t._v(" "),e("option",{attrs:{value:"SI"}},[t._v("SI")]),t._v(" "),e("option",{attrs:{value:"NO"}},[t._v("NO")])])],1)]),t._v(" "),e("div",{staticClass:"form-group row"},[e("div",{staticClass:"col-lg-12"},[e("label",[t._v("Tipo de Afectación del Establecimiento:")]),t._v(" "),e("multiselect",{class:""==t.datos.tipo_afectacion?"":"is-valid",attrs:{options:t.tipo,multiple:!0,"close-on-select":!1,"clear-on-select":!1,"preserve-search":!0,placeholder:"Seleccione un tipo de afectación",label:"texto","track-by":"value"},model:{value:t.datos.tipo_afectacion,callback:function(a){t.$set(t.datos,"tipo_afectacion",a)},expression:"datos.tipo_afectacion"}})],1)]),t._v(" "),e("div",{staticClass:"form-group row"},[e("div",{directives:[{name:"show",rawName:"v-show",value:t.mOTA,expression:"mOTA"}],staticClass:"col-lg-12"},[e("label",[t._v("¿Cual?:")]),t._v(" "),e("input",{directives:[{name:"model",rawName:"v-model.trim",value:t.datos.otro_tipo_afectacion,expression:"datos.otro_tipo_afectacion",modifiers:{trim:!0}}],ref:"otro_tipo_afectacion",staticClass:"form-control text-capitalize",class:""==t.datos.otro_tipo_afectacion?"":"is-valid",attrs:{type:"text",placeholder:"¿Cual?"},domProps:{value:t.datos.otro_tipo_afectacion},on:{input:function(a){a.target.composing||t.$set(t.datos,"otro_tipo_afectacion",a.target.value.trim())},blur:function(a){return t.$forceUpdate()}}})])]),t._v(" "),e("div",{staticClass:"form-group row"},[e("div",{staticClass:"col-lg-4"},[e("label",[t._v("¿Recibió Ayuda del Gobierno?:")]),t._v(" "),e("b-form-select",{ref:"ayuda",class:""==t.datos.ayuda?"":"is-valid",model:{value:t.datos.ayuda,callback:function(a){t.$set(t.datos,"ayuda",a)},expression:"datos.ayuda"}},[e("option",{attrs:{value:"",selected:""}},[t._v("Seleccione")]),t._v(" "),e("option",{attrs:{value:"SI"}},[t._v("SI")]),t._v(" "),e("option",{attrs:{value:"NO"}},[t._v("NO")])])],1),t._v(" "),e("div",{staticClass:"col-lg-4"},[e("label",[t._v("¿Cuenta con Servicio de Internet?:")]),t._v(" "),e("b-form-select",{ref:"internet",class:""==t.datos.internet?"":"is-valid",model:{value:t.datos.internet,callback:function(a){t.$set(t.datos,"internet",a)},expression:"datos.internet"}},[e("option",{attrs:{value:"",selected:""}},[t._v("Seleccione")]),t._v(" "),e("option",{attrs:{value:"SI"}},[t._v("SI")]),t._v(" "),e("option",{attrs:{value:"NO"}},[t._v("NO")])])],1)]),t._v(" "),e("div",{staticClass:"form-group row"},[e("div",{staticClass:"col-lg-12"},[e("label",[t._v("¿Dentro de cuanto tiempo, creen que el establecimiento pueda recuperarse económicamente de las afectaciones por la emergencia Covid- 19?:")]),t._v(" "),e("b-form-select",{ref:"tiempo_recuperacion",class:""==t.datos.tiempo_recuperacion?"":"is-valid",model:{value:t.datos.tiempo_recuperacion,callback:function(a){t.$set(t.datos,"tiempo_recuperacion",a)},expression:"datos.tiempo_recuperacion"}},[e("option",{attrs:{value:"",selected:""}},[t._v("Seleccione")]),t._v(" "),e("option",{attrs:{value:"1"}},[t._v("En los próximos de 6 meses.")]),t._v(" "),e("option",{attrs:{value:"2"}},[t._v("Antes de los 6 meses.")]),t._v(" "),e("option",{attrs:{value:"3"}},[t._v("No se ha estimado.")]),t._v(" "),e("option",{attrs:{value:"4"}},[t._v("No hay afectación.")])])],1)]),t._v(" "),e("div",{staticClass:"form-group row"},[e("div",{staticClass:"col-lg-12"},[e("label",[t._v("¿Cuál cree usted que es el principal problema del sector en el que está ubicado el establecimiento comercial?:")]),t._v(" "),e("b-form-select",{ref:"principal_problema",class:""==t.datos.principal_problema?"":"is-valid",on:{change:function(a){return t.mostrarOtro("PP")}},model:{value:t.datos.principal_problema,callback:function(a){t.$set(t.datos,"principal_problema",a)},expression:"datos.principal_problema"}},[e("option",{attrs:{value:"",selected:""}},[t._v("Seleccione")]),t._v(" "),e("option",{attrs:{value:"1"}},[t._v("Inseguridad.")]),t._v(" "),e("option",{attrs:{value:"2"}},[t._v("Falta de servicios públicos.")]),t._v(" "),e("option",{attrs:{value:"3"}},[t._v("Vías de acceso.")]),t._v(" "),e("option",{attrs:{value:"4"}},[t._v("Falta de Alumbrado Público.")]),t._v(" "),e("option",{attrs:{value:"5"}},[t._v("Otro.")])])],1)]),t._v(" "),e("div",{staticClass:"form-group row"},[e("div",{directives:[{name:"show",rawName:"v-show",value:t.mOPP,expression:"mOPP"}],staticClass:"col-lg-12"},[e("label",[t._v("¿Cual?:")]),t._v(" "),e("input",{directives:[{name:"model",rawName:"v-model.trim",value:t.datos.otro_principal_problema,expression:"datos.otro_principal_problema",modifiers:{trim:!0}}],ref:"otro_principal_problema",staticClass:"form-control text-capitalize",class:""==t.datos.otro_principal_problema?"":"is-valid",attrs:{type:"text",placeholder:"¿Cual?"},domProps:{value:t.datos.otro_principal_problema},on:{input:function(a){a.target.composing||t.$set(t.datos,"otro_principal_problema",a.target.value.trim())},blur:function(a){return t.$forceUpdate()}}})])])])])]),t._v(" "),e("b-modal",{ref:"modalActividad",attrs:{"hide-footer":"",title:"Actividades Economicas",size:"xl",centered:"","header-bg-variant":"danger","header-text-variant":"light","no-close-on-backdrop":!0}},[e("div",{staticClass:"d-block"},[e("form",[e("div",{staticClass:"row"},[e("div",{staticClass:"col-md-6 col-lg-6"},[e("form",{staticClass:"kt-form"},[e("div",{staticClass:"form-group"},[e("div",{staticClass:"input-group"},[e("input",{directives:[{name:"model",rawName:"v-model",value:t.txtbusquedaAct,expression:"txtbusquedaAct"}],staticClass:"form-control",attrs:{type:"text",placeholder:"Busqueda"},domProps:{value:t.txtbusquedaAct},on:{input:function(a){a.target.composing||(t.txtbusquedaAct=a.target.value)}}}),t._v(" "),e("div",{staticClass:"input-group-append"},[e("button",{staticClass:"btn btn-primary btn-icon",attrs:{type:"button"},on:{click:function(a){return t.consultarActividades(1)}}},[e("i",{staticClass:"fa fa-search"})])])])])])])]),t._v(" "),e("div",{staticClass:"form-group row"},[e("div",{staticClass:"col-md-12"},[e("div",{staticClass:"table-responsive",staticStyle:{height:"350px"}},[e("table",{staticClass:"table table-sm table-hover"},[e("thead",{},[e("tr",{staticClass:"kt-bg-fill-brand"},[e("th",[t._v("No.")]),t._v(" "),e("th",[t._v("Actividad Economica")]),t._v(" "),e("td",{staticClass:"text-center"},[t._v("Opciones")])])]),t._v(" "),e("tbody",t._l(t.actividadesVector,(function(a,o){return e("tr",{key:o},[e("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle"}},[t._v(t._s(o+1))]),t._v(" "),e("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle","text-align":"left","text-transform":"capitalize"}},[e("span",{staticClass:"text-capitalize"},[t._v(t._s(a.descripcion))])]),t._v(" "),e("td",{staticStyle:{"text-align":"center","vertical-align":"middle"}},[e("button",{staticClass:"btn btn-icon btn-sm btn-outline-success",attrs:{type:"button",title:"Seleccionar"},on:{click:function(e){return t.seleccionarActividades(a)}}},[e("svg",{staticClass:"kt-svg-icon",attrs:{xmlns:"http://www.w3.org/2000/svg","xmlns:xlink":"http://www.w3.org/1999/xlink",width:"24px",height:"24px",viewBox:"0 0 24 24",version:"1.1"}},[e("g",{attrs:{stroke:"none","stroke-width":"1",fill:"none","fill-rule":"evenodd"}},[e("polygon",{attrs:{id:"Shape",points:"0 0 24 0 24 24 0 24"}}),t._v(" "),e("path",{attrs:{d:"M6.26193932,17.6476484 C5.90425297,18.0684559 5.27315905,18.1196257 4.85235158,17.7619393 C4.43154411,17.404253 4.38037434,16.773159 4.73806068,16.3523516 L13.2380607,6.35235158 C13.6013618,5.92493855 14.2451015,5.87991302 14.6643638,6.25259068 L19.1643638,10.2525907 C19.5771466,10.6195087 19.6143273,11.2515811 19.2474093,11.6643638 C18.8804913,12.0771466 18.2484189,12.1143273 17.8356362,11.7474093 L14.0997854,8.42665306 L6.26193932,17.6476484 Z",id:"Path-94",fill:"#000000","fill-rule":"nonzero",transform:"translate(11.999995, 12.000002) rotate(-180.000000) translate(-11.999995, -12.000002) "}})])])])])])})),0)])])])]),t._v(" "),e("div",{staticClass:"text-right"},[e("button",{staticClass:"btn btn-warning",attrs:{type:"button"},on:{click:t.cerrarModal}},[e("i",{staticClass:"fa fa-window-close"}),t._v(" Cerrar\n            ")])])])])])],1)])}),[function(){var t=this.$createElement,a=this._self._c||t;return a("div",{staticClass:"kt-portlet__head-label"},[a("h3",{staticClass:"kt-portlet__head-title"},[a("span",{staticClass:"kt-widget20__number kt-font-danger"},[this._v("GESTIÓN DE ESTABLECIMIENTOS")])])])},function(){var t=this.$createElement,a=this._self._c||t;return a("thead",{},[a("tr",{staticClass:"kt-bg-fill-brand"},[a("th",[this._v("No.")]),this._v(" "),a("th",[this._v("Actividad")]),this._v(" "),a("td",{staticClass:"text-center"},[this._v("Opciones")])])])}],!1,null,null,null);a.default=g.exports}}]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[12],{
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Colegios/Colegios.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Colegios/Colegios.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Servicios_colegios_servicios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Servicios/colegios_servicios */ "./resources/js/Servicios/colegios_servicios.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    this.consultar(1);
+  },
+  name: "barri",
+  data: function data() {
+    return {
+      errores: [],
+      bandera: false,
+      entrarPorError: false,
+      txtbusqueda: "",
+      colegios: [],
+      colegiosData: {
+        dpto: "",
+        muni: "",
+        corregimiento: "0",
+        descripcion: "",
+        id: 0
+      },
+      dpto_options: [],
+      muni_options: {},
+      corregi_options: {},
+      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
+      datos: [],
+      paginacion: {
+        total: 0,
+        pagina_actual: 0,
+        por_pagina: 0,
+        ultima_pagina: 0,
+        desde: 0,
+        hasta: 0
+      },
+      offset: 4,
+      banderaBoton: true,
+      valG: true
+    };
+  },
+  computed: {
+    esActivo: function esActivo() {
+      return this.paginacion.pagina_actual;
+    },
+    numeroDePaginas: function numeroDePaginas() {
+      if (!this.paginacion.hasta) {
+        return [];
+      }
+
+      var desde = this.paginacion.pagina_actual - this.offset; // TODO offset
+
+      if (desde < 1) {
+        desde = 1;
+      }
+
+      var aux = this.offset * 2;
+      var hasta = desde + aux;
+
+      if (hasta >= this.paginacion.ultima_pagina) {
+        hasta = this.paginacion.ultima_pagina;
+      }
+
+      var paginasArray = [];
+
+      while (desde <= hasta) {
+        paginasArray.push(desde);
+        desde++;
+      }
+
+      return paginasArray;
+    },
+    spinG: function spinG() {
+      if (this.valG) {
+        return {};
+      } else {
+        return ['kt-spinner', 'kt-spinner--right', 'kt-spinner--sm', 'kt-spinner--light'];
+      }
+    }
+  },
+  methods: {
+    consultar: function () {
+      var _consultar = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(pagina) {
+        var _this = this;
+
+        var parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                parametros = {
+                  txtbusqueda: this.txtbusqueda.trim(),
+                  _token: this.csrf,
+                  page: pagina
+                };
+                _context.prev = 1;
+                _context.next = 4;
+                return _Servicios_colegios_servicios__WEBPACK_IMPORTED_MODULE_1__["listar"](parametros).then(function (respuesta) {
+                  _this.colegios = respuesta.data.colegios.data;
+                  _this.dpto_options = respuesta.data.arrayDpto;
+                  _this.muni_options = respuesta.data.arrayMuni;
+                  _this.corregi_options = respuesta.data.arrayCorregi;
+                  _this.paginacion = respuesta.data.paginacion;
+                });
+
+              case 4:
+                _context.next = 15;
+                break;
+
+              case 6:
+                _context.prev = 6;
+                _context.t0 = _context["catch"](1);
+                _context.t1 = _context.t0.response.status;
+                _context.next = _context.t1 === 422 ? 11 : 13;
+                break;
+
+              case 11:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context.abrupt("break", 15);
+
+              case 13:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context.abrupt("break", 15);
+
+              case 15:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this, [[1, 6]]);
+      }));
+
+      function consultar(_x) {
+        return _consultar.apply(this, arguments);
+      }
+
+      return consultar;
+    }(),
+    abrirModal: function abrirModal() {
+      this.errores = [];
+      this.entrarPorError = false;
+      this.datos = [];
+      this.colegiosData.descripcion = "";
+      this.colegiosData.dpto = "";
+      this.colegiosData.muni = "";
+      this.colegiosData.corregimiento = "0";
+      this.colegiosData.id = 0;
+      this.bandera = false;
+      this.banderaBoton = true;
+      this.$refs.modalColegio.show();
+    },
+    cerrarModal: function cerrarModal() {
+      this.$refs.modalColegio.hide();
+    },
+    cambio: function cambio() {
+      this.bandera = false;
+      this.corregimiento = "0";
+
+      for (var key in this.corregi_options[this.colegiosData.muni]) {
+        this.bandera = true;
+      }
+    },
+    agregar: function agregar() {
+      if (this.colegiosData.dpto == "") {
+        this.$swal("Error...!", "Por favor seleccione un departamento!", "error");
+        return;
+      }
+
+      if (this.colegiosData.muni == "") {
+        this.$swal("Error...!", "Por favor seleccione un municipio!", "error");
+        return;
+      }
+
+      if (this.colegiosData.barrio == "") {
+        this.$swal("Error...!", "Por favor digite un barrio!", "error");
+        return;
+      }
+
+      if (this.colegiosData.corregimiento !== "0") {
+        this.datos.push({
+          dpto: this.colegiosData.dpto,
+          dptoTexto: this.showText(this.colegiosData.dpto, this.dpto_options),
+          muni: this.colegiosData.muni,
+          muniTexto: this.showText(this.colegiosData.muni, this.muni_options[this.colegiosData.dpto]),
+          corregimiento: this.colegiosData.corregimiento,
+          corregimientoTexto: this.showText(this.colegiosData.corregimiento, this.corregi_options[this.colegiosData.muni]),
+          descripcion: this.colegiosData.descripcion,
+          id: 0
+        });
+      } else {
+        this.datos.push({
+          dpto: this.colegiosData.dpto,
+          dptoTexto: this.showText(this.colegiosData.dpto, this.dpto_options),
+          muni: this.colegiosData.muni,
+          muniTexto: this.showText(this.colegiosData.muni, this.muni_options[this.colegiosData.dpto]),
+          corregimiento: 0,
+          corregimientoTexto: "",
+          descripcion: this.colegiosData.descripcion,
+          id: 0
+        });
+      }
+
+      this.colegiosData.descripcion = "";
+    },
+    eliminarItem: function eliminarItem(index) {
+      this.datos.splice(index, 1);
+    },
+    guardarColegio: function () {
+      var _guardarColegio = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var _this2 = this;
+
+        var parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                if (this.checkForm()) {
+                  _context2.next = 4;
+                  break;
+                }
+
+                this.entrarPorError = false;
+                _context2.next = 23;
+                break;
+
+              case 4:
+                this.errores = [];
+                parametros = {
+                  _token: this.csrf,
+                  colegios: this.datos,
+                  opcion: "GUARDAR"
+                };
+                this.valG = false;
+                _context2.prev = 7;
+                _context2.next = 10;
+                return _Servicios_colegios_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](parametros).then(function (respuesta) {
+                  _this2.consultar(1);
+
+                  _this2.datos = [];
+                  _this2.colegiosData.descripcion = "";
+                  _this2.colegiosData.dpto = "";
+                  _this2.colegiosData.muni = "";
+                  _this2.colegiosData.corregimiento = "0";
+                  _this2.colegiosData.id = 0;
+                  _this2.bandera = false;
+
+                  _this2.cerrarModal();
+
+                  _this2.$swal("Guardar...!", "Datos Guardados Exitosamente!", "success");
+
+                  _this2.valG = true;
+                })["catch"](function (error) {
+                  _this2.errorDevuelto = error.response.data.errors;
+                  _this2.entrarPorError = true;
+                });
+
+              case 10:
+                _context2.next = 23;
+                break;
+
+              case 12:
+                _context2.prev = 12;
+                _context2.t0 = _context2["catch"](7);
+                _context2.t1 = _context2.t0.response.status;
+                _context2.next = _context2.t1 === 419 ? 17 : _context2.t1 === 422 ? 19 : 21;
+                break;
+
+              case 17:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context2.abrupt("break", 23);
+
+              case 19:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context2.abrupt("break", 23);
+
+              case 21:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context2.abrupt("break", 23);
+
+              case 23:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this, [[7, 12]]);
+      }));
+
+      function guardarColegio() {
+        return _guardarColegio.apply(this, arguments);
+      }
+
+      return guardarColegio;
+    }(),
+    editarColegio: function () {
+      var _editarColegio = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        var _this3 = this;
+
+        var parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                if (this.checkForm2()) {
+                  _context3.next = 4;
+                  break;
+                }
+
+                this.entrarPorError = false;
+                _context3.next = 23;
+                break;
+
+              case 4:
+                this.errores = [];
+                parametros = {
+                  _token: this.csrf,
+                  colegios: this.colegiosData,
+                  opcion: "EDITAR"
+                };
+                this.valG = false;
+                _context3.prev = 7;
+                _context3.next = 10;
+                return _Servicios_colegios_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](parametros).then(function (respuesta) {
+                  _this3.consultar(1);
+
+                  _this3.datos = [];
+                  _this3.colegiosData.descripcion = "";
+                  _this3.colegiosData.dpto = "";
+                  _this3.colegiosData.muni = "";
+                  _this3.colegiosData.corregimiento = "0";
+                  _this3.colegiosData.id = 0;
+                  _this3.bandera = false;
+
+                  _this3.cerrarModal();
+
+                  _this3.$swal("Guardar...!", "Datos Guardados Exitosamente!", "success");
+
+                  _this3.valG = true;
+                })["catch"](function (error) {
+                  _this3.errorDevuelto = error.response.data.errors;
+                  _this3.entrarPorError = true;
+                });
+
+              case 10:
+                _context3.next = 23;
+                break;
+
+              case 12:
+                _context3.prev = 12;
+                _context3.t0 = _context3["catch"](7);
+                _context3.t1 = _context3.t0.response.status;
+                _context3.next = _context3.t1 === 419 ? 17 : _context3.t1 === 422 ? 19 : 21;
+                break;
+
+              case 17:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context3.abrupt("break", 23);
+
+              case 19:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context3.abrupt("break", 23);
+
+              case 21:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context3.abrupt("break", 23);
+
+              case 23:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this, [[7, 12]]);
+      }));
+
+      function editarColegio() {
+        return _editarColegio.apply(this, arguments);
+      }
+
+      return editarColegio;
+    }(),
+    checkForm: function checkForm(e) {
+      this.errores = [];
+
+      if (this.datos.length <= 0) {
+        this.errores.push("Agregue por lo menos un colegio");
+      }
+
+      if (!this.errores.length) {
+        return true;
+      } else {
+        return false;
+      }
+
+      e.preventDefault();
+    },
+    checkForm2: function checkForm2(e) {
+      this.errores = [];
+
+      if (this.colegiosData.dpto == "") {
+        this.errores.push("Por favor seleccione el departamento.");
+      }
+
+      if (this.colegiosData.muni == "") {
+        this.errores.push("Por favor seleccione el municipio");
+      }
+
+      if (this.colegiosData.descripcion == "") {
+        this.errores.push("Por favor digite el colegio.");
+      }
+
+      if (!this.errores.length) {
+        return true;
+      } else {
+        return false;
+      }
+
+      e.preventDefault();
+    },
+    cambiarPaginas: function cambiarPaginas(pagina) {
+      this.paginacion.pagina_actual = pagina;
+      this.consultar(pagina);
+    },
+    eliminar: function () {
+      var _eliminar = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(usu) {
+        var _this4 = this;
+
+        var title, titulo;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                title = "";
+                titulo = "";
+
+                if (usu.ESTADO == "Activo") {
+                  title = "¿Desea anular el colegio " + usu.COLEGIO + "?";
+                  titulo = "Colegio " + usu.COLEGIO + " anulado de manera exitosa";
+                } else {
+                  title = "¿Desea activar el colegio " + usu.COLEGIO + "?";
+                  titulo = "Colegio " + usu.COLEGIO + " activado de manera exitosa";
+                }
+
+                this.$swal({
+                  title: title,
+                  text: "",
+                  icon: "warning",
+                  showCancelButton: true,
+                  confirmButtonColor: "#3085d6",
+                  cancelButtonColor: "#d33",
+                  confirmButtonText: "Aceptar",
+                  cancelButtonText: "Cancelar"
+                }).then(function (result) {
+                  if (result.value) {
+                    var parametros = {
+                      _token: _this4.csrf,
+                      id: usu.id,
+                      estado: usu.ESTADO
+                    };
+
+                    try {
+                      _Servicios_colegios_servicios__WEBPACK_IMPORTED_MODULE_1__["eliminar"](parametros).then(function (respuesta) {
+                        _this4.consultar(1);
+
+                        _this4.$swal({
+                          position: "top-end",
+                          icon: "success",
+                          title: titulo,
+                          showConfirmButton: false,
+                          timer: 2000
+                        });
+                      })["catch"](function (error) {
+                        _this4.$swal("Error...!", "Ocurrio un error!", "error");
+                      });
+                    } catch (error) {
+                      switch (error.response.status) {
+                        case 422:
+                          _this4.$swal("Error...!", "Ocurrio un error!", "error");
+
+                          break;
+
+                        default:
+                          _this4.$swal("Error...!", "Ocurrio un error!", "error");
+
+                          break;
+                      }
+                    }
+                  }
+                });
+
+              case 4:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4, this);
+      }));
+
+      function eliminar(_x2) {
+        return _eliminar.apply(this, arguments);
+      }
+
+      return eliminar;
+    }(),
+    editar: function editar(item) {
+      // this.barriosData = { ...item };        
+      this.entrarPorError = false;
+      this.errores = [];
+      this.colegiosData.dpto = item.dpto;
+      this.colegiosData.muni = item.muni;
+      this.colegiosData.corregimiento = item.corregimiento;
+      this.bandera = false;
+
+      if (this.colegiosData.corregimiento != null) {
+        this.bandera = true;
+      } else {
+        this.bandera = false;
+      }
+
+      this.colegiosData.descripcion = item.COLEGIO;
+      this.colegiosData.id = item.id;
+      this.banderaBoton = false;
+      this.$refs.modalColegio.show();
+    },
+    showText: function showText(val, vectorAux) {
+      for (var i = 0; i < vectorAux.length; i++) {
+        if (vectorAux[i].value === val) {
+          return vectorAux[i].texto;
+        }
+      }
+
+      return "";
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Colegios/Colegios.vue?vue&type=style&index=0&lang=css&":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Colegios/Colegios.vue?vue&type=style&index=0&lang=css& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.modal-backdrop {\n  background-color: rgba(0, 0, 0, 0.5) !important;\n}\n.modal-title {\n  color: #f8f9fa !important;\n}\n.close {\n  display: none;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Colegios/Colegios.vue?vue&type=style&index=0&lang=css&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Colegios/Colegios.vue?vue&type=style&index=0&lang=css& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Colegios.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Colegios/Colegios.vue?vue&type=style&index=0&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Colegios/Colegios.vue?vue&type=template&id=c08a1238&":
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Colegios/Colegios.vue?vue&type=template&id=c08a1238& ***!
+  \****************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "div",
+      { staticClass: "kt-portlet", staticStyle: { "margin-top": "-4%" } },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "kt-portlet__body" }, [
+          _c("div", { staticClass: "kt-section" }, [
+            _c("div", { staticClass: "kt-section__content" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-6 col-lg-6" }, [
+                  _c("div", { staticClass: "kt-section" }, [
+                    _c("div", { staticClass: "kt-section__content" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-outline-primary btn-icon",
+                          attrs: {
+                            href: "javascript:;",
+                            "data-skin": "dark",
+                            "data-toggle": "kt-tooltip",
+                            "data-placement": "top",
+                            title: "Nuevo Colegio"
+                          },
+                          on: { click: _vm.abrirModal }
+                        },
+                        [_c("i", { staticClass: "la la-file-text-o" })]
+                      ),
+                      _vm._v(" \n                ")
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-6 col-lg-6" }, [
+                  _c("form", { staticClass: "kt-form" }, [
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("div", { staticClass: "input-group" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.txtbusqueda,
+                              expression: "txtbusqueda"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text", placeholder: "Busqueda" },
+                          domProps: { value: _vm.txtbusqueda },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.txtbusqueda = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "input-group-append" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-primary btn-icon",
+                              attrs: { type: "button" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.consultar(1)
+                                }
+                              }
+                            },
+                            [_c("i", { staticClass: "fa fa-search" })]
+                          )
+                        ])
+                      ])
+                    ])
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-12" }, [
+                  _c("div", { staticClass: "table-responsive" }, [
+                    _c("table", { staticClass: "table table-sm table-hover" }, [
+                      _vm._m(1),
+                      _vm._v(" "),
+                      _c(
+                        "tbody",
+                        _vm._l(_vm.colegios, function(item, index) {
+                          return _c("tr", { key: index }, [
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle"
+                                }
+                              },
+                              [_vm._v(_vm._s(index + 1))]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [_vm._v(_vm._s(item.DEPARTAMENTO))]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [_vm._v(_vm._s(item.MUNICIPIO))]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [_vm._v(_vm._s(item.CORREGI))]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [_vm._v(_vm._s(item.COLEGIO))]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "center"
+                                }
+                              },
+                              [
+                                _c(
+                                  "span",
+                                  {
+                                    staticClass: "kt-badge kt-badge--inline",
+                                    class:
+                                      item.ESTADO == "Activo"
+                                        ? "kt-badge--success"
+                                        : "kt-badge--danger"
+                                  },
+                                  [_vm._v(_vm._s(item.ESTADO))]
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "text-align": "center",
+                                  "vertical-align": "middle"
+                                }
+                              },
+                              [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "btn btn-outline-info btn-icon btn-sm",
+                                    attrs: { type: "button", title: "Editar" },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.editar(item)
+                                      }
+                                    }
+                                  },
+                                  [_c("i", { staticClass: "fa fa-edit" })]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass: "btn btn-icon btn-sm",
+                                    class:
+                                      item.ESTADO == "Activo"
+                                        ? "btn-outline-danger"
+                                        : "btn-outline-success",
+                                    attrs: {
+                                      type: "button",
+                                      title:
+                                        item.ESTADO == "Activo"
+                                          ? "Anular"
+                                          : "Activar"
+                                    },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.eliminar(item)
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _c("i", {
+                                      staticClass: "fa",
+                                      class:
+                                        item.ESTADO == "Activo"
+                                          ? "fa-trash"
+                                          : "fa-check"
+                                    })
+                                  ]
+                                )
+                              ]
+                            )
+                          ])
+                        }),
+                        0
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", {
+                      staticClass: "kt-separator kt-separator--border-dashed"
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "kt-section" }, [
+                      _c(
+                        "div",
+                        { staticClass: "kt-pagination kt-pagination--danger" },
+                        [
+                          _c(
+                            "ul",
+                            { staticClass: "kt-pagination__links" },
+                            [
+                              _vm.paginacion.pagina_actual > 1
+                                ? _c(
+                                    "li",
+                                    {
+                                      staticClass: "kt-pagination__link--first"
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          attrs: { href: "javascript:;" },
+                                          on: {
+                                            click: function($event) {
+                                              $event.preventDefault()
+                                              return _vm.cambiarPaginas(1)
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass:
+                                              "fa fa-angle-double-left kt-font-danger"
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.paginacion.pagina_actual > 1
+                                ? _c(
+                                    "li",
+                                    {
+                                      staticClass: "kt-pagination__link--next"
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          attrs: { href: "javascript:;" },
+                                          on: {
+                                            click: function($event) {
+                                              $event.preventDefault()
+                                              return _vm.cambiarPaginas(
+                                                _vm.paginacion.pagina_actual - 1
+                                              )
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass:
+                                              "fa fa-angle-left kt-font-danger"
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm._l(_vm.numeroDePaginas, function(
+                                pagina,
+                                index
+                              ) {
+                                return _c(
+                                  "li",
+                                  {
+                                    key: index,
+                                    class: [
+                                      pagina == _vm.esActivo
+                                        ? "kt-pagination__link--active"
+                                        : ""
+                                    ]
+                                  },
+                                  [
+                                    _c(
+                                      "a",
+                                      {
+                                        attrs: { href: "javascript:;" },
+                                        on: {
+                                          click: function($event) {
+                                            $event.preventDefault()
+                                            return _vm.cambiarPaginas(pagina)
+                                          }
+                                        }
+                                      },
+                                      [_vm._v(_vm._s(pagina))]
+                                    )
+                                  ]
+                                )
+                              }),
+                              _vm._v(" "),
+                              _vm.paginacion.pagina_actual <
+                              _vm.paginacion.ultima_pagina
+                                ? _c(
+                                    "li",
+                                    {
+                                      staticClass: "kt-pagination__link--prev"
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          attrs: { href: "javascript:;" },
+                                          on: {
+                                            click: function($event) {
+                                              $event.preventDefault()
+                                              return _vm.cambiarPaginas(
+                                                _vm.paginacion.pagina_actual + 1
+                                              )
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass:
+                                              "fa fa-angle-right kt-font-danger"
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.paginacion.pagina_actual <
+                              _vm.paginacion.ultima_pagina
+                                ? _c(
+                                    "li",
+                                    {
+                                      staticClass: "kt-pagination__link--last"
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          attrs: { href: "javascript:;" },
+                                          on: {
+                                            click: function($event) {
+                                              $event.preventDefault()
+                                              return _vm.cambiarPaginas(
+                                                _vm.paginacion.ultima_pagina
+                                              )
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass:
+                                              "fa fa-angle-double-right kt-font-danger"
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : _vm._e()
+                            ],
+                            2
+                          )
+                        ]
+                      )
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "b-modal",
+          {
+            ref: "modalColegio",
+            attrs: {
+              "hide-footer": "",
+              title: "Gestion de Colegios",
+              size: "xl",
+              centered: "",
+              "header-bg-variant": "danger",
+              "header-text-variant": "light",
+              "no-close-on-backdrop": true
+            }
+          },
+          [
+            _c("div", { staticClass: "d-block" }, [
+              _c("div", { staticClass: "row" }, [
+                _c(
+                  "div",
+                  { staticClass: "col-lg-12" },
+                  [
+                    _c(
+                      "transition",
+                      { attrs: { duration: 1000, name: "fade" } },
+                      [
+                        _vm.entrarPorError
+                          ? _c(
+                              "div",
+                              {
+                                staticClass: "alert alert-warning fade show",
+                                attrs: { role: "alert" }
+                              },
+                              [
+                                _c("div", { staticClass: "alert-icon" }, [
+                                  _c("i", { staticClass: "flaticon-warning" })
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "alert-text" }, [
+                                  _vm._v(
+                                    "\n                  Por favor, corrija el(los) siguiente(s) error(es):\n                  "
+                                  ),
+                                  _c("hr"),
+                                  _vm._v(" "),
+                                  _c(
+                                    "ul",
+                                    _vm._l(_vm.errorDevuelto, function(
+                                      error,
+                                      index
+                                    ) {
+                                      return _c("li", { key: index }, [
+                                        _vm._v(_vm._s(error))
+                                      ])
+                                    }),
+                                    0
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "alert-close" }, [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass: "close",
+                                      attrs: {
+                                        type: "button",
+                                        "data-dismiss": "alert",
+                                        "aria-label": "Close"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "span",
+                                        { attrs: { "aria-hidden": "true" } },
+                                        [
+                                          _c("i", {
+                                            staticClass: "la la-close"
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ]
+                            )
+                          : _vm._e()
+                      ]
+                    )
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c(
+                  "div",
+                  { staticClass: "col-lg-12" },
+                  [
+                    _c(
+                      "transition",
+                      { attrs: { duration: 1000, name: "fade" } },
+                      [
+                        _vm.errores.length
+                          ? _c(
+                              "div",
+                              {
+                                staticClass: "alert alert-warning fade show",
+                                attrs: { role: "alert" }
+                              },
+                              [
+                                _c("div", { staticClass: "alert-icon" }, [
+                                  _c("i", { staticClass: "flaticon-warning" })
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "alert-text" }, [
+                                  _vm._v(
+                                    "\n                  Por favor, corrija el(los) siguiente(s) error(es):\n                  "
+                                  ),
+                                  _c("hr"),
+                                  _vm._v(" "),
+                                  _c(
+                                    "ul",
+                                    _vm._l(_vm.errores, function(error, index) {
+                                      return _c("li", { key: index }, [
+                                        _vm._v(_vm._s(error))
+                                      ])
+                                    }),
+                                    0
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "alert-close" }, [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass: "close",
+                                      attrs: {
+                                        type: "button",
+                                        "data-dismiss": "alert",
+                                        "aria-label": "Close"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "span",
+                                        { attrs: { "aria-hidden": "true" } },
+                                        [
+                                          _c("i", {
+                                            staticClass: "la la-close"
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ]
+                            )
+                          : _vm._e()
+                      ]
+                    )
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("form", [
+                _c("div", { staticClass: "form-group row" }, [
+                  _c(
+                    "div",
+                    { staticClass: "col-lg-4" },
+                    [
+                      _c("label", [_vm._v("Departamento:")]),
+                      _vm._v(" "),
+                      _c(
+                        "b-form-select",
+                        {
+                          model: {
+                            value: _vm.colegiosData.dpto,
+                            callback: function($$v) {
+                              _vm.$set(_vm.colegiosData, "dpto", $$v)
+                            },
+                            expression: "colegiosData.dpto"
+                          }
+                        },
+                        [
+                          _c("option", { attrs: { value: "", selected: "" } }, [
+                            _vm._v("Seleccione")
+                          ]),
+                          _vm._v(" "),
+                          _vm._l(_vm.dpto_options, function(item) {
+                            return _c(
+                              "option",
+                              {
+                                key: item.value,
+                                domProps: { value: item.value }
+                              },
+                              [_vm._v(_vm._s(item.texto))]
+                            )
+                          })
+                        ],
+                        2
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "col-lg-4" },
+                    [
+                      _c("label", [_vm._v("Municipio:")]),
+                      _vm._v(" "),
+                      _c(
+                        "b-form-select",
+                        {
+                          on: { change: _vm.cambio },
+                          model: {
+                            value: _vm.colegiosData.muni,
+                            callback: function($$v) {
+                              _vm.$set(_vm.colegiosData, "muni", $$v)
+                            },
+                            expression: "colegiosData.muni"
+                          }
+                        },
+                        [
+                          _c("option", { attrs: { value: "", selected: "" } }, [
+                            _vm._v("Seleccione")
+                          ]),
+                          _vm._v(" "),
+                          _vm._l(
+                            _vm.muni_options[_vm.colegiosData.dpto],
+                            function(item) {
+                              return _c(
+                                "option",
+                                {
+                                  key: item.value,
+                                  domProps: { value: item.value }
+                                },
+                                [_vm._v(_vm._s(item.texto))]
+                              )
+                            }
+                          )
+                        ],
+                        2
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _vm.bandera
+                    ? _c(
+                        "div",
+                        { staticClass: "col-lg-4" },
+                        [
+                          _c("label", [_vm._v("Corregimiento:")]),
+                          _vm._v(" "),
+                          _c(
+                            "b-form-select",
+                            {
+                              model: {
+                                value: _vm.colegiosData.corregimiento,
+                                callback: function($$v) {
+                                  _vm.$set(
+                                    _vm.colegiosData,
+                                    "corregimiento",
+                                    $$v
+                                  )
+                                },
+                                expression: "colegiosData.corregimiento"
+                              }
+                            },
+                            [
+                              _c(
+                                "option",
+                                { attrs: { value: "0", selected: "" } },
+                                [_vm._v("Seleccione")]
+                              ),
+                              _vm._v(" "),
+                              _vm._l(
+                                _vm.corregi_options[_vm.colegiosData.muni],
+                                function(item) {
+                                  return _c(
+                                    "option",
+                                    {
+                                      key: item.value,
+                                      domProps: { value: item.value }
+                                    },
+                                    [_vm._v(_vm._s(item.texto))]
+                                  )
+                                }
+                              )
+                            ],
+                            2
+                          )
+                        ],
+                        1
+                      )
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c("div", { staticClass: "col-lg-11" }, [
+                    _c("label", [_vm._v("Colegio:")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.colegiosData.descripcion,
+                          expression: "colegiosData.descripcion"
+                        }
+                      ],
+                      staticClass: "form-control text-capitalize",
+                      attrs: { type: "text", placeholder: "Colegio" },
+                      domProps: { value: _vm.colegiosData.descripcion },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.colegiosData,
+                            "descripcion",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-lg-1" }, [
+                    _c("label", [_vm._v("   ")]),
+                    _vm._v(" "),
+                    _vm.banderaBoton
+                      ? _c(
+                          "a",
+                          {
+                            staticClass: "btn btn-outline-info btn-icon",
+                            attrs: {
+                              href: "javascript:;",
+                              "data-skin": "dark",
+                              "data-toggle": "kt-tooltip",
+                              "data-placement": "top",
+                              title: "Agregar Colegio"
+                            },
+                            on: {
+                              click: function($event) {
+                                $event.preventDefault()
+                                return _vm.agregar.apply(null, arguments)
+                              }
+                            }
+                          },
+                          [_c("i", { staticClass: "fa fa-plus" })]
+                        )
+                      : _vm._e(),
+                    _vm._v(" \n            ")
+                  ])
+                ]),
+                _vm._v(" "),
+                _vm.banderaBoton
+                  ? _c("div", { staticClass: "form-group row" }, [
+                      _c("div", { staticClass: "col-md-12" }, [
+                        _c("div", { staticClass: "table-responsive" }, [
+                          _c(
+                            "table",
+                            { staticClass: "table table-sm table-hover" },
+                            [
+                              _c("thead", {}, [
+                                _c("tr", { staticClass: "kt-bg-fill-brand" }, [
+                                  _c("th", [_vm._v("No.")]),
+                                  _vm._v(" "),
+                                  _c("th", [_vm._v("Departamento")]),
+                                  _vm._v(" "),
+                                  _c("th", [_vm._v("Municipio")]),
+                                  _vm._v(" "),
+                                  _c("th", [_vm._v("Corregimiento")]),
+                                  _vm._v(" "),
+                                  _c("th", [_vm._v("Colegio")]),
+                                  _vm._v(" "),
+                                  _c("td", { staticClass: "text-center" }, [
+                                    _vm._v("Opciones")
+                                  ])
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "tbody",
+                                _vm._l(_vm.datos, function(item, index) {
+                                  return _c("tr", { key: index }, [
+                                    _c(
+                                      "td",
+                                      {
+                                        staticStyle: {
+                                          "font-weight": "normal",
+                                          "vertical-align": "middle"
+                                        }
+                                      },
+                                      [_vm._v(_vm._s(index + 1))]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "td",
+                                      {
+                                        staticStyle: {
+                                          "font-weight": "normal",
+                                          "vertical-align": "middle",
+                                          "text-align": "left",
+                                          "text-transform": "capitalize"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "span",
+                                          { staticClass: "text-capitalize" },
+                                          [_vm._v(_vm._s(item.dptoTexto))]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "td",
+                                      {
+                                        staticStyle: {
+                                          "font-weight": "normal",
+                                          "vertical-align": "middle",
+                                          "text-align": "left",
+                                          "text-transform": "capitalize"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "span",
+                                          { staticClass: "text-capitalize" },
+                                          [_vm._v(_vm._s(item.muniTexto))]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "td",
+                                      {
+                                        staticStyle: {
+                                          "font-weight": "normal",
+                                          "vertical-align": "middle",
+                                          "text-align": "left",
+                                          "text-transform": "capitalize"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "span",
+                                          { staticClass: "text-capitalize" },
+                                          [
+                                            _vm._v(
+                                              _vm._s(item.corregimientoTexto)
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "td",
+                                      {
+                                        staticStyle: {
+                                          "font-weight": "normal",
+                                          "vertical-align": "middle",
+                                          "text-align": "left",
+                                          "text-transform": "capitalize"
+                                        }
+                                      },
+                                      [_vm._v(_vm._s(item.descripcion))]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "td",
+                                      {
+                                        staticStyle: {
+                                          "text-align": "center",
+                                          "vertical-align": "middle"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "button",
+                                          {
+                                            staticClass:
+                                              "btn btn-icon btn-sm btn-outline-danger",
+                                            attrs: {
+                                              type: "button",
+                                              title: "Eliminar"
+                                            },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.eliminarItem(index)
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _c("i", {
+                                              staticClass: "fa fa-trash"
+                                            })
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ])
+                                }),
+                                0
+                              )
+                            ]
+                          )
+                        ])
+                      ])
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _c("hr"),
+                _vm._v(" "),
+                _c("div", { staticClass: "text-right" }, [
+                  _vm.banderaBoton
+                    ? _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-success",
+                          class: _vm.spinG,
+                          attrs: { type: "button", disabled: !_vm.valG },
+                          on: { click: _vm.guardarColegio }
+                        },
+                        [
+                          _c("i", { staticClass: "fa fa-edit" }),
+                          _vm._v(" Guardar\n            ")
+                        ]
+                      )
+                    : _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-success",
+                          class: _vm.spinG,
+                          attrs: { type: "button", disabled: !_vm.valG },
+                          on: { click: _vm.editarColegio }
+                        },
+                        [
+                          _c("i", { staticClass: "fa fa-edit" }),
+                          _vm._v(" Guardar\n            ")
+                        ]
+                      ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-warning",
+                      attrs: { type: "button" },
+                      on: { click: _vm.cerrarModal }
+                    },
+                    [
+                      _c("i", { staticClass: "fa fa-window-close" }),
+                      _vm._v(" Cancelar\n            ")
+                    ]
+                  )
+                ])
+              ])
+            ])
+          ]
+        )
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "kt-portlet__head" }, [
+      _c("div", { staticClass: "kt-portlet__head-label" }, [
+        _c("h3", { staticClass: "kt-portlet__head-title" }, [
+          _c("span", { staticClass: "kt-widget20__number kt-font-danger" }, [
+            _vm._v("GESTIÓN DE COLEGIOS")
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", {}, [
+      _c("tr", { staticClass: "kt-bg-fill-brand" }, [
+        _c("th", [_vm._v("No.")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Departamento")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Municipio")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Corregimiento")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Colegio")]),
+        _vm._v(" "),
+        _c("td", { staticClass: "text-center" }, [_vm._v("Estado")]),
+        _vm._v(" "),
+        _c("td", { staticClass: "text-center" }, [_vm._v("Opciones")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./resources/js/Servicios/colegios_servicios.js":
+/*!******************************************************!*\
+  !*** ./resources/js/Servicios/colegios_servicios.js ***!
+  \******************************************************/
+/*! exports provided: listar, guardar, eliminar, combo */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "listar", function() { return listar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "guardar", function() { return guardar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "eliminar", function() { return eliminar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "combo", function() { return combo; });
+/* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
+
+function listar($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/colegios', $data);
+}
+function guardar($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/colegios/guardar', $data);
+}
+function eliminar($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/colegios/eliminar', $data);
+}
+function combo($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/colegios/combo', $data);
+}
+
+/***/ }),
+
+/***/ "./resources/js/Vistas/Colegios/Colegios.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/Vistas/Colegios/Colegios.vue ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Colegios_vue_vue_type_template_id_c08a1238___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Colegios.vue?vue&type=template&id=c08a1238& */ "./resources/js/Vistas/Colegios/Colegios.vue?vue&type=template&id=c08a1238&");
+/* harmony import */ var _Colegios_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Colegios.vue?vue&type=script&lang=js& */ "./resources/js/Vistas/Colegios/Colegios.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _Colegios_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Colegios.vue?vue&type=style&index=0&lang=css& */ "./resources/js/Vistas/Colegios/Colegios.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _Colegios_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Colegios_vue_vue_type_template_id_c08a1238___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Colegios_vue_vue_type_template_id_c08a1238___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Vistas/Colegios/Colegios.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Vistas/Colegios/Colegios.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/Vistas/Colegios/Colegios.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Colegios_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Colegios.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Colegios/Colegios.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Colegios_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Vistas/Colegios/Colegios.vue?vue&type=style&index=0&lang=css&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/Vistas/Colegios/Colegios.vue?vue&type=style&index=0&lang=css& ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Colegios_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Colegios.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Colegios/Colegios.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Colegios_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Colegios_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Colegios_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Colegios_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+/***/ }),
+
+/***/ "./resources/js/Vistas/Colegios/Colegios.vue?vue&type=template&id=c08a1238&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/Vistas/Colegios/Colegios.vue?vue&type=template&id=c08a1238& ***!
+  \**********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Colegios_vue_vue_type_template_id_c08a1238___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Colegios.vue?vue&type=template&id=c08a1238& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Colegios/Colegios.vue?vue&type=template&id=c08a1238&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Colegios_vue_vue_type_template_id_c08a1238___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Colegios_vue_vue_type_template_id_c08a1238___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ })
+
+}]);

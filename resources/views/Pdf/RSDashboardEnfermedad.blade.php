@@ -163,6 +163,15 @@
             <img src="{{$grafico2}}" style="width: 600px;">
             <img src="{{$hmp}}" style="width: 600px">
         </div>
+        <div style="page-break-after:always;"></div>
+        <br>
+        <div style="text-align: center">
+            <br>
+            <h2>Comparativa de Personas Con Enfermedades {{$tipo_enfermedad}}s</h2>
+            <h3>((Numero de personas por enfermedad))</h3>
+            <br><br><br>
+            <img src="{{$grafico3}}" style="width: 600px;">
+        </div>
     </main>
 </body>
 </html>

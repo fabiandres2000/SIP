@@ -2781,4 +2781,133 @@ class DashboardRiesgosSalud extends Model
         ];
 
     }
+
+    public static function inmunizacion_men_1($alias, $tipo, $id){
+        if($tipo == "todos"){
+    
+            $menores_1_a = DB::connection('mysql')->table($alias.'.men1a')
+            ->join($alias . ".integrantes", "integrantes.id", "men1a.id_integrante")
+            ->join($alias . ".riesgos_salud_men1", "integrantes.id", "riesgos_salud_men1.id_inte")
+            ->join($alias . ".hogar", "hogar.id", "integrantes.id_hogar")
+            ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+            ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+            ->select('integrantes.id','integrantes.id_hogar','integrantes.tipo_id','integrantes.identificacion', 'men1a.bcg', 'men1a.polio', 'men1a.pentavalente','riesgos_salud_men1.riesgos_desnutricion_aguda_R','riesgos_salud_men1.riesgos_desnutricion_global_R', 'men1a.carnet')
+            ->selectRaw("CONCAT_WS(' ',integrantes.pnom, integrantes.snom, integrantes.pape, integrantes.sape) as nombre")
+            ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as des_corr")->selectRaw("CONCAT_WS('',hogar.direccion) as des_direc")->selectRaw("CONCAT_WS('',barrios.barrio) as des_barrio")
+            ->where('hogar.estado', 'Activo')
+            ->where('integrantes.estado', 'Activo')
+            ->where('men1a.estado', 'Activo')
+            ->get();
+        }else{
+            $menores_1_a = DB::connection('mysql')->table($alias.'.men1a')
+            ->join($alias . ".integrantes", "integrantes.id", "men1a.id_integrante")
+            ->join($alias . ".riesgos_salud_men1", "integrantes.id", "riesgos_salud_men1.id_inte")
+            ->join($alias . ".hogar", "hogar.id", "integrantes.id_hogar")
+            ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+            ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+            ->select('integrantes.id','integrantes.id_hogar','integrantes.tipo_id','integrantes.identificacion', 'men1a.bcg', 'men1a.polio', 'men1a.pentavalente','riesgos_salud_men1.riesgos_desnutricion_aguda_R','riesgos_salud_men1.riesgos_desnutricion_global_R', 'men1a.carnet')
+            ->selectRaw("CONCAT_WS(' ',integrantes.pnom, integrantes.snom, integrantes.pape, integrantes.sape) as nombre")
+            ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as des_corr")->selectRaw("CONCAT_WS('',hogar.direccion) as des_direc")->selectRaw("CONCAT_WS('',barrios.barrio) as des_barrio")
+            ->where('hogar.estado', 'Activo')
+            ->where('integrantes.estado', 'Activo')
+            ->where('men1a.estado', 'Activo')
+            ->where('hogar.id_'.$tipo, $id)
+            ->get();
+        }
+
+        $sin_bcg_numero = 0;
+        $sin_polio_numero = 0;
+        $esquema_completo_pentavalente_numero = 0;
+        $esquema_icompleto_pentavalente_numero = 0;
+        $desnutricion_aguda_carnet_desac_numero = 0;
+        $desnutricion_global_carnet_desac_numero = 0;
+        $esquema_completo_polio_numero = 0;
+
+        $sin_bcg_porcentaje = 0;
+        $sin_polio_porcentaje = 0;
+        $esquema_completo_pentavalente_porcentaje = 0;
+        $esquema_icompleto_pentavalente_porcentaje = 0;
+        $desnutricion_aguda_carnet_desac_porcentaje = 0;
+        $desnutricion_global_carnet_desac_porcentaje = 0;
+        $esquema_completo_polio_porcentaje = 0;
+
+        $sin_bcg_array = array();
+        $sin_polio_array = array();
+        $esquema_completo_polio_array = array();
+        $desnutricion_carnet_desac_array = array();
+        $esquema_icompleto_pentavalente_array = array();
+        $esquema_completo_pentavalente_array = array();
+
+        foreach ($menores_1_a as &$item) {
+            if($item->bcg == "NO"){
+                array_push($sin_bcg_array, $item);
+                $sin_bcg_numero += 1;
+            }
+
+            if($item->polio == "NO"){
+                array_push($sin_polio_array, $item);
+                $sin_polio_numero += 1;
+            }
+
+            if($item->pentavalente == "D3"){
+                $esquema_completo_pentavalente_numero += 1;
+                array_push($esquema_completo_pentavalente_array, $item);
+            }else{
+                $esquema_icompleto_pentavalente_numero += 1;
+                array_push($esquema_icompleto_pentavalente_array, $item);
+            }
+
+            if($item->polio == "D5"){
+                array_push($esquema_completo_polio_array, $item);
+                $esquema_completo_polio_numero += 1;
+            }
+
+            if($item->carnet == "DESAC" && ($item->riesgos_desnutricion_aguda_R =="4" || $item->riesgos_desnutricion_aguda_R =="5")){
+                $desnutricion_aguda_carnet_desac_numero += 1;
+                array_push($desnutricion_carnet_desac_array, $item);
+            }
+
+            if($item->carnet == "DESAC" && ($item->riesgos_desnutricion_global_R =="4" || $item->riesgos_desnutricion_global_R =="5")){
+                $desnutricion_global_carnet_desac_numero += 1;
+                array_push($desnutricion_carnet_desac_array, $item);
+            }
+        }
+
+        if(count($menores_1_a) > 0){
+            $numero = count($menores_1_a);
+
+            $sin_bcg_porcentaje = ($sin_bcg_numero / $numero ) * 100;
+            $sin_polio_porcentaje = ($sin_polio_numero / $numero ) * 100;
+            $esquema_completo_pentavalente_porcentaje = ($esquema_completo_pentavalente_numero / $numero ) * 100;
+            $esquema_icompleto_pentavalente_porcentaje = ($esquema_icompleto_pentavalente_numero / $numero ) * 100;
+            $desnutricion_aguda_carnet_desac_porcentaje = ($desnutricion_aguda_carnet_desac_numero / $numero ) * 100;
+            $desnutricion_global_carnet_desac_porcentaje = ($desnutricion_global_carnet_desac_numero / $numero ) * 100;
+            $esquema_completo_polio_porcentaje = ($esquema_completo_polio_numero / $numero ) * 100;
+        }
+
+        return $info = [
+            "sin_bcg_numero"  => $sin_bcg_numero,
+            "sin_polio_numero"  => $sin_polio_numero,
+            "sin_bcg_array"  => $sin_bcg_array,
+            "sin_polio_array"  => $sin_polio_array,
+            "esquema_completo_polio_numero"  => $esquema_completo_polio_numero,
+            "esquema_completo_polio_array"  => $esquema_completo_polio_array,
+            "esquema_completo_pentavalente_numero"  => $esquema_completo_pentavalente_numero,
+            "esquema_icompleto_pentavalente_numero"  => $esquema_icompleto_pentavalente_numero,
+            "desnutricion_aguda_carnet_desac_numero"  => $desnutricion_aguda_carnet_desac_numero,
+            "desnutricion_global_carnet_desac_numero"  => $desnutricion_global_carnet_desac_numero,
+            "desnutricion_carnet_desac_array"  => $desnutricion_carnet_desac_array,
+            "sin_bcg_porcentaje"  => $sin_bcg_porcentaje,
+            "sin_polio_porcentaje"  => $sin_polio_porcentaje,
+            "esquema_completo_pentavalente_porcentaje"  => $esquema_completo_pentavalente_porcentaje,
+            "esquema_icompleto_pentavalente_porcentaje"  => $esquema_icompleto_pentavalente_porcentaje,
+            "desnutricion_aguda_carnet_desac_porcentaje"  => $desnutricion_aguda_carnet_desac_porcentaje,
+            "desnutricion_global_carnet_desac_porcentaje"  => $desnutricion_global_carnet_desac_porcentaje,
+            "esquema_completo_polio_porcentaje"  => $esquema_completo_polio_porcentaje,
+            "esquema_completo_pentavalente_array"  => $esquema_completo_pentavalente_array,
+            "esquema_icompleto_pentavalente_array"  => $esquema_icompleto_pentavalente_array,
+            "numero_personas"  => count($menores_1_a)
+        ];
+    }
+
 }
