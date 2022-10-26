@@ -20,7 +20,7 @@
                     <h4>Aplicar filtro por:</h4>
                     <br/>
                     <select class="form-control" @change="cambiaraTodos()" v-model="tipoCombo">
-                        <option value = "todos">Todos</option>
+                        <option value = "todos">Seleccione...</option>
                         <option value = "barrio">Barrio - Cabecera Municipal</option>
                         <option value = "barrio2">Barrio - Corregimiento</option>
                         <option value = "corregimiento">Corregimiento</option>
@@ -32,7 +32,7 @@
                     <h4>Seleccione un Barrio</h4>
                     <br/>
                     <select class="form-control" @change="filtrar('barrio')" v-model="comboBarrio">
-                        <option value = "">Todos</option>
+                        <option value = "">Seleccione...</option>
                         <option v-for="item in barrios" :value="item.value">{{item.texto}}</option>
                     </select>
                 </div>
@@ -40,7 +40,7 @@
                     <h4>Seleccione un Corregimiento</h4>
                     <br/>
                     <select class="form-control" @change="filtrar('corregimiento')" v-model="comboCorregimiento">
-                        <option value = "">Todos</option>
+                        <option value = "">Seleccione...</option>
                         <option v-for="item in corregimientos" :value="item.id">{{item.descripcion}}</option>
                     </select>
                 </div>
@@ -48,7 +48,7 @@
                     <h4>Seleccione un Barrio</h4>
                     <br/>
                     <select class="form-control" @change="filtrar('barrio2')" v-model="comboBarrio2">
-                        <option value = "">Todos</option>
+                        <option value = "">Seleccione...</option>
                         <option v-for="item in barriosCorregimiento" :value="item.value">{{item.texto}}</option>
                     </select>
                 </div>
@@ -56,7 +56,7 @@
                     <h4>Seleccione una Vereda</h4>
                     <br/>
                     <select class="form-control" @change="filtrar('vereda')" v-model="comboVereda">
-                        <option value = "">Todas</option>
+                        <option value = "">Seleccione...</option>
                         <option v-for="item in veredas" :value="item.id">{{item.descripcion}}</option>
                     </select>
                 </div>
@@ -75,7 +75,7 @@
                 <div class="col-sm-3 col-lg-3 text-left" style="padding: 10px 10px 10px 20px;">
                     <h4>Seleccione un grupo de edad: </h4>
                     <br/>
-                    <select class="form-control" @change="enfermedades()" v-model="tipoComboGrupoEdad">
+                    <select class="form-control" @change="enfermedades()" v-model="tipoComboGrupoEdad" id="grupoEdad">
                         <option value = "men1a">Menores de 1 Año</option>
                         <option value = "de1a5">1 a 5 Años</option>
                         <option value = "de6a11">6 a 11 Años</option>
@@ -88,7 +88,7 @@
                 <div class="col-sm-3 col-lg-3 text-left" style="padding: 10px 10px 10px 20px;">
                     <h4>Seleccione tipo de enfermedad: </h4>
                     <br/>
-                    <select class="form-control" @change="enfermedades()" v-model="tipoComboEnfermedad">
+                    <select class="form-control" @change="enfermedades()" v-model="tipoComboEnfermedad" id="tipoEnfermedad">
                         <option value = "Cronica">Cronica</option>
                         <option value = "Infecciosa">Infecciosa</option>
                     </select>
@@ -497,7 +497,7 @@ export default {
             }
             
             if(this.comboVereda == "" && this.comboBarrio == "" && this.comboCorregimiento == "" && this.comboBarrio2 == ""){
-                this.tipo = "Todos";
+                this.tipo = "todos";
             }
 
             this.enfermedades();
@@ -542,8 +542,18 @@ export default {
             }
            
             // convertir a imagen todos los graficos
-            let filtro = await this.$html2canvas(this.$refs.filtro, options);
-            let filtro2 = await this.$html2canvas(this.$refs.filtro2, options);
+            let filtro = {
+                bcm:  this.barrios.filter( item => { return item.value ==  this.comboBarrio}),
+                bc:  this.barriosCorregimiento.filter( item => { return item.value == this.comboBarrio2 }),
+                v:  this.veredas.filter( item => { return item.id == this.comboVereda }),
+                c:  this.corregimientos.filter( item => { return item.id == this.comboCorregimiento }),
+            };
+
+            let filtro2 = {
+                grupo: $("#grupoEdad option:selected").text(),
+                tipo: $("#tipoEnfermedad option:selected").text(),
+            };
+
             let imagenes = await this.$html2canvas(this.$refs.imagenes_rs_e, options);
             let grafico1 = await this.chart_sexo.exporting.getImage("png");
             let grafico2 = await this.chart_edades.exporting.getImage("png");

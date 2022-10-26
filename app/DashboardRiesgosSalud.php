@@ -2794,10 +2794,12 @@ class DashboardRiesgosSalud extends Model
             ->select('integrantes.id','integrantes.id_hogar','integrantes.tipo_id','integrantes.identificacion', 'men1a.bcg', 'men1a.polio', 'men1a.pentavalente','riesgos_salud_men1.riesgos_desnutricion_aguda_R','riesgos_salud_men1.riesgos_desnutricion_global_R', 'men1a.carnet')
             ->selectRaw("CONCAT_WS(' ',integrantes.pnom, integrantes.snom, integrantes.pape, integrantes.sape) as nombre")
             ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as des_corr")->selectRaw("CONCAT_WS('',hogar.direccion) as des_direc")->selectRaw("CONCAT_WS('',barrios.barrio) as des_barrio")
+            ->selectRaw("TIMESTAMPDIFF(MONTH, integrantes.fecha_nac, hogar.fecha) as edad")
             ->where('hogar.estado', 'Activo')
             ->where('integrantes.estado', 'Activo')
             ->where('men1a.estado', 'Activo')
             ->get();
+
         }else{
             $menores_1_a = DB::connection('mysql')->table($alias.'.men1a')
             ->join($alias . ".integrantes", "integrantes.id", "men1a.id_integrante")
@@ -2808,6 +2810,7 @@ class DashboardRiesgosSalud extends Model
             ->select('integrantes.id','integrantes.id_hogar','integrantes.tipo_id','integrantes.identificacion', 'men1a.bcg', 'men1a.polio', 'men1a.pentavalente','riesgos_salud_men1.riesgos_desnutricion_aguda_R','riesgos_salud_men1.riesgos_desnutricion_global_R', 'men1a.carnet')
             ->selectRaw("CONCAT_WS(' ',integrantes.pnom, integrantes.snom, integrantes.pape, integrantes.sape) as nombre")
             ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as des_corr")->selectRaw("CONCAT_WS('',hogar.direccion) as des_direc")->selectRaw("CONCAT_WS('',barrios.barrio) as des_barrio")
+            ->selectRaw("TIMESTAMPDIFF(MONTH, integrantes.fecha_nac, hogar.fecha) as edad")
             ->where('hogar.estado', 'Activo')
             ->where('integrantes.estado', 'Activo')
             ->where('men1a.estado', 'Activo')

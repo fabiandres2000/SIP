@@ -89,10 +89,21 @@
         <h1 style="color: #5578eb; margin: 2px">{{$ente}}</h1>  
         <h2 style="color: #5578eb; margin: 2px">Reporte Riesgos de Salud - Enfermedades</h2> 
         <div>
-            <img src="{{$filtro}}" alt="grafico 1" style="width: 135%;height: auto;max-width: 135%;">
-        </div>
-        <div>
-            <img src="{{$filtro2}}" alt="grafico 1" style="width: 110%;height: auto;max-width: 110%;">
+            @if (count($filtro["bcm"]) > 0)
+                <h3><b>Barrio - Cabecera Municipal: </b>{{$filtro["bcm"][0]["texto"]}}</h3>
+            @endif
+            @if (count($filtro["c"]) > 0)
+                <h3><b>Corregimiento: </b>{{$filtro["c"][0]["descripcion"]}}</h3>
+            @endif
+            @if (count($filtro["bc"]) > 0)
+                <h3><b>Barrio: </b>{{$filtro["bc"][0]["texto"]}}</h3>
+            @endif
+            @if (count($filtro["v"]) > 0)
+                <h3><b>Vereda: </b>{{$filtro["v"][0]["descripcion"]}}</h3>
+            @endif
+            <h3><b>Grupo de Edad: </b>{{$filtro2["grupo"]}}</h3>
+            <h3><b>Tipo de Enfermedad: </b>{{$filtro2["tipo"]}}</h3>
+            <br>
         </div>
         <hr>
         <div style="padding-top: 40px">
@@ -105,7 +116,26 @@
         </div>
         <div style="page-break-after:always;"></div>
         <div>
-            <h3 style="color: #5578eb; margin: 2px">Ente - ({{$ente}})</h3>  
+            <h1 style="color: #5578eb; margin: 2px">{{$ente}}</h1>  
+            <h2 style="color: #5578eb; margin: 2px">Reporte Riesgos de Salud - Enfermedades</h2> 
+            <div>
+                @if (count($filtro["bcm"]) > 0)
+                    <h3><b>Barrio - Cabecera Municipal: </b>{{$filtro["bcm"][0]["texto"]}}</h3>
+                @endif
+                @if (count($filtro["c"]) > 0)
+                    <h3><b>Corregimiento: </b>{{$filtro["c"][0]["descripcion"]}}</h3>
+                @endif
+                @if (count($filtro["bc"]) > 0)
+                    <h3><b>Barrio: </b>{{$filtro["bc"][0]["texto"]}}</h3>
+                @endif
+                @if (count($filtro["v"]) > 0)
+                    <h3><b>Vereda: </b>{{$filtro["v"][0]["descripcion"]}}</h3>
+                @endif
+                <h3><b>Grupo de Edad: </b>{{$filtro2["grupo"]}}</h3>
+                <h3><b>Tipo de Enfermedad: </b>{{$filtro2["tipo"]}}</h3>
+                <br>
+            </div> 
+            <hr>
             <h4>Personas Con Enfermedades {{$tipo_enfermedad}}s</h4>
             <br>  
             <table class="table" style="width: 100%; font-size: 11px;">

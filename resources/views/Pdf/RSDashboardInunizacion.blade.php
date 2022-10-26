@@ -90,10 +90,20 @@
             <h1 style="color: #5578eb; margin: 2px">{{$ente}}</h1>  
             <h2 style="color: #5578eb; margin: 2px">Reporte Riesgos de Salud - Inmunizacion</h2> 
             <div>
-                <img src="{{$filtro}}" alt="grafico 1" style="width: 125%;height: auto;max-width: 125%;">
-            </div>
-            <div>
-                <img src="{{$filtro2}}" alt="grafico 1" style="width: 125%;height: auto;max-width: 125%;">
+                @if (count($filtro["bcm"]) > 0)
+                    <h3><b>Barrio - Cabecera Municipal: </b>{{$filtro["bcm"][0]["texto"]}}</h3>
+                @endif
+                @if (count($filtro["c"]) > 0)
+                    <h3><b>Corregimiento: </b>{{$filtro["c"][0]["descripcion"]}}</h3>
+                @endif
+                @if (count($filtro["bc"]) > 0)
+                    <h3><b>Barrio: </b>{{$filtro["bc"][0]["texto"]}}</h3>
+                @endif
+                @if (count($filtro["v"]) > 0)
+                    <h3><b>Vereda: </b>{{$filtro["v"][0]["descripcion"]}}</h3>
+                @endif
+                <h3><b>Grupo de Edad: </b>{{$filtro2["grupo"]}}</h3>
+                <br>
             </div>
             <hr>
             <div style="padding-top: 80px">
@@ -104,10 +114,20 @@
             <h1 style="color: #5578eb; margin: 2px">{{$ente}}</h1>  
             <h2 style="color: #5578eb; margin: 2px">Reporte Riesgos de Salud - Inmunizacion</h2> 
             <div>
-                <img src="{{$filtro}}" alt="grafico 1" style="width: 125%;height: auto;max-width: 125%;">
-            </div>
-            <div>
-                <img src="{{$filtro2}}" alt="grafico 1" style="width: 125%;height: auto;max-width: 125%;">
+                @if (count($filtro["bcm"]) > 0)
+                    <h3><b>Barrio - Cabecera Municipal: </b>{{$filtro["bcm"][0]["texto"]}}</h3>
+                @endif
+                @if (count($filtro["c"]) > 0)
+                    <h3><b>Corregimiento: </b>{{$filtro["c"][0]["descripcion"]}}</h3>
+                @endif
+                @if (count($filtro["bc"]) > 0)
+                    <h3><b>Barrio: </b>{{$filtro["bc"][0]["texto"]}}</h3>
+                @endif
+                @if (count($filtro["v"]) > 0)
+                    <h3><b>Vereda: </b>{{$filtro["v"][0]["descripcion"]}}</h3>
+                @endif
+                <h3><b>Grupo de Edad: </b>{{$filtro2["grupo"]}}</h3>
+                <br>
             </div>
             <hr>
             <div style="padding-top: 80px">
@@ -120,7 +140,7 @@
             </div>
             <div style="page-break-after:always;"></div>
             <div>
-                <h3 style="color: #5578eb; margin: 2px">Ente - ({{$ente}})</h3>  
+                <h3 style="color: #5578eb; margin: 2px">({{$ente}})</h3>  
                 <h4>Niños menores de 1 años sin vacuna BGC</h4>
                 <br>  
                 <table class="table" style="width: 100%; font-size: 11px;">
@@ -128,6 +148,7 @@
                         <tr>
                             <th>Identificacion</th>
                             <th>Nombre</th>
+                            <th>Edad (Meses)</th>
                             <th>Corregimeinto / Vereda</th>
                             <th>Barrio</th>
                             <th>Direccion</th>
@@ -142,6 +163,9 @@
                             </td>
                             <td>
                                 {{$item["nombre"]}}
+                            </td>
+                            <td>
+                                {{$item["edad"]}}
                             </td>
                             <td>
                                 {{$item["des_corr"] != "" ? $item["des_corr"] : "CASCO URBANO" }}
@@ -162,7 +186,7 @@
             </div>
             <div style="page-break-after:always;"></div>
             <div>
-                <h3 style="color: #5578eb; margin: 2px">Ente - ({{$ente}})</h3>  
+                <h3 style="color: #5578eb; margin: 2px">({{$ente}})</h3>  
                 <h4>Niños menores de 1 años sin vacuna de polio</h4>
                 <br>  
                 <table class="table" style="width: 100%; font-size: 11px;">
@@ -170,6 +194,7 @@
                         <tr>
                             <th>Identificacion</th>
                             <th>Nombre</th>
+                            <th>Edad (Meses)</th>
                             <th>Corregimeinto / Vereda</th>
                             <th>Barrio</th>
                             <th>Direccion</th>
@@ -184,6 +209,9 @@
                             </td>
                             <td>
                                 {{$item["nombre"]}}
+                            </td>
+                            <td>
+                                {{$item["edad"]}}
                             </td>
                             <td>
                                 {{$item["des_corr"] != "" ? $item["des_corr"] : "CASCO URBANO" }}
@@ -204,7 +232,7 @@
             </div>
             <div style="page-break-after:always;"></div>
             <div>
-                <h3 style="color: #5578eb; margin: 2px">Ente - ({{$ente}})</h3>  
+                <h3 style="color: #5578eb; margin: 2px">({{$ente}})</h3>  
                 <h4>Niños menores de 1 años con esquema completo de pentavalente</h4>
                 <br>  
                 <table class="table" style="width: 100%; font-size: 11px;">
@@ -212,6 +240,7 @@
                         <tr>
                             <th>Identificacion</th>
                             <th>Nombre</th>
+                            <th>Edad (Meses)</th>
                             <th>Corregimeinto / Vereda</th>
                             <th>Barrio</th>
                             <th>Direccion</th>
@@ -228,6 +257,9 @@
                                 {{$item["nombre"]}}
                             </td>
                             <td>
+                                {{$item["edad"]}}
+                            </td>
+                            <td>
                                 {{$item["des_corr"] != "" ? $item["des_corr"] : "CASCO URBANO" }}
                             </td>
                             <td>
@@ -246,7 +278,7 @@
             </div>
             <div style="page-break-after:always;"></div>
             <div>
-                <h3 style="color: #5578eb; margin: 2px">Ente - ({{$ente}})</h3>  
+                <h3 style="color: #5578eb; margin: 2px">({{$ente}})</h3>  
                 <h4>Niños menores de 1 años con esquema incompleto de pentavalente</h4>
                 <br>  
                 <table class="table" style="width: 100%; font-size: 11px;">
@@ -254,6 +286,7 @@
                         <tr>
                             <th>Identificacion</th>
                             <th>Nombre</th>
+                            <th>Edad (Meses)</th>
                             <th>Corregimeinto / Vereda</th>
                             <th>Barrio</th>
                             <th>Direccion</th>
@@ -270,6 +303,9 @@
                                 {{$item["nombre"]}}
                             </td>
                             <td>
+                                {{$item["edad"]}}
+                            </td>
+                            <td>
                                 {{$item["des_corr"] != "" ? $item["des_corr"] : "CASCO URBANO" }}
                             </td>
                             <td>
@@ -288,7 +324,7 @@
             </div>
             <div style="page-break-after:always;"></div>
             <div>
-                <h3 style="color: #5578eb; margin: 2px">Ente - ({{$ente}})</h3>  
+                <h3 style="color: #5578eb; margin: 2px">({{$ente}})</h3>  
                 <h4>Niños menores de 1 años con esquema completo de polio</h4>
                 <br>  
                 <table class="table" style="width: 100%; font-size: 11px;">
@@ -296,6 +332,7 @@
                         <tr>
                             <th>Identificacion</th>
                             <th>Nombre</th>
+                            <th>Edad (Meses)</th>
                             <th>Corregimeinto / Vereda</th>
                             <th>Barrio</th>
                             <th>Direccion</th>
@@ -310,6 +347,9 @@
                             </td>
                             <td>
                                 {{$item["nombre"]}}
+                            </td>
+                            <td>
+                                {{$item["edad"]}}
                             </td>
                             <td>
                                 {{$item["des_corr"] != "" ? $item["des_corr"] : "CASCO URBANO" }}
@@ -331,7 +371,7 @@
             <div style="page-break-after:always;"></div>
             <br>
             <div>
-                <h3 style="color: #5578eb; margin: 2px">Ente - ({{$ente}})</h3>  
+                <h3 style="color: #5578eb; margin: 2px">({{$ente}})</h3>  
                 <h4>Niños en riesgos de desnutrición con esquema de vacunación incompleto</h4>
                 <br>  
                 <table class="table" style="width: 100%; font-size: 11px;">
@@ -339,6 +379,7 @@
                         <tr>
                             <th>Identificacion</th>
                             <th>Nombre</th>
+                            <th>Edad (Meses)</th>
                             <th>Corregimeinto / Vereda</th>
                             <th>Barrio</th>
                             <th>Direccion</th>
@@ -355,6 +396,9 @@
                             </td>
                             <td>
                                 {{$item["nombre"]}}
+                            </td>
+                            <td>
+                                {{$item["edad"]}}
                             </td>
                             <td>
                                 {{$item["des_corr"] != "" ? $item["des_corr"] : "CASCO URBANO" }}

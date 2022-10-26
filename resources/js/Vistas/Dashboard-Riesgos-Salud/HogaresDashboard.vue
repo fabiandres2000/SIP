@@ -20,7 +20,7 @@
                     <h4>Aplicar filtro por:</h4>
                     <br/>
                     <select class="form-control" @change="cambiaraTodos()" v-model="tipoCombo">
-                        <option value = "todos">Todos</option>
+                        <option value = "todos">Seleccione...</option>
                         <option value = "barrio">Barrio - Cabecera Municipal</option>
                         <option value = "barrio2">Barrio - Corregimiento</option>
                         <option value = "corregimiento">Corregimiento</option>
@@ -32,7 +32,7 @@
                     <h4>Seleccione un Barrio</h4>
                     <br/>
                     <select class="form-control" @change="filtrar('barrio')" v-model="comboBarrio">
-                        <option value = "">Todos</option>
+                        <option value = "">Seleccione...</option>
                         <option v-for="item in barrios" :value="item.value">{{item.texto}}</option>
                     </select>
                 </div>
@@ -40,7 +40,7 @@
                     <h4>Seleccione un Corregimiento</h4>
                     <br/>
                     <select class="form-control" @change="filtrar('corregimiento')" v-model="comboCorregimiento">
-                        <option value = "">Todos</option>
+                        <option value = "">Seleccione...</option>
                         <option v-for="item in corregimientos" :value="item.id">{{item.descripcion}}</option>
                     </select>
                 </div>
@@ -48,7 +48,7 @@
                     <h4>Seleccione un Barrio</h4>
                     <br/>
                     <select class="form-control" @change="filtrar('barrio2')" v-model="comboBarrio2">
-                        <option value = "">Todos</option>
+                        <option value = "">Seleccione...</option>
                         <option v-for="item in barriosCorregimiento" :value="item.value">{{item.texto}}</option>
                     </select>
                 </div>
@@ -56,7 +56,7 @@
                     <h4>Seleccione una Vereda</h4>
                     <br/>
                     <select class="form-control" @change="filtrar('vereda')" v-model="comboVereda">
-                        <option value = "">Todas</option>
+                        <option value = "">Seleccione...</option>
                         <option v-for="item in veredas" :value="item.id">{{item.descripcion}}</option>
                     </select>
                 </div>
@@ -675,7 +675,7 @@ export default {
             }
             
             if(this.comboVereda == "" && this.comboBarrio == "" && this.comboCorregimiento == "" && this.comboBarrio2 == ""){
-                this.tipo = "Todos";
+                this.tipo = "todos";
             }
 
             this.riesgos_salud_hogares();
@@ -710,31 +710,6 @@ export default {
                 });
             }, 500);
         },
-        async exportToPDFV(){ 
-            this.isLoading = true;
-
-            // convertir a imagen todos los graficos
-            const options = {
-                type: 'dataURL',
-                useCORS: true,
-            }
-           
-            // convertir a imagen todos los graficos
-
-            const parametros = {
-                _token: this.csrf,
-            };
-            try {
-                await DashboardServiceSocioeconomico.exportarMercadoLaboral(parametros).then(respuesta => {
-                    this.rutaPdf = store.state.apiURL + respuesta.data.nombre;
-                    this.isLoading = false;
-                    this.$refs.modalpdf.show();
-                });
-            } catch (error) { 
-                this.$swal("Error...!", "Ocurrio un error!", "error");    
-                this.isLoading = false;
-            }
-        },
         async exportToPDFHRS(){
             this.isLoading = true;
             // convertir a imagen todos los graficos
@@ -746,7 +721,12 @@ export default {
             // convertir a imagen todos los graficos
             let torta = "";
             let data = [];
-            let filtro =  await this.$html2canvas(this.$refs.filtro, options);
+            let filtro = {
+                bcm:  this.barrios.filter( item => { return item.value ==  this.comboBarrio}),
+                bc:  this.barriosCorregimiento.filter( item => { return item.value == this.comboBarrio2 }),
+                v:  this.veredas.filter( item => { return item.id == this.comboVereda }),
+                c:  this.corregimientos.filter( item => { return item.id == this.comboCorregimiento }),
+            };
 
             if(this.tipo_data == 1){
                 torta =  await this.$html2canvas(this.$refs.porcen1, options);

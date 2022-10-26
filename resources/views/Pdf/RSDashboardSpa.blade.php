@@ -89,7 +89,21 @@
         <h1 style="color: #5578eb; margin: 2px">{{$ente}}</h1>  
         <h2 style="color: #5578eb; margin: 2px">Reporte Riesgos de Salud - Consumo de SPA</h2> 
         <div>
-            <img src="{{$filtro}}" alt="grafico 1" style="width: 125%;height: auto;max-width: 125%;">
+            <div>
+                @if (count($filtro["bcm"]) > 0)
+                    <h3><b>Barrio - Cabecera Municipal: </b>{{$filtro["bcm"][0]["texto"]}}</h3>
+                @endif
+                @if (count($filtro["c"]) > 0)
+                    <h3><b>Corregimiento: </b>{{$filtro["c"][0]["descripcion"]}}</h3>
+                @endif
+                @if (count($filtro["bc"]) > 0)
+                    <h3><b>Barrio: </b>{{$filtro["bc"][0]["texto"]}}</h3>
+                @endif
+                @if (count($filtro["v"]) > 0)
+                    <h3><b>Vereda: </b>{{$filtro["v"][0]["descripcion"]}}</h3>
+                @endif
+                <br>
+            </div>
         </div>
         <hr>
         <div  style="padding-top: 100px">
@@ -120,8 +134,24 @@
         <br>
         <div style="page-break-after:always;"></div>
         <div>
-            <h3 style="color: #5578eb; margin: 2px">Ente - ({{$ente}})</h3>  
-            <h4>Personas que Consumen Sustancias Psicoactivas (SPA)</h4>
+            <div>
+                <h1 style="color: #5578eb; margin: 2px">{{$ente}}</h1> 
+                <h2 style="color: #5578eb; margin: 2px">Reporte Riesgos de Salud - Consumo de SPA</h2>  
+                @if (count($filtro["bcm"]) > 0)
+                    <h3><b>Barrio - Cabecera Municipal: </b>{{$filtro["bcm"][0]["texto"]}}</h3>
+                @endif
+                @if (count($filtro["c"]) > 0)
+                    <h3><b>Corregimiento: </b>{{$filtro["c"][0]["descripcion"]}}</h3>
+                @endif
+                @if (count($filtro["bc"]) > 0)
+                    <h3><b>Barrio: </b>{{$filtro["bc"][0]["texto"]}}</h3>
+                @endif
+                @if (count($filtro["v"]) > 0)
+                    <h3><b>Vereda: </b>{{$filtro["v"][0]["descripcion"]}}</h3>
+                @endif
+                <hr>
+            </div>  
+            <h3>Personas que Consumen Sustancias Psicoactivas (SPA)</h3>
             <br>  
             <table class="table" style="width: 100%; font-size: 11px;">
                 <thead>
