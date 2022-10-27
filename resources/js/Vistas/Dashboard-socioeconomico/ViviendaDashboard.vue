@@ -534,7 +534,12 @@ export default {
             let torta2 = await this.torta2.exporting.getImage("png");
             let porcentaje = await this.$html2canvas(this.$refs.porcentaje, options);
             let torta3 = await this.torta3.exporting.getImage("png");
-            let filtro = await this.$html2canvas(this.$refs.filtro, options);
+            let filtro = {
+                bcm:  this.barrios.filter( item => { return item.value ==  this.comboBarrio}),
+                bc:  this.barriosCorregimiento.filter( item => { return item.value == this.comboBarrio2 }),
+                v:  this.veredas.filter( item => { return item.id == this.comboVereda }),
+                c:  this.corregimientos.filter( item => { return item.id == this.comboCorregimiento }),
+            }; 
             // convertir a imagen todos los graficos
 
             const parametros = {

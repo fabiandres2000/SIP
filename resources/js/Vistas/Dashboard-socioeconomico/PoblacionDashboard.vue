@@ -678,7 +678,13 @@ export default {
                 useCORS: true,
             }
 
-            let filtro = await this.$html2canvas(this.$refs.filtro, options);
+            let filtro = {
+                bcm:  this.barrios.filter( item => { return item.value ==  this.comboBarrio}),
+                bc:  this.barriosCorregimiento.filter( item => { return item.value == this.comboBarrio2 }),
+                v:  this.veredas.filter( item => { return item.id == this.comboVereda }),
+                c:  this.corregimientos.filter( item => { return item.id == this.comboCorregimiento }),
+            };
+
             let imagenes = await this.$html2canvas(this.$refs.imagenes, options);
             let grafico1 = await this.chart_sexo.exporting.getImage("png");
             let grafico2 = await this.chart_edades.exporting.getImage("png");
@@ -707,7 +713,7 @@ export default {
                     this.$refs.modalpdf.show();
                 });
             } catch (error) {     
-                his.$swal("Error...!", "Ocurrio un error!", "error");
+                this.$swal("Error...!", "Ocurrio un error!", "error");
                 this.isLoading = false;
             }
         },

@@ -94,12 +94,22 @@
       </footer>
       <main>
         <br>
-        <h1 style="color: #5578eb; margin: 2px">
-            {{$ente}}
-        </h1>
+        <h2 style="color: #5578eb; margin: 2px">{{$ente}}</h2>
         <h2 style="color: #5578eb; margin: 2px">Socioeconomico - Viviendas</h2>
         <div>
-            <img src="{{$filtro}}" alt="grafico 1" style="width: 135%;height: auto;max-width: 135%;">
+            @if (count($filtro["bcm"]) > 0)
+                <h3><b>Barrio - Cabecera Municipal: </b>{{$filtro["bcm"][0]["texto"]}}</h3>
+            @endif
+            @if (count($filtro["c"]) > 0)
+                <h3><b>Corregimiento: </b>{{$filtro["c"][0]["descripcion"]}}</h3>
+            @endif
+            @if (count($filtro["bc"]) > 0)
+                <h3><b>Barrio: </b>{{$filtro["bc"][0]["texto"]}}</h3>
+            @endif
+            @if (count($filtro["v"]) > 0)
+                <h3><b>Vereda: </b>{{$filtro["v"][0]["descripcion"]}}</h3>
+            @endif
+            <br>
         </div>
         <hr>
         <div>

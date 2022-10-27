@@ -575,7 +575,14 @@ export default {
                 type: 'dataURL',
                 useCORS: true,
             }
-            let filtro = await this.$html2canvas(this.$refs.filtro, options);
+
+            let filtro = {
+                bcm:  this.barrios.filter( item => { return item.value ==  this.comboBarrio}),
+                bc:  this.barriosCorregimiento.filter( item => { return item.value == this.comboBarrio2 }),
+                v:  this.veredas.filter( item => { return item.id == this.comboVereda }),
+                c:  this.corregimientos.filter( item => { return item.id == this.comboCorregimiento }),
+            };  
+            
             let porcentajes = await this.$html2canvas(this.$refs.porcentajes, options);
             let torta1 = await this.torta1.exporting.getImage("png");
             let torta2 = await this.torta2.exporting.getImage("png");

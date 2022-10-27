@@ -592,7 +592,12 @@ export default {
             }
             let imgData = await this.chartP.exporting.getImage("png");
             let grafico1 = await this.$html2canvas(this.$refs.grafico1, options);
-            let filtro = await this.$html2canvas(this.$refs.filtro, options);
+            let filtro = {
+                bcm:  this.barrios.filter( item => { return item.value ==  this.comboBarrio}),
+                bc:  this.barriosCorregimiento.filter( item => { return item.value == this.comboBarrio2 }),
+                v:  this.veredas.filter( item => { return item.id == this.comboVereda }),
+                c:  this.corregimientos.filter( item => { return item.id == this.comboCorregimiento }),
+            };
             let hm = await this.$html2canvas(this.$refs.hm, options);
             // convertir a imagen todos los graficos
 
