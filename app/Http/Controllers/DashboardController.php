@@ -21,7 +21,7 @@ class DashboardController extends Controller
             $nro_personas_intergantes = \App\Dashboard::total_integrantes(Auth::user()->permisos->where('actual', 1)->first()->ente->alias);
             $total_caracterizadas = $nro_personas_intergantes + $nro_personas_jefe;
             $nro_hogares  = \App\Dashboard::total_hogares(Auth::user()->permisos->where('actual', 1)->first()->ente->alias);
-            $nro_global_personas  = \App\Dashboard::global_personas();
+            $nro_global_personas  = \App\Dashboard::global_personas(Session::get('alias'));
             $hacinamientos = \App\Dashboard::hacinamiento(Auth::user()->permisos->where('actual', 1)->first()->ente->alias);
 
             // dd(\App\Dashboard::total_hombres(Auth::user()->permisos->where('actual', 1)->first()->ente->alias));

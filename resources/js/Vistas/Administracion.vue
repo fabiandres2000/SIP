@@ -46,7 +46,7 @@
                         >Socioeconomicos</a
                     >
                 </li>
-                <li class="nav-item">
+                <!--  <li class="nav-item">
                     <a
                         class="nav-link"
                         data-toggle="tab"
@@ -54,7 +54,7 @@
                         role="tab"
                         >Unidades productivas</a
                     >
-                </li>
+                </li> -->
             </ul>
             <div class="tab-content">
                 <!-- Identificación -->
@@ -698,8 +698,8 @@ export default {
 }
 /* .kt-nav__link-icon:hover{color: black !important;} */
 .kt-widget__item:hover {
-    background: black !important;
-    color: black !important;
+    background: #c6e3dd  !important;
+    color: b#c6e3dd lack !important;
 }
 .grayclase {
     animation: flip 6s linear infinite;

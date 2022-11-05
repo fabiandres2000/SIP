@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["vendors~pdfmake"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[0],{
 
 /***/ "./node_modules/@amcharts/amcharts4/.internal/pdfmake/vfs_fonts.js":
 /*!*************************************************************************!*\

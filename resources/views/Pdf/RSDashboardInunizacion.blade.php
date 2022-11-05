@@ -103,36 +103,14 @@
                     <h3><b>Vereda: </b>{{$filtro["v"][0]["descripcion"]}}</h3>
                 @endif
                 <h3><b>Grupo de Edad: </b>{{$filtro2["grupo"]}}</h3>
-                <br>
             </div>
             <hr>
-            <div style="padding-top: 80px">
+            <div style="padding-top: 10px">
                 <img src="{{$graficos['fila1']}}" alt="grafico 1" style="width: 100%;height: auto;max-width: 100%;">
             </div>
-            <div style="page-break-after:always;"></div>
-            <br>
-            <h1 style="color: #5578eb; margin: 2px">{{$ente}}</h1>  
-            <h2 style="color: #5578eb; margin: 2px">Reporte Riesgos de Salud - Inmunizacion</h2> 
-            <div>
-                @if (count($filtro["bcm"]) > 0)
-                    <h3><b>Barrio - Cabecera Municipal: </b>{{$filtro["bcm"][0]["texto"]}}</h3>
-                @endif
-                @if (count($filtro["c"]) > 0)
-                    <h3><b>Corregimiento: </b>{{$filtro["c"][0]["descripcion"]}}</h3>
-                @endif
-                @if (count($filtro["bc"]) > 0)
-                    <h3><b>Barrio: </b>{{$filtro["bc"][0]["texto"]}}</h3>
-                @endif
-                @if (count($filtro["v"]) > 0)
-                    <h3><b>Vereda: </b>{{$filtro["v"][0]["descripcion"]}}</h3>
-                @endif
-                <h3><b>Grupo de Edad: </b>{{$filtro2["grupo"]}}</h3>
-                <br>
-            </div>
-            <hr>
-            <div style="padding-top: 80px">
-                <img src="{{$graficos['fila2']}}" style="width: 360px; height: 270px; float: left">
-                <img src="{{$graficos['fila3']}}" style="width: 360px; height: 270px; float: left">
+            <div style="padding-top: 10px">
+                <img src="{{$graficos['fila2']}}" style="width: 360px; height: 250px; float: left">
+                <img src="{{$graficos['fila3']}}" style="width: 360px; height: 250px; float: left">
                 <div style="float: left; text-align: center; width: 380px; height: 240px">
                     <h4>Niños en riesgos de desnutrición <br> con esquema de vacunación incompleto</h4>
                     <img src="{{$graficos['fila4']}}" style="width: 400px; height: 220px">
@@ -423,7 +401,337 @@
                     </tbody>
                 </table> 
             </div>
-        @endif   
+        @endif 
+        @if ($tipo == "de1a5")
+            <h1 style="color: #5578eb; margin: 2px">{{$ente}}</h1>  
+            <h2 style="color: #5578eb; margin: 2px">Reporte Riesgos de Salud - Inmunizacion</h2> 
+            <div>
+                @if (count($filtro["bcm"]) > 0)
+                    <h3><b>Barrio - Cabecera Municipal: </b>{{$filtro["bcm"][0]["texto"]}}</h3>
+                @endif
+                @if (count($filtro["c"]) > 0)
+                    <h3><b>Corregimiento: </b>{{$filtro["c"][0]["descripcion"]}}</h3>
+                @endif
+                @if (count($filtro["bc"]) > 0)
+                    <h3><b>Barrio: </b>{{$filtro["bc"][0]["texto"]}}</h3>
+                @endif
+                @if (count($filtro["v"]) > 0)
+                    <h3><b>Vereda: </b>{{$filtro["v"][0]["descripcion"]}}</h3>
+                @endif
+                <h3><b>Grupo de Edad: </b>{{$filtro2["grupo"]}}</h3>
+            </div>
+            <hr>
+            <div style="padding-top: 10px">
+                <img src="{{$graficos['fila1']}}" alt="grafico 1" style="width: 100%;height: auto;max-width: 100%;">
+            </div>
+            <br>
+            <div style="padding-top: 10px">
+                <div style="float: left; text-align: center; width: 360px; height: 240px">
+                    <h4>Niños de 1 a 5 años <br> Vacuna de Polio</h4>
+                    <img src="{{$graficos['fila2']}}" style="width: 380px; height: 210px">
+                </div>
+                <div style="float: left; text-align: center; width: 360px; height: 240px">
+                    <h4>Niños de 1 a 5 años <br> Vacuna de Pentavalente</h4>
+                    <img src="{{$graficos['fila3']}}" style="width: 380px; height: 210px">
+                </div>
+                <div style="float: left; text-align: center; width: 360px; height: 240px">
+                    <h4>Niños en riesgos de desnutrición con  <br> esquema de vacunación incompleto</h4>
+                    <img src="{{$graficos['fila3']}}" style="width: 380px; height: 210px">
+                </div>
+            </div>
+            <div style="page-break-after:always;"></div>
+            <div>
+                <h2 style="color: #5578eb; margin: 2px">{{$ente}}</h2>  
+                <h3>Niños 1 a 5 años con esquema de vacunación incompleto</h3>
+                <br>  
+                <table class="table" style="width: 100%; font-size: 11px;">
+                    <thead>
+                        <tr>
+                            <th>Identificacion</th>
+                            <th>Nombre</th>
+                            <th>Edad (Meses)</th>
+                            <th>Corregimeinto / Vereda</th>
+                            <th>Barrio</th>
+                            <th>Direccion</th>
+                            <th style="text-align: center">Carnet</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($data["personas"] as $item)
+                            @if ($item["carnet"] == "DESAC")
+                            <tr>
+                                    <td>
+                                        {{$item["tipo_id"]}}: {{$item["identificacion"]}}
+                                    </td>
+                                    <td>
+                                        {{$item["nombre"]}}
+                                    </td>
+                                    <td>
+                                        {{$item["edad"]}}
+                                    </td>
+                                    <td>
+                                        {{$item["des_corr"] != "" ? $item["des_corr"] : "CASCO URBANO" }}
+                                    </td>
+                                    <td>
+                                        {{$item["des_barrio"]}}
+                                    </td>
+                                    <td>
+                                        {{$item["des_direc"]}}
+                                    </td>
+                                    <td style="text-align: center">
+                                        Desactualizado
+                                    </td>
+                                </tr> 
+                            @endif 
+                        @endforeach
+                    </tbody>
+                </table> 
+            </div>
+            <div style="page-break-after:always;"></div>
+            <div>
+                <h2 style="color: #5578eb; margin: 2px">{{$ente}}</h2>  
+                <h3>Niños 1 a 5 años con esquema de (sarampión, Rubeola, Papera) completo</h3>
+                <br>  
+                <table class="table" style="width: 100%; font-size: 11px;">
+                    <thead>
+                        <tr>
+                            <th>Identificacion</th>
+                            <th>Nombre</th>
+                            <th>Edad (Meses)</th>
+                            <th>Corregimeinto / Vereda</th>
+                            <th>Barrio</th>
+                            <th>Direccion</th>
+                            <th style="text-align: center">SRP</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($data["personas"] as $item)
+                            @if ($item["tripleviral"] == "1R")
+                            <tr>
+                                    <td>
+                                        {{$item["tipo_id"]}}: {{$item["identificacion"]}}
+                                    </td>
+                                    <td>
+                                        {{$item["nombre"]}}
+                                    </td>
+                                    <td>
+                                        {{$item["edad"]}}
+                                    </td>
+                                    <td>
+                                        {{$item["des_corr"] != "" ? $item["des_corr"] : "CASCO URBANO" }}
+                                    </td>
+                                    <td>
+                                        {{$item["des_barrio"]}}
+                                    </td>
+                                    <td>
+                                        {{$item["des_direc"]}}
+                                    </td>
+                                    <td style="text-align: center">
+                                        {{$item["tripleviral"]}}
+                                    </td>
+                                </tr> 
+                            @endif 
+                        @endforeach
+                    </tbody>
+                </table> 
+            </div>
+            <div style="page-break-after:always;"></div>
+            <div>
+                <h2 style="color: #5578eb; margin: 2px">{{$ente}}</h2>  
+                <h3>Niños de 1 año con esquema de neumococo completo</h3>
+                <br>  
+                <table class="table" style="width: 100%; font-size: 11px;">
+                    <thead>
+                        <tr>
+                            <th>Identificacion</th>
+                            <th>Nombre</th>
+                            <th>Edad (Meses)</th>
+                            <th>Corregimeinto / Vereda</th>
+                            <th>Barrio</th>
+                            <th>Direccion</th>
+                            <th style="text-align: center">Neumococo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($data["personas_1_anio"] as $item)
+                            @if ($item["neumococo"] == "R1")
+                            <tr>
+                                    <td>
+                                        {{$item["tipo_id"]}}: {{$item["identificacion"]}}
+                                    </td>
+                                    <td>
+                                        {{$item["nombre"]}}
+                                    </td>
+                                    <td>
+                                        {{$item["edad"]}}
+                                    </td>
+                                    <td>
+                                        {{$item["des_corr"] != "" ? $item["des_corr"] : "CASCO URBANO" }}
+                                    </td>
+                                    <td>
+                                        {{$item["des_barrio"]}}
+                                    </td>
+                                    <td>
+                                        {{$item["des_direc"]}}
+                                    </td>
+                                    <td style="text-align: center">
+                                        {{$item["neumococo"]}}
+                                    </td>
+                                </tr> 
+                            @endif 
+                        @endforeach
+                    </tbody>
+                </table> 
+            </div>
+            <div style="page-break-after:always;"></div>
+            <div>
+                <h2 style="color: #5578eb; margin: 2px">{{$ente}}</h2>  
+                <h3>Niños 1 a 5 años (Vacuna de Polio)</h3>
+                <br>  
+                <table class="table" style="width: 100%; font-size: 11px;">
+                    <thead>
+                        <tr>
+                            <th>Identificacion</th>
+                            <th>Nombre</th>
+                            <th>Edad (Meses)</th>
+                            <th>Corregimeinto / Vereda</th>
+                            <th>Barrio</th>
+                            <th>Direccion</th>
+                            <th style="text-align: center">Polio (Dosis)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($data["personas"] as $item)
+                            <tr>
+                                <td>
+                                    {{$item["tipo_id"]}}: {{$item["identificacion"]}}
+                                </td>
+                                <td>
+                                    {{$item["nombre"]}}
+                                </td>
+                                <td>
+                                    {{$item["edad"]}}
+                                </td>
+                                <td>
+                                    {{$item["des_corr"] != "" ? $item["des_corr"] : "CASCO URBANO" }}
+                                </td>
+                                <td>
+                                    {{$item["des_barrio"]}}
+                                </td>
+                                <td>
+                                    {{$item["des_direc"]}}
+                                </td>
+                                <td style="text-align: center">
+                                    {{$item["polio"]}}
+                                </td>
+                            </tr> 
+                        @endforeach
+                    </tbody>
+                </table> 
+            </div>
+            <div style="page-break-after:always;"></div>
+            <div>
+                <h2 style="color: #5578eb; margin: 2px">{{$ente}}</h2>  
+                <h3>Niños 1 a 5 años (Vacuna de Pentavalente)</h3>
+                <br>  
+                <table class="table" style="width: 100%; font-size: 11px;">
+                    <thead>
+                        <tr>
+                            <th>Identificacion</th>
+                            <th>Nombre</th>
+                            <th>Edad (Meses)</th>
+                            <th>Corregimeinto / Vereda</th>
+                            <th>Barrio</th>
+                            <th>Direccion</th>
+                            <th style="text-align: center">Pentavalente (Dosis)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($data["personas"] as $item)
+                            <tr>
+                                <td>
+                                    {{$item["tipo_id"]}}: {{$item["identificacion"]}}
+                                </td>
+                                <td>
+                                    {{$item["nombre"]}}
+                                </td>
+                                <td>
+                                    {{$item["edad"]}}
+                                </td>
+                                <td>
+                                    {{$item["des_corr"] != "" ? $item["des_corr"] : "CASCO URBANO" }}
+                                </td>
+                                <td>
+                                    {{$item["des_barrio"]}}
+                                </td>
+                                <td>
+                                    {{$item["des_direc"]}}
+                                </td>
+                                <td style="text-align: center">
+                                    {{$item["pentavalente"]}}
+                                </td>
+                            </tr> 
+                        @endforeach
+                    </tbody>
+                </table> 
+            </div>
+            <div style="page-break-after:always;"></div>
+            <div>
+                <h2 style="color: #5578eb; margin: 2px">{{$ente}}</h2>  
+                <h3>Niños en riesgos de desnutrición con esquema de vacunación incompleto</h3>
+                <br>  
+                <table class="table" style="width: 100%; font-size: 11px;">
+                    <thead>
+                        <tr>
+                            <th>Identificacion</th>
+                            <th>Nombre</th>
+                            <th>Edad (Meses)</th>
+                            <th>Corregimeinto / Vereda</th>
+                            <th>Barrio</th>
+                            <th>Direccion</th>
+                            <th style="text-align: center">Desnutrición Aguda</th>
+                            <th style="text-align: center">Desnutrición Global</th>
+                            <th style="text-align: center">Carnet Desactualizado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($data["personas"] as $item)
+                            @if ($item["carnet"] == "DESAC" && (($item["riesgos_desnutricion_aguda_R"] =="4" || $item["riesgos_desnutricion_aguda_R"] =="5") || ($item["riesgos_desnutricion_global_R"] =="4" || $item["riesgos_desnutricion_global_R"] =="5")))
+                                <tr>
+                                    <td>
+                                        {{$item["tipo_id"]}}: {{$item["identificacion"]}}
+                                    </td>
+                                    <td>
+                                        {{$item["nombre"]}}
+                                    </td>
+                                    <td>
+                                        {{$item["edad"]}}
+                                    </td>
+                                    <td>
+                                        {{$item["des_corr"] != "" ? $item["des_corr"] : "CASCO URBANO" }}
+                                    </td>
+                                    <td>
+                                        {{$item["des_barrio"]}}
+                                    </td>
+                                    <td>
+                                        {{$item["des_direc"]}}
+                                    </td>
+                                    <td style="text-align: center">
+                                        {{($item['riesgos_desnutricion_aguda_R'] == '0' || $item['riesgos_desnutricion_aguda_R']  == '1') ? 'BAJO' : (($item['riesgos_desnutricion_aguda_R']  == '2' || $item['riesgos_desnutricion_aguda_R']  == '3') ? 'MODERADO': 'ALTO' )}}
+                                    </td>
+                                    <td style="text-align: center">
+                                        {{($item['riesgos_desnutricion_global_R'] == '0' || $item['riesgos_desnutricion_global_R']  == '1') ? 'BAJO' : (($item['riesgos_desnutricion_global_R']  == '2' || $item['riesgos_desnutricion_global_R']  == '3') ? 'MODERADO': 'ALTO' )}}
+                                    </td>
+                                    <td style="text-align: center">
+                                        Desactualizado
+                                    </td>
+                                </tr> 
+                            @endif
+                        @endforeach
+                    </tbody>
+                </table> 
+            </div>
+        @endif  
     </main>
 </body>
 </html>

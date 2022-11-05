@@ -18,6 +18,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!--begin::Fonts -->
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+
     <script>
         WebFont.load({
             google: {
@@ -33,6 +34,7 @@
 
     <!--begin::Page Custom Styles(used by this page) -->
     <link href="{{ asset('assets/css/demo1/pages/general/login/login-1.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/css_load/probando.css') }}" rel="stylesheet" type="text/css" />
     @include('Plantilla.Head')
 
 </head>
@@ -138,6 +140,7 @@
                             </div>
                         </div>
 
+                        <div class="loader-page"></div>
                         <!--end::Signin-->
                     </div>
 
@@ -152,6 +155,15 @@
     <!-- end:: Page -->
 
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('assets/js_load/jquery.min.js') }}"></script>
+
+    <script>
+        $(window).on('load', function () {
+            setTimeout(function () {
+                $(".loader-page").css({visibility:"hidden",opacity:"0"})
+            }, 5000); 
+        });
+    </script>
     @include('Plantilla.Footer')
 </body>
 

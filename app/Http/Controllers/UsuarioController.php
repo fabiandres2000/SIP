@@ -269,17 +269,36 @@ class UsuarioController extends Controller
     }
     public function iniciar()
     {
-        $entesTotal = \App\Entes::mostrar();
-        $respuesta = [
-            'OPC' => "SI",
-            'nombreUsuario' => Auth::user()->nombre,
-            'rolUsuario' => Auth::user()->rol,
-            'ente' => Auth::user()->permisos->where('actual', 1)->first()->ente->nombre,
-            'entesTotal' => $entesTotal->count() ?? 0,
-            'imagen' => Auth::user()->imagen,
-            'alias' => Auth::user()->permisos->where('actual', 1)->first()->ente->alias,
-            'permisos_usuario' => Auth::user()->permisos->where('actual', 1)->first()
-        ];
+        if(Auth::user() != null){
+            $entesTotal = \App\Entes::mostrar();
+
+            $respuesta = [
+                'OPC' => "SI",
+                'nombreUsuario' => Auth::user()->nombre,
+                'rolUsuario' => Auth::user()->rol,
+                'ente' => Auth::user()->permisos->where('actual', 1)->first()->ente->nombre,
+                'entesTotal' => $entesTotal->count() ?? 0,
+                'imagen' => Auth::user()->imagen,
+                'alias' => Auth::user()->permisos->where('actual', 1)->first()->ente->alias,
+                'permisos_usuario' => Auth::user()->permisos->where('actual', 1)->first()
+            ];
+
+        }else{
+            $entesTotal = 0;
+
+            $respuesta = [
+                'OPC' => "SI",
+                'nombreUsuario' => null,
+                'rolUsuario' => null,
+                'ente' => null,
+                'entesTotal' => null,
+                'imagen' => null,
+                'alias' => null,
+                'permisos_usuario' => null
+            ];
+        }
+        
+        
         return response()->json($respuesta, 200);
         // return redirect('/')->with('success', 'Sesion Finalizada');
     }

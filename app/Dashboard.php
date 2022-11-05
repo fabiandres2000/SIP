@@ -26,10 +26,10 @@ class Dashboard extends Model
         return $consulta;
     }
 
-    public static function global_personas()
+    public static function global_personas($alias)
     {
         $consulta = \App\User::join("entes", "entes.id", "users.id_entidad")
-            ->where("users.id", Auth::user()->id)
+            ->where("entes.alias", $alias)
             ->select("entes.poblacion", "entes.viviendas")
             ->first();
         return $consulta;

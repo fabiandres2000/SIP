@@ -98,7 +98,7 @@
                     </circle-progress>
                     <br>
                     <h4>{{inmunizacion_data.sin_bcg_numero}} / {{inmunizacion_data.numero_personas}}</h4> 
-                    <a href="#" @click="ver_detalle_inmunizacion(inmunizacion_data.sin_bcg_array, 'Niños menores de 1 años sin vacuna BGC', 1)">Ver Detalles</a>
+                    <a v-if="exportando == false" href="#" @click="ver_detalle_inmunizacion(inmunizacion_data.sin_bcg_array, 'Niños menores de 1 años sin vacuna BGC', 1)">Ver Detalles</a>
                 </div>
                 <div class="col-lg-4 text-center">
                     <br>
@@ -113,7 +113,7 @@
                     </circle-progress>
                     <br>
                     <h4>{{inmunizacion_data.sin_polio_numero}} / {{inmunizacion_data.numero_personas}}</h4> 
-                    <a href="#" @click="ver_detalle_inmunizacion(inmunizacion_data.sin_polio_array, 'Niños menores de 1 años sin vacuna de Polio', 2)">Ver Detalles</a>
+                    <a v-if="exportando == false"  href="#" @click="ver_detalle_inmunizacion(inmunizacion_data.sin_polio_array, 'Niños menores de 1 años sin vacuna de Polio', 2)">Ver Detalles</a>
                 </div>
                 <div class="col-lg-4 text-center">
                     <br>
@@ -128,7 +128,7 @@
                     </circle-progress>
                     <br>
                     <h4>{{inmunizacion_data.esquema_completo_pentavalente_numero}} / {{inmunizacion_data.numero_personas}}</h4> 
-                    <a href="#" @click="ver_detalle_inmunizacion(inmunizacion_data.esquema_completo_pentavalente_array, 'Niños menores de 1 años con esquema completo de pentavalente', 3)">Ver Detalles</a>
+                    <a v-if="exportando == false"  href="#" @click="ver_detalle_inmunizacion(inmunizacion_data.esquema_completo_pentavalente_array, 'Niños menores de 1 años con esquema completo de pentavalente', 3)">Ver Detalles</a>
                 </div>
             </div>
             <br>
@@ -146,7 +146,7 @@
                     </circle-progress>
                     <br>
                     <h4>{{inmunizacion_data.esquema_icompleto_pentavalente_numero}} / {{inmunizacion_data.numero_personas}}</h4> 
-                    <a href="#" @click="ver_detalle_inmunizacion(inmunizacion_data.esquema_icompleto_pentavalente_array, 'Niños menores de 1 años con esquema incompleto de pentavalente', 4)">Ver Detalles</a>
+                    <a v-if="exportando == false"  href="#" @click="ver_detalle_inmunizacion(inmunizacion_data.esquema_icompleto_pentavalente_array, 'Niños menores de 1 años con esquema incompleto de pentavalente', 4)">Ver Detalles</a>
                 </div>
                 <div class="col-lg-4 text-center"  ref="fila_3_men_1">
                     <br>
@@ -161,16 +161,91 @@
                     </circle-progress>
                     <br>
                     <h4>{{inmunizacion_data.esquema_completo_polio_numero}} / {{inmunizacion_data.numero_personas}}</h4> 
-                    <a href="#" @click="ver_detalle_inmunizacion(inmunizacion_data.esquema_completo_polio_array, 'Niños menores de 1 años con esquema completo de polio', 5)">Ver Detalles</a>
+                    <a v-if="exportando == false"  href="#" @click="ver_detalle_inmunizacion(inmunizacion_data.esquema_completo_polio_array, 'Niños menores de 1 años con esquema completo de polio', 5)">Ver Detalles</a>
                 </div>
                 <div class="col-lg-4 text-center">
                     <br>
                     <h4>Niños en riesgos de desnutrición con esquema de vacunación incompleto</h4>
                     <div id="chartdiv_desnutricion_incompleto" style="width: 100%; height: 250px"></div>
-                    <a href="#" @click="ver_detalle_inmunizacion(inmunizacion_data.desnutricion_carnet_desac_array, 'Niños menores de 1 años en riesgos de desnutrición con esquema de vacunación incompleto', 6)">Ver Detalles</a>
+                    <a v-if="exportando == false"  href="#" @click="ver_detalle_inmunizacion(inmunizacion_data.desnutricion_carnet_desac_array, 'Niños menores de 1 años en riesgos de desnutrición con esquema de vacunación incompleto', 6)">Ver Detalles</a>
                 </div>
             </div>
         </div>
+
+        <div v-if="tipoComboGrupoEdad == 'de1a5'">
+            <div class="row"  ref="fila1_1a5">
+                <div class="col-lg-4 text-center">
+                    <br>
+                    <h4>Niños de 1 a 5 años <br> con esquema de vacunación incompleto</h4>
+                    <br>
+                    <circle-progress
+                        stroke-bg-color = "#e3e2e1"
+                        :r="80" 
+                        :stroke-width="12"  
+                        :stroke-color="inmunizacion_data.esquema_incompleto_porcentaje < 20 ? '#1abf03': inmunizacion_data.esquema_incompleto_porcentaje >= 20  && inmunizacion_data.esquema_incompleto_porcentaje < 60 ? '#f2ce1a' : '#f2451a'"
+                        :percentage="Math.floor(inmunizacion_data.esquema_incompleto_porcentaje* 10) / 10"> 
+                    </circle-progress>
+                    <br>
+                    <h4>{{inmunizacion_data.esquema_incompleto_numero}} / {{inmunizacion_data.numero_personas}}</h4> 
+                    <a v-if="exportando == false"  href="#" @click="ver_detalle_inmunizacion_1a5('Niños 1 a 5 años con esquema de vacunación incompleto', 1)">Ver Detalles</a>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <br>
+                    <h5>Niños de 1 a 5 años <br> con esquema de (sarampión, Rubeola, Papera) completo</h5>
+                    <br>
+                    <circle-progress
+                        stroke-bg-color = "#e3e2e1"
+                        :r="80" 
+                        :stroke-width="12"  
+                        :stroke-color="inmunizacion_data.esquema_completo_triple_porcentaje < 20 ? '#1abf03': inmunizacion_data.esquema_completo_triple_porcentaje >= 20  && inmunizacion_data.esquema_completo_triple_porcentaje < 60 ? '#f2ce1a' : '#f2451a'"
+                        :percentage="Math.floor(inmunizacion_data.esquema_completo_triple_porcentaje* 10) / 10"> 
+                    </circle-progress>
+                    <br>
+                    <h4>{{inmunizacion_data.esquema_completo_triple_numero}} / {{inmunizacion_data.numero_personas}}</h4> 
+                    <a v-if="exportando == false"  href="#" @click="ver_detalle_inmunizacion_1a5('Niños 1 a 5 años con esquema de (sarampión - Rubeola - Papera) completo', 2)">Ver Detalles</a>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <br>
+                    <h4>Niños de 1 año <br> con esquema de neumococo completo</h4>
+                    <br>
+                    <circle-progress
+                        stroke-bg-color = "#e3e2e1"
+                        :r="80" 
+                        :stroke-width="12"  
+                        :stroke-color="inmunizacion_data.esquema_incompleto_neumococo_porcentaje < 20 ? '#1abf03': inmunizacion_data.esquema_incompleto_neumococo_porcentaje >= 20  && inmunizacion_data.esquema_incompleto_neumococo_porcentaje < 60 ? '#f2ce1a' : '#f2451a'"
+                        :percentage="Math.floor(inmunizacion_data.esquema_incompleto_neumococo_porcentaje* 10) / 10"> 
+                    </circle-progress>
+                    <br>
+                    <h4>{{inmunizacion_data.esquema_incompleto_neumococo_numero}} / {{inmunizacion_data.numero_personas_1_anio}}</h4> 
+                    <a v-if="exportando == false"  href="#" @click="ver_detalle_inmunizacion_1a5('Niños 1 año con esquema de neumococo completo', 3)">Ver Detalles</a>
+                </div>
+            </div>
+            <br>
+            <div class="row"> 
+                <div class="col-lg-4 text-center">
+                    <br>
+                    <h4>Niños de 1 a 5 años <br> Vacuna de Polio</h4>
+                    <br>
+                    <div id="chartdiv_polio" style="width: 100%; height: 250px"></div>
+                    <a v-if="exportando == false" href="#" @click="ver_detalle_inmunizacion_1a5('Niños de 1 a 5 años - Vacuna de Polio', 4)">Ver Detalles</a>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <br>
+                    <h4>Niños de 1 a 5 años <br> Vacuna de Pentavalente</h4>
+                    <br>
+                    <div id="chartdiv_pentavalente" style="width: 100%; height: 250px"></div>
+                    <a v-if="exportando == false" href="#" @click="ver_detalle_inmunizacion_1a5('Niños de 1 a 5 años - Vacuna de Pentavalente', 5)">Ver Detalles</a>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <br>
+                    <h4>Niños en riesgos de desnutrición con esquema de vacunación incompleto</h4>
+                    <br>
+                    <div id="chartdiv_desnutricion_incompleto" style="width: 100%; height: 250px"></div>
+                    <a v-if="exportando == false"  href="#" @click="ver_detalle_inmunizacion_1a5('Niños de 1 a 5 años en riesgos de desnutrición con esquema de vacunación incompleto', 6)">Ver Detalles</a>
+                </div>
+            </div>
+        </div>
+
         <b-modal
             ref="modalpdf"
             hide-footer
@@ -210,7 +285,7 @@
             header-text-variant="light"
             :no-close-on-backdrop="true"
         >
-            <table style="width: 100%;" class="table_data" id="tabla_riesgos">
+            <table style="width: 100%;" class="table_data" id="tabla_detalle_1">
                 <thead>
                     <tr>
                         <th>Identificacionn</th>
@@ -233,7 +308,7 @@
                         <td>{{item.tipo_id}}: {{item.identificacion}}</td>
                         <td>{{item.nombre}}</td>
                         <td>{{item.edad}}</td>
-                        <td><span>{{item.des_corr}}</span></td>
+                        <td><span>{{item.des_corr != "" ? item.des_corr : "CASCO URBANO"}}</span></td>
                         <td><span>{{item.des_barrio}}</span></td>
                         <td><span>{{item.des_direc}}</span></td>
                         <td><span>{{item.bcg}}</span></td>
@@ -246,11 +321,71 @@
                         <td>{{item.nombre}}</td>
                         <td>{{item.edad}}</td>
                         <td><span>{{item.des_corr}}</span></td>
-                        <td><span>{{item.des_barrio}}</span></td>
+                        <td><span>{{item.des_corr != "" ? item.des_corr : "CASCO URBANO"}}</span></td>
                         <td><span>{{item.des_direc}}</span></td>
                         <td><span>{{item.riesgos_desnutricion_aguda_R == 0 || item.riesgos_desnutricion_aguda_R == 1 ? 'BAJO' : item.riesgos_desnutricion_aguda_R == 2 || item.riesgos_desnutricion_aguda_R == 3 ? 'MODERADO': 'ALTO'}}</span></td>
                         <td><span>{{item.riesgos_desnutricion_global_R == 0 || item.riesgos_desnutricion_global_R == 1 ? 'BAJO' : item.riesgos_desnutricion_global_R == 2 || item.riesgos_desnutricion_global_R == 3 ? 'MODERADO': 'ALTO'}}</span></td>
                         <td><span>Desactualizado</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr />
+            <div class="text-right">
+                <button
+                    type="button"
+                    class="btn btn-warning"
+                    @click="cerrarModal"
+                >
+                    <i class="fa fa-window-close"></i> Cancelar
+                </button>
+            </div>
+        </b-modal>
+
+        <b-modal
+            ref="detalle_inmunizacion_2"
+            hide-footer
+            :title="titulo_detalle2"
+            size="xl"
+            centered
+            header-bg-variant="danger"
+            header-text-variant="light"
+            :no-close-on-backdrop="true"
+        >
+            <table style="width: 100%;" class="table_data" id="tabla_detalle_2">
+                <thead>
+                    <tr>
+                        <th>Identificacionn</th>
+                        <th>Nombre</th>
+                        <th>Edad (Años)</th>
+                        <th>Corregimiento</th> 
+                        <th>Barrio</th>
+                        <th>Direccion</th>
+                        <th v-if="tipo_detalle_1a5 == 1">Carnet</th>
+                        <th v-if="tipo_detalle_1a5 == 2">SRP</th>
+                        <th v-if="tipo_detalle_1a5 == 3">Neumococo</th>
+                        <th v-if="tipo_detalle_1a5 == 4">Polio</th>
+                        <th v-if="tipo_detalle_1a5 == 5">Pentavalente</th>
+                        <th v-if="tipo_detalle_1a5 == 6">Desnutrición Aguda</th>
+                        <th v-if="tipo_detalle_1a5 == 6">Desnutrición Global</th>
+                        <th v-if="tipo_detalle_1a5 == 6">Carnet Desactualizado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="item in array_filtrado">
+                        <td>{{item.tipo_id}}: {{item.identificacion}}</td>
+                        <td>{{item.nombre}}</td>
+                        <td>{{item.edad}}</td>
+                        <td><span>{{item.des_corr != "" ? item.des_corr : "CASCO URBANO"}}</span></td>
+                        <td><span>{{item.des_barrio}}</span></td>
+                        <td><span>{{item.des_direc}}</span></td>
+                        <td v-if="tipo_detalle_1a5 == 1"><span>{{item.carnet}}</span></td>
+                        <td v-if="tipo_detalle_1a5 == 2"><span>{{item.tripleviral}}</span></td>
+                        <td v-if="tipo_detalle_1a5 == 3"><span>{{item.neumococo}}</span></td>
+                        <td v-if="tipo_detalle_1a5 == 4"><span>{{item.polio}}</span></td>
+                        <td v-if="tipo_detalle_1a5 == 5"><span>{{item.pentavalente}}</span></td>
+                        <td v-if="tipo_detalle_1a5 == 6"><span>{{item.riesgos_desnutricion_aguda_R == 0 || item.riesgos_desnutricion_aguda_R == 1 ? 'BAJO' : item.riesgos_desnutricion_aguda_R == 2 || item.riesgos_desnutricion_aguda_R == 3 ? 'MODERADO': 'ALTO'}}</span></td>
+                        <td v-if="tipo_detalle_1a5 == 6"><span>{{item.riesgos_desnutricion_global_R == 0 || item.riesgos_desnutricion_global_R == 1 ? 'BAJO' : item.riesgos_desnutricion_global_R == 2 || item.riesgos_desnutricion_global_R == 3 ? 'MODERADO': 'ALTO'}}</span></td>
+                        <td v-if="tipo_detalle_1a5 == 6"><span>Desactualizado</span></td>
                     </tr>
                 </tbody>
             </table>
@@ -321,7 +456,13 @@ export default {
             chart_1_men_1: null,
             data_detalle: [],
             titulo_detalle: "", 
-            tipo_detalle_men_1: 0
+            tipo_detalle_men_1: 0,
+            exportando: false,
+            chart_polio: null,
+            chart_pentavalente: null,
+            titulo_detalle2: "",
+            array_filtrado: [],
+            tipo_detalle_1a5: 0
         }
     },
     methods: {
@@ -365,7 +506,16 @@ export default {
             this.isLoading = true;
             await DashboardServiceRS.inmunizacion(this.tipo, this.id_combo, this.tipoComboGrupoEdad).then(respuesta => {
                 this.inmunizacion_data = respuesta.data.inmunizacion_data;
-                this.grafica_torta_desnutricion_incompleto();
+                if(this.tipoComboGrupoEdad == "men1a"){
+                    this.grafica_torta_desnutricion_incompleto();
+                }else{
+                    if(this.tipoComboGrupoEdad == "de1a5"){
+                        this.grafica_torta_polio();
+                        this.grafica_torta_pentavalente();
+                        this.grafica_torta_desnutricion_incompleto();
+
+                    }
+                }
                 this.isLoading = false;
             })
             .catch(err => {
@@ -477,12 +627,12 @@ export default {
                     language: {
                         "decimal": "",
                         "emptyTable": "No hay información",
-                        "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
-                        "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
-                        "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                        "info": "Mostrando _START_ a _END_ de _TOTAL_ Registros",
+                        "infoEmpty": "Mostrando 0 to 0 of 0 Registros",
+                        "infoFiltered": "(Filtrado de _MAX_ total Registros)",
                         "infoPostFix": "",
                         "thousands": ",",
-                        "lengthMenu": "Mostrar _MENU_ Entradas",
+                        "lengthMenu": "Mostrar _MENU_ Registros",
                         "loadingRecords": "Cargando...",
                         "processing": "Procesando...",
                         "search": "Buscar:",
@@ -499,6 +649,7 @@ export default {
         },
         async exportToPDFINM(){ 
             this.isLoading = true;
+            this.exportando = true;
 
             const options = {
                 type: 'dataURL',
@@ -512,9 +663,25 @@ export default {
                 c:  this.corregimientos.filter( item => { return item.id == this.comboCorregimiento }),
             };
 
-            let filtro2 = {
-                grupo: $("#grupoEdad option:selected").text()
-            };
+            let filtro2;
+
+            switch (this.tipoComboGrupoEdad) {
+                case "men1a":
+                    filtro2= {
+                        grupo: "Menores de 1 Año"
+                    };
+                break;
+                case "de1a5":
+                    filtro2= {
+                        grupo: "De 1 a 5 Años"
+                    };
+                break;
+                default:
+                filtro2= {
+                        grupo: "Reporte - General"
+                    };
+                break;
+            }
 
             let graficos;
             let data;
@@ -535,6 +702,20 @@ export default {
                     esquema_completo_pentavalente_array : this.inmunizacion_data.esquema_completo_pentavalente_array,
                     esquema_icompleto_pentavalente_array : this.inmunizacion_data.esquema_icompleto_pentavalente_array,
                 }
+            }else{
+                if(this.tipoComboGrupoEdad == "de1a5"){
+                    graficos = {
+                        fila1: await this.$html2canvas(this.$refs.fila1_1a5, options),
+                        fila2: await this.chart_polio.exporting.getImage("png"),
+                        fila3: await this.chart_pentavalente.exporting.getImage("png"),
+                        fila4: await this.chart_1_men_1.exporting.getImage("png")
+                    }
+
+                    data = {
+                        personas : this.inmunizacion_data.personas,
+                        personas_1_anio : this.inmunizacion_data.personas_1_anio,
+                    } 
+                }
             }
 
             const parametros = {
@@ -551,15 +732,18 @@ export default {
                     this.rutaPdf = store.state.apiURL + respuesta.data.nombre;
                     this.isLoading = false;
                     this.$refs.modalpdf.show();
+                    this.exportando = false;
                 });
             } catch (error) { 
                 this.$swal("Error...!", "Ocurrio un error!", "error");    
                 this.isLoading = false;
             }
+            
         },
         cerrarModal() {
             this.$refs.detalle_inmunizacion.hide();
             this.$refs.modalpdf.hide();
+            this.$refs.detalle_inmunizacion_2.hide();
         },
         async grafica_torta_desnutricion_incompleto() {
             if(this.chart_1_men_1 != null){
@@ -569,23 +753,177 @@ export default {
             this.chart_1_men_1 = chart;
             chart.data = [
                 {
-                    category: "Desn. Aguda",
+                    category: "Desnutrición Aguda",
                     first: this.inmunizacion_data.desnutricion_aguda_carnet_desac_numero,
                 },
                 {
-                    category: "Desn. Global",
+                    category: "Desnutrición Global",
                     first: this.inmunizacion_data.desnutricion_global_carnet_desac_numero,
                 }, 
             ];
             var series = chart.series.push(new am4charts.PieSeries3D());
             series.dataFields.value = "first";
             series.dataFields.category = "category";
+
+            series.labels.template.fontSize = 12;
+            series.labels.template.maxWidth = 100;
+            series.labels.template.wrap = true;
         },
         ver_detalle_inmunizacion(array, titulo, tipo){
             this.titulo_detalle = titulo;
             this.data_detalle = array;
             this.tipo_detalle_men_1 = tipo;
             this.$refs.detalle_inmunizacion.show();
+
+            $("#tabla_detalle_1").dataTable().fnDestroy();
+            setTimeout(() => {
+                $('#tabla_detalle_1').DataTable({
+                    "lengthChange": false,
+                    "ordering": false,
+                    pageLength : 10,
+                    language: {
+                        "decimal": "",
+                        "emptyTable": "No hay información",
+                        "info": "Mostrando _START_ a _END_ de _TOTAL_ Registros",
+                        "infoEmpty": "Mostrando 0 to 0 of 0 Registros",
+                        "infoFiltered": "(Filtrado de _MAX_ total Registros)",
+                        "infoPostFix": "",
+                        "thousands": ",",
+                        "lengthMenu": "Mostrar _MENU_ Registros",
+                        "loadingRecords": "Cargando...",
+                        "processing": "Procesando...",
+                        "search": "Buscar:",
+                        "zeroRecords": "Sin resultados encontrados",
+                        "paginate": {
+                            "first": "Primero",
+                            "last": "Ultimo",
+                            "next": "Siguiente",
+                            "previous": "Anterior"
+                        }
+                    }
+                });
+            }, 500);
+        },
+        async grafica_torta_polio(){
+            if(this.chart_polio != null){
+                this.chart_polio.dispose();
+            }
+            var chart = am4core.create("chartdiv_polio", am4charts.PieChart3D);
+            this.chart_polio = chart;
+
+            chart.data = [
+                {
+                    category: "Esquema Completo",
+                    first: this.inmunizacion_data.esquema_completo_polio_numero,
+                },
+                {
+                    category: "Esquema Incompleto",
+                    first: this.inmunizacion_data.esquema_icompleto_polio_numero,
+                }, 
+            ];
+            var series = chart.series.push(new am4charts.PieSeries3D());
+            series.dataFields.value = "first";
+            series.dataFields.category = "category";
+
+            series.labels.template.fontSize = 12;
+            series.labels.template.maxWidth = 100;
+            series.labels.template.wrap = true;
+        },
+        async grafica_torta_pentavalente(){
+            if(this.chart_pentavalente != null){
+                this.chart_pentavalente.dispose();
+            }
+            var chart = am4core.create("chartdiv_pentavalente", am4charts.PieChart3D);
+            this.chart_pentavalente = chart;
+
+            chart.data = [
+                {
+                    category: "Esquema Completo",
+                    first: this.inmunizacion_data.esquema_completo_pentavalente_numero,
+                },
+                {
+                    category: "Esquema Incompleto",
+                    first: this.inmunizacion_data.esquema_incompleto_pentavalente_numero,
+                }, 
+            ];
+            var series = chart.series.push(new am4charts.PieSeries3D());
+            series.dataFields.value = "first";
+            series.dataFields.category = "category";
+
+            series.labels.template.fontSize = 12;
+            series.labels.template.maxWidth = 100;
+            series.labels.template.wrap = true;
+        },
+        async ver_detalle_inmunizacion_1a5(titulo, tipo){
+            this.$refs.detalle_inmunizacion_2.show();
+            this.titulo_detalle2 = titulo;
+            this.tipo_detalle_1a5 = tipo;
+            this.array_filtrado = [];
+
+            if(tipo == 1){
+                this.inmunizacion_data.personas.forEach(element => {
+                    if(element.carnet == "DESAC"){
+                        this.array_filtrado.push(element);
+                    }
+                });
+            }
+
+            if(tipo == 2){
+                this.inmunizacion_data.personas.forEach(element => {
+                    if(element.tripleviral == "1R"){
+                        this.array_filtrado.push(element);
+                    }
+                });
+            }
+
+            if(tipo == 3){
+                this.inmunizacion_data.personas_1_anio.forEach(element => {
+                    if(element.neumococo == "R1"){
+                        this.array_filtrado.push(element);
+                    }
+                });
+            }
+
+            if(tipo == 4 || tipo == 5){
+                this.array_filtrado = this.inmunizacion_data.personas;
+            }
+
+            if(tipo == 6){
+                this.inmunizacion_data.personas.forEach(element => {
+                    if(element.carnet == "DESAC" && ((element.riesgos_desnutricion_aguda_R =="4" || element.riesgos_desnutricion_aguda_R =="5") || (element.riesgos_desnutricion_global_R =="4" || element.riesgos_desnutricion_global_R =="5"))){
+                        this.array_filtrado.push(element);
+                    }
+                });
+            }
+
+            $("#tabla_detalle_2").dataTable().fnDestroy();
+            setTimeout(() => {
+                $('#tabla_detalle_2').DataTable({
+                    "lengthChange": false,
+                    "ordering": false,
+                    pageLength : 10,
+                    language: {
+                        "decimal": "",
+                        "emptyTable": "No hay información",
+                        "info": "Mostrando _START_ a _END_ de _TOTAL_ Registros",
+                        "infoEmpty": "Mostrando 0 to 0 of 0 Registros",
+                        "infoFiltered": "(Filtrado de _MAX_ total Registros)",
+                        "infoPostFix": "",
+                        "thousands": ",",
+                        "lengthMenu": "Mostrar _MENU_ Registros",
+                        "loadingRecords": "Cargando...",
+                        "processing": "Procesando...",
+                        "search": "Buscar:",
+                        "zeroRecords": "Sin resultados encontrados",
+                        "paginate": {
+                            "first": "Primero",
+                            "last": "Ultimo",
+                            "next": "Siguiente",
+                            "previous": "Anterior"
+                        }
+                    }
+                });
+            }, 500);
         }
     }
 }
