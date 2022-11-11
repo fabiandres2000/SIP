@@ -43,7 +43,7 @@
                         data-toggle="tab"
                         href="#tabsocio"
                         role="tab"
-                        >Socioeconomicos</a
+                        >Socioeconomico</a
                     >
                 </li>
                 <!--  <li class="nav-item">

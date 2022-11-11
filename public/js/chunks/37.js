@@ -2019,6 +2019,36 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./resources/js/Servicios/veredas_servicios.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/Servicios/veredas_servicios.js ***!
+  \*****************************************************/
+/*! exports provided: listarVeredas, guardarVeredas, eliminarVeredas, comboVeredas */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "listarVeredas", function() { return listarVeredas; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "guardarVeredas", function() { return guardarVeredas; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "eliminarVeredas", function() { return eliminarVeredas; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "comboVeredas", function() { return comboVeredas; });
+/* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
+
+function listarVeredas($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/veredas', $data);
+}
+function guardarVeredas($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/veredas/guardar', $data);
+}
+function eliminarVeredas($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/veredas/eliminar', $data);
+}
+function comboVeredas($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/veredas/combo', $data);
+}
+
+/***/ }),
+
 /***/ "./resources/js/Vistas/Veredas/Veredas.vue":
 /*!*************************************************!*\
   !*** ./resources/js/Vistas/Veredas/Veredas.vue ***!

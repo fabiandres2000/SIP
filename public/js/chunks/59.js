@@ -20122,9 +20122,7 @@ function comboBarrios($data) {
   return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/barrios/combo', $data);
 }
 function exportar($data) {
-  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/barrios/exportar', $data, {
-    responseType: 'blob'
-  });
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/barrios/exportar', $data);
 }
 
 /***/ }),
@@ -20133,7 +20131,7 @@ function exportar($data) {
 /*!******************************************************!*\
   !*** ./resources/js/Servicios/unidades_servicios.js ***!
   \******************************************************/
-/*! exports provided: listar, nuevo, guardar, eliminar, combo, editar */
+/*! exports provided: listar, nuevo, guardar, eliminar, combo, editar, exportarUnidades, exportarUnidad */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20144,6 +20142,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "eliminar", function() { return eliminar; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "combo", function() { return combo; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "editar", function() { return editar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "exportarUnidades", function() { return exportarUnidades; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "exportarUnidad", function() { return exportarUnidad; });
 /* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
 
 function listar($data) {
@@ -20163,6 +20163,12 @@ function combo($data) {
 }
 function editar($data) {
   return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/unidades/editar', $data);
+}
+function exportarUnidades($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/unidades/exportarUnidades', $data);
+}
+function exportarUnidad($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/unidades/exportarUnidad', $data);
 }
 
 /***/ }),

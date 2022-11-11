@@ -135,7 +135,7 @@
                             aria-haspopup="true"
                             style="color: #001e36"
                         >
-                            <router-link to="/" class="kt-menu__link">
+                            <router-link to="/Dashboard" class="kt-menu__link">
                                 <span class="kt-menu__link-icon">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"

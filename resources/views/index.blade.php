@@ -120,7 +120,7 @@
                                     <div class="kt-login__divider">
                                         <div class="kt-divider">
                                             <span></span>
-                                            <span>OR</span>
+                                            <span>O</span>
                                             <span></span>
                                         </div>
                                     </div>
@@ -161,7 +161,7 @@
         $(window).on('load', function () {
             setTimeout(function () {
                 $(".loader-page").css({visibility:"hidden",opacity:"0"})
-            }, 5000); 
+            }, 2000); 
         });
     </script>
     @include('Plantilla.Footer')
