@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[47],{
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Log/Log.vue?vue&type=script&lang=js&":
-/*!**************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Log/Log.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Informes/poblacionMigrante.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Informes/poblacionMigrante.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -11,17 +11,96 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Servicios_usuarios_servicios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Servicios/usuarios_servicios */ "./resources/js/Servicios/usuarios_servicios.js");
-/* harmony import */ var datatables_net_bs4__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! datatables.net-bs4 */ "./node_modules/datatables.net-bs4/js/dataTables.bootstrap4.js");
-/* harmony import */ var datatables_net_bs4__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(datatables_net_bs4__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var datatables_net_buttons_js_buttons_print__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! datatables.net-buttons/js/buttons.print */ "./node_modules/datatables.net-buttons/js/buttons.print.js");
-/* harmony import */ var datatables_net_buttons_js_buttons_print__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(datatables_net_buttons_js_buttons_print__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! jszip/dist/jszip */ "./node_modules/jszip/dist/jszip.js");
-/* harmony import */ var jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! pdfmake/build/pdfmake */ "./node_modules/pdfmake/build/pdfmake.js");
-/* harmony import */ var pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var pdfmake_build_vfs_fonts__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! pdfmake/build/vfs_fonts */ "./node_modules/pdfmake/build/vfs_fonts.js");
-/* harmony import */ var pdfmake_build_vfs_fonts__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(pdfmake_build_vfs_fonts__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @amcharts/amcharts4/core */ "./node_modules/@amcharts/amcharts4/core.js");
+/* harmony import */ var _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @amcharts/amcharts4/charts */ "./node_modules/@amcharts/amcharts4/charts.js");
+/* harmony import */ var _amcharts_amcharts4_themes_animated__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @amcharts/amcharts4/themes/animated */ "./node_modules/@amcharts/amcharts4/themes/animated.js");
+/* harmony import */ var _Servicios_informes__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../Servicios/informes */ "./resources/js/Servicios/informes.js");
+/* harmony import */ var vue_apexcharts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-apexcharts */ "./node_modules/vue-apexcharts/dist/vue-apexcharts.js");
+/* harmony import */ var vue_apexcharts__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vue_apexcharts__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var vue_html2pdf__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue-html2pdf */ "./node_modules/vue-html2pdf/dist/vue-html2pdf.esm.js");
+/* harmony import */ var vue_easy_pie_chart__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vue-easy-pie-chart */ "./node_modules/vue-easy-pie-chart/dist/vue-easy-pie-chart.common.js");
+/* harmony import */ var vue_easy_pie_chart__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(vue_easy_pie_chart__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var vue_easy_pie_chart_dist_vue_easy_pie_chart_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue-easy-pie-chart/dist/vue-easy-pie-chart.css */ "./node_modules/vue-easy-pie-chart/dist/vue-easy-pie-chart.css");
+/* harmony import */ var vue_easy_pie_chart_dist_vue_easy_pie_chart_css__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(vue_easy_pie_chart_dist_vue_easy_pie_chart_css__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var easy_circular_progress__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! easy-circular-progress */ "./node_modules/easy-circular-progress/dist/easy-circular-progress.umd.min.js");
+/* harmony import */ var easy_circular_progress__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(easy_circular_progress__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var vue2_circle_progress__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! vue2-circle-progress */ "./node_modules/vue2-circle-progress/dist/vue-circle-progress.js");
+/* harmony import */ var vue2_circle_progress__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(vue2_circle_progress__WEBPACK_IMPORTED_MODULE_10__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -268,543 +347,826 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
-__webpack_require__(/*! datatables.net-buttons/js/dataTables.buttons */ "./node_modules/datatables.net-buttons/js/dataTables.buttons.js");
-
-__webpack_require__(/*! datatables.net-buttons/js/buttons.html5 */ "./node_modules/datatables.net-buttons/js/buttons.html5.js");
 
 
 
 
- // import fixedHeader from "datatables.net/js/jquery.dataTables/fixedHeader";
 
-pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_5___default.a.vfs = pdfmake_build_vfs_fonts__WEBPACK_IMPORTED_MODULE_6___default.a.pdfMake.vfs;
-window.JSZip = jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_4___default.a;
+
+
+_amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_1__["useTheme"](_amcharts_amcharts4_themes_animated__WEBPACK_IMPORTED_MODULE_3__["default"]);
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    VueHtml2pdf: vue_html2pdf__WEBPACK_IMPORTED_MODULE_6__["default"],
+    VueEasyPieChart: vue_easy_pie_chart__WEBPACK_IMPORTED_MODULE_7___default.a,
+    Progress: easy_circular_progress__WEBPACK_IMPORTED_MODULE_9___default.a,
+    VueCircle: vue2_circle_progress__WEBPACK_IMPORTED_MODULE_10___default.a
+  },
   mounted: function mounted() {
-    this.consultar(1);
-    this.hoy = moment();
+    this.calcular();
   },
-  filters: {
-    moment: function (_moment) {
-      function moment(_x) {
-        return _moment.apply(this, arguments);
-      }
-
-      moment.toString = function () {
-        return _moment.toString();
-      };
-
-      return moment;
-    }(function (date) {
-      return moment(date).format("YYYY-MM-DD");
-    })
-  },
-  name: "entes",
   data: function data() {
     return {
-      errores: [],
-      usuarios: [],
-      logs: [],
-      errorDevuelto: [],
-      entrarPorError: false,
-      logData: {
-        id: 0,
-        id_usuario: 0,
-        accion: "",
-        fecha: "",
-        hora: "",
-        estado: "Activo",
-        ip: "",
-        modulo: ""
-      },
-      datos: {
-        usuarios: "0",
-        fecha: "0",
-        modulos: "0"
-      },
-      hoy: "",
       csrf: document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
-      headerTextVariant: "light",
-      mostrar: true,
-      paginacion: {
-        total: 0,
-        pagina_actual: 0,
-        por_pagina: 0,
-        ultima_pagina: 0,
-        desde: 0,
-        hasta: 0
+      combo: "",
+      j: 0,
+      mivariable: 0,
+      totalMigrantes: 0,
+      poblacionMigrante: 0,
+      migrantesRegulados: 0,
+      migrantesNoRegulados: 0,
+      imagenPie: [],
+      imagenBarra: [],
+      imagenPieOcupaciones: [],
+      imagenPiePaises: [],
+      imagenSexo: [],
+      enfermedades: [],
+      afiliaciones: [],
+      datos: {
+        migrantes0: 0,
+        migrantes115: 0,
+        migrantes611: 0,
+        migrantes1217: 0,
+        migrantes1828: 0,
+        migrantes2959: 0,
+        migrantes60: 0
       },
-      offset: 4,
-      valG: true,
-      actual: 0,
-      tabladatos: null
+      sexo: {
+        m_0: 0,
+        m_15: 0,
+        m_611: 0,
+        m_1217: 0,
+        m_1828: 0,
+        m_2959: 0,
+        m_60: 0,
+        f_0: 0,
+        f_15: 0,
+        f_611: 0,
+        f_1217: 0,
+        f_1828: 0,
+        f_2959: 0,
+        f_60: 0
+      },
+      ocupaciones: {
+        id: 0,
+        descripcion: "",
+        cont: 0
+      },
+      poblacion: {
+        migrantes: 0,
+        nomigrantes: 0
+      },
+      primerOcupacion: {
+        nombre: "",
+        cant: 0
+      },
+      segundaOcupacion: {
+        nombre: "",
+        cant: 0
+      },
+      terceraOcupacion: {
+        nombre: "",
+        cant: 0
+      },
+      cuartaOcupacion: {
+        nombre: "",
+        cant: 0
+      },
+      quintaOcupacion: {
+        nombre: "",
+        cant: 0
+      },
+      poblacionEdadUno: {
+        edad: "",
+        cant: 0
+      },
+      poblacionEdadDos: {
+        edad: "",
+        cant: 0
+      },
+      poblacionEdadTres: {
+        edad: "",
+        cant: 0
+      },
+      poblacionEdadCuatro: {
+        edad: "",
+        cant: 0
+      },
+      primeraEnfermedad: {
+        nombre: "",
+        cant: 0
+      },
+      segundaEnfermedad: {
+        nombre: "",
+        cant: 0
+      },
+      terceraEnfermedad: {
+        nombre: "",
+        cant: 0
+      },
+      cuartaEnfermedad: {
+        nombre: "",
+        cant: 0
+      },
+      quintaEnfermedad: {
+        nombre: "",
+        cant: 0
+      },
+      series: [],
+      series_grupo: [],
+      series_barra_orden: [],
+      series_ocupaciones: [],
+      series_enfermedades: [],
+      series_paises: [],
+      serie_sexo: [],
+      textoEnfermedades: "",
+      fill: {
+        gradient: ["#078914", "#078914", "#078914"]
+      }
     };
   },
-  computed: {
-    esActivo: function esActivo() {
-      return this.paginacion.pagina_actual;
-    },
-    numeroDePaginas: function numeroDePaginas() {
-      if (!this.paginacion.hasta) {
-        return [];
-      }
-
-      var desde = this.paginacion.pagina_actual - this.offset; // TODO offset
-
-      if (desde < 1) {
-        desde = 1;
-      }
-
-      var aux = this.offset * 2;
-      var hasta = desde + aux;
-
-      if (hasta >= this.paginacion.ultima_pagina) {
-        hasta = this.paginacion.ultima_pagina;
-      }
-
-      var paginasArray = [];
-
-      while (desde <= hasta) {
-        paginasArray.push(desde);
-        desde++;
-      }
-
-      return paginasArray;
-    }
-  },
   methods: {
-    iniciarTabla: function iniciarTabla() {
-      this.tabla();
+    progress: function progress(event, _progress, stepValue) {// console.log(event);
+      //this.$refs.gc.progress = 12;
     },
-    consultar: function () {
-      var _consultar = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(pagina) {
+    progress_end: function progress_end(event) {//console.log("Circle progress end");
+      //this.$refs.gc.progress = 12;
+    },
+    pdfgen: function pdfgen(imagen) {
+      var pdfMake = __webpack_require__(/*! pdfmake/build/pdfmake.js */ "./node_modules/pdfmake/build/pdfmake.js");
+
+      if (pdfMake.vfs == undefined) {
+        var pdfFonts = __webpack_require__(/*! pdfmake/build/vfs_fonts.js */ "./node_modules/pdfmake/build/vfs_fonts.js");
+
+        pdfMake.vfs = pdfFonts.pdfMake.vfs;
+      }
+
+      var docDefinition = {
+        content: "<img src='" + imagen + "'>"
+      };
+      pdfMake.createPdf(docDefinition).download("optionalName.pdf");
+    },
+    extraerimagen: function () {
+      var _extraerimagen = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(chart) {
         var _this = this;
 
-        var parametros;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                parametros = {
-                  _token: this.csrf,
-                  page: pagina
-                };
-                _context.prev = 1;
-                _context.next = 4;
-                return _Servicios_usuarios_servicios__WEBPACK_IMPORTED_MODULE_1__["usuariosLog"](parametros).then(function (respuesta) {
-                  _this.usuarios = respuesta.data.usuarios;
-                  _this.logs = respuesta.data.logs; // this.paginacion = respuesta.data.paginacion;
-
-                  // this.paginacion = respuesta.data.paginacion;
-                  _this.iniciarTabla();
+                this.$refs.html2Pdf.generatePdf();
+                chart.exporting.getImage("png").then(function (data) {
+                  _this.img = data;
                 });
 
-              case 4:
-                _context.next = 17;
-                break;
-
-              case 6:
-                _context.prev = 6;
-                _context.t0 = _context["catch"](1);
-                _context.t1 = _context.t0.response.status;
-                _context.next = _context.t1 === 419 ? 11 : _context.t1 === 422 ? 13 : 15;
-                break;
-
-              case 11:
-                this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context.abrupt("break", 17);
-
-              case 13:
-                this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context.abrupt("break", 17);
-
-              case 15:
-                this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context.abrupt("break", 17);
-
-              case 17:
+              case 2:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, this, [[1, 6]]);
+        }, _callee, this);
       }));
 
-      function consultar(_x2) {
-        return _consultar.apply(this, arguments);
+      function extraerimagen(_x) {
+        return _extraerimagen.apply(this, arguments);
       }
 
-      return consultar;
+      return extraerimagen;
     }(),
-    cambiarPaginas: function cambiarPaginas(pagina) {
-      this.paginacion.pagina_actual = pagina;
-      this.buscar(pagina);
-    },
-    buscar: function () {
-      var _buscar = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(pagina) {
-        var _this2 = this;
+    calcular: function calcular() {
+      var _this2 = this;
 
-        var parametros;
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var data;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                this.logs = [];
-                parametros = {
-                  _token: this.csrf,
-                  id_usuario: this.datos.usuarios,
-                  modulos: this.datos.modulos,
-                  fecha: this.datos.fecha,
-                  page: pagina
+                data = {
+                  _token: _this2.csrf
                 };
-                _context2.prev = 2;
-                _context2.next = 5;
-                return _Servicios_usuarios_servicios__WEBPACK_IMPORTED_MODULE_1__["usuariosLogBuscar"](parametros).then(function (respuesta) {
-                  $.fn.DataTable = datatables_net_bs4__WEBPACK_IMPORTED_MODULE_2___default.a;
+                _context2.next = 3;
+                return _Servicios_informes__WEBPACK_IMPORTED_MODULE_4__["inicialesMigrantes"](data).then(function (respuesta) {
+                  _this2.poblacionMigrante = respuesta.data.total_migrantes * 100 / respuesta.data.total_poblacion;
+                  _this2.totalMigrantes = respuesta.data.total_migrantes;
+                  _this2.migrantesRegulados = respuesta.data.total_regulado;
+                  _this2.migrantesNoRegulados = respuesta.data.total_no_regulado;
+                  _this2.datos = respuesta.data.edades;
+                  _this2.ocupaciones = respuesta.data.ocupaciones;
 
-                  _this2.tabladatos.fnClearTable();
+                  _this2.$refs.gc.updateProgress(_this2.poblacionMigrante);
 
-                  _this2.tabladatos.fnDestroy(); // $('#tablaDatos tbody').empty();                        
+                  _this2.$refs.gcpdf.updateProgress(_this2.poblacionMigrante);
+
+                  _this2.series_paises = respuesta.data.paises;
+                  _this2.sexo = respuesta.data.sexo;
+                  _this2.enfermedades = respuesta.data.enfermedades;
+                  _this2.afiliaciones = respuesta.data.afiliaciones; //console.log(12);
+                  //GRAFICA DE PIE
+
+                  //console.log(12);
+                  //GRAFICA DE PIE
+                  _this2.series.push({
+                    migrantes: "Regulados",
+                    cantidad: _this2.migrantesRegulados
+                  });
+
+                  _this2.series.push({
+                    migrantes: "No regulados",
+                    cantidad: _this2.migrantesNoRegulados
+                  }); //GRAFICA DE BARS
 
 
-                  // $('#tablaDatos tbody').empty();                        
-                  _this2.logs = respuesta.data.logs; // this.tabladatos.fnAddData(this.logs);
+                  //GRAFICA DE BARS
+                  _this2.series_grupo.push({
+                    edad: "0+",
+                    migrantes: _this2.datos.migrantes0
+                  });
 
-                  // this.tabladatos.fnAddData(this.logs);
-                  _this2.iniciarTabla();
+                  _this2.series_grupo.push({
+                    edad: "1-5",
+                    migrantes: _this2.datos.migrantes115
+                  });
+
+                  _this2.series_grupo.push({
+                    edad: "6-11",
+                    migrantes: _this2.datos.migrantes611
+                  });
+
+                  _this2.series_grupo.push({
+                    edad: "12-17",
+                    migrantes: _this2.datos.migrantes1217
+                  });
+
+                  _this2.series_grupo.push({
+                    edad: "18-28",
+                    migrantes: _this2.datos.migrantes1828
+                  });
+
+                  _this2.series_grupo.push({
+                    edad: "29-59",
+                    migrantes: _this2.datos.migrantes2959
+                  });
+
+                  _this2.series_grupo.push({
+                    edad: "60+",
+                    migrantes: _this2.datos.migrantes60
+                  }); /////ORDENANDO///////////
+                  //GRAFICA DE BARS
+
+
+                  /////ORDENANDO///////////
+                  //GRAFICA DE BARS
+                  _this2.series_barra_orden.push({
+                    edad: "0+",
+                    migrantes: _this2.datos.migrantes0
+                  });
+
+                  _this2.series_barra_orden.push({
+                    edad: "1-5",
+                    migrantes: _this2.datos.migrantes115
+                  });
+
+                  _this2.series_barra_orden.push({
+                    edad: "6-11",
+                    migrantes: _this2.datos.migrantes611
+                  });
+
+                  _this2.series_barra_orden.push({
+                    edad: "12-17",
+                    migrantes: _this2.datos.migrantes1217
+                  });
+
+                  _this2.series_barra_orden.push({
+                    edad: "18-28",
+                    migrantes: _this2.datos.migrantes1828
+                  });
+
+                  _this2.series_barra_orden.push({
+                    edad: "29-59",
+                    migrantes: _this2.datos.migrantes2959
+                  });
+
+                  _this2.series_barra_orden.push({
+                    edad: "60+",
+                    migrantes: _this2.datos.migrantes60
+                  });
+
+                  _this2.series_barra_orden.sort(function (a, b) {
+                    if (a.migrantes > b.migrantes) {
+                      return 1;
+                    }
+
+                    if (a.migrantes < b.migrantes) {
+                      return -1;
+                    } // a must be equal to b
+
+
+                    // a must be equal to b
+                    return 0;
+                  });
+
+                  _this2.poblacionEdadUno.edad = _this2.series_barra_orden[6].edad;
+                  _this2.poblacionEdadUno.cant = _this2.series_barra_orden[6].migrantes;
+                  _this2.poblacionEdadDos.edad = _this2.series_barra_orden[5].edad;
+                  _this2.poblacionEdadDos.cant = _this2.series_barra_orden[5].migrantes;
+                  _this2.poblacionEdadTres.edad = _this2.series_barra_orden[4].edad;
+                  _this2.poblacionEdadTres.cant = _this2.series_barra_orden[4].migrantes;
+                  _this2.poblacionEdadCuatro.edad = _this2.series_barra_orden[3].edad;
+                  _this2.poblacionEdadCuatro.cant = _this2.series_barra_orden[3].migrantes;
+
+                  for (var i = 0; i < _this2.ocupaciones.length; i++) {
+                    _this2.series_ocupaciones.push({
+                      ocupacion: _this2.ocupaciones[i]["descripcion"],
+                      migrantes: _this2.ocupaciones[i]["cont"]
+                    });
+                  }
+
+                  _this2.series_ocupaciones.sort(function (a, b) {
+                    if (a.migrantes > b.migrantes) {
+                      return 1;
+                    }
+
+                    if (a.migrantes < b.migrantes) {
+                      return -1;
+                    } // a must be equal to b
+
+
+                    // a must be equal to b
+                    return 0;
+                  });
+
+                  for (_this2.j = 0; _this2.j < _this2.enfermedades.length; _this2.j++) {
+                    _this2.series_enfermedades.push({
+                      enfermedad: _this2.enfermedades[_this2.j]["enfe"],
+                      migrantes: _this2.enfermedades[_this2.j]["total"]
+                    });
+                  }
+
+                  if (_this2.enfermedades.length > 0) {
+                    _this2.primeraEnfermedad.nombre = _this2.enfermedades[0]["enfe"];
+                    _this2.primeraEnfermedad.cant = _this2.enfermedades[0]["total"];
+                  }
+
+                  if (_this2.enfermedades.length > 1) {
+                    _this2.segundaEnfermedad.nombre = _this2.enfermedades[1]["enfe"];
+                    _this2.segundaEnfermedad.cant = _this2.enfermedades[1]["total"];
+                  }
+
+                  if (_this2.enfermedades.length > 2) {
+                    _this2.terceraEnfermedad.nombre = _this2.enfermedades[2]["enfe"];
+                    _this2.terceraEnfermedad.cant = _this2.enfermedades[2]["total"];
+                  }
+
+                  if (_this2.enfermedades.length > 3) {
+                    _this2.cuartaEnfermedad.nombre = _this2.enfermedades[3]["enfe"];
+                    _this2.cuartaEnfermedad.cant = _this2.enfermedades[3]["total"];
+                  }
+
+                  if (_this2.enfermedades.length > 4) {
+                    _this2.quintaEnfermedad.nombre = _this2.enfermedades[4]["enfe"];
+                    _this2.quintaEnfermedad.cant = _this2.enfermedades[4]["total"];
+                  }
+
+                  _this2.primerOcupacion.nombre = _this2.series_ocupaciones[4].ocupacion;
+                  _this2.primerOcupacion.cant = _this2.series_ocupaciones[4].migrantes;
+                  _this2.segundaOcupacion.nombre = _this2.series_ocupaciones[3].ocupacion;
+                  _this2.segundaOcupacion.cant = _this2.series_ocupaciones[3].migrantes;
+                  _this2.terceraOcupacion.nombre = _this2.series_ocupaciones[2].ocupacion;
+                  _this2.terceraOcupacion.cant = _this2.series_ocupaciones[2].migrantes;
+                  _this2.cuartaOcupacion.nombre = _this2.series_ocupaciones[1].ocupacion;
+                  _this2.cuartaOcupacion.cant = _this2.series_ocupaciones[1].migrantes;
+                  _this2.quintaOcupacion.nombre = _this2.series_ocupaciones[0].ocupacion;
+                  _this2.quintaOcupacion.cant = _this2.series_ocupaciones[0].migrantes; ///////////////////SEXOEDAD///////////////
+
+                  ///////////////////SEXOEDAD///////////////
+                  _this2.serie_sexo = [{
+                    age: "60+",
+                    male: Number(_this2.sexo.m_60),
+                    female: Number(_this2.sexo.f_60)
+                  }, {
+                    age: "29-59",
+                    male: Number(_this2.sexo.m_2959),
+                    female: Number(_this2.sexo.f_2959)
+                  }, {
+                    age: "18-28",
+                    male: Number(_this2.sexo.m_1828),
+                    female: Number(_this2.sexo.f_1828)
+                  }, {
+                    age: "12-17",
+                    male: Number(_this2.sexo.m_1217),
+                    female: Number(_this2.sexo.f_1217)
+                  }, {
+                    age: "6-11",
+                    male: Number(_this2.sexo.m_611),
+                    female: Number(_this2.sexo.f_611)
+                  }, {
+                    age: "1-5",
+                    male: Number(_this2.sexo.m_15),
+                    female: Number(_this2.sexo.f_15)
+                  }, {
+                    age: "0+",
+                    male: Number(_this2.sexo.m_0),
+                    female: Number(_this2.sexo.f_0)
+                  }];
+
+                  _this2.grafica_de_pie();
+
+                  _this2.grafica_barra();
+
+                  _this2.grafica_de_pie_ocupaciones();
+
+                  _this2.grafica_de_pie_paises();
+
+                  _this2.grafica_stacked();
+
+                  _this2.grafica_barra_enfermedades();
+                })["catch"](function (err) {
+                  console.log(err);
                 });
 
-              case 5:
-                _context2.next = 18;
-                break;
-
-              case 7:
-                _context2.prev = 7;
-                _context2.t0 = _context2["catch"](2);
-                _context2.t1 = _context2.t0.response.status;
-                _context2.next = _context2.t1 === 419 ? 12 : _context2.t1 === 422 ? 14 : 16;
-                break;
-
-              case 12:
-                this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context2.abrupt("break", 18);
-
-              case 14:
-                this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context2.abrupt("break", 18);
-
-              case 16:
-                this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context2.abrupt("break", 18);
-
-              case 18:
+              case 3:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, this, [[2, 7]]);
-      }));
-
-      function buscar(_x3) {
-        return _buscar.apply(this, arguments);
-      }
-
-      return buscar;
-    }(),
-    tabla: function tabla() {
+        }, _callee2);
+      }))();
+    },
+    grafica_de_pie: function grafica_de_pie() {
       var _this3 = this;
 
-      this.$nextTick(function () {
-        $.fn.DataTable = datatables_net_bs4__WEBPACK_IMPORTED_MODULE_2___default.a;
-        _this3.tabladatos = $("#tablaDatos").DataTable({
-          orderCellsTop: true,
-          language: {
-            processing: "Procesando...",
-            lengthMenu: "Mostrar _MENU_ registros",
-            zeroRecords: "No se encontraron resultados",
-            emptyTable: "Ningún dato disponible en esta tabla",
-            infoEmpty: "Mostrando registros del 0 al 0 de un total de 0 registros",
-            infoFiltered: "(filtrado de un total de _MAX_ registros)",
-            search: "Buscar:",
-            infoThousands: ",",
-            loadingRecords: "Cargando...",
-            paginate: {
-              first: "Primero",
-              last: "Último",
-              next: "Siguiente",
-              previous: "Anterior"
-            },
-            aria: {
-              sortAscending: ": Activar para ordenar la columna de manera ascendente",
-              sortDescending: ": Activar para ordenar la columna de manera descendente"
-            },
-            buttons: {
-              copy: "Copiar",
-              colvis: "Visibilidad",
-              collection: "Colección",
-              colvisRestore: "Restaurar visibilidad",
-              copyKeys: "Presione ctrl o u2318 + C para copiar los datos de la tabla al portapapeles del sistema. <br \/> <br \/> Para cancelar, haga clic en este mensaje o presione escape.",
-              copySuccess: {
-                "1": "Copiada 1 fila al portapapeles",
-                _: "Copiadas %d fila al portapapeles"
-              },
-              copyTitle: "Copiar al portapapeles",
-              csv: "CSV",
-              excel: "Excel",
-              pageLength: {
-                "-1": "Mostrar todas las filas",
-                _: "Mostrar %d filas"
-              },
-              pdf: "PDF",
-              print: "Imprimir"
-            },
-            autoFill: {
-              cancel: "Cancelar",
-              fill: "Rellene todas las celdas con <i>%d<\/i>",
-              fillHorizontal: "Rellenar celdas horizontalmente",
-              fillVertical: "Rellenar celdas verticalmentemente"
-            },
-            decimal: ",",
-            searchBuilder: {
-              add: "Añadir condición",
-              button: {
-                "0": "Constructor de búsqueda",
-                _: "Constructor de búsqueda (%d)"
-              },
-              clearAll: "Borrar todo",
-              condition: "Condición",
-              conditions: {
-                date: {
-                  after: "Despues",
-                  before: "Antes",
-                  between: "Entre",
-                  empty: "Vacío",
-                  equals: "Igual a",
-                  notBetween: "No entre",
-                  notEmpty: "No Vacio",
-                  not: "Diferente de"
-                },
-                number: {
-                  between: "Entre",
-                  empty: "Vacio",
-                  equals: "Igual a",
-                  gt: "Mayor a",
-                  gte: "Mayor o igual a",
-                  lt: "Menor que",
-                  lte: "Menor o igual que",
-                  notBetween: "No entre",
-                  notEmpty: "No vacío",
-                  not: "Diferente de"
-                },
-                string: {
-                  contains: "Contiene",
-                  empty: "Vacío",
-                  endsWith: "Termina en",
-                  equals: "Igual a",
-                  notEmpty: "No Vacio",
-                  startsWith: "Empieza con",
-                  not: "Diferente de"
-                },
-                array: {
-                  not: "Diferente de",
-                  equals: "Igual",
-                  empty: "Vacío",
-                  contains: "Contiene",
-                  notEmpty: "No Vacío",
-                  without: "Sin"
-                }
-              },
-              data: "Data",
-              deleteTitle: "Eliminar regla de filtrado",
-              leftTitle: "Criterios anulados",
-              logicAnd: "Y",
-              logicOr: "O",
-              rightTitle: "Criterios de sangría",
-              title: {
-                "0": "Constructor de búsqueda",
-                _: "Constructor de búsqueda (%d)"
-              },
-              value: "Valor"
-            },
-            searchPanes: {
-              clearMessage: "Borrar todo",
-              collapse: {
-                "0": "Paneles de búsqueda",
-                _: "Paneles de búsqueda (%d)"
-              },
-              count: "{total}",
-              countFiltered: "{shown} ({total})",
-              emptyPanes: "Sin paneles de búsqueda",
-              loadMessage: "Cargando paneles de búsqueda",
-              title: "Filtros Activos - %d"
-            },
-            select: {
-              cells: {
-                "1": "1 celda seleccionada",
-                _: "%d celdas seleccionadas"
-              },
-              columns: {
-                "1": "1 columna seleccionada",
-                _: "%d columnas seleccionadas"
-              },
-              rows: {
-                "1": "1 fila seleccionada",
-                _: "%d filas seleccionadas"
-              }
-            },
-            thousands: ".",
-            datetime: {
-              previous: "Anterior",
-              next: "Proximo",
-              hours: "Horas",
-              minutes: "Minutos",
-              seconds: "Segundos",
-              unknown: "-",
-              amPm: ["AM", "PM"],
-              months: {
-                "0": "Enero",
-                "1": "Febrero",
-                "10": "Noviembre",
-                "11": "Diciembre",
-                "2": "Marzo",
-                "3": "Abril",
-                "4": "Mayo",
-                "5": "Junio",
-                "6": "Julio",
-                "7": "Agosto",
-                "8": "Septiembre",
-                "9": "Octubre"
-              },
-              weekdays: ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"]
-            },
-            editor: {
-              close: "Cerrar",
-              create: {
-                button: "Nuevo",
-                title: "Crear Nuevo Registro",
-                submit: "Crear"
-              },
-              edit: {
-                button: "Editar",
-                title: "Editar Registro",
-                submit: "Actualizar"
-              },
-              remove: {
-                button: "Eliminar",
-                title: "Eliminar Registro",
-                submit: "Eliminar",
-                confirm: {
-                  _: "¿Está seguro que desea eliminar %d filas?",
-                  "1": "¿Está seguro que desea eliminar 1 fila?"
-                }
-              },
-              error: {
-                system: 'Ha ocurrido un error en el sistema (<a target="\\" rel="\\ nofollow" href="\\">Más información&lt;\\\/a&gt;).<\/a>'
-              },
-              multi: {
-                title: "Múltiples Valores",
-                info: "Los elementos seleccionados contienen diferentes valores para este registro. Para editar y establecer todos los elementos de este registro con el mismo valor, hacer click o tap aquí, de lo contrario conservarán sus valores individuales.",
-                restore: "Deshacer Cambios",
-                noMulti: "Este registro puede ser editado individualmente, pero no como parte de un grupo."
-              }
-            },
-            info: "Mostrando _START_ a _END_ de _TOTAL_ registros"
-          },
-          dom: "B<'row'<'col-sm-12 col-md-6'l><'col-sm-12 col-md-6'f>>" + "<'row'<'col-sm-12'tr>>" + "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
-          buttons: {
-            dom: {
-              buttons: {
-                className: "btn"
-              }
-            },
-            buttons: [{
-              extend: "copyHtml5",
-              text: "<i class='fa fa-file-alt'></i>",
-              titleAttr: "Copiar",
-              className: "btn btn-outline-brand btn-icon btn-lg",
-              messageTop: "Listado de Logs",
-              title: "Sistema Integrado Poblacional",
-              exportOptions: {
-                columns: [0, 1, 2, 3, 4, 5]
-              }
-            }, {
-              extend: "excelHtml5",
-              text: "<i class='fa fa-file-excel'></i>",
-              titleAttr: "Exportar a Excel",
-              className: "btn btn-outline-success btn-icon btn-lg",
-              excelStyles: {
-                template: "header_blue"
-              },
-              messageTop: "Listado de Logs",
-              title: "Sistema Integrado Poblacional",
-              exportOptions: {
-                columns: [0, 1, 2, 3, 4, 5]
-              }
-            }, {
-              extend: "pdfHtml5",
-              text: "<i class='fa fa-file-pdf'></i>",
-              titleAttr: "Exportar a PDF",
-              className: "btn btn-outline-danger btn-icon btn-lg",
-              messageTop: "Listado de Logs",
-              title: "Sistema Integrado Poblacional",
-              exportOptions: {
-                columns: [0, 1, 2, 3, 4, 5]
-              },
-              customize: function customize(doc) {
-                doc.styles.title = {
-                  color: "red",
-                  fontSize: "20",
-                  alignment: "center"
-                };
-                doc.styles["td:nth-child(2)"] = {
-                  width: "100px",
-                  "max-width": "100px"
-                };
-                doc.styles.tableHeader = {
-                  fillColor: "#DF0101",
-                  color: "white"
-                };
-              }
-            }, {
-              extend: "csvHtml5",
-              text: "<i class='fa fa-file-csv'></i>",
-              titleAttr: "Exportar a csv",
-              className: "btn btn-outline-info btn-icon btn-lg",
-              messageTop: "Listado de Logs",
-              title: "Sistema Integrado Poblacional",
-              exportOptions: {
-                columns: [0, 1, 2, 3, 4, 5]
-              }
-            }, {
-              extend: "print",
-              text: "<i class='fa fa-print'></i>",
-              titleAttr: "Imprimir Archivo",
-              className: "btn btn-outline-dark btn-icon btn-lg",
-              messageTop: "Listado de Logs",
-              title: "Sistema Integrado Poblacional",
-              exportOptions: {
-                columns: [0, 1, 2, 3, 4, 5]
-              }
-            }]
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        var chart, series;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                // Themes begin
+                _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_1__["useTheme"](_amcharts_amcharts4_themes_animated__WEBPACK_IMPORTED_MODULE_3__["default"]); // Themes end
+
+                chart = _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_1__["create"]("chartdiv", _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["PieChart3D"]);
+                chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+
+                chart.legend = new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["Legend"]();
+                chart.data = _this3.series;
+                series = chart.series.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["PieSeries3D"]());
+                series.dataFields.value = "cantidad";
+                series.dataFields.category = "migrantes";
+                _context3.next = 10;
+                return chart.exporting.getImage("png").then(function (data) {
+                  _this3.imagenPie = data;
+                });
+
+              case 10:
+              case "end":
+                return _context3.stop();
+            }
           }
-        });
-        $('.dataTables_filter input').attr("placeholder", "Busqueda...");
-        $('.dataTables_filter label').addClass("form-control");
-        $('.dataTables_filter label').css("outline", "none");
-        $('.dataTables_filter label').css("border", "0");
-        $('.dataTables_filter label').css("padding-bottom", "35px");
-        $(".dataTables_filter label input").css("margin-left", "0px");
-      });
+        }, _callee3);
+      }))();
+    },
+    grafica_barra: function grafica_barra() {
+      var _this4 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
+        var chart, categoryAxis, valueAxis, series, labelBullet;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                // Themes begin
+                _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_1__["useTheme"](_amcharts_amcharts4_themes_animated__WEBPACK_IMPORTED_MODULE_3__["default"]); // Themes end
+                // Add data
+
+                chart = _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_1__["create"]("chartbarra", _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["XYChart"]);
+                chart.padding(40, 40, 40, 40);
+                categoryAxis = chart.yAxes.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["CategoryAxis"]());
+                categoryAxis.renderer.grid.template.location = 0;
+                categoryAxis.dataFields.category = "ocupacion";
+                categoryAxis.renderer.minGridDistance = 1;
+                categoryAxis.renderer.inversed = true;
+                categoryAxis.renderer.grid.template.disabled = true;
+                valueAxis = chart.xAxes.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["ValueAxis"]());
+                valueAxis.min = 0;
+                series = chart.series.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["ColumnSeries"]());
+                series.dataFields.categoryY = "ocupacion";
+                series.dataFields.valueX = "migrantes";
+                series.tooltipText = "{valueX.value}";
+                series.columns.template.strokeOpacity = 0;
+                series.columns.template.column.cornerRadiusBottomRight = 5;
+                series.columns.template.column.cornerRadiusTopRight = 5;
+                labelBullet = series.bullets.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["LabelBullet"]());
+                labelBullet.label.horizontalCenter = "left";
+                labelBullet.label.dx = 10;
+                labelBullet.label.text = "{values.valueX.workingValue.formatNumber('#')}";
+                labelBullet.locationX = 1; // as by default columns of the same series are of the same color, we add adapter which takes colors from chart.colors color set
+
+                series.columns.template.adapter.add("fill", function (fill, target) {
+                  return chart.colors.getIndex(target.dataItem.index);
+                });
+                categoryAxis.sortBySeries = series;
+                chart.data = _this4.series_ocupaciones;
+                _context4.next = 28;
+                return chart.exporting.getImage("png").then(function (data) {
+                  _this4.imagenBarra = data;
+                });
+
+              case 28:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4);
+      }))();
+    },
+    grafica_de_pie_ocupaciones: function grafica_de_pie_ocupaciones() {
+      var _this5 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
+        var chart, series;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                // Themes begin
+                _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_1__["useTheme"](_amcharts_amcharts4_themes_animated__WEBPACK_IMPORTED_MODULE_3__["default"]); // Themes end
+
+                chart = _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_1__["create"]("chartocupaciones", _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["PieChart3D"]);
+                chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+
+                chart.legend = new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["Legend"]();
+                chart.data = _this5.series_grupo;
+                series = chart.series.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["PieSeries3D"]());
+                series.dataFields.value = "migrantes";
+                series.dataFields.category = "edad";
+                _context5.next = 10;
+                return chart.exporting.getImage("png").then(function (data) {
+                  _this5.imagenPieOcupaciones = data;
+                });
+
+              case 10:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5);
+      }))();
+    },
+    grafica_de_pie_paises: function grafica_de_pie_paises() {
+      var _this6 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6() {
+        var chart, series;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+          while (1) {
+            switch (_context6.prev = _context6.next) {
+              case 0:
+                // Themes begin
+                _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_1__["useTheme"](_amcharts_amcharts4_themes_animated__WEBPACK_IMPORTED_MODULE_3__["default"]); // Themes end
+
+                chart = _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_1__["create"]("chartdivpaises", _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["PieChart3D"]);
+                chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+
+                chart.legend = new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["Legend"]();
+                chart.data = _this6.series_paises;
+                series = chart.series.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["PieSeries3D"]());
+                series.dataFields.value = "total";
+                series.dataFields.category = "nombre";
+                _context6.next = 10;
+                return chart.exporting.getImage("png").then(function (data) {
+                  _this6.imagenPiePaises = data;
+                });
+
+              case 10:
+              case "end":
+                return _context6.stop();
+            }
+          }
+        }, _callee6);
+      }))();
+    },
+    grafica_stacked: function grafica_stacked() {
+      var _this7 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee7() {
+        var chart, categoryAxis, valueAxis, male, maleLabel, female, femaleLabel, maleRange, femaleRange;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee7$(_context7) {
+          while (1) {
+            switch (_context7.prev = _context7.next) {
+              case 0:
+                // Themes begin
+                _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_1__["useTheme"](_amcharts_amcharts4_themes_animated__WEBPACK_IMPORTED_MODULE_3__["default"]); // Themes end
+                // Create chart instance
+
+                chart = _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_1__["create"]("chartdivsexo", _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["XYChart"]); // Add data
+
+                chart.data = _this7.serie_sexo; // Use only absolute numbers
+
+                chart.numberFormatter.numberFormat = "#.#s"; // Create axes
+
+                categoryAxis = chart.yAxes.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["CategoryAxis"]());
+                categoryAxis.dataFields.category = "age";
+                categoryAxis.renderer.grid.template.location = 0;
+                categoryAxis.renderer.inversed = true;
+                valueAxis = chart.xAxes.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["ValueAxis"]());
+                valueAxis.extraMin = 0.1;
+                valueAxis.extraMax = 0.1;
+                valueAxis.renderer.minGridDistance = 40;
+                valueAxis.renderer.ticks.template.length = 5;
+                valueAxis.renderer.ticks.template.disabled = false;
+                valueAxis.renderer.ticks.template.strokeOpacity = 0.4;
+                valueAxis.renderer.labels.template.adapter.add("text", function (text) {
+                  return text == "Male" || text == "Female" ? text : text + "";
+                }); // Create series
+
+                male = chart.series.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["ColumnSeries"]());
+                male.dataFields.valueX = "male";
+                male.dataFields.categoryY = "age";
+                male.clustered = false;
+                maleLabel = male.bullets.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["LabelBullet"]());
+                maleLabel.label.text = "{valueX}";
+                maleLabel.label.hideOversized = false;
+                maleLabel.label.truncate = false;
+                maleLabel.label.horizontalCenter = "right";
+                maleLabel.label.dx = -10;
+                female = chart.series.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["ColumnSeries"]());
+                female.dataFields.valueX = "female";
+                female.dataFields.categoryY = "age";
+                female.clustered = false;
+                femaleLabel = female.bullets.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["LabelBullet"]());
+                femaleLabel.label.text = "{valueX}";
+                femaleLabel.label.hideOversized = false;
+                femaleLabel.label.truncate = false;
+                femaleLabel.label.horizontalCenter = "left";
+                femaleLabel.label.dx = 10;
+                maleRange = valueAxis.axisRanges.create();
+                maleRange.value = -10;
+                maleRange.endValue = 0;
+                maleRange.label.text = "Masculino";
+                maleRange.label.fill = chart.colors.list[0];
+                maleRange.label.dy = 20;
+                maleRange.label.fontWeight = "600";
+                maleRange.grid.strokeOpacity = 1;
+                maleRange.grid.stroke = male.stroke;
+                femaleRange = valueAxis.axisRanges.create();
+                femaleRange.value = 1;
+                femaleRange.endValue = 0;
+                femaleRange.label.text = "Femenino";
+                femaleRange.label.fill = chart.colors.list[1];
+                femaleRange.label.dy = 20;
+                femaleRange.label.fontWeight = "600";
+                femaleRange.grid.strokeOpacity = 1;
+                femaleRange.grid.stroke = female.stroke;
+                chart.exporting.getImage("png").then(function (data) {
+                  _this7.imagenSexo = data;
+                });
+
+              case 55:
+              case "end":
+                return _context7.stop();
+            }
+          }
+        }, _callee7);
+      }))();
+    },
+    generarPDF: function () {
+      var _generarPDF = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee8() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee8$(_context8) {
+          while (1) {
+            switch (_context8.prev = _context8.next) {
+              case 0:
+                this.$refs.html2Pdf.generatePdf();
+
+              case 1:
+              case "end":
+                return _context8.stop();
+            }
+          }
+        }, _callee8, this);
+      }));
+
+      function generarPDF() {
+        return _generarPDF.apply(this, arguments);
+      }
+
+      return generarPDF;
+    }(),
+    grafica_barra_enfermedades: function grafica_barra_enfermedades() {
+      var _this8 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee9() {
+        var chart, categoryAxis, valueAxis, series, labelBullet;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee9$(_context9) {
+          while (1) {
+            switch (_context9.prev = _context9.next) {
+              case 0:
+                // Themes begin
+                _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_1__["useTheme"](_amcharts_amcharts4_themes_animated__WEBPACK_IMPORTED_MODULE_3__["default"]); // Themes end
+                // Add data
+
+                chart = _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_1__["create"]("chartbarraenfermedades", _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["XYChart"]);
+                chart.padding(40, 40, 40, 40);
+                categoryAxis = chart.yAxes.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["CategoryAxis"]());
+                categoryAxis.renderer.grid.template.location = 0;
+                categoryAxis.dataFields.category = "enfermedad";
+                categoryAxis.renderer.minGridDistance = 1;
+                categoryAxis.renderer.inversed = true;
+                categoryAxis.renderer.grid.template.disabled = true;
+                valueAxis = chart.xAxes.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["ValueAxis"]());
+                valueAxis.min = 0;
+                series = chart.series.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["ColumnSeries"]());
+                series.dataFields.categoryY = "enfermedad";
+                series.dataFields.valueX = "migrantes";
+                series.tooltipText = "{valueX.value}";
+                series.columns.template.strokeOpacity = 0;
+                series.columns.template.column.cornerRadiusBottomRight = 5;
+                series.columns.template.column.cornerRadiusTopRight = 5;
+                labelBullet = series.bullets.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["LabelBullet"]());
+                labelBullet.label.horizontalCenter = "left";
+                labelBullet.label.dx = 10;
+                labelBullet.label.text = "{values.valueX.workingValue.formatNumber('#')}";
+                labelBullet.locationX = 1; // as by default columns of the same series are of the same color, we add adapter which takes colors from chart.colors color set
+
+                series.columns.template.adapter.add("fill", function (fill, target) {
+                  return chart.colors.getIndex(target.dataItem.index);
+                });
+                categoryAxis.sortBySeries = series;
+                chart.data = _this8.series_enfermedades;
+                _context9.next = 28;
+                return chart.exporting.getImage("png").then(function (data) {
+                  _this8.imagenBarra = data;
+                });
+
+              case 28:
+              case "end":
+                return _context9.stop();
+            }
+          }
+        }, _callee9);
+      }))();
+    },
+    filtrar: function filtrar() {
+      var _this9 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee10() {
+        var data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee10$(_context10) {
+          while (1) {
+            switch (_context10.prev = _context10.next) {
+              case 0:
+                data = {
+                  _token: _this9.csrf,
+                  _tipo: _this9.combo
+                }; //alert(this.combo);
+
+                if (!(_this9.combo == "")) {
+                  _context10.next = 6;
+                  break;
+                }
+
+                _context10.next = 4;
+                return IndicadoresService.spa(data).then(function (respuesta) {
+                  _this9.poblacion = respuesta.data["poblacion"];
+
+                  _this9.grafica_barras(); //console.log(this.serie);
+
+                })["catch"](function (err) {
+                  console.log(err);
+                });
+
+              case 4:
+                _context10.next = 8;
+                break;
+
+              case 6:
+                _context10.next = 8;
+                return IndicadoresService.filtrospa(data).then(function (respuesta) {
+                  _this9.poblacion = respuesta.data["poblacion"];
+
+                  _this9.grafica_barras(); //console.log(this.serie);
+
+                })["catch"](function (err) {
+                  console.log(err);
+                });
+
+              case 8:
+              case "end":
+                return _context10.stop();
+            }
+          }
+        }, _callee10);
+      }))();
     }
   }
 });
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Log/Log.vue?vue&type=template&id=2b7f364e&":
-/*!******************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Log/Log.vue?vue&type=template&id=2b7f364e& ***!
-  \******************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Informes/poblacionMigrante.vue?vue&type=template&id=505b7c25&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Informes/poblacionMigrante.vue?vue&type=template&id=505b7c25& ***!
+  \*************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -816,471 +1178,738 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "div",
-      { staticClass: "kt-portlet", staticStyle: { "margin-top": "-4%" } },
-      [
-        _vm._m(0),
-        _vm._v(" "),
-        _c("div", { staticClass: "kt-portlet__body" }, [
-          _c("div", { staticClass: "kt-section" }, [
-            _c("div", { staticClass: "kt-section__content" }, [
+  return _c(
+    "div",
+    { staticStyle: { "margin-top": "-4%" } },
+    [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-lg-12" }, [
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-body" }, [
               _c("div", { staticClass: "row" }, [
-                _c(
-                  "div",
-                  { staticClass: "col-lg-2" },
-                  [
-                    _c("label", [_vm._v("Usuarios:")]),
-                    _vm._v(" "),
-                    _c(
-                      "b-form-select",
-                      {
-                        class:
-                          _vm.datos.usuarios == "0" ? "is-invalid" : "is-valid",
-                        model: {
-                          value: _vm.datos.usuarios,
-                          callback: function($$v) {
-                            _vm.$set(
-                              _vm.datos,
-                              "usuarios",
-                              typeof $$v === "string" ? $$v.trim() : $$v
-                            )
-                          },
-                          expression: "datos.usuarios"
-                        }
-                      },
-                      [
-                        _c("option", { attrs: { value: "0", selected: "" } }, [
-                          _vm._v("Seleccione")
-                        ]),
-                        _vm._v(" "),
-                        _vm._l(_vm.usuarios, function(item) {
-                          return _c(
-                            "option",
-                            { key: item.id, domProps: { value: item.id } },
-                            [_vm._v(_vm._s(item.nombre))]
-                          )
-                        })
-                      ],
-                      2
-                    )
-                  ],
-                  1
-                ),
+                _vm._m(0),
                 _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "col-lg-2" },
-                  [
-                    _c("label", [_vm._v("Modulos:")]),
-                    _vm._v(" "),
-                    _c(
-                      "b-form-select",
-                      {
-                        class:
-                          _vm.datos.modulos == "0" ? "is-invalid" : "is-valid",
-                        model: {
-                          value: _vm.datos.modulos,
-                          callback: function($$v) {
-                            _vm.$set(
-                              _vm.datos,
-                              "modulos",
-                              typeof $$v === "string" ? $$v.trim() : $$v
-                            )
-                          },
-                          expression: "datos.modulos"
-                        }
-                      },
-                      [
-                        _c("option", { attrs: { value: "0", selected: "" } }, [
-                          _vm._v("Seleccione")
-                        ]),
-                        _vm._v(" "),
-                        _c("option", { attrs: { id: "INICIO SESION" } }, [
-                          _vm._v("INICIO")
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "option",
-                          { attrs: { id: "PARAMETROS ACTIVIDADES" } },
-                          [_vm._v("ACTIVIDADES")]
-                        ),
-                        _vm._v(" "),
-                        _c("option", { attrs: { id: "PARAMETROS BARRIOS" } }, [
-                          _vm._v("BARRIOS")
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "option",
-                          { attrs: { id: "PARAMETROS ESCOLARIDAD" } },
-                          [_vm._v("ESCOLARIDAD")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "option",
-                          {
-                            attrs: { id: "PARAMETROS ENFERMEDADES_INFECCIOSAS" }
-                          },
-                          [_vm._v("ENFERMEDADES INFECCIOSAS")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "option",
-                          { attrs: { id: "PARAMETROS ENFERMEDADES_CRONICAS" } },
-                          [_vm._v("ENFERMEDADES CRONICAS")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "option",
-                          { attrs: { id: "PARAMETROS CORREGIMIENTOS" } },
-                          [_vm._v("CORREGIMIENTOS")]
-                        ),
-                        _vm._v(" "),
-                        _c("option", { attrs: { id: "PARAMETROS COLEGIOS" } }, [
-                          _vm._v("COLEGIOS")
-                        ]),
-                        _vm._v(" "),
-                        _c("option", { attrs: { id: "ESTABLECIMIENTOS" } }, [
-                          _vm._v("ESTABLECIMIENTOS")
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "option",
-                          { attrs: { id: "PARAMETROS ESTADO_CIVIL" } },
-                          [_vm._v("ESTADO CIVIL")]
-                        ),
-                        _vm._v(" "),
-                        _c("option", { attrs: { id: "PARAMETROS ETNIAS" } }, [
-                          _vm._v("ETNIAS")
-                        ]),
-                        _vm._v(" "),
-                        _c("option", { attrs: { id: "PARAMETROS GRUPOS" } }, [
-                          _vm._v("GRUPOS")
-                        ]),
-                        _vm._v(" "),
-                        _c("option", { attrs: { id: "PARAMETROS METODOS" } }, [
-                          _vm._v("METODOS")
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "option",
-                          { attrs: { id: "PARAMETROS MORBILIDAD_GESTACION" } },
-                          [_vm._v("MORBILIDAD GESTACION")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "option",
-                          { attrs: { id: "PARAMETROS MORBILIDAD_NACER" } },
-                          [_vm._v("MORBILIDAD AL NACER")]
-                        ),
-                        _vm._v(" "),
-                        _c("option", { attrs: { id: "PARAMETROS MOTIVOS" } }, [
-                          _vm._v("MOTIVOS")
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "option",
-                          { attrs: { id: "PARAMETROS OCUPACIONES" } },
-                          [_vm._v("OCUPACIONES")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "option",
-                          { attrs: { id: "PARAMETROS PARENTESCOS" } },
-                          [_vm._v("PARENTESCOS")]
-                        ),
-                        _vm._v(" "),
-                        _c("option", { attrs: { id: "PARAMETROS RELIGION" } }, [
-                          _vm._v("RELIGION")
-                        ]),
-                        _vm._v(" "),
-                        _c("option", { attrs: { id: "PARAMETROS VEREDAS" } }, [
-                          _vm._v("VEREDAS")
-                        ]),
-                        _vm._v(" "),
-                        _c("option", { attrs: { id: "PARAMETROS USUARIOS" } }, [
-                          _vm._v("USUARIOS")
-                        ]),
-                        _vm._v(" "),
-                        _c("option", { attrs: { id: "SOPORTE ENTES" } }, [
-                          _vm._v("SOPORTE ENTES")
-                        ]),
-                        _vm._v(" "),
-                        _c("option", { attrs: { id: "UNIDADES" } }, [
-                          _vm._v("UNIDADES")
-                        ]),
-                        _vm._v(" "),
-                        _c("option", { attrs: { id: "CERRAR SESION" } }, [
-                          _vm._v("CERRAR")
-                        ])
-                      ]
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-lg-2" }, [
-                  _c("label", [_vm._v("Fecha:")]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.datos.fecha,
-                        expression: "datos.fecha"
-                      }
-                    ],
-                    staticClass: "form-control text-capitalize",
-                    class: _vm.datos.fecha == "0" ? "" : "is-valid",
-                    attrs: {
-                      id: "date",
-                      type: "date",
-                      placeholder: "Fecha",
-                      max: _vm._f("moment")(_vm.hoy)
-                    },
-                    domProps: { value: _vm.datos.fecha },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(_vm.datos, "fecha", $event.target.value)
-                      }
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-lg-2" }, [
-                  _c("br"),
-                  _vm._v(" "),
-                  _c("label", [_vm._v("      ")]),
-                  _vm._v(" "),
+                _c("div", { staticClass: "col-sm-2 text-right" }, [
                   _c(
-                    "a",
+                    "button",
                     {
-                      staticClass: "btn btn-outline-success btn-icon",
-                      attrs: {
-                        href: "javascript:;",
-                        "data-skin": "dark",
-                        "data-toggle": "kt-tooltip",
-                        "data-placement": "top",
-                        title: "Buscar"
-                      },
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          return _vm.buscar(1)
-                        }
-                      }
+                      staticClass: "btn btn-danger",
+                      attrs: { type: "button" },
+                      on: { click: _vm.generarPDF }
                     },
-                    [_c("i", { staticClass: "fa fa-search" })]
-                  ),
-                  _vm._v(" \n                        ")
+                    [
+                      _c("i", { staticClass: "la la-pdf" }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "kt-hidden-mobile" }, [
+                        _vm._v("Generar PDF")
+                      ])
+                    ]
+                  )
                 ])
-              ]),
-              _vm._v(" "),
-              _c("br"),
-              _vm._v(" "),
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-body" }, [
               _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-md-12" }, [
-                  _c("div", { staticClass: "table-responsive" }, [
+                _c(
+                  "div",
+                  { ref: "printMe", staticClass: "col-lg-6 text-center" },
+                  [
+                    _c("h5", [_vm._v("Población migrante")]),
+                    _vm._v(" "),
                     _c(
-                      "table",
+                      "vue-circle",
                       {
-                        staticClass: "table table-sm table-hover",
-                        attrs: { id: "tablaDatos" }
+                        ref: "gc",
+                        attrs: {
+                          progress: _vm.mivariable,
+                          size: 250,
+                          reverse: false,
+                          "line-cap": "round",
+                          fill: _vm.fill,
+                          "empty-fill": "rgba(0, 0, 0, .1)",
+                          "animation-start-value": 0.0,
+                          "start-angle": -190,
+                          "insert-mode": "append",
+                          thickness: 7,
+                          "show-percent": false
+                        },
+                        on: {
+                          "vue-circle-progress": _vm.progress,
+                          "vue-circle-end": _vm.progress_end
+                        }
                       },
                       [
-                        _vm._m(1),
-                        _vm._v(" "),
                         _c(
-                          "tbody",
-                          _vm._l(_vm.logs, function(item, index) {
-                            return _c("tr", { key: index }, [
-                              _c(
-                                "td",
-                                {
-                                  staticStyle: {
-                                    "font-weight": "normal",
-                                    "vertical-align": "middle"
-                                  }
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                                                " +
-                                      _vm._s(index + 1) +
-                                      "\n                                            "
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "td",
-                                {
-                                  staticStyle: {
-                                    "font-weight": "normal",
-                                    "vertical-align": "middle",
-                                    "text-align": "left",
-                                    "text-transform": "capitalize"
-                                  }
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                                                " +
-                                      _vm._s(item.accion) +
-                                      "\n                                            "
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "td",
-                                {
-                                  staticStyle: {
-                                    "font-weight": "normal",
-                                    "vertical-align": "middle",
-                                    "text-align": "left"
-                                  }
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                                                " +
-                                      _vm._s(item.fecha) +
-                                      " -\n                                                " +
-                                      _vm._s(item.hora) +
-                                      "\n                                            "
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "td",
-                                {
-                                  staticStyle: {
-                                    "font-weight": "normal",
-                                    "vertical-align": "middle",
-                                    "text-align": "center"
-                                  }
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                                                " +
-                                      _vm._s(item.ip) +
-                                      "\n                                            "
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "td",
-                                {
-                                  staticStyle: {
-                                    "font-weight": "normal",
-                                    "vertical-align": "middle",
-                                    "text-align": "left"
-                                  }
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                                                " +
-                                      _vm._s(item.modulo) +
-                                      "\n                                            "
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "td",
-                                {
-                                  staticStyle: {
-                                    "font-weight": "normal",
-                                    "vertical-align": "middle",
-                                    "text-align": "left"
-                                  }
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                                                " +
-                                      _vm._s(item.nombre) +
-                                      "\n                                            "
-                                  )
-                                ]
-                              )
-                            ])
-                          }),
-                          0
+                          "p",
+                          {
+                            staticStyle: {
+                              "font-size": "30px",
+                              "font-weight": "bold"
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                  " +
+                                _vm._s(Math.round(_vm.poblacionMigrante)) +
+                                "%\n                "
+                            )
+                          ]
                         )
                       ]
-                    ),
-                    _vm._v(" "),
-                    _c("div", {
-                      staticClass: "kt-separator kt-separator--border-dashed"
-                    })
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-lg-6 text-center" }, [
+                  _c("h5", [_vm._v("Estado migratorio")]),
+                  _vm._v(" "),
+                  _c("div", {
+                    staticStyle: { width: "100%", height: "250px" },
+                    attrs: { id: "chartdiv" }
+                  }),
+                  _vm._v(" "),
+                  _c("b", [
+                    _vm._v(
+                      "\n                El\n                " +
+                        _vm._s(
+                          Math.round(
+                            (_vm.migrantesNoRegulados * 100) /
+                              (_vm.migrantesNoRegulados +
+                                _vm.migrantesRegulados)
+                          )
+                        ) +
+                        "% de la poblacion migrante no se encuentran registrados como\n                migrantes."
+                    )
                   ])
                 ])
               ])
             ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-body" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-lg-12 text-center" }, [
+                  _c("h4", [
+                    _vm._v("Principales ocupaciones de los migrantes")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", {
+                    staticStyle: { width: "100%", height: "400px" },
+                    attrs: { id: "chartbarra" }
+                  }),
+                  _vm._v(
+                    "\n              En relación a la ocupación migrante en el municipio, el\n              " +
+                      _vm._s(
+                        Math.round(
+                          (_vm.primerOcupacion.cant * 100) / _vm.totalMigrantes
+                        )
+                      ) +
+                      "%\n              " +
+                      _vm._s(
+                        _vm.primerOcupacion.nombre == "Sin empleo"
+                          ? "están"
+                          : "son"
+                      ) +
+                      " " +
+                      _vm._s(_vm.primerOcupacion.nombre) +
+                      ", el\n              " +
+                      _vm._s(
+                        Math.round(
+                          (_vm.segundaOcupacion.cant * 100) / _vm.totalMigrantes
+                        )
+                      ) +
+                      "%\n              " +
+                      _vm._s(
+                        _vm.segundaOcupacion.nombre == "Sin empleo"
+                          ? "están"
+                          : "son"
+                      ) +
+                      " " +
+                      _vm._s(_vm.segundaOcupacion.nombre) +
+                      ", el\n              " +
+                      _vm._s(
+                        Math.round(
+                          (_vm.terceraOcupacion.cant * 100) / _vm.totalMigrantes
+                        )
+                      ) +
+                      "%\n              " +
+                      _vm._s(
+                        _vm.terceraOcupacion.nombre == "Sin empleo"
+                          ? "están"
+                          : "son"
+                      ) +
+                      " " +
+                      _vm._s(_vm.terceraOcupacion.nombre) +
+                      ", el\n              " +
+                      _vm._s(
+                        Math.round(
+                          (_vm.cuartaOcupacion.cant * 100) / _vm.totalMigrantes
+                        )
+                      ) +
+                      "%\n              " +
+                      _vm._s(
+                        _vm.cuartaOcupacion.nombre == "Sin empleo"
+                          ? "están"
+                          : "son"
+                      ) +
+                      " " +
+                      _vm._s(_vm.cuartaOcupacion.nombre) +
+                      ", el\n              " +
+                      _vm._s(
+                        Math.round(
+                          (_vm.quintaOcupacion.cant * 100) / _vm.totalMigrantes
+                        )
+                      ) +
+                      "%\n              " +
+                      _vm._s(
+                        _vm.quintaOcupacion.nombre == "Sin empleo"
+                          ? "están"
+                          : "son"
+                      ) +
+                      " " +
+                      _vm._s(_vm.quintaOcupacion.nombre) +
+                      ".\n            "
+                  )
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-body" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-lg-6 text-center" }, [
+                  _c("h5", [
+                    _vm._v(
+                      "\n                Población migrante por grupo de edad\n              "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", {
+                    staticStyle: { width: "100%", height: "400px" },
+                    attrs: { id: "chartocupaciones" }
+                  }),
+                  _vm._v(
+                    "\n              Del 100% de la población migrante (" +
+                      _vm._s(_vm.totalMigrantes) +
+                      "), la\n              mayoría " +
+                      _vm._s(_vm.poblacionEdadUno.cant) +
+                      " tienen entre\n              " +
+                      _vm._s(_vm.poblacionEdadUno.edad) +
+                      " años de edad, seguido de\n              " +
+                      _vm._s(_vm.poblacionEdadDos.cant) +
+                      " entre 18-28 años,\n              " +
+                      _vm._s(_vm.poblacionEdadTres.cant) +
+                      " entre\n              " +
+                      _vm._s(_vm.poblacionEdadTres.edad) +
+                      " y\n              " +
+                      _vm._s(_vm.poblacionEdadCuatro.cant) +
+                      " entre\n              " +
+                      _vm._s(_vm.poblacionEdadCuatro.edad) +
+                      ".\n            "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-lg-6 text-center" }, [
+                  _c("h5", [_vm._v("Migrantes por sexo")]),
+                  _vm._v(" "),
+                  _c("div", {
+                    staticStyle: { width: "100%", height: "400px" },
+                    attrs: { id: "chartdivsexo" }
+                  }),
+                  _vm._v(
+                    "\n              \n                El\n                " +
+                      _vm._s(
+                        Math.round(
+                          (_vm.migrantesNoRegulados * 100) /
+                            (_vm.migrantesNoRegulados + _vm.migrantesRegulados)
+                        )
+                      ) +
+                      "% de la poblacion migrante no se encuentran registrados como\n                migrantes.\n            "
+                  )
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-body" }, [
+              _c("div", { staticClass: "row" }, [
+                _c(
+                  "div",
+                  { ref: "printMe", staticClass: "col-lg-12 text-center" },
+                  [
+                    _c("h5", [_vm._v("Principales paises")]),
+                    _vm._v(" "),
+                    _c("div", {
+                      staticStyle: { width: "100%", height: "500px" },
+                      attrs: { id: "chartdivpaises" }
+                    })
+                  ]
+                )
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-body text-center" }, [
+              _c("h4", [_vm._v("Situación de salud de migrantes")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-lg-12 text-center" }, [
+                  _c("h4", [_vm._v("Principales enfermedades")]),
+                  _vm._v(" "),
+                  _c("div", {
+                    staticStyle: { width: "100%", height: "400px" },
+                    attrs: { id: "chartbarraenfermedades" }
+                  }),
+                  _vm._v(" "),
+                  _vm.enfermedades.length > 0
+                    ? _c(
+                        "div",
+                        [
+                          _vm._v(
+                            "\n                Las principales enfermedades reportadas en la población migrante son:  \n                "
+                          ),
+                          _vm._l(_vm.enfermedades, function(e) {
+                            return _c(
+                              "span",
+                              { key: e.id, attrs: { value: e.id } },
+                              [
+                                _vm._v(
+                                  "\n                  " +
+                                    _vm._s(e.enfe) +
+                                    ", \n                "
+                                )
+                              ]
+                            )
+                          })
+                        ],
+                        2
+                      )
+                    : _c("div", [
+                        _vm._v(
+                          "\n                 No hay datos para las enfermedades.\n              "
+                        )
+                      ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-lg-6 text-center" }, [
+                  _c("h4", [_vm._v("Acesso a servicio de salud")]),
+                  _vm._v(" "),
+                  _c("h5", [_vm._v("Migrantes afiliados")]),
+                  _vm._v(" "),
+                  _c("h1", [_vm._v(_vm._s(_vm.afiliaciones.afiliados))]),
+                  _vm._v(" "),
+                  _c("h5", [_vm._v("Migrantes no afiliados")]),
+                  _vm._v(" "),
+                  _c("h1", [_vm._v(_vm._s(_vm.afiliaciones.no_afiliados))])
+                ]),
+                _vm._v(" "),
+                _vm._m(1)
+              ])
+            ])
           ])
         ])
-      ]
-    )
-  ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "VueHtml2pdf",
+        {
+          ref: "html2Pdf",
+          attrs: {
+            "show-layout": false,
+            "float-layout": true,
+            "enable-download": true,
+            "preview-modal": true,
+            "paginate-elements-by-height": 1400,
+            filename: "myPDF",
+            "pdf-quality": 2,
+            "manual-pagination": false,
+            "pdf-format": "a4",
+            "pdf-orientation": "portrait",
+            "pdf-content-width": "100%",
+            margin: [0, 100, 0, 100]
+          }
+        },
+        [
+          _c(
+            "section",
+            { attrs: { slot: "pdf-content" }, slot: "pdf-content" },
+            [
+              _c("section", { staticClass: "pdf-item" }, [
+                _c(
+                  "div",
+                  { staticClass: "row", staticStyle: { "margin-top": "30px" } },
+                  [
+                    _c("div", { staticClass: "col-sm-12 text-center" }, [
+                      _c("h3", [_vm._v("INFORME POBLACIÓN MIGRANTE")])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("table", { staticStyle: { width: "100%" } }, [
+                  _c("tr", [
+                    _c(
+                      "td",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: {
+                          "font-size": "14px",
+                          width: "50%",
+                          "font-weight": "600"
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n              Población migrante\n            "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "td",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: {
+                          "font-size": "14px",
+                          width: "50%",
+                          "font-weight": "600"
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n              Estado migratorio\n            "
+                        )
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c(
+                      "td",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: { "font-size": "11px" }
+                      },
+                      [
+                        _c("br"),
+                        _vm._v(" "),
+                        _c(
+                          "vue-circle",
+                          {
+                            ref: "gcpdf",
+                            attrs: {
+                              progress: _vm.mivariable,
+                              size: 180,
+                              reverse: false,
+                              "line-cap": "round",
+                              fill: _vm.fill,
+                              "empty-fill": "rgba(0, 0, 0, .1)",
+                              "animation-start-value": 0.0,
+                              "start-angle": -190,
+                              "insert-mode": "append",
+                              thickness: 10,
+                              "show-percent": false
+                            },
+                            on: {
+                              "vue-circle-progress": _vm.progress,
+                              "vue-circle-end": _vm.progress_end
+                            }
+                          },
+                          [
+                            _c(
+                              "p",
+                              {
+                                staticStyle: {
+                                  "font-size": "35px",
+                                  "font-weight": "bold"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                  " +
+                                    _vm._s(Math.round(_vm.poblacionMigrante)) +
+                                    "%\n                "
+                                )
+                              ]
+                            )
+                          ]
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "td",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: { "font-size": "11px" }
+                      },
+                      [
+                        _c("img", {
+                          staticStyle: { width: "100%", "font-size": "11px" },
+                          attrs: { src: _vm.imagenPie }
+                        })
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c(
+                      "td",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: { "font-size": "11px" },
+                        attrs: { colspan: "2" }
+                      },
+                      [
+                        _vm._v(
+                          "\n              El\n              " +
+                            _vm._s(
+                              Math.round(
+                                (_vm.migrantesNoRegulados * 100) /
+                                  (_vm.migrantesNoRegulados +
+                                    _vm.migrantesRegulados)
+                              )
+                            ) +
+                            "% de la poblacion migrante no se encuentran registrados como\n              migrantes\n            "
+                        )
+                      ]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("table", { staticStyle: { width: "100%" } }, [
+                  _c("tr", [
+                    _c(
+                      "td",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: { "font-size": "11px" },
+                        attrs: { colspan: "2" }
+                      },
+                      [
+                        _c("h5", [
+                          _vm._v("Principales ocupaciones de los migrantes")
+                        ])
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c(
+                      "td",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: { "font-size": "11px" },
+                        attrs: { colspan: "2" }
+                      },
+                      [
+                        _c("img", {
+                          staticStyle: { width: "100%", "font-size": "11px" },
+                          attrs: { src: _vm.imagenBarra }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          {
+                            staticStyle: {
+                              "padding-left": "10px",
+                              "padding-right": "10px"
+                            }
+                          },
+                          [
+                            _vm._v(
+                              " En relación a la ocupación migrante en el municipio, el\n              " +
+                                _vm._s(
+                                  Math.round(
+                                    (_vm.primerOcupacion.cant * 100) /
+                                      _vm.totalMigrantes
+                                  )
+                                ) +
+                                "%\n              " +
+                                _vm._s(
+                                  _vm.primerOcupacion.nombre == "Sin empleo"
+                                    ? "están"
+                                    : "son"
+                                ) +
+                                " " +
+                                _vm._s(_vm.primerOcupacion.nombre) +
+                                ", el\n              " +
+                                _vm._s(
+                                  Math.round(
+                                    (_vm.segundaOcupacion.cant * 100) /
+                                      _vm.totalMigrantes
+                                  )
+                                ) +
+                                "%\n              " +
+                                _vm._s(
+                                  _vm.segundaOcupacion.nombre == "Sin empleo"
+                                    ? "están"
+                                    : "son"
+                                ) +
+                                " " +
+                                _vm._s(_vm.segundaOcupacion.nombre) +
+                                ", el\n              " +
+                                _vm._s(
+                                  Math.round(
+                                    (_vm.terceraOcupacion.cant * 100) /
+                                      _vm.totalMigrantes
+                                  )
+                                ) +
+                                "%\n              " +
+                                _vm._s(
+                                  _vm.terceraOcupacion.nombre == "Sin empleo"
+                                    ? "están"
+                                    : "son"
+                                ) +
+                                " " +
+                                _vm._s(_vm.terceraOcupacion.nombre) +
+                                ", el\n              " +
+                                _vm._s(
+                                  Math.round(
+                                    (_vm.cuartaOcupacion.cant * 100) /
+                                      _vm.totalMigrantes
+                                  )
+                                ) +
+                                "%\n              " +
+                                _vm._s(
+                                  _vm.cuartaOcupacion.nombre == "Sin empleo"
+                                    ? "están"
+                                    : "son"
+                                ) +
+                                " " +
+                                _vm._s(_vm.cuartaOcupacion.nombre) +
+                                ", el\n              " +
+                                _vm._s(
+                                  Math.round(
+                                    (_vm.quintaOcupacion.cant * 100) /
+                                      _vm.totalMigrantes
+                                  )
+                                ) +
+                                "%\n              " +
+                                _vm._s(
+                                  _vm.quintaOcupacion.nombre == "Sin empleo"
+                                    ? "están"
+                                    : "son"
+                                ) +
+                                " " +
+                                _vm._s(_vm.quintaOcupacion.nombre) +
+                                "."
+                            )
+                          ]
+                        )
+                      ]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("table", { staticStyle: { width: "100%" } }, [
+                  _c("tr", [
+                    _c(
+                      "td",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: { "font-size": "11px" },
+                        attrs: { colspan: "2" }
+                      },
+                      [
+                        _c("h5", [
+                          _vm._v("Población migrante por grupo de edad")
+                        ])
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c(
+                      "td",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: { "font-size": "11px" },
+                        attrs: { colspan: "2" }
+                      },
+                      [
+                        _c("img", {
+                          staticStyle: { width: "100%", "font-size": "11px" },
+                          attrs: { src: _vm.imagenPieOcupaciones }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          {
+                            staticStyle: {
+                              "padding-left": "10px",
+                              "padding-right": "10px"
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "Del 100% de la población migrante (" +
+                                _vm._s(_vm.totalMigrantes) +
+                                "), la\n              mayoría " +
+                                _vm._s(_vm.poblacionEdadUno.cant) +
+                                " tienen entre\n              " +
+                                _vm._s(_vm.poblacionEdadUno.edad) +
+                                " años de edad, seguido de\n              " +
+                                _vm._s(_vm.poblacionEdadDos.cant) +
+                                " entre 18-28 años,\n              " +
+                                _vm._s(_vm.poblacionEdadTres.cant) +
+                                " entre\n              " +
+                                _vm._s(_vm.poblacionEdadTres.edad) +
+                                " y\n              " +
+                                _vm._s(_vm.poblacionEdadCuatro.cant) +
+                                " entre\n              " +
+                                _vm._s(_vm.poblacionEdadCuatro.edad) +
+                                "."
+                            )
+                          ]
+                        )
+                      ]
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "html2pdf__page-break" }),
+              _vm._v(" "),
+              _c("section", {
+                attrs: { slot: "pdf-content" },
+                slot: "pdf-content"
+              })
+            ]
+          )
+        ]
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "kt-portlet__head" }, [
-      _c("div", { staticClass: "kt-portlet__head-label" }, [
-        _c("h3", { staticClass: "kt-portlet__head-title" }, [
-          _c("span", { staticClass: "kt-widget20__number kt-font-danger" }, [
-            _vm._v("BITACORA DEL SISTEMA")
-          ])
-        ])
-      ])
+    return _c("div", { staticClass: "col-sm-10" }, [
+      _c("h3", [_vm._v("INFORME POBLACIÓN MIGRANTE")])
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("thead", {}, [
-      _c("tr", { staticClass: "kt-bg-fill-brand" }, [
-        _c("th", { staticClass: "text-white" }, [_vm._v("No.")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-white" }, [
-          _vm._v(
-            "\n                                                Acción\n                                            "
-          )
-        ]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-white" }, [
-          _vm._v(
-            "\n                                                Fecha\n                                            "
-          )
-        ]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center text-white" }, [
-          _vm._v(
-            "\n                                                IP\n                                            "
-          )
-        ]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-white" }, [
-          _vm._v(
-            "\n                                                Modulo\n                                            "
-          )
-        ]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-left text-white" }, [
-          _vm._v(
-            "\n                                                Usuario\n                                            "
-          )
-        ])
-      ])
+    return _c("div", { staticClass: "col-lg-6 text-center" }, [
+      _c("h4", [_vm._v("Situación nutricional")])
     ])
   }
 ]
@@ -1290,17 +1919,35 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./resources/js/Vistas/Log/Log.vue":
-/*!*****************************************!*\
-  !*** ./resources/js/Vistas/Log/Log.vue ***!
-  \*****************************************/
+/***/ "./resources/js/Servicios/informes.js":
+/*!********************************************!*\
+  !*** ./resources/js/Servicios/informes.js ***!
+  \********************************************/
+/*! exports provided: inicialesMigrantes */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "inicialesMigrantes", function() { return inicialesMigrantes; });
+/* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
+
+function inicialesMigrantes($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/informes/migrantes', $data);
+}
+
+/***/ }),
+
+/***/ "./resources/js/Vistas/Informes/poblacionMigrante.vue":
+/*!************************************************************!*\
+  !*** ./resources/js/Vistas/Informes/poblacionMigrante.vue ***!
+  \************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Log_vue_vue_type_template_id_2b7f364e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Log.vue?vue&type=template&id=2b7f364e& */ "./resources/js/Vistas/Log/Log.vue?vue&type=template&id=2b7f364e&");
-/* harmony import */ var _Log_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Log.vue?vue&type=script&lang=js& */ "./resources/js/Vistas/Log/Log.vue?vue&type=script&lang=js&");
+/* harmony import */ var _poblacionMigrante_vue_vue_type_template_id_505b7c25___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./poblacionMigrante.vue?vue&type=template&id=505b7c25& */ "./resources/js/Vistas/Informes/poblacionMigrante.vue?vue&type=template&id=505b7c25&");
+/* harmony import */ var _poblacionMigrante_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./poblacionMigrante.vue?vue&type=script&lang=js& */ "./resources/js/Vistas/Informes/poblacionMigrante.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -1310,9 +1957,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _Log_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Log_vue_vue_type_template_id_2b7f364e___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Log_vue_vue_type_template_id_2b7f364e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _poblacionMigrante_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _poblacionMigrante_vue_vue_type_template_id_505b7c25___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _poblacionMigrante_vue_vue_type_template_id_505b7c25___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -1322,38 +1969,38 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/Vistas/Log/Log.vue"
+component.options.__file = "resources/js/Vistas/Informes/poblacionMigrante.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/Vistas/Log/Log.vue?vue&type=script&lang=js&":
-/*!******************************************************************!*\
-  !*** ./resources/js/Vistas/Log/Log.vue?vue&type=script&lang=js& ***!
-  \******************************************************************/
+/***/ "./resources/js/Vistas/Informes/poblacionMigrante.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/Vistas/Informes/poblacionMigrante.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Log_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Log.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Log/Log.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Log_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_poblacionMigrante_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./poblacionMigrante.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Informes/poblacionMigrante.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_poblacionMigrante_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/Vistas/Log/Log.vue?vue&type=template&id=2b7f364e&":
-/*!************************************************************************!*\
-  !*** ./resources/js/Vistas/Log/Log.vue?vue&type=template&id=2b7f364e& ***!
-  \************************************************************************/
+/***/ "./resources/js/Vistas/Informes/poblacionMigrante.vue?vue&type=template&id=505b7c25&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/Vistas/Informes/poblacionMigrante.vue?vue&type=template&id=505b7c25& ***!
+  \*******************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Log_vue_vue_type_template_id_2b7f364e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Log.vue?vue&type=template&id=2b7f364e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Log/Log.vue?vue&type=template&id=2b7f364e&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Log_vue_vue_type_template_id_2b7f364e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_poblacionMigrante_vue_vue_type_template_id_505b7c25___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./poblacionMigrante.vue?vue&type=template&id=505b7c25& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Informes/poblacionMigrante.vue?vue&type=template&id=505b7c25&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_poblacionMigrante_vue_vue_type_template_id_505b7c25___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Log_vue_vue_type_template_id_2b7f364e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_poblacionMigrante_vue_vue_type_template_id_505b7c25___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
