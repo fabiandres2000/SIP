@@ -861,16 +861,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -1976,204 +1966,154 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("loading", {
-        attrs: {
-          active: _vm.isLoading,
-          "can-cancel": true,
-          "on-cancel": _vm.onCancel,
-          loader: "dots",
-          height: 128,
-          width: 128,
-          color: "#007bff",
-          "is-full-page": true
-        },
-        on: {
-          "update:active": function($event) {
-            _vm.isLoading = $event
-          }
-        }
-      }),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass:
-            "kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile",
-          staticStyle: { "margin-top": "-4%" }
-        },
-        [
-          _vm._m(0),
-          _vm._v(" "),
-          _c("div", { staticClass: "kt-portlet__body" }, [
-            _c("div", { staticClass: "kt-section" }, [
-              _c("div", { staticClass: "kt-section__content" }, [
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-md-6 col-lg-6" }, [
-                    _c("div", { staticClass: "kt-section" }, [
-                      _c(
-                        "div",
-                        { staticClass: "kt-section__content" },
-                        [
-                          _c(
-                            "router-link",
-                            {
-                              staticClass: "btn btn-outline-primary btn-icon",
-                              attrs: {
-                                to: "/ingreso",
-                                title: "Nueva Caracterización"
-                              }
-                            },
-                            [_c("i", { staticClass: "la la-file-text-o" })]
-                          ),
-                          _vm._v(" \n                  "),
-                          _vm._v(" "),
-                          _c(
-                            "a",
-                            {
-                              staticClass: "btn btn-outline-warning btn-icon",
-                              attrs: {
-                                href: "javascript:;",
-                                title: "Exportar a Pdf"
-                              },
-                              on: { click: _vm.abrirModal }
-                            },
-                            [_c("i", { staticClass: "la la-file-pdf-o" })]
-                          )
-                        ],
-                        1
-                      )
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-md-6 col-lg-6" }, [
-                    _c("form", { staticClass: "kt-form" }, [
-                      _c("div", { staticClass: "form-group" }, [
-                        _c("div", { staticClass: "input-group" }, [
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.txtbusqueda,
-                                expression: "txtbusqueda"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            attrs: { type: "text", placeholder: "Busqueda" },
-                            domProps: { value: _vm.txtbusqueda },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.txtbusqueda = $event.target.value
-                              }
+  return _c("div", [
+    _c(
+      "div",
+      {
+        staticClass:
+          "kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile",
+        staticStyle: { "margin-top": "-4%" }
+      },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "kt-portlet__body" }, [
+          _c("div", { staticClass: "kt-section" }, [
+            _c("div", { staticClass: "kt-section__content" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-6 col-lg-6" }, [
+                  _c("div", { staticClass: "kt-section" }, [
+                    _c(
+                      "div",
+                      { staticClass: "kt-section__content" },
+                      [
+                        _c(
+                          "router-link",
+                          {
+                            staticClass: "btn btn-outline-primary btn-icon",
+                            attrs: {
+                              to: "/ingreso",
+                              title: "Nueva Caracterización"
                             }
-                          }),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "input-group-append" }, [
-                            _c(
-                              "button",
-                              {
-                                staticClass: "btn btn-primary btn-icon",
-                                attrs: { type: "button" },
-                                on: {
-                                  click: function($event) {
-                                    return _vm.consultar(1)
-                                  }
+                          },
+                          [_c("i", { staticClass: "la la-file-text-o" })]
+                        ),
+                        _vm._v(" \n                  "),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "btn btn-outline-warning btn-icon",
+                            attrs: {
+                              href: "javascript:;",
+                              title: "Exportar a Pdf"
+                            },
+                            on: { click: _vm.abrirModal }
+                          },
+                          [_c("i", { staticClass: "la la-file-pdf-o" })]
+                        )
+                      ],
+                      1
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-6 col-lg-6" }, [
+                  _c("form", { staticClass: "kt-form" }, [
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("div", { staticClass: "input-group" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.txtbusqueda,
+                              expression: "txtbusqueda"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text", placeholder: "Busqueda" },
+                          domProps: { value: _vm.txtbusqueda },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.txtbusqueda = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "input-group-append" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-primary btn-icon",
+                              attrs: { type: "button" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.consultar(1)
                                 }
-                              },
-                              [_c("i", { staticClass: "fa fa-search" })]
-                            )
-                          ])
+                              }
+                            },
+                            [_c("i", { staticClass: "fa fa-search" })]
+                          )
                         ])
                       ])
                     ])
                   ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-md-12" }, [
-                    _c("div", { staticClass: "table-responsive" }, [
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-12" }, [
+                  _c("div", { staticClass: "table-responsive" }, [
+                    _c("table", { staticClass: "table table-sm table-hover" }, [
+                      _vm._m(1),
+                      _vm._v(" "),
                       _c(
-                        "table",
-                        { staticClass: "table table-sm table-hover" },
-                        [
-                          _vm._m(1),
-                          _vm._v(" "),
-                          _c(
-                            "tbody",
-                            _vm._l(_vm.caracterizacion, function(item, index) {
-                              return _c("tr", { key: index }, [
-                                _c(
-                                  "td",
-                                  {
-                                    staticStyle: {
-                                      "font-weight": "normal",
-                                      "vertical-align": "middle"
-                                    }
-                                  },
-                                  [_vm._v(_vm._s(index + 1))]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "td",
-                                  {
-                                    staticStyle: {
-                                      "font-weight": "normal",
-                                      "vertical-align": "middle",
-                                      "text-align": "left",
-                                      "text-transform": "capitalize"
-                                    }
-                                  },
-                                  [_vm._v(_vm._s(item.DPTO.toUpperCase()))]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "td",
-                                  {
-                                    staticStyle: {
-                                      "font-weight": "normal",
-                                      "vertical-align": "middle",
-                                      "text-align": "left",
-                                      "text-transform": "capitalize"
-                                    }
-                                  },
-                                  [_vm._v(_vm._s(item.MUNI.toUpperCase()))]
-                                ),
-                                _vm._v(" "),
-                                item.CORREGIMIENTO !== null
-                                  ? _c(
-                                      "td",
-                                      {
-                                        staticStyle: {
-                                          "font-weight": "normal",
-                                          "vertical-align": "middle",
-                                          "text-align": "left",
-                                          "text-transform": "capitalize"
-                                        }
-                                      },
-                                      [
-                                        _vm._v(
-                                          _vm._s(
-                                            item.CORREGIMIENTO.toUpperCase()
-                                          )
-                                        )
-                                      ]
-                                    )
-                                  : _c("td", {
-                                      staticStyle: {
-                                        "font-weight": "normal",
-                                        "vertical-align": "middle",
-                                        "text-align": "left",
-                                        "text-transform": "capitalize"
-                                      }
-                                    }),
-                                _vm._v(" "),
-                                _c(
+                        "tbody",
+                        _vm._l(_vm.caracterizacion, function(item, index) {
+                          return _c("tr", { key: index }, [
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle"
+                                }
+                              },
+                              [_vm._v(_vm._s(index + 1))]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [_vm._v(_vm._s(item.DPTO.toUpperCase()))]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [_vm._v(_vm._s(item.MUNI.toUpperCase()))]
+                            ),
+                            _vm._v(" "),
+                            item.CORREGIMIENTO !== null
+                              ? _c(
                                   "td",
                                   {
                                     staticStyle: {
@@ -2185,232 +2125,172 @@ var render = function() {
                                   },
                                   [
                                     _vm._v(
-                                      _vm._s(item.IDENTIFICACION.toUpperCase())
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "td",
-                                  {
-                                    staticStyle: {
-                                      "font-weight": "normal",
-                                      "vertical-align": "middle",
-                                      "text-align": "left",
-                                      "text-transform": "capitalize"
-                                    }
-                                  },
-                                  [_vm._v(_vm._s(item.USUARIO.toUpperCase()))]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "td",
-                                  {
-                                    staticStyle: {
-                                      "font-weight": "normal",
-                                      "vertical-align": "middle",
-                                      "text-align": "center"
-                                    }
-                                  },
-                                  [
-                                    _c(
-                                      "span",
-                                      {
-                                        staticClass:
-                                          "kt-badge kt-badge--inline",
-                                        class:
-                                          item.ESTADO == "Activo"
-                                            ? "kt-badge--success"
-                                            : "kt-badge--danger"
-                                      },
-                                      [
-                                        _vm._v(
-                                          _vm._s(item.ESTADO.toUpperCase())
-                                        )
-                                      ]
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "td",
-                                  {
-                                    staticStyle: {
-                                      "text-align": "center",
-                                      "vertical-align": "middle"
-                                    }
-                                  },
-                                  [
-                                    _c(
-                                      "button",
-                                      {
-                                        staticClass:
-                                          "btn btn-outline-success btn-icon btn-sm",
-                                        attrs: {
-                                          type: "button",
-                                          title: "Imprimir"
-                                        },
-                                        on: {
-                                          click: function($event) {
-                                            return _vm.abrirModal2(item)
-                                          }
-                                        }
-                                      },
-                                      [
-                                        _c("i", {
-                                          staticClass: "fa fa-file-pdf"
-                                        })
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "button",
-                                      {
-                                        staticClass:
-                                          "btn btn-outline-info btn-icon btn-sm",
-                                        attrs: {
-                                          type: "button",
-                                          title: "Editar"
-                                        },
-                                        on: {
-                                          click: function($event) {
-                                            return _vm.editar(item)
-                                          }
-                                        }
-                                      },
-                                      [_c("i", { staticClass: "fa fa-edit" })]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "button",
-                                      {
-                                        staticClass: "btn btn-icon btn-sm",
-                                        class:
-                                          item.ESTADO == "Activo"
-                                            ? "btn-outline-danger"
-                                            : "btn-outline-success",
-                                        attrs: {
-                                          type: "button",
-                                          title:
-                                            item.ESTADO == "Activo"
-                                              ? "Anular"
-                                              : "Activar"
-                                        },
-                                        on: {
-                                          click: function($event) {
-                                            return _vm.eliminar(item)
-                                          }
-                                        }
-                                      },
-                                      [
-                                        _c("i", {
-                                          staticClass: "fa",
-                                          class:
-                                            item.ESTADO == "Activo"
-                                              ? "fa-trash"
-                                              : "fa-check"
-                                        })
-                                      ]
+                                      _vm._s(item.CORREGIMIENTO.toUpperCase())
                                     )
                                   ]
                                 )
-                              ])
-                            }),
-                            0
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("div", {
-                        staticClass: "kt-separator kt-separator--border-dashed"
-                      }),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "kt-section" }, [
-                        _c(
-                          "div",
-                          {
-                            staticClass: "kt-pagination kt-pagination--danger"
-                          },
-                          [
+                              : _c("td", {
+                                  staticStyle: {
+                                    "font-weight": "normal",
+                                    "vertical-align": "middle",
+                                    "text-align": "left",
+                                    "text-transform": "capitalize"
+                                  }
+                                }),
+                            _vm._v(" "),
                             _c(
-                              "ul",
-                              { staticClass: "kt-pagination__links" },
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
                               [
-                                _vm.paginacion.pagina_actual > 1
-                                  ? _c(
-                                      "li",
-                                      {
-                                        staticClass:
-                                          "kt-pagination__link--first"
-                                      },
-                                      [
-                                        _c(
-                                          "a",
-                                          {
-                                            attrs: { href: "javascript:;" },
-                                            on: {
-                                              click: function($event) {
-                                                $event.preventDefault()
-                                                return _vm.cambiarPaginas(1)
-                                              }
-                                            }
-                                          },
-                                          [
-                                            _c("i", {
-                                              staticClass:
-                                                "fa fa-angle-double-left kt-font-danger"
-                                            })
-                                          ]
-                                        )
-                                      ]
-                                    )
-                                  : _vm._e(),
+                                _vm._v(
+                                  _vm._s(item.IDENTIFICACION.toUpperCase())
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [_vm._v(_vm._s(item.USUARIO.toUpperCase()))]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "center"
+                                }
+                              },
+                              [
+                                _c(
+                                  "span",
+                                  {
+                                    staticClass: "kt-badge kt-badge--inline",
+                                    class:
+                                      item.ESTADO == "Activo"
+                                        ? "kt-badge--success"
+                                        : "kt-badge--danger"
+                                  },
+                                  [_vm._v(_vm._s(item.ESTADO.toUpperCase()))]
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "text-align": "center",
+                                  "vertical-align": "middle"
+                                }
+                              },
+                              [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "btn btn-outline-success btn-icon btn-sm",
+                                    attrs: {
+                                      type: "button",
+                                      title: "Imprimir"
+                                    },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.abrirModal2(item)
+                                      }
+                                    }
+                                  },
+                                  [_c("i", { staticClass: "fa fa-file-pdf" })]
+                                ),
                                 _vm._v(" "),
-                                _vm.paginacion.pagina_actual > 1
-                                  ? _c(
-                                      "li",
-                                      {
-                                        staticClass: "kt-pagination__link--next"
-                                      },
-                                      [
-                                        _c(
-                                          "a",
-                                          {
-                                            attrs: { href: "javascript:;" },
-                                            on: {
-                                              click: function($event) {
-                                                $event.preventDefault()
-                                                return _vm.cambiarPaginas(
-                                                  _vm.paginacion.pagina_actual -
-                                                    1
-                                                )
-                                              }
-                                            }
-                                          },
-                                          [
-                                            _c("i", {
-                                              staticClass:
-                                                "fa fa-angle-left kt-font-danger"
-                                            })
-                                          ]
-                                        )
-                                      ]
-                                    )
-                                  : _vm._e(),
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "btn btn-outline-info btn-icon btn-sm",
+                                    attrs: { type: "button", title: "Editar" },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.editar(item)
+                                      }
+                                    }
+                                  },
+                                  [_c("i", { staticClass: "fa fa-edit" })]
+                                ),
                                 _vm._v(" "),
-                                _vm._l(_vm.numeroDePaginas, function(
-                                  pagina,
-                                  index
-                                ) {
-                                  return _c(
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass: "btn btn-icon btn-sm",
+                                    class:
+                                      item.ESTADO == "Activo"
+                                        ? "btn-outline-danger"
+                                        : "btn-outline-success",
+                                    attrs: {
+                                      type: "button",
+                                      title:
+                                        item.ESTADO == "Activo"
+                                          ? "Anular"
+                                          : "Activar"
+                                    },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.eliminar(item)
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _c("i", {
+                                      staticClass: "fa",
+                                      class:
+                                        item.ESTADO == "Activo"
+                                          ? "fa-trash"
+                                          : "fa-check"
+                                    })
+                                  ]
+                                )
+                              ]
+                            )
+                          ])
+                        }),
+                        0
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", {
+                      staticClass: "kt-separator kt-separator--border-dashed"
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "kt-section" }, [
+                      _c(
+                        "div",
+                        { staticClass: "kt-pagination kt-pagination--danger" },
+                        [
+                          _c(
+                            "ul",
+                            { staticClass: "kt-pagination__links" },
+                            [
+                              _vm.paginacion.pagina_actual > 1
+                                ? _c(
                                     "li",
                                     {
-                                      key: index,
-                                      class: [
-                                        pagina == _vm.esActivo
-                                          ? "kt-pagination__link--active"
-                                          : ""
-                                      ]
+                                      staticClass: "kt-pagination__link--first"
                                     },
                                     [
                                       _c(
@@ -2420,446 +2300,705 @@ var render = function() {
                                           on: {
                                             click: function($event) {
                                               $event.preventDefault()
-                                              return _vm.cambiarPaginas(pagina)
+                                              return _vm.cambiarPaginas(1)
                                             }
                                           }
                                         },
-                                        [_vm._v(_vm._s(pagina))]
+                                        [
+                                          _c("i", {
+                                            staticClass:
+                                              "fa fa-angle-double-left kt-font-danger"
+                                          })
+                                        ]
                                       )
                                     ]
                                   )
-                                }),
-                                _vm._v(" "),
-                                _vm.paginacion.pagina_actual <
-                                _vm.paginacion.ultima_pagina
-                                  ? _c(
-                                      "li",
-                                      {
-                                        staticClass: "kt-pagination__link--prev"
-                                      },
-                                      [
-                                        _c(
-                                          "a",
-                                          {
-                                            attrs: { href: "javascript:;" },
-                                            on: {
-                                              click: function($event) {
-                                                $event.preventDefault()
-                                                return _vm.cambiarPaginas(
-                                                  _vm.paginacion.pagina_actual +
-                                                    1
-                                                )
-                                              }
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.paginacion.pagina_actual > 1
+                                ? _c(
+                                    "li",
+                                    {
+                                      staticClass: "kt-pagination__link--next"
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          attrs: { href: "javascript:;" },
+                                          on: {
+                                            click: function($event) {
+                                              $event.preventDefault()
+                                              return _vm.cambiarPaginas(
+                                                _vm.paginacion.pagina_actual - 1
+                                              )
                                             }
-                                          },
-                                          [
-                                            _c("i", {
-                                              staticClass:
-                                                "fa fa-angle-right kt-font-danger"
-                                            })
-                                          ]
-                                        )
-                                      ]
-                                    )
-                                  : _vm._e(),
-                                _vm._v(" "),
-                                _vm.paginacion.pagina_actual <
-                                _vm.paginacion.ultima_pagina
-                                  ? _c(
-                                      "li",
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass:
+                                              "fa fa-angle-left kt-font-danger"
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm._l(_vm.numeroDePaginas, function(
+                                pagina,
+                                index
+                              ) {
+                                return _c(
+                                  "li",
+                                  {
+                                    key: index,
+                                    class: [
+                                      pagina == _vm.esActivo
+                                        ? "kt-pagination__link--active"
+                                        : ""
+                                    ]
+                                  },
+                                  [
+                                    _c(
+                                      "a",
                                       {
-                                        staticClass: "kt-pagination__link--last"
+                                        attrs: { href: "javascript:;" },
+                                        on: {
+                                          click: function($event) {
+                                            $event.preventDefault()
+                                            return _vm.cambiarPaginas(pagina)
+                                          }
+                                        }
                                       },
-                                      [
-                                        _c(
-                                          "a",
-                                          {
-                                            attrs: { href: "javascript:;" },
-                                            on: {
-                                              click: function($event) {
-                                                $event.preventDefault()
-                                                return _vm.cambiarPaginas(
-                                                  _vm.paginacion.ultima_pagina
-                                                )
-                                              }
-                                            }
-                                          },
-                                          [
-                                            _c("i", {
-                                              staticClass:
-                                                "fa fa-angle-double-right kt-font-danger"
-                                            })
-                                          ]
-                                        )
-                                      ]
+                                      [_vm._v(_vm._s(pagina))]
                                     )
-                                  : _vm._e()
-                              ],
-                              2
-                            )
-                          ]
-                        )
-                      ])
+                                  ]
+                                )
+                              }),
+                              _vm._v(" "),
+                              _vm.paginacion.pagina_actual <
+                              _vm.paginacion.ultima_pagina
+                                ? _c(
+                                    "li",
+                                    {
+                                      staticClass: "kt-pagination__link--prev"
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          attrs: { href: "javascript:;" },
+                                          on: {
+                                            click: function($event) {
+                                              $event.preventDefault()
+                                              return _vm.cambiarPaginas(
+                                                _vm.paginacion.pagina_actual + 1
+                                              )
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass:
+                                              "fa fa-angle-right kt-font-danger"
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.paginacion.pagina_actual <
+                              _vm.paginacion.ultima_pagina
+                                ? _c(
+                                    "li",
+                                    {
+                                      staticClass: "kt-pagination__link--last"
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          attrs: { href: "javascript:;" },
+                                          on: {
+                                            click: function($event) {
+                                              $event.preventDefault()
+                                              return _vm.cambiarPaginas(
+                                                _vm.paginacion.ultima_pagina
+                                              )
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass:
+                                              "fa fa-angle-double-right kt-font-danger"
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : _vm._e()
+                            ],
+                            2
+                          )
+                        ]
+                      )
                     ])
                   ])
                 ])
               ])
             ])
-          ]),
-          _vm._v(" "),
-          _c(
-            "b-modal",
-            {
-              ref: "modalExportar",
-              attrs: {
-                "hide-footer": "",
-                title: "Listado de Usuarios Caracterizados",
-                size: "xl",
-                centered: "",
-                "header-bg-variant": "danger",
-                "header-text-variant": "light",
-                "no-close-on-backdrop": true
-              }
-            },
-            [
-              _c("div", { staticClass: "d-block" }, [
-                _c("div", { ref: "content" }, [
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile"
-                    },
-                    [
-                      _c("div", { staticClass: "kt-portlet__body" }, [
-                        _c("div", { staticClass: "kt-section" }, [
-                          _c("div", { staticClass: "kt-section__content" }, [
-                            _c(
-                              "div",
-                              { staticClass: "row justify-content-center" },
-                              [
-                                _c(
-                                  "div",
-                                  { staticClass: "col-xl-12" },
-                                  [
-                                    _c("center", [
-                                      _c(
-                                        "span",
-                                        {
-                                          staticClass: "kt-font-boldest",
-                                          staticStyle: { "font-size": "22px" }
-                                        },
-                                        [
-                                          _vm._v(
-                                            "SISTEMA INTEGRADO POBLACIONAL"
-                                          )
-                                        ]
-                                      )
-                                    ])
-                                  ],
-                                  1
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c("div", {
-                              staticClass:
-                                "kt-separator kt-separator--border-dashed"
-                            }),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              { staticClass: "row justify-content-center" },
-                              [
-                                _c("div", { staticClass: "col-xl-12" }, [
+          ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "b-modal",
+          {
+            ref: "modalExportar",
+            attrs: {
+              "hide-footer": "",
+              title: "Listado de Usuarios Caracterizados",
+              size: "xl",
+              centered: "",
+              "header-bg-variant": "danger",
+              "header-text-variant": "light",
+              "no-close-on-backdrop": true
+            }
+          },
+          [
+            _c("div", { staticClass: "d-block" }, [
+              _c("div", { ref: "content" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile"
+                  },
+                  [
+                    _c("div", { staticClass: "kt-portlet__body" }, [
+                      _c("div", { staticClass: "kt-section" }, [
+                        _c("div", { staticClass: "kt-section__content" }, [
+                          _c(
+                            "div",
+                            { staticClass: "row justify-content-center" },
+                            [
+                              _c(
+                                "div",
+                                { staticClass: "col-xl-12" },
+                                [
+                                  _c("center", [
+                                    _c(
+                                      "span",
+                                      {
+                                        staticClass: "kt-font-boldest",
+                                        staticStyle: { "font-size": "22px" }
+                                      },
+                                      [_vm._v("SISTEMA INTEGRADO POBLACIONAL")]
+                                    )
+                                  ])
+                                ],
+                                1
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("div", {
+                            staticClass:
+                              "kt-separator kt-separator--border-dashed"
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "row justify-content-center" },
+                            [
+                              _c("div", { staticClass: "col-xl-12" }, [
+                                _c("div", { staticClass: "table-responsive" }, [
+                                  _c("p", [
+                                    _c(
+                                      "span",
+                                      {
+                                        staticClass: "kt-font-boldest",
+                                        staticStyle: { "font-size": "18px" }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "Listado de usuarios caracterizados"
+                                        )
+                                      ]
+                                    )
+                                  ]),
+                                  _vm._v(" "),
                                   _c(
-                                    "div",
-                                    { staticClass: "table-responsive" },
+                                    "table",
+                                    {
+                                      staticClass: "table table-sm table-hover"
+                                    },
                                     [
-                                      _c("p", [
+                                      _c("thead", {}, [
                                         _c(
-                                          "span",
-                                          {
-                                            staticClass: "kt-font-boldest",
-                                            staticStyle: { "font-size": "18px" }
-                                          },
+                                          "tr",
+                                          { staticClass: "kt-bg-fill-brand" },
                                           [
-                                            _vm._v(
-                                              "Listado de usuarios caracterizados"
-                                            )
+                                            _c("th", [_vm._v("No.")]),
+                                            _vm._v(" "),
+                                            _c("th", [_vm._v("Departamento")]),
+                                            _vm._v(" "),
+                                            _c("th", [_vm._v("Municipio")]),
+                                            _vm._v(" "),
+                                            _c("th", [_vm._v("Corregimiento")]),
+                                            _vm._v(" "),
+                                            _c("th", [
+                                              _vm._v("Identificación")
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("th", [_vm._v("Usuario")])
                                           ]
                                         )
                                       ]),
                                       _vm._v(" "),
                                       _c(
-                                        "table",
-                                        {
-                                          staticClass:
-                                            "table table-sm table-hover"
-                                        },
-                                        [
-                                          _c("thead", {}, [
+                                        "tbody",
+                                        _vm._l(_vm.caracterizacion2, function(
+                                          item,
+                                          index
+                                        ) {
+                                          return _c("tr", { key: index }, [
                                             _c(
-                                              "tr",
+                                              "td",
                                               {
-                                                staticClass: "kt-bg-fill-brand"
+                                                staticStyle: {
+                                                  "font-weight": "normal",
+                                                  "vertical-align": "middle"
+                                                }
+                                              },
+                                              [_vm._v(_vm._s(index + 1))]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "td",
+                                              {
+                                                staticStyle: {
+                                                  "font-weight": "normal",
+                                                  "vertical-align": "middle",
+                                                  "text-align": "left",
+                                                  "text-transform": "capitalize"
+                                                }
                                               },
                                               [
-                                                _c("th", [_vm._v("No.")]),
-                                                _vm._v(" "),
-                                                _c("th", [
-                                                  _vm._v("Departamento")
-                                                ]),
-                                                _vm._v(" "),
-                                                _c("th", [_vm._v("Municipio")]),
-                                                _vm._v(" "),
-                                                _c("th", [
-                                                  _vm._v("Corregimiento")
-                                                ]),
-                                                _vm._v(" "),
-                                                _c("th", [
-                                                  _vm._v("Identificación")
-                                                ]),
-                                                _vm._v(" "),
-                                                _c("th", [_vm._v("Usuario")])
+                                                _vm._v(
+                                                  _vm._s(
+                                                    item.DPTO.toUpperCase()
+                                                  )
+                                                )
                                               ]
-                                            )
-                                          ]),
-                                          _vm._v(" "),
-                                          _c(
-                                            "tbody",
-                                            _vm._l(
-                                              _vm.caracterizacion2,
-                                              function(item, index) {
-                                                return _c(
-                                                  "tr",
-                                                  { key: index },
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "td",
+                                              {
+                                                staticStyle: {
+                                                  "font-weight": "normal",
+                                                  "vertical-align": "middle",
+                                                  "text-align": "left",
+                                                  "text-transform": "capitalize"
+                                                }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    item.MUNI.toUpperCase()
+                                                  )
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            item.CORREGIMIENTO !== null
+                                              ? _c(
+                                                  "td",
+                                                  {
+                                                    staticStyle: {
+                                                      "font-weight": "normal",
+                                                      "vertical-align":
+                                                        "middle",
+                                                      "text-align": "left",
+                                                      "text-transform":
+                                                        "capitalize"
+                                                    }
+                                                  },
                                                   [
-                                                    _c(
-                                                      "td",
-                                                      {
-                                                        staticStyle: {
-                                                          "font-weight":
-                                                            "normal",
-                                                          "vertical-align":
-                                                            "middle"
-                                                        }
-                                                      },
-                                                      [
-                                                        _vm._v(
-                                                          _vm._s(index + 1)
-                                                        )
-                                                      ]
-                                                    ),
-                                                    _vm._v(" "),
-                                                    _c(
-                                                      "td",
-                                                      {
-                                                        staticStyle: {
-                                                          "font-weight":
-                                                            "normal",
-                                                          "vertical-align":
-                                                            "middle",
-                                                          "text-align": "left",
-                                                          "text-transform":
-                                                            "capitalize"
-                                                        }
-                                                      },
-                                                      [
-                                                        _vm._v(
-                                                          _vm._s(
-                                                            item.DPTO.toUpperCase()
-                                                          )
-                                                        )
-                                                      ]
-                                                    ),
-                                                    _vm._v(" "),
-                                                    _c(
-                                                      "td",
-                                                      {
-                                                        staticStyle: {
-                                                          "font-weight":
-                                                            "normal",
-                                                          "vertical-align":
-                                                            "middle",
-                                                          "text-align": "left",
-                                                          "text-transform":
-                                                            "capitalize"
-                                                        }
-                                                      },
-                                                      [
-                                                        _vm._v(
-                                                          _vm._s(
-                                                            item.MUNI.toUpperCase()
-                                                          )
-                                                        )
-                                                      ]
-                                                    ),
-                                                    _vm._v(" "),
-                                                    item.CORREGIMIENTO !== null
-                                                      ? _c(
-                                                          "td",
-                                                          {
-                                                            staticStyle: {
-                                                              "font-weight":
-                                                                "normal",
-                                                              "vertical-align":
-                                                                "middle",
-                                                              "text-align":
-                                                                "left",
-                                                              "text-transform":
-                                                                "capitalize"
-                                                            }
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              _vm._s(
-                                                                item.CORREGIMIENTO.toUpperCase()
-                                                              )
-                                                            )
-                                                          ]
-                                                        )
-                                                      : _c("td", {
-                                                          staticStyle: {
-                                                            "font-weight":
-                                                              "normal",
-                                                            "vertical-align":
-                                                              "middle",
-                                                            "text-align":
-                                                              "left",
-                                                            "text-transform":
-                                                              "capitalize"
-                                                          }
-                                                        }),
-                                                    _vm._v(" "),
-                                                    _c(
-                                                      "td",
-                                                      {
-                                                        staticStyle: {
-                                                          "font-weight":
-                                                            "normal",
-                                                          "vertical-align":
-                                                            "middle",
-                                                          "text-align": "left",
-                                                          "text-transform":
-                                                            "capitalize"
-                                                        }
-                                                      },
-                                                      [
-                                                        _vm._v(
-                                                          _vm._s(
-                                                            item.IDENTIFICACION.toUpperCase()
-                                                          )
-                                                        )
-                                                      ]
-                                                    ),
-                                                    _vm._v(" "),
-                                                    _c(
-                                                      "td",
-                                                      {
-                                                        staticStyle: {
-                                                          "font-weight":
-                                                            "normal",
-                                                          "vertical-align":
-                                                            "middle",
-                                                          "text-align": "left",
-                                                          "text-transform":
-                                                            "capitalize"
-                                                        }
-                                                      },
-                                                      [
-                                                        _vm._v(
-                                                          _vm._s(
-                                                            item.USUARIO.toUpperCase()
-                                                          )
-                                                        )
-                                                      ]
+                                                    _vm._v(
+                                                      _vm._s(
+                                                        item.CORREGIMIENTO.toUpperCase()
+                                                      )
                                                     )
                                                   ]
                                                 )
-                                              }
+                                              : _c("td", {
+                                                  staticStyle: {
+                                                    "font-weight": "normal",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "left",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                }),
+                                            _vm._v(" "),
+                                            _c(
+                                              "td",
+                                              {
+                                                staticStyle: {
+                                                  "font-weight": "normal",
+                                                  "vertical-align": "middle",
+                                                  "text-align": "left",
+                                                  "text-transform": "capitalize"
+                                                }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    item.IDENTIFICACION.toUpperCase()
+                                                  )
+                                                )
+                                              ]
                                             ),
-                                            0
-                                          )
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c("div", {
-                                        staticClass:
-                                          "kt-separator kt-separator--border-dashed"
-                                      })
+                                            _vm._v(" "),
+                                            _c(
+                                              "td",
+                                              {
+                                                staticStyle: {
+                                                  "font-weight": "normal",
+                                                  "vertical-align": "middle",
+                                                  "text-align": "left",
+                                                  "text-transform": "capitalize"
+                                                }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    item.USUARIO.toUpperCase()
+                                                  )
+                                                )
+                                              ]
+                                            )
+                                          ])
+                                        }),
+                                        0
+                                      )
                                     ]
-                                  )
+                                  ),
+                                  _vm._v(" "),
+                                  _c("div", {
+                                    staticClass:
+                                      "kt-separator kt-separator--border-dashed"
+                                  })
                                 ])
-                              ]
-                            )
-                          ])
+                              ])
+                            ]
+                          )
                         ])
                       ])
-                    ]
-                  )
-                ]),
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("hr"),
+              _vm._v(" "),
+              _c("div", { staticClass: "text-right" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "btn btn-success",
+                    attrs: {
+                      download: "",
+                      href: this.nombreCaracterizacion2,
+                      type: "button"
+                    }
+                  },
+                  [
+                    _c("i", { staticClass: "la la-file-pdf-o" }),
+                    _vm._v(" Imprimir")
+                  ]
+                ),
                 _vm._v(" "),
-                _c("hr"),
-                _vm._v(" "),
-                _c("div", { staticClass: "text-right" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "btn btn-success",
-                      attrs: {
-                        download: "",
-                        href: this.nombreCaracterizacion2,
-                        type: "button"
-                      }
-                    },
-                    [
-                      _c("i", { staticClass: "la la-file-pdf-o" }),
-                      _vm._v(" Imprimir")
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-warning",
-                      attrs: { type: "button" },
-                      on: { click: _vm.cerrarModal }
-                    },
-                    [
-                      _c("i", { staticClass: "fa fa-window-close" }),
-                      _vm._v(" Cerrar\n          ")
-                    ]
-                  )
-                ])
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-warning",
+                    attrs: { type: "button" },
+                    on: { click: _vm.cerrarModal }
+                  },
+                  [
+                    _c("i", { staticClass: "fa fa-window-close" }),
+                    _vm._v(" Cerrar\n          ")
+                  ]
+                )
               ])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "b-modal",
-            {
-              ref: "modalExportar2",
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "b-modal",
+          {
+            ref: "modalExportar2",
+            attrs: {
+              "hide-footer": "",
+              title: "Detalle de Usuario Caracterizado",
+              size: "xl",
+              centered: "",
+              "header-bg-variant": "danger",
+              "header-text-variant": "light",
+              "no-close-on-backdrop": true
+            }
+          },
+          [
+            _c("embed", {
               attrs: {
-                "hide-footer": "",
-                title: "Detalle de Usuario Caracterizado",
-                size: "xl",
-                centered: "",
-                "header-bg-variant": "danger",
-                "header-text-variant": "light",
-                "no-close-on-backdrop": true
+                id: "divPdf",
+                src: _vm.pdf_caracterizacion,
+                type: "application/pdf",
+                width: "100%",
+                height: "650px"
               }
-            },
-            [
-              _c("embed", {
-                attrs: {
-                  id: "divPdf",
-                  src: _vm.pdf_caracterizacion,
-                  type: "application/pdf",
-                  width: "100%",
-                  height: "650px"
-                }
-              }),
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "text-right" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-warning",
+                  attrs: { type: "button" },
+                  on: { click: _vm.cerrarModal }
+                },
+                [
+                  _c("i", { staticClass: "fa fa-window-close" }),
+                  _vm._v(" Cancelar\n          ")
+                ]
+              )
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "b-modal",
+          {
+            ref: "modalAbrir",
+            attrs: {
+              "hide-footer": "",
+              title: "Seleccione una opción",
+              size: "sm",
+              centered: "",
+              "header-bg-variant": "danger",
+              "header-text-variant": "light",
+              "no-close-on-backdrop": true
+            }
+          },
+          [
+            _c("div", { staticClass: "d-block" }, [
+              _c("div", { ref: "content" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile"
+                  },
+                  [
+                    _c("div", { staticClass: "kt-portlet__body" }, [
+                      _c("div", { staticClass: "kt-section" }, [
+                        _c("div", { staticClass: "kt-section__content" }, [
+                          _c(
+                            "div",
+                            { staticClass: "row justify-content-center" },
+                            [
+                              _c("div", { staticClass: "col-md-6" }, [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "kt-portlet kt-portlet--height-fluid",
+                                    attrs: {
+                                      "data-container": "body",
+                                      "data-toggle": "kt-popover",
+                                      "data-placement": "left",
+                                      "data-content": "",
+                                      "data-html": "true"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass: "kt-widget14",
+                                        staticStyle: {
+                                          cursor: "pointer",
+                                          width: "200px"
+                                        },
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.seleccionarOpcion(
+                                              "ingreso"
+                                            )
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass: "kt-widget14__header"
+                                          },
+                                          [
+                                            _c(
+                                              "h3",
+                                              {
+                                                staticClass:
+                                                  "kt-widget14__title text-center font-weight-bold",
+                                                staticStyle: {
+                                                  "font-size": "11px"
+                                                }
+                                              },
+                                              [_vm._v("Vivienda")]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass: "kt-widget14__content"
+                                          },
+                                          [
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "kt-widget14__chart text-center"
+                                              },
+                                              [
+                                                _c("img", {
+                                                  staticStyle: {
+                                                    height: "100px",
+                                                    width: "140px",
+                                                    float: "right"
+                                                  },
+                                                  attrs: {
+                                                    src:
+                                                      _vm.$store.state
+                                                        .serverPath +
+                                                      "assets/iconos/zonas/hogares.png"
+                                                  }
+                                                })
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-md-6" }, [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "kt-portlet kt-portlet--height-fluid",
+                                    attrs: {
+                                      "data-container": "body",
+                                      "data-toggle": "kt-popover",
+                                      "data-placement": "left",
+                                      "data-content": "",
+                                      "data-html": "true"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass: "kt-widget14",
+                                        staticStyle: {
+                                          cursor: "pointer",
+                                          width: "200px"
+                                        },
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.seleccionarOpcion(
+                                              "establecimiento"
+                                            )
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass: "kt-widget14__header"
+                                          },
+                                          [
+                                            _c(
+                                              "h3",
+                                              {
+                                                staticClass:
+                                                  "kt-widget14__title text-center font-weight-bold",
+                                                staticStyle: {
+                                                  "font-size": "11px"
+                                                }
+                                              },
+                                              [_vm._v("Establecimiento")]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass: "kt-widget14__content"
+                                          },
+                                          [
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "kt-widget14__chart text-center"
+                                              },
+                                              [
+                                                _c("img", {
+                                                  staticStyle: {
+                                                    height: "100px",
+                                                    width: "140px",
+                                                    float: "right"
+                                                  },
+                                                  attrs: {
+                                                    src:
+                                                      _vm.$store.state
+                                                        .serverPath +
+                                                      "assets/iconos/zonas/viviendas.png"
+                                                  }
+                                                })
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ])
+                            ]
+                          )
+                        ])
+                      ])
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("hr"),
               _vm._v(" "),
               _c("div", { staticClass: "text-right" }, [
                 _c(
@@ -2871,652 +3010,327 @@ var render = function() {
                   },
                   [
                     _c("i", { staticClass: "fa fa-window-close" }),
-                    _vm._v(" Cancelar\n          ")
+                    _vm._v(" Cerrar\n          ")
                   ]
                 )
               ])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "b-modal",
-            {
-              ref: "modalAbrir",
-              attrs: {
-                "hide-footer": "",
-                title: "Seleccione una opción",
-                size: "sm",
-                centered: "",
-                "header-bg-variant": "danger",
-                "header-text-variant": "light",
-                "no-close-on-backdrop": true
-              }
-            },
-            [
-              _c("div", { staticClass: "d-block" }, [
-                _c("div", { ref: "content" }, [
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile"
-                    },
-                    [
-                      _c("div", { staticClass: "kt-portlet__body" }, [
-                        _c("div", { staticClass: "kt-section" }, [
-                          _c("div", { staticClass: "kt-section__content" }, [
+            ])
+          ]
+        )
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _c("div", { staticClass: "kt-separator kt-separator--border-dashed" }),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass:
+          "kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile",
+        staticStyle: { "margin-top": "3%" }
+      },
+      [
+        _vm._m(2),
+        _vm._v(" "),
+        _c("div", { staticClass: "kt-portlet__body" }, [
+          _c("div", { staticClass: "kt-section" }, [
+            _c("div", { staticClass: "kt-section__content" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-6 col-lg-6" }, [
+                  _c("div", { staticClass: "kt-section" }, [
+                    _c("div", { staticClass: "kt-section__content" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-outline-primary btn-icon",
+                          attrs: {
+                            href: "javascript:;",
+                            title: "Nuevo Establecimiento"
+                          },
+                          on: { click: _vm.abrir }
+                        },
+                        [_c("i", { staticClass: "la la-file-text-o" })]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-outline-warning btn-icon",
+                          attrs: {
+                            href: "javascript:;",
+                            title: "Exportar a Pdf"
+                          },
+                          on: { click: _vm.exportarEstablecimientosPDF }
+                        },
+                        [_c("i", { staticClass: "la la-file-pdf-o" })]
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-6 col-lg-6" }, [
+                  _c("form", { staticClass: "kt-form" }, [
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("div", { staticClass: "input-group" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.txtbusqueda2,
+                              expression: "txtbusqueda2"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text", placeholder: "Busqueda" },
+                          domProps: { value: _vm.txtbusqueda2 },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.txtbusqueda2 = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "input-group-append" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-primary btn-icon",
+                              attrs: { type: "button" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.consultar2(1)
+                                }
+                              }
+                            },
+                            [_c("i", { staticClass: "fa fa-search" })]
+                          )
+                        ])
+                      ])
+                    ])
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-lg-12" }, [
+                  _c("div", { staticClass: "table-responsive" }, [
+                    _c("table", { staticClass: "table table-sm table-hover" }, [
+                      _vm._m(3),
+                      _vm._v(" "),
+                      _c(
+                        "tbody",
+                        _vm._l(_vm.establecimientos, function(item, index) {
+                          return _c("tr", { key: index }, [
                             _c(
-                              "div",
-                              { staticClass: "row justify-content-center" },
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle"
+                                }
+                              },
+                              [_vm._v(_vm._s(index + 1))]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [_vm._v(_vm._s(item.DPTO.toUpperCase()))]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [_vm._v(_vm._s(item.MUNI.toUpperCase()))]
+                            ),
+                            _vm._v(" "),
+                            item.CORREGIMIENTO !== null
+                              ? _c(
+                                  "td",
+                                  {
+                                    staticStyle: {
+                                      "font-weight": "normal",
+                                      "vertical-align": "middle",
+                                      "text-align": "left",
+                                      "text-transform": "capitalize"
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      _vm._s(item.CORREGIMIENTO.toUpperCase())
+                                    )
+                                  ]
+                                )
+                              : _c("td", {
+                                  staticStyle: {
+                                    "font-weight": "normal",
+                                    "vertical-align": "middle",
+                                    "text-align": "left",
+                                    "text-transform": "capitalize"
+                                  }
+                                }),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [_vm._v(_vm._s(item.razon.toUpperCase()))]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [_vm._v(_vm._s(item.nit.toUpperCase()))]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [_vm._v(_vm._s(item.representante.toUpperCase()))]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "text-align": "center",
+                                  "vertical-align": "middle"
+                                }
+                              },
                               [
-                                _c("div", { staticClass: "col-md-6" }, [
-                                  _c(
-                                    "div",
-                                    {
-                                      staticClass:
-                                        "kt-portlet kt-portlet--height-fluid",
-                                      attrs: {
-                                        "data-container": "body",
-                                        "data-toggle": "kt-popover",
-                                        "data-placement": "left",
-                                        "data-content": "",
-                                        "data-html": "true"
-                                      }
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "btn btn-outline-success btn-icon btn-sm",
+                                    attrs: {
+                                      type: "button",
+                                      title: "Imprimir"
                                     },
-                                    [
-                                      _c(
-                                        "div",
-                                        {
-                                          staticClass: "kt-widget14",
-                                          staticStyle: {
-                                            cursor: "pointer",
-                                            width: "200px"
-                                          },
-                                          on: {
-                                            click: function($event) {
-                                              return _vm.seleccionarOpcion(
-                                                "ingreso"
-                                              )
-                                            }
-                                          }
-                                        },
-                                        [
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass: "kt-widget14__header"
-                                            },
-                                            [
-                                              _c(
-                                                "h3",
-                                                {
-                                                  staticClass:
-                                                    "kt-widget14__title text-center font-weight-bold",
-                                                  staticStyle: {
-                                                    "font-size": "11px"
-                                                  }
-                                                },
-                                                [_vm._v("Vivienda")]
-                                              )
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass:
-                                                "kt-widget14__content"
-                                            },
-                                            [
-                                              _c(
-                                                "div",
-                                                {
-                                                  staticClass:
-                                                    "kt-widget14__chart text-center"
-                                                },
-                                                [
-                                                  _c("img", {
-                                                    staticStyle: {
-                                                      height: "100px",
-                                                      width: "140px",
-                                                      float: "right"
-                                                    },
-                                                    attrs: {
-                                                      src:
-                                                        _vm.$store.state
-                                                          .serverPath +
-                                                        "assets/iconos/zonas/hogares.png"
-                                                    }
-                                                  })
-                                                ]
-                                              )
-                                            ]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ]),
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.exportarEstablecimientoPDF(
+                                          item
+                                        )
+                                      }
+                                    }
+                                  },
+                                  [_c("i", { staticClass: "fa fa-file-pdf" })]
+                                ),
                                 _vm._v(" "),
-                                _c("div", { staticClass: "col-md-6" }, [
-                                  _c(
-                                    "div",
-                                    {
-                                      staticClass:
-                                        "kt-portlet kt-portlet--height-fluid",
-                                      attrs: {
-                                        "data-container": "body",
-                                        "data-toggle": "kt-popover",
-                                        "data-placement": "left",
-                                        "data-content": "",
-                                        "data-html": "true"
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "btn btn-outline-info btn-icon btn-sm",
+                                    attrs: { type: "button", title: "Editar" },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.editar2(item)
                                       }
+                                    }
+                                  },
+                                  [_c("i", { staticClass: "fa fa-edit" })]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass: "btn btn-icon btn-sm",
+                                    class:
+                                      item.ESTADO == "Activo"
+                                        ? "btn-outline-danger"
+                                        : "btn-outline-success",
+                                    attrs: {
+                                      type: "button",
+                                      title:
+                                        item.ESTADO == "Activo"
+                                          ? "Anular"
+                                          : "Activar"
                                     },
-                                    [
-                                      _c(
-                                        "div",
-                                        {
-                                          staticClass: "kt-widget14",
-                                          staticStyle: {
-                                            cursor: "pointer",
-                                            width: "200px"
-                                          },
-                                          on: {
-                                            click: function($event) {
-                                              return _vm.seleccionarOpcion(
-                                                "establecimiento"
-                                              )
-                                            }
-                                          }
-                                        },
-                                        [
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass: "kt-widget14__header"
-                                            },
-                                            [
-                                              _c(
-                                                "h3",
-                                                {
-                                                  staticClass:
-                                                    "kt-widget14__title text-center font-weight-bold",
-                                                  staticStyle: {
-                                                    "font-size": "11px"
-                                                  }
-                                                },
-                                                [_vm._v("Establecimiento")]
-                                              )
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass:
-                                                "kt-widget14__content"
-                                            },
-                                            [
-                                              _c(
-                                                "div",
-                                                {
-                                                  staticClass:
-                                                    "kt-widget14__chart text-center"
-                                                },
-                                                [
-                                                  _c("img", {
-                                                    staticStyle: {
-                                                      height: "100px",
-                                                      width: "140px",
-                                                      float: "right"
-                                                    },
-                                                    attrs: {
-                                                      src:
-                                                        _vm.$store.state
-                                                          .serverPath +
-                                                        "assets/iconos/zonas/viviendas.png"
-                                                    }
-                                                  })
-                                                ]
-                                              )
-                                            ]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ])
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.eliminar2(item)
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _c("i", {
+                                      staticClass: "fa",
+                                      class:
+                                        item.ESTADO == "Activo"
+                                          ? "fa-trash"
+                                          : "fa-check"
+                                    })
+                                  ]
+                                )
                               ]
                             )
                           ])
-                        ])
-                      ])
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("hr"),
-                _vm._v(" "),
-                _c("div", { staticClass: "text-right" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-warning",
-                      attrs: { type: "button" },
-                      on: { click: _vm.cerrarModal }
-                    },
-                    [
-                      _c("i", { staticClass: "fa fa-window-close" }),
-                      _vm._v(" Cerrar\n          ")
-                    ]
-                  )
-                ])
-              ])
-            ]
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("div", { staticClass: "kt-separator kt-separator--border-dashed" }),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass:
-            "kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile",
-          staticStyle: { "margin-top": "-4%" }
-        },
-        [
-          _vm._m(2),
-          _vm._v(" "),
-          _c("div", { staticClass: "kt-portlet__body" }, [
-            _c("div", { staticClass: "kt-section" }, [
-              _c("div", { staticClass: "kt-section__content" }, [
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-md-6 col-lg-6" }, [
+                        }),
+                        0
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", {
+                      staticClass: "kt-separator kt-separator--border-dashed"
+                    }),
+                    _vm._v(" "),
                     _c("div", { staticClass: "kt-section" }, [
-                      _c("div", { staticClass: "kt-section__content" }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "btn btn-outline-primary btn-icon",
-                            attrs: {
-                              href: "javascript:;",
-                              title: "Nuevo Establecimiento"
-                            },
-                            on: { click: _vm.abrir }
-                          },
-                          [_c("i", { staticClass: "la la-file-text-o" })]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            staticClass: "btn btn-outline-warning btn-icon",
-                            attrs: {
-                              href: "javascript:;",
-                              title: "Exportar a Pdf"
-                            },
-                            on: { click: _vm.exportarEstablecimientosPDF }
-                          },
-                          [_c("i", { staticClass: "la la-file-pdf-o" })]
-                        )
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-md-6 col-lg-6" }, [
-                    _c("form", { staticClass: "kt-form" }, [
-                      _c("div", { staticClass: "form-group" }, [
-                        _c("div", { staticClass: "input-group" }, [
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.txtbusqueda2,
-                                expression: "txtbusqueda2"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            attrs: { type: "text", placeholder: "Busqueda" },
-                            domProps: { value: _vm.txtbusqueda2 },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.txtbusqueda2 = $event.target.value
-                              }
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "input-group-append" }, [
-                            _c(
-                              "button",
-                              {
-                                staticClass: "btn btn-primary btn-icon",
-                                attrs: { type: "button" },
-                                on: {
-                                  click: function($event) {
-                                    return _vm.consultar2(1)
-                                  }
-                                }
-                              },
-                              [_c("i", { staticClass: "fa fa-search" })]
-                            )
-                          ])
-                        ])
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-lg-12" }, [
-                    _c("div", { staticClass: "table-responsive" }, [
                       _c(
-                        "table",
-                        { staticClass: "table table-sm table-hover" },
+                        "div",
+                        { staticClass: "kt-pagination kt-pagination--danger" },
                         [
-                          _vm._m(3),
-                          _vm._v(" "),
                           _c(
-                            "tbody",
-                            _vm._l(_vm.establecimientos, function(item, index) {
-                              return _c("tr", { key: index }, [
-                                _c(
-                                  "td",
-                                  {
-                                    staticStyle: {
-                                      "font-weight": "normal",
-                                      "vertical-align": "middle"
-                                    }
-                                  },
-                                  [_vm._v(_vm._s(index + 1))]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "td",
-                                  {
-                                    staticStyle: {
-                                      "font-weight": "normal",
-                                      "vertical-align": "middle",
-                                      "text-align": "left",
-                                      "text-transform": "capitalize"
-                                    }
-                                  },
-                                  [_vm._v(_vm._s(item.DPTO.toUpperCase()))]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "td",
-                                  {
-                                    staticStyle: {
-                                      "font-weight": "normal",
-                                      "vertical-align": "middle",
-                                      "text-align": "left",
-                                      "text-transform": "capitalize"
-                                    }
-                                  },
-                                  [_vm._v(_vm._s(item.MUNI.toUpperCase()))]
-                                ),
-                                _vm._v(" "),
-                                item.CORREGIMIENTO !== null
-                                  ? _c(
-                                      "td",
-                                      {
-                                        staticStyle: {
-                                          "font-weight": "normal",
-                                          "vertical-align": "middle",
-                                          "text-align": "left",
-                                          "text-transform": "capitalize"
-                                        }
-                                      },
-                                      [
-                                        _vm._v(
-                                          _vm._s(
-                                            item.CORREGIMIENTO.toUpperCase()
-                                          )
-                                        )
-                                      ]
-                                    )
-                                  : _c("td", {
-                                      staticStyle: {
-                                        "font-weight": "normal",
-                                        "vertical-align": "middle",
-                                        "text-align": "left",
-                                        "text-transform": "capitalize"
-                                      }
-                                    }),
-                                _vm._v(" "),
-                                _c(
-                                  "td",
-                                  {
-                                    staticStyle: {
-                                      "font-weight": "normal",
-                                      "vertical-align": "middle",
-                                      "text-align": "left",
-                                      "text-transform": "capitalize"
-                                    }
-                                  },
-                                  [_vm._v(_vm._s(item.razon.toUpperCase()))]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "td",
-                                  {
-                                    staticStyle: {
-                                      "font-weight": "normal",
-                                      "vertical-align": "middle",
-                                      "text-align": "left",
-                                      "text-transform": "capitalize"
-                                    }
-                                  },
-                                  [_vm._v(_vm._s(item.nit.toUpperCase()))]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "td",
-                                  {
-                                    staticStyle: {
-                                      "font-weight": "normal",
-                                      "vertical-align": "middle",
-                                      "text-align": "left",
-                                      "text-transform": "capitalize"
-                                    }
-                                  },
-                                  [
-                                    _vm._v(
-                                      _vm._s(item.representante.toUpperCase())
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "td",
-                                  {
-                                    staticStyle: {
-                                      "text-align": "center",
-                                      "vertical-align": "middle"
-                                    }
-                                  },
-                                  [
-                                    _c(
-                                      "button",
-                                      {
-                                        staticClass:
-                                          "btn btn-outline-success btn-icon btn-sm",
-                                        attrs: {
-                                          type: "button",
-                                          title: "Imprimir"
-                                        },
-                                        on: {
-                                          click: function($event) {
-                                            return _vm.exportarEstablecimientoPDF(
-                                              item
-                                            )
-                                          }
-                                        }
-                                      },
-                                      [
-                                        _c("i", {
-                                          staticClass: "fa fa-file-pdf"
-                                        })
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "button",
-                                      {
-                                        staticClass:
-                                          "btn btn-outline-info btn-icon btn-sm",
-                                        attrs: {
-                                          type: "button",
-                                          title: "Editar"
-                                        },
-                                        on: {
-                                          click: function($event) {
-                                            return _vm.editar2(item)
-                                          }
-                                        }
-                                      },
-                                      [_c("i", { staticClass: "fa fa-edit" })]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "button",
-                                      {
-                                        staticClass: "btn btn-icon btn-sm",
-                                        class:
-                                          item.ESTADO == "Activo"
-                                            ? "btn-outline-danger"
-                                            : "btn-outline-success",
-                                        attrs: {
-                                          type: "button",
-                                          title:
-                                            item.ESTADO == "Activo"
-                                              ? "Anular"
-                                              : "Activar"
-                                        },
-                                        on: {
-                                          click: function($event) {
-                                            return _vm.eliminar2(item)
-                                          }
-                                        }
-                                      },
-                                      [
-                                        _c("i", {
-                                          staticClass: "fa",
-                                          class:
-                                            item.ESTADO == "Activo"
-                                              ? "fa-trash"
-                                              : "fa-check"
-                                        })
-                                      ]
-                                    )
-                                  ]
-                                )
-                              ])
-                            }),
-                            0
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("div", {
-                        staticClass: "kt-separator kt-separator--border-dashed"
-                      }),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "kt-section" }, [
-                        _c(
-                          "div",
-                          {
-                            staticClass: "kt-pagination kt-pagination--danger"
-                          },
-                          [
-                            _c(
-                              "ul",
-                              { staticClass: "kt-pagination__links" },
-                              [
-                                _vm.paginacion2.pagina_actual > 1
-                                  ? _c(
-                                      "li",
-                                      {
-                                        staticClass:
-                                          "kt-pagination__link--first"
-                                      },
-                                      [
-                                        _c(
-                                          "a",
-                                          {
-                                            attrs: { href: "javascript:;" },
-                                            on: {
-                                              click: function($event) {
-                                                $event.preventDefault()
-                                                return _vm.cambiarPaginas2(1)
-                                              }
-                                            }
-                                          },
-                                          [
-                                            _c("i", {
-                                              staticClass:
-                                                "fa fa-angle-double-left kt-font-danger"
-                                            })
-                                          ]
-                                        )
-                                      ]
-                                    )
-                                  : _vm._e(),
-                                _vm._v(" "),
-                                _vm.paginacion2.pagina_actual > 1
-                                  ? _c(
-                                      "li",
-                                      {
-                                        staticClass: "kt-pagination__link--next"
-                                      },
-                                      [
-                                        _c(
-                                          "a",
-                                          {
-                                            attrs: { href: "javascript:;" },
-                                            on: {
-                                              click: function($event) {
-                                                $event.preventDefault()
-                                                return _vm.cambiarPaginas2(
-                                                  _vm.paginacion2
-                                                    .pagina_actual - 1
-                                                )
-                                              }
-                                            }
-                                          },
-                                          [
-                                            _c("i", {
-                                              staticClass:
-                                                "fa fa-angle-left kt-font-danger"
-                                            })
-                                          ]
-                                        )
-                                      ]
-                                    )
-                                  : _vm._e(),
-                                _vm._v(" "),
-                                _vm._l(_vm.numeroDePaginas2, function(
-                                  pagina,
-                                  index
-                                ) {
-                                  return _c(
+                            "ul",
+                            { staticClass: "kt-pagination__links" },
+                            [
+                              _vm.paginacion2.pagina_actual > 1
+                                ? _c(
                                     "li",
                                     {
-                                      key: index,
-                                      class: [
-                                        pagina == _vm.esActivo2
-                                          ? "kt-pagination__link--active"
-                                          : ""
-                                      ]
+                                      staticClass: "kt-pagination__link--first"
                                     },
                                     [
                                       _c(
@@ -3526,496 +3340,26 @@ var render = function() {
                                           on: {
                                             click: function($event) {
                                               $event.preventDefault()
-                                              return _vm.cambiarPaginas2(pagina)
+                                              return _vm.cambiarPaginas2(1)
                                             }
                                           }
                                         },
-                                        [_vm._v(_vm._s(pagina))]
+                                        [
+                                          _c("i", {
+                                            staticClass:
+                                              "fa fa-angle-double-left kt-font-danger"
+                                          })
+                                        ]
                                       )
                                     ]
                                   )
-                                }),
-                                _vm._v(" "),
-                                _vm.paginacion2.pagina_actual <
-                                _vm.paginacion2.ultima_pagina
-                                  ? _c(
-                                      "li",
-                                      {
-                                        staticClass: "kt-pagination__link--prev"
-                                      },
-                                      [
-                                        _c(
-                                          "a",
-                                          {
-                                            attrs: { href: "javascript:;" },
-                                            on: {
-                                              click: function($event) {
-                                                $event.preventDefault()
-                                                return _vm.cambiarPaginas2(
-                                                  _vm.paginacion2
-                                                    .pagina_actual + 1
-                                                )
-                                              }
-                                            }
-                                          },
-                                          [
-                                            _c("i", {
-                                              staticClass:
-                                                "fa fa-angle-right kt-font-danger"
-                                            })
-                                          ]
-                                        )
-                                      ]
-                                    )
-                                  : _vm._e(),
-                                _vm._v(" "),
-                                _vm.paginacion2.pagina_actual <
-                                _vm.paginacion2.ultima_pagina
-                                  ? _c(
-                                      "li",
-                                      {
-                                        staticClass: "kt-pagination__link--last"
-                                      },
-                                      [
-                                        _c(
-                                          "a",
-                                          {
-                                            attrs: { href: "javascript:;" },
-                                            on: {
-                                              click: function($event) {
-                                                $event.preventDefault()
-                                                return _vm.cambiarPaginas2(
-                                                  _vm.paginacion2.ultima_pagina
-                                                )
-                                              }
-                                            }
-                                          },
-                                          [
-                                            _c("i", {
-                                              staticClass:
-                                                "fa fa-angle-double-right kt-font-danger"
-                                            })
-                                          ]
-                                        )
-                                      ]
-                                    )
-                                  : _vm._e()
-                              ],
-                              2
-                            )
-                          ]
-                        )
-                      ])
-                    ])
-                  ])
-                ])
-              ])
-            ])
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("div", { staticClass: "kt-separator kt-separator--border-dashed" }),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass:
-            "kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile",
-          staticStyle: { "margin-top": "-4%" }
-        },
-        [
-          _vm._m(4),
-          _vm._v(" "),
-          _c("div", { staticClass: "kt-portlet__body" }, [
-            _c("div", { staticClass: "kt-section" }, [
-              _c("div", { staticClass: "kt-section__content" }, [
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-md-6 col-lg-6" }, [
-                    _c("div", { staticClass: "kt-section" }, [
-                      _c("div", { staticClass: "kt-section__content" }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "btn btn-outline-primary btn-icon",
-                            attrs: {
-                              href: "javascript:;",
-                              title: "Nueva Unidad Productiva"
-                            },
-                            on: { click: _vm.abrir3 }
-                          },
-                          [_c("i", { staticClass: "la la-file-text-o" })]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            staticClass: "btn btn-outline-warning btn-icon",
-                            attrs: {
-                              href: "javascript:;",
-                              title: "Exportar a Pdf"
-                            },
-                            on: { click: _vm.exportarUnidades }
-                          },
-                          [_c("i", { staticClass: "la la-file-pdf-o" })]
-                        )
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-md-6 col-lg-6" }, [
-                    _c("form", { staticClass: "kt-form" }, [
-                      _c("div", { staticClass: "form-group" }, [
-                        _c("div", { staticClass: "input-group" }, [
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.txtbusqueda3,
-                                expression: "txtbusqueda3"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            attrs: { type: "text", placeholder: "Busqueda" },
-                            domProps: { value: _vm.txtbusqueda3 },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.txtbusqueda3 = $event.target.value
-                              }
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "input-group-append" }, [
-                            _c(
-                              "button",
-                              {
-                                staticClass: "btn btn-primary btn-icon",
-                                attrs: { type: "button" },
-                                on: {
-                                  click: function($event) {
-                                    return _vm.consultar3(1)
-                                  }
-                                }
-                              },
-                              [_c("i", { staticClass: "fa fa-search" })]
-                            )
-                          ])
-                        ])
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-lg-12" }, [
-                    _c("div", { staticClass: "table-responsive" }, [
-                      _c(
-                        "table",
-                        { staticClass: "table table-sm table-hover" },
-                        [
-                          _vm._m(5),
-                          _vm._v(" "),
-                          _c(
-                            "tbody",
-                            _vm._l(_vm.unidades, function(item, index) {
-                              return _c("tr", { key: index }, [
-                                _c(
-                                  "td",
-                                  {
-                                    staticStyle: {
-                                      "font-weight": "normal",
-                                      "vertical-align": "middle"
-                                    }
-                                  },
-                                  [_vm._v(_vm._s(index + 1))]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "td",
-                                  {
-                                    staticStyle: {
-                                      "font-weight": "normal",
-                                      "vertical-align": "middle",
-                                      "text-align": "left",
-                                      "text-transform": "capitalize"
-                                    }
-                                  },
-                                  [_vm._v(_vm._s(item.DPTO.toUpperCase()))]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "td",
-                                  {
-                                    staticStyle: {
-                                      "font-weight": "normal",
-                                      "vertical-align": "middle",
-                                      "text-align": "left",
-                                      "text-transform": "capitalize"
-                                    }
-                                  },
-                                  [_vm._v(_vm._s(item.MUNI.toUpperCase()))]
-                                ),
-                                _vm._v(" "),
-                                item.CORREGIMIENTO !== null
-                                  ? _c(
-                                      "td",
-                                      {
-                                        staticStyle: {
-                                          "font-weight": "normal",
-                                          "vertical-align": "middle",
-                                          "text-align": "left",
-                                          "text-transform": "capitalize"
-                                        }
-                                      },
-                                      [
-                                        _vm._v(
-                                          _vm._s(
-                                            item.CORREGIMIENTO.toUpperCase()
-                                          )
-                                        )
-                                      ]
-                                    )
-                                  : _c("td", {
-                                      staticStyle: {
-                                        "font-weight": "normal",
-                                        "vertical-align": "middle",
-                                        "text-align": "left",
-                                        "text-transform": "capitalize"
-                                      }
-                                    }),
-                                _vm._v(" "),
-                                _c(
-                                  "td",
-                                  {
-                                    staticStyle: {
-                                      "font-weight": "normal",
-                                      "vertical-align": "middle",
-                                      "text-align": "left",
-                                      "text-transform": "capitalize"
-                                    }
-                                  },
-                                  [_vm._v(_vm._s(item.nom_finca.toUpperCase()))]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "td",
-                                  {
-                                    staticStyle: {
-                                      "font-weight": "normal",
-                                      "vertical-align": "middle",
-                                      "text-align": "left",
-                                      "text-transform": "capitalize"
-                                    }
-                                  },
-                                  [
-                                    _vm._v(
-                                      _vm._s(item.identificacion.toUpperCase())
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "td",
-                                  {
-                                    staticStyle: {
-                                      "font-weight": "normal",
-                                      "vertical-align": "middle",
-                                      "text-align": "left",
-                                      "text-transform": "capitalize"
-                                    }
-                                  },
-                                  [
-                                    _vm._v(
-                                      _vm._s(item.nom_productor.toUpperCase())
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "td",
-                                  {
-                                    staticStyle: {
-                                      "text-align": "center",
-                                      "vertical-align": "middle"
-                                    }
-                                  },
-                                  [
-                                    _c(
-                                      "button",
-                                      {
-                                        staticClass:
-                                          "btn btn-outline-success btn-icon btn-sm",
-                                        attrs: {
-                                          type: "button",
-                                          title: "Imprimir"
-                                        },
-                                        on: {
-                                          click: function($event) {
-                                            return _vm.exportarUnidad(item)
-                                          }
-                                        }
-                                      },
-                                      [
-                                        _c("i", {
-                                          staticClass: "fa fa-file-pdf"
-                                        })
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "button",
-                                      {
-                                        staticClass:
-                                          "btn btn-outline-info btn-icon btn-sm",
-                                        attrs: {
-                                          type: "button",
-                                          title: "Editar"
-                                        },
-                                        on: {
-                                          click: function($event) {
-                                            return _vm.editar3(item)
-                                          }
-                                        }
-                                      },
-                                      [_c("i", { staticClass: "fa fa-edit" })]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "button",
-                                      {
-                                        staticClass: "btn btn-icon btn-sm",
-                                        class:
-                                          item.ESTADO == "Activo"
-                                            ? "btn-outline-danger"
-                                            : "btn-outline-success",
-                                        attrs: {
-                                          type: "button",
-                                          title:
-                                            item.ESTADO == "Activo"
-                                              ? "Anular"
-                                              : "Activar"
-                                        },
-                                        on: {
-                                          click: function($event) {
-                                            return _vm.eliminar3(item)
-                                          }
-                                        }
-                                      },
-                                      [
-                                        _c("i", {
-                                          staticClass: "fa",
-                                          class:
-                                            item.ESTADO == "Activo"
-                                              ? "fa-trash"
-                                              : "fa-check"
-                                        })
-                                      ]
-                                    )
-                                  ]
-                                )
-                              ])
-                            }),
-                            0
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("div", {
-                        staticClass: "kt-separator kt-separator--border-dashed"
-                      }),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "kt-section" }, [
-                        _c(
-                          "div",
-                          {
-                            staticClass: "kt-pagination kt-pagination--danger"
-                          },
-                          [
-                            _c(
-                              "ul",
-                              { staticClass: "kt-pagination__links" },
-                              [
-                                _vm.paginacion3.pagina_actual > 1
-                                  ? _c(
-                                      "li",
-                                      {
-                                        staticClass:
-                                          "kt-pagination__link--first"
-                                      },
-                                      [
-                                        _c(
-                                          "a",
-                                          {
-                                            attrs: { href: "javascript:;" },
-                                            on: {
-                                              click: function($event) {
-                                                $event.preventDefault()
-                                                return _vm.cambiarPaginas3(1)
-                                              }
-                                            }
-                                          },
-                                          [
-                                            _c("i", {
-                                              staticClass:
-                                                "fa fa-angle-double-left kt-font-danger"
-                                            })
-                                          ]
-                                        )
-                                      ]
-                                    )
-                                  : _vm._e(),
-                                _vm._v(" "),
-                                _vm.paginacion3.pagina_actual > 1
-                                  ? _c(
-                                      "li",
-                                      {
-                                        staticClass: "kt-pagination__link--next"
-                                      },
-                                      [
-                                        _c(
-                                          "a",
-                                          {
-                                            attrs: { href: "javascript:;" },
-                                            on: {
-                                              click: function($event) {
-                                                $event.preventDefault()
-                                                return _vm.cambiarPaginas3(
-                                                  _vm.paginacion3
-                                                    .pagina_actual - 1
-                                                )
-                                              }
-                                            }
-                                          },
-                                          [
-                                            _c("i", {
-                                              staticClass:
-                                                "fa fa-angle-left kt-font-danger"
-                                            })
-                                          ]
-                                        )
-                                      ]
-                                    )
-                                  : _vm._e(),
-                                _vm._v(" "),
-                                _vm._l(_vm.numeroDePaginas3, function(
-                                  pagina,
-                                  index
-                                ) {
-                                  return _c(
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.paginacion2.pagina_actual > 1
+                                ? _c(
                                     "li",
                                     {
-                                      key: index,
-                                      class: [
-                                        pagina == _vm.esActivo3
-                                          ? "kt-pagination__link--active"
-                                          : ""
-                                      ]
+                                      staticClass: "kt-pagination__link--next"
                                     },
                                     [
                                       _c(
@@ -4025,97 +3369,614 @@ var render = function() {
                                           on: {
                                             click: function($event) {
                                               $event.preventDefault()
-                                              return _vm.cambiarPaginas3(pagina)
+                                              return _vm.cambiarPaginas2(
+                                                _vm.paginacion2.pagina_actual -
+                                                  1
+                                              )
                                             }
                                           }
                                         },
-                                        [_vm._v(_vm._s(pagina))]
+                                        [
+                                          _c("i", {
+                                            staticClass:
+                                              "fa fa-angle-left kt-font-danger"
+                                          })
+                                        ]
                                       )
                                     ]
                                   )
-                                }),
-                                _vm._v(" "),
-                                _vm.paginacion3.pagina_actual <
-                                _vm.paginacion3.ultima_pagina
-                                  ? _c(
-                                      "li",
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm._l(_vm.numeroDePaginas2, function(
+                                pagina,
+                                index
+                              ) {
+                                return _c(
+                                  "li",
+                                  {
+                                    key: index,
+                                    class: [
+                                      pagina == _vm.esActivo2
+                                        ? "kt-pagination__link--active"
+                                        : ""
+                                    ]
+                                  },
+                                  [
+                                    _c(
+                                      "a",
                                       {
-                                        staticClass: "kt-pagination__link--prev"
+                                        attrs: { href: "javascript:;" },
+                                        on: {
+                                          click: function($event) {
+                                            $event.preventDefault()
+                                            return _vm.cambiarPaginas2(pagina)
+                                          }
+                                        }
                                       },
-                                      [
-                                        _c(
-                                          "a",
-                                          {
-                                            attrs: { href: "javascript:;" },
-                                            on: {
-                                              click: function($event) {
-                                                $event.preventDefault()
-                                                return _vm.cambiarPaginas3(
-                                                  _vm.paginacion3
-                                                    .pagina_actual + 1
-                                                )
-                                              }
-                                            }
-                                          },
-                                          [
-                                            _c("i", {
-                                              staticClass:
-                                                "fa fa-angle-right kt-font-danger"
-                                            })
-                                          ]
-                                        )
-                                      ]
+                                      [_vm._v(_vm._s(pagina))]
                                     )
-                                  : _vm._e(),
-                                _vm._v(" "),
-                                _vm.paginacion3.pagina_actual <
-                                _vm.paginacion3.ultima_pagina
-                                  ? _c(
-                                      "li",
-                                      {
-                                        staticClass: "kt-pagination__link--last"
-                                      },
-                                      [
-                                        _c(
-                                          "a",
-                                          {
-                                            attrs: { href: "javascript:;" },
-                                            on: {
-                                              click: function($event) {
-                                                $event.preventDefault()
-                                                return _vm.cambiarPaginas3(
-                                                  _vm.paginacion3.ultima_pagina
-                                                )
-                                              }
+                                  ]
+                                )
+                              }),
+                              _vm._v(" "),
+                              _vm.paginacion2.pagina_actual <
+                              _vm.paginacion2.ultima_pagina
+                                ? _c(
+                                    "li",
+                                    {
+                                      staticClass: "kt-pagination__link--prev"
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          attrs: { href: "javascript:;" },
+                                          on: {
+                                            click: function($event) {
+                                              $event.preventDefault()
+                                              return _vm.cambiarPaginas2(
+                                                _vm.paginacion2.pagina_actual +
+                                                  1
+                                              )
                                             }
-                                          },
-                                          [
-                                            _c("i", {
-                                              staticClass:
-                                                "fa fa-angle-double-right kt-font-danger"
-                                            })
-                                          ]
-                                        )
-                                      ]
-                                    )
-                                  : _vm._e()
-                              ],
-                              2
-                            )
-                          ]
-                        )
-                      ])
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass:
+                                              "fa fa-angle-right kt-font-danger"
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.paginacion2.pagina_actual <
+                              _vm.paginacion2.ultima_pagina
+                                ? _c(
+                                    "li",
+                                    {
+                                      staticClass: "kt-pagination__link--last"
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          attrs: { href: "javascript:;" },
+                                          on: {
+                                            click: function($event) {
+                                              $event.preventDefault()
+                                              return _vm.cambiarPaginas2(
+                                                _vm.paginacion2.ultima_pagina
+                                              )
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass:
+                                              "fa fa-angle-double-right kt-font-danger"
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : _vm._e()
+                            ],
+                            2
+                          )
+                        ]
+                      )
                     ])
                   ])
                 ])
               ])
             ])
           ])
-        ]
-      )
-    ],
-    1
-  )
+        ])
+      ]
+    ),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _c("div", { staticClass: "kt-separator kt-separator--border-dashed" }),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass:
+          "kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile",
+        staticStyle: { "margin-top": "3%" }
+      },
+      [
+        _vm._m(4),
+        _vm._v(" "),
+        _c("div", { staticClass: "kt-portlet__body" }, [
+          _c("div", { staticClass: "kt-section" }, [
+            _c("div", { staticClass: "kt-section__content" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-6 col-lg-6" }, [
+                  _c("div", { staticClass: "kt-section" }, [
+                    _c("div", { staticClass: "kt-section__content" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-outline-primary btn-icon",
+                          attrs: {
+                            href: "javascript:;",
+                            title: "Nueva Unidad Productiva"
+                          },
+                          on: { click: _vm.abrir3 }
+                        },
+                        [_c("i", { staticClass: "la la-file-text-o" })]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-outline-warning btn-icon",
+                          attrs: {
+                            href: "javascript:;",
+                            title: "Exportar a Pdf"
+                          },
+                          on: { click: _vm.exportarUnidades }
+                        },
+                        [_c("i", { staticClass: "la la-file-pdf-o" })]
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-6 col-lg-6" }, [
+                  _c("form", { staticClass: "kt-form" }, [
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("div", { staticClass: "input-group" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.txtbusqueda3,
+                              expression: "txtbusqueda3"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text", placeholder: "Busqueda" },
+                          domProps: { value: _vm.txtbusqueda3 },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.txtbusqueda3 = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "input-group-append" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-primary btn-icon",
+                              attrs: { type: "button" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.consultar3(1)
+                                }
+                              }
+                            },
+                            [_c("i", { staticClass: "fa fa-search" })]
+                          )
+                        ])
+                      ])
+                    ])
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-lg-12" }, [
+                  _c("div", { staticClass: "table-responsive" }, [
+                    _c("table", { staticClass: "table table-sm table-hover" }, [
+                      _vm._m(5),
+                      _vm._v(" "),
+                      _c(
+                        "tbody",
+                        _vm._l(_vm.unidades, function(item, index) {
+                          return _c("tr", { key: index }, [
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle"
+                                }
+                              },
+                              [_vm._v(_vm._s(index + 1))]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [_vm._v(_vm._s(item.DPTO.toUpperCase()))]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [_vm._v(_vm._s(item.MUNI.toUpperCase()))]
+                            ),
+                            _vm._v(" "),
+                            item.CORREGIMIENTO !== null
+                              ? _c(
+                                  "td",
+                                  {
+                                    staticStyle: {
+                                      "font-weight": "normal",
+                                      "vertical-align": "middle",
+                                      "text-align": "left",
+                                      "text-transform": "capitalize"
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      _vm._s(item.CORREGIMIENTO.toUpperCase())
+                                    )
+                                  ]
+                                )
+                              : _c("td", {
+                                  staticStyle: {
+                                    "font-weight": "normal",
+                                    "vertical-align": "middle",
+                                    "text-align": "left",
+                                    "text-transform": "capitalize"
+                                  }
+                                }),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [_vm._v(_vm._s(item.nom_finca.toUpperCase()))]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  _vm._s(item.identificacion.toUpperCase())
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [_vm._v(_vm._s(item.nom_productor.toUpperCase()))]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "text-align": "center",
+                                  "vertical-align": "middle"
+                                }
+                              },
+                              [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "btn btn-outline-success btn-icon btn-sm",
+                                    attrs: {
+                                      type: "button",
+                                      title: "Imprimir"
+                                    },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.exportarUnidad(item)
+                                      }
+                                    }
+                                  },
+                                  [_c("i", { staticClass: "fa fa-file-pdf" })]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "btn btn-outline-info btn-icon btn-sm",
+                                    attrs: { type: "button", title: "Editar" },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.editar3(item)
+                                      }
+                                    }
+                                  },
+                                  [_c("i", { staticClass: "fa fa-edit" })]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass: "btn btn-icon btn-sm",
+                                    class:
+                                      item.ESTADO == "Activo"
+                                        ? "btn-outline-danger"
+                                        : "btn-outline-success",
+                                    attrs: {
+                                      type: "button",
+                                      title:
+                                        item.ESTADO == "Activo"
+                                          ? "Anular"
+                                          : "Activar"
+                                    },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.eliminar3(item)
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _c("i", {
+                                      staticClass: "fa",
+                                      class:
+                                        item.ESTADO == "Activo"
+                                          ? "fa-trash"
+                                          : "fa-check"
+                                    })
+                                  ]
+                                )
+                              ]
+                            )
+                          ])
+                        }),
+                        0
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", {
+                      staticClass: "kt-separator kt-separator--border-dashed"
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "kt-section" }, [
+                      _c(
+                        "div",
+                        { staticClass: "kt-pagination kt-pagination--danger" },
+                        [
+                          _c(
+                            "ul",
+                            { staticClass: "kt-pagination__links" },
+                            [
+                              _vm.paginacion3.pagina_actual > 1
+                                ? _c(
+                                    "li",
+                                    {
+                                      staticClass: "kt-pagination__link--first"
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          attrs: { href: "javascript:;" },
+                                          on: {
+                                            click: function($event) {
+                                              $event.preventDefault()
+                                              return _vm.cambiarPaginas3(1)
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass:
+                                              "fa fa-angle-double-left kt-font-danger"
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.paginacion3.pagina_actual > 1
+                                ? _c(
+                                    "li",
+                                    {
+                                      staticClass: "kt-pagination__link--next"
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          attrs: { href: "javascript:;" },
+                                          on: {
+                                            click: function($event) {
+                                              $event.preventDefault()
+                                              return _vm.cambiarPaginas3(
+                                                _vm.paginacion3.pagina_actual -
+                                                  1
+                                              )
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass:
+                                              "fa fa-angle-left kt-font-danger"
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm._l(_vm.numeroDePaginas3, function(
+                                pagina,
+                                index
+                              ) {
+                                return _c(
+                                  "li",
+                                  {
+                                    key: index,
+                                    class: [
+                                      pagina == _vm.esActivo3
+                                        ? "kt-pagination__link--active"
+                                        : ""
+                                    ]
+                                  },
+                                  [
+                                    _c(
+                                      "a",
+                                      {
+                                        attrs: { href: "javascript:;" },
+                                        on: {
+                                          click: function($event) {
+                                            $event.preventDefault()
+                                            return _vm.cambiarPaginas3(pagina)
+                                          }
+                                        }
+                                      },
+                                      [_vm._v(_vm._s(pagina))]
+                                    )
+                                  ]
+                                )
+                              }),
+                              _vm._v(" "),
+                              _vm.paginacion3.pagina_actual <
+                              _vm.paginacion3.ultima_pagina
+                                ? _c(
+                                    "li",
+                                    {
+                                      staticClass: "kt-pagination__link--prev"
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          attrs: { href: "javascript:;" },
+                                          on: {
+                                            click: function($event) {
+                                              $event.preventDefault()
+                                              return _vm.cambiarPaginas3(
+                                                _vm.paginacion3.pagina_actual +
+                                                  1
+                                              )
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass:
+                                              "fa fa-angle-right kt-font-danger"
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.paginacion3.pagina_actual <
+                              _vm.paginacion3.ultima_pagina
+                                ? _c(
+                                    "li",
+                                    {
+                                      staticClass: "kt-pagination__link--last"
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          attrs: { href: "javascript:;" },
+                                          on: {
+                                            click: function($event) {
+                                              $event.preventDefault()
+                                              return _vm.cambiarPaginas3(
+                                                _vm.paginacion3.ultima_pagina
+                                              )
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass:
+                                              "fa fa-angle-double-right kt-font-danger"
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : _vm._e()
+                            ],
+                            2
+                          )
+                        ]
+                      )
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ])
+      ]
+    )
+  ])
 }
 var staticRenderFns = [
   function() {

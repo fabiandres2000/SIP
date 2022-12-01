@@ -9213,6 +9213,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 
 
 
@@ -9764,32 +9765,200 @@ _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_7__["useTheme"](_amcharts_amch
         }, _callee9, null, [[46, 51]]);
       }))();
     },
+    exportToPDFINMEXCEL: function exportToPDFINMEXCEL() {
+      var _this10 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee10() {
+        var options, filtro, filtro2, graficos, data, parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee10$(_context10) {
+          while (1) {
+            switch (_context10.prev = _context10.next) {
+              case 0:
+                _this10.isLoading = true;
+                _this10.exportando = true;
+                options = {
+                  type: 'dataURL',
+                  useCORS: true
+                };
+                filtro = {
+                  bcm: _this10.barrios.filter(function (item) {
+                    return item.value == _this10.comboBarrio;
+                  }),
+                  bc: _this10.barriosCorregimiento.filter(function (item) {
+                    return item.value == _this10.comboBarrio2;
+                  }),
+                  v: _this10.veredas.filter(function (item) {
+                    return item.id == _this10.comboVereda;
+                  }),
+                  c: _this10.corregimientos.filter(function (item) {
+                    return item.id == _this10.comboCorregimiento;
+                  })
+                };
+                _context10.t0 = _this10.tipoComboGrupoEdad;
+                _context10.next = _context10.t0 === "men1a" ? 7 : _context10.t0 === "de1a5" ? 9 : 11;
+                break;
+
+              case 7:
+                filtro2 = {
+                  grupo: "Menores de 1 Año"
+                };
+                return _context10.abrupt("break", 13);
+
+              case 9:
+                filtro2 = {
+                  grupo: "De 1 a 5 Años"
+                };
+                return _context10.abrupt("break", 13);
+
+              case 11:
+                filtro2 = {
+                  grupo: "Reporte - General"
+                };
+                return _context10.abrupt("break", 13);
+
+              case 13:
+                if (!(_this10.tipoComboGrupoEdad == "men1a")) {
+                  _context10.next = 30;
+                  break;
+                }
+
+                _context10.next = 16;
+                return _this10.$html2canvas(_this10.$refs.fila_1_men_1, options);
+
+              case 16:
+                _context10.t1 = _context10.sent;
+                _context10.next = 19;
+                return _this10.$html2canvas(_this10.$refs.fila_2_men_1, options);
+
+              case 19:
+                _context10.t2 = _context10.sent;
+                _context10.next = 22;
+                return _this10.$html2canvas(_this10.$refs.fila_3_men_1, options);
+
+              case 22:
+                _context10.t3 = _context10.sent;
+                _context10.next = 25;
+                return _this10.chart_1_men_1.exporting.getImage("png");
+
+              case 25:
+                _context10.t4 = _context10.sent;
+                graficos = {
+                  fila1: _context10.t1,
+                  fila2: _context10.t2,
+                  fila3: _context10.t3,
+                  fila4: _context10.t4
+                };
+                data = {
+                  sin_bcg_array: _this10.inmunizacion_data.sin_bcg_array,
+                  sin_polio_array: _this10.inmunizacion_data.sin_polio_array,
+                  esquema_completo_polio_array: _this10.inmunizacion_data.esquema_completo_polio_array,
+                  desnutricion_carnet_desac_array: _this10.inmunizacion_data.desnutricion_carnet_desac_array,
+                  esquema_completo_pentavalente_array: _this10.inmunizacion_data.esquema_completo_pentavalente_array,
+                  esquema_icompleto_pentavalente_array: _this10.inmunizacion_data.esquema_icompleto_pentavalente_array
+                };
+                _context10.next = 45;
+                break;
+
+              case 30:
+                if (!(_this10.tipoComboGrupoEdad == "de1a5")) {
+                  _context10.next = 45;
+                  break;
+                }
+
+                _context10.next = 33;
+                return _this10.$html2canvas(_this10.$refs.fila1_1a5, options);
+
+              case 33:
+                _context10.t5 = _context10.sent;
+                _context10.next = 36;
+                return _this10.chart_polio.exporting.getImage("png");
+
+              case 36:
+                _context10.t6 = _context10.sent;
+                _context10.next = 39;
+                return _this10.chart_pentavalente.exporting.getImage("png");
+
+              case 39:
+                _context10.t7 = _context10.sent;
+                _context10.next = 42;
+                return _this10.chart_1_men_1.exporting.getImage("png");
+
+              case 42:
+                _context10.t8 = _context10.sent;
+                graficos = {
+                  fila1: _context10.t5,
+                  fila2: _context10.t6,
+                  fila3: _context10.t7,
+                  fila4: _context10.t8
+                };
+                data = {
+                  personas: _this10.inmunizacion_data.personas,
+                  personas_1_anio: _this10.inmunizacion_data.personas_1_anio
+                };
+
+              case 45:
+                parametros = {
+                  _token: _this10.csrf,
+                  filtro: filtro,
+                  filtro2: filtro2,
+                  graficos: graficos,
+                  data: data,
+                  tipo: _this10.tipoComboGrupoEdad
+                };
+                _context10.prev = 46;
+                _context10.next = 49;
+                return _Servicios_dashboard_riesgos_salud__WEBPACK_IMPORTED_MODULE_1__["exportToPDFINMEXCEL"](parametros).then(function (respuesta) {
+                  _this10.rutaPdf = _store__WEBPACK_IMPORTED_MODULE_13__["default"].state.apiURL + respuesta.data.nombre;
+                  _this10.isLoading = false;
+                  _this10.exportando = false;
+                });
+
+              case 49:
+                _context10.next = 55;
+                break;
+
+              case 51:
+                _context10.prev = 51;
+                _context10.t9 = _context10["catch"](46);
+
+                _this10.$swal("Error...!", "Ocurrio un error!", "error");
+
+                _this10.isLoading = false;
+
+              case 55:
+              case "end":
+                return _context10.stop();
+            }
+          }
+        }, _callee10, null, [[46, 51]]);
+      }))();
+    },
     cerrarModal: function cerrarModal() {
       this.$refs.detalle_inmunizacion.hide();
       this.$refs.modalpdf.hide();
       this.$refs.detalle_inmunizacion_2.hide();
     },
     grafica_torta_desnutricion_incompleto: function grafica_torta_desnutricion_incompleto() {
-      var _this10 = this;
+      var _this11 = this;
 
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee10() {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee11() {
         var chart, series;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee10$(_context10) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee11$(_context11) {
           while (1) {
-            switch (_context10.prev = _context10.next) {
+            switch (_context11.prev = _context11.next) {
               case 0:
-                if (_this10.chart_1_men_1 != null) {
-                  _this10.chart_1_men_1.dispose();
+                if (_this11.chart_1_men_1 != null) {
+                  _this11.chart_1_men_1.dispose();
                 }
 
                 chart = _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_7__["create"]("chartdiv_desnutricion_incompleto", _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_8__["PieChart3D"]);
-                _this10.chart_1_men_1 = chart;
+                _this11.chart_1_men_1 = chart;
                 chart.data = [{
                   category: "Desnutrición Aguda",
-                  first: _this10.inmunizacion_data.desnutricion_aguda_carnet_desac_numero
+                  first: _this11.inmunizacion_data.desnutricion_aguda_carnet_desac_numero
                 }, {
                   category: "Desnutrición Global",
-                  first: _this10.inmunizacion_data.desnutricion_global_carnet_desac_numero
+                  first: _this11.inmunizacion_data.desnutricion_global_carnet_desac_numero
                 }];
                 series = chart.series.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_8__["PieSeries3D"]());
                 series.dataFields.value = "first";
@@ -9800,10 +9969,10 @@ _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_7__["useTheme"](_amcharts_amch
 
               case 10:
               case "end":
-                return _context10.stop();
+                return _context11.stop();
             }
           }
-        }, _callee10);
+        }, _callee11);
       }))();
     },
     ver_detalle_inmunizacion: function ver_detalle_inmunizacion(array, titulo, tipo) {
@@ -9841,43 +10010,6 @@ _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_7__["useTheme"](_amcharts_amch
       }, 500);
     },
     grafica_torta_polio: function grafica_torta_polio() {
-      var _this11 = this;
-
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee11() {
-        var chart, series;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee11$(_context11) {
-          while (1) {
-            switch (_context11.prev = _context11.next) {
-              case 0:
-                if (_this11.chart_polio != null) {
-                  _this11.chart_polio.dispose();
-                }
-
-                chart = _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_7__["create"]("chartdiv_polio", _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_8__["PieChart3D"]);
-                _this11.chart_polio = chart;
-                chart.data = [{
-                  category: "Esquema Completo",
-                  first: _this11.inmunizacion_data.esquema_completo_polio_numero
-                }, {
-                  category: "Esquema Incompleto",
-                  first: _this11.inmunizacion_data.esquema_icompleto_polio_numero
-                }];
-                series = chart.series.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_8__["PieSeries3D"]());
-                series.dataFields.value = "first";
-                series.dataFields.category = "category";
-                series.labels.template.fontSize = 12;
-                series.labels.template.maxWidth = 100;
-                series.labels.template.wrap = true;
-
-              case 10:
-              case "end":
-                return _context11.stop();
-            }
-          }
-        }, _callee11);
-      }))();
-    },
-    grafica_torta_pentavalente: function grafica_torta_pentavalente() {
       var _this12 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee12() {
@@ -9886,18 +10018,18 @@ _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_7__["useTheme"](_amcharts_amch
           while (1) {
             switch (_context12.prev = _context12.next) {
               case 0:
-                if (_this12.chart_pentavalente != null) {
-                  _this12.chart_pentavalente.dispose();
+                if (_this12.chart_polio != null) {
+                  _this12.chart_polio.dispose();
                 }
 
-                chart = _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_7__["create"]("chartdiv_pentavalente", _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_8__["PieChart3D"]);
-                _this12.chart_pentavalente = chart;
+                chart = _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_7__["create"]("chartdiv_polio", _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_8__["PieChart3D"]);
+                _this12.chart_polio = chart;
                 chart.data = [{
                   category: "Esquema Completo",
-                  first: _this12.inmunizacion_data.esquema_completo_pentavalente_numero
+                  first: _this12.inmunizacion_data.esquema_completo_polio_numero
                 }, {
                   category: "Esquema Incompleto",
-                  first: _this12.inmunizacion_data.esquema_incompleto_pentavalente_numero
+                  first: _this12.inmunizacion_data.esquema_icompleto_polio_numero
                 }];
                 series = chart.series.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_8__["PieSeries3D"]());
                 series.dataFields.value = "first";
@@ -9914,52 +10046,89 @@ _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_7__["useTheme"](_amcharts_amch
         }, _callee12);
       }))();
     },
-    ver_detalle_inmunizacion_1a5: function ver_detalle_inmunizacion_1a5(titulo, tipo) {
+    grafica_torta_pentavalente: function grafica_torta_pentavalente() {
       var _this13 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee13() {
+        var chart, series;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee13$(_context13) {
           while (1) {
             switch (_context13.prev = _context13.next) {
               case 0:
-                _this13.$refs.detalle_inmunizacion_2.show();
+                if (_this13.chart_pentavalente != null) {
+                  _this13.chart_pentavalente.dispose();
+                }
 
-                _this13.titulo_detalle2 = titulo;
-                _this13.tipo_detalle_1a5 = tipo;
-                _this13.array_filtrado = [];
+                chart = _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_7__["create"]("chartdiv_pentavalente", _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_8__["PieChart3D"]);
+                _this13.chart_pentavalente = chart;
+                chart.data = [{
+                  category: "Esquema Completo",
+                  first: _this13.inmunizacion_data.esquema_completo_pentavalente_numero
+                }, {
+                  category: "Esquema Incompleto",
+                  first: _this13.inmunizacion_data.esquema_incompleto_pentavalente_numero
+                }];
+                series = chart.series.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_8__["PieSeries3D"]());
+                series.dataFields.value = "first";
+                series.dataFields.category = "category";
+                series.labels.template.fontSize = 12;
+                series.labels.template.maxWidth = 100;
+                series.labels.template.wrap = true;
+
+              case 10:
+              case "end":
+                return _context13.stop();
+            }
+          }
+        }, _callee13);
+      }))();
+    },
+    ver_detalle_inmunizacion_1a5: function ver_detalle_inmunizacion_1a5(titulo, tipo) {
+      var _this14 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee14() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee14$(_context14) {
+          while (1) {
+            switch (_context14.prev = _context14.next) {
+              case 0:
+                _this14.$refs.detalle_inmunizacion_2.show();
+
+                _this14.titulo_detalle2 = titulo;
+                _this14.tipo_detalle_1a5 = tipo;
+                _this14.array_filtrado = [];
 
                 if (tipo == 1) {
-                  _this13.inmunizacion_data.personas.forEach(function (element) {
+                  _this14.inmunizacion_data.personas.forEach(function (element) {
                     if (element.carnet == "DESAC") {
-                      _this13.array_filtrado.push(element);
+                      _this14.array_filtrado.push(element);
                     }
                   });
                 }
 
                 if (tipo == 2) {
-                  _this13.inmunizacion_data.personas.forEach(function (element) {
+                  _this14.inmunizacion_data.personas.forEach(function (element) {
                     if (element.tripleviral == "1R") {
-                      _this13.array_filtrado.push(element);
+                      _this14.array_filtrado.push(element);
                     }
                   });
                 }
 
                 if (tipo == 3) {
-                  _this13.inmunizacion_data.personas_1_anio.forEach(function (element) {
+                  _this14.inmunizacion_data.personas_1_anio.forEach(function (element) {
                     if (element.neumococo == "R1") {
-                      _this13.array_filtrado.push(element);
+                      _this14.array_filtrado.push(element);
                     }
                   });
                 }
 
                 if (tipo == 4 || tipo == 5) {
-                  _this13.array_filtrado = _this13.inmunizacion_data.personas;
+                  _this14.array_filtrado = _this14.inmunizacion_data.personas;
                 }
 
                 if (tipo == 6) {
-                  _this13.inmunizacion_data.personas.forEach(function (element) {
+                  _this14.inmunizacion_data.personas.forEach(function (element) {
                     if (element.carnet == "DESAC" && (element.riesgos_desnutricion_aguda_R == "4" || element.riesgos_desnutricion_aguda_R == "5" || element.riesgos_desnutricion_global_R == "4" || element.riesgos_desnutricion_global_R == "5")) {
-                      _this13.array_filtrado.push(element);
+                      _this14.array_filtrado.push(element);
                     }
                   });
                 }
@@ -9995,10 +10164,10 @@ _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_7__["useTheme"](_amcharts_amch
 
               case 11:
               case "end":
-                return _context13.stop();
+                return _context14.stop();
             }
           }
-        }, _callee13);
+        }, _callee14);
       }))();
     }
   }
@@ -32718,6 +32887,25 @@ var render = function() {
                         }),
                         _vm._v(" Exportar PDF")
                       ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-success",
+                        on: {
+                          click: function($event) {
+                            return _vm.exportToPDFINMEXCEL()
+                          }
+                        }
+                      },
+                      [
+                        _c("i", {
+                          staticClass: "fa fa-table",
+                          attrs: { "aria-hidden": "true" }
+                        }),
+                        _vm._v(" Exportar EXCEL")
+                      ]
                     )
                   ]
                 )
@@ -43317,7 +43505,7 @@ function PorcentajesGeneral($tipo, $id) {
 /*!***********************************************************!*\
   !*** ./resources/js/Servicios/dashboard_riesgos_salud.js ***!
   \***********************************************************/
-/*! exports provided: poblacion, exportarRiesgoSalud, hogares, exportarHogares, enfermedades, exportarPestanaEnfermedad, spa, exportarRSSPA, embarazo, exportarEmbarazo, inmunizacion, exportToPDFINM */
+/*! exports provided: poblacion, exportarRiesgoSalud, hogares, exportarHogares, enfermedades, exportarPestanaEnfermedad, spa, exportarRSSPA, embarazo, exportarEmbarazo, inmunizacion, exportToPDFINM, exportToPDFINMEXCEL */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -43334,6 +43522,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "exportarEmbarazo", function() { return exportarEmbarazo; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "inmunizacion", function() { return inmunizacion; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "exportToPDFINM", function() { return exportToPDFINM; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "exportToPDFINMEXCEL", function() { return exportToPDFINMEXCEL; });
 /* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
 
 function poblacion($tipo, $id, $rangoEdad) {
@@ -43371,6 +43560,9 @@ function inmunizacion($tipo, $id, $rango) {
 }
 function exportToPDFINM($data) {
   return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/dashboard-riesgos-salud/exportar-inmunizacion', $data);
+}
+function exportToPDFINMEXCEL($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/dashboard-riesgos-salud/exportar-inmunizacion-excel', $data);
 }
 
 /***/ }),

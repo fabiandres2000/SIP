@@ -234,7 +234,7 @@
                                     v-if="imagen != null"
                                     alt="Logo"
                                     :src="
-                                        `${$store.state.serverPath}assets/media/${alias}/fotos/${imagen}`
+                                        `${$store.state.serverPath}assets/media/fotos/${imagen}`
                                     "
                                     width="70"
                                     style="margin-left:5px;"
@@ -273,7 +273,7 @@
                                         v-if="imagen != null"
                                         alt="Logo"
                                         :src="
-                                            `${$store.state.serverPath}assets/media/${alias}/fotos/${imagen}`
+                                            `${$store.state.serverPath}assets/media/fotos/${imagen}`
                                         "
                                         width="70"
                                         style="margin-left:5px;"

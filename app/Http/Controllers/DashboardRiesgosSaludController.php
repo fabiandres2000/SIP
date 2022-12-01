@@ -7,6 +7,9 @@ use Session;
 use Auth;
 use File;
 
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+
 class DashboardRiesgosSaludController extends Controller
 {
     public function poblacion() {
@@ -383,6 +386,305 @@ class DashboardRiesgosSaludController extends Controller
                 'tipo' => $tipo,
             ])->setPaper('a4', 'landscape')
             ->save( $ente.'/'.$nombre);
+
+            $respuesta = [
+                'nombre' => $ente.'/'.$nombre,
+            ];
+
+            return response()->json($respuesta, 200);
+
+        }else {
+            return redirect("/index")->with("error", "Su sesion ha terminado");
+        }
+    }
+
+    public function exportarInmunizacionExcel() {
+        $styleArray = [
+            'font' => [
+                'bold' => true,
+                'size' => 14,
+            ],
+            'alignment' => [
+                'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
+            ],
+            'borders' => [
+                'top' => [
+                    'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                ],
+            ],
+            'fill' => [
+                'fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_GRADIENT_LINEAR,
+                'rotation' => 90,
+                'startColor' => [
+                    'argb' => 'FF2FA021',
+                ],
+                'endColor' => [
+                    'argb' => 'FF2FA021',
+                ],
+            ],
+        ];
+        
+        if (Auth::check()) {
+            
+            $filtro = request()->get('filtro');
+            $filtro2 = request()->get('filtro2');
+            $tipo = request()->get('tipo');
+            $graficos = request()->get('graficos');
+            $data = request()->get('data');
+
+            $ente = Auth::user()->permisos->where('actual', 1)->first()->ente->nombre;
+            File::makeDirectory(public_path().'/'.$ente, $mode = 0777, true, true);
+            $nombre = "Riesgo-Salud-Inunizacion.xlsx";
+            
+            if($tipo == "men1a"){
+                  
+                $spreadsheet = new Spreadsheet();
+                $sheet = $spreadsheet->getActiveSheet();
+
+                $spreadsheet->getActiveSheet()->getColumnDimension('A')->setAutoSize(true);
+                $spreadsheet->getActiveSheet()->getColumnDimension('B')->setAutoSize(true);
+                $spreadsheet->getActiveSheet()->getColumnDimension('C')->setAutoSize(true);
+                $spreadsheet->getActiveSheet()->getColumnDimension('D')->setAutoSize(true);
+                $spreadsheet->getActiveSheet()->getColumnDimension('E')->setAutoSize(true);
+                $spreadsheet->getActiveSheet()->getColumnDimension('F')->setAutoSize(true);
+                $spreadsheet->getActiveSheet()->getColumnDimension('G')->setAutoSize(true);
+                $spreadsheet->getActiveSheet()->getColumnDimension('H')->setAutoSize(true);
+                $spreadsheet->getActiveSheet()->getColumnDimension('i')->setAutoSize(true);
+
+                // sin BCG
+                $sheet->setCellValue('A1', 'Niños menores de 1 años sin vacuna BGC');
+
+                $sheet->mergeCells('A1:G1');
+                $spreadsheet->getActiveSheet()->getStyle('A1:G1')->applyFromArray($styleArray);
+
+                $sheet->setCellValue('A2', 'Identificacion');
+                $sheet->setCellValue('B2', 'Nombre');
+                $sheet->setCellValue('C2', 'Edad (Meses)');
+                $sheet->setCellValue('D2', 'Corregimiento');
+                $sheet->setCellValue('E2', 'Barrio');
+                $sheet->setCellValue('F2', 'Direccion');
+                $sheet->setCellValue('G2', 'BCG');
+
+                $spreadsheet->getActiveSheet()->getStyle('A2:G2')->applyFromArray($styleArray);
+
+                $row = 3;
+                foreach ($data["sin_bcg_array"] as $item) {
+                    $sheet
+                        ->setCellValue("A{$row}", $item["tipo_id"].":".$item["identificacion"])
+                        ->setCellValue("B{$row}", $item["nombre"])
+                        ->setCellValue("C{$row}", $item["edad"])
+                        ->setCellValue("D{$row}", $item["des_corr"])
+                        ->setCellValue("E{$row}", $item["des_barrio"])
+                        ->setCellValue("F{$row}", $item["des_direc"])
+                        ->setCellValue("G{$row}", $item["bcg"]);
+                    ++$row;
+                }
+
+                $row += 2;
+                // sin BCG
+
+                // sin vacuna de polio
+                $sheet->setCellValue("A{$row}", 'Niños menores de 1 años sin vacuna de Polio');
+                $sheet->mergeCells("A{$row}:G{$row}");
+                $spreadsheet->getActiveSheet()->getStyle("A{$row}:G{$row}")->applyFromArray($styleArray);
+
+                $row += 1;
+
+                $sheet->setCellValue("A{$row}", 'Identificacion');
+                $sheet->setCellValue("B{$row}", 'Nombre');
+                $sheet->setCellValue("C{$row}", 'Edad (Meses)');
+                $sheet->setCellValue("D{$row}", 'Corregimiento');
+                $sheet->setCellValue("E{$row}", 'Barrio');
+                $sheet->setCellValue("F{$row}", 'Direccion');
+                $sheet->setCellValue("G{$row}", 'Polio');
+
+                $spreadsheet->getActiveSheet()->getStyle("A{$row}:G{$row}")->applyFromArray($styleArray);
+
+                $row += 1;
+
+                foreach ($data["sin_polio_array"] as $item) {
+                    $sheet
+                        ->setCellValue("A{$row}", $item["tipo_id"].":".$item["identificacion"])
+                        ->setCellValue("B{$row}", $item["nombre"])
+                        ->setCellValue("C{$row}", $item["edad"])
+                        ->setCellValue("D{$row}", $item["des_corr"])
+                        ->setCellValue("E{$row}", $item["des_barrio"])
+                        ->setCellValue("F{$row}", $item["des_direc"])
+                        ->setCellValue("G{$row}", $item["polio"]);
+                    ++$row;
+                }
+
+                $row += 2;
+                // sin vacuna de polio
+
+                // con esquema completo de pentavalente
+                $sheet->setCellValue("A{$row}", 'Niños menores de 1 años con esquema completo de pentavalente');
+                $sheet->mergeCells("A{$row}:G{$row}");
+                $spreadsheet->getActiveSheet()->getStyle("A{$row}:G{$row}")->applyFromArray($styleArray);
+
+                $row += 1;
+
+                $sheet->setCellValue("A{$row}", 'Identificacion');
+                $sheet->setCellValue("B{$row}", 'Nombre');
+                $sheet->setCellValue("C{$row}", 'Edad (Meses)');
+                $sheet->setCellValue("D{$row}", 'Corregimiento');
+                $sheet->setCellValue("E{$row}", 'Barrio');
+                $sheet->setCellValue("F{$row}", 'Direccion');
+                $sheet->setCellValue("G{$row}", 'Pentavalente');
+
+                $spreadsheet->getActiveSheet()->getStyle("A{$row}:G{$row}")->applyFromArray($styleArray);
+
+                $row += 1;
+
+                foreach ($data["esquema_completo_pentavalente_array"] as $item) {
+                    $sheet
+                        ->setCellValue("A{$row}", $item["tipo_id"].":".$item["identificacion"])
+                        ->setCellValue("B{$row}", $item["nombre"])
+                        ->setCellValue("C{$row}", $item["edad"])
+                        ->setCellValue("D{$row}", $item["des_corr"])
+                        ->setCellValue("E{$row}", $item["des_barrio"])
+                        ->setCellValue("F{$row}", $item["des_direc"])
+                        ->setCellValue("G{$row}", $item["pentavalente"]);
+                    ++$row;
+                }
+
+                $row += 2;
+                // con esquema completo de pentavalente
+
+                // con esquema incompleto de pentavalente
+                $sheet->setCellValue("A{$row}", 'Niños menores de 1 años con esquema incompleto de pentavalente');
+                $sheet->mergeCells("A{$row}:G{$row}");
+                $spreadsheet->getActiveSheet()->getStyle("A{$row}:G{$row}")->applyFromArray($styleArray);
+
+                $row += 1;
+
+                $sheet->setCellValue("A{$row}", 'Identificacion');
+                $sheet->setCellValue("B{$row}", 'Nombre');
+                $sheet->setCellValue("C{$row}", 'Edad (Meses)');
+                $sheet->setCellValue("D{$row}", 'Corregimiento');
+                $sheet->setCellValue("E{$row}", 'Barrio');
+                $sheet->setCellValue("F{$row}", 'Direccion');
+                $sheet->setCellValue("G{$row}", 'Pentavalente');
+
+                $spreadsheet->getActiveSheet()->getStyle("A{$row}:G{$row}")->applyFromArray($styleArray);
+
+                $row += 1;
+
+                foreach ($data["esquema_icompleto_pentavalente_array"] as $item) {
+                    $sheet
+                        ->setCellValue("A{$row}", $item["tipo_id"].":".$item["identificacion"])
+                        ->setCellValue("B{$row}", $item["nombre"])
+                        ->setCellValue("C{$row}", $item["edad"])
+                        ->setCellValue("D{$row}", $item["des_corr"])
+                        ->setCellValue("E{$row}", $item["des_barrio"])
+                        ->setCellValue("F{$row}", $item["des_direc"])
+                        ->setCellValue("G{$row}", $item["pentavalente"]);
+                    ++$row;
+                }
+
+                $row += 2;
+                // con esquema incompleto de pentavalente
+
+                // esquema completo de polio
+                $sheet->setCellValue("A{$row}", 'Niños menores de 1 año con esquema completo de polio');
+                $sheet->mergeCells("A{$row}:G{$row}");
+                $spreadsheet->getActiveSheet()->getStyle("A{$row}:G{$row}")->applyFromArray($styleArray);
+
+                $row += 1;
+
+                $sheet->setCellValue("A{$row}", 'Identificacion');
+                $sheet->setCellValue("B{$row}", 'Nombre');
+                $sheet->setCellValue("C{$row}", 'Edad (Meses)');
+                $sheet->setCellValue("D{$row}", 'Corregimiento');
+                $sheet->setCellValue("E{$row}", 'Barrio');
+                $sheet->setCellValue("F{$row}", 'Direccion');
+                $sheet->setCellValue("G{$row}", 'Polio');
+
+                $spreadsheet->getActiveSheet()->getStyle("A{$row}:G{$row}")->applyFromArray($styleArray);
+
+                $row += 1;
+
+                foreach ($data["esquema_completo_polio_array"] as $item) {
+                    $sheet
+                        ->setCellValue("A{$row}", $item["tipo_id"].":".$item["identificacion"])
+                        ->setCellValue("B{$row}", $item["nombre"])
+                        ->setCellValue("C{$row}", $item["edad"])
+                        ->setCellValue("D{$row}", $item["des_corr"])
+                        ->setCellValue("E{$row}", $item["des_barrio"])
+                        ->setCellValue("F{$row}", $item["des_direc"])
+                        ->setCellValue("G{$row}", $item["polio"]);
+                    ++$row;
+                }
+
+                $row += 2;
+                // esquema completo de polio
+
+                // desnutrición con esquema de vacunación incompleto
+                $sheet->setCellValue("A{$row}", 'Niños en riesgos de desnutrición con esquema de vacunación incompleto');
+                $sheet->mergeCells("A{$row}:I{$row}");
+                $spreadsheet->getActiveSheet()->getStyle("A{$row}:I{$row}")->applyFromArray($styleArray);
+
+                $row += 1;
+
+                $sheet->setCellValue("A{$row}", 'Identificacion');
+                $sheet->setCellValue("B{$row}", 'Nombre');
+                $sheet->setCellValue("C{$row}", 'Edad (Meses)');
+                $sheet->setCellValue("D{$row}", 'Corregimiento');
+                $sheet->setCellValue("E{$row}", 'Barrio');
+                $sheet->setCellValue("F{$row}", 'Direccion');
+                $sheet->setCellValue("G{$row}", 'Desnutrición Aguda');
+                $sheet->setCellValue("H{$row}", 'Desnutrición Global');
+                $sheet->setCellValue("I{$row}", 'Carnet ');
+
+                $spreadsheet->getActiveSheet()->getStyle("A{$row}:I{$row}")->applyFromArray($styleArray);
+
+                $row += 1;
+
+                foreach ($data["desnutricion_carnet_desac_array"] as $item) {
+
+                    if($item["riesgos_desnutricion_aguda_R"] == 0 || $item["riesgos_desnutricion_aguda_R"] == 1){
+                        $da = "BAJO";
+                    }else{
+                        if($item["riesgos_desnutricion_aguda_R"] == 2 || $item["riesgos_desnutricion_aguda_R"] == 3){
+                            $da = "MODERADO";
+                        }else{  
+                            $da = "ALTO";
+                        }
+                    }
+
+                    if($item["riesgos_desnutricion_global_R"] == 0 || $item["riesgos_desnutricion_global_R"] == 1){
+                        $dg = "BAJO";
+                    }else{
+                        if($item["riesgos_desnutricion_global_R"] == 2 || $item["riesgos_desnutricion_global_R"] == 3){
+                            $dg = "MODERADO";
+                        }else{  
+                            $dg = "ALTO";
+                        }
+                    }
+
+                    $sheet
+                        ->setCellValue("A{$row}", $item["tipo_id"].":".$item["identificacion"])
+                        ->setCellValue("B{$row}", $item["nombre"])
+                        ->setCellValue("C{$row}", $item["edad"])
+                        ->setCellValue("D{$row}", $item["des_corr"])
+                        ->setCellValue("E{$row}", $item["des_barrio"])
+                        ->setCellValue("F{$row}", $item["des_direc"])
+                        ->setCellValue("G{$row}", $da)
+                        ->setCellValue("H{$row}", $dg)
+                        ->setCellValue("I{$row}", 'Desactualizado');
+                    ++$row;
+                }
+
+                $row += 2;
+                // desnutrición con esquema de vacunación incompleto
+
+                $writer = new Xlsx($spreadsheet);
+                $writer->save( $ente.'/'.$nombre);
+            }else{
+                if($tipo == "de1a5"){
+                    
+                }
+            }
 
             $respuesta = [
                 'nombre' => $ente.'/'.$nombre,

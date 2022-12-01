@@ -416,10 +416,10 @@
                   <label>Lactante (*):</label>
                   <b-form-select
                     v-model.trim="caracData.lactante"
-                    :class="caracData.lactante=='is-invalid'?'':'is-valid'"
+                    :class="caracData.lactante==''?'':'is-valid'"
                     ref="sexo"
                   >
-                    <option value selected>Seleccione</option>
+                    <option value="0" selected>Seleccione</option>
                     <option value="SI">SI</option>
                     <option value="NO">NO</option>
                     <option value="NA">No Aplica</option>
@@ -1798,10 +1798,10 @@
                   <label>Lactante (*):</label>
                   <b-form-select
                     v-model.trim="CA1.lactante"
-                    :class="CA1.lactante==''?'is-invalid':'is-valid'"
+                    :class="CA1.lactante==''?'':'is-valid'"
                     ref="sexo"
                   >
-                    <option value selected>Seleccione</option>
+                    <option value="0" selected>Seleccione</option>
                     <option value="SI">SI</option>
                     <option value="NO">NO</option>
                     <option value="NA">No Aplica</option>
@@ -23032,7 +23032,7 @@
           percargo: "",
           actividad_fisica: "",
           vacuna: "",
-          lactante: ""    
+          lactante: "0"    
         },
         carac2: [],
         CA1: {
@@ -23084,7 +23084,7 @@
           tipo_empleo: "0",
           actividad_fisica: "0",
           vacuna: "",
-          lactante: ""                      
+          lactante: "0"                      
         },
         CA2: [],
         viviendaData: {
@@ -29448,7 +29448,7 @@
           this.$swal("Error...!", "Por favor seleccione el tipo de empleo!", "error");
           return;
         }    
-        if (this.CA1.lactante == "") {
+        if (this.CA1.lactante == "0") {
           this.$swal("Error...!", "Por favor seleccione si es una mujer lactante!", "error");
           return;
         }     
@@ -30273,7 +30273,7 @@
           this.$swal("Error...!", "Por favor digite el numero de personas a cargo!", "error");
           return;
         }    
-        if (this.caracData.lactante == "") {
+        if (this.caracData.lactante == "0") {
           this.$swal("Error...!", "Por favor seleccione si es una mujer lactante!", "error");
           return;
         }                                                    
@@ -32229,7 +32229,7 @@
           this.$swal("Error...!", "Por favor digite la talla!", "error");
           return;
         }    
-        if (this.CA1.lactante == "") {
+        if (this.CA1.lactante == "0") {
           this.$swal("Error...!", "Por favor seleccione si es una mujer lactante!", "error");
           return;
         }             

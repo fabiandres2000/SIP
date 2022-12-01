@@ -465,7 +465,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       if (this.imagenMiniatura == null) {
         return "".concat(_store__WEBPACK_IMPORTED_MODULE_2__["default"].state.serverPath, "assets/media/default.png");
       } else {
-        return "".concat(_store__WEBPACK_IMPORTED_MODULE_2__["default"].state.serverPath, "assets/media/").concat(this.alias, "/fotos/").concat(this.usuariosData.imagen);
+        return "".concat(_store__WEBPACK_IMPORTED_MODULE_2__["default"].state.serverPath, "assets/media/fotos/").concat(this.usuariosData.imagen);
       }
     },
     imagen1: function imagen1() {
@@ -499,7 +499,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   if (_this.imagenMiniatura1 == null) {
                     _this.imagenMiniatura1 = "".concat(_store__WEBPACK_IMPORTED_MODULE_2__["default"].state.serverPath, "assets/media/default.png");
                   } else {
-                    _this.imagenMiniatura1 = "".concat(_store__WEBPACK_IMPORTED_MODULE_2__["default"].state.serverPath, "assets/media/").concat(_this.alias, "/fotos/").concat(_this.usuariosData.imagen);
+                    _this.imagenMiniatura1 = "".concat(_store__WEBPACK_IMPORTED_MODULE_2__["default"].state.serverPath, "assets/media/fotos/").concat(_this.usuariosData.imagen);
                   }
                 });
 

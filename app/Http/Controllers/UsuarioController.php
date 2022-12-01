@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Auth;
 use Session;
+use Illuminate\Support\Facades\Storage;
 
 class UsuarioController extends Controller
 {
@@ -437,7 +438,7 @@ class UsuarioController extends Controller
 
         if ($usuario) {
             try {
-                unlink(public_path() . '/assets/media/' . Auth::user()->permisos->where('actual', 1)->first()->ente->alias . '/fotos/' . $usuario->imagen);
+                unlink(public_path() . '/assets/media/fotos/' . $usuario->imagen);    
             } catch (\Exception $e) {
 
             }
@@ -448,8 +449,8 @@ class UsuarioController extends Controller
             $imagen_tmp1 = $data['imagen'];
             if ($imagen_tmp1->isValid()) {
                 $filename1 = 'foto_usuario_' . date('Y-m-d-h-i-s-A');
-                $imagen_tmp1->move(public_path() . '/assets/media/' . Auth::user()->permisos->where('actual', 1)->first()->ente->alias . '/fotos/', $filename1);
-            }
+                $imagen_tmp1->move(public_path() . '/assets/media/fotos/', $filename1);
+            }      
         }
         $respuesta = [
             'ruta' => $filename1,

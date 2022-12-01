@@ -219,3 +219,4 @@ Route::get('/dashboard-riesgos-salud/embarazo', 'DashboardRiesgosSaludController
 Route::post('/dashboard-riesgos-salud/exportar-embarazo', 'DashboardRiesgosSaludController@exportarEmbarazo');
 Route::get('/dashboard-riesgos-salud/inmunizacion', 'DashboardRiesgosSaludController@inmunizacion');
 Route::post('/dashboard-riesgos-salud/exportar-inmunizacion', 'DashboardRiesgosSaludController@exportarInmunizacion');
+Route::post('/dashboard-riesgos-salud/exportar-inmunizacion-excel', 'DashboardRiesgosSaludController@exportarInmunizacionExcel');

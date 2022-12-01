@@ -1,15 +1,5 @@
 <template>
   <div>
-    <loading
-      :active.sync="isLoading"
-      :can-cancel="true"
-      :on-cancel="onCancel"
-      loader="dots"
-      :height=128
-      :width=128
-      color="#007bff"
-      :is-full-page="true"
-    />
     <!-- CARCARTERIZACION -->
     <div
       class="kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile"
@@ -453,7 +443,7 @@
     <!-- ESTABLECIMIENTOS -->
     <div
       class="kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile"
-      style="margin-top: -4%;"
+      style="margin-top: 3%;"
     >
       <div class="kt-portlet__head">
         <div class="kt-portlet__head-label">
@@ -652,7 +642,7 @@
     <!-- UNIDADES PRODUCTIVAS -->
     <div
       class="kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile"
-      style="margin-top: -4%;"
+      style="margin-top: 3%;"
     >
       <div class="kt-portlet__head">
         <div class="kt-portlet__head-label">

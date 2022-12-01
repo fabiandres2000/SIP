@@ -22,124 +22,124 @@ class Caracterizacion extends Model
     public static function listar($busqueda, $alias)
     {   
         if (!empty($busqueda)) {
-            if (Auth::user()->rol == "Administrador") {
+            if (Auth::user()->rol == "Administrador" || Auth::user()->rol == "SuperAdministrador") {
                 $respuesta = DB::connection('mysql')->table($alias . '.caracterizacion')
-                    ->join($alias . '.hogar', 'hogar.id', 'caracterizacion.id_hogar')
-                    ->join($alias . '.dptos', 'dptos.codigo', 'hogar.id_dpto')
-                    ->join($alias . '.muni', function ($join) {
-                        $join->on('muni.coddep', '=', 'dptos.codigo');
-                        $join->on('muni.codmun', '=', 'hogar.id_mun');
-                    })
-                    ->leftjoin($alias . '.corregimientos', 'corregimientos.id', 'hogar.id_corre')
-                    ->where(function ($query) use ($busqueda) {
-                        $query->where('caracterizacion.identificacion', 'LIKE', '%' . $busqueda . '%')
-                            ->orWhere('corregimientos.descripcion', 'LIKE', '%' . $busqueda . '%')
-                        // ->orWhere('caracterizacion.pnom', 'LIKE', '%' . $busqueda . '%')
-                        // ->orWhere('caracterizacion.snom', 'LIKE', '%' . $busqueda . '%')
-                        // ->orWhere('caracterizacion.pape', 'LIKE', '%' . $busqueda . '%')
-                        // ->orWhere('caracterizacion.sape', 'LIKE', '%' . $busqueda . '%')
-                            ->orWhereRaw("CONCAT_WS(' ',caracterizacion.pnom,caracterizacion.snom,caracterizacion.pape,caracterizacion.sape) LIKE '%" . $busqueda . "%'")
-                            ->orWhere('muni.descripcion', 'LIKE', '%' . $busqueda . '%')
-                            ->orWhere('dptos.descripcion', 'LIKE', '%' . $busqueda . '%');
-                    })
-                    ->select("dptos.descripcion AS DPTO",
-                        "muni.descripcion AS MUNI",
-                        "corregimientos.descripcion AS CORREGIMIENTO",
-                        "caracterizacion.estado AS ESTADO",
-                        "caracterizacion.identificacion AS IDENTIFICACION",
-                        "caracterizacion.id",
-                        "caracterizacion.sexo",
-                        "hogar.id AS IDHOGAR",
-                        "caracterizacion.telefono"
-                    )
-                    ->where("hogar.estado", "Activo")
-                    ->selectRaw('CONCAT_WS(" ",caracterizacion.pnom," ",caracterizacion.snom," ",caracterizacion.pape," ",caracterizacion.sape) AS USUARIO')
-                    ->orderBy('caracterizacion.id', 'DESC')
-                    ->paginate(10);
+                ->join($alias . '.hogar', 'hogar.id', 'caracterizacion.id_hogar')
+                ->join($alias . '.dptos', 'dptos.codigo', 'hogar.id_dpto')
+                ->join($alias . '.muni', function ($join) {
+                    $join->on('muni.coddep', '=', 'dptos.codigo');
+                    $join->on('muni.codmun', '=', 'hogar.id_mun');
+                })
+                ->leftjoin($alias . '.corregimientos', 'corregimientos.id', 'hogar.id_corre')
+                ->where(function ($query) use ($busqueda) {
+                    $query->where('caracterizacion.identificacion', 'LIKE', '%' . $busqueda . '%')
+                        ->orWhere('corregimientos.descripcion', 'LIKE', '%' . $busqueda . '%')
+                    // ->orWhere('caracterizacion.pnom', 'LIKE', '%' . $busqueda . '%')
+                    // ->orWhere('caracterizacion.snom', 'LIKE', '%' . $busqueda . '%')
+                    // ->orWhere('caracterizacion.pape', 'LIKE', '%' . $busqueda . '%')
+                    // ->orWhere('caracterizacion.sape', 'LIKE', '%' . $busqueda . '%')
+                        ->orWhereRaw("CONCAT_WS(' ',caracterizacion.pnom,caracterizacion.snom,caracterizacion.pape,caracterizacion.sape) LIKE '%" . $busqueda . "%'")
+                        ->orWhere('muni.descripcion', 'LIKE', '%' . $busqueda . '%')
+                        ->orWhere('dptos.descripcion', 'LIKE', '%' . $busqueda . '%');
+                })
+                ->select("dptos.descripcion AS DPTO",
+                    "muni.descripcion AS MUNI",
+                    "corregimientos.descripcion AS CORREGIMIENTO",
+                    "caracterizacion.estado AS ESTADO",
+                    "caracterizacion.identificacion AS IDENTIFICACION",
+                    "caracterizacion.id",
+                    "caracterizacion.sexo",
+                    "hogar.id AS IDHOGAR",
+                    "caracterizacion.telefono"
+                )
+                ->where("hogar.estado", "Activo")
+                ->selectRaw('CONCAT_WS(" ",caracterizacion.pnom," ",caracterizacion.snom," ",caracterizacion.pape," ",caracterizacion.sape) AS USUARIO')
+                ->orderBy('caracterizacion.id', 'DESC')
+                ->paginate(10);
             } else {
                 $respuesta = DB::connection('mysql')->table($alias . '.caracterizacion')
-                    ->join($alias . '.hogar', 'hogar.id', 'caracterizacion.id_hogar')
-                    ->join($alias . '.dptos', 'dptos.codigo', 'hogar.id_dpto')
-                    ->join($alias . '.muni', function ($join) {
-                        $join->on('muni.coddep', '=', 'dptos.codigo');
-                        $join->on('muni.codmun', '=', 'hogar.id_mun');
-                    })
-                    ->leftjoin($alias . '.corregimientos', 'corregimientos.id', 'hogar.id_corre')
-                    ->where(function ($query) use ($busqueda) {
-                        $query->where('caracterizacion.identificacion', 'LIKE', '%' . $busqueda . '%')
-                            ->orWhere('corregimientos.descripcion', 'LIKE', '%' . $busqueda . '%')
-                        // ->orWhere('caracterizacion.pnom', 'LIKE', '%' . $busqueda . '%')
-                        // ->orWhere('caracterizacion.snom', 'LIKE', '%' . $busqueda . '%')
-                        // ->orWhere('caracterizacion.pape', 'LIKE', '%' . $busqueda . '%')
-                        // ->orWhere('caracterizacion.sape', 'LIKE', '%' . $busqueda . '%')
-                            ->orWhereRaw("CONCAT_WS(' ',caracterizacion.pnom,caracterizacion.snom,caracterizacion.pape,caracterizacion.sape) LIKE '%" . $busqueda . "%'")
-                            ->orWhere('muni.descripcion', 'LIKE', '%' . $busqueda . '%')
-                            ->orWhere('dptos.descripcion', 'LIKE', '%' . $busqueda . '%');
-                    })
-                    ->select("dptos.descripcion AS DPTO",
-                        "muni.descripcion AS MUNI",
-                        "corregimientos.descripcion AS CORREGIMIENTO",
-                        "caracterizacion.estado AS ESTADO",
-                        "caracterizacion.identificacion AS IDENTIFICACION",
-                        "caracterizacion.id",
-                        "caracterizacion.sexo",
-                        "hogar.id AS IDHOGAR",
-                        "caracterizacion.telefono"
-                    )
-                    ->where("hogar.estado", "Activo")
-                    ->where("hogar.usuario_crear", Auth::user()->id)
-                    ->selectRaw('CONCAT_WS(" ",caracterizacion.pnom," ",caracterizacion.snom," ",caracterizacion.pape," ",caracterizacion.sape) AS USUARIO')
-                    ->orderBy('caracterizacion.id', 'DESC')
-                    ->paginate(10);
+                ->join($alias . '.hogar', 'hogar.id', 'caracterizacion.id_hogar')
+                ->join($alias . '.dptos', 'dptos.codigo', 'hogar.id_dpto')
+                ->join($alias . '.muni', function ($join) {
+                    $join->on('muni.coddep', '=', 'dptos.codigo');
+                    $join->on('muni.codmun', '=', 'hogar.id_mun');
+                })
+                ->leftjoin($alias . '.corregimientos', 'corregimientos.id', 'hogar.id_corre')
+                ->where(function ($query) use ($busqueda) {
+                    $query->where('caracterizacion.identificacion', 'LIKE', '%' . $busqueda . '%')
+                        ->orWhere('corregimientos.descripcion', 'LIKE', '%' . $busqueda . '%')
+                    // ->orWhere('caracterizacion.pnom', 'LIKE', '%' . $busqueda . '%')
+                    // ->orWhere('caracterizacion.snom', 'LIKE', '%' . $busqueda . '%')
+                    // ->orWhere('caracterizacion.pape', 'LIKE', '%' . $busqueda . '%')
+                    // ->orWhere('caracterizacion.sape', 'LIKE', '%' . $busqueda . '%')
+                        ->orWhereRaw("CONCAT_WS(' ',caracterizacion.pnom,caracterizacion.snom,caracterizacion.pape,caracterizacion.sape) LIKE '%" . $busqueda . "%'")
+                        ->orWhere('muni.descripcion', 'LIKE', '%' . $busqueda . '%')
+                        ->orWhere('dptos.descripcion', 'LIKE', '%' . $busqueda . '%');
+                })
+                ->select("dptos.descripcion AS DPTO",
+                    "muni.descripcion AS MUNI",
+                    "corregimientos.descripcion AS CORREGIMIENTO",
+                    "caracterizacion.estado AS ESTADO",
+                    "caracterizacion.identificacion AS IDENTIFICACION",
+                    "caracterizacion.id",
+                    "caracterizacion.sexo",
+                    "hogar.id AS IDHOGAR",
+                    "caracterizacion.telefono"
+                )
+                ->where("hogar.estado", "Activo")
+                ->where("hogar.usuario_crear", Auth::user()->id)
+                ->selectRaw('CONCAT_WS(" ",caracterizacion.pnom," ",caracterizacion.snom," ",caracterizacion.pape," ",caracterizacion.sape) AS USUARIO')
+                ->orderBy('caracterizacion.id', 'DESC')
+                ->paginate(10);
             }
         } else {
-            if (Auth::user()->rol == "Administrador") {
+            if (Auth::user()->rol == "Administrador" || Auth::user()->rol == "SuperAdministrador") {
                 $respuesta = DB::connection('mysql')->table($alias . '.caracterizacion')
-                    ->join($alias . '.hogar', 'hogar.id', 'caracterizacion.id_hogar')
-                    ->join($alias . '.dptos', 'dptos.codigo', 'hogar.id_dpto')
-                    ->join($alias . '.muni', function ($join) {
-                        $join->on('muni.coddep', '=', 'dptos.codigo');
-                        $join->on('muni.codmun', '=', 'hogar.id_mun');
-                    })
-                    ->leftjoin($alias . '.corregimientos', 'corregimientos.id', 'hogar.id_corre')
-                    ->where("hogar.estado", "Activo")
-                    ->select("dptos.descripcion AS DPTO",
-                        "muni.descripcion AS MUNI",
-                        "corregimientos.descripcion AS CORREGIMIENTO",
-                        "caracterizacion.estado AS ESTADO",
-                        "caracterizacion.identificacion AS IDENTIFICACION",
-                        "caracterizacion.id",
-                        "caracterizacion.sexo",
-                        "hogar.id AS IDHOGAR",
-                        "caracterizacion.telefono"
-                    )
-                    ->selectRaw('CONCAT_WS(" ",caracterizacion.pnom," ",caracterizacion.snom," ",caracterizacion.pape," ",caracterizacion.sape) AS USUARIO')
-                    ->orderBy('caracterizacion.id', 'DESC')
-                    ->paginate(10);
+                ->join($alias . '.hogar', 'hogar.id', 'caracterizacion.id_hogar')
+                ->join($alias . '.dptos', 'dptos.codigo', 'hogar.id_dpto')
+                ->join($alias . '.muni', function ($join) {
+                    $join->on('muni.coddep', '=', 'dptos.codigo');
+                    $join->on('muni.codmun', '=', 'hogar.id_mun');
+                })
+                ->leftjoin($alias . '.corregimientos', 'corregimientos.id', 'hogar.id_corre')
+                ->where("hogar.estado", "Activo")
+                ->select("dptos.descripcion AS DPTO",
+                    "muni.descripcion AS MUNI",
+                    "corregimientos.descripcion AS CORREGIMIENTO",
+                    "caracterizacion.estado AS ESTADO",
+                    "caracterizacion.identificacion AS IDENTIFICACION",
+                    "caracterizacion.id",
+                    "caracterizacion.sexo",
+                    "hogar.id AS IDHOGAR",
+                    "caracterizacion.telefono"
+                )
+                ->selectRaw('CONCAT_WS(" ",caracterizacion.pnom," ",caracterizacion.snom," ",caracterizacion.pape," ",caracterizacion.sape) AS USUARIO')
+                ->orderBy('caracterizacion.id', 'DESC')
+                ->paginate(10);
             } else {
                 $respuesta = DB::connection('mysql')->table($alias . '.caracterizacion')
-                    ->join($alias . '.hogar', 'hogar.id', 'caracterizacion.id_hogar')
-                    ->join($alias . '.dptos', 'dptos.codigo', 'hogar.id_dpto')
-                    ->join($alias . '.muni', function ($join) {
-                        $join->on('muni.coddep', '=', 'dptos.codigo');
-                        $join->on('muni.codmun', '=', 'hogar.id_mun');
-                    })
-                    ->leftjoin($alias . '.corregimientos', 'corregimientos.id', 'hogar.id_corre')
-                    ->where("hogar.estado", "Activo")
-                    ->where("hogar.usuario_crear", Auth::user()->id)
-                    ->select("dptos.descripcion AS DPTO",
-                        "muni.descripcion AS MUNI",
-                        "corregimientos.descripcion AS CORREGIMIENTO",
-                        "caracterizacion.estado AS ESTADO",
-                        "caracterizacion.identificacion AS IDENTIFICACION",
-                        "caracterizacion.id",
-                        "caracterizacion.sexo",
-                        "hogar.id AS IDHOGAR",
-                        "caracterizacion.telefono"
-                    )
-                    ->selectRaw('CONCAT_WS(" ",caracterizacion.pnom," ",caracterizacion.snom," ",caracterizacion.pape," ",caracterizacion.sape) AS USUARIO')
-                    ->orderBy('caracterizacion.id', 'DESC')
-                    ->paginate(10);
+                ->join($alias . '.hogar', 'hogar.id', 'caracterizacion.id_hogar')
+                ->join($alias . '.dptos', 'dptos.codigo', 'hogar.id_dpto')
+                ->join($alias . '.muni', function ($join) {
+                    $join->on('muni.coddep', '=', 'dptos.codigo');
+                    $join->on('muni.codmun', '=', 'hogar.id_mun');
+                })
+                ->leftjoin($alias . '.corregimientos', 'corregimientos.id', 'hogar.id_corre')
+                ->where("hogar.estado", "Activo")
+                ->where("hogar.usuario_crear", Auth::user()->id)
+                ->select("dptos.descripcion AS DPTO",
+                    "muni.descripcion AS MUNI",
+                    "corregimientos.descripcion AS CORREGIMIENTO",
+                    "caracterizacion.estado AS ESTADO",
+                    "caracterizacion.identificacion AS IDENTIFICACION",
+                    "caracterizacion.id",
+                    "caracterizacion.sexo",
+                    "hogar.id AS IDHOGAR",
+                    "caracterizacion.telefono"
+                )
+                ->selectRaw('CONCAT_WS(" ",caracterizacion.pnom," ",caracterizacion.snom," ",caracterizacion.pape," ",caracterizacion.sape) AS USUARIO')
+                ->orderBy('caracterizacion.id', 'DESC')
+                ->paginate(10);
             }
         }
 

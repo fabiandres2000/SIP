@@ -448,7 +448,7 @@ export default {
             if(this.imagenMiniatura == null) {
                 return `${store.state.serverPath}assets/media/default.png`;
             }else{
-                return `${store.state.serverPath}assets/media/${this.alias}/fotos/${this.usuariosData.imagen}`;
+                return `${store.state.serverPath}assets/media/fotos/${this.usuariosData.imagen}`;
             }
         },
         imagen1(){
@@ -474,7 +474,7 @@ export default {
                         if(this.imagenMiniatura1 == null) {
                             this.imagenMiniatura1 = `${store.state.serverPath}assets/media/default.png`;
                         }else{
-                            this.imagenMiniatura1 = `${store.state.serverPath}assets/media/${this.alias}/fotos/${this.usuariosData.imagen}`;
+                            this.imagenMiniatura1 = `${store.state.serverPath}assets/media/fotos/${this.usuariosData.imagen}`;
                         }
                     });
             } catch (error) {

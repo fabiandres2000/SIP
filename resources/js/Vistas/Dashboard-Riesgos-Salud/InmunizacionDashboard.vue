@@ -66,6 +66,7 @@
                     <div class="row" style="padding-top: 14%">
                         <div ref="boton1" class="col-lg-12 text-right" style="padding: 10px 10px 10px 20px;">
                             <button @click="exportToPDFINM()" class="btn btn-danger"><i class="fa fa-file" aria-hidden="true"></i> Exportar PDF</button>
+                            <button @click="exportToPDFINMEXCEL()" class="btn btn-success"><i class="fa fa-table" aria-hidden="true"></i> Exportar EXCEL</button>
                         </div>
                     </div>
                 </div>
@@ -732,6 +733,98 @@ export default {
                     this.rutaPdf = store.state.apiURL + respuesta.data.nombre;
                     this.isLoading = false;
                     this.$refs.modalpdf.show();
+                    this.exportando = false;
+                });
+            } catch (error) { 
+                this.$swal("Error...!", "Ocurrio un error!", "error");    
+                this.isLoading = false;
+            }
+            
+        },
+        async exportToPDFINMEXCEL(){
+            this.isLoading = true;
+            this.exportando = true;
+
+            const options = {
+                type: 'dataURL',
+                useCORS: true,
+            }
+
+            let filtro = {
+                bcm:  this.barrios.filter( item => { return item.value ==  this.comboBarrio}),
+                bc:  this.barriosCorregimiento.filter( item => { return item.value == this.comboBarrio2 }),
+                v:  this.veredas.filter( item => { return item.id == this.comboVereda }),
+                c:  this.corregimientos.filter( item => { return item.id == this.comboCorregimiento }),
+            };
+
+            let filtro2;
+
+            switch (this.tipoComboGrupoEdad) {
+                case "men1a":
+                    filtro2= {
+                        grupo: "Menores de 1 Año"
+                    };
+                break;
+                case "de1a5":
+                    filtro2= {
+                        grupo: "De 1 a 5 Años"
+                    };
+                break;
+                default:
+                filtro2= {
+                        grupo: "Reporte - General"
+                    };
+                break;
+            }
+
+            let graficos;
+            let data;
+
+            if(this.tipoComboGrupoEdad == "men1a"){
+                graficos = {
+                    fila1: await this.$html2canvas(this.$refs.fila_1_men_1, options),
+                    fila2: await this.$html2canvas(this.$refs.fila_2_men_1, options),
+                    fila3: await this.$html2canvas(this.$refs.fila_3_men_1, options),
+                    fila4: await this.chart_1_men_1.exporting.getImage("png")
+                }
+
+                data = {
+                    sin_bcg_array : this.inmunizacion_data.sin_bcg_array,
+                    sin_polio_array : this.inmunizacion_data.sin_polio_array,
+                    esquema_completo_polio_array : this.inmunizacion_data.esquema_completo_polio_array,
+                    desnutricion_carnet_desac_array : this.inmunizacion_data.desnutricion_carnet_desac_array,
+                    esquema_completo_pentavalente_array : this.inmunizacion_data.esquema_completo_pentavalente_array,
+                    esquema_icompleto_pentavalente_array : this.inmunizacion_data.esquema_icompleto_pentavalente_array,
+                }
+            }else{
+                if(this.tipoComboGrupoEdad == "de1a5"){
+                    graficos = {
+                        fila1: await this.$html2canvas(this.$refs.fila1_1a5, options),
+                        fila2: await this.chart_polio.exporting.getImage("png"),
+                        fila3: await this.chart_pentavalente.exporting.getImage("png"),
+                        fila4: await this.chart_1_men_1.exporting.getImage("png")
+                    }
+
+                    data = {
+                        personas : this.inmunizacion_data.personas,
+                        personas_1_anio : this.inmunizacion_data.personas_1_anio,
+                    } 
+                }
+            }
+
+            const parametros = {
+                _token: this.csrf,
+                filtro: filtro,
+                filtro2: filtro2,
+                graficos: graficos,
+                data: data,
+                tipo: this.tipoComboGrupoEdad
+            };
+
+            try {
+                await DashboardServiceRS.exportToPDFINMEXCEL(parametros).then(respuesta => {
+                    this.rutaPdf = store.state.apiURL + respuesta.data.nombre;
+                    this.isLoading = false;
                     this.exportando = false;
                 });
             } catch (error) { 

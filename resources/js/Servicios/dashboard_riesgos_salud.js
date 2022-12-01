@@ -47,3 +47,7 @@ export function inmunizacion($tipo, $id, $rango) {
 export function exportToPDFINM($data) {
     return http().post('/dashboard-riesgos-salud/exportar-inmunizacion', $data);
 }
+
+export function exportToPDFINMEXCEL($data) {
+    return http().post('/dashboard-riesgos-salud/exportar-inmunizacion-excel', $data);
+}

@@ -442,10 +442,10 @@
                   <label>Lactante (*):</label>
                   <b-form-select
                     v-model.trim="caracData.lactante"
-                    :class="caracData.lactante==''?'is-invalid':'is-valid'"
+                    :class="caracData.lactante=='0'?'':'is-valid'"
                     ref="sexo"
                   >
-                    <option value selected>Seleccione</option>
+                    <option value="0" selected>Seleccione</option>
                     <option value="SI">SI</option>
                     <option value="NO">NO</option>
                     <option value="NA">No Aplica</option>
@@ -1819,10 +1819,10 @@
                   <label>Lactante (*):</label>
                   <b-form-select
                     v-model.trim="CA1.lactante"
-                    :class="CA1.lactante==''?'is-invalid':'is-valid'"
+                    :class="CA1.lactante=='0'?'':'is-valid'"
                     ref="sexo"
                   >
-                    <option value selected>Seleccione</option>
+                    <option value="0" selected>Seleccione</option>
                     <option value="SI">SI</option>
                     <option value="NO">NO</option>
                     <option value="NA">No Aplica</option>
@@ -23665,7 +23665,7 @@
           percargo: "",
           actividad_fisica: "",
           vacuna: "",
-          lactante: "" 
+          lactante: "0" 
         },
         carac2: [],
         CA1: {
@@ -23717,7 +23717,7 @@
           tipo_empleo: "0",
           actividad_fisica: "0",
           vacuna: "",
-          lactante: ""                     
+          lactante: "0"                     
         },
         CA2: [],       
         viviendaData: {
@@ -29186,7 +29186,7 @@
           this.$swal("Error...!", "Por favor digite el numero de personas a cargo!", "error");
           return;
         }
-        if (this.caracData.lactante == "") {
+        if (this.caracData.lactante == "0") {
           this.$swal("Error...!", "Por favor si es  mujer lactante!", "error");
           return;
         }  
@@ -29485,7 +29485,7 @@
         this.caracData.percargo = "";
         this.caracData.actividad_fisica = "";
         this.caracData.vacuna = "";
-        this.caracData.lactante = "";
+        this.caracData.lactante = "0";
       },
       updateJefe(item, valor, opcion, index) {
         if (opcion === "tipo_id") {
@@ -32625,7 +32625,7 @@
         this.CA1.tipo_empleo = "";
         this.CA1.actividad_fisica = "0";
         this.CA1.vacuna = "";  
-        this.CA1.lactante = "";     
+        this.CA1.lactante = "0";     
       },
       eliminarItem: function(index, item) {
         let nombre = " " + item.pnom + " " + item.snom + " " + item.pape + " " + item.sape;
