@@ -181,14 +181,16 @@ class soporteController extends Controller
     {
         if (Auth::check()) {
             $data = request()->all();
-            $id_ente = $id = $data["ente"]["id"];
+            $id_ente = $data["ente"]["id"];
             $eae = \App\UserPermisos::editarActualEnte(Auth::user()->permisos->where('actual', 1)->first()->ente->id, Auth::user()->id);
             if ($eae) {
+                
                 $cam = \App\UserPermisos::cambiarActualEnte($id_ente);
+                $caie = \App\User::cambiarIdEntidad(Auth::user()->id, $id_ente);
+
                 if ($cam) {
                     $alias = Auth::user()->permisos->where('id_ente', $id_ente)->first()->ente;
                     Session::put('alias', $alias->alias);
-                    Session::put('idusuario', $alias->id);
                     Session::put('sigla', $alias->sigla);
 
                     $respuesta = [

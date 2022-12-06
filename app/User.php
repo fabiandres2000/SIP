@@ -225,4 +225,11 @@ class User extends Authenticatable
             ->get();
         return $respuesta;
     }
+
+    public static function cambiarIdEntidad($id_usuario, $id_ente){
+        return User::where('id', $id_usuario)
+            ->update([
+                'id_entidad' => $id_ente,
+            ]);
+    }
 }
