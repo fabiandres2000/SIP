@@ -9769,7 +9769,7 @@ _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_7__["useTheme"](_amcharts_amch
       var _this10 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee10() {
-        var options, filtro, filtro2, graficos, data, parametros;
+        var options, filtro, filtro2, graficos, data, vacunacion_incompleto_array, srp_completo_array, neumococo_completo_array, desn_incompleo_array, parametros;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee10$(_context10) {
           while (1) {
             switch (_context10.prev = _context10.next) {
@@ -9817,86 +9817,59 @@ _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_7__["useTheme"](_amcharts_amch
                 return _context10.abrupt("break", 13);
 
               case 13:
-                if (!(_this10.tipoComboGrupoEdad == "men1a")) {
-                  _context10.next = 30;
-                  break;
+                if (_this10.tipoComboGrupoEdad == "men1a") {
+                  data = {
+                    sin_bcg_array: _this10.inmunizacion_data.sin_bcg_array,
+                    sin_polio_array: _this10.inmunizacion_data.sin_polio_array,
+                    esquema_completo_polio_array: _this10.inmunizacion_data.esquema_completo_polio_array,
+                    desnutricion_carnet_desac_array: _this10.inmunizacion_data.desnutricion_carnet_desac_array,
+                    esquema_completo_pentavalente_array: _this10.inmunizacion_data.esquema_completo_pentavalente_array,
+                    esquema_icompleto_pentavalente_array: _this10.inmunizacion_data.esquema_icompleto_pentavalente_array
+                  };
+                } else {
+                  if (_this10.tipoComboGrupoEdad == "de1a5") {
+                    vacunacion_incompleto_array = [];
+
+                    _this10.inmunizacion_data.personas.forEach(function (element) {
+                      if (element.carnet == "DESAC") {
+                        vacunacion_incompleto_array.push(element);
+                      }
+                    });
+
+                    srp_completo_array = [];
+
+                    _this10.inmunizacion_data.personas.forEach(function (element) {
+                      if (element.tripleviral == "1R") {
+                        srp_completo_array.push(element);
+                      }
+                    });
+
+                    neumococo_completo_array = [];
+
+                    _this10.inmunizacion_data.personas_1_anio.forEach(function (element) {
+                      if (element.neumococo == "R1") {
+                        neumococo_completo_array.push(element);
+                      }
+                    });
+
+                    desn_incompleo_array = [];
+
+                    _this10.inmunizacion_data.personas.forEach(function (element) {
+                      if (element.carnet == "DESAC" && (element.riesgos_desnutricion_aguda_R == "4" || element.riesgos_desnutricion_aguda_R == "5" || element.riesgos_desnutricion_global_R == "4" || element.riesgos_desnutricion_global_R == "5")) {
+                        desn_incompleo_array.push(element);
+                      }
+                    });
+
+                    data = {
+                      personas: _this10.inmunizacion_data.personas,
+                      vacunacion_incompleto_array: vacunacion_incompleto_array,
+                      srp_completo_array: srp_completo_array,
+                      neumococo_completo_array: neumococo_completo_array,
+                      desn_incompleo_array: desn_incompleo_array
+                    };
+                  }
                 }
 
-                _context10.next = 16;
-                return _this10.$html2canvas(_this10.$refs.fila_1_men_1, options);
-
-              case 16:
-                _context10.t1 = _context10.sent;
-                _context10.next = 19;
-                return _this10.$html2canvas(_this10.$refs.fila_2_men_1, options);
-
-              case 19:
-                _context10.t2 = _context10.sent;
-                _context10.next = 22;
-                return _this10.$html2canvas(_this10.$refs.fila_3_men_1, options);
-
-              case 22:
-                _context10.t3 = _context10.sent;
-                _context10.next = 25;
-                return _this10.chart_1_men_1.exporting.getImage("png");
-
-              case 25:
-                _context10.t4 = _context10.sent;
-                graficos = {
-                  fila1: _context10.t1,
-                  fila2: _context10.t2,
-                  fila3: _context10.t3,
-                  fila4: _context10.t4
-                };
-                data = {
-                  sin_bcg_array: _this10.inmunizacion_data.sin_bcg_array,
-                  sin_polio_array: _this10.inmunizacion_data.sin_polio_array,
-                  esquema_completo_polio_array: _this10.inmunizacion_data.esquema_completo_polio_array,
-                  desnutricion_carnet_desac_array: _this10.inmunizacion_data.desnutricion_carnet_desac_array,
-                  esquema_completo_pentavalente_array: _this10.inmunizacion_data.esquema_completo_pentavalente_array,
-                  esquema_icompleto_pentavalente_array: _this10.inmunizacion_data.esquema_icompleto_pentavalente_array
-                };
-                _context10.next = 45;
-                break;
-
-              case 30:
-                if (!(_this10.tipoComboGrupoEdad == "de1a5")) {
-                  _context10.next = 45;
-                  break;
-                }
-
-                _context10.next = 33;
-                return _this10.$html2canvas(_this10.$refs.fila1_1a5, options);
-
-              case 33:
-                _context10.t5 = _context10.sent;
-                _context10.next = 36;
-                return _this10.chart_polio.exporting.getImage("png");
-
-              case 36:
-                _context10.t6 = _context10.sent;
-                _context10.next = 39;
-                return _this10.chart_pentavalente.exporting.getImage("png");
-
-              case 39:
-                _context10.t7 = _context10.sent;
-                _context10.next = 42;
-                return _this10.chart_1_men_1.exporting.getImage("png");
-
-              case 42:
-                _context10.t8 = _context10.sent;
-                graficos = {
-                  fila1: _context10.t5,
-                  fila2: _context10.t6,
-                  fila3: _context10.t7,
-                  fila4: _context10.t8
-                };
-                data = {
-                  personas: _this10.inmunizacion_data.personas,
-                  personas_1_anio: _this10.inmunizacion_data.personas_1_anio
-                };
-
-              case 45:
                 parametros = {
                   _token: _this10.csrf,
                   filtro: filtro,
@@ -9905,33 +9878,42 @@ _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_7__["useTheme"](_amcharts_amch
                   data: data,
                   tipo: _this10.tipoComboGrupoEdad
                 };
-                _context10.prev = 46;
-                _context10.next = 49;
+                _context10.prev = 15;
+                _context10.next = 18;
                 return _Servicios_dashboard_riesgos_salud__WEBPACK_IMPORTED_MODULE_1__["exportToPDFINMEXCEL"](parametros).then(function (respuesta) {
-                  _this10.rutaPdf = _store__WEBPACK_IMPORTED_MODULE_13__["default"].state.apiURL + respuesta.data.nombre;
+                  var href = _store__WEBPACK_IMPORTED_MODULE_13__["default"].state.apiURL + respuesta.data.nombre;
                   _this10.isLoading = false;
                   _this10.exportando = false;
+
+                  _this10.downloadItem(href);
                 });
 
-              case 49:
-                _context10.next = 55;
+              case 18:
+                _context10.next = 24;
                 break;
 
-              case 51:
-                _context10.prev = 51;
-                _context10.t9 = _context10["catch"](46);
+              case 20:
+                _context10.prev = 20;
+                _context10.t1 = _context10["catch"](15);
 
                 _this10.$swal("Error...!", "Ocurrio un error!", "error");
 
                 _this10.isLoading = false;
 
-              case 55:
+              case 24:
               case "end":
                 return _context10.stop();
             }
           }
-        }, _callee10, null, [[46, 51]]);
+        }, _callee10, null, [[15, 20]]);
       }))();
+    },
+    downloadItem: function downloadItem(url) {
+      var link = document.createElement('a');
+      link.href = url;
+      link.download = "Riesgo-Salud-Inunizacion.xlsx";
+      link.click();
+      URL.revokeObjectURL(link.href);
     },
     cerrarModal: function cerrarModal() {
       this.$refs.detalle_inmunizacion.hide();
@@ -20408,25 +20390,6 @@ exports.push([module.i, "\n.redondo {\r\n    border-radius: 0px 0px 25px 25px;\n
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Dashboard-Riesgos-Ambientales/DashboardRiesgosAmbientalesAdmin.vue?vue&type=style&index=0&lang=css&":
-/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Dashboard-Riesgos-Ambientales/DashboardRiesgosAmbientalesAdmin.vue?vue&type=style&index=0&lang=css& ***!
-  \****************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n#__BVID__72__BV_tab_controls_ {\n    margin: 0px 0px -10px 0 !important;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-
 /***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Dashboard-Riesgos-Ambientales/DashboardRiesgosAmbientalesGeneral.vue?vue&type=style&index=0&lang=css&":
 /*!******************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Dashboard-Riesgos-Ambientales/DashboardRiesgosAmbientalesGeneral.vue?vue&type=style&index=0&lang=css& ***!
@@ -20459,25 +20422,6 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 // module
 exports.push([module.i, "\n.redondo {\r\n    border-radius: 0px 0px 25px 25px;\n}\n.redondo-2 {\r\n    border-radius: 25px 25px 0px 0px;\n}\n.deabjohaciaarriba {\r\n    writing-mode: vertical-rl;\r\n    text-orientation: use-glyph-orientation;\r\n    transform: rotate(0.5turn);\n}\n.borderbottomright {\r\n    border-top-left-radius: 20px;\r\n    border-bottom-left-radius: 20px;\r\n    border-bottom-right-radius: 20px;\n}\n.modal-backdrop {\r\n    background-color: rgba(0, 0, 0, 0.5) !important;\n}\n.modal-title {\r\n    color: #f8f9fa !important;\n}\n.close {\r\n    display: none;\n}\n.color-datepicker {\r\n    background: #f2f2f2;\r\n    border: 1px solid #ddd;\r\n    padding: 0em 1em 1em;\r\n    margin-bottom: 2em;\n}\n.nav-pills, .nav-tabs {\r\n    margin: 0 0 -10px 0 !important;\n}\r\n\r\n", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Dashboard-Riesgos-Salud/AdminRiesgosSalud.vue?vue&type=style&index=0&lang=css&":
-/*!*******************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Dashboard-Riesgos-Salud/AdminRiesgosSalud.vue?vue&type=style&index=0&lang=css& ***!
-  \*******************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n#__BVID__120__BV_tab_controls_ {\n    margin: 0px 0px -10px 0 !important;\n}\n", ""]);
 
 // exports
 
@@ -20592,25 +20536,6 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 // module
 exports.push([module.i, "\n.nav-pills, .nav-tabs {\n    margin: 0 0 -10px 0 !important;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Dashboard-socioeconomico/AdminSocioeconomico.vue?vue&type=style&index=0&lang=css&":
-/*!**********************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Dashboard-socioeconomico/AdminSocioeconomico.vue?vue&type=style&index=0&lang=css& ***!
-  \**********************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n#__BVID__120__BV_tab_controls_ {\n    margin: 0px 0px -10px 0 !important;\n}\n", ""]);
 
 // exports
 
@@ -20829,36 +20754,6 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Dashboard-Riesgos-Ambientales/DashboardRiesgosAmbientalesAdmin.vue?vue&type=style&index=0&lang=css&":
-/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Dashboard-Riesgos-Ambientales/DashboardRiesgosAmbientalesAdmin.vue?vue&type=style&index=0&lang=css& ***!
-  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./DashboardRiesgosAmbientalesAdmin.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Dashboard-Riesgos-Ambientales/DashboardRiesgosAmbientalesAdmin.vue?vue&type=style&index=0&lang=css&");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
-
-/***/ }),
-
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Dashboard-Riesgos-Ambientales/DashboardRiesgosAmbientalesGeneral.vue?vue&type=style&index=0&lang=css&":
 /*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Dashboard-Riesgos-Ambientales/DashboardRiesgosAmbientalesGeneral.vue?vue&type=style&index=0&lang=css& ***!
@@ -20898,36 +20793,6 @@ if(false) {}
 
 
 var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./DashboardRiesgosAmbientalesVivienda.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Dashboard-Riesgos-Ambientales/DashboardRiesgosAmbientalesVivienda.vue?vue&type=style&index=0&lang=css&");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
-
-/***/ }),
-
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Dashboard-Riesgos-Salud/AdminRiesgosSalud.vue?vue&type=style&index=0&lang=css&":
-/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Dashboard-Riesgos-Salud/AdminRiesgosSalud.vue?vue&type=style&index=0&lang=css& ***!
-  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./AdminRiesgosSalud.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Dashboard-Riesgos-Salud/AdminRiesgosSalud.vue?vue&type=style&index=0&lang=css&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -21108,36 +20973,6 @@ if(false) {}
 
 
 var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./enfermedadesDashboard.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Dashboard-Riesgos-Salud/enfermedadesDashboard.vue?vue&type=style&index=0&lang=css&");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
-
-/***/ }),
-
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Dashboard-socioeconomico/AdminSocioeconomico.vue?vue&type=style&index=0&lang=css&":
-/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Dashboard-socioeconomico/AdminSocioeconomico.vue?vue&type=style&index=0&lang=css& ***!
-  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./AdminSocioeconomico.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Dashboard-socioeconomico/AdminSocioeconomico.vue?vue&type=style&index=0&lang=css&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -33836,10 +33671,6 @@ var render = function() {
                           _c("td", [_vm._v(_vm._s(item.edad))]),
                           _vm._v(" "),
                           _c("td", [
-                            _c("span", [_vm._v(_vm._s(item.des_corr))])
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [
                             _c("span", [
                               _vm._v(
                                 _vm._s(
@@ -33849,6 +33680,10 @@ var render = function() {
                                 )
                               )
                             ])
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c("span", [_vm._v(_vm._s(item.des_barrio))])
                           ]),
                           _vm._v(" "),
                           _c("td", [
@@ -43848,9 +43683,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _DashboardRiesgosAmbientalesAdmin_vue_vue_type_template_id_64f81aae_lang_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DashboardRiesgosAmbientalesAdmin.vue?vue&type=template&id=64f81aae&lang=true& */ "./resources/js/Vistas/Dashboard-Riesgos-Ambientales/DashboardRiesgosAmbientalesAdmin.vue?vue&type=template&id=64f81aae&lang=true&");
 /* harmony import */ var _DashboardRiesgosAmbientalesAdmin_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DashboardRiesgosAmbientalesAdmin.vue?vue&type=script&lang=js& */ "./resources/js/Vistas/Dashboard-Riesgos-Ambientales/DashboardRiesgosAmbientalesAdmin.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _DashboardRiesgosAmbientalesAdmin_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DashboardRiesgosAmbientalesAdmin.vue?vue&type=style&index=0&lang=css& */ "./resources/js/Vistas/Dashboard-Riesgos-Ambientales/DashboardRiesgosAmbientalesAdmin.vue?vue&type=style&index=0&lang=css&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -43858,7 +43691,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
   _DashboardRiesgosAmbientalesAdmin_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _DashboardRiesgosAmbientalesAdmin_vue_vue_type_template_id_64f81aae_lang_true___WEBPACK_IMPORTED_MODULE_0__["render"],
   _DashboardRiesgosAmbientalesAdmin_vue_vue_type_template_id_64f81aae_lang_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
@@ -43887,22 +43720,6 @@ component.options.__file = "resources/js/Vistas/Dashboard-Riesgos-Ambientales/Da
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DashboardRiesgosAmbientalesAdmin_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./DashboardRiesgosAmbientalesAdmin.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Dashboard-Riesgos-Ambientales/DashboardRiesgosAmbientalesAdmin.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DashboardRiesgosAmbientalesAdmin_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/Vistas/Dashboard-Riesgos-Ambientales/DashboardRiesgosAmbientalesAdmin.vue?vue&type=style&index=0&lang=css&":
-/*!*********************************************************************************************************************************!*\
-  !*** ./resources/js/Vistas/Dashboard-Riesgos-Ambientales/DashboardRiesgosAmbientalesAdmin.vue?vue&type=style&index=0&lang=css& ***!
-  \*********************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_DashboardRiesgosAmbientalesAdmin_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./DashboardRiesgosAmbientalesAdmin.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Dashboard-Riesgos-Ambientales/DashboardRiesgosAmbientalesAdmin.vue?vue&type=style&index=0&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_DashboardRiesgosAmbientalesAdmin_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_DashboardRiesgosAmbientalesAdmin_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_DashboardRiesgosAmbientalesAdmin_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_DashboardRiesgosAmbientalesAdmin_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-
 
 /***/ }),
 
@@ -44632,9 +44449,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AdminRiesgosSalud_vue_vue_type_template_id_41899c29_lang_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AdminRiesgosSalud.vue?vue&type=template&id=41899c29&lang=true& */ "./resources/js/Vistas/Dashboard-Riesgos-Salud/AdminRiesgosSalud.vue?vue&type=template&id=41899c29&lang=true&");
 /* harmony import */ var _AdminRiesgosSalud_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AdminRiesgosSalud.vue?vue&type=script&lang=js& */ "./resources/js/Vistas/Dashboard-Riesgos-Salud/AdminRiesgosSalud.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _AdminRiesgosSalud_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AdminRiesgosSalud.vue?vue&type=style&index=0&lang=css& */ "./resources/js/Vistas/Dashboard-Riesgos-Salud/AdminRiesgosSalud.vue?vue&type=style&index=0&lang=css&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -44642,7 +44457,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
   _AdminRiesgosSalud_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _AdminRiesgosSalud_vue_vue_type_template_id_41899c29_lang_true___WEBPACK_IMPORTED_MODULE_0__["render"],
   _AdminRiesgosSalud_vue_vue_type_template_id_41899c29_lang_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
@@ -44671,22 +44486,6 @@ component.options.__file = "resources/js/Vistas/Dashboard-Riesgos-Salud/AdminRie
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminRiesgosSalud_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./AdminRiesgosSalud.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Dashboard-Riesgos-Salud/AdminRiesgosSalud.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminRiesgosSalud_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/Vistas/Dashboard-Riesgos-Salud/AdminRiesgosSalud.vue?vue&type=style&index=0&lang=css&":
-/*!************************************************************************************************************!*\
-  !*** ./resources/js/Vistas/Dashboard-Riesgos-Salud/AdminRiesgosSalud.vue?vue&type=style&index=0&lang=css& ***!
-  \************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminRiesgosSalud_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./AdminRiesgosSalud.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Dashboard-Riesgos-Salud/AdminRiesgosSalud.vue?vue&type=style&index=0&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminRiesgosSalud_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminRiesgosSalud_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminRiesgosSalud_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminRiesgosSalud_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-
 
 /***/ }),
 
@@ -45241,9 +45040,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AdminSocioeconomico_vue_vue_type_template_id_6b5a584e_lang_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AdminSocioeconomico.vue?vue&type=template&id=6b5a584e&lang=true& */ "./resources/js/Vistas/Dashboard-socioeconomico/AdminSocioeconomico.vue?vue&type=template&id=6b5a584e&lang=true&");
 /* harmony import */ var _AdminSocioeconomico_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AdminSocioeconomico.vue?vue&type=script&lang=js& */ "./resources/js/Vistas/Dashboard-socioeconomico/AdminSocioeconomico.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _AdminSocioeconomico_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AdminSocioeconomico.vue?vue&type=style&index=0&lang=css& */ "./resources/js/Vistas/Dashboard-socioeconomico/AdminSocioeconomico.vue?vue&type=style&index=0&lang=css&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -45251,7 +45048,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
   _AdminSocioeconomico_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _AdminSocioeconomico_vue_vue_type_template_id_6b5a584e_lang_true___WEBPACK_IMPORTED_MODULE_0__["render"],
   _AdminSocioeconomico_vue_vue_type_template_id_6b5a584e_lang_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
@@ -45280,22 +45077,6 @@ component.options.__file = "resources/js/Vistas/Dashboard-socioeconomico/AdminSo
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminSocioeconomico_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./AdminSocioeconomico.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Dashboard-socioeconomico/AdminSocioeconomico.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminSocioeconomico_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/Vistas/Dashboard-socioeconomico/AdminSocioeconomico.vue?vue&type=style&index=0&lang=css&":
-/*!***************************************************************************************************************!*\
-  !*** ./resources/js/Vistas/Dashboard-socioeconomico/AdminSocioeconomico.vue?vue&type=style&index=0&lang=css& ***!
-  \***************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminSocioeconomico_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./AdminSocioeconomico.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Dashboard-socioeconomico/AdminSocioeconomico.vue?vue&type=style&index=0&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminSocioeconomico_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminSocioeconomico_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminSocioeconomico_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminSocioeconomico_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-
 
 /***/ }),
 

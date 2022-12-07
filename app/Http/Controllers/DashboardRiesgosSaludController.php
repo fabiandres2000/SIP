@@ -439,7 +439,10 @@ class DashboardRiesgosSaludController extends Controller
             if($tipo == "men1a"){
                   
                 $spreadsheet = new Spreadsheet();
+
+                // sin BCG
                 $sheet = $spreadsheet->getActiveSheet();
+                $sheet->setTitle('BCG');
 
                 $spreadsheet->getActiveSheet()->getColumnDimension('A')->setAutoSize(true);
                 $spreadsheet->getActiveSheet()->getColumnDimension('B')->setAutoSize(true);
@@ -448,10 +451,7 @@ class DashboardRiesgosSaludController extends Controller
                 $spreadsheet->getActiveSheet()->getColumnDimension('E')->setAutoSize(true);
                 $spreadsheet->getActiveSheet()->getColumnDimension('F')->setAutoSize(true);
                 $spreadsheet->getActiveSheet()->getColumnDimension('G')->setAutoSize(true);
-                $spreadsheet->getActiveSheet()->getColumnDimension('H')->setAutoSize(true);
-                $spreadsheet->getActiveSheet()->getColumnDimension('i')->setAutoSize(true);
 
-                // sin BCG
                 $sheet->setCellValue('A1', 'Niños menores de 1 años sin vacuna BGC');
 
                 $sheet->mergeCells('A1:G1');
@@ -469,176 +469,256 @@ class DashboardRiesgosSaludController extends Controller
 
                 $row = 3;
                 foreach ($data["sin_bcg_array"] as $item) {
+                    if($item["des_corr"] != ""){
+                        $des_corr = $item["des_corr"];
+                    }else{
+                        $des_corr = "CASCO URBANO";
+                    }
                     $sheet
                         ->setCellValue("A{$row}", $item["tipo_id"].":".$item["identificacion"])
                         ->setCellValue("B{$row}", $item["nombre"])
                         ->setCellValue("C{$row}", $item["edad"])
-                        ->setCellValue("D{$row}", $item["des_corr"])
+                        ->setCellValue("D{$row}", $des_corr)
                         ->setCellValue("E{$row}", $item["des_barrio"])
                         ->setCellValue("F{$row}", $item["des_direc"])
                         ->setCellValue("G{$row}", $item["bcg"]);
                     ++$row;
                 }
-
-                $row += 2;
                 // sin BCG
 
                 // sin vacuna de polio
-                $sheet->setCellValue("A{$row}", 'Niños menores de 1 años sin vacuna de Polio');
-                $sheet->mergeCells("A{$row}:G{$row}");
-                $spreadsheet->getActiveSheet()->getStyle("A{$row}:G{$row}")->applyFromArray($styleArray);
+                $spreadsheet->createSheet();
+                $spreadsheet->setActiveSheetIndex(1);
+                $spreadsheet->getActiveSheet()->setTitle('Polio');
+                $sheet = $spreadsheet->getActiveSheet();
 
-                $row += 1;
+                $spreadsheet->getActiveSheet()->getColumnDimension('A')->setAutoSize(true);
+                $spreadsheet->getActiveSheet()->getColumnDimension('B')->setAutoSize(true);
+                $spreadsheet->getActiveSheet()->getColumnDimension('C')->setAutoSize(true);
+                $spreadsheet->getActiveSheet()->getColumnDimension('D')->setAutoSize(true);
+                $spreadsheet->getActiveSheet()->getColumnDimension('E')->setAutoSize(true);
+                $spreadsheet->getActiveSheet()->getColumnDimension('F')->setAutoSize(true);
+                $spreadsheet->getActiveSheet()->getColumnDimension('G')->setAutoSize(true);
 
-                $sheet->setCellValue("A{$row}", 'Identificacion');
-                $sheet->setCellValue("B{$row}", 'Nombre');
-                $sheet->setCellValue("C{$row}", 'Edad (Meses)');
-                $sheet->setCellValue("D{$row}", 'Corregimiento');
-                $sheet->setCellValue("E{$row}", 'Barrio');
-                $sheet->setCellValue("F{$row}", 'Direccion');
-                $sheet->setCellValue("G{$row}", 'Polio');
+                $sheet->setCellValue("A1", 'Niños menores de 1 años sin vacuna de Polio');
+                $sheet->mergeCells("A1:G1");
+                $spreadsheet->getActiveSheet()->getStyle("A1:G1")->applyFromArray($styleArray);
 
-                $spreadsheet->getActiveSheet()->getStyle("A{$row}:G{$row}")->applyFromArray($styleArray);
+                
+                $sheet->setCellValue("A2", 'Identificacion');
+                $sheet->setCellValue("B2", 'Nombre');
+                $sheet->setCellValue("C2", 'Edad (Meses)');
+                $sheet->setCellValue("D2", 'Corregimiento');
+                $sheet->setCellValue("E2", 'Barrio');
+                $sheet->setCellValue("F2", 'Direccion');
+                $sheet->setCellValue("G2", 'Polio');
 
-                $row += 1;
+                $spreadsheet->getActiveSheet()->getStyle("A2:G2")->applyFromArray($styleArray);
+
+                $row = 3;
 
                 foreach ($data["sin_polio_array"] as $item) {
+                    if($item["des_corr"] != ""){
+                        $des_corr = $item["des_corr"];
+                    }else{
+                        $des_corr = "CASCO URBANO";
+                    }
                     $sheet
                         ->setCellValue("A{$row}", $item["tipo_id"].":".$item["identificacion"])
                         ->setCellValue("B{$row}", $item["nombre"])
                         ->setCellValue("C{$row}", $item["edad"])
-                        ->setCellValue("D{$row}", $item["des_corr"])
+                        ->setCellValue("D{$row}", $des_corr)
                         ->setCellValue("E{$row}", $item["des_barrio"])
                         ->setCellValue("F{$row}", $item["des_direc"])
                         ->setCellValue("G{$row}", $item["polio"]);
                     ++$row;
                 }
-
-                $row += 2;
                 // sin vacuna de polio
 
                 // con esquema completo de pentavalente
-                $sheet->setCellValue("A{$row}", 'Niños menores de 1 años con esquema completo de pentavalente');
-                $sheet->mergeCells("A{$row}:G{$row}");
-                $spreadsheet->getActiveSheet()->getStyle("A{$row}:G{$row}")->applyFromArray($styleArray);
+                $spreadsheet->createSheet();
+                $spreadsheet->setActiveSheetIndex(2);
+                $spreadsheet->getActiveSheet()->setTitle('Pentavalente');
+                $sheet = $spreadsheet->getActiveSheet();
 
-                $row += 1;
+                $spreadsheet->getActiveSheet()->getColumnDimension('A')->setAutoSize(true);
+                $spreadsheet->getActiveSheet()->getColumnDimension('B')->setAutoSize(true);
+                $spreadsheet->getActiveSheet()->getColumnDimension('C')->setAutoSize(true);
+                $spreadsheet->getActiveSheet()->getColumnDimension('D')->setAutoSize(true);
+                $spreadsheet->getActiveSheet()->getColumnDimension('E')->setAutoSize(true);
+                $spreadsheet->getActiveSheet()->getColumnDimension('F')->setAutoSize(true);
+                $spreadsheet->getActiveSheet()->getColumnDimension('G')->setAutoSize(true);
 
-                $sheet->setCellValue("A{$row}", 'Identificacion');
-                $sheet->setCellValue("B{$row}", 'Nombre');
-                $sheet->setCellValue("C{$row}", 'Edad (Meses)');
-                $sheet->setCellValue("D{$row}", 'Corregimiento');
-                $sheet->setCellValue("E{$row}", 'Barrio');
-                $sheet->setCellValue("F{$row}", 'Direccion');
-                $sheet->setCellValue("G{$row}", 'Pentavalente');
 
-                $spreadsheet->getActiveSheet()->getStyle("A{$row}:G{$row}")->applyFromArray($styleArray);
+                $sheet->setCellValue("A1", 'Niños menores de 1 años con esquema completo de pentavalente');
+                $sheet->mergeCells("A1:G1");
+                $spreadsheet->getActiveSheet()->getStyle("A1:G1")->applyFromArray($styleArray);
 
-                $row += 1;
+
+                $sheet->setCellValue("A2", 'Identificacion');
+                $sheet->setCellValue("B2", 'Nombre');
+                $sheet->setCellValue("C2", 'Edad (Meses)');
+                $sheet->setCellValue("D2", 'Corregimiento');
+                $sheet->setCellValue("E2", 'Barrio');
+                $sheet->setCellValue("F2", 'Direccion');
+                $sheet->setCellValue("G2", 'Pentavalente');
+
+                $spreadsheet->getActiveSheet()->getStyle("A2:G2")->applyFromArray($styleArray);
+
+                $row = 3;
 
                 foreach ($data["esquema_completo_pentavalente_array"] as $item) {
+                    if($item["des_corr"] != ""){
+                        $des_corr = $item["des_corr"];
+                    }else{
+                        $des_corr = "CASCO URBANO";
+                    }
                     $sheet
                         ->setCellValue("A{$row}", $item["tipo_id"].":".$item["identificacion"])
                         ->setCellValue("B{$row}", $item["nombre"])
                         ->setCellValue("C{$row}", $item["edad"])
-                        ->setCellValue("D{$row}", $item["des_corr"])
+                        ->setCellValue("D{$row}", $des_corr)
                         ->setCellValue("E{$row}", $item["des_barrio"])
                         ->setCellValue("F{$row}", $item["des_direc"])
                         ->setCellValue("G{$row}", $item["pentavalente"]);
                     ++$row;
                 }
-
-                $row += 2;
                 // con esquema completo de pentavalente
 
                 // con esquema incompleto de pentavalente
-                $sheet->setCellValue("A{$row}", 'Niños menores de 1 años con esquema incompleto de pentavalente');
-                $sheet->mergeCells("A{$row}:G{$row}");
-                $spreadsheet->getActiveSheet()->getStyle("A{$row}:G{$row}")->applyFromArray($styleArray);
+                $spreadsheet->createSheet();
+                $spreadsheet->setActiveSheetIndex(3);
+                $spreadsheet->getActiveSheet()->setTitle('Pentavalente II');
+                $sheet = $spreadsheet->getActiveSheet();
 
-                $row += 1;
+                $spreadsheet->getActiveSheet()->getColumnDimension('A')->setAutoSize(true);
+                $spreadsheet->getActiveSheet()->getColumnDimension('B')->setAutoSize(true);
+                $spreadsheet->getActiveSheet()->getColumnDimension('C')->setAutoSize(true);
+                $spreadsheet->getActiveSheet()->getColumnDimension('D')->setAutoSize(true);
+                $spreadsheet->getActiveSheet()->getColumnDimension('E')->setAutoSize(true);
+                $spreadsheet->getActiveSheet()->getColumnDimension('F')->setAutoSize(true);
+                $spreadsheet->getActiveSheet()->getColumnDimension('G')->setAutoSize(true);
 
-                $sheet->setCellValue("A{$row}", 'Identificacion');
-                $sheet->setCellValue("B{$row}", 'Nombre');
-                $sheet->setCellValue("C{$row}", 'Edad (Meses)');
-                $sheet->setCellValue("D{$row}", 'Corregimiento');
-                $sheet->setCellValue("E{$row}", 'Barrio');
-                $sheet->setCellValue("F{$row}", 'Direccion');
-                $sheet->setCellValue("G{$row}", 'Pentavalente');
+                $sheet->setCellValue("A1", 'Niños menores de 1 años con esquema incompleto de pentavalente');
+                $sheet->mergeCells("A1:G1");
+                $spreadsheet->getActiveSheet()->getStyle("A1:G1")->applyFromArray($styleArray);
 
-                $spreadsheet->getActiveSheet()->getStyle("A{$row}:G{$row}")->applyFromArray($styleArray);
 
-                $row += 1;
+                $sheet->setCellValue("A2", 'Identificacion');
+                $sheet->setCellValue("B2", 'Nombre');
+                $sheet->setCellValue("C2", 'Edad (Meses)');
+                $sheet->setCellValue("D2", 'Corregimiento');
+                $sheet->setCellValue("E2", 'Barrio');
+                $sheet->setCellValue("F2", 'Direccion');
+                $sheet->setCellValue("G2", 'Pentavalente');
+
+                $spreadsheet->getActiveSheet()->getStyle("A2:G2")->applyFromArray($styleArray);
+
+                $row = 3;
 
                 foreach ($data["esquema_icompleto_pentavalente_array"] as $item) {
+                    if($item["des_corr"] != ""){
+                        $des_corr = $item["des_corr"];
+                    }else{
+                        $des_corr = "CASCO URBANO";
+                    }
                     $sheet
                         ->setCellValue("A{$row}", $item["tipo_id"].":".$item["identificacion"])
                         ->setCellValue("B{$row}", $item["nombre"])
                         ->setCellValue("C{$row}", $item["edad"])
-                        ->setCellValue("D{$row}", $item["des_corr"])
+                        ->setCellValue("D{$row}", $des_corr)
                         ->setCellValue("E{$row}", $item["des_barrio"])
                         ->setCellValue("F{$row}", $item["des_direc"])
                         ->setCellValue("G{$row}", $item["pentavalente"]);
                     ++$row;
                 }
-
-                $row += 2;
                 // con esquema incompleto de pentavalente
 
-                // esquema completo de polio
-                $sheet->setCellValue("A{$row}", 'Niños menores de 1 año con esquema completo de polio');
-                $sheet->mergeCells("A{$row}:G{$row}");
-                $spreadsheet->getActiveSheet()->getStyle("A{$row}:G{$row}")->applyFromArray($styleArray);
+                // esquema completo de polio II
+                $spreadsheet->createSheet();
+                $spreadsheet->setActiveSheetIndex(4);
+                $spreadsheet->getActiveSheet()->setTitle('Polio II');
+                $sheet = $spreadsheet->getActiveSheet();
+
+                $spreadsheet->getActiveSheet()->getColumnDimension('A')->setAutoSize(true);
+                $spreadsheet->getActiveSheet()->getColumnDimension('B')->setAutoSize(true);
+                $spreadsheet->getActiveSheet()->getColumnDimension('C')->setAutoSize(true);
+                $spreadsheet->getActiveSheet()->getColumnDimension('D')->setAutoSize(true);
+                $spreadsheet->getActiveSheet()->getColumnDimension('E')->setAutoSize(true);
+                $spreadsheet->getActiveSheet()->getColumnDimension('F')->setAutoSize(true);
+                $spreadsheet->getActiveSheet()->getColumnDimension('G')->setAutoSize(true);
+
+                $sheet->setCellValue("A1", 'Niños menores de 1 año con esquema completo de polio');
+                $sheet->mergeCells("A1:G1");
+                $spreadsheet->getActiveSheet()->getStyle("A1:G1")->applyFromArray($styleArray);
 
                 $row += 1;
 
-                $sheet->setCellValue("A{$row}", 'Identificacion');
-                $sheet->setCellValue("B{$row}", 'Nombre');
-                $sheet->setCellValue("C{$row}", 'Edad (Meses)');
-                $sheet->setCellValue("D{$row}", 'Corregimiento');
-                $sheet->setCellValue("E{$row}", 'Barrio');
-                $sheet->setCellValue("F{$row}", 'Direccion');
-                $sheet->setCellValue("G{$row}", 'Polio');
+                $sheet->setCellValue("A2", 'Identificacion');
+                $sheet->setCellValue("B2", 'Nombre');
+                $sheet->setCellValue("C2", 'Edad (Meses)');
+                $sheet->setCellValue("D2", 'Corregimiento');
+                $sheet->setCellValue("E2", 'Barrio');
+                $sheet->setCellValue("F2", 'Direccion');
+                $sheet->setCellValue("G2", 'Polio');
 
-                $spreadsheet->getActiveSheet()->getStyle("A{$row}:G{$row}")->applyFromArray($styleArray);
+                $spreadsheet->getActiveSheet()->getStyle("A2:G2")->applyFromArray($styleArray);
 
-                $row += 1;
+                $row = 3;
 
                 foreach ($data["esquema_completo_polio_array"] as $item) {
+                    if($item["des_corr"] != ""){
+                        $des_corr = $item["des_corr"];
+                    }else{
+                        $des_corr = "CASCO URBANO";
+                    }
                     $sheet
                         ->setCellValue("A{$row}", $item["tipo_id"].":".$item["identificacion"])
                         ->setCellValue("B{$row}", $item["nombre"])
                         ->setCellValue("C{$row}", $item["edad"])
-                        ->setCellValue("D{$row}", $item["des_corr"])
+                        ->setCellValue("D{$row}", $des_corr)
                         ->setCellValue("E{$row}", $item["des_barrio"])
                         ->setCellValue("F{$row}", $item["des_direc"])
                         ->setCellValue("G{$row}", $item["polio"]);
                     ++$row;
                 }
-
-                $row += 2;
                 // esquema completo de polio
 
                 // desnutrición con esquema de vacunación incompleto
-                $sheet->setCellValue("A{$row}", 'Niños en riesgos de desnutrición con esquema de vacunación incompleto');
-                $sheet->mergeCells("A{$row}:I{$row}");
-                $spreadsheet->getActiveSheet()->getStyle("A{$row}:I{$row}")->applyFromArray($styleArray);
+                $spreadsheet->createSheet();
+                $spreadsheet->setActiveSheetIndex(5);
+                $spreadsheet->getActiveSheet()->setTitle('Desnutrición');
+                $sheet = $spreadsheet->getActiveSheet();
+
+                $spreadsheet->getActiveSheet()->getColumnDimension('A')->setAutoSize(true);
+                $spreadsheet->getActiveSheet()->getColumnDimension('B')->setAutoSize(true);
+                $spreadsheet->getActiveSheet()->getColumnDimension('C')->setAutoSize(true);
+                $spreadsheet->getActiveSheet()->getColumnDimension('D')->setAutoSize(true);
+                $spreadsheet->getActiveSheet()->getColumnDimension('E')->setAutoSize(true);
+                $spreadsheet->getActiveSheet()->getColumnDimension('F')->setAutoSize(true);
+                $spreadsheet->getActiveSheet()->getColumnDimension('G')->setAutoSize(true);
+                $spreadsheet->getActiveSheet()->getColumnDimension('H')->setAutoSize(true);
+                $spreadsheet->getActiveSheet()->getColumnDimension('I')->setAutoSize(true);
+
+                $sheet->setCellValue("A1", 'Niños en riesgos de desnutrición con esquema de vacunación incompleto');
+                $sheet->mergeCells("A1:I1");
+                $spreadsheet->getActiveSheet()->getStyle("A1:I1")->applyFromArray($styleArray);
 
                 $row += 1;
 
-                $sheet->setCellValue("A{$row}", 'Identificacion');
-                $sheet->setCellValue("B{$row}", 'Nombre');
-                $sheet->setCellValue("C{$row}", 'Edad (Meses)');
-                $sheet->setCellValue("D{$row}", 'Corregimiento');
-                $sheet->setCellValue("E{$row}", 'Barrio');
-                $sheet->setCellValue("F{$row}", 'Direccion');
-                $sheet->setCellValue("G{$row}", 'Desnutrición Aguda');
-                $sheet->setCellValue("H{$row}", 'Desnutrición Global');
-                $sheet->setCellValue("I{$row}", 'Carnet ');
+                $sheet->setCellValue("A2", 'Identificacion');
+                $sheet->setCellValue("B2", 'Nombre');
+                $sheet->setCellValue("C2", 'Edad (Meses)');
+                $sheet->setCellValue("D2", 'Corregimiento');
+                $sheet->setCellValue("E2", 'Barrio');
+                $sheet->setCellValue("F2", 'Direccion');
+                $sheet->setCellValue("G2", 'Desnutrición Aguda');
+                $sheet->setCellValue("H2", 'Desnutrición Global');
+                $sheet->setCellValue("I2", 'Carnet ');
 
-                $spreadsheet->getActiveSheet()->getStyle("A{$row}:I{$row}")->applyFromArray($styleArray);
+                $spreadsheet->getActiveSheet()->getStyle("A2:I2")->applyFromArray($styleArray);
 
-                $row += 1;
+                $row = 3;
 
                 foreach ($data["desnutricion_carnet_desac_array"] as $item) {
 
@@ -662,11 +742,17 @@ class DashboardRiesgosSaludController extends Controller
                         }
                     }
 
+                    if($item["des_corr"] != ""){
+                        $des_corr = $item["des_corr"];
+                    }else{
+                        $des_corr = "CASCO URBANO";
+                    }
+
                     $sheet
                         ->setCellValue("A{$row}", $item["tipo_id"].":".$item["identificacion"])
                         ->setCellValue("B{$row}", $item["nombre"])
                         ->setCellValue("C{$row}", $item["edad"])
-                        ->setCellValue("D{$row}", $item["des_corr"])
+                        ->setCellValue("D{$row}", $des_corr)
                         ->setCellValue("E{$row}", $item["des_barrio"])
                         ->setCellValue("F{$row}", $item["des_direc"])
                         ->setCellValue("G{$row}", $da)
@@ -674,15 +760,331 @@ class DashboardRiesgosSaludController extends Controller
                         ->setCellValue("I{$row}", 'Desactualizado');
                     ++$row;
                 }
-
-                $row += 2;
                 // desnutrición con esquema de vacunación incompleto
 
                 $writer = new Xlsx($spreadsheet);
                 $writer->save( $ente.'/'.$nombre);
             }else{
                 if($tipo == "de1a5"){
-                    
+                    $spreadsheet = new Spreadsheet();
+
+                    // vacunación incompleto
+                    $sheet = $spreadsheet->getActiveSheet();
+                    $sheet->setTitle('vacunación');
+
+                    $spreadsheet->getActiveSheet()->getColumnDimension('A')->setAutoSize(true);
+                    $spreadsheet->getActiveSheet()->getColumnDimension('B')->setAutoSize(true);
+                    $spreadsheet->getActiveSheet()->getColumnDimension('C')->setAutoSize(true);
+                    $spreadsheet->getActiveSheet()->getColumnDimension('D')->setAutoSize(true);
+                    $spreadsheet->getActiveSheet()->getColumnDimension('E')->setAutoSize(true);
+                    $spreadsheet->getActiveSheet()->getColumnDimension('F')->setAutoSize(true);
+                    $spreadsheet->getActiveSheet()->getColumnDimension('G')->setAutoSize(true);
+
+                    $sheet->setCellValue('A1', 'Niños de 1 a 5 años con esquema de vacunación incompleto');
+
+                    $sheet->mergeCells('A1:G1');
+                    $spreadsheet->getActiveSheet()->getStyle('A1:G1')->applyFromArray($styleArray);
+
+                    $sheet->setCellValue('A2', 'Identificacion');
+                    $sheet->setCellValue('B2', 'Nombre');
+                    $sheet->setCellValue('C2', 'Edad (Meses)');
+                    $sheet->setCellValue('D2', 'Corregimiento');
+                    $sheet->setCellValue('E2', 'Barrio');
+                    $sheet->setCellValue('F2', 'Direccion');
+                    $sheet->setCellValue('G2', 'Carnet');
+
+                    $spreadsheet->getActiveSheet()->getStyle('A2:G2')->applyFromArray($styleArray);
+
+                    $row = 3;
+                    foreach ($data["vacunacion_incompleto_array"] as $item) {
+                        if($item["des_corr"] != ""){
+                            $des_corr = $item["des_corr"];
+                        }else{
+                            $des_corr = "CASCO URBANO";
+                        }
+                        $sheet
+                            ->setCellValue("A{$row}", $item["tipo_id"].":".$item["identificacion"])
+                            ->setCellValue("B{$row}", $item["nombre"])
+                            ->setCellValue("C{$row}", $item["edad"])
+                            ->setCellValue("D{$row}", $des_corr)
+                            ->setCellValue("E{$row}", $item["des_barrio"])
+                            ->setCellValue("F{$row}", $item["des_direc"])
+                            ->setCellValue("G{$row}", "Desactualizado");
+                        ++$row;
+                    }
+
+                    // vacunación incompleto
+
+                    // srp completo
+                    $spreadsheet->createSheet();
+                    $spreadsheet->setActiveSheetIndex(1);
+                    $spreadsheet->getActiveSheet()->setTitle('SRP');
+                    $sheet = $spreadsheet->getActiveSheet();
+
+                    $spreadsheet->getActiveSheet()->getColumnDimension('A')->setAutoSize(true);
+                    $spreadsheet->getActiveSheet()->getColumnDimension('B')->setAutoSize(true);
+                    $spreadsheet->getActiveSheet()->getColumnDimension('C')->setAutoSize(true);
+                    $spreadsheet->getActiveSheet()->getColumnDimension('D')->setAutoSize(true);
+                    $spreadsheet->getActiveSheet()->getColumnDimension('E')->setAutoSize(true);
+                    $spreadsheet->getActiveSheet()->getColumnDimension('F')->setAutoSize(true);
+                    $spreadsheet->getActiveSheet()->getColumnDimension('G')->setAutoSize(true);
+
+                    $sheet->setCellValue("A1", 'Niños de 1 a 5 años con esquema de (sarampión, Rubeola, Papera) completo');
+                    $sheet->mergeCells("A1:G1");
+                    $spreadsheet->getActiveSheet()->getStyle("A1:G1")->applyFromArray($styleArray);
+
+                    $sheet->setCellValue("A2", 'Identificacion');
+                    $sheet->setCellValue("B2", 'Nombre');
+                    $sheet->setCellValue("C2", 'Edad (Meses)');
+                    $sheet->setCellValue("D2", 'Corregimiento');
+                    $sheet->setCellValue("E2", 'Barrio');
+                    $sheet->setCellValue("F2", 'Direccion');
+                    $sheet->setCellValue("G2", 'SRP');
+
+                    $spreadsheet->getActiveSheet()->getStyle("A2:G2")->applyFromArray($styleArray);
+
+                    $row = 3;
+
+                    foreach ($data["srp_completo_array"] as $item) {
+                        if($item["des_corr"] != ""){
+                            $des_corr = $item["des_corr"];
+                        }else{
+                            $des_corr = "CASCO URBANO";
+                        }
+                        $sheet
+                            ->setCellValue("A{$row}", $item["tipo_id"].":".$item["identificacion"])
+                            ->setCellValue("B{$row}", $item["nombre"])
+                            ->setCellValue("C{$row}", $item["edad"])
+                            ->setCellValue("D{$row}", $des_corr)
+                            ->setCellValue("E{$row}", $item["des_barrio"])
+                            ->setCellValue("F{$row}", $item["des_direc"])
+                            ->setCellValue("G{$row}", $item["tripleviral"]);
+                        ++$row;
+                    }
+                    // srp completo
+
+                    // con esquema completo de Neumococo
+                    $spreadsheet->createSheet();
+                    $spreadsheet->setActiveSheetIndex(2);
+                    $spreadsheet->getActiveSheet()->setTitle('Neumococo');
+                    $sheet = $spreadsheet->getActiveSheet();
+
+                    $spreadsheet->getActiveSheet()->getColumnDimension('A')->setAutoSize(true);
+                    $spreadsheet->getActiveSheet()->getColumnDimension('B')->setAutoSize(true);
+                    $spreadsheet->getActiveSheet()->getColumnDimension('C')->setAutoSize(true);
+                    $spreadsheet->getActiveSheet()->getColumnDimension('D')->setAutoSize(true);
+                    $spreadsheet->getActiveSheet()->getColumnDimension('E')->setAutoSize(true);
+                    $spreadsheet->getActiveSheet()->getColumnDimension('F')->setAutoSize(true);
+                    $spreadsheet->getActiveSheet()->getColumnDimension('G')->setAutoSize(true);
+
+                    $sheet->setCellValue("A1", 'Niños de 1 año con esquema de neumococo completo');
+                    $sheet->mergeCells("A1:G1");
+                    $spreadsheet->getActiveSheet()->getStyle("A1:G1")->applyFromArray($styleArray);
+
+                    $sheet->setCellValue("A2", 'Identificacion');
+                    $sheet->setCellValue("B2", 'Nombre');
+                    $sheet->setCellValue("C2", 'Edad (Meses)');
+                    $sheet->setCellValue("D2", 'Corregimiento');
+                    $sheet->setCellValue("E2", 'Barrio');
+                    $sheet->setCellValue("F2", 'Direccion');
+                    $sheet->setCellValue("G2", 'Neumococo');
+
+                    $spreadsheet->getActiveSheet()->getStyle("A2:G2")->applyFromArray($styleArray);
+
+                    $row = 3;
+
+                    foreach ($data["neumococo_completo_array"] as $item) {
+                        if($item["des_corr"] != ""){
+                            $des_corr = $item["des_corr"];
+                        }else{
+                            $des_corr = "CASCO URBANO";
+                        }
+                        $sheet
+                            ->setCellValue("A{$row}", $item["tipo_id"].":".$item["identificacion"])
+                            ->setCellValue("B{$row}", $item["nombre"])
+                            ->setCellValue("C{$row}", $item["edad"])
+                            ->setCellValue("D{$row}", $des_corr)
+                            ->setCellValue("E{$row}", $item["des_barrio"])
+                            ->setCellValue("F{$row}", $item["des_direc"])
+                            ->setCellValue("G{$row}", $item["neumococo"]);
+                        ++$row;
+                    }
+                    // con esquema completo de Neumococo
+
+                    // Niños de 1 a 5 años Vacuna de Polio
+                    $spreadsheet->createSheet();
+                    $spreadsheet->setActiveSheetIndex(3);
+                    $spreadsheet->getActiveSheet()->setTitle('Polio');
+                    $sheet = $spreadsheet->getActiveSheet();
+
+                    $spreadsheet->getActiveSheet()->getColumnDimension('A')->setAutoSize(true);
+                    $spreadsheet->getActiveSheet()->getColumnDimension('B')->setAutoSize(true);
+                    $spreadsheet->getActiveSheet()->getColumnDimension('C')->setAutoSize(true);
+                    $spreadsheet->getActiveSheet()->getColumnDimension('D')->setAutoSize(true);
+                    $spreadsheet->getActiveSheet()->getColumnDimension('E')->setAutoSize(true);
+                    $spreadsheet->getActiveSheet()->getColumnDimension('F')->setAutoSize(true);
+                    $spreadsheet->getActiveSheet()->getColumnDimension('G')->setAutoSize(true);
+
+                    $sheet->setCellValue("A1", 'Niños de 1 a 5 años Vacuna de Polio');
+                    $sheet->mergeCells("A1:G1");
+                    $spreadsheet->getActiveSheet()->getStyle("A1:G1")->applyFromArray($styleArray);
+
+                    $sheet->setCellValue("A2", 'Identificacion');
+                    $sheet->setCellValue("B2", 'Nombre');
+                    $sheet->setCellValue("C2", 'Edad (Meses)');
+                    $sheet->setCellValue("D2", 'Corregimiento');
+                    $sheet->setCellValue("E2", 'Barrio');
+                    $sheet->setCellValue("F2", 'Direccion');
+                    $sheet->setCellValue("G2", 'Dosis');
+
+                    $spreadsheet->getActiveSheet()->getStyle("A2:G2")->applyFromArray($styleArray);
+
+                    $row = 3;
+
+                    foreach ($data["personas"] as $item) {
+                        if($item["des_corr"] != ""){
+                            $des_corr = $item["des_corr"];
+                        }else{
+                            $des_corr = "CASCO URBANO";
+                        }
+                        $sheet
+                            ->setCellValue("A{$row}", $item["tipo_id"].":".$item["identificacion"])
+                            ->setCellValue("B{$row}", $item["nombre"])
+                            ->setCellValue("C{$row}", $item["edad"])
+                            ->setCellValue("D{$row}", $des_corr)
+                            ->setCellValue("E{$row}", $item["des_barrio"])
+                            ->setCellValue("F{$row}", $item["des_direc"])
+                            ->setCellValue("G{$row}", $item["polio"]);
+                        ++$row;
+                    }
+                    // con esquema completo de Neumococo
+
+                    // Niños de 1 a 5 años Vacuna de Pentavalente
+                    $spreadsheet->createSheet();
+                    $spreadsheet->setActiveSheetIndex(4);
+                    $spreadsheet->getActiveSheet()->setTitle('Pentavalente');
+                    $sheet = $spreadsheet->getActiveSheet();
+
+                    $spreadsheet->getActiveSheet()->getColumnDimension('A')->setAutoSize(true);
+                    $spreadsheet->getActiveSheet()->getColumnDimension('B')->setAutoSize(true);
+                    $spreadsheet->getActiveSheet()->getColumnDimension('C')->setAutoSize(true);
+                    $spreadsheet->getActiveSheet()->getColumnDimension('D')->setAutoSize(true);
+                    $spreadsheet->getActiveSheet()->getColumnDimension('E')->setAutoSize(true);
+                    $spreadsheet->getActiveSheet()->getColumnDimension('F')->setAutoSize(true);
+                    $spreadsheet->getActiveSheet()->getColumnDimension('G')->setAutoSize(true);
+
+                    $sheet->setCellValue("A1", 'Niños de 1 a 5 años Vacuna de Pentavalente');
+                    $sheet->mergeCells("A1:G1");
+                    $spreadsheet->getActiveSheet()->getStyle("A1:G1")->applyFromArray($styleArray);
+
+                    $sheet->setCellValue("A2", 'Identificacion');
+                    $sheet->setCellValue("B2", 'Nombre');
+                    $sheet->setCellValue("C2", 'Edad (Meses)');
+                    $sheet->setCellValue("D2", 'Corregimiento');
+                    $sheet->setCellValue("E2", 'Barrio');
+                    $sheet->setCellValue("F2", 'Direccion');
+                    $sheet->setCellValue("G2", 'Dosis');
+
+                    $spreadsheet->getActiveSheet()->getStyle("A2:G2")->applyFromArray($styleArray);
+
+                    $row = 3;
+
+                    foreach ($data["personas"] as $item) {
+                        if($item["des_corr"] != ""){
+                            $des_corr = $item["des_corr"];
+                        }else{
+                            $des_corr = "CASCO URBANO";
+                        }
+                        $sheet
+                            ->setCellValue("A{$row}", $item["tipo_id"].":".$item["identificacion"])
+                            ->setCellValue("B{$row}", $item["nombre"])
+                            ->setCellValue("C{$row}", $item["edad"])
+                            ->setCellValue("D{$row}", $des_corr)
+                            ->setCellValue("E{$row}", $item["des_barrio"])
+                            ->setCellValue("F{$row}", $item["des_direc"])
+                            ->setCellValue("G{$row}", $item["pentavalente"]);
+                        ++$row;
+                    }
+                    // con esquema completo de Neumococo
+
+                    // Niños de 1 a 5 años en riesgos de desnutrición con esquema de vacunación incompleto
+                    $spreadsheet->createSheet();
+                    $spreadsheet->setActiveSheetIndex(5);
+                    $spreadsheet->getActiveSheet()->setTitle('Desnutrición');
+                    $sheet = $spreadsheet->getActiveSheet();
+
+                    $spreadsheet->getActiveSheet()->getColumnDimension('A')->setAutoSize(true);
+                    $spreadsheet->getActiveSheet()->getColumnDimension('B')->setAutoSize(true);
+                    $spreadsheet->getActiveSheet()->getColumnDimension('C')->setAutoSize(true);
+                    $spreadsheet->getActiveSheet()->getColumnDimension('D')->setAutoSize(true);
+                    $spreadsheet->getActiveSheet()->getColumnDimension('E')->setAutoSize(true);
+                    $spreadsheet->getActiveSheet()->getColumnDimension('F')->setAutoSize(true);
+                    $spreadsheet->getActiveSheet()->getColumnDimension('G')->setAutoSize(true);
+                    $spreadsheet->getActiveSheet()->getColumnDimension('H')->setAutoSize(true);
+                    $spreadsheet->getActiveSheet()->getColumnDimension('I')->setAutoSize(true);
+
+                    $sheet->setCellValue("A1", 'Niños de 1 a 5 años en riesgos de desnutrición con esquema de vacunación incompleto');
+                    $sheet->mergeCells("A1:I1");
+                    $spreadsheet->getActiveSheet()->getStyle("A1:I1")->applyFromArray($styleArray);
+
+                    $sheet->setCellValue("A2", 'Identificacion');
+                    $sheet->setCellValue("B2", 'Nombre');
+                    $sheet->setCellValue("C2", 'Edad (Meses)');
+                    $sheet->setCellValue("D2", 'Corregimiento');
+                    $sheet->setCellValue("E2", 'Barrio');
+                    $sheet->setCellValue("F2", 'Direccion');
+                    $sheet->setCellValue("G2", 'Desnutrición Aguda');
+                    $sheet->setCellValue("H2", 'Desnutrición Global');
+                    $sheet->setCellValue("I2", 'Estado Carnet');
+
+                    $spreadsheet->getActiveSheet()->getStyle("A2:I2")->applyFromArray($styleArray);
+
+                    $row = 3;
+
+                    foreach ($data["desn_incompleo_array"] as $item) {
+
+                        if($item["riesgos_desnutricion_aguda_R"] == 0 || $item["riesgos_desnutricion_aguda_R"] == 1){
+                            $da = "BAJO";
+                        }else{
+                            if($item["riesgos_desnutricion_aguda_R"] == 2 || $item["riesgos_desnutricion_aguda_R"] == 3){
+                                $da = "MODERADO";
+                            }else{  
+                                $da = "ALTO";
+                            }
+                        }
+    
+                        if($item["riesgos_desnutricion_global_R"] == 0 || $item["riesgos_desnutricion_global_R"] == 1){
+                            $dg = "BAJO";
+                        }else{
+                            if($item["riesgos_desnutricion_global_R"] == 2 || $item["riesgos_desnutricion_global_R"] == 3){
+                                $dg = "MODERADO";
+                            }else{  
+                                $dg = "ALTO";
+                            }
+                        }
+
+                        if($item["des_corr"] != ""){
+                            $des_corr = $item["des_corr"];
+                        }else{
+                            $des_corr = "CASCO URBANO";
+                        }
+
+                        $sheet
+                            ->setCellValue("A{$row}", $item["tipo_id"].":".$item["identificacion"])
+                            ->setCellValue("B{$row}", $item["nombre"])
+                            ->setCellValue("C{$row}", $item["edad"])
+                            ->setCellValue("D{$row}", $des_corr)
+                            ->setCellValue("E{$row}", $item["des_barrio"])
+                            ->setCellValue("F{$row}", $item["des_direc"])
+                            ->setCellValue("G{$row}", $da)
+                            ->setCellValue("H{$row}", $dg)
+                            ->setCellValue("I{$row}", "Desactualizado");
+                        ++$row;
+                    }
+                    // Niños de 1 a 5 años en riesgos de desnutrición con esquema de vacunación incompleto
+
+                    $writer = new Xlsx($spreadsheet);
+                    $writer->save( $ente.'/'.$nombre);
                 }
             }
 

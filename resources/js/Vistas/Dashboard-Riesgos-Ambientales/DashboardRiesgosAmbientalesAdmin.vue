@@ -28,8 +28,3 @@ export default {
     },  
 }
 </script>
-<style>
-    #__BVID__72__BV_tab_controls_ {
-        margin: 0px 0px -10px 0 !important;
-    }
-</style>

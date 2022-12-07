@@ -321,8 +321,8 @@
                         <td>{{item.tipo_id}}: {{item.identificacion}}</td>
                         <td>{{item.nombre}}</td>
                         <td>{{item.edad}}</td>
-                        <td><span>{{item.des_corr}}</span></td>
                         <td><span>{{item.des_corr != "" ? item.des_corr : "CASCO URBANO"}}</span></td>
+                        <td><span>{{item.des_barrio}}</span></td>
                         <td><span>{{item.des_direc}}</span></td>
                         <td><span>{{item.riesgos_desnutricion_aguda_R == 0 || item.riesgos_desnutricion_aguda_R == 1 ? 'BAJO' : item.riesgos_desnutricion_aguda_R == 2 || item.riesgos_desnutricion_aguda_R == 3 ? 'MODERADO': 'ALTO'}}</span></td>
                         <td><span>{{item.riesgos_desnutricion_global_R == 0 || item.riesgos_desnutricion_global_R == 1 ? 'BAJO' : item.riesgos_desnutricion_global_R == 2 || item.riesgos_desnutricion_global_R == 3 ? 'MODERADO': 'ALTO'}}</span></td>
@@ -771,7 +771,7 @@ export default {
                     };
                 break;
                 default:
-                filtro2= {
+                    filtro2= {
                         grupo: "Reporte - General"
                     };
                 break;
@@ -781,13 +781,6 @@ export default {
             let data;
 
             if(this.tipoComboGrupoEdad == "men1a"){
-                graficos = {
-                    fila1: await this.$html2canvas(this.$refs.fila_1_men_1, options),
-                    fila2: await this.$html2canvas(this.$refs.fila_2_men_1, options),
-                    fila3: await this.$html2canvas(this.$refs.fila_3_men_1, options),
-                    fila4: await this.chart_1_men_1.exporting.getImage("png")
-                }
-
                 data = {
                     sin_bcg_array : this.inmunizacion_data.sin_bcg_array,
                     sin_polio_array : this.inmunizacion_data.sin_polio_array,
@@ -797,17 +790,43 @@ export default {
                     esquema_icompleto_pentavalente_array : this.inmunizacion_data.esquema_icompleto_pentavalente_array,
                 }
             }else{
-                if(this.tipoComboGrupoEdad == "de1a5"){
-                    graficos = {
-                        fila1: await this.$html2canvas(this.$refs.fila1_1a5, options),
-                        fila2: await this.chart_polio.exporting.getImage("png"),
-                        fila3: await this.chart_pentavalente.exporting.getImage("png"),
-                        fila4: await this.chart_1_men_1.exporting.getImage("png")
-                    }
+                if(this.tipoComboGrupoEdad == "de1a5"){   
+                    var vacunacion_incompleto_array = []
+                    this.inmunizacion_data.personas.forEach(element => {
+                        if(element.carnet == "DESAC"){
+                            vacunacion_incompleto_array.push(element);
+                        }
+                    });
+                    
+                    var srp_completo_array = [];
+                    this.inmunizacion_data.personas.forEach(element => {
+                        if(element.tripleviral == "1R"){
+                            srp_completo_array.push(element);
+                        }
+                    });
+                   
+                    var neumococo_completo_array = [];
+                    this.inmunizacion_data.personas_1_anio.forEach(element => {
+                        if(element.neumococo == "R1"){
+                            neumococo_completo_array.push(element);
+                        }
+                    });
+                    
+                
+                    var desn_incompleo_array = [];
+                    this.inmunizacion_data.personas.forEach(element => {
+                        if(element.carnet == "DESAC" && ((element.riesgos_desnutricion_aguda_R =="4" || element.riesgos_desnutricion_aguda_R =="5") || (element.riesgos_desnutricion_global_R =="4" || element.riesgos_desnutricion_global_R =="5"))){
+                            desn_incompleo_array.push(element);
+                        }
+                    });
+                    
 
                     data = {
                         personas : this.inmunizacion_data.personas,
-                        personas_1_anio : this.inmunizacion_data.personas_1_anio,
+                        vacunacion_incompleto_array: vacunacion_incompleto_array,
+                        srp_completo_array: srp_completo_array,
+                        neumococo_completo_array: neumococo_completo_array,
+                        desn_incompleo_array: desn_incompleo_array
                     } 
                 }
             }
@@ -823,15 +842,23 @@ export default {
 
             try {
                 await DashboardServiceRS.exportToPDFINMEXCEL(parametros).then(respuesta => {
-                    this.rutaPdf = store.state.apiURL + respuesta.data.nombre;
+                    let href = store.state.apiURL + respuesta.data.nombre;
                     this.isLoading = false;
                     this.exportando = false;
+                    this.downloadItem(href);
                 });
             } catch (error) { 
                 this.$swal("Error...!", "Ocurrio un error!", "error");    
                 this.isLoading = false;
             }
             
+        },
+        downloadItem (url) {      
+            const link = document.createElement('a')
+            link.href = url
+            link.download = "Riesgo-Salud-Inunizacion.xlsx"
+            link.click()
+            URL.revokeObjectURL(link.href);
         },
         cerrarModal() {
             this.$refs.detalle_inmunizacion.hide();
