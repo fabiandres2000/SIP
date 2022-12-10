@@ -51,3 +51,11 @@ export function hogares($tipo, $id) {
 export function exportarHogar($data) {
     return http().post('/socioeconomico/exportar-hogar', $data);
 }
+
+export function exportarAnalfabetasExel($data) {
+    return http().post('/socioeconomico/exportar-analfabetas-excel', $data);
+}
+
+export function exportarDesempleadosExcel($data) {
+    return http().post('/socioeconomico/exportar-desempleados-excel', $data);
+}

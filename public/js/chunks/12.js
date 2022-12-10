@@ -13926,15 +13926,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -14529,6 +14520,69 @@ _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_10__["useTheme"](_amcharts_amc
         }, _callee9, null, [[13, 18]]);
       }))();
     },
+    exportToEXCELAM15: function exportToEXCELAM15() {
+      var _this11 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee10() {
+        var parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee10$(_context10) {
+          while (1) {
+            switch (_context10.prev = _context10.next) {
+              case 0:
+                _this11.isLoading = true;
+                parametros = {
+                  ente: _this11.ente,
+                  datos: _this11.dataExcel,
+                  titulo: "Analfabetismo (Mayores de 15 años)"
+                };
+                _context10.prev = 2;
+                _context10.next = 5;
+                return _Servicios_dashboard_socioeconomico_servicios__WEBPACK_IMPORTED_MODULE_1__["exportarAnalfabetasExel"](parametros).then(function (respuesta) {
+                  var href = _store__WEBPACK_IMPORTED_MODULE_13__["default"].state.apiURL + respuesta.data.nombre;
+                  _this11.isLoading = false;
+
+                  _this11.downloadItem(href);
+                });
+
+              case 5:
+                _context10.next = 17;
+                break;
+
+              case 7:
+                _context10.prev = 7;
+                _context10.t0 = _context10["catch"](2);
+                _context10.t1 = _context10.t0.response.status;
+                _context10.next = _context10.t1 === 422 ? 12 : 14;
+                break;
+
+              case 12:
+                _this11.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context10.abrupt("break", 16);
+
+              case 14:
+                _this11.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context10.abrupt("break", 16);
+
+              case 16:
+                _this11.isLoading = false;
+
+              case 17:
+              case "end":
+                return _context10.stop();
+            }
+          }
+        }, _callee10, null, [[2, 7]]);
+      }))();
+    },
+    downloadItem: function downloadItem(url) {
+      var link = document.createElement('a');
+      link.href = url;
+      link.download = "Analfabetismo (Mayores de 15 años).xlsx";
+      link.click();
+      URL.revokeObjectURL(link.href);
+    },
     cerrarModal: function cerrarModal() {
       this.$refs.modalpdf.hide();
     }
@@ -14570,15 +14624,6 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -15371,6 +15416,69 @@ _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_10__["useTheme"](_amcharts_amc
         }, _callee9, null, [[13, 18]]);
       }))();
     },
+    exportToEXCELAME15: function exportToEXCELAME15() {
+      var _this11 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee10() {
+        var parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee10$(_context10) {
+          while (1) {
+            switch (_context10.prev = _context10.next) {
+              case 0:
+                _this11.isLoading = true;
+                parametros = {
+                  ente: _this11.ente,
+                  datos: _this11.dataExcel,
+                  titulo: "Analfabetismo (Menores de 15 años)"
+                };
+                _context10.prev = 2;
+                _context10.next = 5;
+                return _Servicios_dashboard_socioeconomico_servicios__WEBPACK_IMPORTED_MODULE_1__["exportarAnalfabetasExel"](parametros).then(function (respuesta) {
+                  var href = _store__WEBPACK_IMPORTED_MODULE_13__["default"].state.apiURL + respuesta.data.nombre;
+                  _this11.isLoading = false;
+
+                  _this11.downloadItem(href);
+                });
+
+              case 5:
+                _context10.next = 17;
+                break;
+
+              case 7:
+                _context10.prev = 7;
+                _context10.t0 = _context10["catch"](2);
+                _context10.t1 = _context10.t0.response.status;
+                _context10.next = _context10.t1 === 422 ? 12 : 14;
+                break;
+
+              case 12:
+                _this11.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context10.abrupt("break", 16);
+
+              case 14:
+                _this11.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context10.abrupt("break", 16);
+
+              case 16:
+                _this11.isLoading = false;
+
+              case 17:
+              case "end":
+                return _context10.stop();
+            }
+          }
+        }, _callee10, null, [[2, 7]]);
+      }))();
+    },
+    downloadItem: function downloadItem(url) {
+      var link = document.createElement('a');
+      link.href = url;
+      link.download = "Analfabetismo (Menores de 15 años).xlsx";
+      link.click();
+      URL.revokeObjectURL(link.href);
+    },
     cerrarModal: function cerrarModal() {
       this.$refs.modalpdf.hide();
     }
@@ -15412,21 +15520,6 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -16257,6 +16350,69 @@ _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_10__["useTheme"](_amcharts_amc
           }
         }, _callee11, null, [[14, 19]]);
       }))();
+    },
+    exportToEXCELDESEM: function exportToEXCELDESEM() {
+      var _this13 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee12() {
+        var parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee12$(_context12) {
+          while (1) {
+            switch (_context12.prev = _context12.next) {
+              case 0:
+                _this13.isLoading = true;
+                parametros = {
+                  ente: _this13.ente,
+                  datos: _this13.dataExcel,
+                  titulo: "Lista Desempleados"
+                };
+                _context12.prev = 2;
+                _context12.next = 5;
+                return _Servicios_dashboard_socioeconomico_servicios__WEBPACK_IMPORTED_MODULE_1__["exportarDesempleadosExcel"](parametros).then(function (respuesta) {
+                  var href = _store__WEBPACK_IMPORTED_MODULE_13__["default"].state.apiURL + respuesta.data.nombre;
+                  _this13.isLoading = false;
+
+                  _this13.downloadItem(href);
+                });
+
+              case 5:
+                _context12.next = 17;
+                break;
+
+              case 7:
+                _context12.prev = 7;
+                _context12.t0 = _context12["catch"](2);
+                _context12.t1 = _context12.t0.response.status;
+                _context12.next = _context12.t1 === 422 ? 12 : 14;
+                break;
+
+              case 12:
+                _this13.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context12.abrupt("break", 16);
+
+              case 14:
+                _this13.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context12.abrupt("break", 16);
+
+              case 16:
+                _this13.isLoading = false;
+
+              case 17:
+              case "end":
+                return _context12.stop();
+            }
+          }
+        }, _callee12, null, [[2, 7]]);
+      }))();
+    },
+    downloadItem: function downloadItem(url) {
+      var link = document.createElement('a');
+      link.href = url;
+      link.download = "Lista Desempleados.xlsx";
+      link.click();
+      URL.revokeObjectURL(link.href);
     },
     cerrarModal: function cerrarModal() {
       this.$refs.modalpdf.hide();
@@ -37489,7 +37645,7 @@ var render = function() {
                   staticStyle: {
                     position: "absolute",
                     top: "55%",
-                    left: "48%"
+                    left: "61%"
                   },
                   on: {
                     click: function($event) {
@@ -37699,40 +37855,6 @@ var render = function() {
       _c("div", { staticClass: "row" }, [
         _vm._m(2),
         _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "col-lg-4 text-right" },
-          [
-            _c(
-              "vue-excel-xlsx",
-              {
-                staticStyle: {
-                  "background-color": "green",
-                  color: "white",
-                  border: "0px",
-                  padding: "15px",
-                  "border-radius": "5px"
-                },
-                attrs: {
-                  data: _vm.dataExcel,
-                  columns: _vm.columns,
-                  "file-name": "analfabetas",
-                  "file-type": "xlsx",
-                  "sheet-name": "sheetname"
-                }
-              },
-              [
-                _vm._v("\n                Exportar a excel "),
-                _c("i", {
-                  staticClass: "fa fa-table",
-                  attrs: { "aria-hidden": "true" }
-                })
-              ]
-            )
-          ],
-          1
-        ),
-        _vm._v(" "),
         _c("div", { ref: "dataTable", staticClass: "col-lg-12" }, [
           _c(
             "table",
@@ -37801,6 +37923,27 @@ var render = function() {
                 ],
                 2
               )
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-lg-12 text-right" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-success",
+              on: {
+                click: function($event) {
+                  return _vm.exportToEXCELAM15()
+                }
+              }
+            },
+            [
+              _vm._v("Exportar a excel "),
+              _c("i", {
+                staticClass: "fa fa-table",
+                attrs: { "aria-hidden": "true" }
+              })
             ]
           )
         ])
@@ -37884,7 +38027,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-8" }, [
+    return _c("div", { staticClass: "col-lg-12" }, [
       _c("h2", [_vm._v("Listado de personas analfabetas")])
     ])
   },
@@ -38321,7 +38464,7 @@ var render = function() {
                     staticStyle: {
                       position: "absolute",
                       top: "55%",
-                      left: "48%"
+                      left: "61%"
                     },
                     on: {
                       click: function($event) {
@@ -38526,40 +38669,6 @@ var render = function() {
             _vm._v(" "),
             _vm._m(2),
             _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "col-lg-4 text-right" },
-              [
-                _c(
-                  "vue-excel-xlsx",
-                  {
-                    staticStyle: {
-                      "background-color": "green",
-                      color: "white",
-                      border: "0px",
-                      padding: "15px",
-                      "border-radius": "5px"
-                    },
-                    attrs: {
-                      data: _vm.dataExcel,
-                      columns: _vm.columns,
-                      "file-name": "analfabetas",
-                      "file-type": "xlsx",
-                      "sheet-name": "sheetname"
-                    }
-                  },
-                  [
-                    _vm._v("\n                    Exportar a excel "),
-                    _c("i", {
-                      staticClass: "fa fa-table",
-                      attrs: { "aria-hidden": "true" }
-                    })
-                  ]
-                )
-              ],
-              1
-            ),
-            _vm._v(" "),
             _c("div", { ref: "dataTable", staticClass: "col-lg-12" }, [
               _c(
                 "table",
@@ -38628,6 +38737,27 @@ var render = function() {
                     ],
                     2
                   )
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-lg-12 text-right" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-success",
+                  on: {
+                    click: function($event) {
+                      return _vm.exportToEXCELAME15()
+                    }
+                  }
+                },
+                [
+                  _vm._v("Exportar a excel "),
+                  _c("i", {
+                    staticClass: "fa fa-table",
+                    attrs: { "aria-hidden": "true" }
+                  })
                 ]
               )
             ])
@@ -38714,7 +38844,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-8" }, [
+    return _c("div", { staticClass: "col-lg-12" }, [
       _c("h2", [_vm._v("Listado de personas analfabetas")])
     ])
   },
@@ -39136,80 +39266,52 @@ var render = function() {
                 })
               : _vm._e(),
             _vm._v(" "),
-            _c("div", { staticClass: "col-lg-3" }, [
-              _c(
-                "div",
-                { staticClass: "row", staticStyle: { "padding-top": "14%" } },
-                [
-                  _c(
-                    "div",
-                    {
-                      ref: "boton1",
-                      staticClass: "col-lg-6 text-center",
-                      staticStyle: { padding: "10px 10px 10px 20px" }
-                    },
-                    [
-                      _c(
-                        "vue-excel-xlsx",
-                        {
-                          staticStyle: {
-                            "background-color": "green",
-                            color: "white",
-                            border: "0px",
-                            padding: "10px",
-                            "border-radius": "5px"
-                          },
-                          attrs: {
-                            data: _vm.dataExcel,
-                            columns: _vm.columns,
-                            "file-name": "desempleados",
-                            "file-type": "xlsx",
-                            "sheet-name": "sheetname"
-                          }
-                        },
-                        [
-                          _c("i", {
-                            staticClass: "fa fa-table",
-                            attrs: { "aria-hidden": "true" }
-                          }),
-                          _vm._v(" Exportar Excel \n                        ")
-                        ]
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      ref: "boton1",
-                      staticClass: "col-lg-6 text-center",
-                      staticStyle: { padding: "10px 10px 10px 20px" }
-                    },
-                    [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-danger",
-                          on: {
-                            click: function($event) {
-                              return _vm.exportToPDFD()
-                            }
-                          }
-                        },
-                        [
-                          _c("i", {
-                            staticClass: "fa fa-file",
-                            attrs: { "aria-hidden": "true" }
-                          }),
-                          _vm._v(" Exportar PDF")
-                        ]
-                      )
-                    ]
-                  )
-                ]
-              )
-            ])
+            _c(
+              "div",
+              {
+                staticClass: "col-lg-3 text-right",
+                staticStyle: { "padding-top": "4%" }
+              },
+              [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-success",
+                    on: {
+                      click: function($event) {
+                        return _vm.exportToEXCELDESEM()
+                      }
+                    }
+                  },
+                  [
+                    _c("i", {
+                      staticClass: "fa fa-table",
+                      attrs: { "aria-hidden": "true" }
+                    }),
+                    _vm._v(" Exportar Excel ")
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-danger",
+                    on: {
+                      click: function($event) {
+                        return _vm.exportToPDFD()
+                      }
+                    }
+                  },
+                  [
+                    _c("i", {
+                      staticClass: "fa fa-file",
+                      attrs: { "aria-hidden": "true" }
+                    }),
+                    _vm._v(" Exportar PDF")
+                  ]
+                )
+              ]
+            )
           ]),
           _vm._v(" "),
           _c("hr"),
@@ -43406,7 +43508,7 @@ function exportToPDFINMEXCEL($data) {
 /*!**********************************************************************!*\
   !*** ./resources/js/Servicios/dashboard_socioeconomico_servicios.js ***!
   \**********************************************************************/
-/*! exports provided: listarEstadisticaPersonas, listarEstadisticaNinios, desempleo, mercadoLaboral, exportarAnalfabetas, exportarMercadoLaboral, exportarDesempleo, poblacion, exportarPoblacion, vivienda, exportarVivienda, hogares, exportarHogar */
+/*! exports provided: listarEstadisticaPersonas, listarEstadisticaNinios, desempleo, mercadoLaboral, exportarAnalfabetas, exportarMercadoLaboral, exportarDesempleo, poblacion, exportarPoblacion, vivienda, exportarVivienda, hogares, exportarHogar, exportarAnalfabetasExel, exportarDesempleadosExcel */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -43424,6 +43526,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "exportarVivienda", function() { return exportarVivienda; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hogares", function() { return hogares; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "exportarHogar", function() { return exportarHogar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "exportarAnalfabetasExel", function() { return exportarAnalfabetasExel; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "exportarDesempleadosExcel", function() { return exportarDesempleadosExcel; });
 /* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
 
 function listarEstadisticaPersonas($tipo, $id) {
@@ -43464,6 +43568,12 @@ function hogares($tipo, $id) {
 }
 function exportarHogar($data) {
   return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/socioeconomico/exportar-hogar', $data);
+}
+function exportarAnalfabetasExel($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/socioeconomico/exportar-analfabetas-excel', $data);
+}
+function exportarDesempleadosExcel($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/socioeconomico/exportar-desempleados-excel', $data);
 }
 
 /***/ }),

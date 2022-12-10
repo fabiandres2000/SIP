@@ -6,6 +6,8 @@ use Auth;
 use Illuminate\Http\Request;
 use Session;
 use File;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class SocioeconomicoController extends Controller
 {
@@ -356,6 +358,237 @@ class SocioeconomicoController extends Controller
             ])->setPaper('a4', 'landscape')
             ->save( $ente.'/'.$nombre);
 
+
+            $respuesta = [
+                'nombre' => $ente.'/'.$nombre,
+            ];
+
+            return response()->json($respuesta, 200);
+
+        }else {
+            return redirect("/index")->with("error", "Su sesion ha terminado");
+        }
+    }
+
+    public function exportarAnalfabetasExcel() {
+        $styleArray = [
+            'font' => [
+                'bold' => true,
+                'size' => 18,
+            ],
+            'alignment' => [
+                'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT,
+            ],
+            'fill' => [
+                'fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_GRADIENT_LINEAR,
+                'rotation' => 90,
+                'startColor' => [
+                    'argb' => 'FF2FA021',
+                ],
+                'endColor' => [
+                    'argb' => 'FF2FA021',
+                ],
+            ],
+        ];
+
+        $styleArray2 = [
+            'font' => [
+                'bold' => true,
+                'size' => 14,
+            ],
+            'borders' => [
+                'top' => [
+                    'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                ],
+            ],
+            'alignment' => [
+                'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT,
+            ],
+            'fill' => [
+                'fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_GRADIENT_LINEAR,
+                'rotation' => 90,
+                'startColor' => [
+                    'argb' => 'FF2FA021',
+                ],
+                'endColor' => [
+                    'argb' => 'FF2FA021',
+                ],
+            ],
+        ];
+        
+        if (Auth::check()) {
+            
+            $ente = request()->get('ente');
+            $datos = request()->get('datos');
+            $titulo = request()->get('titulo');
+           
+
+            $ente = Auth::user()->permisos->where('actual', 1)->first()->ente->nombre;
+            File::makeDirectory(public_path().'/'.$ente, $mode = 0777, true, true);
+            $nombre = $titulo.".xlsx";
+
+            $spreadsheet = new Spreadsheet();
+               
+            $sheet = $spreadsheet->getActiveSheet();
+            $sheet->setTitle('Lista-Analfabetas');
+
+            $spreadsheet->getActiveSheet()->getColumnDimension('A')->setAutoSize(true);
+            $spreadsheet->getActiveSheet()->getColumnDimension('B')->setAutoSize(true);
+            $spreadsheet->getActiveSheet()->getColumnDimension('C')->setAutoSize(true);
+            $spreadsheet->getActiveSheet()->getColumnDimension('D')->setAutoSize(true);
+            
+            $sheet->setCellValue('A1', $ente);
+            $sheet->setCellValue('A2', $titulo);
+            $sheet->setCellValue('A3', 'Listado de personas analfabetas');
+
+            $sheet->mergeCells('A1:D1');
+            $spreadsheet->getActiveSheet()->getStyle('A1:D1')->applyFromArray($styleArray);
+            $sheet->mergeCells('A2:D2');
+            $spreadsheet->getActiveSheet()->getStyle('A2:D2')->applyFromArray($styleArray);
+            $sheet->mergeCells('A3:D3');
+            $spreadsheet->getActiveSheet()->getStyle('A3:D3')->applyFromArray($styleArray);
+
+            $sheet->setCellValue('A4', 'Identificación');
+            $sheet->setCellValue('B4', 'Nombre');
+            $sheet->setCellValue('C4', 'Edad');
+            $sheet->setCellValue('D4', 'Localización');
+    
+
+            $spreadsheet->getActiveSheet()->getStyle('A4:D4')->applyFromArray($styleArray2);
+
+            $row = 5;
+            foreach ($datos as $item) {
+                $sheet
+                    ->setCellValue("A{$row}", $item["tipo_id"].":".$item["identificacion"])
+                    ->setCellValue("B{$row}", $item["pnom"]." ".$item["snom"]." ".$item["pape"]." ".$item["sape"])
+                    ->setCellValue("C{$row}", $item["edad"]." Años")
+                    ->setCellValue("D{$row}", $item["localizacion"]);
+                ++$row;
+            }
+            
+            $writer = new Xlsx($spreadsheet);
+            $writer->save( $ente.'/'.$nombre);
+
+            $respuesta = [
+                'nombre' => $ente.'/'.$nombre,
+            ];
+
+            return response()->json($respuesta, 200);
+
+        }else {
+            return redirect("/index")->with("error", "Su sesion ha terminado");
+        }
+    }
+
+    public function exportarDesempleadosExcel() {
+        $styleArray = [
+            'font' => [
+                'bold' => true,
+                'size' => 18,
+            ],
+            'alignment' => [
+                'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT,
+            ],
+            'fill' => [
+                'fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_GRADIENT_LINEAR,
+                'rotation' => 90,
+                'startColor' => [
+                    'argb' => 'FF2FA021',
+                ],
+                'endColor' => [
+                    'argb' => 'FF2FA021',
+                ],
+            ],
+        ];
+
+        $styleArray2 = [
+            'font' => [
+                'bold' => true,
+                'size' => 14,
+            ],
+            'borders' => [
+                'top' => [
+                    'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                ],
+            ],
+            'alignment' => [
+                'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT,
+            ],
+            'fill' => [
+                'fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_GRADIENT_LINEAR,
+                'rotation' => 90,
+                'startColor' => [
+                    'argb' => 'FF2FA021',
+                ],
+                'endColor' => [
+                    'argb' => 'FF2FA021',
+                ],
+            ],
+        ];
+        
+        if (Auth::check()) {
+            
+            $ente = request()->get('ente');
+            $datos = request()->get('datos');
+            $titulo = request()->get('titulo');
+           
+
+            $ente = Auth::user()->permisos->where('actual', 1)->first()->ente->nombre;
+            File::makeDirectory(public_path().'/'.$ente, $mode = 0777, true, true);
+            $nombre = $titulo.".xlsx";
+
+            $spreadsheet = new Spreadsheet();
+               
+            $sheet = $spreadsheet->getActiveSheet();
+            $sheet->setTitle('Lista-Desempleados');
+
+            $spreadsheet->getActiveSheet()->getColumnDimension('A')->setAutoSize(true);
+            $spreadsheet->getActiveSheet()->getColumnDimension('B')->setAutoSize(true);
+            $spreadsheet->getActiveSheet()->getColumnDimension('C')->setAutoSize(true);
+            $spreadsheet->getActiveSheet()->getColumnDimension('D')->setAutoSize(true);
+            $spreadsheet->getActiveSheet()->getColumnDimension('E')->setAutoSize(true);
+            $spreadsheet->getActiveSheet()->getColumnDimension('F')->setAutoSize(true);
+            
+            $sheet->setCellValue('A1', $ente);
+            $sheet->setCellValue('A2', $titulo);
+            $sheet->setCellValue('A3', 'Listado de personas desempleadas');
+
+            $sheet->mergeCells('A1:F1');
+            $spreadsheet->getActiveSheet()->getStyle('A1:F1')->applyFromArray($styleArray);
+            $sheet->mergeCells('A2:F2');
+            $spreadsheet->getActiveSheet()->getStyle('A2:F2')->applyFromArray($styleArray);
+            $sheet->mergeCells('A3:F3');
+            $spreadsheet->getActiveSheet()->getStyle('A3:F3')->applyFromArray($styleArray);
+
+            $sheet->setCellValue('A4', 'Identificación');
+            $sheet->setCellValue('B4', 'Nombre');
+            $sheet->setCellValue('C4', 'Edad');
+            $sheet->setCellValue('D4', 'Sexo');
+            $sheet->setCellValue('E4', 'Corregimiento');
+            $sheet->setCellValue('F4', 'Dirección');
+    
+
+            $spreadsheet->getActiveSheet()->getStyle('A4:F4')->applyFromArray($styleArray2);
+
+            $row = 5;
+            foreach ($datos as $item) {
+                if($item["des_corr"] != ""){
+                    $corre = $item["des_corr"];
+                }else{
+                    $corre = "CASCO URBANO";
+                }
+                $sheet
+                    ->setCellValue("A{$row}", $item["tipo_id"].":".$item["identificacion"])
+                    ->setCellValue("B{$row}", $item["pnom"]." ".$item["snom"]." ".$item["pape"]." ".$item["sape"])
+                    ->setCellValue("C{$row}", $item["edad"]." Años")
+                    ->setCellValue("D{$row}", $item["sexo"])
+                    ->setCellValue("E{$row}", $corre)
+                    ->setCellValue("F{$row}", $item["des_direc"]);
+                ++$row;
+            }
+            
+            $writer = new Xlsx($spreadsheet);
+            $writer->save( $ente.'/'.$nombre);
 
             $respuesta = [
                 'nombre' => $ente.'/'.$nombre,

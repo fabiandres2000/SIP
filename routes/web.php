@@ -206,6 +206,8 @@ Route::get('/socioeconomico/vivienda', 'SocioeconomicoController@vivienda');
 Route::post('/socioeconomico/exportar-vivienda', 'SocioeconomicoController@exportarVivienda');
 Route::get('/socioeconomico/hogares', 'SocioeconomicoController@hogares');
 Route::post('/socioeconomico/exportar-hogar', 'SocioeconomicoController@exportarHogar');
+Route::post('/socioeconomico/exportar-analfabetas-excel', 'SocioeconomicoController@exportarAnalfabetasExcel');
+Route::post('/socioeconomico/exportar-desempleados-excel', 'SocioeconomicoController@exportarDesempleadosExcel');
 
 Route::get('/dashboard-riesgos-salud/poblacion', 'DashboardRiesgosSaludController@poblacion');
 Route::post('/dashboard-riesgos-salud/exportar-rs-dashboard', 'DashboardRiesgosSaludController@exportarPoblacion');

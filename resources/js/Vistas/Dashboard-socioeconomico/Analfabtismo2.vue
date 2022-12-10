@@ -63,7 +63,7 @@
                 <div v-if="tipoCombo == 'corregimiento'" class="col-sm-1 col-lg-1 text-left" style="padding: 10px 10px 10px 20px;"></div>
                 <div v-if="tipoCombo != 'todos' && tipoCombo != 'barrio2'" class="col-sm-2 col-lg-2 text-left" style="padding: 10px 10px 10px 20px;"></div>
                 <div ref="boton1" class="col-sm-3 col-lg-3 text-right" style="padding: 10px 10px 10px 20px;">
-                    <button style="position: absolute;top: 55%;left: 48%;"  @click="exportToPDFAME15()" class="btn btn-danger"><i class="fa fa-file" aria-hidden="true"></i> Exportar PDF</button>
+                    <button style="position: absolute;top: 55%;left: 61%;"  @click="exportToPDFAME15()" class="btn btn-danger"><i class="fa fa-file" aria-hidden="true"></i> Exportar PDF</button>
                 </div>
             </div>
             <hr>
@@ -139,20 +139,8 @@
                 <div style="height: 385px; padding-top: 10%" class="col-lg-6 text-center" v-if="loading">
                     <img  src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Loading_2.gif?20170503175831" alt="cargando">
                 </div>
-                <div class="col-lg-8">
+                <div class="col-lg-12">
                     <h2>Listado de personas analfabetas</h2>
-                </div>
-                <div class="col-lg-4 text-right">
-                    <vue-excel-xlsx
-                        :data="dataExcel"
-                        :columns="columns"
-                        file-name="analfabetas"
-                        :file-type="'xlsx'"
-                        :sheet-name="'sheetname'"
-                        style = "background-color: green; color: white; border: 0px; padding: 15px; border-radius: 5px"
-                        >
-                        Exportar a excel <i class="fa fa-table" aria-hidden="true"></i>
-                    </vue-excel-xlsx>
                 </div>
                 <div class="col-lg-12" ref="dataTable">
                     <table id="tabla-ana2" class="table_data" style="width: 100%">
@@ -176,6 +164,9 @@
                             </tr>
                         </tbody>
                     </table>
+                </div>
+                <div class="col-lg-12 text-right">
+                    <button @click="exportToEXCELAME15()" class="btn btn-success">Exportar a excel <i class="fa fa-table" aria-hidden="true"></i></button>
                 </div>
             </div>
             <b-modal
@@ -619,6 +610,39 @@ export default {
                 }
                 this.isLoading = false;
             }
+        },
+        async exportToEXCELAME15(){
+            this.isLoading = true;
+
+            const parametros = {
+                ente: this.ente,
+                datos: this.dataExcel,
+                titulo: "Analfabetismo (Menores de 15 años)"
+            };
+            try {
+                await DashboardServiceSocioeconomico.exportarAnalfabetasExel(parametros).then(respuesta => {
+                    let href = store.state.apiURL + respuesta.data.nombre;
+                    this.isLoading = false;
+                    this.downloadItem(href);
+                });
+            } catch (error) {
+                switch (error.response.status) {
+                    case 422:
+                    this.$swal("Error...!", "Ocurrio un error!", "error");
+                    break;
+                    default:
+                    this.$swal("Error...!", "Ocurrio un error!", "error");
+                    break;
+                }
+                this.isLoading = false;
+            }
+        },
+        downloadItem (url) {      
+            const link = document.createElement('a')
+            link.href = url
+            link.download = "Analfabetismo (Menores de 15 años).xlsx"
+            link.click()
+            URL.revokeObjectURL(link.href);
         },
         cerrarModal() {
             this.$refs.modalpdf.hide();
