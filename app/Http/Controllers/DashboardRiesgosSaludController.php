@@ -349,6 +349,8 @@ class DashboardRiesgosSaludController extends Controller
             }else{
                 if($rango == "de1a5"){
                     $data = \App\DashboardRiesgosSalud::inmunizacion_de1a5(Session::get('alias'), $tipo, $id);
+                }else{
+                    $data = \App\DashboardRiesgosSalud::inmunizacion_general_9a18(Session::get('alias'), $tipo, $id);
                 } 
             }
             

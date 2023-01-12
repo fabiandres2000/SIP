@@ -3054,4 +3054,177 @@ class DashboardRiesgosSalud extends Model
         ];
     }
 
+    public static function inmunizacion_general_9a18($alias, $tipo, $id){
+        if($tipo == "todos"){
+    
+            $de6a11 = DB::connection('mysql')->table($alias.'.de6a11')
+            ->join($alias . ".integrantes", "integrantes.id", "de6a11.id_integrante")
+            ->join($alias . ".hogar", "hogar.id", "integrantes.id_hogar")
+            ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+            ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+            ->select('integrantes.id','integrantes.id_hogar','integrantes.tipo_id','integrantes.identificacion', 'de6a11.papiloma')
+            ->selectRaw("CONCAT_WS(' ',integrantes.pnom, integrantes.snom, integrantes.pape, integrantes.sape) as nombre")
+            ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as des_corr")->selectRaw("CONCAT_WS('',hogar.direccion) as des_direc")->selectRaw("CONCAT_WS('',barrios.barrio) as des_barrio")
+            ->selectRaw("TIMESTAMPDIFF(YEAR, integrantes.fecha_nac, hogar.fecha) as edad")
+            ->where('hogar.estado', 'Activo')
+            ->where('integrantes.estado', 'Activo')
+            ->where('de6a11.estado', 'Activo')
+            ->where('de6a11.sexo', 'FEMENINO')
+            ->where('de6a11.edad', '>=' , 9)
+            ->get();
+
+            $de12a17 = DB::connection('mysql')->table($alias.'.de12a17')
+            ->join($alias . ".integrantes", "integrantes.id", "de12a17.id_integrante")
+            ->join($alias . ".hogar", "hogar.id", "integrantes.id_hogar")
+            ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+            ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+            ->select('integrantes.id','integrantes.id_hogar','integrantes.tipo_id','integrantes.identificacion', 'de12a17.papiloma')
+            ->selectRaw("CONCAT_WS(' ',integrantes.pnom, integrantes.snom, integrantes.pape, integrantes.sape) as nombre")
+            ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as des_corr")->selectRaw("CONCAT_WS('',hogar.direccion) as des_direc")->selectRaw("CONCAT_WS('',barrios.barrio) as des_barrio")
+            ->selectRaw("TIMESTAMPDIFF(YEAR, integrantes.fecha_nac, hogar.fecha) as edad")
+            ->where('hogar.estado', 'Activo')
+            ->where('integrantes.estado', 'Activo')
+            ->where('de12a17.estado', 'Activo')
+            ->where('de12a17.sexo', 'FEMENINO')
+            ->get();
+
+            $de18a28 = DB::connection('mysql')->table($alias.'.de18a28')
+            ->join($alias . ".integrantes", "integrantes.id", "de18a28.id_integrante")
+            ->join($alias . ".hogar", "hogar.id", "integrantes.id_hogar")
+            ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+            ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+            ->select('integrantes.id','integrantes.id_hogar','integrantes.tipo_id','integrantes.identificacion', 'de18a28.papiloma')
+            ->selectRaw("CONCAT_WS(' ',integrantes.pnom, integrantes.snom, integrantes.pape, integrantes.sape) as nombre")
+            ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as des_corr")->selectRaw("CONCAT_WS('',hogar.direccion) as des_direc")->selectRaw("CONCAT_WS('',barrios.barrio) as des_barrio")
+            ->selectRaw("TIMESTAMPDIFF(YEAR, integrantes.fecha_nac, hogar.fecha) as edad")
+            ->where('hogar.estado', 'Activo')
+            ->where('integrantes.estado', 'Activo')
+            ->where('de18a28.estado', 'Activo')
+            ->where('de18a28.sexo', 'FEMENINO')
+            ->where('de18a28.edad', '<=' , 18)
+            ->get();
+
+        }else{
+
+            $de6a11 = DB::connection('mysql')->table($alias.'.de6a11')
+            ->join($alias . ".integrantes", "integrantes.id", "de6a11.id_integrante")
+            ->join($alias . ".hogar", "hogar.id", "integrantes.id_hogar")
+            ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+            ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+            ->select('integrantes.id','integrantes.id_hogar','integrantes.tipo_id','integrantes.identificacion', 'de6a11.papiloma')
+            ->selectRaw("CONCAT_WS(' ',integrantes.pnom, integrantes.snom, integrantes.pape, integrantes.sape) as nombre")
+            ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as des_corr")->selectRaw("CONCAT_WS('',hogar.direccion) as des_direc")->selectRaw("CONCAT_WS('',barrios.barrio) as des_barrio")
+            ->selectRaw("TIMESTAMPDIFF(YEAR, integrantes.fecha_nac, hogar.fecha) as edad")
+            ->where('hogar.estado', 'Activo')
+            ->where('integrantes.estado', 'Activo')
+            ->where('de6a11.estado', 'Activo')
+            ->where('de6a11.sexo', 'FEMENINO')
+            ->where('de6a11.edad', '>=' , 9)
+            ->where('hogar.id_'.$tipo, $id)
+            ->get();
+
+            $de12a17 = DB::connection('mysql')->table($alias.'.de12a17')
+            ->join($alias . ".integrantes", "integrantes.id", "de12a17.id_integrante")
+            ->join($alias . ".hogar", "hogar.id", "integrantes.id_hogar")
+            ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+            ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+            ->select('integrantes.id','integrantes.id_hogar','integrantes.tipo_id','integrantes.identificacion', 'de12a17.papiloma')
+            ->selectRaw("CONCAT_WS(' ',integrantes.pnom, integrantes.snom, integrantes.pape, integrantes.sape) as nombre")
+            ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as des_corr")->selectRaw("CONCAT_WS('',hogar.direccion) as des_direc")->selectRaw("CONCAT_WS('',barrios.barrio) as des_barrio")
+            ->selectRaw("TIMESTAMPDIFF(YEAR, integrantes.fecha_nac, hogar.fecha) as edad")
+            ->where('hogar.estado', 'Activo')
+            ->where('integrantes.estado', 'Activo')
+            ->where('de12a17.estado', 'Activo')
+            ->where('de12a17.sexo', 'FEMENINO')
+            ->where('hogar.id_'.$tipo, $id)
+            ->get();
+
+            $de18a28 = DB::connection('mysql')->table($alias.'.de18a28')
+            ->join($alias . ".integrantes", "integrantes.id", "de18a28.id_integrante")
+            ->join($alias . ".hogar", "hogar.id", "integrantes.id_hogar")
+            ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+            ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+            ->select('integrantes.id','integrantes.id_hogar','integrantes.tipo_id','integrantes.identificacion', 'de18a28.papiloma')
+            ->selectRaw("CONCAT_WS(' ',integrantes.pnom, integrantes.snom, integrantes.pape, integrantes.sape) as nombre")
+            ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as des_corr")->selectRaw("CONCAT_WS('',hogar.direccion) as des_direc")->selectRaw("CONCAT_WS('',barrios.barrio) as des_barrio")
+            ->selectRaw("TIMESTAMPDIFF(YEAR, integrantes.fecha_nac, hogar.fecha) as edad")
+            ->where('hogar.estado', 'Activo')
+            ->where('integrantes.estado', 'Activo')
+            ->where('de18a28.estado', 'Activo')
+            ->where('de18a28.sexo', 'FEMENINO')
+            ->where('de18a28.edad', '<=' , 18)
+            ->where('hogar.id_'.$tipo, $id)
+            ->get();
+
+        }
+
+        $array_9a18 = array();
+        $no_papiloma = array();
+        $con_una_dosis_papiloma = array();
+        $completo_papiloma = array();
+
+        foreach ($de6a11 as &$item) {
+            array_push($array_9a18, $item); 
+        }
+
+        foreach ($de12a17 as &$item) {
+            array_push($array_9a18, $item); 
+        }
+
+        foreach ($de18a28 as &$item) {
+            array_push($array_9a18, $item); 
+        }
+
+        foreach ($array_9a18 as &$item) {
+            if($item->papiloma == "NO"){
+                array_push($no_papiloma, $item); 
+            }
+
+            if($item->papiloma == "D1"){
+                array_push($con_una_dosis_papiloma, $item); 
+            }
+
+            if($item->papiloma == "D2"){
+                array_push($completo_papiloma, $item); 
+            }
+        }
+
+        $numero_no_papiloma = count($no_papiloma);
+        $numero_con_una_dosis_papiloma = count($con_una_dosis_papiloma);
+        $numero_completo_papiloma = count($completo_papiloma);
+
+        if($numero_no_papiloma == 0){
+            $porcentaje_no_papiloma = 0;
+        }else{
+            $porcentaje_no_papiloma = ($numero_no_papiloma / count($array_9a18)) * 100;
+        }
+
+        if($numero_con_una_dosis_papiloma == 0){
+            $porcentaje_con_una_dosis_papiloma = 0;
+        }else{
+            $porcentaje_con_una_dosis_papiloma = ($numero_con_una_dosis_papiloma / count($array_9a18)) * 100;
+        }
+
+        if($numero_completo_papiloma == 0){
+            $porcentaje_completo_papiloma = 0;
+        }else{
+            $porcentaje_completo_papiloma = ($numero_completo_papiloma / count($array_9a18)) * 100;
+        }
+
+        return $info = [
+            "numero_9a18"  => count($array_9a18),
+            "no_papiloma"  => $no_papiloma,
+            "completo_papiloma"  => $completo_papiloma,
+            "con_una_dosis_papiloma"  => $con_una_dosis_papiloma,
+
+            "numero_no_papiloma"  => $numero_no_papiloma,
+            "numero_con_una_dosis_papiloma"  => $numero_con_una_dosis_papiloma,
+            "numero_completo_papiloma"  => $numero_completo_papiloma,
+
+            "porcentaje_no_papiloma"  => $porcentaje_no_papiloma,
+            "porcentaje_con_una_dosis_papiloma"  => $porcentaje_con_una_dosis_papiloma,
+            "porcentaje_completo_papiloma"  => $porcentaje_completo_papiloma,
+        ];
+    }
+
 }
