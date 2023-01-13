@@ -1036,4 +1036,123 @@ class Informes extends Model
         return $nro_gestantes;
     }
 
+    // informes de salud 
+    public static function no_asegurado_menor_5($alias){
+        $de0a1_rural = DB::table($alias.".men1a")
+        ->join($alias.".integrantes", "integrantes.id", "men1a.id_integrante")
+        ->join($alias.".hogar", "hogar.id", "integrantes.id_hogar")
+        ->select("integrantes.*")
+        ->where("integrantes.estado","Activo")
+        ->where("hogar.estado","Activo")
+        ->whereIn("hogar.id_zona",  [2,3])
+        ->get();
+
+        $de0a1_urbano = DB::table($alias.".men1a")
+        ->join($alias.".integrantes", "integrantes.id", "men1a.id_integrante")
+        ->join($alias.".hogar", "hogar.id", "integrantes.id_hogar")
+        ->select("integrantes.*")
+        ->where("integrantes.estado","Activo")
+        ->where("hogar.estado","Activo")
+        ->where("hogar.id_zona", 1)
+        ->get();
+
+        $de1a5_rural = DB::table($alias.".de1a5")
+        ->join($alias.".integrantes", "integrantes.id", "de1a5.id_integrante")
+        ->join($alias.".hogar", "hogar.id", "integrantes.id_hogar")
+        ->select("integrantes.*")
+        ->where("integrantes.estado","Activo")
+        ->where("hogar.estado","Activo")
+        ->whereIn("hogar.id_zona",  [2,3])
+        ->get();
+
+        $de1a5_urbano = DB::table($alias.".de1a5")
+        ->join($alias.".integrantes", "integrantes.id", "de1a5.id_integrante")
+        ->join($alias.".hogar", "hogar.id", "integrantes.id_hogar")
+        ->select("integrantes.*")
+        ->where("integrantes.estado","Activo")
+        ->where("hogar.estado","Activo")
+        ->where("hogar.id_zona", 1)
+        ->get();
+
+        $cantidad_personas = count($de0a1_rural) + count($de0a1_urbano) + count($de1a5_rural) + count($de1a5_urbano);
+
+        $no_asegurado_urbano = array();
+        $no_asegurado_rural = array();
+
+        foreach ($de0a1_urbano as $key) {
+            if($key->tipo_afiliacion == "PPNA"){
+                array_push($no_asegurado_urbano, $key);
+            }
+        }
+        
+        foreach ($de1a5_urbano as $key) {
+            if($key->tipo_afiliacion == "PPNA"){
+                array_push($no_asegurado_urbano, $key);
+            }
+        }
+
+        foreach ($de0a1_rural as $key) {
+            if($key->tipo_afiliacion == "PPNA"){
+                array_push($no_asegurado_rural, $key);
+            }
+        }
+        
+        foreach ($de1a5_rural as $key) {
+            if($key->tipo_afiliacion == "PPNA"){
+                array_push($no_asegurado_rural, $key);
+            }
+        }
+
+        return  $respuesta = [
+            "rural" => count($no_asegurado_rural),
+            "urbano" => count($no_asegurado_urbano),
+            "cantidad_personas" => $cantidad_personas
+        ];
+
+    }
+
+    public static function no_asegurado_mayor_60($alias){
+        $de60_rural = DB::table($alias.".de60")
+        ->join($alias.".integrantes", "integrantes.id", "de60.id_integrante")
+        ->join($alias.".hogar", "hogar.id", "integrantes.id_hogar")
+        ->select("integrantes.*")
+        ->where("integrantes.estado","Activo")
+        ->where("hogar.estado","Activo")
+        ->whereIn("hogar.id_zona",  [2,3])
+        ->get();
+
+        $de60_urbano = DB::table($alias.".de60")
+        ->join($alias.".integrantes", "integrantes.id", "de60.id_integrante")
+        ->join($alias.".hogar", "hogar.id", "integrantes.id_hogar")
+        ->select("integrantes.*")
+        ->where("integrantes.estado","Activo")
+        ->where("hogar.estado","Activo")
+        ->where("hogar.id_zona", 1)
+        ->get();
+
+        $cantidad_personas = count($de60_rural) + count($de60_urbano);
+
+        $no_asegurado_urbano = array();
+        $no_asegurado_rural = array();
+
+        foreach ($de60_rural as $key) {
+            if($key->tipo_afiliacion == "PPNA"){
+                array_push($no_asegurado_urbano, $key);
+            }
+        }
+        
+        foreach ($de60_urbano as $key) {
+            if($key->tipo_afiliacion == "PPNA"){
+                array_push($no_asegurado_urbano, $key);
+            }
+        }
+
+        return  $respuesta = [
+            "rural" => count($no_asegurado_rural),
+            "urbano" => count($no_asegurado_urbano),
+            "cantidad_personas" => $cantidad_personas
+        ];
+
+    }
+    
 }

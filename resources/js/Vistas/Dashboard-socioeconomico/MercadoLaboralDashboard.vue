@@ -159,7 +159,7 @@
         <div class="row">
             <div class="col-lg-6">
                 <br>
-                <h3>Poblacion Economicamente Activa ({{PAE.PAE}})</h3>
+                <h3>Poblacion Economicamente Activa ({{PAE.PAE}} Personas)</h3>
                 <br>
                 <table id="table_pae" class="table_data" style="width: 100%">
                     <thead>
@@ -190,7 +190,7 @@
         <div class="row">
             <div class="col-lg-6">
                 <br>
-                <h3>Poblacion en Edad para Trabajar ({{PET.PET}})</h3>
+                <h3>Poblacion en Edad para Trabajar ({{PET.PET}} Personas)</h3>
                 <br>
                 <table id="table_pet" class="table_data" style="width: 100%">
                     <thead>

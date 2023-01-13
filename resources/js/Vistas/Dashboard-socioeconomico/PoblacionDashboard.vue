@@ -227,7 +227,7 @@
     </div>
 </template>
 <script>
-    import * as DashboardServiceSocioeconomico from "../../Servicios/dashboard_socioeconomico_servicios";
+import * as DashboardServiceSocioeconomico from "../../Servicios/dashboard_socioeconomico_servicios";
 import CircleProgress from 'vue-pithy-progress/lib/circle-progress.umd.min.js';
 import Loading from "vue-loading-overlay";
 import * as BarriosService from "../../Servicios/barrios_servicios.js";

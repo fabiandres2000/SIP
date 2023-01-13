@@ -100,6 +100,24 @@ class InformesController extends Controller
                 
             ];
             return response()->json($respuesta, 200);
+        }else {
+            return redirect("/index")->with("error", "Su sesion ha terminado");
+        }
+    }
+
+    public function poblacion_no_asegurada(){
+        if (Auth::check()) {
+            $no_asegurado_menor_5 = \App\Informes::no_asegurado_menor_5(Session::get('alias'));
+            $no_asegurado_mayor_60 = \App\Informes::no_asegurado_mayor_60(Session::get('alias'));
+
+            $respuesta = [
+                "no_asegurado_menor_5" => $no_asegurado_menor_5,
+                "no_asegurado_mayor_60" => $no_asegurado_mayor_60,
+            ];
+
+            return response()->json($respuesta, 200);
+        }else {
+            return redirect("/index")->with("error", "Su sesion ha terminado");
         }
     }
 }

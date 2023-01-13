@@ -1,0 +1,222 @@
+<template>
+    <div style="margin-top: -4%">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-10">
+                                <h3>INFORME GENERAL SITUACIÓN EN SALUD POBLACIONAL</h3>
+                            </div>
+                            <div class="col-sm-2 text-right">
+                                <button
+                                    type="button"
+                                    class="btn btn-danger"
+                                    v-on:click="generarPDF"
+                                >
+                                    <i class="la la-pdf"></i>
+                                    <span class="kt-hidden-mobile">Generar PDF</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h4>Caracterización</h4>
+                        <div class="row" style="padding: 10px;">
+                            <div class="col-lg-12" style="padding-bottom: 10px;">
+                                <strong>1. De acuerdo con la información recolectada, la poblacion caracterizada se compone de la siguiente manera por ciclo de vida: </strong>
+                            </div>
+                            <div v-if="poblacion_array != null" class="col-lg-3">
+                                <ul>
+                                    <li class="li_li"><strong>Menores de un año: </strong> {{poblacion_array.edades.personas0_1[0]+poblacion_array.edades.personas0_1[1]}} Personas</li>
+                                    <li class="li_li"><strong>De 1 a 5 Años: </strong> {{poblacion_array.edades.personas1_5[0]+poblacion_array.edades.personas1_5[1]}} Personas</li>
+                                    <li class="li_li"><strong>De 6 a 11 Años: </strong> {{poblacion_array.edades.personas6_11[0]+poblacion_array.edades.personas6_11[1]}} Personas</li>
+                                    <li class="li_li"><strong>De 12 a 17 Años: </strong> {{poblacion_array.edades.personas12_17[0]+poblacion_array.edades.personas12_17[1]}} Personas</li>
+                                    <li class="li_li"><strong>De 18 a 28 Años: </strong> {{poblacion_array.edades.personas18_28[0]+poblacion_array.edades.personas18_28[1]}} Personas</li>
+                                    <li class="li_li"><strong>De 29 a 59 Años: </strong> {{poblacion_array.edades.personas29_59[0]+poblacion_array.edades.personas29_59[1]}} Personas</li>
+                                    <li class="li_li"><strong>Mayores de 60 Años </strong> {{poblacion_array.edades.personas60[0]+poblacion_array.edades.personas60[1]}} Personas</li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-9 text-center">
+                                <div id="chartdiv_edades_torta" style="width: 100%; height: 270px"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <strong>2. Población menor de 5 años no asegurada</strong> 
+                                <p v-if="poblacion_no_asegurada != null">
+                                    dentro de este grupo de edad se tiene una cantidad de <strong>{{ poblacion_no_asegurada.no_asegurado_menor_5.cantidad_personas }} personas</strong>, de las cuales <strong>{{ poblacion_no_asegurada.no_asegurado_menor_5.rural + poblacion_no_asegurada.no_asegurado_menor_5.urbano }} personas</strong>, se encuentran en la situación de población menor de 5 años no asegurada, de lo cual se puede obtener que <strong>{{ poblacion_no_asegurada.no_asegurado_menor_5.rural }} personas</strong> se encuentran en zona rural, y <strong>{{ poblacion_no_asegurada.no_asegurado_menor_5.urbano }} personas</strong>  en zona urbana.
+                                </p>
+                                <div id="chartdiv_no_asegurado_1" style="width: 100%; height: 270px"></div>
+                            </div>
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-5">
+                                <strong>3. Población adulto mayor no asegurada </strong> 
+                                <p v-if="poblacion_no_asegurada != null">
+                                    dentro de este grupo de edad se tiene una cantidad de <strong>{{ poblacion_no_asegurada.no_asegurado_mayor_60.cantidad_personas }} personas</strong>, de las cuales <strong>{{ poblacion_no_asegurada.no_asegurado_mayor_60.rural + poblacion_no_asegurada.no_asegurado_mayor_60.urbano }} personas</strong>, se encuentran en la situación de población menor de 5 años no asegurada, de lo cual se puede obtener que <strong>{{ poblacion_no_asegurada.no_asegurado_mayor_60.rural }} personas</strong> se encuentran en zona rural, y <strong>{{ poblacion_no_asegurada.no_asegurado_mayor_60.urbano }} personas</strong>  en zona urbana.
+                                </p>
+                                <div id="chartdiv_no_asegurado_2" style="width: 100%; height: 270px"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </template>
+<script>
+    "use strict";
+    import VueHtml2pdf from "vue-html2pdf";
+    import VueEasyPieChart from "vue-easy-pie-chart";
+    import "vue-easy-pie-chart/dist/vue-easy-pie-chart.css";
+    import Progress from "easy-circular-progress";
+    import VueCircle from "vue2-circle-progress";
+    import * as DashboardServiceSocioeconomico from "../../Servicios/dashboard_socioeconomico_servicios";
+    import * as informes from "../../Servicios/informes";
+
+    import * as am4core from "@amcharts/amcharts4/core";
+    import * as am4charts from "@amcharts/amcharts4/charts";
+    import am4themes_animated from "@amcharts/amcharts4/themes/animated";
+    am4core.useTheme(am4themes_animated);
+
+    export default {
+        components: {
+            VueHtml2pdf,
+            VueEasyPieChart,
+            Progress,
+            VueCircle,
+        },
+        mounted() {
+            this.caracterizacion();
+            this.poblacion_no_asegurada_f();
+        },
+        data() {
+            return {
+                poblacion_array: null,
+                chart_torta_edades: null,
+                chart_no_asegurado_1: null,
+                chart_no_asegurado_2: null,
+                isLoading: false,
+                poblacion_no_asegurada: null,
+            }
+        },
+        methods: {
+            async caracterizacion() {
+                await DashboardServiceSocioeconomico.poblacion("todos", 1).then(respuesta => {
+                    this.poblacion_array = respuesta.data["poblacion"]; 
+                    this.grafica_torta_edades(this.poblacion_array.edades);
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+            },
+            async grafica_torta_edades(array) {
+                if(this.chart_torta_edades != null){
+                    this.chart_torta_edades.dispose();
+                }
+                var chart = am4core.create("chartdiv_edades_torta", am4charts.PieChart3D);
+                this.chart_torta_edades = chart;
+                chart.data = [
+                    {
+                        category: "-1 Años",
+                        first: array.personas0_1[0] + array.personas0_1[1],
+                    },
+                    {
+                        category: "1-5 Años",
+                        first: array.personas1_5[0] + array.personas1_5[1],
+                    }, 
+                    {
+                        category: "6-11 Años",
+                        first: array.personas6_11[0] + array.personas6_11[1],
+                    },
+                    {
+                        category: "12-17 Años",
+                        first: array.personas12_17[0] + array.personas12_17[1],
+                    },
+                    {
+                        category: "18-28 Años",
+                        first: array.personas18_28[0] + array.personas18_28[1],
+                    }, 
+                    {
+                        category: "29-59 Años",
+                        first: array.personas29_59[0] + array.personas29_59[1],
+                    },
+                    {
+                        category: "+60 Años",
+                        first: array.personas60[0] + array.personas60[1],
+                    },
+                ];
+                var series = chart.series.push(new am4charts.PieSeries3D());
+                series.dataFields.value = "first";
+                series.dataFields.category = "category";
+            },
+            async poblacion_no_asegurada_f() {
+                await informes.poblacion_no_asegurada().then(respuesta => {
+                    this.poblacion_no_asegurada = respuesta.data; 
+                    this.grafica_torta_no_asegurada_1(respuesta.data.no_asegurado_menor_5);
+                    this.grafica_torta_no_asegurada_2(respuesta.data.no_asegurado_mayor_60);
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+            },
+            async grafica_torta_no_asegurada_1(array) {
+                if(this.chart_no_asegurado_1 != null){
+                    this.chart_no_asegurado_1.dispose();
+                }
+
+                var chart = am4core.create("chartdiv_no_asegurado_1", am4charts.PieChart3D);
+                this.chart_no_asegurado_1 = chart;
+
+                chart.data = [
+                    {
+                        category: "Zona Urbana",
+                        first: array.urbano,
+                    },
+                    {
+                        category: "Zona Rural",
+                        first: array.rural,
+                    }, 
+                ];
+                var series = chart.series.push(new am4charts.PieSeries3D());
+                series.dataFields.value = "first";
+                series.dataFields.category = "category";
+            },
+            async grafica_torta_no_asegurada_2(array) {
+                if(this.chart_no_asegurado_2 != null){
+                    this.chart_no_asegurado_2.dispose();
+                }
+
+                var chart = am4core.create("chartdiv_no_asegurado_2", am4charts.PieChart3D);
+                this.chart_no_asegurado_2 = chart;
+
+                chart.data = [
+                    {
+                        category: "Zona Urbana",
+                        first: array.urbano,
+                    },
+                    {
+                        category: "Zona Rural",
+                        first: array.rural,
+                    }, 
+                ];
+                var series = chart.series.push(new am4charts.PieSeries3D());
+                series.dataFields.value = "first";
+                series.dataFields.category = "category";
+            },
+            generarPDF(){}
+        },
+    };
+</script>
+<style>
+    .li_li {
+        padding-top: 7px;
+        padding-bottom: 7px;
+    }
+
+    p{
+        line-height: 200%;
+    }
+</style>

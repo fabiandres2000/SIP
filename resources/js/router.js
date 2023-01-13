@@ -238,6 +238,11 @@ export const routes = [
         path: '/perfil',
         name: 'Perfil',
         component: () => import ('./Vistas/Perfil/Gestion.vue')
+    },
+    {
+        path: '/informes/salud',
+        name: 'informesSalud',
+        component: () => import ('./Vistas/Informes/salud.vue')
     }
 
 ];

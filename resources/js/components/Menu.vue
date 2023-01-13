@@ -820,6 +820,26 @@
                                         data-ktmenu-submenu-toggle="hover"
                                     >
                                         <router-link
+                                            to="/informes/salud"
+                                            class="kt-menu__link kt-menu__toggle"
+                                            v-if="permisos_usuario.indicadores_gestantes != 'S'"
+                                        >
+                                            <i
+                                                class="kt-menu__link-bullet kt-menu__link-bullet--line"
+                                            >
+                                                <span></span>
+                                            </i>
+                                            <span class="kt-menu__link-text"
+                                                >Situación en Salud</span
+                                            >
+                                        </router-link>
+                                    </li>
+                                    <li
+                                        class="kt-menu__item kt-menu__item--submenu"
+                                        aria-haspopup="true"
+                                        data-ktmenu-submenu-toggle="hover"
+                                    >
+                                        <router-link
                                             to="/indicadores/gestantes"
                                             class="kt-menu__link kt-menu__toggle"
                                             v-if="permisos_usuario.indicadores_gestantes != 'S'"
