@@ -1374,5 +1374,161 @@ class Informes extends Model
         ];
 
     }
+
+    public static function por_nivel_escolaridad($alias){
+
+        $escol_jefes =  DB::connection('mysql')->table($alias.'.caracterizacion')
+        ->join($alias.'.escolaridad', 'escolaridad.id','caracterizacion.nivel_escolaridad')
+        ->where('caracterizacion.estado', 'Activo')
+        ->select("escolaridad.descripcion as escolaridad_nombre")
+        ->selectRaw("COUNT(caracterizacion.id) as numero_personas")
+        ->groupBy("escolaridad_nombre")
+        ->get();
+
+        $escol_integ =  DB::connection('mysql')->table($alias.'.integrantes')
+        ->join($alias.'.escolaridad', 'escolaridad.id','integrantes.escolaridad')
+        ->where('integrantes.estado', 'Activo')
+        ->select("escolaridad.descripcion as escolaridad_nombre")
+        ->selectRaw("COUNT(integrantes.id) as numero_personas")
+        ->groupBy("escolaridad_nombre")
+        ->get();
+
+        $porEscolaridad = array();
+        foreach ($escol_integ as &$item) {
+            $encontrado = false;
+            foreach ($escol_jefes as &$item2) {
+                if($item->escolaridad_nombre == $item2->escolaridad_nombre){
+                    $item2->numero_personas += $item->numero_personas;
+                    $encontrado = true;
+                    $itemEncontrado = $item2;
+                }
+            }
+
+            if(!$encontrado){
+                array_push($porEscolaridad, $item);
+            }else{
+                array_push($porEscolaridad, $itemEncontrado);
+            }
+        }
+
+        foreach ($escol_jefes as &$item) {
+            $encontrado = false;
+            foreach ($escol_integ as &$item2) {
+                if($item->escolaridad_nombre == $item2->escolaridad_nombre){
+                    $encontrado = true;
+                }
+            }
+
+            if(!$encontrado){
+                array_push($porEscolaridad, $item);
+            }
+        }
+
+        return  $porEscolaridad;
+
+    }
+    
+    public static function desempleo($alias){   
+        // personas en busca de empleo
+        $jefesD =  DB::connection('mysql')->table($alias.'.caracterizacion')
+        ->join($alias.'.hogar', 'hogar.id','caracterizacion.id_hogar')
+        ->join($alias . ".dptos", "dptos.codigo", "hogar.id_dpto")
+        ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+        ->join($alias . '.muni', function ($join) {
+            $join->on('muni.coddep', '=', 'dptos.codigo');
+            $join->on('muni.codmun', '=', 'hogar.id_mun');
+        })
+        ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+        ->where('caracterizacion.estado', 'Activo')
+        ->where('caracterizacion.ocupacion', 9990)
+        ->select("caracterizacion.*", "hogar.lat", "hogar.lng", "hogar.id_zona")
+        ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as des_corr")->selectRaw("CONCAT_WS('',hogar.direccion) as des_direc")
+        ->selectRaw('TIMESTAMPDIFF(YEAR, caracterizacion.fecha_nacimiento, CURDATE()) as edad')
+        ->whereRaw('TIMESTAMPDIFF(YEAR, caracterizacion.fecha_nacimiento, CURDATE()) >= 15')
+        ->get();
+
+        $integrantesD =  DB::connection('mysql')->table($alias.'.integrantes')
+        ->join($alias.'.hogar', 'hogar.id','integrantes.id_hogar')
+        ->join($alias . ".dptos", "dptos.codigo", "hogar.id_dpto")
+        ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+        ->join($alias . '.muni', function ($join) {
+            $join->on('muni.coddep', '=', 'dptos.codigo');
+            $join->on('muni.codmun', '=', 'hogar.id_mun');
+        })
+        ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+        ->where('integrantes.estado', 'Activo')
+        ->where('integrantes.ocupacion', 9990)
+        ->select("integrantes.*", "hogar.lat", "hogar.lng", "hogar.id_zona")
+        ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as des_corr")->selectRaw("CONCAT_WS('',hogar.direccion) as des_direc")
+        ->selectRaw('TIMESTAMPDIFF(YEAR, integrantes.fecha_nac, CURDATE()) as edad')
+        ->whereRaw('TIMESTAMPDIFF(YEAR, integrantes.fecha_nac, CURDATE()) >= 15')
+        ->get();
+        // personas en busca de empleo
+        
+        $personasBuscaEmpleo  = array();
+
+        foreach ($jefesD as &$item) {
+            array_push($personasBuscaEmpleo, $item);
+        }
+
+        foreach ($integrantesD as &$item) {
+            array_push($personasBuscaEmpleo, $item);
+        }
+
+        //  población económicamente activa
+        $IFT =  DB::connection('mysql')->table($alias.'.integrantes')
+        ->where('integrantes.estado', 'Activo')
+        ->where(function ($query) {
+            $query->whereIn('integrantes.tipo_empleo', ['2', '3', '4'])
+                ->orWhere('integrantes.ocupacion', 9990);
+        })
+        ->whereRaw('TIMESTAMPDIFF(YEAR, integrantes.fecha_nac, CURDATE()) >= 15')
+        ->count();
+        
+        $JFT =  DB::connection('mysql')->table($alias.'.caracterizacion')
+        ->where('caracterizacion.estado', 'Activo')
+        ->where(function ($query) {
+            $query->whereIn('caracterizacion.tipo_empleo', ['2', '3', '4'])
+                ->orWhere('caracterizacion.ocupacion', 9990);
+        })
+        ->whereRaw('TIMESTAMPDIFF(YEAR, caracterizacion.fecha_nacimiento, CURDATE()) >= 15')
+        ->count();
+
+        $FT = $IFT + $JFT;
+        $TD = (count($personasBuscaEmpleo) / $FT) * 100;
+        //  población económicamente activa
+
+        // por sexo
+        $femeninoTD = 0;
+        $masculinoTD = 0;
+        foreach ($personasBuscaEmpleo as &$item) {
+            if($item->sexo == "MASCULINO"){
+                $masculinoTD += 1;
+            }else{
+                $femeninoTD += 1;
+            }
+        }
+            
+        $porcenfemeninoTD = 0;
+        $porcenmasculinoTD = 0;
+        if(count($personasBuscaEmpleo) > 0){
+            $porcenfemeninoTD = ($femeninoTD/count($personasBuscaEmpleo))*100;
+            $porcenmasculinoTD = ($masculinoTD/count($personasBuscaEmpleo))*100;
+        }
+
+        // por sexo
+
+        $info = [
+            'FT' => $FT,
+            'TD' => $TD,
+            'D' => $femeninoTD+$masculinoTD,
+            'femeninoTD' => $femeninoTD,
+            'masculinoTD' => $masculinoTD,
+            'porcenfemeninoTD' => $porcenfemeninoTD,
+            'porcenmasculinoTD' => $porcenmasculinoTD,
+        ];
+
+        return $info;
+    }
     
 }

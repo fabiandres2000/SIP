@@ -23,10 +23,11 @@
                 </div>
                 <div class="card">
                     <div class="card-body" style="text-align: left;">
-                        <h4>Caracterización</h4>
+                        <h4 style="color: #fd397a ">Caracterización</h4>
                         <div class="row">
-                            <div class="col-lg-12" style="padding-bottom: 10px;">
-                                <strong>1. De acuerdo con la información recolectada, la poblacion caracterizada se compone de la siguiente manera por ciclo de vida: </strong>
+                            <div v-if="poblacion_array != null" class="col-lg-12" style="padding-bottom: 10px;">
+                                <strong>1. Población por ciclo de vida</strong>
+                                <p> De acuerdo con la información recolectada, la poblacion caracterizada se compone de la siguiente manera por ciclo de vida:</p>
                             </div>
                             <div v-if="poblacion_array != null" class="col-lg-5">
                                 <ul>
@@ -59,6 +60,64 @@
                                     dentro de este grupo de edad se tiene una cantidad de <strong>{{ poblacion_no_asegurada.no_asegurado_mayor_60.cantidad_personas }} personas</strong>, de las cuales <strong>{{ poblacion_no_asegurada.no_asegurado_mayor_60.rural + poblacion_no_asegurada.no_asegurado_mayor_60.urbano }} personas</strong>, se encuentran en la situación de población menor de 5 años no asegurada, de lo cual se puede obtener que <strong>{{ poblacion_no_asegurada.no_asegurado_mayor_60.rural }} personas</strong> se encuentran en zona rural, y <strong>{{ poblacion_no_asegurada.no_asegurado_mayor_60.urbano }} personas</strong>  en zona urbana.
                                 </p>
                                 <div id="chartdiv_no_asegurado_2" style="width: 100%; height: 270px"></div>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <h4 style="color: #fd397a ">Determinante social de la salud</h4>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <strong>1. Población en pobreza </strong>
+                                <p v-if="determinante_salud_array != null">De acuerdo a la informacion recolectada, se estima que <strong>{{ determinante_salud_array.pobreza.poblacion_pobreza }} personas</strong> se encuentran en situación de pobreza, esto representa un <strong>{{ determinante_salud_array.pobreza.porcentaje_poblacion_pobreza.toFixed(2) }}%</strong> de la población total.</p>
+                                <ul v-if="determinante_salud_array != null">
+                                    <li>
+                                        Población en pobreza (Rural): <strong>{{ determinante_salud_array.pobreza.poblacion_pobreza_rural }}</strong>
+                                    </li>
+                                    <li>
+                                        Población en pobreza (Urbano): <strong>{{ determinante_salud_array.pobreza.poblacion_pobreza_urbano }}</strong>
+                                    </li>
+                                </ul>
+                                <br>
+                                <div id="chartdiv_poblacion_pobreza" style="width: 100%; height: 270px"></div>
+                            </div>
+                            <div class="col-lg-12">
+                                <strong>2. Población por nivel de escolaridad </strong>
+                                <p v-if="determinante_salud_array != null">Con una población total de <strong>{{ determinante_salud_array.pobreza.poblacion }} personas</strong> se tiene que: </p>
+                                <br>
+                                <div id="chartdiv_escolaridad" style="width: 100%; height: 270px"></div>
+                            </div>    
+                        </div>
+                        <br>
+                        <br>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <strong>3. Desempleo y tipos de empleo  </strong>
+                                <p v-if="determinante_salud_array != null">La tasa de desempleo del total municipal es de <strong>{{ determinante_salud_array.desempleo.TD.toFixed(2) }} %</strong>, lo cual quiere decir que <strong>{{ determinante_salud_array.desempleo.D }} personas </strong>  de <strong>{{ determinante_salud_array.desempleo.FT }} personas </strong> que componen la (fuerza laboral), estan en busca de empleo. </p>
+                                <br>
+                                <ul v-if="determinante_salud_array != null">
+                                    <li>Personas de genero masculino desempleados: <strong>{{ determinante_salud_array.desempleo.masculinoTD }}</strong></li>
+                                    <li>Personas de genero femenino desempleados: <strong>{{ determinante_salud_array.desempleo.femeninoTD }}</strong></li>
+                                </ul>
+                                <br>
+                                <p>Tasa de desempleo por sexo:</p>
+                                <div id="chartdiv_desempleo" style="width: 100%; height: 270px"></div>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="row">
+                            <strong>4. Acceso a acueducto y alcantarillado</strong>
+                            <p v-if="determinante_salud_array != null">Se tiene que <strong>{{ determinante_salud_array.alcantarillado_agua.viviendasSinAguaPotable }} Viviendas </strong> se encuentran sin el servicio de agua potable y <strong>{{ determinante_salud_array.alcantarillado_agua.viviendasSinalcantarillado }} Viviendas </strong> sin el servicio de alcantarillado, lo que corresponde a un <strong>{{ determinante_salud_array.alcantarillado_agua.porcentajeviendasSinAguaPotable.toFixed(2) }}% </strong> y <strong>{{ determinante_salud_array.alcantarillado_agua.porcentajeviendasSinalcantarillado.toFixed(2) }}% </strong> respectivamente del total de viviendas caracterizadas ({{ determinante_salud_array.alcantarillado_agua.totalViviendas }}).</p>
+                            <br>
+                            <div class="col-lg-12 text-center">
+                                <h5>Viviendas sin Acceso a Acueducto</h5>
+                                <h6>(Por zona)</h6>
+                                <div id="chartdiv_acueducto" style="width: 100%; height: 220px"></div>
+                            </div>
+                            <div class="col-lg-12 text-center">
+                                <h5>Viviendas sin Acceso a Alcantarillado</h5>
+                                <h6>(Por zona)</h6>
+                                <div id="chartdiv_alantarillado" style="width: 100%; height: 220px"></div>
                             </div>
                         </div>
                     </div>
@@ -102,7 +161,12 @@
                 chart_no_asegurado_2: null,
                 isLoading: false,
                 poblacion_no_asegurada: null,
-                determinante_salud_array: null
+                determinante_salud_array: null,
+                chart_poblacion_pobreza: null,
+                chart_escolaridad: null,
+                chart_desempleo: null,
+                chart_acueducto: null,
+                chart_alcantarillado: null,
             }
         },
         methods: {
@@ -212,10 +276,145 @@
             async determinante_salud() {
                 await informes.determinante_salud().then(respuesta => {
                     this.determinante_salud_array = respuesta.data; 
+                    this.grafica_poblacion_pobreza(this.determinante_salud_array.pobreza);
+                    this.grafica_torta_escolaridad(this.determinante_salud_array.escolaridad);
+                    this.grafica_torta_desempleo_sexo(this.determinante_salud_array.desempleo);
+                    this.grafica_viviendas_sin_acueducto(this.determinante_salud_array.alcantarillado_agua.viendasSAP);
+                    this.grafica_viviendas_sin_alcantarillado(this.determinante_salud_array.alcantarillado_agua.viendasSA)
                 })
                 .catch(err => {
                     console.log(err);
                 });
+            },
+            async grafica_poblacion_pobreza(array){
+                if(this.chart_poblacion_pobreza != null){
+                    this.chart_poblacion_pobreza.dispose();
+                }
+
+                var chart = am4core.create("chartdiv_poblacion_pobreza", am4charts.PieChart3D);
+                this.chart_poblacion_pobreza = chart;
+
+                chart.data = [
+                    {
+                        category: "Zona Urbana",
+                        first: array.poblacion_pobreza_urbano,
+                    },
+                    {
+                        category: "Zona Rural",
+                        first: array.poblacion_pobreza_rural,
+                    }, 
+                ];
+                var series = chart.series.push(new am4charts.PieSeries3D());
+                series.dataFields.value = "first";
+                series.dataFields.category = "category";
+            },
+            async grafica_torta_escolaridad(array) {
+                if(this.chart_escolaridad != null){
+                    this.chart_escolaridad.dispose();
+                }
+                var chart = am4core.create("chartdiv_escolaridad", am4charts.PieChart3D);
+                this.chart_escolaridad = chart;
+                chart.data = [];
+
+                array.forEach(element => {
+                    chart.data.push({
+                        category: element.escolaridad_nombre,
+                        first: element.numero_personas,
+                    })
+                });
+                var series = chart.series.push(new am4charts.PieSeries3D());
+                series.dataFields.value = "first";
+                series.dataFields.category = "category";
+            },
+            async grafica_torta_desempleo_sexo(array) {
+                if(this.chart_desempleo != null){
+                    this.chart_desempleo.dispose();
+                }
+                var chart = am4core.create("chartdiv_desempleo", am4charts.PieChart3D);
+                this.chart_desempleo = chart;
+
+                chart.data = [
+                    {
+                        category: "Femenino",
+                        first: array.femeninoTD,
+                    },
+                    {
+                        category: "Masculino",
+                        first: array.masculinoTD,
+                    }, 
+                ];
+
+                var series = chart.series.push(new am4charts.PieSeries3D());
+                series.dataFields.value = "first";
+                series.dataFields.category = "category";
+            },
+            async grafica_viviendas_sin_acueducto(array) {
+
+                var zona_rural = 0;
+                var zona_urbana = 0;
+
+                array.forEach(element => {
+                    if(element.id_zona == 1){
+                        zona_urbana += 1;
+                    }else{
+                        zona_rural += 1;
+                    }
+                });
+
+                if(this.chart_acueducto != null){
+                    this.chart_acueducto.dispose();
+                }
+                var chart = am4core.create("chartdiv_acueducto", am4charts.PieChart3D);
+                this.chart_acueducto = chart;
+
+                chart.data = [
+                    {
+                        category: "Zona Rural",
+                        first: zona_rural,
+                    },
+                    {
+                        category: "Zona Urbana",
+                        first: zona_urbana,
+                    }, 
+                ];
+
+                var series = chart.series.push(new am4charts.PieSeries3D());
+                series.dataFields.value = "first";
+                series.dataFields.category = "category";
+            },
+            async grafica_viviendas_sin_alcantarillado(array) {
+
+                var zona_rural = 0;
+                var zona_urbana = 0;
+
+                array.forEach(element => {
+                    if(element.id_zona == 1){
+                        zona_urbana += 1;
+                    }else{
+                        zona_rural += 1;
+                    }
+                });
+
+                if(this.chart_alcantarillado != null){
+                    this.chart_alcantarillado.dispose();
+                }
+                var chart = am4core.create("chartdiv_alantarillado", am4charts.PieChart3D);
+                this.chart_alcantarillado = chart;
+
+                chart.data = [
+                    {
+                        category: "Zona Rural",
+                        first: zona_rural,
+                    },
+                    {
+                        category: "Zona Urbana",
+                        first: zona_urbana,
+                    }, 
+                ];
+
+                var series = chart.series.push(new am4charts.PieSeries3D());
+                series.dataFields.value = "first";
+                series.dataFields.category = "category";
             },
             generarPDF(){}
         },

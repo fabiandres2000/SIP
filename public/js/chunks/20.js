@@ -94,6 +94,65 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -133,7 +192,12 @@ _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_8__["useTheme"](_amcharts_amch
       chart_no_asegurado_2: null,
       isLoading: false,
       poblacion_no_asegurada: null,
-      determinante_salud_array: null
+      determinante_salud_array: null,
+      chart_poblacion_pobreza: null,
+      chart_escolaridad: null,
+      chart_desempleo: null,
+      chart_acueducto: null,
+      chart_alcantarillado: null
     };
   },
   methods: {
@@ -317,6 +381,16 @@ _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_8__["useTheme"](_amcharts_amch
                 _context6.next = 2;
                 return _Servicios_informes__WEBPACK_IMPORTED_MODULE_7__["determinante_salud"]().then(function (respuesta) {
                   _this6.determinante_salud_array = respuesta.data;
+
+                  _this6.grafica_poblacion_pobreza(_this6.determinante_salud_array.pobreza);
+
+                  _this6.grafica_torta_escolaridad(_this6.determinante_salud_array.escolaridad);
+
+                  _this6.grafica_torta_desempleo_sexo(_this6.determinante_salud_array.desempleo);
+
+                  _this6.grafica_viviendas_sin_acueducto(_this6.determinante_salud_array.alcantarillado_agua.viendasSAP);
+
+                  _this6.grafica_viviendas_sin_alcantarillado(_this6.determinante_salud_array.alcantarillado_agua.viendasSA);
                 })["catch"](function (err) {
                   console.log(err);
                 });
@@ -327,6 +401,196 @@ _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_8__["useTheme"](_amcharts_amch
             }
           }
         }, _callee6);
+      }))();
+    },
+    grafica_poblacion_pobreza: function grafica_poblacion_pobreza(array) {
+      var _this7 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee7() {
+        var chart, series;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee7$(_context7) {
+          while (1) {
+            switch (_context7.prev = _context7.next) {
+              case 0:
+                if (_this7.chart_poblacion_pobreza != null) {
+                  _this7.chart_poblacion_pobreza.dispose();
+                }
+
+                chart = _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_8__["create"]("chartdiv_poblacion_pobreza", _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_9__["PieChart3D"]);
+                _this7.chart_poblacion_pobreza = chart;
+                chart.data = [{
+                  category: "Zona Urbana",
+                  first: array.poblacion_pobreza_urbano
+                }, {
+                  category: "Zona Rural",
+                  first: array.poblacion_pobreza_rural
+                }];
+                series = chart.series.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_9__["PieSeries3D"]());
+                series.dataFields.value = "first";
+                series.dataFields.category = "category";
+
+              case 7:
+              case "end":
+                return _context7.stop();
+            }
+          }
+        }, _callee7);
+      }))();
+    },
+    grafica_torta_escolaridad: function grafica_torta_escolaridad(array) {
+      var _this8 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee8() {
+        var chart, series;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee8$(_context8) {
+          while (1) {
+            switch (_context8.prev = _context8.next) {
+              case 0:
+                if (_this8.chart_escolaridad != null) {
+                  _this8.chart_escolaridad.dispose();
+                }
+
+                chart = _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_8__["create"]("chartdiv_escolaridad", _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_9__["PieChart3D"]);
+                _this8.chart_escolaridad = chart;
+                chart.data = [];
+                array.forEach(function (element) {
+                  chart.data.push({
+                    category: element.escolaridad_nombre,
+                    first: element.numero_personas
+                  });
+                });
+                series = chart.series.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_9__["PieSeries3D"]());
+                series.dataFields.value = "first";
+                series.dataFields.category = "category";
+
+              case 8:
+              case "end":
+                return _context8.stop();
+            }
+          }
+        }, _callee8);
+      }))();
+    },
+    grafica_torta_desempleo_sexo: function grafica_torta_desempleo_sexo(array) {
+      var _this9 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee9() {
+        var chart, series;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee9$(_context9) {
+          while (1) {
+            switch (_context9.prev = _context9.next) {
+              case 0:
+                if (_this9.chart_desempleo != null) {
+                  _this9.chart_desempleo.dispose();
+                }
+
+                chart = _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_8__["create"]("chartdiv_desempleo", _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_9__["PieChart3D"]);
+                _this9.chart_desempleo = chart;
+                chart.data = [{
+                  category: "Femenino",
+                  first: array.femeninoTD
+                }, {
+                  category: "Masculino",
+                  first: array.masculinoTD
+                }];
+                series = chart.series.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_9__["PieSeries3D"]());
+                series.dataFields.value = "first";
+                series.dataFields.category = "category";
+
+              case 7:
+              case "end":
+                return _context9.stop();
+            }
+          }
+        }, _callee9);
+      }))();
+    },
+    grafica_viviendas_sin_acueducto: function grafica_viviendas_sin_acueducto(array) {
+      var _this10 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee10() {
+        var zona_rural, zona_urbana, chart, series;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee10$(_context10) {
+          while (1) {
+            switch (_context10.prev = _context10.next) {
+              case 0:
+                zona_rural = 0;
+                zona_urbana = 0;
+                array.forEach(function (element) {
+                  if (element.id_zona == 1) {
+                    zona_urbana += 1;
+                  } else {
+                    zona_rural += 1;
+                  }
+                });
+
+                if (_this10.chart_acueducto != null) {
+                  _this10.chart_acueducto.dispose();
+                }
+
+                chart = _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_8__["create"]("chartdiv_acueducto", _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_9__["PieChart3D"]);
+                _this10.chart_acueducto = chart;
+                chart.data = [{
+                  category: "Zona Rural",
+                  first: zona_rural
+                }, {
+                  category: "Zona Urbana",
+                  first: zona_urbana
+                }];
+                series = chart.series.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_9__["PieSeries3D"]());
+                series.dataFields.value = "first";
+                series.dataFields.category = "category";
+
+              case 10:
+              case "end":
+                return _context10.stop();
+            }
+          }
+        }, _callee10);
+      }))();
+    },
+    grafica_viviendas_sin_alcantarillado: function grafica_viviendas_sin_alcantarillado(array) {
+      var _this11 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee11() {
+        var zona_rural, zona_urbana, chart, series;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee11$(_context11) {
+          while (1) {
+            switch (_context11.prev = _context11.next) {
+              case 0:
+                zona_rural = 0;
+                zona_urbana = 0;
+                array.forEach(function (element) {
+                  if (element.id_zona == 1) {
+                    zona_urbana += 1;
+                  } else {
+                    zona_rural += 1;
+                  }
+                });
+
+                if (_this11.chart_alcantarillado != null) {
+                  _this11.chart_alcantarillado.dispose();
+                }
+
+                chart = _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_8__["create"]("chartdiv_alantarillado", _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_9__["PieChart3D"]);
+                _this11.chart_alcantarillado = chart;
+                chart.data = [{
+                  category: "Zona Rural",
+                  first: zona_rural
+                }, {
+                  category: "Zona Urbana",
+                  first: zona_urbana
+                }];
+                series = chart.series.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_9__["PieSeries3D"]());
+                series.dataFields.value = "first";
+                series.dataFields.category = "category";
+
+              case 10:
+              case "end":
+                return _context11.stop();
+            }
+          }
+        }, _callee11);
       }))();
     },
     generarPDF: function generarPDF() {}
@@ -439,10 +703,31 @@ var render = function() {
                 staticStyle: { "text-align": "left" }
               },
               [
-                _c("h4", [_vm._v("Caracterización")]),
+                _c("h4", { staticStyle: { color: "#fd397a" } }, [
+                  _vm._v("Caracterización")
+                ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "row" }, [
-                  _vm._m(1),
+                  _vm.poblacion_array != null
+                    ? _c(
+                        "div",
+                        {
+                          staticClass: "col-lg-12",
+                          staticStyle: { "padding-bottom": "10px" }
+                        },
+                        [
+                          _c("strong", [
+                            _vm._v("1. Población por ciclo de vida")
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v(
+                              " De acuerdo con la información recolectada, la poblacion caracterizada se compone de la siguiente manera por ciclo de vida:"
+                            )
+                          ])
+                        ]
+                      )
+                    : _vm._e(),
                   _vm._v(" "),
                   _vm.poblacion_array != null
                     ? _c("div", { staticClass: "col-lg-5" }, [
@@ -534,7 +819,7 @@ var render = function() {
                       ])
                     : _vm._e(),
                   _vm._v(" "),
-                  _vm._m(2)
+                  _vm._m(1)
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "row" }, [
@@ -661,6 +946,274 @@ var render = function() {
                       attrs: { id: "chartdiv_no_asegurado_2" }
                     })
                   ])
+                ]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("h4", { staticStyle: { color: "#fd397a" } }, [
+                  _vm._v("Determinante social de la salud")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-lg-12" }, [
+                    _c("strong", [_vm._v("1. Población en pobreza ")]),
+                    _vm._v(" "),
+                    _vm.determinante_salud_array != null
+                      ? _c("p", [
+                          _vm._v(
+                            "De acuerdo a la informacion recolectada, se estima que "
+                          ),
+                          _c("strong", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.determinante_salud_array.pobreza
+                                  .poblacion_pobreza
+                              ) + " personas"
+                            )
+                          ]),
+                          _vm._v(
+                            " se encuentran en situación de pobreza, esto representa un "
+                          ),
+                          _c("strong", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.determinante_salud_array.pobreza.porcentaje_poblacion_pobreza.toFixed(
+                                  2
+                                )
+                              ) + "%"
+                            )
+                          ]),
+                          _vm._v(" de la población total.")
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.determinante_salud_array != null
+                      ? _c("ul", [
+                          _c("li", [
+                            _vm._v(
+                              "\n                                    Población en pobreza (Rural): "
+                            ),
+                            _c("strong", [
+                              _vm._v(
+                                _vm._s(
+                                  _vm.determinante_salud_array.pobreza
+                                    .poblacion_pobreza_rural
+                                )
+                              )
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _vm._v(
+                              "\n                                    Población en pobreza (Urbano): "
+                            ),
+                            _c("strong", [
+                              _vm._v(
+                                _vm._s(
+                                  _vm.determinante_salud_array.pobreza
+                                    .poblacion_pobreza_urbano
+                                )
+                              )
+                            ])
+                          ])
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("div", {
+                      staticStyle: { width: "100%", height: "270px" },
+                      attrs: { id: "chartdiv_poblacion_pobreza" }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-lg-12" }, [
+                    _c("strong", [
+                      _vm._v("2. Población por nivel de escolaridad ")
+                    ]),
+                    _vm._v(" "),
+                    _vm.determinante_salud_array != null
+                      ? _c("p", [
+                          _vm._v("Con una población total de "),
+                          _c("strong", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.determinante_salud_array.pobreza.poblacion
+                              ) + " personas"
+                            )
+                          ]),
+                          _vm._v(" se tiene que: ")
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("div", {
+                      staticStyle: { width: "100%", height: "270px" },
+                      attrs: { id: "chartdiv_escolaridad" }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-lg-12" }, [
+                    _c("strong", [_vm._v("3. Desempleo y tipos de empleo  ")]),
+                    _vm._v(" "),
+                    _vm.determinante_salud_array != null
+                      ? _c("p", [
+                          _vm._v(
+                            "La tasa de desempleo del total municipal es de "
+                          ),
+                          _c("strong", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.determinante_salud_array.desempleo.TD.toFixed(
+                                  2
+                                )
+                              ) + " %"
+                            )
+                          ]),
+                          _vm._v(", lo cual quiere decir que "),
+                          _c("strong", [
+                            _vm._v(
+                              _vm._s(_vm.determinante_salud_array.desempleo.D) +
+                                " personas "
+                            )
+                          ]),
+                          _vm._v("  de "),
+                          _c("strong", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.determinante_salud_array.desempleo.FT
+                              ) + " personas "
+                            )
+                          ]),
+                          _vm._v(
+                            " que componen la (fuerza laboral), estan en busca de empleo. "
+                          )
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _vm.determinante_salud_array != null
+                      ? _c("ul", [
+                          _c("li", [
+                            _vm._v(
+                              "Personas de genero masculino desempleados: "
+                            ),
+                            _c("strong", [
+                              _vm._v(
+                                _vm._s(
+                                  _vm.determinante_salud_array.desempleo
+                                    .masculinoTD
+                                )
+                              )
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _vm._v(
+                              "Personas de genero femenino desempleados: "
+                            ),
+                            _c("strong", [
+                              _vm._v(
+                                _vm._s(
+                                  _vm.determinante_salud_array.desempleo
+                                    .femeninoTD
+                                )
+                              )
+                            ])
+                          ])
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("p", [_vm._v("Tasa de desempleo por sexo:")]),
+                    _vm._v(" "),
+                    _c("div", {
+                      staticStyle: { width: "100%", height: "270px" },
+                      attrs: { id: "chartdiv_desempleo" }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("div", { staticClass: "row" }, [
+                  _c("strong", [
+                    _vm._v("4. Acceso a acueducto y alcantarillado")
+                  ]),
+                  _vm._v(" "),
+                  _vm.determinante_salud_array != null
+                    ? _c("p", [
+                        _vm._v("Se tiene que "),
+                        _c("strong", [
+                          _vm._v(
+                            _vm._s(
+                              _vm.determinante_salud_array.alcantarillado_agua
+                                .viviendasSinAguaPotable
+                            ) + " Viviendas "
+                          )
+                        ]),
+                        _vm._v(
+                          " se encuentran sin el servicio de agua potable y "
+                        ),
+                        _c("strong", [
+                          _vm._v(
+                            _vm._s(
+                              _vm.determinante_salud_array.alcantarillado_agua
+                                .viviendasSinalcantarillado
+                            ) + " Viviendas "
+                          )
+                        ]),
+                        _vm._v(
+                          " sin el servicio de alcantarillado, lo que corresponde a un "
+                        ),
+                        _c("strong", [
+                          _vm._v(
+                            _vm._s(
+                              _vm.determinante_salud_array.alcantarillado_agua.porcentajeviendasSinAguaPotable.toFixed(
+                                2
+                              )
+                            ) + "% "
+                          )
+                        ]),
+                        _vm._v(" y "),
+                        _c("strong", [
+                          _vm._v(
+                            _vm._s(
+                              _vm.determinante_salud_array.alcantarillado_agua.porcentajeviendasSinalcantarillado.toFixed(
+                                2
+                              )
+                            ) + "% "
+                          )
+                        ]),
+                        _vm._v(
+                          " respectivamente del total de viviendas caracterizadas (" +
+                            _vm._s(
+                              _vm.determinante_salud_array.alcantarillado_agua
+                                .totalViviendas
+                            ) +
+                            ")."
+                        )
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _vm._m(2),
+                  _vm._v(" "),
+                  _vm._m(3)
                 ])
               ]
             )
@@ -685,22 +1238,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: "col-lg-12", staticStyle: { "padding-bottom": "10px" } },
-      [
-        _c("strong", [
-          _vm._v(
-            "1. De acuerdo con la información recolectada, la poblacion caracterizada se compone de la siguiente manera por ciclo de vida: "
-          )
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
       {
         staticClass: "col-lg-7 text-center",
         staticStyle: { "padding-top": "30px" }
@@ -712,6 +1249,36 @@ var staticRenderFns = [
         })
       ]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-lg-12 text-center" }, [
+      _c("h5", [_vm._v("Viviendas sin Acceso a Acueducto")]),
+      _vm._v(" "),
+      _c("h6", [_vm._v("(Por zona)")]),
+      _vm._v(" "),
+      _c("div", {
+        staticStyle: { width: "100%", height: "220px" },
+        attrs: { id: "chartdiv_acueducto" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-lg-12 text-center" }, [
+      _c("h5", [_vm._v("Viviendas sin Acceso a Alcantarillado")]),
+      _vm._v(" "),
+      _c("h6", [_vm._v("(Por zona)")]),
+      _vm._v(" "),
+      _c("div", {
+        staticStyle: { width: "100%", height: "220px" },
+        attrs: { id: "chartdiv_alantarillado" }
+      })
+    ])
   }
 ]
 render._withStripped = true

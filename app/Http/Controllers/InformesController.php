@@ -124,9 +124,15 @@ class InformesController extends Controller
     public function determinante_salud(){
         if (Auth::check()) {
             $poblacion_pobreza = \App\Informes::pobreza(Session::get('alias'));
+            $escolaridad = \App\Informes::por_nivel_escolaridad(Session::get('alias'));
+            $desempleo = \App\Informes::desempleo(Session::get('alias'));
+            $alcantarillado_agua = \App\RiesgosAmbientalesEstadistica::PorcentajesGeneral(Session::get('alias'));
 
             $respuesta = [
                 "pobreza" => $poblacion_pobreza,
+                "escolaridad" => $escolaridad,
+                "desempleo" => $desempleo,
+                "alcantarillado_agua" => $alcantarillado_agua,
             ];
 
             return response()->json($respuesta, 200);
