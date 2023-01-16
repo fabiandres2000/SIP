@@ -93,6 +93,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -122,6 +123,7 @@ _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_8__["useTheme"](_amcharts_amch
   mounted: function mounted() {
     this.caracterizacion();
     this.poblacion_no_asegurada_f();
+    this.determinante_salud();
   },
   data: function data() {
     return {
@@ -130,7 +132,8 @@ _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_8__["useTheme"](_amcharts_amch
       chart_no_asegurado_1: null,
       chart_no_asegurado_2: null,
       isLoading: false,
-      poblacion_no_asegurada: null
+      poblacion_no_asegurada: null,
+      determinante_salud_array: null
     };
   },
   methods: {
@@ -303,6 +306,29 @@ _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_8__["useTheme"](_amcharts_amch
         }, _callee5);
       }))();
     },
+    determinante_salud: function determinante_salud() {
+      var _this6 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+          while (1) {
+            switch (_context6.prev = _context6.next) {
+              case 0:
+                _context6.next = 2;
+                return _Servicios_informes__WEBPACK_IMPORTED_MODULE_7__["determinante_salud"]().then(function (respuesta) {
+                  _this6.determinante_salud_array = respuesta.data;
+                })["catch"](function (err) {
+                  console.log(err);
+                });
+
+              case 2:
+              case "end":
+                return _context6.stop();
+            }
+          }
+        }, _callee6);
+      }))();
+    },
     generarPDF: function generarPDF() {}
   }
 });
@@ -321,7 +347,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.li_li {\n    padding-top: 7px;\n    padding-bottom: 7px;\n}\np{\n    line-height: 200%;\n}\n", ""]);
+exports.push([module.i, "\n.li_li {\n    padding-top: 7px;\n    padding-bottom: 7px;\n}\np{\n    line-height: 200%;\n}\n#divPadre {\n    text-align:center;\n}\n#divHijo {\n    width:21cm;\n    margin:0px auto;\n}\n", ""]);
 
 // exports
 
@@ -373,273 +399,284 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticStyle: { "margin-top": "-4%" } }, [
-    _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-lg-12" }, [
-        _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-body" }, [
-            _c("div", { staticClass: "row" }, [
-              _vm._m(0),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-2 text-right" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-danger",
-                    attrs: { type: "button" },
-                    on: { click: _vm.generarPDF }
-                  },
-                  [
-                    _c("i", { staticClass: "la la-pdf" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "kt-hidden-mobile" }, [
-                      _vm._v("Generar PDF")
-                    ])
-                  ]
-                )
+  return _c(
+    "div",
+    { staticStyle: { "margin-top": "-4%" }, attrs: { id: "divPadre" } },
+    [
+      _c("div", { staticClass: "row", attrs: { id: "divHijo" } }, [
+        _c("div", { staticClass: "col-lg-12" }, [
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-body" }, [
+              _c("div", { staticClass: "row" }, [
+                _vm._m(0),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-sm-3 text-right" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-danger",
+                      attrs: { type: "button" },
+                      on: { click: _vm.generarPDF }
+                    },
+                    [
+                      _c("i", { staticClass: "la la-pdf" }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "kt-hidden-mobile" }, [
+                        _vm._v("Generar PDF")
+                      ])
+                    ]
+                  )
+                ])
               ])
             ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-body" }, [
-            _c("h4", [_vm._v("Caracterización")]),
-            _vm._v(" "),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card" }, [
             _c(
               "div",
-              { staticClass: "row", staticStyle: { padding: "10px" } },
+              {
+                staticClass: "card-body",
+                staticStyle: { "text-align": "left" }
+              },
               [
-                _vm._m(1),
+                _c("h4", [_vm._v("Caracterización")]),
                 _vm._v(" "),
-                _vm.poblacion_array != null
-                  ? _c("div", { staticClass: "col-lg-3" }, [
-                      _c("ul", [
-                        _c("li", { staticClass: "li_li" }, [
-                          _c("strong", [_vm._v("Menores de un año: ")]),
-                          _vm._v(
-                            " " +
-                              _vm._s(
-                                _vm.poblacion_array.edades.personas0_1[0] +
-                                  _vm.poblacion_array.edades.personas0_1[1]
-                              ) +
-                              " Personas"
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("li", { staticClass: "li_li" }, [
-                          _c("strong", [_vm._v("De 1 a 5 Años: ")]),
-                          _vm._v(
-                            " " +
-                              _vm._s(
-                                _vm.poblacion_array.edades.personas1_5[0] +
-                                  _vm.poblacion_array.edades.personas1_5[1]
-                              ) +
-                              " Personas"
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("li", { staticClass: "li_li" }, [
-                          _c("strong", [_vm._v("De 6 a 11 Años: ")]),
-                          _vm._v(
-                            " " +
-                              _vm._s(
-                                _vm.poblacion_array.edades.personas6_11[0] +
-                                  _vm.poblacion_array.edades.personas6_11[1]
-                              ) +
-                              " Personas"
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("li", { staticClass: "li_li" }, [
-                          _c("strong", [_vm._v("De 12 a 17 Años: ")]),
-                          _vm._v(
-                            " " +
-                              _vm._s(
-                                _vm.poblacion_array.edades.personas12_17[0] +
-                                  _vm.poblacion_array.edades.personas12_17[1]
-                              ) +
-                              " Personas"
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("li", { staticClass: "li_li" }, [
-                          _c("strong", [_vm._v("De 18 a 28 Años: ")]),
-                          _vm._v(
-                            " " +
-                              _vm._s(
-                                _vm.poblacion_array.edades.personas18_28[0] +
-                                  _vm.poblacion_array.edades.personas18_28[1]
-                              ) +
-                              " Personas"
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("li", { staticClass: "li_li" }, [
-                          _c("strong", [_vm._v("De 29 a 59 Años: ")]),
-                          _vm._v(
-                            " " +
-                              _vm._s(
-                                _vm.poblacion_array.edades.personas29_59[0] +
-                                  _vm.poblacion_array.edades.personas29_59[1]
-                              ) +
-                              " Personas"
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("li", { staticClass: "li_li" }, [
-                          _c("strong", [_vm._v("Mayores de 60 Años ")]),
-                          _vm._v(
-                            " " +
-                              _vm._s(
-                                _vm.poblacion_array.edades.personas60[0] +
-                                  _vm.poblacion_array.edades.personas60[1]
-                              ) +
-                              " Personas"
-                          )
+                _c("div", { staticClass: "row" }, [
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _vm.poblacion_array != null
+                    ? _c("div", { staticClass: "col-lg-5" }, [
+                        _c("ul", [
+                          _c("li", { staticClass: "li_li" }, [
+                            _c("strong", [_vm._v("Menores de un año: ")]),
+                            _vm._v(
+                              " " +
+                                _vm._s(
+                                  _vm.poblacion_array.edades.personas0_1[0] +
+                                    _vm.poblacion_array.edades.personas0_1[1]
+                                ) +
+                                " Personas"
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", { staticClass: "li_li" }, [
+                            _c("strong", [_vm._v("De 1 a 5 Años: ")]),
+                            _vm._v(
+                              " " +
+                                _vm._s(
+                                  _vm.poblacion_array.edades.personas1_5[0] +
+                                    _vm.poblacion_array.edades.personas1_5[1]
+                                ) +
+                                " Personas"
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", { staticClass: "li_li" }, [
+                            _c("strong", [_vm._v("De 6 a 11 Años: ")]),
+                            _vm._v(
+                              " " +
+                                _vm._s(
+                                  _vm.poblacion_array.edades.personas6_11[0] +
+                                    _vm.poblacion_array.edades.personas6_11[1]
+                                ) +
+                                " Personas"
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", { staticClass: "li_li" }, [
+                            _c("strong", [_vm._v("De 12 a 17 Años: ")]),
+                            _vm._v(
+                              " " +
+                                _vm._s(
+                                  _vm.poblacion_array.edades.personas12_17[0] +
+                                    _vm.poblacion_array.edades.personas12_17[1]
+                                ) +
+                                " Personas"
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", { staticClass: "li_li" }, [
+                            _c("strong", [_vm._v("De 18 a 28 Años: ")]),
+                            _vm._v(
+                              " " +
+                                _vm._s(
+                                  _vm.poblacion_array.edades.personas18_28[0] +
+                                    _vm.poblacion_array.edades.personas18_28[1]
+                                ) +
+                                " Personas"
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", { staticClass: "li_li" }, [
+                            _c("strong", [_vm._v("De 29 a 59 Años: ")]),
+                            _vm._v(
+                              " " +
+                                _vm._s(
+                                  _vm.poblacion_array.edades.personas29_59[0] +
+                                    _vm.poblacion_array.edades.personas29_59[1]
+                                ) +
+                                " Personas"
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", { staticClass: "li_li" }, [
+                            _c("strong", [_vm._v("Mayores de 60 Años ")]),
+                            _vm._v(
+                              " " +
+                                _vm._s(
+                                  _vm.poblacion_array.edades.personas60[0] +
+                                    _vm.poblacion_array.edades.personas60[1]
+                                ) +
+                                " Personas"
+                            )
+                          ])
                         ])
                       ])
-                    ])
-                  : _vm._e(),
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm._m(2)
+                ]),
                 _vm._v(" "),
-                _vm._m(2)
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-lg-12" }, [
+                    _c("strong", [
+                      _vm._v("2. Población menor de 5 años no asegurada")
+                    ]),
+                    _vm._v(" "),
+                    _vm.poblacion_no_asegurada != null
+                      ? _c("p", [
+                          _vm._v(
+                            "\n                                dentro de este grupo de edad se tiene una cantidad de "
+                          ),
+                          _c("strong", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.poblacion_no_asegurada.no_asegurado_menor_5
+                                  .cantidad_personas
+                              ) + " personas"
+                            )
+                          ]),
+                          _vm._v(", de las cuales "),
+                          _c("strong", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.poblacion_no_asegurada.no_asegurado_menor_5
+                                  .rural +
+                                  _vm.poblacion_no_asegurada
+                                    .no_asegurado_menor_5.urbano
+                              ) + " personas"
+                            )
+                          ]),
+                          _vm._v(
+                            ", se encuentran en la situación de población menor de 5 años no asegurada, de lo cual se puede obtener que "
+                          ),
+                          _c("strong", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.poblacion_no_asegurada.no_asegurado_menor_5
+                                  .rural
+                              ) + " personas"
+                            )
+                          ]),
+                          _vm._v(" se encuentran en zona rural, y "),
+                          _c("strong", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.poblacion_no_asegurada.no_asegurado_menor_5
+                                  .urbano
+                              ) + " personas"
+                            )
+                          ]),
+                          _vm._v(
+                            "  en zona urbana.\n                            "
+                          )
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("div", {
+                      staticStyle: { width: "100%", height: "270px" },
+                      attrs: { id: "chartdiv_no_asegurado_1" }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-lg-12" }, [
+                    _c("strong", [
+                      _vm._v("3. Población adulto mayor no asegurada ")
+                    ]),
+                    _vm._v(" "),
+                    _vm.poblacion_no_asegurada != null
+                      ? _c("p", [
+                          _vm._v(
+                            "\n                                dentro de este grupo de edad se tiene una cantidad de "
+                          ),
+                          _c("strong", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.poblacion_no_asegurada.no_asegurado_mayor_60
+                                  .cantidad_personas
+                              ) + " personas"
+                            )
+                          ]),
+                          _vm._v(", de las cuales "),
+                          _c("strong", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.poblacion_no_asegurada.no_asegurado_mayor_60
+                                  .rural +
+                                  _vm.poblacion_no_asegurada
+                                    .no_asegurado_mayor_60.urbano
+                              ) + " personas"
+                            )
+                          ]),
+                          _vm._v(
+                            ", se encuentran en la situación de población menor de 5 años no asegurada, de lo cual se puede obtener que "
+                          ),
+                          _c("strong", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.poblacion_no_asegurada.no_asegurado_mayor_60
+                                  .rural
+                              ) + " personas"
+                            )
+                          ]),
+                          _vm._v(" se encuentran en zona rural, y "),
+                          _c("strong", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.poblacion_no_asegurada.no_asegurado_mayor_60
+                                  .urbano
+                              ) + " personas"
+                            )
+                          ]),
+                          _vm._v(
+                            "  en zona urbana.\n                            "
+                          )
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("div", {
+                      staticStyle: { width: "100%", height: "270px" },
+                      attrs: { id: "chartdiv_no_asegurado_2" }
+                    })
+                  ])
+                ])
               ]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-lg-5" }, [
-                _c("strong", [
-                  _vm._v("2. Población menor de 5 años no asegurada")
-                ]),
-                _vm._v(" "),
-                _vm.poblacion_no_asegurada != null
-                  ? _c("p", [
-                      _vm._v(
-                        "\n                                dentro de este grupo de edad se tiene una cantidad de "
-                      ),
-                      _c("strong", [
-                        _vm._v(
-                          _vm._s(
-                            _vm.poblacion_no_asegurada.no_asegurado_menor_5
-                              .cantidad_personas
-                          ) + " personas"
-                        )
-                      ]),
-                      _vm._v(", de las cuales "),
-                      _c("strong", [
-                        _vm._v(
-                          _vm._s(
-                            _vm.poblacion_no_asegurada.no_asegurado_menor_5
-                              .rural +
-                              _vm.poblacion_no_asegurada.no_asegurado_menor_5
-                                .urbano
-                          ) + " personas"
-                        )
-                      ]),
-                      _vm._v(
-                        ", se encuentran en la situación de población menor de 5 años no asegurada, de lo cual se puede obtener que "
-                      ),
-                      _c("strong", [
-                        _vm._v(
-                          _vm._s(
-                            _vm.poblacion_no_asegurada.no_asegurado_menor_5
-                              .rural
-                          ) + " personas"
-                        )
-                      ]),
-                      _vm._v(" se encuentran en zona rural, y "),
-                      _c("strong", [
-                        _vm._v(
-                          _vm._s(
-                            _vm.poblacion_no_asegurada.no_asegurado_menor_5
-                              .urbano
-                          ) + " personas"
-                        )
-                      ]),
-                      _vm._v("  en zona urbana.\n                            ")
-                    ])
-                  : _vm._e(),
-                _vm._v(" "),
-                _c("div", {
-                  staticStyle: { width: "100%", height: "270px" },
-                  attrs: { id: "chartdiv_no_asegurado_1" }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-lg-2" }),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-lg-5" }, [
-                _c("strong", [
-                  _vm._v("3. Población adulto mayor no asegurada ")
-                ]),
-                _vm._v(" "),
-                _vm.poblacion_no_asegurada != null
-                  ? _c("p", [
-                      _vm._v(
-                        "\n                                dentro de este grupo de edad se tiene una cantidad de "
-                      ),
-                      _c("strong", [
-                        _vm._v(
-                          _vm._s(
-                            _vm.poblacion_no_asegurada.no_asegurado_mayor_60
-                              .cantidad_personas
-                          ) + " personas"
-                        )
-                      ]),
-                      _vm._v(", de las cuales "),
-                      _c("strong", [
-                        _vm._v(
-                          _vm._s(
-                            _vm.poblacion_no_asegurada.no_asegurado_mayor_60
-                              .rural +
-                              _vm.poblacion_no_asegurada.no_asegurado_mayor_60
-                                .urbano
-                          ) + " personas"
-                        )
-                      ]),
-                      _vm._v(
-                        ", se encuentran en la situación de población menor de 5 años no asegurada, de lo cual se puede obtener que "
-                      ),
-                      _c("strong", [
-                        _vm._v(
-                          _vm._s(
-                            _vm.poblacion_no_asegurada.no_asegurado_mayor_60
-                              .rural
-                          ) + " personas"
-                        )
-                      ]),
-                      _vm._v(" se encuentran en zona rural, y "),
-                      _c("strong", [
-                        _vm._v(
-                          _vm._s(
-                            _vm.poblacion_no_asegurada.no_asegurado_mayor_60
-                              .urbano
-                          ) + " personas"
-                        )
-                      ]),
-                      _vm._v("  en zona urbana.\n                            ")
-                    ])
-                  : _vm._e(),
-                _vm._v(" "),
-                _c("div", {
-                  staticStyle: { width: "100%", height: "270px" },
-                  attrs: { id: "chartdiv_no_asegurado_2" }
-                })
-              ])
-            ])
+            )
           ])
         ])
       ])
-    ])
-  ])
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-sm-10" }, [
-      _c("h3", [_vm._v("INFORME GENERAL SITUACIÓN EN SALUD POBLACIONAL")])
+    return _c("div", { staticClass: "col-sm-9" }, [
+      _c("h4", [_vm._v("INFORME GENERAL SITUACIÓN EN SALUD POBLACIONAL")])
     ])
   },
   function() {
@@ -662,12 +699,19 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-9 text-center" }, [
-      _c("div", {
-        staticStyle: { width: "100%", height: "270px" },
-        attrs: { id: "chartdiv_edades_torta" }
-      })
-    ])
+    return _c(
+      "div",
+      {
+        staticClass: "col-lg-7 text-center",
+        staticStyle: { "padding-top": "30px" }
+      },
+      [
+        _c("div", {
+          staticStyle: { width: "100%", height: "200px" },
+          attrs: { id: "chartdiv_edades_torta" }
+        })
+      ]
+    )
   }
 ]
 render._withStripped = true
@@ -754,13 +798,14 @@ function exportarDesempleadosExcel($data) {
 /*!********************************************!*\
   !*** ./resources/js/Servicios/informes.js ***!
   \********************************************/
-/*! exports provided: inicialesMigrantes, poblacion_no_asegurada */
+/*! exports provided: inicialesMigrantes, poblacion_no_asegurada, determinante_salud */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "inicialesMigrantes", function() { return inicialesMigrantes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "poblacion_no_asegurada", function() { return poblacion_no_asegurada; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "determinante_salud", function() { return determinante_salud; });
 /* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
 
 function inicialesMigrantes($data) {
@@ -768,6 +813,9 @@ function inicialesMigrantes($data) {
 }
 function poblacion_no_asegurada() {
   return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/informes/poblacion-no-asegurada');
+}
+function determinante_salud() {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/informes/determinante-salud');
 }
 
 /***/ }),

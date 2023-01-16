@@ -120,4 +120,18 @@ class InformesController extends Controller
             return redirect("/index")->with("error", "Su sesion ha terminado");
         }
     }
+
+    public function determinante_salud(){
+        if (Auth::check()) {
+            $poblacion_pobreza = \App\Informes::pobreza(Session::get('alias'));
+
+            $respuesta = [
+                "pobreza" => $poblacion_pobreza,
+            ];
+
+            return response()->json($respuesta, 200);
+        }else {
+            return redirect("/index")->with("error", "Su sesion ha terminado");
+        }
+    }
 }

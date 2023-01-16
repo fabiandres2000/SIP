@@ -1923,13 +1923,14 @@ render._withStripped = true
 /*!********************************************!*\
   !*** ./resources/js/Servicios/informes.js ***!
   \********************************************/
-/*! exports provided: inicialesMigrantes, poblacion_no_asegurada */
+/*! exports provided: inicialesMigrantes, poblacion_no_asegurada, determinante_salud */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "inicialesMigrantes", function() { return inicialesMigrantes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "poblacion_no_asegurada", function() { return poblacion_no_asegurada; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "determinante_salud", function() { return determinante_salud; });
 /* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
 
 function inicialesMigrantes($data) {
@@ -1937,6 +1938,9 @@ function inicialesMigrantes($data) {
 }
 function poblacion_no_asegurada() {
   return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/informes/poblacion-no-asegurada');
+}
+function determinante_salud() {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/informes/determinante-salud');
 }
 
 /***/ }),

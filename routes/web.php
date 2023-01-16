@@ -224,3 +224,4 @@ Route::post('/dashboard-riesgos-salud/exportar-inmunizacion', 'DashboardRiesgosS
 Route::post('/dashboard-riesgos-salud/exportar-inmunizacion-excel', 'DashboardRiesgosSaludController@exportarInmunizacionExcel');
 
 Route::post('/informes/poblacion-no-asegurada', 'InformesController@poblacion_no_asegurada');
+Route::post('/informes/determinante-salud', 'InformesController@determinante_salud');

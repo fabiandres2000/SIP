@@ -1154,5 +1154,225 @@ class Informes extends Model
         ];
 
     }
+
+    public static function pobreza($alias){
+        
+        $viviendas =  DB::connection('mysql')->table($alias.'.hogar')
+        ->join($alias.'.vivienda', 'hogar.id','vivienda.id_hogar')
+        ->where('hogar.estado', 'Activo')
+        ->select("hogar.*", "vivienda.*")
+        ->get();
+
+        // vivienda inadecuda
+        foreach ($viviendas as &$item) {
+            // urbano
+            if($item->id_zona == 1){
+                if($item->tipo_estructura == 5 || $item->tipo_cubierta == 2 || $item->material_predominante == 5){
+                    $item->vivienda_inadecuada = "SI";
+                }else{
+                    $item->vivienda_inadecuada = "NO";
+                }
+            }else{
+                //rural
+                if($item->id_zona == 2 || $item->id_zona == 3){
+                    if(($item->tipo_estructura == 5 || $item->tipo_estructura == 4) && $item->material_predominante == 5){
+                        $item->vivienda_inadecuada = "SI";
+                    }else{
+                        $item->vivienda_inadecuada = "NO";
+                    }
+                }
+            }
+        }
+        // vivienda inadecuda
+
+        // Viviendas con hacinamiento crítico
+        foreach ($viviendas as &$item) {
+            $numero_personas =  DB::connection('mysql')->table($alias.'.integrantes')
+            ->where('integrantes.id_hogar', $item->id_hogar)
+            ->where('integrantes.estado', 'Activo')
+            ->count();
+
+            $numero_personas +=  DB::connection('mysql')->table($alias.'.caracterizacion')
+            ->where('caracterizacion.id_hogar', $item->id_hogar)
+            ->where('caracterizacion.estado', 'Activo')
+            ->count();
+
+            $hc = $numero_personas / $item->numero_cuartos;
+
+            if($hc > 3){
+                $item->hacinamiento_critico = "SI";
+            }else{
+                $item->hacinamiento_critico = "NO";
+            }
+        }
+        // Viviendas con hacinamiento crítico
+
+        // Viviendas con servicios inadecuados
+        foreach ($viviendas as &$item) {
+            // urbano
+            if($item->id_zona == 1){
+                if($item->servicio_sanitario == 3 || ($item->fuente_agua != 1 && $item->fuente_agua != 7)){
+                    $item->servicios_inadecuados = "SI";
+                }else{
+                    $item->servicios_inadecuados = "NO";
+                }
+            }else{
+                //rural
+                if($item->id_zona == 2 || $item->id_zona == 3){
+                    if($item->servicio_sanitario == 3 || $item->fuente_agua == 2 || $item->fuente_agua == 3|| $item->fuente_agua == 4|| $item->fuente_agua == 5){
+                        $item->servicios_inadecuados = "SI";
+                    }else{
+                        $item->servicios_inadecuados = "NO";
+                    }
+                }
+            }
+        }
+        // Viviendas con servicios inadecuados
+
+        // Viviendas con alta dependencia económica
+        foreach ($viviendas as &$item) {
+            $numero_personas =  DB::connection('mysql')->table($alias.'.integrantes')
+            ->where('integrantes.id_hogar', $item->id_hogar)
+            ->where('integrantes.estado', 'Activo')
+            ->count();
+
+            $numero_personas +=  DB::connection('mysql')->table($alias.'.caracterizacion')
+            ->where('caracterizacion.id_hogar', $item->id_hogar)
+            ->where('caracterizacion.estado', 'Activo')
+            ->count();
+
+            $numero_personas_ocupadas=  DB::connection('mysql')->table($alias.'.integrantes')
+            ->where('integrantes.id_hogar', $item->id_hogar)
+            ->whereIn('integrantes.tipo_empleo', [2,3,4])
+            ->where('integrantes.estado', 'Activo')
+            ->count();
+
+            $numero_personas_ocupadas +=  DB::connection('mysql')->table($alias.'.caracterizacion')
+            ->where('caracterizacion.id_hogar', $item->id_hogar)
+            ->whereIn('caracterizacion.tipo_empleo', [2,3,4])
+            ->where('caracterizacion.estado', 'Activo')
+            ->count();
+
+            $de = $numero_personas / $numero_personas_ocupadas;
+
+            if($de >= 3){
+                $item->dependencia_economica = "SI";
+            }else{
+                $item->dependencia_economica = "NO";
+            }
+        }
+        // Viviendas con alta dependencia económica
+
+        //Viviendas con niños en edad escolar que no asisten a la escuela
+        foreach ($viviendas as &$item) {
+            $ninios =  DB::connection('mysql')->table($alias.'.integrantes')
+            ->where('integrantes.id_hogar', $item->id_hogar)
+            ->where('integrantes.estado', 'Activo')
+            ->select('integrantes.*')
+            ->selectRaw('TIMESTAMPDIFF(YEAR, integrantes.fecha_nac, CURDATE()) as edad')
+            ->get();
+
+            $ninios_no_asisten = 0;
+            
+            foreach ($ninios as &$item2) {
+                if($item2->edad > 6  && $item2->edad < 12){
+                    if($item2->escolaridad == 4 || $item2->escolaridad == 13 || $item2->escolaridad == 1 || $item2->escolaridad == 12 ){
+                        $ninios_no_asisten += 1;
+                    }
+                }
+            }
+
+            if($ninios_no_asisten > 0){
+                $item->ninios_descolarizados = "SI";
+            }else{
+                $item->ninios_descolarizados = "NO";
+            }
+        }
+        //Viviendas con niños en edad escolar que no asisten a la escuela
+
+        foreach ($viviendas as &$item) {
+            if($item->ninios_descolarizados == "SI" || $item->dependencia_economica == "SI" || $item->servicios_inadecuados == "SI" || $item->hacinamiento_critico == "SI" || $item->vivienda_inadecuada == "SI"){
+                $item->inb = "SI";
+            }else{
+                $item->inb = "NO";
+            }
+        }
+        
+
+        $viviendas_inb = array();
+        $viviendas_inb_urbano = array();
+        $viviendas_inb_rural = array();
+
+        foreach ($viviendas as &$item) {
+            if($item->inb == "SI"){
+              array_push($viviendas_inb, $item->id_hogar);
+              if($item->id_zona == 1){
+                array_push($viviendas_inb_urbano, $item->id_hogar);
+              }else{
+                array_push($viviendas_inb_rural, $item->id_hogar);
+              }
+            }
+        }
+
+        // total
+        $integrantes_pobres =  DB::connection('mysql')->table($alias.'.integrantes')
+        ->whereIn('integrantes.id_hogar', $viviendas_inb)
+        ->where('integrantes.estado', 'Activo')
+        ->count();
+
+        $jefes_pobres =  DB::connection('mysql')->table($alias.'.caracterizacion')
+        ->whereIn('caracterizacion.id_hogar', $viviendas_inb)
+        ->where('caracterizacion.estado', 'Activo')
+        ->count();
+        // total
+
+        // rural 
+        $integrantes_pobres_rural =  DB::connection('mysql')->table($alias.'.integrantes')
+        ->whereIn('integrantes.id_hogar', $viviendas_inb_rural)
+        ->where('integrantes.estado', 'Activo')
+        ->count();
+
+        $jefes_pobres_rural =  DB::connection('mysql')->table($alias.'.caracterizacion')
+        ->whereIn('caracterizacion.id_hogar', $viviendas_inb_rural)
+        ->where('caracterizacion.estado', 'Activo')
+        ->count();
+        // rural 
+
+        // urbano 
+        $integrantes_pobres_urbano =  DB::connection('mysql')->table($alias.'.integrantes')
+        ->whereIn('integrantes.id_hogar', $viviendas_inb_urbano)
+        ->where('integrantes.estado', 'Activo')
+        ->count();
+
+        $jefes_pobres_urbano =  DB::connection('mysql')->table($alias.'.caracterizacion')
+        ->whereIn('caracterizacion.id_hogar', $viviendas_inb_urbano)
+        ->where('caracterizacion.estado', 'Activo')
+        ->count();
+        // urbano 
+
+        $integrantes =  DB::connection('mysql')->table($alias.'.integrantes')
+        ->where('integrantes.estado', 'Activo')
+        ->count();
+
+        $jefes =  DB::connection('mysql')->table($alias.'.caracterizacion')
+        ->where('caracterizacion.estado', 'Activo')
+        ->count();
+
+        $poblacion_pobreza = $integrantes_pobres + $jefes_pobres;
+        $poblacion_pobreza_rural = $integrantes_pobres_rural + $jefes_pobres_rural;
+        $poblacion_pobreza_urbano = $integrantes_pobres_urbano + $jefes_pobres_urbano;
+        $poblacion = $jefes + $integrantes;
+
+        return  $respuesta = [
+            "poblacion" => $poblacion,
+            "poblacion_pobreza" => $poblacion_pobreza,
+            "porcentaje_poblacion_pobreza" => ($poblacion_pobreza / $poblacion) * 100,
+            "poblacion_pobreza_rural" => $poblacion_pobreza_rural,
+            "porcentaje_poblacion_pobreza_rural" => ($poblacion_pobreza_rural / $poblacion_pobreza) * 100,
+            "poblacion_pobreza_urbano" => $poblacion_pobreza_urbano,
+            "porcentaje_poblacion_pobreza_urbano" => ($poblacion_pobreza_urbano / $poblacion_pobreza) * 100,
+        ];
+
+    }
     
 }

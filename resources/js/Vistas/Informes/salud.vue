@@ -1,14 +1,14 @@
 <template>
-    <div style="margin-top: -4%">
-        <div class="row">
+    <div style="margin-top: -4%" id="divPadre">
+        <div class="row" id="divHijo">
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-sm-10">
-                                <h3>INFORME GENERAL SITUACIÓN EN SALUD POBLACIONAL</h3>
+                            <div class="col-sm-9">
+                                <h4>INFORME GENERAL SITUACIÓN EN SALUD POBLACIONAL</h4>
                             </div>
-                            <div class="col-sm-2 text-right">
+                            <div class="col-sm-3 text-right">
                                 <button
                                     type="button"
                                     class="btn btn-danger"
@@ -22,13 +22,13 @@
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body" style="text-align: left;">
                         <h4>Caracterización</h4>
-                        <div class="row" style="padding: 10px;">
+                        <div class="row">
                             <div class="col-lg-12" style="padding-bottom: 10px;">
                                 <strong>1. De acuerdo con la información recolectada, la poblacion caracterizada se compone de la siguiente manera por ciclo de vida: </strong>
                             </div>
-                            <div v-if="poblacion_array != null" class="col-lg-3">
+                            <div v-if="poblacion_array != null" class="col-lg-5">
                                 <ul>
                                     <li class="li_li"><strong>Menores de un año: </strong> {{poblacion_array.edades.personas0_1[0]+poblacion_array.edades.personas0_1[1]}} Personas</li>
                                     <li class="li_li"><strong>De 1 a 5 Años: </strong> {{poblacion_array.edades.personas1_5[0]+poblacion_array.edades.personas1_5[1]}} Personas</li>
@@ -39,20 +39,21 @@
                                     <li class="li_li"><strong>Mayores de 60 Años </strong> {{poblacion_array.edades.personas60[0]+poblacion_array.edades.personas60[1]}} Personas</li>
                                 </ul>
                             </div>
-                            <div class="col-lg-9 text-center">
-                                <div id="chartdiv_edades_torta" style="width: 100%; height: 270px"></div>
+                            <div class="col-lg-7 text-center" style="padding-top: 30px">
+                                <div id="chartdiv_edades_torta" style="width: 100%; height: 200px"></div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-5">
+                            <div class="col-lg-12">
                                 <strong>2. Población menor de 5 años no asegurada</strong> 
                                 <p v-if="poblacion_no_asegurada != null">
                                     dentro de este grupo de edad se tiene una cantidad de <strong>{{ poblacion_no_asegurada.no_asegurado_menor_5.cantidad_personas }} personas</strong>, de las cuales <strong>{{ poblacion_no_asegurada.no_asegurado_menor_5.rural + poblacion_no_asegurada.no_asegurado_menor_5.urbano }} personas</strong>, se encuentran en la situación de población menor de 5 años no asegurada, de lo cual se puede obtener que <strong>{{ poblacion_no_asegurada.no_asegurado_menor_5.rural }} personas</strong> se encuentran en zona rural, y <strong>{{ poblacion_no_asegurada.no_asegurado_menor_5.urbano }} personas</strong>  en zona urbana.
                                 </p>
                                 <div id="chartdiv_no_asegurado_1" style="width: 100%; height: 270px"></div>
                             </div>
-                            <div class="col-lg-2"></div>
-                            <div class="col-lg-5">
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
                                 <strong>3. Población adulto mayor no asegurada </strong> 
                                 <p v-if="poblacion_no_asegurada != null">
                                     dentro de este grupo de edad se tiene una cantidad de <strong>{{ poblacion_no_asegurada.no_asegurado_mayor_60.cantidad_personas }} personas</strong>, de las cuales <strong>{{ poblacion_no_asegurada.no_asegurado_mayor_60.rural + poblacion_no_asegurada.no_asegurado_mayor_60.urbano }} personas</strong>, se encuentran en la situación de población menor de 5 años no asegurada, de lo cual se puede obtener que <strong>{{ poblacion_no_asegurada.no_asegurado_mayor_60.rural }} personas</strong> se encuentran en zona rural, y <strong>{{ poblacion_no_asegurada.no_asegurado_mayor_60.urbano }} personas</strong>  en zona urbana.
@@ -91,6 +92,7 @@
         mounted() {
             this.caracterizacion();
             this.poblacion_no_asegurada_f();
+            this.determinante_salud();
         },
         data() {
             return {
@@ -100,6 +102,7 @@
                 chart_no_asegurado_2: null,
                 isLoading: false,
                 poblacion_no_asegurada: null,
+                determinante_salud_array: null
             }
         },
         methods: {
@@ -206,6 +209,14 @@
                 series.dataFields.value = "first";
                 series.dataFields.category = "category";
             },
+            async determinante_salud() {
+                await informes.determinante_salud().then(respuesta => {
+                    this.determinante_salud_array = respuesta.data; 
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+            },
             generarPDF(){}
         },
     };
@@ -218,5 +229,13 @@
 
     p{
         line-height: 200%;
+    }
+
+    #divPadre {
+        text-align:center;
+    }
+    #divHijo {
+        width:21cm;
+        margin:0px auto;
     }
 </style>

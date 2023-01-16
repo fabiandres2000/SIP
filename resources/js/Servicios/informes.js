@@ -7,3 +7,7 @@ export function inicialesMigrantes($data) {
 export function poblacion_no_asegurada() {
     return http().post('/informes/poblacion-no-asegurada');
 }
+
+export function determinante_salud() {
+    return http().post('/informes/determinante-salud');
+}
