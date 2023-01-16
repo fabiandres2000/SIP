@@ -1161,7 +1161,7 @@ var render = function() {
                           _vm._v(
                             _vm._s(
                               _vm.determinante_salud_array.alcantarillado_agua
-                                .viviendasSinAguaPotable
+                                .viendasSinAguaPotable
                             ) + " Viviendas "
                           )
                         ]),
@@ -1172,7 +1172,7 @@ var render = function() {
                           _vm._v(
                             _vm._s(
                               _vm.determinante_salud_array.alcantarillado_agua
-                                .viviendasSinalcantarillado
+                                .viendasSinalcantarillado
                             ) + " Viviendas "
                           )
                         ]),
