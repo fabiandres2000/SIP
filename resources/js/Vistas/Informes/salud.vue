@@ -57,7 +57,7 @@
                             <div class="col-lg-12">
                                 <strong>3. Población adulto mayor no asegurada </strong> 
                                 <p v-if="poblacion_no_asegurada != null">
-                                    Dentro de este grupo de edad se tiene una cantidad de <strong>{{ poblacion_no_asegurada.no_asegurado_mayor_60.cantidad_personas }} personas</strong>, de las cuales <strong>{{ poblacion_no_asegurada.no_asegurado_mayor_60.rural + poblacion_no_asegurada.no_asegurado_mayor_60.urbano }} personas</strong>, se encuentran en la situación de población menor de 5 años no asegurada, de lo cual se puede obtener que <strong>{{ poblacion_no_asegurada.no_asegurado_mayor_60.rural }} personas</strong> se encuentran en zona rural, y <strong>{{ poblacion_no_asegurada.no_asegurado_mayor_60.urbano }} personas</strong>  en zona urbana.
+                                    Dentro de este grupo de edad se tiene una cantidad de <strong>{{ poblacion_no_asegurada.no_asegurado_mayor_60.cantidad_personas }} personas</strong>, de las cuales <strong>{{ poblacion_no_asegurada.no_asegurado_mayor_60.rural + poblacion_no_asegurada.no_asegurado_mayor_60.urbano }} personas</strong>, se encuentran en la situación de población adulto mayor no asegurada, de lo cual se puede obtener que <strong>{{ poblacion_no_asegurada.no_asegurado_mayor_60.rural }} personas</strong> se encuentran en zona rural, y <strong>{{ poblacion_no_asegurada.no_asegurado_mayor_60.urbano }} personas</strong>  en zona urbana.
                                 </p>
                                 <div id="chartdiv_no_asegurado_2" style="width: 100%; height: 270px"></div>
                             </div>
@@ -122,7 +122,7 @@
                         <br>
                         <div class="row" style="padding: 10px">
                             <strong>4. Acceso a acueducto y alcantarillado</strong>
-                            <p v-if="determinante_salud_array != null">Se tiene que <strong>{{ determinante_salud_array.alcantarillado_agua.viendasSinAguaPotable }} Viviendas </strong> se encuentran sin el servicio de agua potable y <strong>{{ determinante_salud_array.alcantarillado_agua.viendasSinalcantarillado }} Viviendas </strong> sin el servicio de alcantarillado, lo que corresponde a un <strong>{{ determinante_salud_array.alcantarillado_agua.porcentajeviendasSinAguaPotable.toFixed(2) }}% </strong> y <strong>{{ determinante_salud_array.alcantarillado_agua.porcentajeviendasSinalcantarillado.toFixed(2) }}% </strong> respectivamente del total de viviendas caracterizadas ({{ determinante_salud_array.alcantarillado_agua.totalViviendas }}).</p>
+                            <p v-if="determinante_salud_array != null">Se tiene que <strong>{{ determinante_salud_array.alcantarillado_agua.viendasSinAguaPotable }} Viviendas </strong> se encuentran sin el servicio de agua potable y <strong>{{ determinante_salud_array.alcantarillado_agua.viendasSinalcantarillado }} Viviendas </strong> sin el servicio de alcantarillado, lo que corresponde a un <strong>{{ determinante_salud_array.alcantarillado_agua.porcentajeviendasSinAguaPotable.toFixed(2) }}% </strong> y <strong>{{ determinante_salud_array.alcantarillado_agua.porcentajeviendasSinalcantarillado.toFixed(2) }}% </strong> respectivamente del total de viviendas caracterizadas <strong>({{ determinante_salud_array.alcantarillado_agua.totalViviendas }})</strong> .</p>
                             <br>
                             <div class="col-lg-12 text-center">
                                 <h5>Viviendas sin Acceso a Acueducto</h5>
@@ -142,7 +142,7 @@
                         <br>
                         <div class="row" style="padding: 10px">
                             <strong>1. Población con enfermedades crónicas</strong>
-                            <p v-if="condiciones_salud_array != null">Se tiene que el <strong>{{ condiciones_salud_array.enfermedades_cronicas.porcentaje_personas_con_enfermedades.toFixed(2) }}%</strong> de la población padece al menos una enfermedad cronica, esto quiere decir que <strong>{{ condiciones_salud_array.enfermedades_cronicas.personas_con_enfermedades }} Personas</strong> de <strong>{{ condiciones_salud_array.enfermedades_cronicas.numero_personas }}</strong> padecen enfermedades cronicas, las cuales estan divididad de la siguiente manera: </p>
+                            <p v-if="condiciones_salud_array != null">Se tiene que el <strong>{{ condiciones_salud_array.enfermedades_cronicas.porcentaje_personas_con_enfermedades.toFixed(2) }}%</strong> de la población padece al menos una enfermedad cronica, esto quiere decir que <strong>{{ condiciones_salud_array.enfermedades_cronicas.personas_con_enfermedades }} Personas</strong> de <strong>{{ condiciones_salud_array.enfermedades_cronicas.numero_personas }}</strong> padecen enfermedades cronicas, las cuales estan divididas de la siguiente manera: </p>
                             <br>
                             <div class="col-lg-12 text-center">
                                 <h5>Personas con enfermedades cronicas</h5>

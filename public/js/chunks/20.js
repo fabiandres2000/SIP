@@ -1025,7 +1025,7 @@ var render = function() {
                               )
                             ]),
                             _vm._v(
-                              ", se encuentran en la situación de población menor de 5 años no asegurada, de lo cual se puede obtener que "
+                              ", se encuentran en la situación de población adulto mayor no asegurada, de lo cual se puede obtener que "
                             ),
                             _c("strong", [
                               _vm._v(
@@ -1357,13 +1357,19 @@ var render = function() {
                             )
                           ]),
                           _vm._v(
-                            " respectivamente del total de viviendas caracterizadas (" +
-                              _vm._s(
-                                _vm.determinante_salud_array.alcantarillado_agua
-                                  .totalViviendas
-                              ) +
-                              ")."
-                          )
+                            " respectivamente del total de viviendas caracterizadas "
+                          ),
+                          _c("strong", [
+                            _vm._v(
+                              "(" +
+                                _vm._s(
+                                  _vm.determinante_salud_array
+                                    .alcantarillado_agua.totalViviendas
+                                ) +
+                                ")"
+                            )
+                          ]),
+                          _vm._v(" .")
                         ])
                       : _vm._e(),
                     _vm._v(" "),
@@ -1429,7 +1435,7 @@ var render = function() {
                             )
                           ]),
                           _vm._v(
-                            " padecen enfermedades cronicas, las cuales estan divididad de la siguiente manera: "
+                            " padecen enfermedades cronicas, las cuales estan divididas de la siguiente manera: "
                           )
                         ])
                       : _vm._e(),
