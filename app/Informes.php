@@ -1530,5 +1530,91 @@ class Informes extends Model
 
         return $info;
     }
+
+    public static function enfermedades_cronicas($alias){
+        $jefe =  DB::connection('mysql')->table($alias.'.caracterizacion')
+        ->where('caracterizacion.estado', 'Activo')
+        ->count();
+
+        $integ = DB::connection('mysql')->table($alias.'.integrantes')
+        ->where('integrantes.estado', 'Activo')
+        ->count();
+
+        $numero_personas = $jefe + $integ;
+
+        $jefes_en_cro =  DB::connection('mysql')->table($alias.'.enfermedades_jefes')
+        ->join($alias.'.caracterizacion', 'caracterizacion.id','enfermedades_jefes.id_jefe')
+        ->where('caracterizacion.estado', 'Activo')
+        ->where('enfermedades_jefes.tipo', 'Cronica')
+        ->select("enfermedades_jefes.id_jefe")
+        ->groupBy("enfermedades_jefes.id_jefe")
+        ->get();
+
+        $integ_en_cro = DB::connection('mysql')->table($alias.'.enfermedades_integrantes')
+        ->join($alias.'.integrantes', 'integrantes.id','enfermedades_integrantes.id_inte')
+        ->where('integrantes.estado', 'Activo')
+        ->where('enfermedades_integrantes.tipo', 'Cronica')
+        ->select("enfermedades_integrantes.id_inte")
+        ->groupBy("enfermedades_integrantes.id_inte")
+        ->get();
+
+    
+        $enfermedades_array = array();
+        $enfermedades_array_2 = array();
+        foreach ($jefes_en_cro as $key) {
+
+            $enfermedades = DB::connection('mysql')->table($alias.'.enfermedades_jefes')
+            ->join($alias.'.enfermedadescro', 'enfermedades_jefes.id_enfermedad','enfermedadescro.id')
+            ->where('enfermedades_jefes.id_jefe', $key->id_jefe)
+            ->where('enfermedades_jefes.tipo', 'Cronica')
+            ->select("enfermedadescro.descripcion")
+            ->get(); 
+            
+            foreach ($enfermedades as $key2) {
+                array_push($enfermedades_array, $key2);
+            }
+        }
+
+        foreach ($integ_en_cro as $key) {
+            $enfermedades = DB::connection('mysql')->table($alias.'.enfermedades_integrantes')
+            ->join($alias.'.enfermedadescro', 'enfermedades_integrantes.id_enfermedad','enfermedadescro.id')
+            ->where('enfermedades_integrantes.id_inte', $key->id_inte)
+            ->where('enfermedades_integrantes.tipo', 'Cronica')
+            ->select("enfermedadescro.descripcion")
+            ->get(); 
+
+            foreach ($enfermedades as $key2) {
+                array_push($enfermedades_array, $key2);
+            }
+        }
+
+        foreach ($enfermedades_array as $item) {
+            $encontrado = false;
+            foreach ($enfermedades_array_2 as $item2) {
+                if($item->descripcion == $item2->enfermedad){
+                    $encontrado = true;
+                }
+            }
+
+            if(!$encontrado){
+                array_push($enfermedades_array_2, (object)[
+                    "enfermedad" => $item->descripcion,
+                    "cantidad"  => 1,
+                ]);
+            }else{
+                $item2->cantidad += 1;
+            }
+        }
+        
+      
+        $respuesta = [
+            "por_enfermedad" => $enfermedades_array_2,
+            "numero_personas" => $numero_personas,
+            "personas_con_enfermedades" => count($jefes_en_cro) + count($integ_en_cro),
+            "porcentaje_personas_con_enfermedades" => ((count($jefes_en_cro) + count($integ_en_cro)) / $numero_personas) * 100,
+        ];
+
+        return $respuesta;
+    }
     
 }

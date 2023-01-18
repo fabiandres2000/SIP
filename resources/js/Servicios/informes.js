@@ -5,9 +5,13 @@ export function inicialesMigrantes($data) {
 }
 
 export function poblacion_no_asegurada() {
-    return http().post('/informes/poblacion-no-asegurada');
+    return http().get('/informes/poblacion-no-asegurada');
 }
 
 export function determinante_salud() {
-    return http().post('/informes/determinante-salud');
+    return http().get('/informes/determinante-salud');
+}
+
+export function condiciones_salud() {
+    return http().get('/informes/condiciones-salud');
 }

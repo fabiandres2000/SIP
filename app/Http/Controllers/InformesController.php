@@ -140,4 +140,18 @@ class InformesController extends Controller
             return redirect("/index")->with("error", "Su sesion ha terminado");
         }
     }
+
+    public function condiciones_salud(){
+        if (Auth::check()) {
+            $enfermedades_cronicas = \App\Informes::enfermedades_cronicas(Session::get('alias'));
+           
+            $respuesta = [
+                "enfermedades_cronicas" => $enfermedades_cronicas,
+            ];
+
+            return response()->json($respuesta, 200);
+        }else {
+            return redirect("/index")->with("error", "Su sesion ha terminado");
+        }
+    }
 }

@@ -223,5 +223,6 @@ Route::get('/dashboard-riesgos-salud/inmunizacion', 'DashboardRiesgosSaludContro
 Route::post('/dashboard-riesgos-salud/exportar-inmunizacion', 'DashboardRiesgosSaludController@exportarInmunizacion');
 Route::post('/dashboard-riesgos-salud/exportar-inmunizacion-excel', 'DashboardRiesgosSaludController@exportarInmunizacionExcel');
 
-Route::post('/informes/poblacion-no-asegurada', 'InformesController@poblacion_no_asegurada');
-Route::post('/informes/determinante-salud', 'InformesController@determinante_salud');
+Route::get('/informes/poblacion-no-asegurada', 'InformesController@poblacion_no_asegurada');
+Route::get('/informes/determinante-salud', 'InformesController@determinante_salud');
+Route::get('/informes/condiciones-salud', 'InformesController@condiciones_salud');

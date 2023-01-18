@@ -24,7 +24,7 @@
                 <div class="card">
                     <div class="card-body" style="text-align: left;">
                         <h4 style="color: #fd397a ">Caracterización</h4>
-                        <div class="row">
+                        <div class="row" style="padding: 10px">
                             <div v-if="poblacion_array != null" class="col-lg-12" style="padding-bottom: 10px;">
                                 <strong>1. Población por ciclo de vida</strong>
                                 <p> De acuerdo con la información recolectada, la poblacion caracterizada se compone de la siguiente manera por ciclo de vida:</p>
@@ -44,20 +44,20 @@
                                 <div id="chartdiv_edades_torta" style="width: 100%; height: 200px"></div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row" style="padding: 10px">
                             <div class="col-lg-12">
                                 <strong>2. Población menor de 5 años no asegurada</strong> 
                                 <p v-if="poblacion_no_asegurada != null">
-                                    dentro de este grupo de edad se tiene una cantidad de <strong>{{ poblacion_no_asegurada.no_asegurado_menor_5.cantidad_personas }} personas</strong>, de las cuales <strong>{{ poblacion_no_asegurada.no_asegurado_menor_5.rural + poblacion_no_asegurada.no_asegurado_menor_5.urbano }} personas</strong>, se encuentran en la situación de población menor de 5 años no asegurada, de lo cual se puede obtener que <strong>{{ poblacion_no_asegurada.no_asegurado_menor_5.rural }} personas</strong> se encuentran en zona rural, y <strong>{{ poblacion_no_asegurada.no_asegurado_menor_5.urbano }} personas</strong>  en zona urbana.
+                                    Dentro de este grupo de edad se tiene una cantidad de <strong>{{ poblacion_no_asegurada.no_asegurado_menor_5.cantidad_personas }} personas</strong>, de las cuales <strong>{{ poblacion_no_asegurada.no_asegurado_menor_5.rural + poblacion_no_asegurada.no_asegurado_menor_5.urbano }} personas</strong>, se encuentran en la situación de población menor de 5 años no asegurada, de lo cual se puede obtener que <strong>{{ poblacion_no_asegurada.no_asegurado_menor_5.rural }} personas</strong> se encuentran en zona rural, y <strong>{{ poblacion_no_asegurada.no_asegurado_menor_5.urbano }} personas</strong>  en zona urbana.
                                 </p>
                                 <div id="chartdiv_no_asegurado_1" style="width: 100%; height: 270px"></div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row" style="padding: 10px">
                             <div class="col-lg-12">
                                 <strong>3. Población adulto mayor no asegurada </strong> 
                                 <p v-if="poblacion_no_asegurada != null">
-                                    dentro de este grupo de edad se tiene una cantidad de <strong>{{ poblacion_no_asegurada.no_asegurado_mayor_60.cantidad_personas }} personas</strong>, de las cuales <strong>{{ poblacion_no_asegurada.no_asegurado_mayor_60.rural + poblacion_no_asegurada.no_asegurado_mayor_60.urbano }} personas</strong>, se encuentran en la situación de población menor de 5 años no asegurada, de lo cual se puede obtener que <strong>{{ poblacion_no_asegurada.no_asegurado_mayor_60.rural }} personas</strong> se encuentran en zona rural, y <strong>{{ poblacion_no_asegurada.no_asegurado_mayor_60.urbano }} personas</strong>  en zona urbana.
+                                    Dentro de este grupo de edad se tiene una cantidad de <strong>{{ poblacion_no_asegurada.no_asegurado_mayor_60.cantidad_personas }} personas</strong>, de las cuales <strong>{{ poblacion_no_asegurada.no_asegurado_mayor_60.rural + poblacion_no_asegurada.no_asegurado_mayor_60.urbano }} personas</strong>, se encuentran en la situación de población menor de 5 años no asegurada, de lo cual se puede obtener que <strong>{{ poblacion_no_asegurada.no_asegurado_mayor_60.rural }} personas</strong> se encuentran en zona rural, y <strong>{{ poblacion_no_asegurada.no_asegurado_mayor_60.urbano }} personas</strong>  en zona urbana.
                                 </p>
                                 <div id="chartdiv_no_asegurado_2" style="width: 100%; height: 270px"></div>
                             </div>
@@ -65,10 +65,10 @@
                         <br>
                         <br>
                         <h4 style="color: #fd397a ">Determinante social de la salud</h4>
-                        <div class="row">
+                        <div class="row" style="padding: 10px">
                             <div class="col-lg-12">
                                 <strong>1. Población en pobreza </strong>
-                                <p v-if="determinante_salud_array != null">De acuerdo a la informacion recolectada, se estima que <strong>{{ determinante_salud_array.pobreza.poblacion_pobreza }} personas</strong> se encuentran en situación de pobreza, esto representa un <strong>{{ determinante_salud_array.pobreza.porcentaje_poblacion_pobreza.toFixed(2) }}%</strong> de la población total.</p>
+                                <p v-if="determinante_salud_array != null">De acuerdo a la informacion recolectada, se tiene que <strong>{{ determinante_salud_array.pobreza.poblacion_pobreza }} personas</strong> se encuentran en situación de pobreza, esto representa un <strong>{{ determinante_salud_array.pobreza.porcentaje_poblacion_pobreza.toFixed(2) }}%</strong> de la población total.</p>
                                 <ul v-if="determinante_salud_array != null">
                                     <li>
                                         Población en pobreza (Rural): <strong>{{ determinante_salud_array.pobreza.poblacion_pobreza_rural }}</strong>
@@ -84,12 +84,27 @@
                                 <strong>2. Población por nivel de escolaridad </strong>
                                 <p v-if="determinante_salud_array != null">Con una población total de <strong>{{ determinante_salud_array.pobreza.poblacion }} personas</strong> se tiene que: </p>
                                 <br>
-                                <div id="chartdiv_escolaridad" style="width: 100%; height: 270px"></div>
+                                <table class="table_data" v-if="determinante_salud_array != null" style="width: 100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Nivel de escolaridad</th>
+                                            <th>Cantidad de personas</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="(item, index) in determinante_salud_array.escolaridad" :key="index">
+                                            <td>{{ item.escolaridad_nombre }}</td>
+                                            <td>{{ item.numero_personas }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <br>
+                                <div id="chartdiv_escolaridad" style="width: 100%; height: 300px"></div>
                             </div>    
                         </div>
                         <br>
                         <br>
-                        <div class="row">
+                        <div class="row" style="padding: 10px">
                             <div class="col-lg-12">
                                 <strong>3. Desempleo y tipos de empleo  </strong>
                                 <p v-if="determinante_salud_array != null">La tasa de desempleo del total municipal es de <strong>{{ determinante_salud_array.desempleo.TD.toFixed(2) }} %</strong>, lo cual quiere decir que <strong>{{ determinante_salud_array.desempleo.D }} personas </strong>  de <strong>{{ determinante_salud_array.desempleo.FT }} personas </strong> que componen la (fuerza laboral), estan en busca de empleo. </p>
@@ -105,7 +120,7 @@
                         </div>
                         <br>
                         <br>
-                        <div class="row">
+                        <div class="row" style="padding: 10px">
                             <strong>4. Acceso a acueducto y alcantarillado</strong>
                             <p v-if="determinante_salud_array != null">Se tiene que <strong>{{ determinante_salud_array.alcantarillado_agua.viendasSinAguaPotable }} Viviendas </strong> se encuentran sin el servicio de agua potable y <strong>{{ determinante_salud_array.alcantarillado_agua.viendasSinalcantarillado }} Viviendas </strong> sin el servicio de alcantarillado, lo que corresponde a un <strong>{{ determinante_salud_array.alcantarillado_agua.porcentajeviendasSinAguaPotable.toFixed(2) }}% </strong> y <strong>{{ determinante_salud_array.alcantarillado_agua.porcentajeviendasSinalcantarillado.toFixed(2) }}% </strong> respectivamente del total de viviendas caracterizadas ({{ determinante_salud_array.alcantarillado_agua.totalViviendas }}).</p>
                             <br>
@@ -118,6 +133,21 @@
                                 <h5>Viviendas sin Acceso a Alcantarillado</h5>
                                 <h6>(Por zona)</h6>
                                 <div id="chartdiv_alantarillado" style="width: 100%; height: 220px"></div>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <h4 style="color: #fd397a ">Condiciones de salud</h4>
+                        <br>
+                        <div class="row" style="padding: 10px">
+                            <strong>1. Población con enfermedades crónicas</strong>
+                            <p v-if="condiciones_salud_array != null">Se tiene que el <strong>{{ condiciones_salud_array.enfermedades_cronicas.porcentaje_personas_con_enfermedades.toFixed(2) }}%</strong> de la población padece al menos una enfermedad cronica, esto quiere decir que <strong>{{ condiciones_salud_array.enfermedades_cronicas.personas_con_enfermedades }} Personas</strong> de <strong>{{ condiciones_salud_array.enfermedades_cronicas.numero_personas }}</strong> padecen enfermedades cronicas, las cuales estan divididad de la siguiente manera: </p>
+                            <br>
+                            <div class="col-lg-12 text-center">
+                                <h5>Personas con enfermedades cronicas</h5>
+                                <h6>(Por tipo de enfermedad)</h6>
+                                <div id="chartdiv_cronica" style="width: 100%; height: 220px"></div>
                             </div>
                         </div>
                     </div>
@@ -152,6 +182,7 @@
             this.caracterizacion();
             this.poblacion_no_asegurada_f();
             this.determinante_salud();
+            this.condiciones_salud();
         },
         data() {
             return {
@@ -167,6 +198,8 @@
                 chart_desempleo: null,
                 chart_acueducto: null,
                 chart_alcantarillado: null,
+                condiciones_salud_array: null,
+                chart_cronica: null
             }
         },
         methods: {
@@ -416,6 +449,35 @@
                 series.dataFields.value = "first";
                 series.dataFields.category = "category";
             },
+            async condiciones_salud() {
+                await informes.condiciones_salud().then(respuesta => {
+                    this.condiciones_salud_array = respuesta.data; 
+                    this.grafica_enfermedades_cronicas(this.condiciones_salud_array.enfermedades_cronicas.por_enfermedad);
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+            },
+            async grafica_enfermedades_cronicas(array) {
+                if(this.chart_cronica != null){
+                    this.chart_cronica.dispose();
+                }
+                var chart = am4core.create("chartdiv_cronica", am4charts.PieChart3D);
+                this.chart_cronica = chart;
+
+                chart.data = [];
+
+                array.forEach(element => {
+                    chart.data.push({
+                        category: element.enfermedad,
+                        first: element.cantidad,
+                    })
+                });
+
+                var series = chart.series.push(new am4charts.PieSeries3D());
+                series.dataFields.value = "first";
+                series.dataFields.category = "category";
+            },
             generarPDF(){}
         },
     };
@@ -437,4 +499,32 @@
         width:21cm;
         margin:0px auto;
     }
+
+.table_data {
+    width: 100%;
+    font-size: 13px;
+    border-collapse: collapse;
+}
+
+.table_data thead {
+    padding: 0.3em;
+    color: #fff;
+    background: #5578eb;
+}
+
+.table_data thead tr th, .table_data tbody tr td {
+    text-align: left;
+    vertical-align: top;
+    padding: 0.3em;
+    caption-side: bottom;
+}
+
+
+.table_data tbody tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+.table_data tbody tr:nth-child(even) {
+    background-color: #f1f1f1;
+}
 </style>

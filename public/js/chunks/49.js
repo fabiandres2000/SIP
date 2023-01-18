@@ -1923,7 +1923,7 @@ render._withStripped = true
 /*!********************************************!*\
   !*** ./resources/js/Servicios/informes.js ***!
   \********************************************/
-/*! exports provided: inicialesMigrantes, poblacion_no_asegurada, determinante_salud */
+/*! exports provided: inicialesMigrantes, poblacion_no_asegurada, determinante_salud, condiciones_salud */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1931,16 +1931,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "inicialesMigrantes", function() { return inicialesMigrantes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "poblacion_no_asegurada", function() { return poblacion_no_asegurada; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "determinante_salud", function() { return determinante_salud; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "condiciones_salud", function() { return condiciones_salud; });
 /* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
 
 function inicialesMigrantes($data) {
   return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/informes/migrantes', $data);
 }
 function poblacion_no_asegurada() {
-  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/informes/poblacion-no-asegurada');
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().get('/informes/poblacion-no-asegurada');
 }
 function determinante_salud() {
-  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/informes/determinante-salud');
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().get('/informes/determinante-salud');
+}
+function condiciones_salud() {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().get('/informes/condiciones-salud');
 }
 
 /***/ }),
