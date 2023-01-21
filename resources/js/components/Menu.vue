@@ -1029,6 +1029,46 @@
                                             >
                                         </router-link>
                                     </li>
+
+                                    <li
+                                        class="kt-menu__item kt-menu__item--submenu"
+                                        aria-haspopup="true"
+                                        data-ktmenu-submenu-toggle="hover"
+                                    >
+                                        <router-link
+                                            to="/reportes/discapacitados"
+                                            class="kt-menu__link kt-menu__toggle"
+                                        >
+                                            <i
+                                                class="kt-menu__link-bullet kt-menu__link-bullet--line"
+                                            >
+                                                <span></span>
+                                            </i>
+                                            <span class="kt-menu__link-text"
+                                                >Población discapacitada</span
+                                            >
+                                        </router-link>
+                                    </li>
+
+                                    <li
+                                        class="kt-menu__item kt-menu__item--submenu"
+                                        aria-haspopup="true"
+                                        data-ktmenu-submenu-toggle="hover"
+                                    >
+                                        <router-link
+                                            to="/reportes/adulto-mayor"
+                                            class="kt-menu__link kt-menu__toggle"
+                                        >
+                                            <i
+                                                class="kt-menu__link-bullet kt-menu__link-bullet--line"
+                                            >
+                                                <span></span>
+                                            </i>
+                                            <span class="kt-menu__link-text"
+                                                >Población Adulto Mayor</span
+                                            >
+                                        </router-link>
+                                    </li>
                                 </ul>
                             </div>
                         </li>

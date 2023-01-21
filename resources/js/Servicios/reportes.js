@@ -31,3 +31,11 @@ export function inicialesMigrantes($data) {
 export function migrantesPDF($data) {
     return http().post('/reportes/migrantespdf', $data);
 }
+
+export function personas_discapacitadas($tipo, $id) {
+    return http().get('/reportes/personas-discapacitadas?tipo='+$tipo+'&id='+$id);
+}
+
+export function adulto_mayor($tipo, $id) {
+    return http().get('/reportes/adulto-mayor?tipo='+$tipo+'&id='+$id);
+}

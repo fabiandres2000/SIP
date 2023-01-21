@@ -294,4 +294,44 @@ class ReportesController extends Controller
             return response()->json($respuesta, 200);
         }
     }
+
+    public function personas_discapacitadas()
+    {
+        if (Auth::check()) {
+            $tipo = request()->get('tipo');
+            $id = request()->get('id');
+
+            $discapacitados = \App\Reportes::discapacitados($tipo, $id, Session::get('alias'));
+        
+            $respuesta = [
+                'discapacitados' => $discapacitados,
+            ];
+
+            return response()->json($respuesta, 200);
+           
+        } else {
+            return redirect("/index")->with("error", "Su sesion ha terminado");
+        }
+
+    }
+
+    public function adulto_mayor()
+    {
+        if (Auth::check()) {
+            $tipo = request()->get('tipo');
+            $id = request()->get('id');
+
+            $adulto_mayor = \App\Reportes::adulto_mayor($tipo, $id, Session::get('alias'));
+        
+            $respuesta = [
+                'adulto_mayor' => $adulto_mayor,
+            ];
+
+            return response()->json($respuesta, 200);
+           
+        } else {
+            return redirect("/index")->with("error", "Su sesion ha terminado");
+        }
+
+    }
 }

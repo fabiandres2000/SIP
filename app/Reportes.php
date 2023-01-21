@@ -640,4 +640,179 @@ class Reportes extends Model
             ->first();
     }
 
+    public static function discapacitados($tipo, $id, $alias){
+        
+        if($tipo == "todos"){
+            $jefe_discapacidad=  DB::connection('mysql')->table($alias.'.caracterizacion')
+            ->join($alias . '.hogar', 'hogar.id', 'caracterizacion.id_hogar')
+            ->join($alias . ".vivienda", "hogar.id", "vivienda.id_hogar")
+            ->join($alias . ".dptos", "dptos.codigo", "hogar.id_dpto")
+            ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+            ->join($alias . '.muni', function ($join) {
+                $join->on('muni.coddep', '=', 'dptos.codigo');
+                $join->on('muni.codmun', '=', 'hogar.id_mun');
+            })
+            ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+            ->where('caracterizacion.estado', 'Activo')
+            ->select('caracterizacion.*')
+            ->selectRaw("CONCAT_WS('-',dptos.descripcion,muni.descripcion,corregimientos.descripcion,hogar.direccion) as localizacion")
+            ->selectRaw('TIMESTAMPDIFF(YEAR, caracterizacion.fecha_nacimiento, CURDATE()) as edad')
+            ->where('caracterizacion.discapacidad','<>','NINGUNA')
+            ->get();
+
+            $integrantes_discapacidad = DB::connection('mysql')->table($alias.'.integrantes')
+            ->join($alias . '.hogar', 'hogar.id', 'integrantes.id_hogar')
+            ->join($alias . ".vivienda", "hogar.id", "vivienda.id_hogar")
+            ->join($alias . ".dptos", "dptos.codigo", "hogar.id_dpto")
+            ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+            ->join($alias . '.muni', function ($join) {
+                $join->on('muni.coddep', '=', 'dptos.codigo');
+                $join->on('muni.codmun', '=', 'hogar.id_mun');
+            })
+            ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+            ->where('integrantes.estado', 'Activo')
+            ->select('integrantes.*')
+            ->selectRaw('TIMESTAMPDIFF(YEAR, integrantes.fecha_nac, CURDATE()) as edad')
+            ->selectRaw("CONCAT_WS('-',dptos.descripcion,muni.descripcion,corregimientos.descripcion,hogar.direccion) as localizacion")
+            ->where('integrantes.discapacidad','<>','NINGUNA')
+            ->get();
+        }else{
+
+            $jefe_discapacidad=  DB::connection('mysql')->table($alias.'.caracterizacion')
+            ->join($alias . '.hogar', 'hogar.id', 'caracterizacion.id_hogar')
+            ->join($alias . ".vivienda", "hogar.id", "vivienda.id_hogar")
+            ->join($alias . ".dptos", "dptos.codigo", "hogar.id_dpto")
+            ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+            ->join($alias . '.muni', function ($join) {
+                $join->on('muni.coddep', '=', 'dptos.codigo');
+                $join->on('muni.codmun', '=', 'hogar.id_mun');
+            })
+            ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+            ->where('caracterizacion.estado', 'Activo')
+            ->where('hogar.id_'.$tipo, $id)
+            ->where('caracterizacion.discapacidad','<>','NINGUNA')
+            ->select('caracterizacion.*')
+            ->selectRaw('TIMESTAMPDIFF(YEAR, caracterizacion.fecha_nacimiento, CURDATE()) as edad')
+            ->selectRaw("CONCAT_WS('-',dptos.descripcion,muni.descripcion,corregimientos.descripcion,hogar.direccion) as localizacion") 
+            ->get();
+
+            $integrantes_discapacidad = DB::connection('mysql')->table($alias.'.integrantes')
+            ->join($alias . '.hogar', 'hogar.id', 'integrantes.id_hogar')
+            ->join($alias . ".vivienda", "hogar.id", "vivienda.id_hogar")
+            ->join($alias . ".dptos", "dptos.codigo", "hogar.id_dpto")
+            ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+            ->join($alias . '.muni', function ($join) {
+                $join->on('muni.coddep', '=', 'dptos.codigo');
+                $join->on('muni.codmun', '=', 'hogar.id_mun');
+            })
+            ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+            ->where('integrantes.estado', 'Activo')
+            ->where('hogar.id_'.$tipo, $id)
+            ->where('integrantes.discapacidad','<>','NINGUNA')
+            ->select('integrantes.*')
+            ->selectRaw('TIMESTAMPDIFF(YEAR, integrantes.fecha_nac, CURDATE()) as edad')
+            ->selectRaw("CONCAT_WS('-',dptos.descripcion,muni.descripcion,corregimientos.descripcion,hogar.direccion) as localizacion")
+            ->get();
+        }
+
+        $discapacitados = array();
+
+        foreach ($jefe_discapacidad as $item) {     
+            array_push($discapacitados, $item);     
+        }
+
+        foreach ($integrantes_discapacidad as $item) {     
+            array_push($discapacitados, $item);     
+        }
+
+        return $discapacitados;
+    }
+
+    public static function adulto_mayor($tipo, $id, $alias){
+        
+        if($tipo == "todos"){
+            $jefes=  DB::connection('mysql')->table($alias.'.caracterizacion')
+            ->join($alias . '.hogar', 'hogar.id', 'caracterizacion.id_hogar')
+            ->join($alias . ".vivienda", "hogar.id", "vivienda.id_hogar")
+            ->join($alias . ".dptos", "dptos.codigo", "hogar.id_dpto")
+            ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+            ->join($alias . '.muni', function ($join) {
+                $join->on('muni.coddep', '=', 'dptos.codigo');
+                $join->on('muni.codmun', '=', 'hogar.id_mun');
+            })
+            ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+            ->where('caracterizacion.estado', 'Activo')
+            ->select('caracterizacion.*')
+            ->selectRaw("CONCAT_WS('-',dptos.descripcion,muni.descripcion,corregimientos.descripcion,hogar.direccion) as localizacion")
+            ->selectRaw('TIMESTAMPDIFF(YEAR, caracterizacion.fecha_nacimiento, CURDATE()) as edad')
+            ->get();
+
+            $integrantes = DB::connection('mysql')->table($alias.'.integrantes')
+            ->join($alias . '.hogar', 'hogar.id', 'integrantes.id_hogar')
+            ->join($alias . ".vivienda", "hogar.id", "vivienda.id_hogar")
+            ->join($alias . ".dptos", "dptos.codigo", "hogar.id_dpto")
+            ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+            ->join($alias . '.muni', function ($join) {
+                $join->on('muni.coddep', '=', 'dptos.codigo');
+                $join->on('muni.codmun', '=', 'hogar.id_mun');
+            })
+            ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+            ->where('integrantes.estado', 'Activo')
+            ->select('integrantes.*')
+            ->selectRaw('TIMESTAMPDIFF(YEAR, integrantes.fecha_nac, CURDATE()) as edad')
+            ->selectRaw("CONCAT_WS('-',dptos.descripcion,muni.descripcion,corregimientos.descripcion,hogar.direccion) as localizacion")
+            ->get();
+        }else{
+
+            $jefes =  DB::connection('mysql')->table($alias.'.caracterizacion')
+            ->join($alias . '.hogar', 'hogar.id', 'caracterizacion.id_hogar')
+            ->join($alias . ".vivienda", "hogar.id", "vivienda.id_hogar")
+            ->join($alias . ".dptos", "dptos.codigo", "hogar.id_dpto")
+            ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+            ->join($alias . '.muni', function ($join) {
+                $join->on('muni.coddep', '=', 'dptos.codigo');
+                $join->on('muni.codmun', '=', 'hogar.id_mun');
+            })
+            ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+            ->where('caracterizacion.estado', 'Activo')
+            ->where('hogar.id_'.$tipo, $id)
+            ->select('caracterizacion.*')
+            ->selectRaw('TIMESTAMPDIFF(YEAR, caracterizacion.fecha_nacimiento, CURDATE()) as edad')
+            ->selectRaw("CONCAT_WS('-',dptos.descripcion,muni.descripcion,corregimientos.descripcion,hogar.direccion) as localizacion") 
+            ->get();
+
+            $integrantes = DB::connection('mysql')->table($alias.'.integrantes')
+            ->join($alias . '.hogar', 'hogar.id', 'integrantes.id_hogar')
+            ->join($alias . ".vivienda", "hogar.id", "vivienda.id_hogar")
+            ->join($alias . ".dptos", "dptos.codigo", "hogar.id_dpto")
+            ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+            ->join($alias . '.muni', function ($join) {
+                $join->on('muni.coddep', '=', 'dptos.codigo');
+                $join->on('muni.codmun', '=', 'hogar.id_mun');
+            })
+            ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+            ->where('integrantes.estado', 'Activo')
+            ->where('hogar.id_'.$tipo, $id)
+            ->select('integrantes.*')
+            ->selectRaw('TIMESTAMPDIFF(YEAR, integrantes.fecha_nac, CURDATE()) as edad')
+            ->selectRaw("CONCAT_WS('-',dptos.descripcion,muni.descripcion,corregimientos.descripcion,hogar.direccion) as localizacion")
+            ->get();
+        }
+
+        $adulto_mayor = array();
+
+        foreach ($jefes as $item) {     
+            if($item->edad >= 60 ){
+                array_push($adulto_mayor, $item);   
+            }  
+        }
+
+        foreach ($integrantes as $item) {     
+            if($item->edad >= 60 ){
+                array_push($adulto_mayor, $item);   
+            } 
+        }
+
+        return $adulto_mayor;
+    }
 }
