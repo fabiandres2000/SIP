@@ -183,6 +183,46 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -230,7 +270,11 @@ _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_8__["useTheme"](_amcharts_amch
       chart_acueducto: null,
       chart_alcantarillado: null,
       condiciones_salud_array: null,
-      chart_cronica: null
+      chart_cronica: null,
+      chart_infecciosa: null,
+      chart_discapacidad: null,
+      chart_embarazo: null,
+      chart_inmunizacion: null
     };
   },
   methods: {
@@ -639,6 +683,14 @@ _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_8__["useTheme"](_amcharts_amch
                   _this12.condiciones_salud_array = respuesta.data;
 
                   _this12.grafica_enfermedades_cronicas(_this12.condiciones_salud_array.enfermedades_cronicas.por_enfermedad);
+
+                  _this12.grafica_enfermedades_infecciosas(_this12.condiciones_salud_array.enfermedades_infecciosas.por_enfermedad);
+
+                  _this12.grafica_personas_discapacitadas(_this12.condiciones_salud_array.personas_discapacidad.por_discapacidad);
+
+                  _this12.grafica_adolescentes_mbarazo(_this12.condiciones_salud_array.adolescentes_embarazo);
+
+                  _this12.grafica_inmunizacion(_this12.condiciones_salud_array.inmunizacion);
                 })["catch"](function (err) {
                   console.log(err);
                 });
@@ -683,6 +735,142 @@ _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_8__["useTheme"](_amcharts_amch
             }
           }
         }, _callee13);
+      }))();
+    },
+    grafica_enfermedades_infecciosas: function grafica_enfermedades_infecciosas(array) {
+      var _this14 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee14() {
+        var chart, series;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee14$(_context14) {
+          while (1) {
+            switch (_context14.prev = _context14.next) {
+              case 0:
+                if (_this14.chart_infecciosa != null) {
+                  _this14.chart_infecciosa.dispose();
+                }
+
+                chart = _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_8__["create"]("chartdiv_infecciosa", _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_9__["PieChart3D"]);
+                _this14.chart_infecciosa = chart;
+                chart.data = [];
+                array.forEach(function (element) {
+                  chart.data.push({
+                    category: element.enfermedad,
+                    first: element.cantidad
+                  });
+                });
+                series = chart.series.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_9__["PieSeries3D"]());
+                series.dataFields.value = "first";
+                series.dataFields.category = "category";
+
+              case 8:
+              case "end":
+                return _context14.stop();
+            }
+          }
+        }, _callee14);
+      }))();
+    },
+    grafica_personas_discapacitadas: function grafica_personas_discapacitadas(array) {
+      var _this15 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee15() {
+        var chart, series;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee15$(_context15) {
+          while (1) {
+            switch (_context15.prev = _context15.next) {
+              case 0:
+                if (_this15.chart_discapacidad != null) {
+                  _this15.chart_discapacidad.dispose();
+                }
+
+                chart = _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_8__["create"]("chartdiv_discapacidad", _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_9__["PieChart3D"]);
+                _this15.chart_discapacidad = chart;
+                chart.data = [];
+                array.forEach(function (element) {
+                  chart.data.push({
+                    category: element.discapacidad,
+                    first: element.cantidad
+                  });
+                });
+                series = chart.series.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_9__["PieSeries3D"]());
+                series.dataFields.value = "first";
+                series.dataFields.category = "category";
+
+              case 8:
+              case "end":
+                return _context15.stop();
+            }
+          }
+        }, _callee15);
+      }))();
+    },
+    grafica_adolescentes_mbarazo: function grafica_adolescentes_mbarazo(array) {
+      var _this16 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee16() {
+        var chart, series;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee16$(_context16) {
+          while (1) {
+            switch (_context16.prev = _context16.next) {
+              case 0:
+                if (_this16.chart_embarazo != null) {
+                  _this16.chart_embarazo.dispose();
+                }
+
+                chart = _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_8__["create"]("chartdiv_embarazo", _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_9__["PieChart3D"]);
+                _this16.chart_embarazo = chart;
+                chart.data = [{
+                  category: "Zona Rural",
+                  first: array.adolescentes_embarazo_rural
+                }, {
+                  category: "Zona Urbana",
+                  first: array.adolescentes_embarazo_urbano
+                }];
+                series = chart.series.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_9__["PieSeries3D"]());
+                series.dataFields.value = "first";
+                series.dataFields.category = "category";
+
+              case 7:
+              case "end":
+                return _context16.stop();
+            }
+          }
+        }, _callee16);
+      }))();
+    },
+    grafica_inmunizacion: function grafica_inmunizacion(array) {
+      var _this17 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee17() {
+        var chart, series;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee17$(_context17) {
+          while (1) {
+            switch (_context17.prev = _context17.next) {
+              case 0:
+                if (_this17.chart_inmunizacion != null) {
+                  _this17.chart_inmunizacion.dispose();
+                }
+
+                chart = _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_8__["create"]("chartdiv_inmunizacion", _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_9__["PieChart3D"]);
+                _this17.chart_inmunizacion = chart;
+                chart.data = [{
+                  category: "Menores a 1 Año",
+                  first: array.integrantes_mn1
+                }, {
+                  category: "De 1 a 5 Años",
+                  first: array.integrantes_de1a5
+                }];
+                series = chart.series.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_9__["PieSeries3D"]());
+                series.dataFields.value = "first";
+                series.dataFields.category = "category";
+
+              case 7:
+              case "end":
+                return _context17.stop();
+            }
+          }
+        }, _callee17);
       }))();
     },
     generarPDF: function generarPDF() {}
@@ -1444,6 +1632,207 @@ var render = function() {
                     _vm._v(" "),
                     _vm._m(5)
                   ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "row", staticStyle: { padding: "10px" } },
+                  [
+                    _c("strong", [
+                      _vm._v("2. Población con enfermedades Infecciosas")
+                    ]),
+                    _vm._v(" "),
+                    _vm.condiciones_salud_array != null
+                      ? _c("p", [
+                          _vm._v("Se tiene que el "),
+                          _c("strong", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.condiciones_salud_array.enfermedades_infecciosas.porcentaje_personas_con_enfermedades.toFixed(
+                                  2
+                                )
+                              ) + "%"
+                            )
+                          ]),
+                          _vm._v(
+                            " de la población padece al menos una enfermedad infecciosa, esto quiere decir que "
+                          ),
+                          _c("strong", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.condiciones_salud_array
+                                  .enfermedades_infecciosas
+                                  .personas_con_enfermedades
+                              ) + " Personas"
+                            )
+                          ]),
+                          _vm._v(" de "),
+                          _c("strong", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.condiciones_salud_array
+                                  .enfermedades_cronicas.numero_personas
+                              )
+                            )
+                          ]),
+                          _vm._v(
+                            " padecen enfermedades infecciosas, las cuales estan divididas de la siguiente manera: "
+                          )
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _vm._m(6)
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "row", staticStyle: { padding: "10px" } },
+                  [
+                    _c("strong", [_vm._v("3. Población con discapacidad")]),
+                    _vm._v(" "),
+                    _vm.condiciones_salud_array != null
+                      ? _c("p", [
+                          _vm._v("El "),
+                          _c("strong", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.condiciones_salud_array.personas_discapacidad.porcentaje_personas_con_discapacidad.toFixed(
+                                  2
+                                )
+                              ) + "%"
+                            )
+                          ]),
+                          _vm._v(
+                            " de la población es discapacitada, esto quiere decir que "
+                          ),
+                          _c("strong", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.condiciones_salud_array
+                                  .personas_discapacidad
+                                  .personas_con_discapacidad
+                              )
+                            )
+                          ]),
+                          _vm._v(" de "),
+                          _c("strong", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.condiciones_salud_array
+                                  .personas_discapacidad.numero_personas
+                              ) + " Personas"
+                            )
+                          ]),
+                          _vm._v(
+                            " padecen algún tipo de discapacidad, ya sea: fisica, auditiva, entre otras. "
+                          )
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _vm._m(7)
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "row", staticStyle: { padding: "10px" } },
+                  [
+                    _c("strong", [
+                      _vm._v("4. Adolescentes en estado de gestación")
+                    ]),
+                    _vm._v(" "),
+                    _vm.condiciones_salud_array != null
+                      ? _c("p", [
+                          _vm._v("Se tiene que, de "),
+                          _c("strong", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.condiciones_salud_array
+                                  .adolescentes_embarazo.embarazadas
+                              ) + " mujeres "
+                            )
+                          ]),
+                          _vm._v(" en estado de gestación "),
+                          _c("strong", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.condiciones_salud_array
+                                  .adolescentes_embarazo.adolescentes_embarazo
+                              ) + " son adolescentes, "
+                            )
+                          ]),
+                          _vm._v("lo cual representa un "),
+                          _c("strong", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.condiciones_salud_array.adolescentes_embarazo.porcentaje_adolescentes_embarazadas.toFixed(
+                                  2
+                                )
+                              ) + "%"
+                            )
+                          ]),
+                          _vm._v(" de las mujeres embarazadas.")
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _vm._m(8)
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "row", staticStyle: { padding: "10px" } },
+                  [
+                    _c("strong", [_vm._v("5. Inmunización ")]),
+                    _vm._v(" "),
+                    _vm.condiciones_salud_array != null
+                      ? _c("p", [
+                          _c("strong", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.condiciones_salud_array.inmunizacion.porcentaje_carnet_desac.toFixed(
+                                  2
+                                )
+                              ) + "% "
+                            )
+                          ]),
+                          _vm._v(
+                            " de los niños de 0 a 5 años no estan completamente inmunizados, esto quiere decir que "
+                          ),
+                          _c("strong", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.condiciones_salud_array.inmunizacion
+                                  .carnet_desac
+                              ) + " "
+                            )
+                          ]),
+                          _vm._v(" de "),
+                          _c("strong", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.condiciones_salud_array.inmunizacion
+                                  .numero_integrantes
+                              ) + " niños"
+                            )
+                          ]),
+                          _vm._v(
+                            " estan sin esquema de vacunación o tienen el esquema incompleto. "
+                          )
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _vm._m(9)
+                  ]
                 )
               ]
             )
@@ -1534,6 +1923,66 @@ var staticRenderFns = [
       _c("div", {
         staticStyle: { width: "100%", height: "220px" },
         attrs: { id: "chartdiv_cronica" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-lg-12 text-center" }, [
+      _c("h5", [_vm._v("Personas con enfermedades Infecciosas")]),
+      _vm._v(" "),
+      _c("h6", [_vm._v("(Por tipo de enfermedad)")]),
+      _vm._v(" "),
+      _c("div", {
+        staticStyle: { width: "100%", height: "220px" },
+        attrs: { id: "chartdiv_infecciosa" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-lg-12 text-center" }, [
+      _c("h5", [_vm._v("Personas con Discapacidad")]),
+      _vm._v(" "),
+      _c("h6", [_vm._v("(Por tipo de discapacidad)")]),
+      _vm._v(" "),
+      _c("div", {
+        staticStyle: { width: "100%", height: "220px" },
+        attrs: { id: "chartdiv_discapacidad" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-lg-12 text-center" }, [
+      _c("h5", [_vm._v("Adolescentes en Embarazo")]),
+      _vm._v(" "),
+      _c("h6", [_vm._v("(Por Zona)")]),
+      _vm._v(" "),
+      _c("div", {
+        staticStyle: { width: "100%", height: "220px" },
+        attrs: { id: "chartdiv_embarazo" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-lg-12 text-center" }, [
+      _c("h5", [_vm._v("Niños no Inmunizados")]),
+      _vm._v(" "),
+      _c("h6", [_vm._v("(Por Grupo de Edad)")]),
+      _vm._v(" "),
+      _c("div", {
+        staticStyle: { width: "100%", height: "220px" },
+        attrs: { id: "chartdiv_inmunizacion" }
       })
     ])
   }

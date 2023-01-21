@@ -150,6 +150,46 @@
                                 <div id="chartdiv_cronica" style="width: 100%; height: 220px"></div>
                             </div>
                         </div>
+                        <div class="row" style="padding: 10px">
+                            <strong>2. Población con enfermedades Infecciosas</strong>
+                            <p v-if="condiciones_salud_array != null">Se tiene que el <strong>{{ condiciones_salud_array.enfermedades_infecciosas.porcentaje_personas_con_enfermedades.toFixed(2) }}%</strong> de la población padece al menos una enfermedad infecciosa, esto quiere decir que <strong>{{ condiciones_salud_array.enfermedades_infecciosas.personas_con_enfermedades }} Personas</strong> de <strong>{{ condiciones_salud_array.enfermedades_cronicas.numero_personas }}</strong> padecen enfermedades infecciosas, las cuales estan divididas de la siguiente manera: </p>
+                            <br>
+                            <div class="col-lg-12 text-center">
+                                <h5>Personas con enfermedades Infecciosas</h5>
+                                <h6>(Por tipo de enfermedad)</h6>
+                                <div id="chartdiv_infecciosa" style="width: 100%; height: 220px"></div>
+                            </div>
+                        </div>
+                        <div class="row" style="padding: 10px">
+                            <strong>3. Población con discapacidad</strong>
+                            <p v-if="condiciones_salud_array != null">El <strong>{{ condiciones_salud_array.personas_discapacidad.porcentaje_personas_con_discapacidad.toFixed(2) }}%</strong> de la población es discapacitada, esto quiere decir que <strong>{{ condiciones_salud_array.personas_discapacidad.personas_con_discapacidad }}</strong> de <strong>{{ condiciones_salud_array.personas_discapacidad.numero_personas }} Personas</strong> padecen algún tipo de discapacidad, ya sea: fisica, auditiva, entre otras. </p>
+                            <br>
+                            <div class="col-lg-12 text-center">
+                                <h5>Personas con Discapacidad</h5>
+                                <h6>(Por tipo de discapacidad)</h6>
+                                <div id="chartdiv_discapacidad" style="width: 100%; height: 220px"></div>
+                            </div>
+                        </div>
+                        <div class="row" style="padding: 10px">
+                            <strong>4. Adolescentes en estado de gestación</strong>
+                            <p v-if="condiciones_salud_array != null">Se tiene que, de <strong>{{ condiciones_salud_array.adolescentes_embarazo.embarazadas }} mujeres </strong> en estado de gestación <strong>{{ condiciones_salud_array.adolescentes_embarazo.adolescentes_embarazo }} son adolescentes, </strong>lo cual representa un <strong>{{ condiciones_salud_array.adolescentes_embarazo.porcentaje_adolescentes_embarazadas.toFixed(2) }}%</strong> de las mujeres embarazadas.</p>
+                            <br>
+                            <div class="col-lg-12 text-center">
+                                <h5>Adolescentes en Embarazo</h5>
+                                <h6>(Por Zona)</h6>
+                                <div id="chartdiv_embarazo" style="width: 100%; height: 220px"></div>
+                            </div>
+                        </div>
+                        <div class="row" style="padding: 10px">
+                            <strong>5. Inmunización </strong>
+                            <p v-if="condiciones_salud_array != null"><strong>{{ condiciones_salud_array.inmunizacion.porcentaje_carnet_desac.toFixed(2) }}% </strong> de los niños de 0 a 5 años no estan completamente inmunizados, esto quiere decir que <strong>{{ condiciones_salud_array.inmunizacion.carnet_desac }} </strong> de <strong>{{ condiciones_salud_array.inmunizacion.numero_integrantes }} niños</strong> estan sin esquema de vacunación o tienen el esquema incompleto. </p>
+                            <br>
+                            <div class="col-lg-12 text-center">
+                                <h5>Niños no Inmunizados</h5>
+                                <h6>(Por Grupo de Edad)</h6>
+                                <div id="chartdiv_inmunizacion" style="width: 100%; height: 220px"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -199,7 +239,11 @@
                 chart_acueducto: null,
                 chart_alcantarillado: null,
                 condiciones_salud_array: null,
-                chart_cronica: null
+                chart_cronica: null,
+                chart_infecciosa: null,
+                chart_discapacidad: null,
+                chart_embarazo: null,
+                chart_inmunizacion: null
             }
         },
         methods: {
@@ -453,6 +497,10 @@
                 await informes.condiciones_salud().then(respuesta => {
                     this.condiciones_salud_array = respuesta.data; 
                     this.grafica_enfermedades_cronicas(this.condiciones_salud_array.enfermedades_cronicas.por_enfermedad);
+                    this.grafica_enfermedades_infecciosas(this.condiciones_salud_array.enfermedades_infecciosas.por_enfermedad);
+                    this.grafica_personas_discapacitadas(this.condiciones_salud_array.personas_discapacidad.por_discapacidad);
+                    this.grafica_adolescentes_mbarazo(this.condiciones_salud_array.adolescentes_embarazo);
+                    this.grafica_inmunizacion(this.condiciones_salud_array.inmunizacion);
                 })
                 .catch(err => {
                     console.log(err);
@@ -478,6 +526,93 @@
                 series.dataFields.value = "first";
                 series.dataFields.category = "category";
             },
+            async grafica_enfermedades_infecciosas(array) {
+                if(this.chart_infecciosa != null){
+                    this.chart_infecciosa.dispose();
+                }
+                var chart = am4core.create("chartdiv_infecciosa", am4charts.PieChart3D);
+                this.chart_infecciosa = chart;
+
+                chart.data = [];
+
+                array.forEach(element => {
+                    chart.data.push({
+                        category: element.enfermedad,
+                        first: element.cantidad,
+                    })
+                });
+
+                var series = chart.series.push(new am4charts.PieSeries3D());
+                series.dataFields.value = "first";
+                series.dataFields.category = "category";
+            },
+            async grafica_personas_discapacitadas(array) {
+                if(this.chart_discapacidad != null){
+                    this.chart_discapacidad.dispose();
+                }
+                var chart = am4core.create("chartdiv_discapacidad", am4charts.PieChart3D);
+                this.chart_discapacidad = chart;
+
+                chart.data = [];
+
+                array.forEach(element => {
+                    chart.data.push({
+                        category: element.discapacidad,
+                        first: element.cantidad,
+                    })
+                });
+
+                var series = chart.series.push(new am4charts.PieSeries3D());
+                series.dataFields.value = "first";
+                series.dataFields.category = "category";
+            },
+            async grafica_adolescentes_mbarazo(array) {
+               
+
+                if(this.chart_embarazo != null){
+                    this.chart_embarazo.dispose();
+                }
+                var chart = am4core.create("chartdiv_embarazo", am4charts.PieChart3D);
+                this.chart_embarazo = chart;
+
+                chart.data = [
+                    {
+                        category: "Zona Rural",
+                        first: array.adolescentes_embarazo_rural,
+                    },
+                    {
+                        category: "Zona Urbana",
+                        first: array.adolescentes_embarazo_urbano,
+                    }, 
+                ];
+
+                var series = chart.series.push(new am4charts.PieSeries3D());
+                series.dataFields.value = "first";
+                series.dataFields.category = "category";
+            },
+            async grafica_inmunizacion(array) {
+            
+               if(this.chart_inmunizacion != null){
+                   this.chart_inmunizacion.dispose();
+               }
+               var chart = am4core.create("chartdiv_inmunizacion", am4charts.PieChart3D);
+               this.chart_inmunizacion = chart;
+
+               chart.data = [
+                   {
+                       category: "Menores a 1 Año",
+                       first: array.integrantes_mn1,
+                   },
+                   {
+                       category: "De 1 a 5 Años",
+                       first: array.integrantes_de1a5,
+                   }, 
+               ];
+
+               var series = chart.series.push(new am4charts.PieSeries3D());
+               series.dataFields.value = "first";
+               series.dataFields.category = "category";
+           },
             generarPDF(){}
         },
     };

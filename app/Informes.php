@@ -1616,5 +1616,286 @@ class Informes extends Model
 
         return $respuesta;
     }
+
+    public static function enfermedades_infecciosas($alias){
+        $jefe =  DB::connection('mysql')->table($alias.'.caracterizacion')
+        ->where('caracterizacion.estado', 'Activo')
+        ->count();
+
+        $integ = DB::connection('mysql')->table($alias.'.integrantes')
+        ->where('integrantes.estado', 'Activo')
+        ->count();
+
+        $numero_personas = $jefe + $integ;
+
+        $jefes_en_cro =  DB::connection('mysql')->table($alias.'.enfermedades_jefes')
+        ->join($alias.'.caracterizacion', 'caracterizacion.id','enfermedades_jefes.id_jefe')
+        ->where('caracterizacion.estado', 'Activo')
+        ->where('enfermedades_jefes.tipo', 'Infecciosa')
+        ->select("enfermedades_jefes.id_jefe")
+        ->groupBy("enfermedades_jefes.id_jefe")
+        ->get();
+
+        $integ_en_cro = DB::connection('mysql')->table($alias.'.enfermedades_integrantes')
+        ->join($alias.'.integrantes', 'integrantes.id','enfermedades_integrantes.id_inte')
+        ->where('integrantes.estado', 'Activo')
+        ->where('enfermedades_integrantes.tipo', 'Infecciosa')
+        ->select("enfermedades_integrantes.id_inte")
+        ->groupBy("enfermedades_integrantes.id_inte")
+        ->get();
+
+    
+        $enfermedades_array = array();
+        $enfermedades_array_2 = array();
+        foreach ($jefes_en_cro as $key) {
+
+            $enfermedades = DB::connection('mysql')->table($alias.'.enfermedades_jefes')
+            ->join($alias.'.enfermedadesinf', 'enfermedades_jefes.id_enfermedad','enfermedadesinf.id')
+            ->where('enfermedades_jefes.id_jefe', $key->id_jefe)
+            ->where('enfermedades_jefes.tipo', 'Infecciosa')
+            ->select("enfermedadesinf.descripcion")
+            ->get(); 
+            
+            foreach ($enfermedades as $key2) {
+                array_push($enfermedades_array, $key2);
+            }
+        }
+
+        foreach ($integ_en_cro as $key) {
+            $enfermedades = DB::connection('mysql')->table($alias.'.enfermedades_integrantes')
+            ->join($alias.'.enfermedadesinf', 'enfermedades_integrantes.id_enfermedad','enfermedadesinf.id')
+            ->where('enfermedades_integrantes.id_inte', $key->id_inte)
+            ->where('enfermedades_integrantes.tipo', 'Infecciosa')
+            ->select("enfermedadesinf.descripcion")
+            ->get(); 
+
+            foreach ($enfermedades as $key2) {
+                array_push($enfermedades_array, $key2);
+            }
+        }
+
+        foreach ($enfermedades_array as $item) {
+            $encontrado = false;
+            foreach ($enfermedades_array_2 as $item2) {
+                if($item->descripcion == $item2->enfermedad){
+                    $encontrado = true;
+                }
+            }
+
+            if(!$encontrado){
+                array_push($enfermedades_array_2, (object)[
+                    "enfermedad" => $item->descripcion,
+                    "cantidad"  => 1,
+                ]);
+            }else{
+                $item2->cantidad += 1;
+            }
+        }
+        
+      
+        $respuesta = [
+            "por_enfermedad" => $enfermedades_array_2,
+            "numero_personas" => $numero_personas,
+            "personas_con_enfermedades" => count($jefes_en_cro) + count($integ_en_cro),
+            "porcentaje_personas_con_enfermedades" => ((count($jefes_en_cro) + count($integ_en_cro)) / $numero_personas) * 100,
+        ];
+
+        return $respuesta;
+    }
+
+    public static function personas_discapacidad($alias){
+        $jefe =  DB::connection('mysql')->table($alias.'.caracterizacion')
+        ->where('caracterizacion.estado', 'Activo')
+        ->count();
+
+        $integ = DB::connection('mysql')->table($alias.'.integrantes')
+        ->where('integrantes.estado', 'Activo')
+        ->count();
+
+        $numero_personas = $jefe + $integ;
+
+        $jefe_discapacidad=  DB::connection('mysql')->table($alias.'.caracterizacion')
+        ->where('caracterizacion.estado', 'Activo')
+        ->select('caracterizacion.discapacidad')
+        ->where('caracterizacion.discapacidad','<>','NINGUNA')
+        ->get();
+
+        $integrantes_discapacidad = DB::connection('mysql')->table($alias.'.integrantes')
+        ->where('integrantes.estado', 'Activo')
+        ->select('integrantes.discapacidad')
+        ->where('integrantes.discapacidad','<>','NINGUNA')
+        ->get();
+
+    
+       
+        $por_discapacidad = array();
+
+        foreach ($jefe_discapacidad as $item) {
+            $encontrado = false;
+            foreach ($por_discapacidad as $item2) {
+                if($item->discapacidad == $item2->discapacidad){
+                    $encontrado = true;
+                }
+            }
+
+            if(!$encontrado){
+                array_push($por_discapacidad, (object)[
+                    "discapacidad" => $item->discapacidad,
+                    "cantidad"  => 1,
+                ]);
+            }else{
+                $item2->cantidad += 1;
+            }
+        }
+       
+        foreach ($integrantes_discapacidad as $item) {
+            $encontrado = false;
+            foreach ($por_discapacidad as $item2) {
+                if($item->discapacidad == $item2->discapacidad){
+                    $encontrado = true;
+                }
+            }
+
+            if(!$encontrado){
+                array_push($por_discapacidad, (object)[
+                    "discapacidad" => $item->discapacidad,
+                    "cantidad"  => 1,
+                ]);
+            }else{
+                $item2->cantidad += 1;
+            }
+        }
+       
+        
+      
+        $respuesta = [
+            "por_discapacidad" => $por_discapacidad,
+            "numero_personas" => $numero_personas,
+            "personas_con_discapacidad" => count($jefe_discapacidad) + count($integrantes_discapacidad),
+            "porcentaje_personas_con_discapacidad" => ((count($jefe_discapacidad) + count($integrantes_discapacidad)) / $numero_personas) * 100,
+        ];
+
+        return $respuesta;
+    }
+
+    public static function adolescentes_embarazo($alias){
+    
+        $integrantes_embarazadas = DB::connection('mysql')->table($alias.'.integrantes')
+        ->join($alias . ".hogar", "hogar.id", "integrantes.id_hogar")
+        ->select('integrantes.id','hogar.id_zona')
+        ->selectRaw("TIMESTAMPDIFF(YEAR, fecha_nac, CURDATE()) as edad")
+        ->where('hogar.estado', 'Activo')
+        ->where('integrantes.estado', 'Activo')
+        ->where('integrantes.embarazo', 'SI')
+        ->get();
+
+        $jefes_embarazadas = DB::connection('mysql')->table($alias.'.caracterizacion')
+        ->join($alias . ".hogar", "hogar.id", "caracterizacion.id_hogar")
+        ->select('caracterizacion.id','hogar.id_zona')
+        ->selectRaw("TIMESTAMPDIFF(YEAR, fecha_nacimiento, CURDATE()) as edad")
+        ->where('hogar.estado', 'Activo')
+        ->where('caracterizacion.estado', 'Activo')
+        ->where('caracterizacion.embarazo', 'SI')
+        ->get();
+
+        $embarazadas = array();
+
+        foreach ($integrantes_embarazadas as &$item) {
+            array_push($embarazadas, $item);
+        }
+
+        foreach ($jefes_embarazadas as &$item) {
+            array_push($embarazadas, $item);
+        }
+
+        $adolescentes_embarazo = 0;
+        $adolescentes_embarazo_urbano = 0;
+        $adolescentes_embarazo_rural = 0;
+
+        foreach ($embarazadas as &$item) {
+            if($item->edad >= 12 && $item->edad<= 17 ){
+                $adolescentes_embarazo += 1;
+                if($item->id_zona == 1){
+                    $adolescentes_embarazo_urbano += 1;
+                }else{
+                    $adolescentes_embarazo_rural += 1;
+                }
+            }
+        }
+
+        if($adolescentes_embarazo != 0){
+            $porcentaje_adolescentes_embarazadas = ($adolescentes_embarazo / count($embarazadas)) * 100;
+        }else{
+            $porcentaje_adolescentes_embarazadas = 0;
+        }
+
+        $respuesta = [
+            "adolescentes_embarazo" => $adolescentes_embarazo,
+            "embarazadas" => count($embarazadas),
+            "adolescentes_embarazo_urbano" => $adolescentes_embarazo_urbano,
+            "adolescentes_embarazo_rural" => $adolescentes_embarazo_rural,
+            "porcentaje_adolescentes_embarazadas" =>$porcentaje_adolescentes_embarazadas,
+        ];
+
+        return $respuesta;
+    }
+
+    public static function inmunizacion($alias){
+
+        $numero_integrantes = DB::connection('mysql')->table($alias.'.integrantes')
+        ->join($alias . ".men1a", "men1a.id_integrante", "integrantes.id")
+        ->select('integrantes.id')
+        ->where('men1a.estado', 'Activo')
+        ->where('integrantes.estado', 'Activo')
+        ->count();
+
+        $numero_integrantes += DB::connection('mysql')->table($alias.'.integrantes')
+        ->join($alias . ".de1a5", "de1a5.id_integrante", "integrantes.id")
+        ->select('integrantes.id')
+        ->where('de1a5.estado', 'Activo')
+        ->where('integrantes.estado', 'Activo')
+        ->count();
+
+        $integrantes_mn1 = DB::connection('mysql')->table($alias.'.integrantes')
+        ->join($alias . ".men1a", "men1a.id_integrante", "integrantes.id")
+        ->select('integrantes.id')
+        ->where('men1a.estado', 'Activo')
+        ->where('integrantes.estado', 'Activo')
+        ->where(function ($query) {
+            $query->where('men1a.carnet', '=', 'NO')
+            ->orWhere('men1a.carnet', '=', 'DESAC');
+        })
+        ->count();
+
+        $integrantes_de1a5 = DB::connection('mysql')->table($alias.'.integrantes')
+        ->join($alias . ".de1a5", "de1a5.id_integrante", "integrantes.id")
+        ->select('integrantes.id')
+        ->where('de1a5.estado', 'Activo')
+        ->where('integrantes.estado', 'Activo')
+        ->where(function ($query) {
+            $query->where('de1a5.carnet', '=', 'NO')
+            ->orWhere('de1a5.carnet', '=', 'DESACTUALIZADO');
+        })
+        ->count();
+
+        $carnet_desac = $integrantes_mn1 + $integrantes_de1a5;
+
+        if($carnet_desac != 0){
+            $porcentaje_carnet_desac = ($carnet_desac / $numero_integrantes) * 100;
+        }else{
+            $porcentaje_carnet_desac = 0;
+        }
+
+        $respuesta = [
+            "numero_integrantes" => $numero_integrantes,
+            "carnet_desac" => $carnet_desac,
+            "porcentaje_carnet_desac" => $porcentaje_carnet_desac,
+            "integrantes_de1a5" => $integrantes_de1a5,
+            "integrantes_mn1" =>$integrantes_mn1,
+        ];
+
+        return $respuesta;
+       
+    }
     
 }

@@ -2990,11 +2990,11 @@ class DashboardRiesgosSalud extends Model
                 $esquema_completo_triple_numero += 1;
             }
 
-            if($item->carnet == "DESAC" && ($item->riesgos_desnutricion_aguda_R =="4" || $item->riesgos_desnutricion_aguda_R =="5")){
+            if($item->carnet == "DESACTUALIZADO" && ($item->riesgos_desnutricion_aguda_R =="4" || $item->riesgos_desnutricion_aguda_R =="5")){
                 $desnutricion_aguda_carnet_desac_numero += 1;
             }
 
-            if($item->carnet == "DESAC" && ($item->riesgos_desnutricion_global_R =="4" || $item->riesgos_desnutricion_global_R =="5")){
+            if($item->carnet == "DESACTUALIZADO" && ($item->riesgos_desnutricion_global_R =="4" || $item->riesgos_desnutricion_global_R =="5")){
                 $desnutricion_global_carnet_desac_numero += 1;
             }
 

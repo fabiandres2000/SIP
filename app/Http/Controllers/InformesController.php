@@ -144,9 +144,17 @@ class InformesController extends Controller
     public function condiciones_salud(){
         if (Auth::check()) {
             $enfermedades_cronicas = \App\Informes::enfermedades_cronicas(Session::get('alias'));
+            $enfermedades_infecciosas = \App\Informes::enfermedades_infecciosas(Session::get('alias'));
+            $personas_discapacidad = \App\Informes::personas_discapacidad(Session::get('alias'));
+            $adolescentes_embarazo = \App\Informes::adolescentes_embarazo(Session::get('alias'));
+            $inmunizacion = \App\Informes::inmunizacion(Session::get('alias'));
            
             $respuesta = [
                 "enfermedades_cronicas" => $enfermedades_cronicas,
+                "enfermedades_infecciosas" => $enfermedades_infecciosas,
+                "personas_discapacidad" => $personas_discapacidad,
+                "adolescentes_embarazo" => $adolescentes_embarazo,
+                "inmunizacion" => $inmunizacion,
             ];
 
             return response()->json($respuesta, 200);
