@@ -1897,5 +1897,171 @@ class Informes extends Model
         return $respuesta;
        
     }
+
+    public static function nutricion_0_5($alias){
+
+        $de_0_a_1 = DB::connection('mysql')->table($alias.'.integrantes')
+        ->join($alias . ".men1a", "men1a.id_integrante", "integrantes.id")
+        ->join($alias . ".hogar", "hogar.id", "men1a.id_hogar")
+        ->select('men1a.*')
+        ->selectRaw("TIMESTAMPDIFF(DAY, fecha_nac, hogar.fecha) as edad")
+        ->where('men1a.estado', 'Activo')
+        ->where('integrantes.estado', 'Activo')
+        ->get();
+
+        $de_1_a_4 = DB::connection('mysql')->table($alias.'.integrantes')
+        ->join($alias . ".de1a5", "de1a5.id_integrante", "integrantes.id")
+        ->select('de1a5.*')
+        ->where('de1a5.edad', '<', 5)
+        ->where('de1a5.estado', 'Activo')
+        ->where('integrantes.estado', 'Activo')
+        ->get();
+
+
+        // peso para la talla
+        $desnutricion_aguda_severa = 0;
+        $desnutricion_aguda_moderada = 0;
+        $riesgo_desnutricion_aguda = 0;
+        $peso_adecuado = 0;
+
+        foreach ($de_0_a_1 as $item) {
+            if($item->peso_long < -3){
+                $desnutricion_aguda_severa += 1;
+            }else{
+                if($item->peso_long >= -3 && $item->peso_long < 2){
+                    $desnutricion_aguda_moderada += 1;
+                }else{
+                    if($item->peso_long >= -2 && $item->peso_long < -1){
+                        $riesgo_desnutricion_aguda += 1;
+                    }else{
+                        $peso_adecuado += 1;
+                    }
+                } 
+            }
+        }
+
+        foreach ($de_1_a_4 as $item) {
+            if($item->pt < -3){
+                $desnutricion_aguda_severa += 1;
+            }else{
+                if($item->pt >= -3 && $item->pt < 2){
+                    $desnutricion_aguda_moderada += 1;
+                }else{
+                    if($item->pt >= -2 && $item->pt < -1){
+                        $riesgo_desnutricion_aguda += 1;
+                    }else{
+                        $peso_adecuado += 1;
+                    }
+                } 
+            }
+        }
+
+        $peso_talla = [
+            "desnutricion_aguda_severa" => $desnutricion_aguda_severa,
+            "desnutricion_aguda_moderada" => $desnutricion_aguda_moderada,
+            "riesgo_desnutricion_aguda" => $riesgo_desnutricion_aguda,
+            "peso_adecuado" => $peso_adecuado,
+        ];
+        // peso para la talla
+
+        //talla para la edad
+        $retraso_talla = 0;
+        $riesgo_talla_baja = 0;
+        $talla_adecuada = 0;
+
+        foreach ($de_0_a_1 as $item) {
+            if($item->te < -2){
+                $retraso_talla += 1;
+            }else{
+                if($item->te >= -2 && $item->te < -1){
+                    $riesgo_talla_baja += 1;
+                }else{
+                    $talla_adecuada += 1; 
+                } 
+            }
+        }
+
+        foreach ($de_1_a_4 as $item) {
+            if($item->te < -2){
+                $retraso_talla += 1;
+            }else{
+                if($item->te >= -2 && $item->te < -1){
+                    $riesgo_talla_baja += 1;
+                }else{
+                    $talla_adecuada += 1; 
+                } 
+            }
+        }
+
+        $talla_edad = [
+            "retraso_talla" => $retraso_talla,
+            "riesgo_talla_baja" => $riesgo_talla_baja,
+            "talla_adecuada" => $talla_adecuada,
+        ];
+
+        //talla para la edad
+        
+        //IMC para la Edad
+        $obesidad = 0;
+        $sobrepeso = 0;
+        $riesgo_sobrepeso = 0;
+        $peso_normal = 0;
+
+        foreach ($de_0_a_1 as $item) {
+            $imc_temp = $item->imc/$item->edad;
+            if($imc_temp >=0 && $imc_temp <= 1){
+                $peso_normal += 1;
+            }else{
+                if($imc_temp > 1 && $imc_temp <= 2){
+                    $riesgo_sobrepeso += 1;
+                }else{
+                    if($imc_temp > 2 && $imc_temp <= 3){
+                        $sobrepeso += 1;
+                    }else{
+                        if($imc_temp > 3){
+                            $obesidad += 1;
+                        }
+                    } 
+                }
+            }
+        }
+
+
+        foreach ($de_1_a_4 as $item) {
+            $imc_temp = $item->imc/$item->edad;
+            if($imc_temp >=0 && $imc_temp <= 1){
+                $peso_normal += 1;
+            }else{
+                if($imc_temp > 1 && $imc_temp <= 2){
+                    $riesgo_sobrepeso += 1;
+                }else{
+                    if($imc_temp > 2 && $imc_temp <= 3){
+                        $sobrepeso += 1;
+                    }else{
+                        if($imc_temp > 3){
+                            $obesidad += 1;
+                        }
+                    } 
+                }
+            }
+        }
+
+        $imc = [
+            "peso_normal" => $peso_normal,
+            "riesgo_sobrepeso" => $riesgo_sobrepeso,
+            "sobrepeso" => $sobrepeso,
+            "obesidad" => $obesidad,
+        ];
+        //IMC para la Edad
+
+        $respuesta = [
+            "peso_talla" => $peso_talla,
+            "talla_edad" => $talla_edad,
+            "imc" => $imc,
+            "cantidad_ninios" => count($de_0_a_1) + count($de_1_a_4)
+        ];
+
+        return $respuesta;
+    }
     
 }

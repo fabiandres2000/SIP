@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[19],{
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Consultas/viviendas.vue?vue&type=script&lang=js&":
-/*!**************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Consultas/viviendas.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Reportes/AdultoMayor.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Reportes/AdultoMayor.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -11,178 +11,17 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Servicios_consultas__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Servicios/consultas */ "./resources/js/Servicios/consultas.js");
-/* harmony import */ var _Servicios_barrios_servicios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Servicios/barrios_servicios */ "./resources/js/Servicios/barrios_servicios.js");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var _Servicios_reportes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Servicios/reportes */ "./resources/js/Servicios/reportes.js");
+/* harmony import */ var _Servicios_barrios_servicios_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Servicios/barrios_servicios.js */ "./resources/js/Servicios/barrios_servicios.js");
+/* harmony import */ var _Servicios_corregimientos_servicios_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Servicios/corregimientos_servicios.js */ "./resources/js/Servicios/corregimientos_servicios.js");
+/* harmony import */ var _Servicios_veredas_servicios_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../Servicios/veredas_servicios.js */ "./resources/js/Servicios/veredas_servicios.js");
+/* harmony import */ var vue_pithy_progress_lib_circle_progress_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-pithy-progress/lib/circle-progress.css */ "./node_modules/vue-pithy-progress/lib/circle-progress.css");
+/* harmony import */ var vue_pithy_progress_lib_circle_progress_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vue_pithy_progress_lib_circle_progress_css__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var datatables_net__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! datatables.net */ "./node_modules/datatables.net/js/jquery.dataTables.js");
+/* harmony import */ var datatables_net__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(datatables_net__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../store */ "./resources/js/store.js");
 //
 //
 //
@@ -361,265 +200,961 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
+
+
+
+
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
-    this.iniciales();
+    this.listarBarrios();
+    this.listarCorregimientos();
+    this.listarVeredas();
+    this.adulto_mayor();
   },
+  name: "gestan",
   data: function data() {
     return {
-      hoy: "",
-      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
-      paises_options: [],
-      dpto_options: [],
-      muni_options: {},
-      corregi_options: {},
-      barrio_options: {},
-      vereda_options: {},
-      id_dpto: "",
-      id_mun: "",
-      id_corre: "",
-      id_vereda: "",
-      id_zona: "",
-      id_barrio: "",
-      tenencia_vivienda: "",
-      tipo_vivienda: "",
-      poblacion_especial: "",
-      material_predominante: "",
-      promedio_ingresos: "",
-      energia_electrica: "",
-      gas_natural: "",
-      acueducto: "",
-      alcantarillado: "",
-      aseo: "",
-      servicio_sanitario: "",
-      aguas_negras: "",
-      tipo_combustible: ""
+      adulto_mayor_array: [],
+      ruta: "",
+      comboBarrio: "",
+      barrios: [],
+      barriosCorregimiento: [],
+      comboBarrio2: "",
+      comboCorregimiento: "",
+      corregimientos: [],
+      comboVereda: "",
+      veredas: [],
+      tipoCombo: "todos"
     };
   },
+  computed: {},
   methods: {
-    volver: function volver() {},
-    buscar: function buscar() {
-      this.$router.push({
-        name: "ConsultaVivienda",
-        params: {
-          id_dpto: this.id_dpto,
-          id_mun: this.id_mun,
-          id_corre: this.id_corre,
-          id_vereda: this.id_vereda,
-          id_zona: this.id_zona,
-          id_barrio: this.id_barrio,
-          tenencia_vivienda: this.tenencia_vivienda,
-          tipo_vivienda: this.tipo_vivienda,
-          poblacion_especial: this.poblacion_especial,
-          material_predominante: this.material_predominante,
-          promedio_ingresos: this.promedio_ingresos,
-          energia_electrica: this.energia_electrica,
-          gas_natural: this.gas_natural,
-          acueducto: this.acueducto,
-          alcantarillado: this.alcantarillado,
-          aseo: this.aseo,
-          servicio_sanitario: this.servicio_sanitario,
-          aguas_negras: this.aguas_negras,
-          tipo_combustible: this.tipo_combustible
-        }
-      }); //recibir this.$router.params.acueductos
-    },
-    iniciales: function iniciales() {
+    adulto_mayor: function adulto_mayor() {
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var parametros;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                parametros = {
-                  _token: _this.csrf
-                };
-                _context.prev = 1;
-                _context.next = 4;
-                return _Servicios_consultas__WEBPACK_IMPORTED_MODULE_1__["iniciales"](parametros).then(function (respuesta) {
-                  //console.log(respuesta);
-                  _this.dpto_options = respuesta.data.arrayDpto;
-                  _this.muni_options = respuesta.data.arrayMuni;
-                  _this.corregi_options = respuesta.data.arrayCorregi;
-                  _this.vereda_options = respuesta.data.arrayVeredas;
+                _context.prev = 0;
+                _context.next = 3;
+                return _Servicios_reportes__WEBPACK_IMPORTED_MODULE_1__["adulto_mayor"]("todos", null).then(function (respuesta) {
+                  _this.adulto_mayor_array = respuesta.data.adulto_mayor;
                 });
 
-              case 4:
-                _context.next = 8;
+              case 3:
+                _context.next = 14;
                 break;
 
-              case 6:
-                _context.prev = 6;
-                _context.t0 = _context["catch"](1);
+              case 5:
+                _context.prev = 5;
+                _context.t0 = _context["catch"](0);
+                _context.t1 = _context.t0.response.status;
+                _context.next = _context.t1 === 422 ? 10 : 12;
+                break;
 
-              case 8:
+              case 10:
+                _this.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context.abrupt("break", 14);
+
+              case 12:
+                _this.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context.abrupt("break", 14);
+
+              case 14:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[1, 6]]);
+        }, _callee, null, [[0, 5]]);
       }))();
     },
-    cambiarCombo: function () {
-      var _cambiarCombo = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(caja) {
-        var _this2 = this;
+    listarBarrios: function listarBarrios() {
+      var _this2 = this;
 
-        var parametros, _parametros;
-
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var parametros;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                if (caja === "dpto") {
-                  this.id_mun = "";
-                  this.id_corre = "";
-                  this.id_vereda = "";
-                  this.id_barrio = "";
-                }
-
-                if (!(caja === "muni")) {
-                  _context2.next = 20;
-                  break;
-                }
-
-                this.id_corre = "";
-                this.id_vereda = "";
-                this.id_barrio = "";
                 parametros = {
-                  _token: this.csrf,
-                  id: this.id_mun,
+                  _token: _this2.csrf,
+                  id: null,
                   opcion: "MUN"
                 };
-                _context2.prev = 6;
-                _context2.next = 9;
-                return _Servicios_barrios_servicios__WEBPACK_IMPORTED_MODULE_2__["comboBarrios"](parametros).then(function (respuesta) {
-                  _this2.barrio_options = respuesta.data.arrayBarrios;
+                _context2.next = 3;
+                return _Servicios_barrios_servicios_js__WEBPACK_IMPORTED_MODULE_2__["comboBarrios"](parametros).then(function (respuesta) {
+                  _this2.barrios = respuesta.data.arrayBarrios;
                 });
 
-              case 9:
-                _context2.next = 20;
-                break;
-
-              case 11:
-                _context2.prev = 11;
-                _context2.t0 = _context2["catch"](6);
-                _context2.t1 = _context2.t0.response.status;
-                _context2.next = _context2.t1 === 422 ? 16 : 18;
-                break;
-
-              case 16:
-                this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context2.abrupt("break", 20);
-
-              case 18:
-                this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context2.abrupt("break", 20);
-
-              case 20:
-                if (!(caja === "corregi")) {
-                  _context2.next = 42;
-                  break;
-                }
-
-                this.id_vereda = "";
-                this.id_barrio = "";
-
-                if (!(this.id_corre !== "0" && this.id_corre !== "")) {
-                  _context2.next = 41;
-                  break;
-                }
-
-                _parametros = {
-                  _token: this.csrf,
-                  id: this.id_corre,
-                  opcion: "CORRE"
-                };
-                _context2.prev = 25;
-                _context2.next = 28;
-                return _Servicios_barrios_servicios__WEBPACK_IMPORTED_MODULE_2__["comboBarrios"](_parametros).then(function (respuesta) {
-                  _this2.barrio_options = respuesta.data.arrayBarrios;
-                });
-
-              case 28:
-                _context2.next = 39;
-                break;
-
-              case 30:
-                _context2.prev = 30;
-                _context2.t2 = _context2["catch"](25);
-                _context2.t3 = _context2.t2.response.status;
-                _context2.next = _context2.t3 === 422 ? 35 : 37;
-                break;
-
-              case 35:
-                this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context2.abrupt("break", 39);
-
-              case 37:
-                this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context2.abrupt("break", 39);
-
-              case 39:
-                _context2.next = 42;
-                break;
-
-              case 41:
-                if (this.id_corre === "0") {
-                  this.cambiarCombo("muni");
-                  this.id_corre = "0";
-                } else {
-                  this.cambiarCombo("muni");
-                }
-
-              case 42:
+              case 3:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, this, [[6, 11], [25, 30]]);
-      }));
+        }, _callee2);
+      }))();
+    },
+    listarBarriosCorregimiento: function listarBarriosCorregimiento() {
+      var _this3 = this;
 
-      function cambiarCombo(_x) {
-        return _cambiarCombo.apply(this, arguments);
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        var parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                parametros = {
+                  _token: _this3.csrf,
+                  id: _this3.comboCorregimiento,
+                  opcion: "CORRE"
+                };
+                _context3.next = 3;
+                return _Servicios_barrios_servicios_js__WEBPACK_IMPORTED_MODULE_2__["comboBarrios"](parametros).then(function (respuesta) {
+                  _this3.barriosCorregimiento = respuesta.data.arrayBarrios;
+                });
+
+              case 3:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
+      }))();
+    },
+    listarCorregimientos: function listarCorregimientos() {
+      var _this4 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
+        var parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                parametros = {
+                  _token: _this4.csrf
+                };
+                _context4.next = 3;
+                return _Servicios_corregimientos_servicios_js__WEBPACK_IMPORTED_MODULE_3__["comboCorregimientos"](parametros).then(function (respuesta) {
+                  _this4.corregimientos = respuesta.data.corregimientos;
+                });
+
+              case 3:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4);
+      }))();
+    },
+    listarVeredas: function listarVeredas() {
+      var _this5 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
+        var parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                parametros = {
+                  _token: _this5.csrf
+                };
+                _context5.next = 3;
+                return _Servicios_veredas_servicios_js__WEBPACK_IMPORTED_MODULE_4__["comboVeredas"](parametros).then(function (respuesta) {
+                  _this5.veredas = respuesta.data.veredas;
+                });
+
+              case 3:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5);
+      }))();
+    },
+    cambiaraTodos: function cambiaraTodos() {
+      if (this.tipoCombo == "todos") {
+        this.comboBarrio = "";
+        this.comboVereda = "";
+        this.comboCorregimiento = "";
+        this.comboBarrio2 = "";
+        this.adulto_mayor();
       }
+    },
+    filtrar: function filtrar(tipo) {
+      var _this6 = this;
 
-      return cambiarCombo;
-    }()
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6() {
+        var id;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+          while (1) {
+            switch (_context6.prev = _context6.next) {
+              case 0:
+                if (tipo == "barrio") {
+                  tipo = "barrio";
+                  _this6.comboCorregimiento = "";
+                  _this6.comboVereda = "";
+                  _this6.comboBarrio2 = "";
+                  id = _this6.comboBarrio;
+                }
+
+                if (tipo == "corregimiento") {
+                  tipo = "corre";
+                  _this6.comboBarrio = "";
+                  _this6.comboVereda = "";
+                  _this6.comboBarrio2 = "";
+                  id = _this6.comboCorregimiento;
+
+                  _this6.listarBarriosCorregimiento();
+                }
+
+                if (tipo == "vereda") {
+                  tipo = "vereda";
+                  _this6.comboCorregimiento = "";
+                  _this6.comboBarrio = "";
+                  _this6.comboBarrio2 = "";
+                  id = _this6.comboVereda;
+                }
+
+                if (tipo == "barrio2") {
+                  tipo = "barrio";
+                  _this6.comboVereda = "";
+                  _this6.comboBarrio = "";
+                  id = _this6.comboBarrio2;
+
+                  if (_this6.comboBarrio2 == "") {
+                    tipo = "corre";
+                    id = _this6.comboCorregimiento;
+                  }
+                }
+
+                if (_this6.comboVereda == "" && _this6.comboBarrio == "" && _this6.comboCorregimiento == "" && _this6.comboBarrio2 == "") {
+                  tipo = "Todos";
+                }
+
+                _context6.next = 7;
+                return _Servicios_reportes__WEBPACK_IMPORTED_MODULE_1__["adulto_mayor"](tipo, id).then(function (respuesta) {
+                  _this6.adulto_mayor_array = respuesta.data.adulto_mayor;
+                })["catch"](function (err) {
+                  console.log(err);
+                });
+
+              case 7:
+              case "end":
+                return _context6.stop();
+            }
+          }
+        }, _callee6);
+      }))();
+    },
+    cerrarModal: function cerrarModal() {
+      this.$refs.modalpdf.hide();
+    }
   }
 });
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Consultas/viviendas.vue?vue&type=style&index=0&lang=css&":
-/*!*********************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Consultas/viviendas.vue?vue&type=style&index=0&lang=css& ***!
-  \*********************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-pithy-progress/lib/circle-progress.css":
+/*!*************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--5-1!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-pithy-progress/lib/circle-progress.css ***!
+  \*************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+exports = module.exports = __webpack_require__(/*! ../../css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
 // imports
 
 
 // module
-exports.push([module.i, "\n.modal-backdrop {\n  background-color: rgba(0, 0, 0, 0.5) !important;\n}\n.modal-title {\n  color: #f8f9fa !important;\n}\n.close {\n  display: none;\n}\n.color-datepicker {\n  background: #f2f2f2;\n  border: 1px solid #ddd;\n  padding: 0em 1em 1em;\n  margin-bottom: 2em;\n}\n.modal-sm {\n  max-width: 60%;\n}\n", ""]);
+exports.push([module.i, ".a-circle-progress-wrapper .circle-progress{position:relative;display:flex;justify-content:center}.a-circle-progress-wrapper .circle-progress .circle-progress-bar{transform:rotate(-90deg)}.a-circle-progress-wrapper .circle-progress .progress-content{position:absolute;left:50%;transform:translateX(-50%)}.a-circle-progress-wrapper .circle-progress .progress-content .percent-text{height:100%;width:100%;display:flex;align-items:center;justify-content:center}", ""]);
 
 // exports
 
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Consultas/viviendas.vue?vue&type=style&index=0&lang=css&":
-/*!*************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Consultas/viviendas.vue?vue&type=style&index=0&lang=css& ***!
-  \*************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Reportes/AdultoMayor.vue?vue&type=template&id=7eee6fa1&":
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Reportes/AdultoMayor.vue?vue&type=template&id=7eee6fa1& ***!
+  \*******************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "div",
+      { staticClass: "kt-portlet", staticStyle: { "margin-top": "-4%" } },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "kt-portlet__body" }, [
+          _c("div", { staticClass: "kt-section" }, [
+            _c("div", { staticClass: "kt-section__content" }, [
+              _c("div", { staticClass: "row" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "col-sm-3 col-lg-3 text-left",
+                    staticStyle: { padding: "10px 10px 10px 10px" }
+                  },
+                  [
+                    _c("h4", [_vm._v("Aplicar filtro por:")]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.tipoCombo,
+                            expression: "tipoCombo"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        on: {
+                          change: [
+                            function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.tipoCombo = $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            },
+                            function($event) {
+                              return _vm.cambiaraTodos()
+                            }
+                          ]
+                        }
+                      },
+                      [
+                        _c("option", { attrs: { value: "todos" } }, [
+                          _vm._v("Seleccione...")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "barrio" } }, [
+                          _vm._v("Barrio - Cabecera Municipal")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "barrio2" } }, [
+                          _vm._v("Barrio - Corregimiento")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "corregimiento" } }, [
+                          _vm._v("Corregimiento")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "vereda" } }, [
+                          _vm._v("Vereda")
+                        ])
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _vm.tipoCombo == "todos"
+                  ? _c("div", {
+                      staticClass: "col-sm-6 col-lg-6 text-left",
+                      staticStyle: { padding: "10px 10px 10px 20px" }
+                    })
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.tipoCombo == "barrio"
+                  ? _c(
+                      "div",
+                      {
+                        staticClass: "col-sm-4 col-lg-4 text-left",
+                        staticStyle: { padding: "10px 10px 10px 20px" }
+                      },
+                      [
+                        _c("h4", [_vm._v("Seleccione un Barrio")]),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.comboBarrio,
+                                expression: "comboBarrio"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            on: {
+                              change: [
+                                function($event) {
+                                  var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function(o) {
+                                      return o.selected
+                                    })
+                                    .map(function(o) {
+                                      var val =
+                                        "_value" in o ? o._value : o.value
+                                      return val
+                                    })
+                                  _vm.comboBarrio = $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                },
+                                function($event) {
+                                  return _vm.filtrar("barrio")
+                                }
+                              ]
+                            }
+                          },
+                          [
+                            _c("option", { attrs: { value: "" } }, [
+                              _vm._v("Seleccione...")
+                            ]),
+                            _vm._v(" "),
+                            _vm._l(_vm.barrios, function(item) {
+                              return _c(
+                                "option",
+                                { domProps: { value: item.value } },
+                                [_vm._v(_vm._s(item.texto))]
+                              )
+                            })
+                          ],
+                          2
+                        )
+                      ]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.tipoCombo == "corregimiento" || _vm.tipoCombo == "barrio2"
+                  ? _c(
+                      "div",
+                      {
+                        staticClass: "col-sm-3 col-lg-3 text-left",
+                        staticStyle: { padding: "10px 10px 10px 20px" }
+                      },
+                      [
+                        _c("h4", [_vm._v("Seleccione un Corregimiento")]),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.comboCorregimiento,
+                                expression: "comboCorregimiento"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            on: {
+                              change: [
+                                function($event) {
+                                  var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function(o) {
+                                      return o.selected
+                                    })
+                                    .map(function(o) {
+                                      var val =
+                                        "_value" in o ? o._value : o.value
+                                      return val
+                                    })
+                                  _vm.comboCorregimiento = $event.target
+                                    .multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                },
+                                function($event) {
+                                  return _vm.filtrar("corregimiento")
+                                }
+                              ]
+                            }
+                          },
+                          [
+                            _c("option", { attrs: { value: "" } }, [
+                              _vm._v("Seleccione...")
+                            ]),
+                            _vm._v(" "),
+                            _vm._l(_vm.corregimientos, function(item) {
+                              return _c(
+                                "option",
+                                { domProps: { value: item.id } },
+                                [_vm._v(_vm._s(item.descripcion))]
+                              )
+                            })
+                          ],
+                          2
+                        )
+                      ]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.tipoCombo == "barrio2"
+                  ? _c(
+                      "div",
+                      {
+                        staticClass: "col-sm-3 col-lg-3 text-left",
+                        staticStyle: { padding: "10px 10px 10px 20px" }
+                      },
+                      [
+                        _c("h4", [_vm._v("Seleccione un Barrio")]),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.comboBarrio2,
+                                expression: "comboBarrio2"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            on: {
+                              change: [
+                                function($event) {
+                                  var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function(o) {
+                                      return o.selected
+                                    })
+                                    .map(function(o) {
+                                      var val =
+                                        "_value" in o ? o._value : o.value
+                                      return val
+                                    })
+                                  _vm.comboBarrio2 = $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                },
+                                function($event) {
+                                  return _vm.filtrar("barrio2")
+                                }
+                              ]
+                            }
+                          },
+                          [
+                            _c("option", { attrs: { value: "" } }, [
+                              _vm._v("Seleccione...")
+                            ]),
+                            _vm._v(" "),
+                            _vm._l(_vm.barriosCorregimiento, function(item) {
+                              return _c(
+                                "option",
+                                { domProps: { value: item.value } },
+                                [_vm._v(_vm._s(item.texto))]
+                              )
+                            })
+                          ],
+                          2
+                        )
+                      ]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.tipoCombo == "vereda"
+                  ? _c(
+                      "div",
+                      {
+                        staticClass: "col-sm-4 col-lg-4 text-left",
+                        staticStyle: { padding: "10px 10px 10px 20px" }
+                      },
+                      [
+                        _c("h4", [_vm._v("Seleccione una Vereda")]),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.comboVereda,
+                                expression: "comboVereda"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            on: {
+                              change: [
+                                function($event) {
+                                  var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function(o) {
+                                      return o.selected
+                                    })
+                                    .map(function(o) {
+                                      var val =
+                                        "_value" in o ? o._value : o.value
+                                      return val
+                                    })
+                                  _vm.comboVereda = $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                },
+                                function($event) {
+                                  return _vm.filtrar("vereda")
+                                }
+                              ]
+                            }
+                          },
+                          [
+                            _c("option", { attrs: { value: "" } }, [
+                              _vm._v("Seleccione...")
+                            ]),
+                            _vm._v(" "),
+                            _vm._l(_vm.veredas, function(item) {
+                              return _c(
+                                "option",
+                                { domProps: { value: item.id } },
+                                [_vm._v(_vm._s(item.descripcion))]
+                              )
+                            })
+                          ],
+                          2
+                        )
+                      ]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.tipoCombo == "corregimiento"
+                  ? _c("div", {
+                      staticClass: "col-sm-1 col-lg-1 text-left",
+                      staticStyle: { padding: "10px 10px 10px 20px" }
+                    })
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.tipoCombo != "todos" && _vm.tipoCombo != "barrio2"
+                  ? _c("div", {
+                      staticClass: "col-sm-2 col-lg-2 text-left",
+                      staticStyle: { padding: "10px 10px 10px 20px" }
+                    })
+                  : _vm._e(),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    ref: "boton1",
+                    staticClass: "col-sm-3 col-lg-3 text-right",
+                    staticStyle: { padding: "60px 10px 10px 20px" }
+                  },
+                  [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-danger",
+                        on: {
+                          click: function($event) {
+                            return _vm.exportToPDF()
+                          }
+                        }
+                      },
+                      [
+                        _c("i", {
+                          staticClass: "fa fa-file",
+                          attrs: { "aria-hidden": "true" }
+                        }),
+                        _vm._v(" Exportar PDF")
+                      ]
+                    )
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-12" }, [
+                  _c(
+                    "table",
+                    {
+                      staticClass: "table table-sm table-hover",
+                      attrs: { id: "tablaDatos" }
+                    },
+                    [
+                      _vm._m(1),
+                      _vm._v(" "),
+                      _vm.adulto_mayor_array.length > 0
+                        ? _c(
+                            "tbody",
+                            _vm._l(_vm.adulto_mayor_array, function(
+                              item,
+                              index
+                            ) {
+                              return _c("tr", { key: index }, [
+                                _c(
+                                  "td",
+                                  {
+                                    staticStyle: {
+                                      "font-weight": "normal",
+                                      "vertical-align": "middle"
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                            " +
+                                        _vm._s(index + 1) +
+                                        "\n                                        "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "td",
+                                  {
+                                    staticStyle: {
+                                      "font-weight": "normal",
+                                      "vertical-align": "middle",
+                                      "text-align": "left",
+                                      "text-transform": "capitalize"
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                            " +
+                                        _vm._s(item.identificacion) +
+                                        "\n                                        "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "td",
+                                  {
+                                    staticStyle: {
+                                      "font-weight": "normal",
+                                      "vertical-align": "middle",
+                                      "text-align": "left",
+                                      "text-transform": "capitalize"
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                            " +
+                                        _vm._s(item.pnom) +
+                                        " " +
+                                        _vm._s(item.snom) +
+                                        " " +
+                                        _vm._s(item.pape) +
+                                        " " +
+                                        _vm._s(item.sape) +
+                                        "\n                                        "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "td",
+                                  {
+                                    staticStyle: {
+                                      "font-weight": "normal",
+                                      "vertical-align": "middle",
+                                      "text-align": "left",
+                                      "text-transform": "capitalize"
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                            " +
+                                        _vm._s(item.edad) +
+                                        " Años\n                                        "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "td",
+                                  {
+                                    staticStyle: {
+                                      "font-weight": "normal",
+                                      "vertical-align": "middle",
+                                      "text-align": "left",
+                                      "text-transform": "capitalize"
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                            " +
+                                        _vm._s(item.localizacion) +
+                                        "\n                                        "
+                                    )
+                                  ]
+                                )
+                              ])
+                            }),
+                            0
+                          )
+                        : _c("tbody", [_vm._m(2)])
+                    ]
+                  )
+                ])
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "b-modal",
+          {
+            ref: "modalpdf",
+            attrs: {
+              "hide-footer": "",
+              title: "Reporte de Población Discapacitada",
+              size: "xl",
+              centered: "",
+              "header-bg-variant": "danger",
+              "header-text-variant": "light",
+              "no-close-on-backdrop": true
+            }
+          },
+          [
+            _c("embed", {
+              attrs: {
+                id: "divPdf",
+                src: _vm.ruta,
+                type: "application/pdf",
+                width: "100%",
+                height: "650px"
+              }
+            }),
+            _vm._v(" "),
+            _c("hr"),
+            _vm._v(" "),
+            _c("div", { staticClass: "text-right" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-warning",
+                  attrs: { type: "button" },
+                  on: { click: _vm.cerrarModal }
+                },
+                [
+                  _c("i", { staticClass: "fa fa-window-close" }),
+                  _vm._v(" Cancelar\n                ")
+                ]
+              )
+            ])
+          ]
+        )
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "kt-portlet__head" }, [
+      _c("div", { staticClass: "kt-portlet__head-label" }, [
+        _c("h3", { staticClass: "kt-portlet__head-title" }, [
+          _c("span", { staticClass: "kt-widget20__number kt-font-danger" }, [
+            _vm._v("REPORTE ADULTO MAYOR")
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", {}, [
+      _c("tr", { staticClass: "kt-bg-fill-brand" }, [
+        _c("th", { staticClass: "text-left" }, [_vm._v("No.")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-left" }, [
+          _vm._v(
+            "\n                                            Identificación\n                                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-left" }, [
+          _vm._v(
+            "\n                                            Nombre\n                                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("th", [
+          _vm._v(
+            "\n                                            Edad\n                                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-left" }, [
+          _vm._v(
+            "\n                                            Ubicación\n                                        "
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c(
+        "td",
+        {
+          staticStyle: {
+            "font-weight": "normal",
+            "vertical-align": "middle",
+            "text-align": "center",
+            "text-transform": "capitalize",
+            "font-size": "20px"
+          },
+          attrs: { colspan: "11" }
+        },
+        [
+          _vm._v(
+            "\n                                            No existen datos\n                                        "
+          )
+        ]
+      )
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-pithy-progress/lib/circle-progress.css":
+/*!*****************************************************************!*\
+  !*** ./node_modules/vue-pithy-progress/lib/circle-progress.css ***!
+  \*****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./viviendas.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Consultas/viviendas.vue?vue&type=style&index=0&lang=css&");
+var content = __webpack_require__(/*! !../../css-loader??ref--5-1!../../postcss-loader/src??ref--5-2!./circle-progress.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-pithy-progress/lib/circle-progress.css");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -633,1049 +1168,11 @@ var options = {"hmr":true}
 options.transform = transform
 options.insertInto = undefined;
 
-var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+var update = __webpack_require__(/*! ../../style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
 
 if(content.locals) module.exports = content.locals;
 
 if(false) {}
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Consultas/viviendas.vue?vue&type=template&id=c701a7aa&":
-/*!******************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Consultas/viviendas.vue?vue&type=template&id=c701a7aa& ***!
-  \******************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row" }, [
-    _c("div", { staticClass: "col-12" }, [
-      _c(
-        "div",
-        {
-          staticClass: "kt-portlet kt-portlet--height-fluid kt-portlet--mobile",
-          staticStyle: { "margin-top": "-4%", height: "auto" }
-        },
-        [
-          _c(
-            "div",
-            {
-              staticClass:
-                "\n          kt-portlet__head\n          kt-portlet__head--lg\n          kt-portlet__head--noborder\n          kt-portlet__head--break-sm\n        "
-            },
-            [
-              _vm._m(0),
-              _vm._v(" "),
-              _c("div", { staticClass: "kt-portlet__head-toolbar" }, [
-                _c("div", { staticClass: "btn-group" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-brand",
-                      attrs: { type: "button" },
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          return _vm.buscar.apply(null, arguments)
-                        }
-                      }
-                    },
-                    [
-                      _c("i", { staticClass: "la la-search" }),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "kt-hidden-mobile" }, [
-                        _vm._v("Buscar")
-                      ])
-                    ]
-                  )
-                ])
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "kt-portlet__body" }, [
-            _vm._m(1),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group row" }, [
-              _c(
-                "div",
-                { staticClass: "col-lg-4" },
-                [
-                  _c("label", [_vm._v("Departamento:")]),
-                  _vm._v(" "),
-                  _c(
-                    "b-form-select",
-                    {
-                      ref: "id_dpto",
-                      on: {
-                        change: function($event) {
-                          return _vm.cambiarCombo("dpto")
-                        }
-                      },
-                      model: {
-                        value: _vm.id_dpto,
-                        callback: function($$v) {
-                          _vm.id_dpto =
-                            typeof $$v === "string" ? $$v.trim() : $$v
-                        },
-                        expression: "id_dpto"
-                      }
-                    },
-                    [
-                      _c("option", { attrs: { value: "", selected: "" } }, [
-                        _vm._v("Seleccione")
-                      ]),
-                      _vm._v(" "),
-                      _vm._l(_vm.dpto_options, function(item) {
-                        return _c(
-                          "option",
-                          { key: item.value, domProps: { value: item.value } },
-                          [
-                            _vm._v(
-                              "\n                " +
-                                _vm._s(item.texto) +
-                                "\n              "
-                            )
-                          ]
-                        )
-                      })
-                    ],
-                    2
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "col-lg-4" },
-                [
-                  _c("label", [_vm._v("Municipio:")]),
-                  _vm._v(" "),
-                  _c(
-                    "b-form-select",
-                    {
-                      ref: "id_mun",
-                      on: {
-                        change: function($event) {
-                          return _vm.cambiarCombo("muni")
-                        }
-                      },
-                      model: {
-                        value: _vm.id_mun,
-                        callback: function($$v) {
-                          _vm.id_mun =
-                            typeof $$v === "string" ? $$v.trim() : $$v
-                        },
-                        expression: "id_mun"
-                      }
-                    },
-                    [
-                      _c("option", { attrs: { value: "", selected: "" } }, [
-                        _vm._v("Seleccione")
-                      ]),
-                      _vm._v(" "),
-                      _vm._l(_vm.muni_options[_vm.id_dpto], function(item) {
-                        return _c(
-                          "option",
-                          { key: item.value, domProps: { value: item.value } },
-                          [
-                            _vm._v(
-                              "\n                " +
-                                _vm._s(item.texto) +
-                                "\n              "
-                            )
-                          ]
-                        )
-                      })
-                    ],
-                    2
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "col-lg-4" },
-                [
-                  _c("label", [_vm._v("Corregimiento:")]),
-                  _vm._v(" "),
-                  _c(
-                    "b-form-select",
-                    {
-                      on: {
-                        change: function($event) {
-                          return _vm.cambiarCombo("corregi")
-                        }
-                      },
-                      model: {
-                        value: _vm.id_corre,
-                        callback: function($$v) {
-                          _vm.id_corre = $$v
-                        },
-                        expression: "id_corre"
-                      }
-                    },
-                    [
-                      _c("option", { attrs: { value: "", selected: "" } }, [
-                        _vm._v("Seleccione")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "0" } }, [
-                        _vm._v("No Aplica")
-                      ]),
-                      _vm._v(" "),
-                      _vm._l(_vm.corregi_options[_vm.id_mun], function(item) {
-                        return _c(
-                          "option",
-                          { key: item.value, domProps: { value: item.value } },
-                          [
-                            _vm._v(
-                              "\n                " +
-                                _vm._s(item.texto) +
-                                "\n              "
-                            )
-                          ]
-                        )
-                      })
-                    ],
-                    2
-                  )
-                ],
-                1
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group row" }, [
-              _c(
-                "div",
-                { staticClass: "col-lg-4" },
-                [
-                  _c("label", [_vm._v("Vereda:")]),
-                  _vm._v(" "),
-                  _c(
-                    "b-form-select",
-                    {
-                      on: {
-                        change: function($event) {
-                          return _vm.cambiarCombo("vereda")
-                        }
-                      },
-                      model: {
-                        value: _vm.id_vereda,
-                        callback: function($$v) {
-                          _vm.id_vereda = $$v
-                        },
-                        expression: "id_vereda"
-                      }
-                    },
-                    [
-                      _c("option", { attrs: { value: "", selected: "" } }, [
-                        _vm._v("Seleccione")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "0" } }, [
-                        _vm._v("No Aplica")
-                      ]),
-                      _vm._v(" "),
-                      _vm._l(_vm.vereda_options[_vm.id_corre], function(item) {
-                        return _c(
-                          "option",
-                          { key: item.value, domProps: { value: item.value } },
-                          [
-                            _vm._v(
-                              "\n                " +
-                                _vm._s(item.texto) +
-                                "\n              "
-                            )
-                          ]
-                        )
-                      })
-                    ],
-                    2
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "col-lg-4" },
-                [
-                  _c("label", [_vm._v("Barrio:")]),
-                  _vm._v(" "),
-                  _c(
-                    "b-form-select",
-                    {
-                      model: {
-                        value: _vm.id_barrio,
-                        callback: function($$v) {
-                          _vm.id_barrio = $$v
-                        },
-                        expression: "id_barrio"
-                      }
-                    },
-                    [
-                      _c("option", { attrs: { value: "", selected: "" } }, [
-                        _vm._v("Seleccione")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "0" } }, [
-                        _vm._v("No Aplica")
-                      ]),
-                      _vm._v(" "),
-                      _vm._l(_vm.barrio_options, function(item) {
-                        return _c(
-                          "option",
-                          { key: item.value, domProps: { value: item.value } },
-                          [
-                            _vm._v(
-                              "\n                " +
-                                _vm._s(item.texto) +
-                                "\n              "
-                            )
-                          ]
-                        )
-                      })
-                    ],
-                    2
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "col-lg-4" },
-                [
-                  _c("label", [_vm._v("Zona:")]),
-                  _vm._v(" "),
-                  _c(
-                    "b-form-select",
-                    {
-                      model: {
-                        value: _vm.id_zona,
-                        callback: function($$v) {
-                          _vm.id_zona = $$v
-                        },
-                        expression: "id_zona"
-                      }
-                    },
-                    [
-                      _c("option", { attrs: { value: "", selected: "" } }, [
-                        _vm._v("Seleccione")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "0" } }, [
-                        _vm._v("No Aplica")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "1" } }, [
-                        _vm._v("Urbano")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "2" } }, [
-                        _vm._v("Rural centro poblado")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "3" } }, [
-                        _vm._v("Rural disperso")
-                      ])
-                    ]
-                  )
-                ],
-                1
-              )
-            ]),
-            _vm._v(" "),
-            _vm._m(2),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group row" }, [
-              _c(
-                "div",
-                { staticClass: "col-lg-4" },
-                [
-                  _c("label", [_vm._v("Tenencia de Vivienda:")]),
-                  _vm._v(" "),
-                  _c(
-                    "b-form-select",
-                    {
-                      ref: "tenencia_vivienda",
-                      model: {
-                        value: _vm.tenencia_vivienda,
-                        callback: function($$v) {
-                          _vm.tenencia_vivienda =
-                            typeof $$v === "string" ? $$v.trim() : $$v
-                        },
-                        expression: "tenencia_vivienda"
-                      }
-                    },
-                    [
-                      _c("option", { attrs: { value: "", selected: "" } }, [
-                        _vm._v("Seleccione")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "PROPIETARIO" } }, [
-                        _vm._v("PROPIETARIO(A)")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "ARRENDADO" } }, [
-                        _vm._v("ARRENDADO(A)")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "FAMILIAR" } }, [
-                        _vm._v("FAMILIAR")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "CUIDADOR" } }, [
-                        _vm._v("CUIDADOR(A)")
-                      ])
-                    ]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "col-lg-4" },
-                [
-                  _c("label", [_vm._v("Tipo de Vivienda:")]),
-                  _vm._v(" "),
-                  _c(
-                    "b-form-select",
-                    {
-                      model: {
-                        value: _vm.tipo_vivienda,
-                        callback: function($$v) {
-                          _vm.tipo_vivienda =
-                            typeof $$v === "string" ? $$v.trim() : $$v
-                        },
-                        expression: "tipo_vivienda"
-                      }
-                    },
-                    [
-                      _c("option", { attrs: { value: "", selected: "" } }, [
-                        _vm._v("Seleccione")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "1" } }, [
-                        _vm._v("No Aplica")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "2" } }, [_vm._v("Casa")]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "3" } }, [
-                        _vm._v("Apartamento")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "4" } }, [
-                        _vm._v("Finca")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "5" } }, [
-                        _vm._v("Vivienda Indigena")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "6" } }, [
-                        _vm._v("Improvisada - Lote")
-                      ])
-                    ]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "col-lg-4" },
-                [
-                  _c("label", [_vm._v("Materia Predominante Piso:")]),
-                  _vm._v(" "),
-                  _c(
-                    "b-form-select",
-                    {
-                      model: {
-                        value: _vm.material_predominante,
-                        callback: function($$v) {
-                          _vm.material_predominante =
-                            typeof $$v === "string" ? $$v.trim() : $$v
-                        },
-                        expression: "material_predominante"
-                      }
-                    },
-                    [
-                      _c("option", { attrs: { value: "", selected: "" } }, [
-                        _vm._v("Seleccione")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "NA" } }, [
-                        _vm._v("No Aplica")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "1" } }, [
-                        _vm._v("Marmol ó Madera Pulida")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "2" } }, [
-                        _vm._v("Cerámica ó Tablón")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "3" } }, [
-                        _vm._v("Cemento")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "4" } }, [
-                        _vm._v("Madera")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "5" } }, [
-                        _vm._v("Tierra")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "6" } }, [
-                        _vm._v("Bolsa ó Vinilo")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "6" } }, [_vm._v("Otros")])
-                    ]
-                  )
-                ],
-                1
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group row" }, [
-              _c(
-                "div",
-                { staticClass: "col-lg-4" },
-                [
-                  _c("label", [_vm._v("Población Especial:")]),
-                  _vm._v(" "),
-                  _c(
-                    "b-form-select",
-                    {
-                      ref: "poblacion_especial",
-                      model: {
-                        value: _vm.poblacion_especial,
-                        callback: function($$v) {
-                          _vm.poblacion_especial =
-                            typeof $$v === "string" ? $$v.trim() : $$v
-                        },
-                        expression: "poblacion_especial"
-                      }
-                    },
-                    [
-                      _c("option", { attrs: { value: "", selected: "" } }, [
-                        _vm._v("Seleccione")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "0" } }, [
-                        _vm._v("NO APLICA")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "1" } }, [
-                        _vm._v("DESPLAZADO")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "3" } }, [
-                        _vm._v("VICTIMA DEL CONFLICTO ARMADO")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "4" } }, [
-                        _vm._v("MADRE COMUNITARIA")
-                      ])
-                    ]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "col-lg-4" },
-                [
-                  _c("label", [_vm._v("Promedio de Ingresos Mensuales:")]),
-                  _vm._v(" "),
-                  _c(
-                    "b-form-select",
-                    {
-                      model: {
-                        value: _vm.promedio_ingresos,
-                        callback: function($$v) {
-                          _vm.promedio_ingresos =
-                            typeof $$v === "string" ? $$v.trim() : $$v
-                        },
-                        expression: "promedio_ingresos"
-                      }
-                    },
-                    [
-                      _c("option", { attrs: { value: "", selected: "" } }, [
-                        _vm._v("Seleccione")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "NA" } }, [
-                        _vm._v("No Aplica")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "1" } }, [
-                        _vm._v(
-                          "\n                Menos de un salario minimo legal vigente\n              "
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "2" } }, [
-                        _vm._v("Un salario minimo legal vigente")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "3" } }, [
-                        _vm._v("Entre 1 y 3 salarios mínimos")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "4" } }, [
-                        _vm._v("Entre 3 y 5 salarios mínimos")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "5" } }, [
-                        _vm._v("Más de 5 salarios mínimos")
-                      ])
-                    ]
-                  )
-                ],
-                1
-              )
-            ]),
-            _vm._v(" "),
-            _vm._m(3),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group row" }, [
-              _c(
-                "div",
-                { staticClass: "col-lg-3" },
-                [
-                  _c("label", [_vm._v("Energia Electrica:")]),
-                  _vm._v(" "),
-                  _c(
-                    "b-form-select",
-                    {
-                      model: {
-                        value: _vm.energia_electrica,
-                        callback: function($$v) {
-                          _vm.energia_electrica =
-                            typeof $$v === "string" ? $$v.trim() : $$v
-                        },
-                        expression: "energia_electrica"
-                      }
-                    },
-                    [
-                      _c("option", { attrs: { value: "", selected: "" } }, [
-                        _vm._v("Seleccione")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "NA" } }, [
-                        _vm._v("No Aplica")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "SI" } }, [_vm._v("SI")]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "NO" } }, [_vm._v("NO")])
-                    ]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "col-lg-3" },
-                [
-                  _c("label", [_vm._v("Gas Natural:")]),
-                  _vm._v(" "),
-                  _c(
-                    "b-form-select",
-                    {
-                      model: {
-                        value: _vm.gas_natural,
-                        callback: function($$v) {
-                          _vm.gas_natural =
-                            typeof $$v === "string" ? $$v.trim() : $$v
-                        },
-                        expression: "gas_natural"
-                      }
-                    },
-                    [
-                      _c("option", { attrs: { value: "", selected: "" } }, [
-                        _vm._v("Seleccione")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "NA" } }, [
-                        _vm._v("No Aplica")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "SI" } }, [_vm._v("SI")]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "PI" } }, [
-                        _vm._v("SI PIPETA DE GAS")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "NO" } }, [_vm._v("NO")])
-                    ]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "col-lg-3" },
-                [
-                  _c("label", [_vm._v("Acueducto:")]),
-                  _vm._v(" "),
-                  _c(
-                    "b-form-select",
-                    {
-                      model: {
-                        value: _vm.acueducto,
-                        callback: function($$v) {
-                          _vm.acueducto =
-                            typeof $$v === "string" ? $$v.trim() : $$v
-                        },
-                        expression: "acueducto"
-                      }
-                    },
-                    [
-                      _c("option", { attrs: { value: "", selected: "" } }, [
-                        _vm._v("Seleccione")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "NA" } }, [
-                        _vm._v("No Aplica")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "SI" } }, [_vm._v("SI")]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "NO" } }, [_vm._v("NO")])
-                    ]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "col-lg-3" },
-                [
-                  _c("label", [_vm._v("Alcantarillado:")]),
-                  _vm._v(" "),
-                  _c(
-                    "b-form-select",
-                    {
-                      model: {
-                        value: _vm.alcantarillado,
-                        callback: function($$v) {
-                          _vm.alcantarillado =
-                            typeof $$v === "string" ? $$v.trim() : $$v
-                        },
-                        expression: "alcantarillado"
-                      }
-                    },
-                    [
-                      _c("option", { attrs: { value: "", selected: "" } }, [
-                        _vm._v("Seleccione")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "NA" } }, [
-                        _vm._v("No Aplica")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "SI" } }, [_vm._v("SI")]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "NO" } }, [_vm._v("NO")])
-                    ]
-                  )
-                ],
-                1
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group row" }, [
-              _c(
-                "div",
-                { staticClass: "col-lg-3" },
-                [
-                  _c("label", [_vm._v("Aseo:")]),
-                  _vm._v(" "),
-                  _c(
-                    "b-form-select",
-                    {
-                      model: {
-                        value: _vm.aseo,
-                        callback: function($$v) {
-                          _vm.aseo = typeof $$v === "string" ? $$v.trim() : $$v
-                        },
-                        expression: "aseo"
-                      }
-                    },
-                    [
-                      _c("option", { attrs: { value: "", selected: "" } }, [
-                        _vm._v("Seleccione")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "NA" } }, [
-                        _vm._v("No Aplica")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "SI" } }, [_vm._v("SI")]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "NO" } }, [_vm._v("NO")])
-                    ]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "col-lg-4" },
-                [
-                  _c("label", [_vm._v("El Servicio Sanitario Es:")]),
-                  _vm._v(" "),
-                  _c(
-                    "b-form-select",
-                    {
-                      model: {
-                        value: _vm.servicio_sanitario,
-                        callback: function($$v) {
-                          _vm.servicio_sanitario =
-                            typeof $$v === "string" ? $$v.trim() : $$v
-                        },
-                        expression: "servicio_sanitario"
-                      }
-                    },
-                    [
-                      _c("option", { attrs: { value: "", selected: "" } }, [
-                        _vm._v("Seleccione")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "NA" } }, [
-                        _vm._v("No Aplica")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "1" } }, [
-                        _vm._v("De Uso Exclusivo de las Personas de la Familia")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "2" } }, [
-                        _vm._v("Compartida con Personas de Otras Familias")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "3" } }, [
-                        _vm._v("Sin servicio sanitario")
-                      ])
-                    ]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "col-lg-5" },
-                [
-                  _c("label", [
-                    _vm._v(
-                      "¿Se presenta en tu barrio problemáticas de aguas negras?:"
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "b-form-select",
-                    {
-                      model: {
-                        value: _vm.aguas_negras,
-                        callback: function($$v) {
-                          _vm.aguas_negras =
-                            typeof $$v === "string" ? $$v.trim() : $$v
-                        },
-                        expression: "aguas_negras"
-                      }
-                    },
-                    [
-                      _c("option", { attrs: { value: "", selected: "" } }, [
-                        _vm._v("Seleccione")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "NA" } }, [
-                        _vm._v("No Aplica")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "FRECUENTE" } }, [
-                        _vm._v("FRECUENTE")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "NUNCA" } }, [
-                        _vm._v("NUNCA")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "OCASIONAL" } }, [
-                        _vm._v("OCASIONAL")
-                      ])
-                    ]
-                  )
-                ],
-                1
-              )
-            ]),
-            _vm._v(" "),
-            _vm._m(4),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group row" }, [
-              _c(
-                "div",
-                { staticClass: "col-lg-6" },
-                [
-                  _c("label", [
-                    _vm._v(
-                      "¿Cuál es el tipo de combustible utilizado en su casa para cocinar?:"
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "b-form-select",
-                    {
-                      model: {
-                        value: _vm.tipo_combustible,
-                        callback: function($$v) {
-                          _vm.tipo_combustible =
-                            typeof $$v === "string" ? $$v.trim() : $$v
-                        },
-                        expression: "tipo_combustible"
-                      }
-                    },
-                    [
-                      _c("option", { attrs: { value: "", selected: "" } }, [
-                        _vm._v("Seleccione")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "NA" } }, [
-                        _vm._v("No Aplica")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "1" } }, [
-                        _vm._v("Luz eléctrica")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "2" } }, [
-                        _vm._v("Gasolina")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "3" } }, [_vm._v("Leña")]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "4" } }, [
-                        _vm._v("Carbón")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "5" } }, [
-                        _vm._v("Gas natural")
-                      ])
-                    ]
-                  )
-                ],
-                1
-              )
-            ])
-          ])
-        ]
-      )
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "kt-portlet__head-label" }, [
-      _c("h3", { staticClass: "kt-portlet__head-title" }, [
-        _c("span", { staticClass: "kt-widget20__number kt-font-danger" }, [
-          _vm._v("CONSULTA DE VIVIENDAS")
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", [
-      _c(
-        "span",
-        {
-          staticClass: "kt-font-boldest",
-          staticStyle: { "font-size": "18px" }
-        },
-        [_vm._v("Ubicación")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", [
-      _c(
-        "span",
-        {
-          staticClass: "kt-font-boldest",
-          staticStyle: { "font-size": "18px" }
-        },
-        [_vm._v("Vivienda")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", [
-      _c(
-        "span",
-        {
-          staticClass: "kt-font-boldest",
-          staticStyle: { "font-size": "18px" }
-        },
-        [_vm._v("Acceso a servicios públicos")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", [
-      _c(
-        "span",
-        {
-          staticClass: "kt-font-boldest",
-          staticStyle: { "font-size": "18px" }
-        },
-        [_vm._v("Otros")]
-      )
-    ])
-  }
-]
-render._withStripped = true
-
-
 
 /***/ }),
 
@@ -1713,54 +1210,132 @@ function exportar($data) {
 
 /***/ }),
 
-/***/ "./resources/js/Servicios/consultas.js":
-/*!*********************************************!*\
-  !*** ./resources/js/Servicios/consultas.js ***!
-  \*********************************************/
-/*! exports provided: iniciales, viviendas, viviendaspdf, jefe, jefespdf */
+/***/ "./resources/js/Servicios/corregimientos_servicios.js":
+/*!************************************************************!*\
+  !*** ./resources/js/Servicios/corregimientos_servicios.js ***!
+  \************************************************************/
+/*! exports provided: listarCorregimientos, guardarCorregimientos, eliminarCorregimientos, comboCorregimientos */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "iniciales", function() { return iniciales; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "viviendas", function() { return viviendas; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "viviendaspdf", function() { return viviendaspdf; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "jefe", function() { return jefe; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "jefespdf", function() { return jefespdf; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "listarCorregimientos", function() { return listarCorregimientos; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "guardarCorregimientos", function() { return guardarCorregimientos; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "eliminarCorregimientos", function() { return eliminarCorregimientos; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "comboCorregimientos", function() { return comboCorregimientos; });
 /* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
 
-function iniciales($data) {
-  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/vivienda/iniciales', $data);
+function listarCorregimientos($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/corregimientos', $data);
 }
-function viviendas($data) {
-  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/vivienda/listar', $data);
+function guardarCorregimientos($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/corregimientos/guardar', $data);
 }
-function viviendaspdf($data) {
-  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/vivienda/listarpdf', $data);
+function eliminarCorregimientos($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/corregimientos/eliminar', $data);
 }
-function jefe($data) {
-  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/jefehogar/listar', $data);
-}
-function jefespdf($data) {
-  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/jefehogar/listarpdf', $data);
+function comboCorregimientos($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/corregimientos/combo', $data);
 }
 
 /***/ }),
 
-/***/ "./resources/js/Vistas/Consultas/viviendas.vue":
+/***/ "./resources/js/Servicios/reportes.js":
+/*!********************************************!*\
+  !*** ./resources/js/Servicios/reportes.js ***!
+  \********************************************/
+/*! exports provided: gestantes, exportarGestantes, nutricional, exportarNutricional, inicialesCronicas, cronicasPDF, inicialesMigrantes, migrantesPDF, personas_discapacitadas, adulto_mayor */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "gestantes", function() { return gestantes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "exportarGestantes", function() { return exportarGestantes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "nutricional", function() { return nutricional; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "exportarNutricional", function() { return exportarNutricional; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "inicialesCronicas", function() { return inicialesCronicas; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cronicasPDF", function() { return cronicasPDF; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "inicialesMigrantes", function() { return inicialesMigrantes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "migrantesPDF", function() { return migrantesPDF; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "personas_discapacitadas", function() { return personas_discapacitadas; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "adulto_mayor", function() { return adulto_mayor; });
+/* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
+
+function gestantes($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/reportes/gestantes', $data);
+}
+function exportarGestantes($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/reportes/exportarGestantes', $data);
+}
+function nutricional($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/reportes/nutricional', $data);
+}
+function exportarNutricional($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/reportes/exportarNutricional', $data);
+}
+function inicialesCronicas($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/reportes/cronicas', $data);
+}
+function cronicasPDF($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/reportes/cronicaspdf', $data);
+}
+function inicialesMigrantes($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/reportes/migrantes', $data);
+}
+function migrantesPDF($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/reportes/migrantespdf', $data);
+}
+function personas_discapacitadas($tipo, $id) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().get('/reportes/personas-discapacitadas?tipo=' + $tipo + '&id=' + $id);
+}
+function adulto_mayor($tipo, $id) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().get('/reportes/adulto-mayor?tipo=' + $tipo + '&id=' + $id);
+}
+
+/***/ }),
+
+/***/ "./resources/js/Servicios/veredas_servicios.js":
 /*!*****************************************************!*\
-  !*** ./resources/js/Vistas/Consultas/viviendas.vue ***!
+  !*** ./resources/js/Servicios/veredas_servicios.js ***!
   \*****************************************************/
+/*! exports provided: listarVeredas, guardarVeredas, eliminarVeredas, comboVeredas */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "listarVeredas", function() { return listarVeredas; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "guardarVeredas", function() { return guardarVeredas; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "eliminarVeredas", function() { return eliminarVeredas; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "comboVeredas", function() { return comboVeredas; });
+/* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
+
+function listarVeredas($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/veredas', $data);
+}
+function guardarVeredas($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/veredas/guardar', $data);
+}
+function eliminarVeredas($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/veredas/eliminar', $data);
+}
+function comboVeredas($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/veredas/combo', $data);
+}
+
+/***/ }),
+
+/***/ "./resources/js/Vistas/Reportes/AdultoMayor.vue":
+/*!******************************************************!*\
+  !*** ./resources/js/Vistas/Reportes/AdultoMayor.vue ***!
+  \******************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _viviendas_vue_vue_type_template_id_c701a7aa___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./viviendas.vue?vue&type=template&id=c701a7aa& */ "./resources/js/Vistas/Consultas/viviendas.vue?vue&type=template&id=c701a7aa&");
-/* harmony import */ var _viviendas_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./viviendas.vue?vue&type=script&lang=js& */ "./resources/js/Vistas/Consultas/viviendas.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _viviendas_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./viviendas.vue?vue&type=style&index=0&lang=css& */ "./resources/js/Vistas/Consultas/viviendas.vue?vue&type=style&index=0&lang=css&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
+/* harmony import */ var _AdultoMayor_vue_vue_type_template_id_7eee6fa1___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AdultoMayor.vue?vue&type=template&id=7eee6fa1& */ "./resources/js/Vistas/Reportes/AdultoMayor.vue?vue&type=template&id=7eee6fa1&");
+/* harmony import */ var _AdultoMayor_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AdultoMayor.vue?vue&type=script&lang=js& */ "./resources/js/Vistas/Reportes/AdultoMayor.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -1768,10 +1343,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _viviendas_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _viviendas_vue_vue_type_template_id_c701a7aa___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _viviendas_vue_vue_type_template_id_c701a7aa___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _AdultoMayor_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _AdultoMayor_vue_vue_type_template_id_7eee6fa1___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _AdultoMayor_vue_vue_type_template_id_7eee6fa1___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -1781,54 +1356,38 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/Vistas/Consultas/viviendas.vue"
+component.options.__file = "resources/js/Vistas/Reportes/AdultoMayor.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/Vistas/Consultas/viviendas.vue?vue&type=script&lang=js&":
-/*!******************************************************************************!*\
-  !*** ./resources/js/Vistas/Consultas/viviendas.vue?vue&type=script&lang=js& ***!
-  \******************************************************************************/
+/***/ "./resources/js/Vistas/Reportes/AdultoMayor.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/Vistas/Reportes/AdultoMayor.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_viviendas_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./viviendas.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Consultas/viviendas.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_viviendas_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdultoMayor_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./AdultoMayor.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Reportes/AdultoMayor.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdultoMayor_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/Vistas/Consultas/viviendas.vue?vue&type=style&index=0&lang=css&":
-/*!**************************************************************************************!*\
-  !*** ./resources/js/Vistas/Consultas/viviendas.vue?vue&type=style&index=0&lang=css& ***!
-  \**************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_viviendas_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./viviendas.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Consultas/viviendas.vue?vue&type=style&index=0&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_viviendas_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_viviendas_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_viviendas_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_viviendas_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-
-
-/***/ }),
-
-/***/ "./resources/js/Vistas/Consultas/viviendas.vue?vue&type=template&id=c701a7aa&":
-/*!************************************************************************************!*\
-  !*** ./resources/js/Vistas/Consultas/viviendas.vue?vue&type=template&id=c701a7aa& ***!
-  \************************************************************************************/
+/***/ "./resources/js/Vistas/Reportes/AdultoMayor.vue?vue&type=template&id=7eee6fa1&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/Vistas/Reportes/AdultoMayor.vue?vue&type=template&id=7eee6fa1& ***!
+  \*************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_viviendas_vue_vue_type_template_id_c701a7aa___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./viviendas.vue?vue&type=template&id=c701a7aa& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Consultas/viviendas.vue?vue&type=template&id=c701a7aa&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_viviendas_vue_vue_type_template_id_c701a7aa___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdultoMayor_vue_vue_type_template_id_7eee6fa1___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./AdultoMayor.vue?vue&type=template&id=7eee6fa1& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Reportes/AdultoMayor.vue?vue&type=template&id=7eee6fa1&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdultoMayor_vue_vue_type_template_id_7eee6fa1___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_viviendas_vue_vue_type_template_id_c701a7aa___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdultoMayor_vue_vue_type_template_id_7eee6fa1___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

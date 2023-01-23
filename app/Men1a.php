@@ -15,7 +15,7 @@ class Men1a extends Model
         'peso_actual', 'longitud_nacer', 'longitud_actual', 'peso_long', 'cinta', 'edemas',
         'lenguaje', 'motora', 'conducta', 'visuales', 'auditivos', 'carnet',
         'bcg', 'hepb', 'polio','pentavalente', 'maltrato', 'morbilidad',
-        'tsh', 'estado', 'id_compania', 'opci', 'pb', 'desviacion_imc', 'rotaviruz', 'neumococo', 'influenza', 'varicela'
+        'tsh', 'estado', 'id_compania', 'opci', 'pb', 'desviacion_imc', 'rotaviruz', 'neumococo', 'influenza', 'varicela', 'imc','te'
     ];
 
     public static function guardar($data, $alias)
@@ -73,6 +73,8 @@ class Men1a extends Model
             'neumococo' => $data['neumococo'],
             'influenza' => $data['influenza'],
             'varicela' => $data['varicela'],
+            'imc' => $data['imc'],
+            'te' => $data['te'],
         ]);
     }
 

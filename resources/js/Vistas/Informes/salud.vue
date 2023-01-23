@@ -190,8 +190,57 @@
                                 <div id="chartdiv_inmunizacion" style="width: 100%; height: 220px"></div>
                             </div>
                         </div>
+                        <div class="row" style="padding: 10px">  
+                            <div class="col-lg-12"  v-if="condiciones_salud_array != null">
+                                <strong>6. Situación nutricional </strong><br>
+                                <strong>6.1 Niños y niñas menores de 5 años de edad (de 0 a 59 meses)</strong><br><br>
+                                <p>De un total de <strong>{{ condiciones_salud_array.nutricion.nutricion_0_5.cantidad_ninios }} Niños</strong>, se tiene la siguiente información.</p><br>
+                                <strong>6.1.1 Peso para la talla</strong><br>  
+                                <ul>
+                                    <li>Desnutrición Aguda Moderada: <strong>{{ condiciones_salud_array.nutricion.nutricion_0_5.peso_talla.desnutricion_aguda_moderada }}</strong></li>
+                                    <li>Peso Adecuado: <strong>{{ condiciones_salud_array.nutricion.nutricion_0_5.peso_talla.peso_adecuado }}</strong></li>
+                                    <li>Desnutrición Aguda Severa: <strong>{{ condiciones_salud_array.nutricion.nutricion_0_5.peso_talla.desnutricion_aguda_severa }}</strong></li>
+                                    <li>Riesgo de Desnutrición Aguda: <strong>{{ condiciones_salud_array.nutricion.nutricion_0_5.peso_talla.riesgo_desnutricion_aguda }}</strong></li>
+                                </ul> 
+                            </div>
+                            <br>
+                            <br>
+                            <div class="col-lg-12 text-center">
+                                <h5>GRAFICA DE PESO PARA LA TALLA</h5>
+                                <div id="chartdiv_peso_para_talla" style="width: 100%; height: 220px"></div>
+                            </div>
+                            <br><br>
+                            <div class="col-lg-12"  v-if="condiciones_salud_array != null">
+                                <br>
+                                <strong>6.1.2 Talla para la edad</strong><br><br>
+                                <ul>
+                                    <li>Talla Adecuada para la Edad: <strong>{{ condiciones_salud_array.nutricion.nutricion_0_5.talla_edad.talla_adecuada }}</strong></li>
+                                    <li>Riesgo de Talla Baja: <strong>{{ condiciones_salud_array.nutricion.nutricion_0_5.talla_edad.riesgo_talla_baja }}</strong></li>
+                                    <li>Talla Baja para la Edad o Retraso en Talla: <strong>{{ condiciones_salud_array.nutricion.nutricion_0_5.talla_edad.retraso_talla }}</strong></li>
+                                </ul> 
+                            </div>
+                            <div class="col-lg-12 text-center">
+                                <h5>GRAFICA DE TALLA PARA LA EDAD</h5>
+                                <div id="chartdiv_talla_para_edad" style="width: 100%; height: 220px"></div>
+                            </div>
+                            <br><br>
+                            <div class="col-lg-12"  v-if="condiciones_salud_array != null">
+                                <br>
+                                <strong>6.1.3 Indice de Masa Corporal (IMC)</strong><br><br>
+                                <ul>
+                                    <li>Obesidad: <strong>{{ condiciones_salud_array.nutricion.nutricion_0_5.imc.obesidad }}</strong></li>
+                                    <li>Sobrepeso: <strong>{{ condiciones_salud_array.nutricion.nutricion_0_5.imc.sobrepeso }}</strong></li>
+                                    <li>Riesgo de Sobrepeso: <strong>{{ condiciones_salud_array.nutricion.nutricion_0_5.imc.riesgo_sobrepeso }}</strong></li>
+                                    <li>Peso Normal: <strong>{{ condiciones_salud_array.nutricion.nutricion_0_5.imc.peso_normal }}</strong></li>
+                                </ul> 
+                            </div>
+                            <div class="col-lg-12 text-center">
+                                <h5>GRAFICA IMC</h5>
+                                <div id="chartdiv_imc" style="width: 100%; height: 220px"></div>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </div>    
             </div>
         </div>
     </div>
@@ -243,7 +292,10 @@
                 chart_infecciosa: null,
                 chart_discapacidad: null,
                 chart_embarazo: null,
-                chart_inmunizacion: null
+                chart_inmunizacion: null,
+                chart_peso_para_talla: null,
+                chart_talla_para_edad: null,
+                chart_imc: null
             }
         },
         methods: {
@@ -501,6 +553,9 @@
                     this.grafica_personas_discapacitadas(this.condiciones_salud_array.personas_discapacidad.por_discapacidad);
                     this.grafica_adolescentes_mbarazo(this.condiciones_salud_array.adolescentes_embarazo);
                     this.grafica_inmunizacion(this.condiciones_salud_array.inmunizacion);
+                    this.grafica_peso_para_talla(this.condiciones_salud_array.nutricion.nutricion_0_5.peso_talla);
+                    this.grafica_talla_para_edad(this.condiciones_salud_array.nutricion.nutricion_0_5.talla_edad);
+                    this.grafica_imc(this.condiciones_salud_array.nutricion.nutricion_0_5.imc);
                 })
                 .catch(err => {
                     console.log(err);
@@ -612,8 +667,104 @@
                var series = chart.series.push(new am4charts.PieSeries3D());
                series.dataFields.value = "first";
                series.dataFields.category = "category";
-           },
-            generarPDF(){}
+            },
+            async grafica_peso_para_talla(array) {
+                if(this.chart_peso_para_talla != null){
+                    this.chart_peso_para_talla.dispose();
+                }
+                var chart = am4core.create("chartdiv_peso_para_talla", am4charts.PieChart3D);
+                this.chart_peso_para_talla = chart;
+
+                chart.data = [
+                    {
+                        category: "Desnutrición Aguda Moderada",
+                        first: array.desnutricion_aguda_moderada,
+                    },
+                    {
+                        category: "Desnutrición Aguda Severa",
+                        first: array.desnutricion_aguda_severa,
+                    }, 
+                    {
+                        category: "Peso Adecuado",
+                        first: array.peso_adecuado,
+                    },
+                    {
+                        category: "Riesgo de Desnutrición Aguda",
+                        first: array.riesgo_desnutricion_aguda,
+                    }, 
+                ];
+
+                var series = chart.series.push(new am4charts.PieSeries3D());
+                series.dataFields.value = "first";
+                series.dataFields.category = "category";
+            },
+            async grafica_talla_para_edad(array) {
+                if(this.chart_talla_para_edad != null){
+                    this.chart_talla_para_edad.dispose();
+                }
+                var chart = am4core.create("chartdiv_talla_para_edad", am4charts.PieChart3D);
+                this.chart_talla_para_edad = chart;
+
+                chart.data = [
+                    {
+                        category: "Talla Adecuada para la Edad",
+                        first: array.retraso_talla,
+                    },
+                    {
+                        category: "Riesgo de Talla Baja",
+                        first: array.riesgo_talla_baja,
+                    }, 
+                    {
+                        category: "Talla Baja para la Edad o Retraso en Talla",
+                        first: array.retraso_talla,
+                    }, 
+                ];
+
+                var series = chart.series.push(new am4charts.PieSeries3D());
+                series.dataFields.value = "first";
+                series.dataFields.category = "category";
+
+                series.labels.template.fontSize = 12;
+                series.labels.template.maxWidth = 170;
+                series.labels.template.wrap = true;
+            },
+            async grafica_imc(array) {
+                if(this.chart_imc != null){
+                    this.chart_imc.dispose();
+                }
+                var chart = am4core.create("chartdiv_imc", am4charts.PieChart3D);
+                this.chart_imc = chart;
+
+                chart.data = [
+                    {
+                        category: "Obesidad",
+                        first: array.obesidad,
+                    },
+                    {
+                        category: "Sobrepeso",
+                        first: array.sobrepeso,
+                    }, 
+                    {
+                        category: "Riesgo de Sobrepeso",
+                        first: array.riesgo_sobrepeso,
+                    }, 
+                    {
+                        category: "Peso Normal",
+                        first: array.peso_normal,
+                    },
+                ];
+
+                var series = chart.series.push(new am4charts.PieSeries3D());
+                series.dataFields.value = "first";
+                series.dataFields.category = "category";
+
+                series.labels.template.fontSize = 12;
+                series.labels.template.maxWidth = 170;
+                series.labels.template.wrap = true;
+            }, 
+            generarPDF: async function () {
+                this.$refs.html2Pdf.generatePdf();
+            }, 
         },
     };
 </script>

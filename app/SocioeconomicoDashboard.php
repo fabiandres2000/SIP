@@ -1077,57 +1077,99 @@ class SocioeconomicoDashboard extends Model
             $personas18_28 = [0,0];
             $personas29_59 = [0,0];
             $personas60 = [0,0];
-            foreach ($arrayPersonas as &$item) {
-                if ($item->edad ==0) {
-                    if($item->sexo == "MASCULINO"){
-                        $personas0_1[0] = $personas0_1[0] + 1;
-                    }else{
-                        $personas0_1[1] = $personas0_1[1] + 1;
-                    } 
-                }
-                if ($item->edad >=1 && $item->edad <=5) {
-                    if($item->sexo == "MASCULINO"){
-                        $personas1_5[0] = $personas1_5[0] + 1;
-                    }else{
-                        $personas1_5[1] = $personas1_5[1] + 1;
-                    } 
-                }
-                if ($item->edad >=6 && $item->edad <=11) {
-                    if($item->sexo == "MASCULINO"){
-                        $personas6_11[0] = $personas6_11[0] + 1;
-                    }else{
-                        $personas6_11[1] = $personas6_11[1] + 1;
-                    } 
-                }
-                if ($item->edad >=12 && $item->edad <=17) {
-                    if($item->sexo == "MASCULINO"){
-                        $personas12_17[0] = $personas12_17[0] + 1;
-                    }else{
-                        $personas12_17[1] = $personas12_17[1] + 1;
-                    } 
-                }
-                if ($item->edad >=18 && $item->edad <=28) {
-                    if($item->sexo == "MASCULINO"){
-                        $personas18_28[0] = $personas18_28[0] + 1;
-                    }else{
-                        $personas18_28[1] = $personas18_28[1] + 1;
-                    } 
-                }
-                if ($item->edad >=29 && $item->edad <=59) {
-                    if($item->sexo == "MASCULINO"){
-                        $personas29_59[0] = $personas29_59[0] + 1;
-                    }else{
-                        $personas29_59[1] = $personas29_59[1] + 1;
-                    } 
-                }
-                if ($item->edad >=60) {
-                    if($item->sexo == "MASCULINO"){
-                        $personas60[0] = $personas60[0] + 1;
-                    }else{
-                        $personas60[1] = $personas60[1] + 1;
-                    } 
-                }
+
+            $men1a =  DB::connection('mysql')->table($alias.'.men1a')
+            ->where('men1a.estado', 'Activo')
+            ->select('men1a.sexo')
+            ->get();
+
+            foreach ($men1a as &$item) {
+                if($item->sexo == "MASCULINO"){
+                    $personas0_1[0] = $personas0_1[0] + 1;
+                }else{
+                    $personas0_1[1] = $personas0_1[1] + 1;
+                } 
             }
+
+            $de1a5 =  DB::connection('mysql')->table($alias.'.de1a5')
+            ->where('de1a5.estado', 'Activo')
+            ->select('de1a5.sexo')
+            ->get();
+
+            foreach ($de1a5 as &$item) {
+                if($item->sexo == "MASCULINO"){
+                    $personas1_5[0] = $personas1_5[0] + 1;
+                }else{
+                    $personas1_5[1] = $personas1_5[1] + 1;
+                } 
+            }
+
+            $de6a11 =  DB::connection('mysql')->table($alias.'.de6a11')
+            ->where('de6a11.estado', 'Activo')
+            ->select('de6a11.sexo')
+            ->get();
+
+            foreach ($de6a11 as &$item) {
+                if($item->sexo == "MASCULINO"){
+                    $personas6_11[0] = $personas6_11[0] + 1;
+                }else{
+                    $personas6_11[1] = $personas6_11[1] + 1;
+                } 
+            }
+
+            $de12a17 =  DB::connection('mysql')->table($alias.'.de12a17')
+            ->where('de12a17.estado', 'Activo')
+            ->select('de12a17.sexo')
+            ->get();
+
+            foreach ($de12a17 as &$item) {
+                if($item->sexo == "MASCULINO"){
+                    $personas12_17[0] = $personas12_17[0] + 1;
+                }else{
+                    $personas12_17[1] = $personas12_17[1] + 1;
+                } 
+            }
+
+            $de18a28 =  DB::connection('mysql')->table($alias.'.de18a28')
+            ->where('de18a28.estado', 'Activo')
+            ->select('de18a28.sexo')
+            ->get();
+
+            foreach ($de18a28 as &$item) {
+                if($item->sexo == "MASCULINO"){
+                    $personas18_28[0] = $personas18_28[0] + 1;
+                }else{
+                    $personas18_28[1] = $personas18_28[1] + 1;
+                } 
+            }
+
+            $de29a59 =  DB::connection('mysql')->table($alias.'.de29a59')
+            ->where('de29a59.estado', 'Activo')
+            ->select('de29a59.sexo')
+            ->get();
+
+            foreach ($de29a59 as &$item) {
+                if($item->sexo == "MASCULINO"){
+                    $personas29_59[0] = $personas29_59[0] + 1;
+                }else{
+                    $personas29_59[1] = $personas29_59[1] + 1;
+                }  
+            }
+
+            $de60 =  DB::connection('mysql')->table($alias.'.de60')
+            ->where('de60.estado', 'Activo')
+            ->select('de60.sexo')
+            ->get();
+
+            foreach ($de60 as &$item) {
+                if($item->sexo == "MASCULINO"){
+                    $personas60[0] = $personas60[0] + 1;
+                }else{
+                    $personas60[1] = $personas60[1] + 1;
+                }  
+            }
+            
+
             $edades = [
                 'personas0_1' => $personas0_1 ,
                 'personas1_5' => $personas1_5 ,

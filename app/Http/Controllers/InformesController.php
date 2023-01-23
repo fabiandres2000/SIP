@@ -148,6 +148,8 @@ class InformesController extends Controller
             $personas_discapacidad = \App\Informes::personas_discapacidad(Session::get('alias'));
             $adolescentes_embarazo = \App\Informes::adolescentes_embarazo(Session::get('alias'));
             $inmunizacion = \App\Informes::inmunizacion(Session::get('alias'));
+
+            $nutricion_0_5 =  \App\Informes::nutricion_0_5(Session::get('alias'));
            
             $respuesta = [
                 "enfermedades_cronicas" => $enfermedades_cronicas,
@@ -155,6 +157,9 @@ class InformesController extends Controller
                 "personas_discapacidad" => $personas_discapacidad,
                 "adolescentes_embarazo" => $adolescentes_embarazo,
                 "inmunizacion" => $inmunizacion,
+                "nutricion" => [
+                    "nutricion_0_5" => $nutricion_0_5,
+                ]
             ];
 
             return response()->json($respuesta, 200);

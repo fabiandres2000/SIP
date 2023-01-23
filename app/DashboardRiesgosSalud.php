@@ -19,6 +19,7 @@ class DashboardRiesgosSalud extends Model
                 ->selectRaw("CONCAT_WS('',corregimientos.descripcion) as des_corr")->selectRaw("CONCAT_WS('',hogar.direccion) as des_direc")->selectRaw("CONCAT_WS('',barrios.barrio) as des_barrio")
                 ->where('integrantes.estado', 'Activo')
                 ->where('hogar.estado', 'Activo')
+                ->where($rango.'.estado', 'Activo')
                 ->get();
             }else{
                 $riesgosSaludIntegrantes = DB::connection('mysql')->table($alias.'.'.$rango)
@@ -67,6 +68,7 @@ class DashboardRiesgosSalud extends Model
                 ->where('integrantes.estado', 'Activo')
                 ->where('hogar.estado', 'Activo')
                 ->where('hogar.id_'.$tipo, $id)
+                ->where($rango.'.estado', 'Activo')
                 ->get();
             }else{
                 $riesgosSaludIntegrantes = DB::connection('mysql')->table($alias.'.'.$rango)

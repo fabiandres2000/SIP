@@ -1251,6 +1251,7 @@ class CaracterizacionController extends Controller
                         $inte = \App\Integrante::buscar($dataMen1A[$i]["identificacion"], Session::get('alias'));
                         $dataMen1A[$i]['imc'] = self::calcularImcMen1anio($dataMen1A[$i]['peso_actual'], $dataMen1A[$i]['longitud_actual']);
                         $imc_temp = $dataMen1A[$i]['imc'];
+                        $dataMen1A[$i]['te'] = self::tallaParaEdadMen1a($dataMen1A[$i]['longitud_actual'], $dataMen1A[$i]['sexo'], $inte->fecha_nac);
                         $dataMen1A[$i]["desviacion_imc"] = self::calculoIMC($inte->fecha_nac, "IMC2", $inte->sexo, $imc_temp);
 
                         $Men1Arespuesta = \App\Men1a::guardar($dataMen1A[$i], Session::get('alias'));
@@ -2384,6 +2385,8 @@ class CaracterizacionController extends Controller
                         $inte = \App\Integrante::buscar($dataMen1A[$i]["identificacion"], Session::get('alias'));
                         $dataMen1A[$i]['imc'] = self::calcularImcMen1anio($dataMen1A[$i]['peso_actual'], $dataMen1A[$i]['longitud_actual']);
                         $imc_temp = $dataMen1A[$i]['imc'];
+
+                        $dataMen1A[$i]['te'] = self::tallaParaEdadMen1a($dataMen1A[$i]['longitud_actual'], $dataMen1A[$i]['sexo'], $inte->fecha_nac);
                         $dataMen1A[$i]["desviacion_imc"] = self::calculoIMC($inte->fecha_nac, "IMC2", $inte->sexo, $imc_temp);
 
                         $Men1Arespuesta = \App\Men1a::guardar($dataMen1A[$i], Session::get('alias'));
@@ -30611,5 +30614,44 @@ class CaracterizacionController extends Controller
         $talla = $talla/100;     
         $imc = $peso / ($talla * $talla);
         return round($imc , 2);
+    }
+
+    public function tallaParaEdadMen1a($talla, $sexo, $fecha_nac){
+        
+        $array = [];
+        $resul = [];
+        $array2 = [];
+    
+        ////CALCULO TE
+        $dias = self::diasPorAnios($fecha_nac);
+        $talla_edad = false;
+        $tal_eda = "";
+        $resul = [-4, -3, -2, -1, 0, 1, 2, 3, 4];
+        if ($sexo == "MASCULINO") {
+            $talla_edad = \App\TallaEdadNinos::buscar(Session::get('alias'), $dias);
+        } else {
+            $talla_edad = \App\TallaEdadNinas::buscar(Session::get('alias'), $dias);
+        }
+
+        if ($talla_edad) {
+            // CREAR ARRAY DE DATOS
+            array_push($array, $talla_edad->SD4neg);
+            array_push($array, $talla_edad->SD3neg);
+            array_push($array, $talla_edad->SD2neg);
+            array_push($array, $talla_edad->SD1neg);
+            array_push($array, $talla_edad->SD0);
+            array_push($array, $talla_edad->SD1);
+            array_push($array, $talla_edad->SD2);
+            array_push($array, $talla_edad->SD3);
+            array_push($array, $talla_edad->SD4);
+            // CREAR ARRAY DE DATOS
+
+            // METODO DE BUSQUEDA
+            $te = self::buscarDistancias($talla, $array);
+            $tal_eda = $resul[$te];
+            // METODO DE BUSQUEDA
+        }
+        
+        return $tal_eda;
     }
 }
