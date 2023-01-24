@@ -209,4 +209,14 @@ class Parpost extends Model
             'estado' => $estado,
         ]);
     }
+
+    public static function buscarSemanas($id, $alias){
+        $semana =  DB::connection('mysql')->table($alias . '.parpost')
+        ->where('id_integrante', $id)
+        ->first();
+
+        $semana = explode(" ",$semana->semanas_ges)[0];
+
+        return $semana;
+    }
 }

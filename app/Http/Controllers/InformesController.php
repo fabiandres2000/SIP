@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use Session;
+use File;
 
 class InformesController extends Controller
 {
@@ -150,6 +151,8 @@ class InformesController extends Controller
             $inmunizacion = \App\Informes::inmunizacion(Session::get('alias'));
 
             $nutricion_0_5 =  \App\Informes::nutricion_0_5(Session::get('alias'));
+            $nutricion_5_17 =  \App\Informes::nutricion_5_17(Session::get('alias'));
+            $nutricion_18_60 =  \App\Informes::nutricion_18_60(Session::get('alias'));
            
             $respuesta = [
                 "enfermedades_cronicas" => $enfermedades_cronicas,
@@ -159,6 +162,8 @@ class InformesController extends Controller
                 "inmunizacion" => $inmunizacion,
                 "nutricion" => [
                     "nutricion_0_5" => $nutricion_0_5,
+                    "nutricion_5_17" => $nutricion_5_17,
+                    "nutricion_18_60" => $nutricion_18_60,
                 ]
             ];
 
@@ -167,4 +172,34 @@ class InformesController extends Controller
             return redirect("/index")->with("error", "Su sesion ha terminado");
         }
     }
+
+    public function exportarGeneralSalud() {
+        if (Auth::check()) {
+
+            $ente = Auth::user()->permisos->where('actual', 1)->first()->ente->nombre;
+            File::makeDirectory(public_path().'/'.$ente, $mode = 0777, true, true);
+
+            $nombre = 'General-Salud-Poblacional.pdf';
+            $pdf = app('dompdf.wrapper');
+            $pdf->loadView('informes/generalSalud', [
+                'ente' => $ente, 
+                'poblacion_array' => request()->get('poblacion_array'),
+                'poblacion_no_asegurada' => request()->get('poblacion_no_asegurada'),
+                'chart_torta_edades' => request()->get('chart_torta_edades'),
+                'chart_no_asegurado_1' => request()->get('chart_no_asegurado_1'),
+                'chart_no_asegurado_2' => request()->get('chart_no_asegurado_2'),
+            ])->setPaper('a4', 'portrait')
+            ->save( $ente.'/'.$nombre);
+
+            $respuesta = [
+                'nombre' => $ente.'/'.$nombre,
+            ];
+
+            return response()->json($respuesta, 200);
+
+        }else {
+            return redirect("/index")->with("error", "Su sesion ha terminado");
+        }
+    }
+
 }

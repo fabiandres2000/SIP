@@ -15,3 +15,7 @@ export function determinante_salud() {
 export function condiciones_salud() {
     return http().get('/informes/condiciones-salud');
 }
+
+export function exportarGeneralSalud($data) {
+    return http().post('/informes/exportar-general-salud', $data);
+}

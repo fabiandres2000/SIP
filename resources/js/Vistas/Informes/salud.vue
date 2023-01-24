@@ -193,14 +193,14 @@
                         <div class="row" style="padding: 10px">  
                             <div class="col-lg-12"  v-if="condiciones_salud_array != null">
                                 <strong>6. Situación nutricional </strong><br>
-                                <strong>6.1 Niños y niñas menores de 5 años de edad (de 0 a 59 meses)</strong><br><br>
+                                <strong style="color: #fd397a">6.1 Niños y niñas menores de 5 años de edad (de 0 a 59 meses)</strong><br><br>
                                 <p>De un total de <strong>{{ condiciones_salud_array.nutricion.nutricion_0_5.cantidad_ninios }} Niños</strong>, se tiene la siguiente información.</p><br>
                                 <strong>6.1.1 Peso para la talla</strong><br>  
                                 <ul>
-                                    <li>Desnutrición Aguda Moderada: <strong>{{ condiciones_salud_array.nutricion.nutricion_0_5.peso_talla.desnutricion_aguda_moderada }}</strong></li>
-                                    <li>Peso Adecuado: <strong>{{ condiciones_salud_array.nutricion.nutricion_0_5.peso_talla.peso_adecuado }}</strong></li>
-                                    <li>Desnutrición Aguda Severa: <strong>{{ condiciones_salud_array.nutricion.nutricion_0_5.peso_talla.desnutricion_aguda_severa }}</strong></li>
-                                    <li>Riesgo de Desnutrición Aguda: <strong>{{ condiciones_salud_array.nutricion.nutricion_0_5.peso_talla.riesgo_desnutricion_aguda }}</strong></li>
+                                    <li>Desnutrición Aguda Moderada: <strong>{{ condiciones_salud_array.nutricion.nutricion_0_5.peso_talla.desnutricion_aguda_moderada }} Niños</strong></li>
+                                    <li>Peso Adecuado: <strong>{{ condiciones_salud_array.nutricion.nutricion_0_5.peso_talla.peso_adecuado }} Niños</strong></li>
+                                    <li>Desnutrición Aguda Severa: <strong>{{ condiciones_salud_array.nutricion.nutricion_0_5.peso_talla.desnutricion_aguda_severa }} Niños</strong></li>
+                                    <li>Riesgo de Desnutrición Aguda: <strong>{{ condiciones_salud_array.nutricion.nutricion_0_5.peso_talla.riesgo_desnutricion_aguda }} Niños</strong></li>
                                 </ul> 
                             </div>
                             <br>
@@ -214,9 +214,9 @@
                                 <br>
                                 <strong>6.1.2 Talla para la edad</strong><br><br>
                                 <ul>
-                                    <li>Talla Adecuada para la Edad: <strong>{{ condiciones_salud_array.nutricion.nutricion_0_5.talla_edad.talla_adecuada }}</strong></li>
-                                    <li>Riesgo de Talla Baja: <strong>{{ condiciones_salud_array.nutricion.nutricion_0_5.talla_edad.riesgo_talla_baja }}</strong></li>
-                                    <li>Talla Baja para la Edad o Retraso en Talla: <strong>{{ condiciones_salud_array.nutricion.nutricion_0_5.talla_edad.retraso_talla }}</strong></li>
+                                    <li>Talla Adecuada para la Edad: <strong>{{ condiciones_salud_array.nutricion.nutricion_0_5.talla_edad.talla_adecuada }} Niños</strong></li>
+                                    <li>Riesgo de Talla Baja: <strong>{{ condiciones_salud_array.nutricion.nutricion_0_5.talla_edad.riesgo_talla_baja }} Niños</strong></li>
+                                    <li>Talla Baja para la Edad o Retraso en Talla: <strong>{{ condiciones_salud_array.nutricion.nutricion_0_5.talla_edad.retraso_talla }} Niños</strong></li>
                                 </ul> 
                             </div>
                             <div class="col-lg-12 text-center">
@@ -228,15 +228,82 @@
                                 <br>
                                 <strong>6.1.3 Indice de Masa Corporal (IMC)</strong><br><br>
                                 <ul>
-                                    <li>Obesidad: <strong>{{ condiciones_salud_array.nutricion.nutricion_0_5.imc.obesidad }}</strong></li>
-                                    <li>Sobrepeso: <strong>{{ condiciones_salud_array.nutricion.nutricion_0_5.imc.sobrepeso }}</strong></li>
-                                    <li>Riesgo de Sobrepeso: <strong>{{ condiciones_salud_array.nutricion.nutricion_0_5.imc.riesgo_sobrepeso }}</strong></li>
-                                    <li>Peso Normal: <strong>{{ condiciones_salud_array.nutricion.nutricion_0_5.imc.peso_normal }}</strong></li>
+                                    <li>Obesidad: <strong>{{ condiciones_salud_array.nutricion.nutricion_0_5.imc.obesidad }} Niños</strong></li>
+                                    <li>Sobrepeso: <strong>{{ condiciones_salud_array.nutricion.nutricion_0_5.imc.sobrepeso }} Niños</strong></li>
+                                    <li>Riesgo de Sobrepeso: <strong>{{ condiciones_salud_array.nutricion.nutricion_0_5.imc.riesgo_sobrepeso }} Niños</strong></li>
+                                    <li>Peso Normal: <strong>{{ condiciones_salud_array.nutricion.nutricion_0_5.imc.peso_normal }} Niños</strong></li>
                                 </ul> 
                             </div>
                             <div class="col-lg-12 text-center">
                                 <h5>GRAFICA IMC</h5>
                                 <div id="chartdiv_imc" style="width: 100%; height: 220px"></div>
+                            </div>
+                            <div class="col-lg-12"  v-if="condiciones_salud_array != null">
+                                <br><br>
+                                <strong style="color: #fd397a">6.2 Niñas, niños y adolescentes de 5 a 17 años</strong><br><br>
+                                <p>De un total de <strong>{{ condiciones_salud_array.nutricion.nutricion_5_17.cantidad_personas }} personas</strong>, se tiene la siguiente información.</p>
+                                <strong>6.2.1 Indice de Masa Corporal</strong><br>
+                                <br>
+                                <ul>
+                                    <li>Obesidad: <strong>{{ condiciones_salud_array.nutricion.nutricion_5_17.imc.obesidad }} Personas</strong></li>
+                                    <li>Sobrepeso: <strong>{{ condiciones_salud_array.nutricion.nutricion_5_17.imc.sobrepeso }} Personas</strong></li>
+                                    <li>IMC Adecuado para la Edad: <strong>{{ condiciones_salud_array.nutricion.nutricion_5_17.imc.imc_adecuado }} Personas</strong></li>
+                                    <li>Riesgo de Delgadez: <strong>{{ condiciones_salud_array.nutricion.nutricion_5_17.imc.riesgo_delgadez }} Personas</strong></li>
+                                    <li>Delgadez: <strong>{{ condiciones_salud_array.nutricion.nutricion_5_17.imc.delgadez }} Personas</strong></li>
+                                </ul> 
+                            </div>
+                            <div class="col-lg-12 text-center">
+                                <h5>GRAFICA IMC</h5>
+                                <div id="chartdiv_imc_5_17" style="width: 100%; height: 220px"></div>
+                            </div>
+                            <div class="col-lg-12"  v-if="condiciones_salud_array != null">
+                                <br><br>
+                                <strong>6.2.2 Indice de Masa Corporal (Mujeres Embarazadas - 5 a 17 Años)</strong><br>
+                                <br>
+                                <ul>
+                                    <li>Obesidad para la edad gestacional: <strong>{{ condiciones_salud_array.nutricion.nutricion_5_17.imc_embarazadas.obesidad_gestacional }} Personas</strong></li>
+                                    <li>Sobrepeso para la edad gestacional: <strong>{{ condiciones_salud_array.nutricion.nutricion_5_17.imc_embarazadas.sobrepeso_gestacional }} Personas</strong></li>
+                                    <li>IMC adecuado para la edad gestacional: <strong>{{ condiciones_salud_array.nutricion.nutricion_5_17.imc_embarazadas.adecuado_gestacional }} Personas</strong></li>
+                                    <li>Bajo peso para la edad gestacional: <strong>{{ condiciones_salud_array.nutricion.nutricion_5_17.imc_embarazadas.bajo_peso_gestacional }} Personas</strong></li>
+                                </ul> 
+                            </div>
+                            <div class="col-lg-12 text-center">
+                                <h5>GRAFICA IMC</h5>
+                                <h6>(Mujeres Embarazadas - 5 a 17 Años)</h6>
+                                <div id="chartdiv_imc_5_17_e" style="width: 100%; height: 220px"></div>
+                            </div>
+                            <div class="col-lg-12"  v-if="condiciones_salud_array != null">
+                                <br><br>
+                                <strong style="color: #fd397a">6.3 Adultos  mayores de 18 años.</strong><br><br>
+                                <p>De un total de <strong>{{ condiciones_salud_array.nutricion.nutricion_18_60.cantidad_personas }} personas</strong>, se tiene la siguiente información.</p>
+                                <strong>6.3.1 Indice de Masa Corporal</strong><br>
+                                <br>
+                                <ul>
+                                    <li>Obesidad: <strong>{{ condiciones_salud_array.nutricion.nutricion_18_60.imc.obesidad }} Personas</strong></li>
+                                    <li>Sobrepeso: <strong>{{ condiciones_salud_array.nutricion.nutricion_18_60.imc.sobrepeso }} Personas</strong></li>
+                                    <li>Normal: <strong>{{ condiciones_salud_array.nutricion.nutricion_18_60.imc.normal }} Personas</strong></li>
+                                    <li>Delgadez: <strong>{{ condiciones_salud_array.nutricion.nutricion_18_60.imc.delgadez }} Personas</strong></li>
+                                </ul> 
+                            </div>
+                            <div class="col-lg-12 text-center">
+                                <h5>GRAFICA IMC</h5>
+                                <div id="chartdiv_imc_18_60" style="width: 100%; height: 220px"></div>
+                            </div>
+                            <div class="col-lg-12"  v-if="condiciones_salud_array != null">
+                                <br><br>
+                                <strong>6.3.2 Indice de Masa Corporal (Mujeres Embarazadas - Mayores de 18 años)</strong><br>
+                                <br>
+                                <ul>
+                                    <li>Obesidad para la edad gestacional: <strong>{{ condiciones_salud_array.nutricion.nutricion_18_60.imc_embarazadas.obesidad_gestacional }} Personas</strong></li>
+                                    <li>Sobrepeso para la edad gestacional: <strong>{{ condiciones_salud_array.nutricion.nutricion_18_60.imc_embarazadas.sobrepeso_gestacional }} Personas</strong></li>
+                                    <li>IMC adecuado para la edad gestacional: <strong>{{ condiciones_salud_array.nutricion.nutricion_18_60.imc_embarazadas.adecuado_gestacional }} Personas</strong></li>
+                                    <li>Bajo peso para la edad gestacional: <strong>{{ condiciones_salud_array.nutricion.nutricion_18_60.imc_embarazadas.bajo_peso_gestacional }} Personas</strong></li>
+                                </ul> 
+                            </div>
+                            <div class="col-lg-12 text-center">
+                                <h5>GRAFICA IMC</h5>
+                                <h6>(Mujeres Embarazadas - Mayores de 18 años)</h6>
+                                <div id="chartdiv_imc_18_60_e" style="width: 100%; height: 220px"></div>
                             </div>
                         </div>
                     </div>
@@ -259,6 +326,8 @@
     import * as am4charts from "@amcharts/amcharts4/charts";
     import am4themes_animated from "@amcharts/amcharts4/themes/animated";
     am4core.useTheme(am4themes_animated);
+
+    import store from "../../store";
 
     export default {
         components: {
@@ -295,7 +364,12 @@
                 chart_inmunizacion: null,
                 chart_peso_para_talla: null,
                 chart_talla_para_edad: null,
-                chart_imc: null
+                chart_imc: null,
+                chart_imc_5_17: null,
+                chart_imc_5_17_e: null,
+                chart_imc_18_60: null,
+                chart_imc_18_60_e: null,
+                rutaPdf: ""
             }
         },
         methods: {
@@ -556,6 +630,10 @@
                     this.grafica_peso_para_talla(this.condiciones_salud_array.nutricion.nutricion_0_5.peso_talla);
                     this.grafica_talla_para_edad(this.condiciones_salud_array.nutricion.nutricion_0_5.talla_edad);
                     this.grafica_imc(this.condiciones_salud_array.nutricion.nutricion_0_5.imc);
+                    this.grafica_imc_5_17(this.condiciones_salud_array.nutricion.nutricion_5_17.imc);
+                    this.grafica_imc_5_17_e(this.condiciones_salud_array.nutricion.nutricion_5_17.imc_embarazadas);
+                    this.grafica_imc_18_60(this.condiciones_salud_array.nutricion.nutricion_18_60.imc);
+                    this.grafica_imc_18_60_e(this.condiciones_salud_array.nutricion.nutricion_18_60.imc_embarazadas);
                 })
                 .catch(err => {
                     console.log(err);
@@ -762,8 +840,173 @@
                 series.labels.template.maxWidth = 170;
                 series.labels.template.wrap = true;
             }, 
+            async grafica_imc_5_17(array) {
+                if(this.chart_imc_5_17 != null){
+                    this.chart_imc_5_17.dispose();
+                }
+                var chart = am4core.create("chartdiv_imc_5_17", am4charts.PieChart3D);
+                this.chart_imc_5_17 = chart;
+
+                chart.data = [
+                    {
+                        category: "Obesidad",
+                        first: array.obesidad,
+                    },
+                    {
+                        category: "Sobrepeso",
+                        first: array.sobrepeso,
+                    }, 
+                    {
+                        category: "IMC Adecuado para la Edad",
+                        first: array.imc_adecuado,
+                    }, 
+                    {
+                        category: "Riesgo de Delgadez",
+                        first: array.riesgo_delgadez,
+                    },
+                    {
+                        category: "Delgadez",
+                        first: array.delgadez,
+                    },
+                ];
+
+                var series = chart.series.push(new am4charts.PieSeries3D());
+                series.dataFields.value = "first";
+                series.dataFields.category = "category";
+
+                series.labels.template.fontSize = 12;
+                series.labels.template.maxWidth = 200;
+                series.labels.template.wrap = true;
+            }, 
+            async grafica_imc_5_17_e(array) {
+                if(this.chart_imc_5_17_e != null){
+                    this.chart_imc_5_17_e.dispose();
+                }
+                var chart = am4core.create("chartdiv_imc_5_17_e", am4charts.PieChart3D);
+                this.chart_imc_5_17_e = chart;
+
+                chart.data = [
+                    {
+                        category: "Obesidad para la edad gestacional",
+                        first: array.obesidad_gestacional,
+                    },
+                    {
+                        category: "Sobrepeso para la edad gestacional",
+                        first: array.sobrepeso_gestacional,
+                    }, 
+                    {
+                        category: "IMC adecuado para la edad gestacional",
+                        first: array.adecuado_gestacional,
+                    }, 
+                    {
+                        category: "Bajo peso para la edad gestacional",
+                        first: array.bajo_peso_gestacional,
+                    },
+                ];
+
+                var series = chart.series.push(new am4charts.PieSeries3D());
+                series.dataFields.value = "first";
+                series.dataFields.category = "category";
+
+                series.labels.template.fontSize = 12;
+                series.labels.template.maxWidth = 240;
+                series.labels.template.wrap = true;
+            }, 
+            async grafica_imc_18_60(array) {
+                if(this.chart_imc_18_60 != null){
+                    this.chart_imc_18_60.dispose();
+                }
+                var chart = am4core.create("chartdiv_imc_18_60", am4charts.PieChart3D);
+                this.chart_imc_18_60 = chart;
+
+                chart.data = [
+                    {
+                        category: "Obesidad",
+                        first: array.obesidad,
+                    },
+                    {
+                        category: "Sobrepeso",
+                        first: array.sobrepeso,
+                    }, 
+                    {
+                        category: "Normal",
+                        first: array.normal,
+                    }, 
+                    {
+                        category: "Delgadez",
+                        first: array.delgadez,
+                    },
+                ];
+
+                var series = chart.series.push(new am4charts.PieSeries3D());
+                series.dataFields.value = "first";
+                series.dataFields.category = "category";
+
+                series.labels.template.fontSize = 12;
+                series.labels.template.maxWidth = 200;
+                series.labels.template.wrap = true;
+            },
+            async grafica_imc_18_60_e(array) {
+                if(this.chart_imc_18_60_e != null){
+                    this.chart_imc_18_60_e.dispose();
+                }
+                var chart = am4core.create("chartdiv_imc_18_60_e", am4charts.PieChart3D);
+                this.chart_imc_18_60_e = chart;
+
+                chart.data = [
+                    {
+                        category: "Obesidad para la edad gestacional",
+                        first: array.obesidad_gestacional,
+                    },
+                    {
+                        category: "Sobrepeso para la edad gestacional",
+                        first: array.sobrepeso_gestacional,
+                    }, 
+                    {
+                        category: "IMC adecuado para la edad gestacional",
+                        first: array.adecuado_gestacional,
+                    }, 
+                    {
+                        category: "Bajo peso para la edad gestacional",
+                        first: array.bajo_peso_gestacional,
+                    },
+                ];
+
+                var series = chart.series.push(new am4charts.PieSeries3D());
+                series.dataFields.value = "first";
+                series.dataFields.category = "category";
+
+                series.labels.template.fontSize = 12;
+                series.labels.template.maxWidth = 240;
+                series.labels.template.wrap = true;
+            },
             generarPDF: async function () {
-                this.$refs.html2Pdf.generatePdf();
+                
+                const options = {
+                    type: 'dataURL',
+                    useCORS: true,
+                }
+                
+                let chart_torta_edades = await this.chart_torta_edades.exporting.getImage("png");
+                let chart_no_asegurado_1 = await this.chart_no_asegurado_1.exporting.getImage("png");
+                let chart_no_asegurado_2 = await this.chart_no_asegurado_2.exporting.getImage("png");
+                
+                const parametros = {
+                    _token: this.csrf,
+                    poblacion_array: this.poblacion_array,
+                    poblacion_no_asegurada: this.poblacion_no_asegurada,
+                    chart_torta_edades: chart_torta_edades,
+                    chart_no_asegurado_1: chart_no_asegurado_1,
+                    chart_no_asegurado_2: chart_no_asegurado_2
+                };
+
+                try {
+                    await informes.exportarGeneralSalud(parametros).then(respuesta => {
+                        this.rutaPdf = store.state.apiURL + respuesta.data.nombre;
+                    });
+                } catch (error) { 
+                    this.$swal("Error...!", "Ocurrio un error!", "error"); 
+                }
             }, 
         },
     };

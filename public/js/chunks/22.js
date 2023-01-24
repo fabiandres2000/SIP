@@ -25,6 +25,74 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @amcharts/amcharts4/core */ "./node_modules/@amcharts/amcharts4/core.js");
 /* harmony import */ var _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @amcharts/amcharts4/charts */ "./node_modules/@amcharts/amcharts4/charts.js");
 /* harmony import */ var _amcharts_amcharts4_themes_animated__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @amcharts/amcharts4/themes/animated */ "./node_modules/@amcharts/amcharts4/themes/animated.js");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../store */ "./resources/js/store.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -291,6 +359,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_8__["useTheme"](_amcharts_amcharts4_themes_animated__WEBPACK_IMPORTED_MODULE_10__["default"]);
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     VueHtml2pdf: vue_html2pdf__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -326,7 +395,12 @@ _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_8__["useTheme"](_amcharts_amch
       chart_inmunizacion: null,
       chart_peso_para_talla: null,
       chart_talla_para_edad: null,
-      chart_imc: null
+      chart_imc: null,
+      chart_imc_5_17: null,
+      chart_imc_5_17_e: null,
+      chart_imc_18_60: null,
+      chart_imc_18_60_e: null,
+      rutaPdf: ""
     };
   },
   methods: {
@@ -749,6 +823,14 @@ _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_8__["useTheme"](_amcharts_amch
                   _this12.grafica_talla_para_edad(_this12.condiciones_salud_array.nutricion.nutricion_0_5.talla_edad);
 
                   _this12.grafica_imc(_this12.condiciones_salud_array.nutricion.nutricion_0_5.imc);
+
+                  _this12.grafica_imc_5_17(_this12.condiciones_salud_array.nutricion.nutricion_5_17.imc);
+
+                  _this12.grafica_imc_5_17_e(_this12.condiciones_salud_array.nutricion.nutricion_5_17.imc_embarazadas);
+
+                  _this12.grafica_imc_18_60(_this12.condiciones_salud_array.nutricion.nutricion_18_60.imc);
+
+                  _this12.grafica_imc_18_60_e(_this12.condiciones_salud_array.nutricion.nutricion_18_60.imc_embarazadas);
                 })["catch"](function (err) {
                   console.log(err);
                 });
@@ -1054,20 +1136,238 @@ _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_8__["useTheme"](_amcharts_amch
         }, _callee20);
       }))();
     },
-    generarPDF: function () {
-      var _generarPDF = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee21() {
+    grafica_imc_5_17: function grafica_imc_5_17(array) {
+      var _this21 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee21() {
+        var chart, series;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee21$(_context21) {
           while (1) {
             switch (_context21.prev = _context21.next) {
               case 0:
-                this.$refs.html2Pdf.generatePdf();
+                if (_this21.chart_imc_5_17 != null) {
+                  _this21.chart_imc_5_17.dispose();
+                }
 
-              case 1:
+                chart = _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_8__["create"]("chartdiv_imc_5_17", _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_9__["PieChart3D"]);
+                _this21.chart_imc_5_17 = chart;
+                chart.data = [{
+                  category: "Obesidad",
+                  first: array.obesidad
+                }, {
+                  category: "Sobrepeso",
+                  first: array.sobrepeso
+                }, {
+                  category: "IMC Adecuado para la Edad",
+                  first: array.imc_adecuado
+                }, {
+                  category: "Riesgo de Delgadez",
+                  first: array.riesgo_delgadez
+                }, {
+                  category: "Delgadez",
+                  first: array.delgadez
+                }];
+                series = chart.series.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_9__["PieSeries3D"]());
+                series.dataFields.value = "first";
+                series.dataFields.category = "category";
+                series.labels.template.fontSize = 12;
+                series.labels.template.maxWidth = 200;
+                series.labels.template.wrap = true;
+
+              case 10:
               case "end":
                 return _context21.stop();
             }
           }
-        }, _callee21, this);
+        }, _callee21);
+      }))();
+    },
+    grafica_imc_5_17_e: function grafica_imc_5_17_e(array) {
+      var _this22 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee22() {
+        var chart, series;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee22$(_context22) {
+          while (1) {
+            switch (_context22.prev = _context22.next) {
+              case 0:
+                if (_this22.chart_imc_5_17_e != null) {
+                  _this22.chart_imc_5_17_e.dispose();
+                }
+
+                chart = _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_8__["create"]("chartdiv_imc_5_17_e", _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_9__["PieChart3D"]);
+                _this22.chart_imc_5_17_e = chart;
+                chart.data = [{
+                  category: "Obesidad para la edad gestacional",
+                  first: array.obesidad_gestacional
+                }, {
+                  category: "Sobrepeso para la edad gestacional",
+                  first: array.sobrepeso_gestacional
+                }, {
+                  category: "IMC adecuado para la edad gestacional",
+                  first: array.adecuado_gestacional
+                }, {
+                  category: "Bajo peso para la edad gestacional",
+                  first: array.bajo_peso_gestacional
+                }];
+                series = chart.series.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_9__["PieSeries3D"]());
+                series.dataFields.value = "first";
+                series.dataFields.category = "category";
+                series.labels.template.fontSize = 12;
+                series.labels.template.maxWidth = 240;
+                series.labels.template.wrap = true;
+
+              case 10:
+              case "end":
+                return _context22.stop();
+            }
+          }
+        }, _callee22);
+      }))();
+    },
+    grafica_imc_18_60: function grafica_imc_18_60(array) {
+      var _this23 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee23() {
+        var chart, series;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee23$(_context23) {
+          while (1) {
+            switch (_context23.prev = _context23.next) {
+              case 0:
+                if (_this23.chart_imc_18_60 != null) {
+                  _this23.chart_imc_18_60.dispose();
+                }
+
+                chart = _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_8__["create"]("chartdiv_imc_18_60", _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_9__["PieChart3D"]);
+                _this23.chart_imc_18_60 = chart;
+                chart.data = [{
+                  category: "Obesidad",
+                  first: array.obesidad
+                }, {
+                  category: "Sobrepeso",
+                  first: array.sobrepeso
+                }, {
+                  category: "Normal",
+                  first: array.normal
+                }, {
+                  category: "Delgadez",
+                  first: array.delgadez
+                }];
+                series = chart.series.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_9__["PieSeries3D"]());
+                series.dataFields.value = "first";
+                series.dataFields.category = "category";
+                series.labels.template.fontSize = 12;
+                series.labels.template.maxWidth = 200;
+                series.labels.template.wrap = true;
+
+              case 10:
+              case "end":
+                return _context23.stop();
+            }
+          }
+        }, _callee23);
+      }))();
+    },
+    grafica_imc_18_60_e: function grafica_imc_18_60_e(array) {
+      var _this24 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee24() {
+        var chart, series;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee24$(_context24) {
+          while (1) {
+            switch (_context24.prev = _context24.next) {
+              case 0:
+                if (_this24.chart_imc_18_60_e != null) {
+                  _this24.chart_imc_18_60_e.dispose();
+                }
+
+                chart = _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_8__["create"]("chartdiv_imc_18_60_e", _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_9__["PieChart3D"]);
+                _this24.chart_imc_18_60_e = chart;
+                chart.data = [{
+                  category: "Obesidad para la edad gestacional",
+                  first: array.obesidad_gestacional
+                }, {
+                  category: "Sobrepeso para la edad gestacional",
+                  first: array.sobrepeso_gestacional
+                }, {
+                  category: "IMC adecuado para la edad gestacional",
+                  first: array.adecuado_gestacional
+                }, {
+                  category: "Bajo peso para la edad gestacional",
+                  first: array.bajo_peso_gestacional
+                }];
+                series = chart.series.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_9__["PieSeries3D"]());
+                series.dataFields.value = "first";
+                series.dataFields.category = "category";
+                series.labels.template.fontSize = 12;
+                series.labels.template.maxWidth = 240;
+                series.labels.template.wrap = true;
+
+              case 10:
+              case "end":
+                return _context24.stop();
+            }
+          }
+        }, _callee24);
+      }))();
+    },
+    generarPDF: function () {
+      var _generarPDF = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee25() {
+        var _this25 = this;
+
+        var options, chart_torta_edades, chart_no_asegurado_1, chart_no_asegurado_2, parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee25$(_context25) {
+          while (1) {
+            switch (_context25.prev = _context25.next) {
+              case 0:
+                options = {
+                  type: 'dataURL',
+                  useCORS: true
+                };
+                _context25.next = 3;
+                return this.chart_torta_edades.exporting.getImage("png");
+
+              case 3:
+                chart_torta_edades = _context25.sent;
+                _context25.next = 6;
+                return this.chart_no_asegurado_1.exporting.getImage("png");
+
+              case 6:
+                chart_no_asegurado_1 = _context25.sent;
+                _context25.next = 9;
+                return this.chart_no_asegurado_2.exporting.getImage("png");
+
+              case 9:
+                chart_no_asegurado_2 = _context25.sent;
+                parametros = {
+                  _token: this.csrf,
+                  poblacion_array: this.poblacion_array,
+                  poblacion_no_asegurada: this.poblacion_no_asegurada,
+                  chart_torta_edades: chart_torta_edades,
+                  chart_no_asegurado_1: chart_no_asegurado_1,
+                  chart_no_asegurado_2: chart_no_asegurado_2
+                };
+                _context25.prev = 11;
+                _context25.next = 14;
+                return _Servicios_informes__WEBPACK_IMPORTED_MODULE_7__["exportarGeneralSalud"](parametros).then(function (respuesta) {
+                  _this25.rutaPdf = _store__WEBPACK_IMPORTED_MODULE_11__["default"].state.apiURL + respuesta.data.nombre;
+                });
+
+              case 14:
+                _context25.next = 19;
+                break;
+
+              case 16:
+                _context25.prev = 16;
+                _context25.t0 = _context25["catch"](11);
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+
+              case 19:
+              case "end":
+                return _context25.stop();
+            }
+          }
+        }, _callee25, this, [[11, 16]]);
       }));
 
       function generarPDF() {
@@ -2046,7 +2346,7 @@ var render = function() {
                           _c("strong", [_vm._v("6. Situación nutricional ")]),
                           _c("br"),
                           _vm._v(" "),
-                          _c("strong", [
+                          _c("strong", { staticStyle: { color: "#fd397a" } }, [
                             _vm._v(
                               "6.1 Niños y niñas menores de 5 años de edad (de 0 a 59 meses)"
                             )
@@ -2080,7 +2380,7 @@ var render = function() {
                                     _vm.condiciones_salud_array.nutricion
                                       .nutricion_0_5.peso_talla
                                       .desnutricion_aguda_moderada
-                                  )
+                                  ) + " Niños"
                                 )
                               ])
                             ]),
@@ -2092,7 +2392,7 @@ var render = function() {
                                   _vm._s(
                                     _vm.condiciones_salud_array.nutricion
                                       .nutricion_0_5.peso_talla.peso_adecuado
-                                  )
+                                  ) + " Niños"
                                 )
                               ])
                             ]),
@@ -2105,7 +2405,7 @@ var render = function() {
                                     _vm.condiciones_salud_array.nutricion
                                       .nutricion_0_5.peso_talla
                                       .desnutricion_aguda_severa
-                                  )
+                                  ) + " Niños"
                                 )
                               ])
                             ]),
@@ -2118,7 +2418,7 @@ var render = function() {
                                     _vm.condiciones_salud_array.nutricion
                                       .nutricion_0_5.peso_talla
                                       .riesgo_desnutricion_aguda
-                                  )
+                                  ) + " Niños"
                                 )
                               ])
                             ])
@@ -2151,7 +2451,7 @@ var render = function() {
                                   _vm._s(
                                     _vm.condiciones_salud_array.nutricion
                                       .nutricion_0_5.talla_edad.talla_adecuada
-                                  )
+                                  ) + " Niños"
                                 )
                               ])
                             ]),
@@ -2164,7 +2464,7 @@ var render = function() {
                                     _vm.condiciones_salud_array.nutricion
                                       .nutricion_0_5.talla_edad
                                       .riesgo_talla_baja
-                                  )
+                                  ) + " Niños"
                                 )
                               ])
                             ]),
@@ -2178,7 +2478,7 @@ var render = function() {
                                   _vm._s(
                                     _vm.condiciones_salud_array.nutricion
                                       .nutricion_0_5.talla_edad.retraso_talla
-                                  )
+                                  ) + " Niños"
                                 )
                               ])
                             ])
@@ -2209,7 +2509,7 @@ var render = function() {
                                   _vm._s(
                                     _vm.condiciones_salud_array.nutricion
                                       .nutricion_0_5.imc.obesidad
-                                  )
+                                  ) + " Niños"
                                 )
                               ])
                             ]),
@@ -2221,7 +2521,7 @@ var render = function() {
                                   _vm._s(
                                     _vm.condiciones_salud_array.nutricion
                                       .nutricion_0_5.imc.sobrepeso
-                                  )
+                                  ) + " Niños"
                                 )
                               ])
                             ]),
@@ -2233,7 +2533,7 @@ var render = function() {
                                   _vm._s(
                                     _vm.condiciones_salud_array.nutricion
                                       .nutricion_0_5.imc.riesgo_sobrepeso
-                                  )
+                                  ) + " Niños"
                                 )
                               ])
                             ]),
@@ -2245,7 +2545,7 @@ var render = function() {
                                   _vm._s(
                                     _vm.condiciones_salud_array.nutricion
                                       .nutricion_0_5.imc.peso_normal
-                                  )
+                                  ) + " Niños"
                                 )
                               ])
                             ])
@@ -2253,7 +2553,335 @@ var render = function() {
                         ])
                       : _vm._e(),
                     _vm._v(" "),
-                    _vm._m(12)
+                    _vm._m(12),
+                    _vm._v(" "),
+                    _vm.condiciones_salud_array != null
+                      ? _c("div", { staticClass: "col-lg-12" }, [
+                          _c("br"),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("strong", { staticStyle: { color: "#fd397a" } }, [
+                            _vm._v(
+                              "6.2 Niñas, niños y adolescentes de 5 a 17 años"
+                            )
+                          ]),
+                          _c("br"),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("De un total de "),
+                            _c("strong", [
+                              _vm._v(
+                                _vm._s(
+                                  _vm.condiciones_salud_array.nutricion
+                                    .nutricion_5_17.cantidad_personas
+                                ) + " personas"
+                              )
+                            ]),
+                            _vm._v(", se tiene la siguiente información.")
+                          ]),
+                          _vm._v(" "),
+                          _c("strong", [
+                            _vm._v("6.2.1 Indice de Masa Corporal")
+                          ]),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("ul", [
+                            _c("li", [
+                              _vm._v("Obesidad: "),
+                              _c("strong", [
+                                _vm._v(
+                                  _vm._s(
+                                    _vm.condiciones_salud_array.nutricion
+                                      .nutricion_5_17.imc.obesidad
+                                  ) + " Personas"
+                                )
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("li", [
+                              _vm._v("Sobrepeso: "),
+                              _c("strong", [
+                                _vm._v(
+                                  _vm._s(
+                                    _vm.condiciones_salud_array.nutricion
+                                      .nutricion_5_17.imc.sobrepeso
+                                  ) + " Personas"
+                                )
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("li", [
+                              _vm._v("IMC Adecuado para la Edad: "),
+                              _c("strong", [
+                                _vm._v(
+                                  _vm._s(
+                                    _vm.condiciones_salud_array.nutricion
+                                      .nutricion_5_17.imc.imc_adecuado
+                                  ) + " Personas"
+                                )
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("li", [
+                              _vm._v("Riesgo de Delgadez: "),
+                              _c("strong", [
+                                _vm._v(
+                                  _vm._s(
+                                    _vm.condiciones_salud_array.nutricion
+                                      .nutricion_5_17.imc.riesgo_delgadez
+                                  ) + " Personas"
+                                )
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("li", [
+                              _vm._v("Delgadez: "),
+                              _c("strong", [
+                                _vm._v(
+                                  _vm._s(
+                                    _vm.condiciones_salud_array.nutricion
+                                      .nutricion_5_17.imc.delgadez
+                                  ) + " Personas"
+                                )
+                              ])
+                            ])
+                          ])
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm._m(13),
+                    _vm._v(" "),
+                    _vm.condiciones_salud_array != null
+                      ? _c("div", { staticClass: "col-lg-12" }, [
+                          _c("br"),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("strong", [
+                            _vm._v(
+                              "6.2.2 Indice de Masa Corporal (Mujeres Embarazadas - 5 a 17 Años)"
+                            )
+                          ]),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("ul", [
+                            _c("li", [
+                              _vm._v("Obesidad para la edad gestacional: "),
+                              _c("strong", [
+                                _vm._v(
+                                  _vm._s(
+                                    _vm.condiciones_salud_array.nutricion
+                                      .nutricion_5_17.imc_embarazadas
+                                      .obesidad_gestacional
+                                  ) + " Personas"
+                                )
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("li", [
+                              _vm._v("Sobrepeso para la edad gestacional: "),
+                              _c("strong", [
+                                _vm._v(
+                                  _vm._s(
+                                    _vm.condiciones_salud_array.nutricion
+                                      .nutricion_5_17.imc_embarazadas
+                                      .sobrepeso_gestacional
+                                  ) + " Personas"
+                                )
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("li", [
+                              _vm._v("IMC adecuado para la edad gestacional: "),
+                              _c("strong", [
+                                _vm._v(
+                                  _vm._s(
+                                    _vm.condiciones_salud_array.nutricion
+                                      .nutricion_5_17.imc_embarazadas
+                                      .adecuado_gestacional
+                                  ) + " Personas"
+                                )
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("li", [
+                              _vm._v("Bajo peso para la edad gestacional: "),
+                              _c("strong", [
+                                _vm._v(
+                                  _vm._s(
+                                    _vm.condiciones_salud_array.nutricion
+                                      .nutricion_5_17.imc_embarazadas
+                                      .bajo_peso_gestacional
+                                  ) + " Personas"
+                                )
+                              ])
+                            ])
+                          ])
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm._m(14),
+                    _vm._v(" "),
+                    _vm.condiciones_salud_array != null
+                      ? _c("div", { staticClass: "col-lg-12" }, [
+                          _c("br"),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("strong", { staticStyle: { color: "#fd397a" } }, [
+                            _vm._v("6.3 Adultos  mayores de 18 años.")
+                          ]),
+                          _c("br"),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("De un total de "),
+                            _c("strong", [
+                              _vm._v(
+                                _vm._s(
+                                  _vm.condiciones_salud_array.nutricion
+                                    .nutricion_18_60.cantidad_personas
+                                ) + " personas"
+                              )
+                            ]),
+                            _vm._v(", se tiene la siguiente información.")
+                          ]),
+                          _vm._v(" "),
+                          _c("strong", [
+                            _vm._v("6.3.1 Indice de Masa Corporal")
+                          ]),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("ul", [
+                            _c("li", [
+                              _vm._v("Obesidad: "),
+                              _c("strong", [
+                                _vm._v(
+                                  _vm._s(
+                                    _vm.condiciones_salud_array.nutricion
+                                      .nutricion_18_60.imc.obesidad
+                                  ) + " Personas"
+                                )
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("li", [
+                              _vm._v("Sobrepeso: "),
+                              _c("strong", [
+                                _vm._v(
+                                  _vm._s(
+                                    _vm.condiciones_salud_array.nutricion
+                                      .nutricion_18_60.imc.sobrepeso
+                                  ) + " Personas"
+                                )
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("li", [
+                              _vm._v("Normal: "),
+                              _c("strong", [
+                                _vm._v(
+                                  _vm._s(
+                                    _vm.condiciones_salud_array.nutricion
+                                      .nutricion_18_60.imc.normal
+                                  ) + " Personas"
+                                )
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("li", [
+                              _vm._v("Delgadez: "),
+                              _c("strong", [
+                                _vm._v(
+                                  _vm._s(
+                                    _vm.condiciones_salud_array.nutricion
+                                      .nutricion_18_60.imc.delgadez
+                                  ) + " Personas"
+                                )
+                              ])
+                            ])
+                          ])
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm._m(15),
+                    _vm._v(" "),
+                    _vm.condiciones_salud_array != null
+                      ? _c("div", { staticClass: "col-lg-12" }, [
+                          _c("br"),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("strong", [
+                            _vm._v(
+                              "6.3.2 Indice de Masa Corporal (Mujeres Embarazadas - Mayores de 18 años)"
+                            )
+                          ]),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("ul", [
+                            _c("li", [
+                              _vm._v("Obesidad para la edad gestacional: "),
+                              _c("strong", [
+                                _vm._v(
+                                  _vm._s(
+                                    _vm.condiciones_salud_array.nutricion
+                                      .nutricion_18_60.imc_embarazadas
+                                      .obesidad_gestacional
+                                  ) + " Personas"
+                                )
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("li", [
+                              _vm._v("Sobrepeso para la edad gestacional: "),
+                              _c("strong", [
+                                _vm._v(
+                                  _vm._s(
+                                    _vm.condiciones_salud_array.nutricion
+                                      .nutricion_18_60.imc_embarazadas
+                                      .sobrepeso_gestacional
+                                  ) + " Personas"
+                                )
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("li", [
+                              _vm._v("IMC adecuado para la edad gestacional: "),
+                              _c("strong", [
+                                _vm._v(
+                                  _vm._s(
+                                    _vm.condiciones_salud_array.nutricion
+                                      .nutricion_18_60.imc_embarazadas
+                                      .adecuado_gestacional
+                                  ) + " Personas"
+                                )
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("li", [
+                              _vm._v("Bajo peso para la edad gestacional: "),
+                              _c("strong", [
+                                _vm._v(
+                                  _vm._s(
+                                    _vm.condiciones_salud_array.nutricion
+                                      .nutricion_18_60.imc_embarazadas
+                                      .bajo_peso_gestacional
+                                  ) + " Personas"
+                                )
+                              ])
+                            ])
+                          ])
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm._m(16)
                   ]
                 )
               ]
@@ -2446,6 +3074,62 @@ var staticRenderFns = [
         attrs: { id: "chartdiv_imc" }
       })
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-lg-12 text-center" }, [
+      _c("h5", [_vm._v("GRAFICA IMC")]),
+      _vm._v(" "),
+      _c("div", {
+        staticStyle: { width: "100%", height: "220px" },
+        attrs: { id: "chartdiv_imc_5_17" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-lg-12 text-center" }, [
+      _c("h5", [_vm._v("GRAFICA IMC")]),
+      _vm._v(" "),
+      _c("h6", [_vm._v("(Mujeres Embarazadas - 5 a 17 Años)")]),
+      _vm._v(" "),
+      _c("div", {
+        staticStyle: { width: "100%", height: "220px" },
+        attrs: { id: "chartdiv_imc_5_17_e" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-lg-12 text-center" }, [
+      _c("h5", [_vm._v("GRAFICA IMC")]),
+      _vm._v(" "),
+      _c("div", {
+        staticStyle: { width: "100%", height: "220px" },
+        attrs: { id: "chartdiv_imc_18_60" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-lg-12 text-center" }, [
+      _c("h5", [_vm._v("GRAFICA IMC")]),
+      _vm._v(" "),
+      _c("h6", [_vm._v("(Mujeres Embarazadas - Mayores de 18 años)")]),
+      _vm._v(" "),
+      _c("div", {
+        staticStyle: { width: "100%", height: "220px" },
+        attrs: { id: "chartdiv_imc_18_60_e" }
+      })
+    ])
   }
 ]
 render._withStripped = true
@@ -2532,7 +3216,7 @@ function exportarDesempleadosExcel($data) {
 /*!********************************************!*\
   !*** ./resources/js/Servicios/informes.js ***!
   \********************************************/
-/*! exports provided: inicialesMigrantes, poblacion_no_asegurada, determinante_salud, condiciones_salud */
+/*! exports provided: inicialesMigrantes, poblacion_no_asegurada, determinante_salud, condiciones_salud, exportarGeneralSalud */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2541,6 +3225,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "poblacion_no_asegurada", function() { return poblacion_no_asegurada; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "determinante_salud", function() { return determinante_salud; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "condiciones_salud", function() { return condiciones_salud; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "exportarGeneralSalud", function() { return exportarGeneralSalud; });
 /* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
 
 function inicialesMigrantes($data) {
@@ -2554,6 +3239,9 @@ function determinante_salud() {
 }
 function condiciones_salud() {
   return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().get('/informes/condiciones-salud');
+}
+function exportarGeneralSalud($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/informes/exportar-general-salud', $data);
 }
 
 /***/ }),

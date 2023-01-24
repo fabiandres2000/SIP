@@ -226,6 +226,7 @@ Route::post('/dashboard-riesgos-salud/exportar-inmunizacion-excel', 'DashboardRi
 Route::get('/informes/poblacion-no-asegurada', 'InformesController@poblacion_no_asegurada');
 Route::get('/informes/determinante-salud', 'InformesController@determinante_salud');
 Route::get('/informes/condiciones-salud', 'InformesController@condiciones_salud');
+Route::post('/informes/exportar-general-salud', 'InformesController@exportarGeneralSalud');
 
 Route::get('/reportes/personas-discapacitadas', 'ReportesController@personas_discapacitadas');
 Route::get('/reportes/adulto-mayor', 'ReportesController@adulto_mayor');

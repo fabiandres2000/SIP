@@ -2063,5 +2063,466 @@ class Informes extends Model
 
         return $respuesta;
     }
+
+    public static function nutricion_5_17($alias){
+
+        $de_4_a_5 = DB::connection('mysql')->table($alias.'.integrantes')
+        ->join($alias . ".de1a5", "de1a5.id_integrante", "integrantes.id")
+        ->select('de1a5.*')
+        ->where('de1a5.edad', '>=', 5)
+        ->where('de1a5.estado', 'Activo')
+        ->where('integrantes.estado', 'Activo')
+        ->get();
+
+        $de_6_a_11 = DB::connection('mysql')->table($alias.'.integrantes')
+        ->join($alias . ".de6a11", "de6a11.id_integrante", "integrantes.id")
+        ->select('de6a11.*')
+        ->where('de6a11.estado', 'Activo')
+        ->where('integrantes.estado', 'Activo')
+        ->get();
+
+        $de_12_a_17_i = DB::connection('mysql')->table($alias.'.integrantes')
+        ->join($alias . ".de12a17", "de12a17.id_integrante", "integrantes.id")
+        ->join($alias . ".hogar", "hogar.id", "de12a17.id_hogar")
+        ->select('de12a17.*','integrantes.embarazo')
+        ->where('de12a17.estado', 'Activo')
+        ->where('de12a17.opci', 'INTE')
+        ->where('integrantes.estado', 'Activo')
+        ->get();
+
+        $de_12_a_17_j = DB::connection('mysql')->table($alias.'.caracterizacion')
+        ->join($alias . ".de12a17", "de12a17.id_integrante", "caracterizacion.id")
+        ->join($alias . ".hogar", "hogar.id", "de12a17.id_hogar")
+        ->select('de12a17.*','caracterizacion.embarazo')
+        ->where('de12a17.estado', 'Activo')
+        ->where('de12a17.opci', 'JEFE')
+        ->where('caracterizacion.estado', 'Activo')
+        ->get();
+
+        $de_12_a_17 = array();
+        foreach ($de_12_a_17_i as $key) {
+            array_push($de_12_a_17, $key);
+        }
+
+        foreach ($de_12_a_17_j as $key) {
+            array_push($de_12_a_17, $key);
+        }
+
+
+        //IMC para la Edad
+        $obesidad = 0;
+        $sobrepeso = 0;
+        $imc_adecuado = 0;
+        $riesgo_delgadez = 0;
+        $delgadez = 0;
+
+        foreach ($de_4_a_5 as $item) {
+            $imc_temp = $item->imc/$item->edad;
+            if($imc_temp > 2){
+                $obesidad += 1;
+            }else{
+                if($imc_temp > 1 && $imc_temp <= 2){
+                    $sobrepeso += 1;
+                }else{
+                    if($imc_temp >= -1 && $imc_temp <= 1){
+                        $imc_adecuado += 1;
+                    }else{
+                        if($imc_temp >= -2 && $imc_temp < -1){
+                            $riesgo_delgadez += 1;
+                        }else{
+                            $delgadez += 1;
+                        }
+                    } 
+                }
+            }
+        }
+
+        foreach ($de_6_a_11 as $item) {
+            $imc_temp = $item->imc/$item->edad;
+            if($imc_temp > 2){
+                $obesidad += 1;
+            }else{
+                if($imc_temp > 1 && $imc_temp <= 2){
+                    $sobrepeso += 1;
+                }else{
+                    if($imc_temp >= -1 && $imc_temp <= 1){
+                        $imc_adecuado += 1;
+                    }else{
+                        if($imc_temp >= -2 && $imc_temp < -1){
+                            $riesgo_delgadez += 1;
+                        }else{
+                            $delgadez += 1;
+                        }
+                    } 
+                }
+            }
+        }
+
+        $obesidad_gestacional = 0;
+        $sobrepeso_gestacional = 0;
+        $adecuado_gestacional = 0;
+        $bajo_peso_gestacional = 0;
+
+        foreach ($de_12_a_17 as $item) {
+            if($item->embarazo == "SI"){
+
+               $semana = intval(\App\Parpost::buscarSemanas($item->id_integrante, $alias));
+               $imc_semana = \App\ImcEmbarazadas::buscar($alias, $semana);
+               
+               if($imc_semana == null){
+                    dd($item->id_integrante);
+               }
+               
+               if($item->imc > $imc_semana->obesidad){
+                    $obesidad_gestacional += 1;
+               }else{
+                    if($item->imc >= $imc_semana->sobrepeso_min && $item->imc <= $imc_semana->sobrepeso_max){
+                        $sobrepeso_gestacional += 1;
+                    }else{
+                        if($item->imc >= $imc_semana->adecuado_min && $item->imc <= $imc_semana->adecuado_max){
+                            $adecuado_gestacional += 1;
+                        }else{
+                            $bajo_peso_gestacional += 1;
+                        }
+                    } 
+               }  
+            }else{
+                $imc_temp = $item->imc/$item->edad;
+                if($imc_temp > 2){
+                    $obesidad += 1;
+                }else{
+                    if($imc_temp > 1 && $imc_temp <= 2){
+                        $sobrepeso += 1;
+                    }else{
+                        if($imc_temp >= -1 && $imc_temp <= 1){
+                            $imc_adecuado += 1;
+                        }else{
+                            if($imc_temp >= -2 && $imc_temp < -1){
+                                $riesgo_delgadez += 1;
+                            }else{
+                                $delgadez += 1;
+                            }
+                        } 
+                    }
+                }
+            }
+        }
+
+        $imc = [
+            "obesidad" => $obesidad,
+            "sobrepeso" => $sobrepeso,
+            "imc_adecuado" => $imc_adecuado,
+            "riesgo_delgadez" => $riesgo_delgadez,
+            "delgadez" => $delgadez,
+        ];
+
+        $imc_embarazadas = [
+            "obesidad_gestacional" => $obesidad_gestacional,
+            "sobrepeso_gestacional" => $sobrepeso_gestacional,
+            "adecuado_gestacional" => $adecuado_gestacional,
+            "bajo_peso_gestacional" => $bajo_peso_gestacional,
+        ];
+
+        //IMC para la Edad
+
+        $respuesta = [     
+            "cantidad_personas" => count($de_4_a_5) + count($de_6_a_11) + count($de_12_a_17),
+            "imc" => $imc,
+            "imc_embarazadas" => $imc_embarazadas
+        ];
+
+        return $respuesta;
+    
+    }
+
+    public static function nutricion_18_60($alias){
+
+        $de_18_a_28_i = DB::connection('mysql')->table($alias.'.integrantes')
+        ->join($alias . ".de18a28", "de18a28.id_integrante", "integrantes.id")
+        ->select('de18a28.*','integrantes.embarazo')
+        ->where('de18a28.estado', 'Activo')
+        ->where('de18a28.opci', 'INTE')
+        ->where('integrantes.estado', 'Activo')
+        ->get();
+
+        $de_18_a_28_j = DB::connection('mysql')->table($alias.'.caracterizacion')
+        ->join($alias . ".de18a28", "de18a28.id_integrante", "caracterizacion.id")
+        ->select('de18a28.*','caracterizacion.embarazo')
+        ->where('de18a28.estado', 'Activo')
+        ->where('de18a28.opci', 'JEFE')
+        ->where('caracterizacion.estado', 'Activo')
+        ->get();
+
+        $de_18_a_28 = array();
+        foreach ($de_18_a_28_i as $key) {
+            array_push($de_18_a_28, $key);
+        }
+
+        foreach ($de_18_a_28_j as $key) {
+            array_push($de_18_a_28, $key);
+        }
+
+
+        $de_29_a_59_i = DB::connection('mysql')->table($alias.'.integrantes')
+        ->join($alias . ".de29a59", "de29a59.id_integrante", "integrantes.id")
+        ->select('de29a59.*','integrantes.embarazo')
+        ->where('de29a59.estado', 'Activo')
+        ->where('de29a59.opci', 'INTE')
+        ->where('integrantes.estado', 'Activo')
+        ->get();
+
+        $de_29_a_59_j = DB::connection('mysql')->table($alias.'.caracterizacion')
+        ->join($alias . ".de29a59", "de29a59.id_integrante", "caracterizacion.id")
+        ->join($alias . ".hogar", "hogar.id", "de29a59.id_hogar")
+        ->select('de29a59.*','caracterizacion.embarazo')
+        ->where('de29a59.estado', 'Activo')
+        ->where('de29a59.opci', 'JEFE')
+        ->where('caracterizacion.estado', 'Activo')
+        ->get();
+
+        $de_29_a_59 = array();
+        foreach ($de_29_a_59_i as $key) {
+            array_push($de_29_a_59, $key);
+        }
+
+        foreach ($de_29_a_59_j as $key) {
+            array_push($de_29_a_59, $key);
+        }
+
+        $de_60_i = DB::connection('mysql')->table($alias.'.integrantes')
+        ->join($alias . ".de60", "de60.id_integrante", "integrantes.id")
+        ->select('de60.*','integrantes.embarazo')
+        ->where('de60.estado', 'Activo')
+        ->where('de60.opci', 'INTE')
+        ->where('integrantes.estado', 'Activo')
+        ->get();
+
+        $de_60_j = DB::connection('mysql')->table($alias.'.caracterizacion')
+        ->join($alias . ".de60", "de60.id_integrante", "caracterizacion.id")
+        ->join($alias . ".hogar", "hogar.id", "de60.id_hogar")
+        ->select('de60.*','caracterizacion.embarazo')
+        ->where('de60.estado', 'Activo')
+        ->where('de60.opci', 'JEFE')
+        ->where('caracterizacion.estado', 'Activo')
+        ->get();
+
+        $de_60 = array();
+        foreach ($de_60_i as $key) {
+            array_push($de_60, $key);
+        }
+
+        foreach ($de_60_j as $key) {
+            array_push($de_60, $key);
+        }
+
+       
+
+        //IMC para la Edad
+        $obesidad = 0;
+        $sobrepeso = 0;
+        $normal = 0;
+        $delgadez = 0;
+
+    
+        $obesidad_gestacional = 0;
+        $sobrepeso_gestacional = 0;
+        $adecuado_gestacional = 0;
+        $bajo_peso_gestacional = 0;
+
+        
+        foreach ($de_18_a_28 as $item) {
+            if($item->embarazo == "SI"){   
+                $semana = intval(\App\Parpost::buscarSemanas($item->id_integrante, $alias));
+                if($semana >= 6){
+                    $imc_semana = \App\ImcEmbarazadas::buscar($alias, $semana);
+                    if($item->imc > $imc_semana->obesidad){
+                        $obesidad_gestacional += 1;
+                    }else{
+                        if($item->imc >= $imc_semana->sobrepeso_min && $item->imc <= $imc_semana->sobrepeso_max){
+                            $sobrepeso_gestacional += 1;
+                        }else{
+                            if($item->imc >= $imc_semana->adecuado_min && $item->imc <= $imc_semana->adecuado_max){
+                                $adecuado_gestacional += 1;
+                            }else{
+                                $bajo_peso_gestacional += 1;
+                            }
+                        } 
+                    }   
+                }else{
+                    $imc_temp = $item->imc;
+                    if($imc_temp >= 30){
+                        $obesidad += 1;
+                    }else{
+                        if($imc_temp >= 25 && $imc_temp < 30){
+                            $sobrepeso += 1;
+                        }else{
+                            if($imc_temp >= 18.5 && $imc_temp < 25){
+                                $normal += 1;
+                            }else{
+                                if($imc_temp < 18.5){
+                                    $delgadez += 1;
+                                }
+                            } 
+                        }
+                    }
+                }
+            }else{
+                $imc_temp = $item->imc;
+                if($imc_temp >= 30){
+                    $obesidad += 1;
+                }else{
+                    if($imc_temp >= 25 && $imc_temp < 30){
+                        $sobrepeso += 1;
+                    }else{
+                        if($imc_temp >= 18.5 && $imc_temp < 25){
+                            $normal += 1;
+                        }else{
+                            if($imc_temp < 18.5){
+                                $delgadez += 1;
+                            }
+                        } 
+                    }
+                }
+            }
+        }
+
+        foreach ($de_29_a_59 as $item) {
+            if($item->embarazo == "SI"){   
+               $semana = intval(\App\Parpost::buscarSemanas($item->id_integrante, $alias));
+                if($semana >= 6){
+                    $imc_semana = \App\ImcEmbarazadas::buscar($alias, $semana);
+                    if($item->imc > $imc_semana->obesidad){
+                        $obesidad_gestacional += 1;
+                    }else{
+                        if($item->imc >= $imc_semana->sobrepeso_min && $item->imc <= $imc_semana->sobrepeso_max){
+                            $sobrepeso_gestacional += 1;
+                        }else{
+                            if($item->imc >= $imc_semana->adecuado_min && $item->imc <= $imc_semana->adecuado_max){
+                                $adecuado_gestacional += 1;
+                            }else{
+                                $bajo_peso_gestacional += 1;
+                            }
+                        } 
+                    }   
+                }else{
+                    $imc_temp = $item->imc;
+                    if($imc_temp >= 30){
+                        $obesidad += 1;
+                    }else{
+                        if($imc_temp >= 25 && $imc_temp < 30){
+                            $sobrepeso += 1;
+                        }else{
+                            if($imc_temp >= 18.5 && $imc_temp < 25){
+                                $normal += 1;
+                            }else{
+                                if($imc_temp < 18.5){
+                                    $delgadez += 1;
+                                }
+                            } 
+                        }
+                    }
+                }
+            }else{
+                $imc_temp = $item->imc;
+                if($imc_temp >= 30){
+                    $obesidad += 1;
+                }else{
+                    if($imc_temp >= 25 && $imc_temp < 30){
+                        $sobrepeso += 1;
+                    }else{
+                        if($imc_temp >= 18.5 && $imc_temp < 25){
+                            $normal += 1;
+                        }else{
+                            if($imc_temp < 18.5){
+                                $delgadez += 1;
+                            }
+                        } 
+                    }
+                }
+            }
+        }
+
+        foreach ($de_60 as $item) {
+            if($item->embarazo == "SI"){            
+               $semana = intval(\App\Parpost::buscarSemanas($item->id_integrante, $alias));
+               if($semana >= 6){
+                    $imc_semana = \App\ImcEmbarazadas::buscar($alias, $semana);
+                    if($item->imc > $imc_semana->obesidad){
+                        $obesidad_gestacional += 1;
+                    }else{
+                        if($item->imc >= $imc_semana->sobrepeso_min && $item->imc <= $imc_semana->sobrepeso_max){
+                            $sobrepeso_gestacional += 1;
+                        }else{
+                            if($item->imc >= $imc_semana->adecuado_min && $item->imc <= $imc_semana->adecuado_max){
+                                $adecuado_gestacional += 1;
+                            }else{
+                                $bajo_peso_gestacional += 1;
+                            }
+                        } 
+                    }   
+                }else{
+                    $imc_temp = $item->imc;
+                    if($imc_temp >= 30){
+                        $obesidad += 1;
+                    }else{
+                        if($imc_temp >= 25 && $imc_temp < 30){
+                            $sobrepeso += 1;
+                        }else{
+                            if($imc_temp >= 18.5 && $imc_temp < 25){
+                                $normal += 1;
+                            }else{
+                                if($imc_temp < 18.5){
+                                    $delgadez += 1;
+                                }
+                            } 
+                        }
+                    }
+                }
+            }else{
+                $imc_temp = $item->imc;
+                if($imc_temp >= 30){
+                    $obesidad += 1;
+                }else{
+                    if($imc_temp >= 25 && $imc_temp < 30){
+                        $sobrepeso += 1;
+                    }else{
+                        if($imc_temp >= 18.5 && $imc_temp < 25){
+                            $normal += 1;
+                        }else{
+                            if($imc_temp < 18.5){
+                                $delgadez += 1;
+                            }
+                        } 
+                    }
+                }
+            }
+        }
+        
+
+        $imc = [
+            "obesidad" => $obesidad,
+            "sobrepeso" => $sobrepeso,
+            "normal" => $normal,
+            "delgadez" => $delgadez,
+        ];
+
+        $imc_embarazadas = [
+            "obesidad_gestacional" => $obesidad_gestacional,
+            "sobrepeso_gestacional" => $sobrepeso_gestacional,
+            "adecuado_gestacional" => $adecuado_gestacional,
+            "bajo_peso_gestacional" => $bajo_peso_gestacional,
+        ];
+
+        //IMC para la Edad
+
+        $respuesta = [     
+            "cantidad_personas" => count($de_18_a_28) + count($de_29_a_59) + count($de_60),
+            "imc" => $imc,
+            "imc_embarazadas" => $imc_embarazadas
+        ];
+
+        return $respuesta;
+    
+    }
     
 }
