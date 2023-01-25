@@ -190,15 +190,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -248,39 +239,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.prev = 0;
-                _context.next = 3;
+                _context.next = 2;
                 return _Servicios_reportes__WEBPACK_IMPORTED_MODULE_1__["personas_discapacitadas"]("todos", null).then(function (respuesta) {
                   _this.personas_discapacitadas_array = respuesta.data.discapacitados;
+
+                  _this.crearDataTable();
                 });
 
-              case 3:
-                _context.next = 14;
-                break;
-
-              case 5:
-                _context.prev = 5;
-                _context.t0 = _context["catch"](0);
-                _context.t1 = _context.t0.response.status;
-                _context.next = _context.t1 === 422 ? 10 : 12;
-                break;
-
-              case 10:
-                _this.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context.abrupt("break", 14);
-
-              case 12:
-                _this.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context.abrupt("break", 14);
-
-              case 14:
+              case 2:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[0, 5]]);
+        }, _callee);
       }))();
     },
     listarBarrios: function listarBarrios() {
@@ -450,6 +421,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _context6.next = 7;
                 return _Servicios_reportes__WEBPACK_IMPORTED_MODULE_1__["personas_discapacitadas"](tipo, id).then(function (respuesta) {
                   _this6.personas_discapacitadas_array = respuesta.data.discapacitados;
+
+                  _this6.crearDataTable();
                 })["catch"](function (err) {
                   console.log(err);
                 });
@@ -461,6 +434,36 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee6);
       }))();
+    },
+    crearDataTable: function crearDataTable() {
+      jquery__WEBPACK_IMPORTED_MODULE_6___default()("#tablaDatos").dataTable().fnDestroy();
+      setTimeout(function () {
+        jquery__WEBPACK_IMPORTED_MODULE_6___default()('#tablaDatos').DataTable({
+          "lengthChange": false,
+          "ordering": false,
+          pageLength: 10,
+          language: {
+            "decimal": "",
+            "emptyTable": "No hay información",
+            "info": "Mostrando _START_ a _END_ de _TOTAL_ Registros",
+            "infoEmpty": "Mostrando 0 to 0 of 0 Registros",
+            "infoFiltered": "(Filtrado de _MAX_ total Registros)",
+            "infoPostFix": "",
+            "thousands": ",",
+            "lengthMenu": "Mostrar _MENU_ Registros",
+            "loadingRecords": "Cargando...",
+            "processing": "Procesando...",
+            "search": "Buscar:",
+            "zeroRecords": "Sin resultados encontrados",
+            "paginate": {
+              "first": "Primero",
+              "last": "Ultimo",
+              "next": "Siguiente",
+              "previous": "Anterior"
+            }
+          }
+        });
+      }, 500);
     },
     cerrarModal: function cerrarModal() {
       this.$refs.modalpdf.hide();
@@ -486,6 +489,55 @@ exports.push([module.i, ".a-circle-progress-wrapper .circle-progress{position:re
 
 // exports
 
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Reportes/Discapacitados.vue?vue&type=style&index=0&lang=css&":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Reportes/Discapacitados.vue?vue&type=style&index=0&lang=css& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.table_data {\n    width: 100%;\n    font-size: 17px;\n    border-collapse: collapse;\n}\n.table_data thead {\n    padding: 0.3em;\n    color: #fff !important;\n    background: #5578eb;\n}\n.table_data thead tr th, .table_data tbody tr td {\n    text-align: left;\n    vertical-align: top;\n    padding: 0.3em;\n    caption-side: bottom;\n}\n.table_data tbody tr:nth-child(odd) {\n    background-color: #fff;\n}\n.table_data tbody tr:nth-child(even) {\n    background-color: #f1f1f1;\n}\n.dataTable th {\n    color: #ffffff !important;\n}\n.dataTables_paginate span {\n    padding-left: 10px;\n    padding-right: 10px;\n    color: #ffff !important;\n}\n.dataTables_paginate span  a{\n    color: #ffff !important;\n}\n.dataTables_filter label input {\n    margin-left: 20px\n}\n.nav-pills, .nav-tabs {\n    margin: 0 0 -10px 0 !important;\n}\n.paginate_button{\n    cursor: pointer;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Reportes/Discapacitados.vue?vue&type=style&index=0&lang=css&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Reportes/Discapacitados.vue?vue&type=style&index=0&lang=css& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Discapacitados.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Reportes/Discapacitados.vue?vue&type=style&index=0&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
 
 /***/ }),
 
@@ -907,136 +959,136 @@ var render = function() {
                     [
                       _vm._m(1),
                       _vm._v(" "),
-                      _vm.personas_discapacitadas_array.length > 0
-                        ? _c(
-                            "tbody",
-                            _vm._l(_vm.personas_discapacitadas_array, function(
-                              item,
-                              index
-                            ) {
-                              return _c("tr", { key: index }, [
-                                _c(
-                                  "td",
-                                  {
-                                    staticStyle: {
-                                      "font-weight": "normal",
-                                      "vertical-align": "middle"
-                                    }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                                               " +
-                                        _vm._s(index + 1) +
-                                        "\n                                           "
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "td",
-                                  {
-                                    staticStyle: {
-                                      "font-weight": "normal",
-                                      "vertical-align": "middle",
-                                      "text-align": "left",
-                                      "text-transform": "capitalize"
-                                    }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                                               " +
-                                        _vm._s(item.identificacion) +
-                                        "\n                                           "
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "td",
-                                  {
-                                    staticStyle: {
-                                      "font-weight": "normal",
-                                      "vertical-align": "middle",
-                                      "text-align": "left",
-                                      "text-transform": "capitalize"
-                                    }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                                               " +
-                                        _vm._s(item.pnom) +
-                                        " " +
-                                        _vm._s(item.snom) +
-                                        " " +
-                                        _vm._s(item.pape) +
-                                        " " +
-                                        _vm._s(item.sape) +
-                                        "\n                                           "
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "td",
-                                  {
-                                    staticStyle: {
-                                      "font-weight": "normal",
-                                      "vertical-align": "middle",
-                                      "text-align": "left",
-                                      "text-transform": "capitalize"
-                                    }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                                               " +
-                                        _vm._s(item.edad) +
-                                        " Años\n                                           "
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "td",
-                                  {
-                                    staticStyle: {
-                                      "font-weight": "normal",
-                                      "vertical-align": "middle",
-                                      "text-align": "left",
-                                      "text-transform": "capitalize"
-                                    }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                                               " +
-                                        _vm._s(item.discapacidad) +
-                                        "\n                                           "
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "td",
-                                  {
-                                    staticStyle: {
-                                      "font-weight": "normal",
-                                      "vertical-align": "middle",
-                                      "text-align": "left",
-                                      "text-transform": "capitalize"
-                                    }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                                               " +
-                                        _vm._s(item.localizacion) +
-                                        "\n                                           "
-                                    )
-                                  ]
+                      _c(
+                        "tbody",
+                        _vm._l(_vm.personas_discapacitadas_array, function(
+                          item,
+                          index
+                        ) {
+                          return _c("tr", { key: index }, [
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                            " +
+                                    _vm._s(index + 1) +
+                                    "\n                                        "
                                 )
-                              ])
-                            }),
-                            0
-                          )
-                        : _c("tbody", [_vm._m(2)])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  width: "150px",
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                            " +
+                                    _vm._s(item.identificacion) +
+                                    "\n                                        "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                            " +
+                                    _vm._s(item.pnom) +
+                                    " " +
+                                    _vm._s(item.snom) +
+                                    " " +
+                                    _vm._s(item.pape) +
+                                    " " +
+                                    _vm._s(item.sape) +
+                                    "\n                                        "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                            " +
+                                    _vm._s(item.edad) +
+                                    " Años\n                                        "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  width: "150px",
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                            " +
+                                    _vm._s(item.discapacidad) +
+                                    "\n                                        "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                            " +
+                                    _vm._s(item.localizacion) +
+                                    "\n                                        "
+                                )
+                              ]
+                            )
+                          ])
+                        }),
+                        0
+                      )
                     ]
                   )
                 ])
@@ -1082,7 +1134,7 @@ var render = function() {
                 },
                 [
                   _c("i", { staticClass: "fa fa-window-close" }),
-                  _vm._v(" Cancelar\n                   ")
+                  _vm._v(" Cancelar\n                ")
                 ]
               )
             ])
@@ -1116,61 +1168,40 @@ var staticRenderFns = [
       _c("tr", { staticClass: "kt-bg-fill-brand" }, [
         _c("th", { staticClass: "text-left" }, [_vm._v("No.")]),
         _vm._v(" "),
-        _c("th", { staticClass: "text-left" }, [
-          _vm._v(
-            "\n                                               Identificación\n                                           "
-          )
-        ]),
+        _c(
+          "th",
+          { staticClass: "text-left", staticStyle: { width: "150px" } },
+          [
+            _vm._v(
+              "\n                                            Identificación\n                                        "
+            )
+          ]
+        ),
         _vm._v(" "),
         _c("th", { staticClass: "text-left" }, [
           _vm._v(
-            "\n                                               Nombre\n                                           "
+            "\n                                            Nombre\n                                        "
           )
         ]),
         _vm._v(" "),
         _c("th", [
           _vm._v(
-            "\n                                               Edad\n                                           "
+            "\n                                            Edad\n                                        "
           )
         ]),
         _vm._v(" "),
-        _c("th", [
+        _c("th", { staticStyle: { width: "150px" } }, [
           _vm._v(
-            "\n                                               Discapacidad\n                                           "
+            "\n                                            Discapacidad\n                                        "
           )
         ]),
         _vm._v(" "),
         _c("th", { staticClass: "text-left" }, [
           _vm._v(
-            "\n                                               Ubicación\n                                           "
+            "\n                                            Ubicación\n                                        "
           )
         ])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("tr", [
-      _c(
-        "td",
-        {
-          staticStyle: {
-            "font-weight": "normal",
-            "vertical-align": "middle",
-            "text-align": "center",
-            "text-transform": "capitalize",
-            "font-size": "20px"
-          },
-          attrs: { colspan: "11" }
-        },
-        [
-          _vm._v(
-            "\n                                               No existen datos\n                                           "
-          )
-        ]
-      )
     ])
   }
 ]
@@ -1369,7 +1400,9 @@ function comboVeredas($data) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Discapacitados_vue_vue_type_template_id_3faadd0c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Discapacitados.vue?vue&type=template&id=3faadd0c& */ "./resources/js/Vistas/Reportes/Discapacitados.vue?vue&type=template&id=3faadd0c&");
 /* harmony import */ var _Discapacitados_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Discapacitados.vue?vue&type=script&lang=js& */ "./resources/js/Vistas/Reportes/Discapacitados.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _Discapacitados_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Discapacitados.vue?vue&type=style&index=0&lang=css& */ "./resources/js/Vistas/Reportes/Discapacitados.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -1377,7 +1410,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _Discapacitados_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _Discapacitados_vue_vue_type_template_id_3faadd0c___WEBPACK_IMPORTED_MODULE_0__["render"],
   _Discapacitados_vue_vue_type_template_id_3faadd0c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
@@ -1406,6 +1439,22 @@ component.options.__file = "resources/js/Vistas/Reportes/Discapacitados.vue"
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Discapacitados_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Discapacitados.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Reportes/Discapacitados.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Discapacitados_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Vistas/Reportes/Discapacitados.vue?vue&type=style&index=0&lang=css&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/Vistas/Reportes/Discapacitados.vue?vue&type=style&index=0&lang=css& ***!
+  \******************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Discapacitados_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Discapacitados.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Reportes/Discapacitados.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Discapacitados_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Discapacitados_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Discapacitados_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Discapacitados_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
 
 /***/ }),
 

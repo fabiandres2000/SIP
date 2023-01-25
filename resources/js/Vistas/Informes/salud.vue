@@ -1,5 +1,15 @@
 <template>
-    <div style="margin-top: -4%" id="divPadre">
+    <div style="margin-top: 4%" id="divPadre">
+        <loading
+            :active.sync="isLoading"
+            :can-cancel="true"
+            loader="dots"
+            :height=128
+            :width=128
+            color="#007bff"
+            :is-full-page="true"
+        />
+
         <div class="row" id="divHijo">
             <div class="col-lg-12">
                 <div class="card">
@@ -310,6 +320,35 @@
                 </div>    
             </div>
         </div>
+
+        <b-modal
+            ref="modalpdf"
+            hide-footer
+            title="INFORME GENERAL SITUACIÓN EN SALUD POBLACIONAL"
+            size="xl"
+            centered
+            header-bg-variant="danger"
+            header-text-variant="light"
+            :no-close-on-backdrop="true"
+        >
+            <embed
+                id="divPdf"
+                :src="rutaPdf"
+                type="application/pdf"
+                width="100%"
+                height="650px"
+            />
+            <hr />
+            <div class="text-right">
+                <button
+                    type="button"
+                    class="btn btn-warning"
+                    @click="cerrarModal"
+                >
+                    <i class="fa fa-window-close"></i> Cancelar
+                </button>
+            </div>
+        </b-modal>
     </div>
   </template>
 <script>
@@ -326,6 +365,7 @@
     import * as am4charts from "@amcharts/amcharts4/charts";
     import am4themes_animated from "@amcharts/amcharts4/themes/animated";
     am4core.useTheme(am4themes_animated);
+    import Loading from "vue-loading-overlay";
 
     import store from "../../store";
 
@@ -335,6 +375,7 @@
             VueEasyPieChart,
             Progress,
             VueCircle,
+            Loading
         },
         mounted() {
             this.caracterizacion();
@@ -981,7 +1022,8 @@
                 series.labels.template.wrap = true;
             },
             generarPDF: async function () {
-                
+                this.isLoading = true;
+
                 const options = {
                     type: 'dataURL',
                     useCORS: true,
@@ -990,6 +1032,23 @@
                 let chart_torta_edades = await this.chart_torta_edades.exporting.getImage("png");
                 let chart_no_asegurado_1 = await this.chart_no_asegurado_1.exporting.getImage("png");
                 let chart_no_asegurado_2 = await this.chart_no_asegurado_2.exporting.getImage("png");
+                let chart_poblacion_pobreza = await this.chart_poblacion_pobreza.exporting.getImage("png");
+                let chart_escolaridad = await this.chart_escolaridad.exporting.getImage("png");
+                let chart_desempleo = await this.chart_desempleo.exporting.getImage("png");
+                let chart_acueducto = await this.chart_acueducto.exporting.getImage("png");
+                let chart_alcantarillado = await this.chart_alcantarillado.exporting.getImage("png");
+                let chart_cronica = await this.chart_cronica.exporting.getImage("png");
+                let chart_infecciosa = await this.chart_infecciosa.exporting.getImage("png");
+                let chart_discapacidad = await this.chart_discapacidad.exporting.getImage("png");
+                let chart_embarazo = await this.chart_embarazo.exporting.getImage("png");
+                let chart_inmunizacion = await this.chart_inmunizacion.exporting.getImage("png");
+                let chart_peso_para_talla = await this.chart_peso_para_talla.exporting.getImage("png");
+                let chart_talla_para_edad = await this.chart_talla_para_edad.exporting.getImage("png");
+                let chart_imc = await this.chart_imc.exporting.getImage("png");
+                let chart_imc_5_17 = await this.chart_imc_5_17.exporting.getImage("png");
+                let chart_imc_5_17_e = await this.chart_imc_5_17_e.exporting.getImage("png");
+                let chart_imc_18_60 = await this.chart_imc_18_60.exporting.getImage("png");
+                let chart_imc_18_60_e = await this.chart_imc_18_60_e.exporting.getImage("png");
                 
                 const parametros = {
                     _token: this.csrf,
@@ -997,17 +1056,41 @@
                     poblacion_no_asegurada: this.poblacion_no_asegurada,
                     chart_torta_edades: chart_torta_edades,
                     chart_no_asegurado_1: chart_no_asegurado_1,
-                    chart_no_asegurado_2: chart_no_asegurado_2
+                    chart_no_asegurado_2: chart_no_asegurado_2,
+                    determinante_salud_array: this.determinante_salud_array,
+                    chart_poblacion_pobreza: chart_poblacion_pobreza,
+                    chart_escolaridad: chart_escolaridad,
+                    chart_desempleo: chart_desempleo,
+                    chart_acueducto: chart_acueducto,
+                    chart_alcantarillado: chart_alcantarillado,
+                    condiciones_salud_array: this.condiciones_salud_array,
+                    chart_cronica: chart_cronica,
+                    chart_infecciosa: chart_infecciosa,
+                    chart_discapacidad: chart_discapacidad,
+                    chart_embarazo: chart_embarazo,
+                    chart_inmunizacion: chart_inmunizacion,
+                    chart_peso_para_talla: chart_peso_para_talla,
+                    chart_talla_para_edad: chart_talla_para_edad,
+                    chart_imc: chart_imc,
+                    chart_imc_5_17: chart_imc_5_17,
+                    chart_imc_5_17_e: chart_imc_5_17_e,
+                    chart_imc_18_60: chart_imc_18_60,
+                    chart_imc_18_60_e: chart_imc_18_60_e
                 };
 
                 try {
                     await informes.exportarGeneralSalud(parametros).then(respuesta => {
                         this.rutaPdf = store.state.apiURL + respuesta.data.nombre;
+                        this.isLoading = false;
+                        this.$refs.modalpdf.show();
                     });
                 } catch (error) { 
                     this.$swal("Error...!", "Ocurrio un error!", "error"); 
                 }
             }, 
+            cerrarModal() {
+                this.$refs.modalpdf.hide();
+            },
         },
     };
 </script>
@@ -1025,35 +1108,39 @@
         text-align:center;
     }
     #divHijo {
-        width:21cm;
+        width:25cm;
         margin:0px auto;
     }
 
-.table_data {
-    width: 100%;
-    font-size: 13px;
-    border-collapse: collapse;
-}
+    .table_data {
+        width: 100%;
+        font-size: 13px;
+        border-collapse: collapse;
+    }
 
-.table_data thead {
-    padding: 0.3em;
-    color: #fff;
-    background: #5578eb;
-}
+    .table_data thead {
+        padding: 0.3em;
+        color: #fff;
+        background: #5578eb;
+    }
 
-.table_data thead tr th, .table_data tbody tr td {
-    text-align: left;
-    vertical-align: top;
-    padding: 0.3em;
-    caption-side: bottom;
-}
+    .table_data thead tr th, .table_data tbody tr td {
+        text-align: left;
+        vertical-align: top;
+        padding: 0.3em;
+        caption-side: bottom;
+    }
 
 
-.table_data tbody tr:nth-child(odd) {
-    background-color: #fff;
-}
+    .table_data tbody tr:nth-child(odd) {
+        background-color: #fff;
+    }
 
-.table_data tbody tr:nth-child(even) {
-    background-color: #f1f1f1;
-}
+    .table_data tbody tr:nth-child(even) {
+        background-color: #f1f1f1;
+    }
+
+    .nav-pills, .nav-tabs {
+        margin: 0 0 -10px 0 !important;
+    }
 </style>

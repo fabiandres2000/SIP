@@ -73,7 +73,7 @@
                                     <thead class>
                                         <tr class="kt-bg-fill-brand">
                                             <th class="text-left">No.</th>
-                                            <th class="text-left">
+                                            <th  style="width: 150px" class="text-left">
                                                 Identificación
                                             </th>
                                             <th class="text-left">
@@ -82,7 +82,7 @@
                                             <th>
                                                 Edad
                                             </th>
-                                            <th>
+                                            <th style="width: 150px">
                                                 Discapacidad
                                             </th>
                                             <th class="text-left">
@@ -90,7 +90,7 @@
                                             </th>
                                         </tr>
                                     </thead>
-                                    <tbody v-if="personas_discapacitadas_array.length > 0">
+                                    <tbody>
                                         <tr
                                             v-for="(item, index) in personas_discapacitadas_array"
                                             :key="index"
@@ -101,7 +101,7 @@
                                                 {{ index + 1 }}
                                             </td>
                                             <td
-                                                style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                                                style="width: 150px;font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                                             >
                                                 {{ item.identificacion }}
                                             </td>
@@ -116,10 +116,9 @@
                                                 {{ item.edad }} Años
                                             </td>
                                             <td
-                                                style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                                                style="width: 150px;font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                                             >
-                                                {{ item.discapacidad
- }}
+                                                {{ item.discapacidad}}
                                             </td>
                                             <td
                                                 style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
@@ -128,22 +127,14 @@
                                             </td>
                                         </tr>
                                     </tbody>
-                                    <tbody v-else>
-                                        <tr>
-                                            <td
-                                                colspan="11"
-                                                style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;font-size: 20px;"
-                                            >
-                                                No existen datos
-                                            </td>
-                                        </tr>
-                                    </tbody>
+                                   
                                 </table>   
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
             <b-modal
                 ref="modalpdf"
                 hide-footer
@@ -214,20 +205,10 @@ export default {
     },
     methods: {
         async personas_discapacitadas() {    
-            try {
-                await reporteServicios.personas_discapacitadas("todos", null).then(respuesta => {
-                    this.personas_discapacitadas_array = respuesta.data.discapacitados;
-                });
-            } catch (error) {
-                switch (error.response.status) {
-                    case 422:
-                        this.$swal("Error...!", "Ocurrio un error!", "error");
-                        break;
-                    default:
-                        this.$swal("Error...!", "Ocurrio un error!", "error");
-                        break;
-                }
-            }
+            await reporteServicios.personas_discapacitadas("todos", null).then(respuesta => {
+                this.personas_discapacitadas_array = respuesta.data.discapacitados;
+                this.crearDataTable();  
+            });
         },
         async listarBarrios(){
             const parametros = {
@@ -282,7 +263,6 @@ export default {
                 this.personas_discapacitadas();
             }
         },
-
         async filtrar(tipo){
             var id ;
             if(tipo == "barrio"){
@@ -325,15 +305,100 @@ export default {
 
             await reporteServicios.personas_discapacitadas(tipo, id).then(respuesta => {
                 this.personas_discapacitadas_array = respuesta.data.discapacitados;   
+                this.crearDataTable();  
             })
             .catch(err => {
                 console.log(err);
             });
         },
-
+        crearDataTable() {
+            $("#tablaDatos").dataTable().fnDestroy();
+            setTimeout(() => {
+                $('#tablaDatos').DataTable({
+                    "lengthChange": false,
+                    "ordering": false,
+                    pageLength : 10,
+                    language: {
+                        "decimal": "",
+                        "emptyTable": "No hay información",
+                        "info": "Mostrando _START_ a _END_ de _TOTAL_ Registros",
+                        "infoEmpty": "Mostrando 0 to 0 of 0 Registros",
+                        "infoFiltered": "(Filtrado de _MAX_ total Registros)",
+                        "infoPostFix": "",
+                        "thousands": ",",
+                        "lengthMenu": "Mostrar _MENU_ Registros",
+                        "loadingRecords": "Cargando...",
+                        "processing": "Procesando...",
+                        "search": "Buscar:",
+                        "zeroRecords": "Sin resultados encontrados",
+                        "paginate": {
+                            "first": "Primero",
+                            "last": "Ultimo",
+                            "next": "Siguiente",
+                            "previous": "Anterior"
+                        }
+                    }
+                });
+            }, 500);
+        },
         cerrarModal() {
             this.$refs.modalpdf.hide();
         },        
     }
 };
 </script>
+<style>
+    .table_data {
+        width: 100%;
+        font-size: 17px;
+        border-collapse: collapse;
+    }
+
+    .table_data thead {
+        padding: 0.3em;
+        color: #fff !important;
+        background: #5578eb;
+    }
+
+    .table_data thead tr th, .table_data tbody tr td {
+        text-align: left;
+        vertical-align: top;
+        padding: 0.3em;
+        caption-side: bottom;
+    }
+
+
+    .table_data tbody tr:nth-child(odd) {
+        background-color: #fff;
+    }
+
+    .table_data tbody tr:nth-child(even) {
+        background-color: #f1f1f1;
+    }
+
+    .dataTable th {
+        color: #ffffff !important;
+    }
+
+    .dataTables_paginate span {
+        padding-left: 10px;
+        padding-right: 10px;
+        color: #ffff !important;
+    }
+
+    .dataTables_paginate span  a{
+        color: #ffff !important;
+    }
+
+    .dataTables_filter label input {
+        margin-left: 20px
+    }
+
+    .nav-pills, .nav-tabs {
+        margin: 0 0 -10px 0 !important;
+    }
+
+    .paginate_button{
+        cursor: pointer;
+    }
+</style>

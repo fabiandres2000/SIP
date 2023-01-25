@@ -242,7 +242,7 @@ export const routes = [
     {
         path: '/informes/salud',
         name: 'informesSalud',
-        component: () => import ('./Vistas/Informes/salud.vue')
+        component: () => import ('./Vistas/Informes/SaludAdmin.vue')
     },
     {
         path: '/reportes/discapacitados',
