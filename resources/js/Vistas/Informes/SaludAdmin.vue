@@ -3,7 +3,7 @@
         <div id="divHijo1" style="width: 70%">
             <b-card no-body>
                 <b-tabs card>
-                    <b-tab title="Informe General Situación en Salud " active>
+                    <b-tab title="Informe General de Salud " active>
                         <Salud></Salud>
                     </b-tab>
                     <b-tab title="Informe Riesgos de Salud">

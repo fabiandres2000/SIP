@@ -112,19 +112,21 @@
                         <li class="li_li"><strong>Mayores de 60 Años </strong> {{$poblacion_array["edades"]["personas60"][0]+$poblacion_array["edades"]["personas60"][1]}} Personas</li>
                     </ul>
                 </div>
-                <div style="float: left; text-align: center; width: 430px !important;">
-                    <img src="{{$chart_torta_edades}}" style="width: 100%;height: auto;max-width: 100%;">
+                <div style="float: left; text-align: center; width: 530px !important;">
+                    <img src="{{$chart_torta_edades}}" style="width: 90%;height: auto;max-width: 100%;">
                 </div>
             </div>
         </div>
-        <div style="padding-top: 50px !important">
-            <div style="padding-top: 50px !important">
+        <div>
+            <div>
+                <br><br>
                 <strong>2. Población menor de 5 años no asegurada</strong> 
                 <p>
                     Dentro de este grupo de edad se tiene una cantidad de <strong>{{ $poblacion_no_asegurada["no_asegurado_menor_5"]["cantidad_personas"] }} personas</strong>, de las cuales <strong>{{ $poblacion_no_asegurada["no_asegurado_menor_5"]["rural"] + $poblacion_no_asegurada["no_asegurado_menor_5"]["urbano"] }} personas</strong>, se encuentran en la situación de población menor de 5 años no asegurada, de lo cual se puede obtener que <strong>{{ $poblacion_no_asegurada["no_asegurado_menor_5"]["rural"] }} personas</strong> se encuentran en zona rural, y <strong>{{ $poblacion_no_asegurada["no_asegurado_menor_5"]["urbano"] }} personas</strong>  en zona urbana.
                 </p>
+                <br>
                 <div style="text-align: center; width: 100%">
-                    <img src="{{$chart_no_asegurado_1}}" style="width: 70%;height: auto;">
+                    <img src="{{$chart_no_asegurado_1}}" style="width: 80%;height: auto;">
                 </div> 
             </div>
         </div>
@@ -134,12 +136,13 @@
                 <p>
                     Dentro de este grupo de edad se tiene una cantidad de <strong>{{ $poblacion_no_asegurada["no_asegurado_mayor_60"]["cantidad_personas"] }} personas</strong>, de las cuales <strong>{{ $poblacion_no_asegurada["no_asegurado_mayor_60"]["rural"] + $poblacion_no_asegurada["no_asegurado_mayor_60"]["urbano"] }} personas</strong>, se encuentran en la situación de población adulto mayor no asegurada, de lo cual se puede obtener que <strong>{{ $poblacion_no_asegurada["no_asegurado_mayor_60"]["rural"] }} personas</strong> se encuentran en zona rural, y <strong>{{ $poblacion_no_asegurada["no_asegurado_mayor_60"]["urbano"] }} personas</strong>  en zona urbana.
                 </p>
+                <br>
                 <div style="text-align: center; width: 100%">
-                    <img src="{{$chart_no_asegurado_2}}" style="width: 70%;height: auto;">
+                    <img src="{{$chart_no_asegurado_2}}" style="width: 80%;height: auto;">
                 </div>
             </div>
         </div>
-        <br>
+        <div style="page-break-after:always;"></div> 
         <br>
         <h4 style="color: #fd397a ">Determinante social de la salud</h4>
         <br>
@@ -182,10 +185,10 @@
                     </tbody>
                 </table>
             </div>
-            <div style="float: left; text-align: center; width: 500px !important; padding-top: 70px">
+            <div style="float: left; text-align: center; width: 500px !important;">
                 <h4>Grafica de porcentaje de personas <br> por nivel de escolaridad</h4>
                 <br>
-                <img src="{{$chart_escolaridad}}" style="width: 100%;height: auto;max-width: 100%;">
+                <img src="{{$chart_escolaridad}}" style="width: 120%;height: auto;max-width: 100%;">
             </div>
         </div> 
         <div style="page-break-after:always;"></div> 
@@ -201,7 +204,7 @@
                 </ul>
                 <br>
                 <div style="text-align: center; width: 100%">
-                    <img src="{{$chart_desempleo}}" style="width: 70%;height: auto;">
+                    <img src="{{$chart_desempleo}}" style="width: 90%;height: auto;">
                 </div>
             </div>
         </div>
@@ -212,11 +215,11 @@
             <br>
             <div style="float: left; text-align: center; width: 380px !important; padding-top: 70px">
                 <h5>Viviendas sin Acceso a Acueducto <br> (Por zona) </h5>
-                <img src="{{$chart_acueducto}}" style="width: 130%;height: auto;">
+                <img src="{{$chart_acueducto}}" style="width: 150%;height: auto;">
             </div>
             <div style="float: left; text-align: center; width: 380px !important; padding-top: 70px">
                 <h5>Viviendas sin Acceso a Alcantarillado <br> (Por zona)</h5>
-                <img src="{{$chart_alcantarillado}}" style="width: 130%;height: auto;">
+                <img src="{{$chart_alcantarillado}}" style="width: 150%;height: auto;">
             </div>
         </div>
         <div style="page-break-after:always;"></div> 
@@ -231,7 +234,7 @@
                 <div style="text-align: center; width: 100%">
                     <h5>Personas con enfermedades cronicas <br> (Por tipo de enfermedad)</h5>
                     <br>
-                    <img src="{{$chart_cronica}}" style="width: 90%;height: auto;">
+                    <img src="{{$chart_cronica}}" style="width: 100%;height: auto;">
                 </div>
             </div>
         </div>
@@ -244,7 +247,7 @@
                 <div style="text-align: center; width: 100%">
                     <h5>Personas con enfermedades Infecciosas <br> (Por tipo de enfermedad)</h5>
                     <br>
-                    <img src="{{$chart_infecciosa}}" style="width: 90%;height: auto;">
+                    <img src="{{$chart_infecciosa}}" style="width: 100%;height: auto;">
                 </div>
             </div>
         </div>
@@ -257,7 +260,7 @@
             <div style="text-align: center; width: 100%">
                 <h5>Personas con Discapacidad <br> (Por tipo de discapacidad)</h5>
                 <br>
-                <img src="{{$chart_discapacidad}}" style="width: 90%;height: auto;">
+                <img src="{{$chart_discapacidad}}" style="width: 100%;height: auto;">
             </div>
         </div>
         <br>
@@ -268,7 +271,7 @@
             <div style="text-align: center; width: 100%">
                 <h5>Adolescentes en Embarazo <br> (Por tipo de Zona)</h5>
                 <br>
-                <img src="{{$chart_embarazo}}" style="width: 90%;height: auto;">
+                <img src="{{$chart_embarazo}}" style="width: 100%;height: auto;">
             </div>
         </div>
         <div style="page-break-after:always;"></div> 
@@ -280,7 +283,7 @@
             <div style="text-align: center; width: 100%">
                 <h5>Niños no Inmunizados <br> (Por Grupo de Edad)</h5>
                 <br>
-                <img src="{{$chart_inmunizacion}}" style="width: 90%;height: auto;">
+                <img src="{{$chart_inmunizacion}}" style="width: 100%;height: auto;">
             </div>
         </div>
         <br>
@@ -301,7 +304,7 @@
         <div style="text-align: center; width: 100%">
             <h5>GRAFICA DE PESO PARA LA TALLA</h5>
             <br>
-            <img src="{{$chart_peso_para_talla}}" style="width: 90%;height: auto;">
+            <img src="{{$chart_peso_para_talla}}" style="width: 100%;height: auto;">
         </div>
         <div style="page-break-after:always;"></div> 
         <br>
@@ -317,7 +320,7 @@
         <div style="text-align: center; width: 100%">
             <h5>GRAFICA DE TALLA PARA LA EDAD</h5>
             <br>
-            <img src="{{$chart_talla_para_edad}}" style="width: 90%;height: auto;">
+            <img src="{{$chart_talla_para_edad}}" style="width: 100%;height: auto;">
         </div>
         <br>
         <div class="col-lg-12"  v-if="condiciones_salud_array != null">
@@ -333,7 +336,7 @@
         <div style="text-align: center; width: 100%">
             <h5>GRAFICA IMC</h5>
             <br>
-            <img src="{{$chart_imc}}" style="width: 90%;height: auto;">
+            <img src="{{$chart_imc}}" style="width: 100%;height: auto;">
         </div>
         <div style="page-break-after:always;"></div> 
         <br>
@@ -354,7 +357,7 @@
         <div style="text-align: center; width: 100%">
             <h5>GRAFICA IMC</h5>
             <br>
-            <img src="{{$chart_imc_5_17}}" style="width: 90%;height: auto;">
+            <img src="{{$chart_imc_5_17}}" style="width: 100%;height: auto;">
         </div>
         <br>
         <div>
@@ -370,7 +373,7 @@
         <div style="text-align: center; width: 100%">
             <h5>GRAFICA IMC <br> (Mujeres Embarazadas - 5 a 17 Años)</h5>
             <br>
-            <img src="{{$chart_imc_5_17_e}}" style="width: 90%;height: auto;">
+            <img src="{{$chart_imc_5_17_e}}" style="width: 100%;height: auto;">
         </div>
         <div style="page-break-after:always;"></div> 
         <br>
@@ -389,7 +392,7 @@
         <div style="text-align: center; width: 100%">
             <h5>GRAFICA IMC </h5>
             <br>
-            <img src="{{$chart_imc_18_60}}" style="width: 90%;height: auto;">
+            <img src="{{$chart_imc_18_60}}" style="width: 100%;height: auto;">
         </div>
         <br>
         <div>
@@ -406,7 +409,7 @@
         <div style="text-align: center; width: 100%">
             <h5>GRAFICA IMC <br> (Mujeres Embarazadas - Mayores de 18 años) </h5>
             <br>
-            <img src="{{$chart_imc_18_60_e}}" style="width: 90%;height: auto;">
+            <img src="{{$chart_imc_18_60_e}}" style="width: 100%;height: auto;">
         </div>
     </main>
 </body>

@@ -15,7 +15,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-sm-9">
+                            <div class="col-sm-9" style="text-align: left;">
                                 <h4>INFORME GENERAL SITUACIÓN EN SALUD POBLACIONAL</h4>
                             </div>
                             <div class="col-sm-3 text-right">
