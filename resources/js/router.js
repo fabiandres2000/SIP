@@ -225,6 +225,11 @@ export const routes = [
         component: () => import ('./Vistas/Reportes/EnfermedadesCronicas.vue')
     }, 
     {
+        path: '/reportes/infecciosas',
+        name: 'ReportesInfecciosos',
+        component: () => import ('./Vistas/Reportes/EnfermedadesInfecciosas.vue')
+    }, 
+    {
         path: '/reportes/migrantes',
         name: 'ReportesMigrantes',
         component: () => import ('./Vistas/Reportes/PoblacionMigrante.vue')

@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[67],{
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Log/Log.vue?vue&type=script&lang=js&":
-/*!**************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Log/Log.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Etnias/Etnias.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Etnias/Etnias.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -11,7 +11,7 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Servicios_usuarios_servicios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Servicios/usuarios_servicios */ "./resources/js/Servicios/usuarios_servicios.js");
+/* harmony import */ var _Servicios_etnias_servicios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Servicios/etnias_servicios */ "./resources/js/Servicios/etnias_servicios.js");
 /* harmony import */ var datatables_net_bs4__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! datatables.net-bs4 */ "./node_modules/datatables.net-bs4/js/dataTables.bootstrap4.js");
 /* harmony import */ var datatables_net_bs4__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(datatables_net_bs4__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var datatables_net_buttons_js_buttons_print__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! datatables.net-buttons/js/buttons.print */ "./node_modules/datatables.net-buttons/js/buttons.print.js");
@@ -22,6 +22,265 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var pdfmake_build_vfs_fonts__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! pdfmake/build/vfs_fonts */ "./node_modules/pdfmake/build/vfs_fonts.js");
 /* harmony import */ var pdfmake_build_vfs_fonts__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(pdfmake_build_vfs_fonts__WEBPACK_IMPORTED_MODULE_6__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -275,57 +534,27 @@ __webpack_require__(/*! datatables.net-buttons/js/buttons.html5 */ "./node_modul
 
 
 
- // import fixedHeader from "datatables.net/js/jquery.dataTables/fixedHeader";
 
 pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_5___default.a.vfs = pdfmake_build_vfs_fonts__WEBPACK_IMPORTED_MODULE_6___default.a.pdfMake.vfs;
 window.JSZip = jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_4___default.a;
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.consultar(1);
-    this.hoy = moment();
   },
-  filters: {
-    moment: function (_moment) {
-      function moment(_x) {
-        return _moment.apply(this, arguments);
-      }
-
-      moment.toString = function () {
-        return _moment.toString();
-      };
-
-      return moment;
-    }(function (date) {
-      return moment(date).format("YYYY-MM-DD");
-    })
-  },
-  name: "entes",
+  name: "barri",
   data: function data() {
     return {
       errores: [],
-      usuarios: [],
-      logs: [],
-      errorDevuelto: [],
+      bandera: false,
       entrarPorError: false,
-      logData: {
-        id: 0,
-        id_usuario: 0,
-        accion: "",
-        fecha: "",
-        hora: "",
-        estado: "Activo",
-        ip: "",
-        modulo: ""
+      txtbusqueda: "",
+      etnias: [],
+      etniasData: {
+        descripcion: "",
+        observacion: "",
+        id: 0
       },
-      datos: {
-        usuarios: "0",
-        fecha: "0",
-        modulos: "0"
-      },
-      hoy: "",
       csrf: document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
-      headerTextVariant: "light",
-      mostrar: true,
       paginacion: {
         total: 0,
         pagina_actual: 0,
@@ -335,12 +564,28 @@ window.JSZip = jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_4___default.a;
         hasta: 0
       },
       offset: 4,
-      valG: true,
-      actual: 0,
-      tabladatos: null
+      LabelEtnia: "",
+      datos: [],
+      clasificacion: "",
+      idEtnia: 0,
+      valG: true
     };
   },
   computed: {
+    // CLASES Y ERRORES DE CAMPO IDENTIFICACION
+    etniaError: function etniaError() {
+      var valor = this.etniasData.descripcion.trim();
+
+      if (valor == "") {
+        return "El campo es obligatorio";
+      }
+    },
+    etniaClases: function etniaClases() {
+      return [{
+        "is-invalid": this.etniaError,
+        "is-valid": !this.etniaError
+      }];
+    },
     esActivo: function esActivo() {
       return this.paginacion.pagina_actual;
     },
@@ -370,12 +615,16 @@ window.JSZip = jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_4___default.a;
       }
 
       return paginasArray;
+    },
+    spinG: function spinG() {
+      if (this.valG) {
+        return {};
+      } else {
+        return ["kt-spinner", "kt-spinner--right", "kt-spinner--sm", "kt-spinner--light"];
+      }
     }
   },
   methods: {
-    iniciarTabla: function iniciarTabla() {
-      this.tabla();
-    },
     consultar: function () {
       var _consultar = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(pagina) {
         var _this = this;
@@ -385,63 +634,67 @@ window.JSZip = jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_4___default.a;
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
+                this.etnias = [];
                 parametros = {
+                  txtbusqueda: this.txtbusqueda.trim(),
                   _token: this.csrf,
                   page: pagina
                 };
-                _context.prev = 1;
-                _context.next = 4;
-                return _Servicios_usuarios_servicios__WEBPACK_IMPORTED_MODULE_1__["usuariosLog"](parametros).then(function (respuesta) {
-                  _this.usuarios = respuesta.data.usuarios;
-                  _this.logs = respuesta.data.logs; // this.paginacion = respuesta.data.paginacion;
+                _context.prev = 2;
+                _context.next = 5;
+                return _Servicios_etnias_servicios__WEBPACK_IMPORTED_MODULE_1__["listarEtnias"](parametros).then(function (respuesta) {
+                  _this.etnias = respuesta.data.etnias; // this.paginacion = respuesta.data.paginacion;
 
                   // this.paginacion = respuesta.data.paginacion;
-                  _this.iniciarTabla();
+                  _this.tabla();
                 });
 
-              case 4:
-                _context.next = 17;
+              case 5:
+                _context.next = 16;
                 break;
 
-              case 6:
-                _context.prev = 6;
-                _context.t0 = _context["catch"](1);
+              case 7:
+                _context.prev = 7;
+                _context.t0 = _context["catch"](2);
                 _context.t1 = _context.t0.response.status;
-                _context.next = _context.t1 === 419 ? 11 : _context.t1 === 422 ? 13 : 15;
+                _context.next = _context.t1 === 422 ? 12 : 14;
                 break;
 
-              case 11:
+              case 12:
                 this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context.abrupt("break", 17);
+                return _context.abrupt("break", 16);
 
-              case 13:
+              case 14:
                 this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context.abrupt("break", 17);
+                return _context.abrupt("break", 16);
 
-              case 15:
-                this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context.abrupt("break", 17);
-
-              case 17:
+              case 16:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, this, [[1, 6]]);
+        }, _callee, this, [[2, 7]]);
       }));
 
-      function consultar(_x2) {
+      function consultar(_x) {
         return _consultar.apply(this, arguments);
       }
 
       return consultar;
     }(),
-    cambiarPaginas: function cambiarPaginas(pagina) {
-      this.paginacion.pagina_actual = pagina;
-      this.buscar(pagina);
+    abrirModal: function abrirModal() {
+      this.etniasData.descripcion = "";
+      this.etniasData.observacion = "";
+      this.etniasData.id = 0;
+      this.errores = [];
+      this.entrarPorError = false;
+      this.$refs.modalEtnias.show();
     },
-    buscar: function () {
-      var _buscar = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(pagina) {
+    cerrarModal: function cerrarModal() {
+      this.$refs.modalEtnias.hide();
+    },
+    guardarEtnia: function () {
+      var _guardarEtnia = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
         var _this2 = this;
 
         var parametros;
@@ -449,74 +702,407 @@ window.JSZip = jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_4___default.a;
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                this.logs = [];
-                parametros = {
-                  _token: this.csrf,
-                  id_usuario: this.datos.usuarios,
-                  modulos: this.datos.modulos,
-                  fecha: this.datos.fecha,
-                  page: pagina
-                };
-                _context2.prev = 2;
-                _context2.next = 5;
-                return _Servicios_usuarios_servicios__WEBPACK_IMPORTED_MODULE_1__["usuariosLogBuscar"](parametros).then(function (respuesta) {
-                  $.fn.DataTable = datatables_net_bs4__WEBPACK_IMPORTED_MODULE_2___default.a;
+                if (this.checkForm()) {
+                  _context2.next = 4;
+                  break;
+                }
 
-                  _this2.tabladatos.fnClearTable();
-
-                  _this2.tabladatos.fnDestroy(); // $('#tablaDatos tbody').empty();                        
-
-
-                  // $('#tablaDatos tbody').empty();                        
-                  _this2.logs = respuesta.data.logs; // this.tabladatos.fnAddData(this.logs);
-
-                  // this.tabladatos.fnAddData(this.logs);
-                  _this2.iniciarTabla();
-                });
-
-              case 5:
-                _context2.next = 18;
+                this.entrarPorError = false;
+                _context2.next = 23;
                 break;
 
-              case 7:
+              case 4:
+                this.errores = [];
+                parametros = {
+                  _token: this.csrf,
+                  descripcion: this.etniasData.descripcion,
+                  observacion: this.etniasData.observacion,
+                  id: this.etniasData.id
+                };
+                this.valG = false;
                 _context2.prev = 7;
-                _context2.t0 = _context2["catch"](2);
-                _context2.t1 = _context2.t0.response.status;
-                _context2.next = _context2.t1 === 419 ? 12 : _context2.t1 === 422 ? 14 : 16;
+                _context2.next = 10;
+                return _Servicios_etnias_servicios__WEBPACK_IMPORTED_MODULE_1__["guardarEtnias"](parametros).then(function (respuesta) {
+                  _this2.tabladatos.fnClearTable();
+
+                  _this2.tabladatos.fnDestroy();
+
+                  _this2.consultar(1);
+
+                  _this2.etniasData.descripcion = "";
+                  _this2.etniasData.observacion = "";
+                  _this2.etniasData.id = 0;
+
+                  _this2.cerrarModal();
+
+                  _this2.$swal("Guardar...!", "Datos Guardados Exitosamente!", "success");
+
+                  _this2.valG = true;
+                })["catch"](function (error) {
+                  _this2.errorDevuelto = error.response.data.errors;
+                  _this2.entrarPorError = true;
+                });
+
+              case 10:
+                _context2.next = 23;
                 break;
 
               case 12:
-                this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context2.abrupt("break", 18);
+                _context2.prev = 12;
+                _context2.t0 = _context2["catch"](7);
+                _context2.t1 = _context2.t0.response.status;
+                _context2.next = _context2.t1 === 419 ? 17 : _context2.t1 === 422 ? 19 : 21;
+                break;
 
-              case 14:
+              case 17:
                 this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context2.abrupt("break", 18);
+                return _context2.abrupt("break", 23);
 
-              case 16:
+              case 19:
                 this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context2.abrupt("break", 18);
+                return _context2.abrupt("break", 23);
 
-              case 18:
+              case 21:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context2.abrupt("break", 23);
+
+              case 23:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, this, [[2, 7]]);
+        }, _callee2, this, [[7, 12]]);
       }));
 
-      function buscar(_x3) {
-        return _buscar.apply(this, arguments);
+      function guardarEtnia() {
+        return _guardarEtnia.apply(this, arguments);
       }
 
-      return buscar;
+      return guardarEtnia;
+    }(),
+    checkForm: function checkForm(e) {
+      this.errores = [];
+
+      if (!this.etniasData.descripcion) {
+        this.errores.push("La descripción es obligatoria.");
+      }
+
+      if (!this.errores.length) {
+        return true;
+      } else {
+        return false;
+      }
+
+      e.preventDefault();
+    },
+    cambiarPaginas: function cambiarPaginas(pagina) {
+      this.paginacion.pagina_actual = pagina;
+      this.consultar(pagina);
+    },
+    eliminar: function () {
+      var _eliminar = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(usu) {
+        var _this3 = this;
+
+        var title, titulo;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                title = "";
+                titulo = "";
+
+                if (usu.estado == "Activo") {
+                  title = "¿Desea anular la etnia " + usu.descripcion + "?";
+                  titulo = "Etnia " + usu.descripcion + " anulada de manera exitosa";
+                } else {
+                  title = "¿Desea activar la etnia " + usu.descripcion + "?";
+                  titulo = "Etnia " + usu.descripcion + " activada de manera exitosa";
+                }
+
+                this.$swal({
+                  title: title,
+                  text: "",
+                  icon: "warning",
+                  showCancelButton: true,
+                  confirmButtonColor: "#3085d6",
+                  cancelButtonColor: "#d33",
+                  confirmButtonText: "Aceptar",
+                  cancelButtonText: "Cancelar"
+                }).then(function (result) {
+                  if (result.value) {
+                    var parametros = {
+                      _token: _this3.csrf,
+                      id: usu.id,
+                      estado: usu.estado
+                    };
+
+                    try {
+                      _Servicios_etnias_servicios__WEBPACK_IMPORTED_MODULE_1__["eliminarEtnias"](parametros).then(function (respuesta) {
+                        _this3.tabladatos.fnClearTable();
+
+                        _this3.tabladatos.fnDestroy();
+
+                        _this3.consultar(1);
+
+                        _this3.$swal({
+                          position: "top-end",
+                          icon: "success",
+                          title: titulo,
+                          showConfirmButton: false,
+                          timer: 2000
+                        });
+                      })["catch"](function (error) {
+                        _this3.$swal("Error...!", "Ocurrio un error!", "error");
+                      });
+                    } catch (error) {
+                      switch (error.response.status) {
+                        case 422:
+                          _this3.$swal("Error...!", "Ocurrio un error!", "error");
+
+                          break;
+
+                        default:
+                          _this3.$swal("Error...!", "Ocurrio un error!", "error");
+
+                          break;
+                      }
+                    }
+                  }
+                });
+
+              case 4:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this);
+      }));
+
+      function eliminar(_x2) {
+        return _eliminar.apply(this, arguments);
+      }
+
+      return eliminar;
+    }(),
+    abrirModalClasi: function abrirModalClasi(etn) {
+      this.LabelEtnia = etn.descripcion;
+      this.idEtnia = etn.id;
+      this.consultarClasificacion();
+      this.$refs.modalClasificacion.show();
+    },
+    cerrarModalClasi: function cerrarModalClasi() {
+      this.idEtnia = 0;
+      this.$refs.modalClasificacion.hide();
+    },
+    agregar: function agregar() {
+      if (this.clasificacion == "") {
+        this.$swal("Error...!", "Por favor digite una clasificación!", "error");
+        return;
+      }
+
+      this.datos.push({
+        id: 0,
+        clasificacion: this.clasificacion,
+        estado: "Activo"
+      });
+      this.clasificacion = "";
+    },
+    eliminarItem: function eliminarItem(index, estado) {
+      var esta = "";
+
+      if (estado == "Activo") {
+        esta = "Inactivo";
+      } else {
+        esta = "Activo";
+      }
+
+      this.datos[index].estado = esta; // this.datos.splice(index, 1);
+    },
+    guardarClasificacion: function () {
+      var _guardarClasificacion = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
+        var _this4 = this;
+
+        var parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                if (this.checkForm2()) {
+                  _context4.next = 4;
+                  break;
+                }
+
+                this.entrarPorError = false;
+                _context4.next = 23;
+                break;
+
+              case 4:
+                this.errores = [];
+                parametros = {
+                  _token: this.csrf,
+                  clasificacion: this.datos,
+                  id_etnia: this.idEtnia
+                };
+                this.valG = false;
+                _context4.prev = 7;
+                _context4.next = 10;
+                return _Servicios_etnias_servicios__WEBPACK_IMPORTED_MODULE_1__["guardarClasificacion"](parametros).then(function (respuesta) {
+                  _this4.tabladatos.fnClearTable();
+
+                  _this4.tabladatos.fnDestroy();
+
+                  _this4.consultar(1);
+
+                  _this4.datos = [];
+                  _this4.clasificacion = "";
+                  _this4.bandera = false;
+
+                  _this4.cerrarModalClasi();
+
+                  _this4.$swal("Guardar...!", "Datos Guardados Exitosamente!", "success");
+
+                  _this4.valG = true;
+                })["catch"](function (error) {
+                  _this4.errorDevuelto = error.response.data.errors;
+                  _this4.entrarPorError = true;
+                });
+
+              case 10:
+                _context4.next = 23;
+                break;
+
+              case 12:
+                _context4.prev = 12;
+                _context4.t0 = _context4["catch"](7);
+                _context4.t1 = _context4.t0.response.status;
+                _context4.next = _context4.t1 === 419 ? 17 : _context4.t1 === 422 ? 19 : 21;
+                break;
+
+              case 17:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context4.abrupt("break", 23);
+
+              case 19:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context4.abrupt("break", 23);
+
+              case 21:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context4.abrupt("break", 23);
+
+              case 23:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4, this, [[7, 12]]);
+      }));
+
+      function guardarClasificacion() {
+        return _guardarClasificacion.apply(this, arguments);
+      }
+
+      return guardarClasificacion;
+    }(),
+    checkForm2: function checkForm2(e) {
+      this.errores = [];
+
+      if (this.datos.length <= 0) {
+        this.errores.push("Agregue por lo menos una clasificación");
+      }
+
+      if (!this.errores.length) {
+        return true;
+      } else {
+        return false;
+      }
+
+      e.preventDefault();
+    },
+    consultarClasificacion: function () {
+      var _consultarClasificacion = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
+        var _this5 = this;
+
+        var parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                parametros = {
+                  id_etnia: this.idEtnia,
+                  _token: this.csrf
+                };
+                _context5.prev = 1;
+                _context5.next = 4;
+                return _Servicios_etnias_servicios__WEBPACK_IMPORTED_MODULE_1__["listarClasificacion"](parametros).then(function (respuesta) {
+                  _this5.datos = respuesta.data.clasificacion;
+                });
+
+              case 4:
+                _context5.next = 15;
+                break;
+
+              case 6:
+                _context5.prev = 6;
+                _context5.t0 = _context5["catch"](1);
+                _context5.t1 = _context5.t0.response.status;
+                _context5.next = _context5.t1 === 422 ? 11 : 13;
+                break;
+
+              case 11:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context5.abrupt("break", 15);
+
+              case 13:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context5.abrupt("break", 15);
+
+              case 15:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5, this, [[1, 6]]);
+      }));
+
+      function consultarClasificacion() {
+        return _consultarClasificacion.apply(this, arguments);
+      }
+
+      return consultarClasificacion;
+    }(),
+    editar: function () {
+      var _editar = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(item) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+          while (1) {
+            switch (_context6.prev = _context6.next) {
+              case 0:
+                this.etniasData.descripcion = item.descripcion;
+                this.etniasData.observacion = item.observacion;
+                this.etniasData.id = item.id;
+                this.$refs.modalEtnias.show();
+
+              case 4:
+              case "end":
+                return _context6.stop();
+            }
+          }
+        }, _callee6, this);
+      }));
+
+      function editar(_x3) {
+        return _editar.apply(this, arguments);
+      }
+
+      return editar;
     }(),
     tabla: function tabla() {
-      var _this3 = this;
+      var _this6 = this;
 
       this.$nextTick(function () {
         $.fn.DataTable = datatables_net_bs4__WEBPACK_IMPORTED_MODULE_2___default.a;
-        _this3.tabladatos = $("#tablaDatos").DataTable({
+        _this6.tabladatos = $("#tablaDatos").DataTable({
+          // bFilter: false,
           orderCellsTop: true,
           language: {
             processing: "Procesando...",
@@ -722,10 +1308,10 @@ window.JSZip = jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_4___default.a;
               text: "<i class='fa fa-file-alt'></i>",
               titleAttr: "Copiar",
               className: "btn btn-outline-brand btn-icon btn-lg",
-              messageTop: "Listado de Logs",
+              messageTop: "Listado de Etnias",
               title: "Sistema Integrado Poblacional",
               exportOptions: {
-                columns: [0, 1, 2, 3, 4, 5]
+                columns: [0, 1, 2]
               }
             }, {
               extend: "excelHtml5",
@@ -735,20 +1321,20 @@ window.JSZip = jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_4___default.a;
               excelStyles: {
                 template: "header_blue"
               },
-              messageTop: "Listado de Logs",
+              messageTop: "Listado de Etnias",
               title: "Sistema Integrado Poblacional",
               exportOptions: {
-                columns: [0, 1, 2, 3, 4, 5]
+                columns: [0, 1, 2]
               }
             }, {
               extend: "pdfHtml5",
               text: "<i class='fa fa-file-pdf'></i>",
               titleAttr: "Exportar a PDF",
               className: "btn btn-outline-danger btn-icon btn-lg",
-              messageTop: "Listado de Logs",
+              messageTop: "Listado de Etnias",
               title: "Sistema Integrado Poblacional",
               exportOptions: {
-                columns: [0, 1, 2, 3, 4, 5]
+                columns: [0, 1, 2]
               },
               customize: function customize(doc) {
                 doc.styles.title = {
@@ -770,29 +1356,29 @@ window.JSZip = jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_4___default.a;
               text: "<i class='fa fa-file-csv'></i>",
               titleAttr: "Exportar a csv",
               className: "btn btn-outline-info btn-icon btn-lg",
-              messageTop: "Listado de Logs",
+              messageTop: "Listado de Etnias",
               title: "Sistema Integrado Poblacional",
               exportOptions: {
-                columns: [0, 1, 2, 3, 4, 5]
+                columns: [0, 1, 2]
               }
             }, {
               extend: "print",
               text: "<i class='fa fa-print'></i>",
               titleAttr: "Imprimir Archivo",
               className: "btn btn-outline-dark btn-icon btn-lg",
-              messageTop: "Listado de Logs",
+              messageTop: "Listado de Etnias",
               title: "Sistema Integrado Poblacional",
               exportOptions: {
-                columns: [0, 1, 2, 3, 4, 5]
+                columns: [0, 1, 2]
               }
             }]
           }
         });
-        $('.dataTables_filter input').attr("placeholder", "Busqueda...");
-        $('.dataTables_filter label').addClass("form-control");
-        $('.dataTables_filter label').css("outline", "none");
-        $('.dataTables_filter label').css("border", "0");
-        $('.dataTables_filter label').css("padding-bottom", "35px");
+        $(".dataTables_filter input").attr("placeholder", "Busqueda...");
+        $(".dataTables_filter label").addClass("form-control");
+        $(".dataTables_filter label").css("outline", "none");
+        $(".dataTables_filter label").css("border", "0");
+        $(".dataTables_filter label").css("padding-bottom", "35px");
         $(".dataTables_filter label input").css("margin-left", "0px");
       });
     }
@@ -801,10 +1387,59 @@ window.JSZip = jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_4___default.a;
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Log/Log.vue?vue&type=template&id=2b7f364e&":
-/*!******************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Log/Log.vue?vue&type=template&id=2b7f364e& ***!
-  \******************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Etnias/Etnias.vue?vue&type=style&index=0&lang=css&":
+/*!***************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Etnias/Etnias.vue?vue&type=style&index=0&lang=css& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.modal-backdrop {\n    background-color: rgba(0, 0, 0, 0.5) !important;\n}\n.modal-title {\n    color: #f8f9fa !important;\n}\n.close {\n    display: none;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Etnias/Etnias.vue?vue&type=style&index=0&lang=css&":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Etnias/Etnias.vue?vue&type=style&index=0&lang=css& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Etnias.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Etnias/Etnias.vue?vue&type=style&index=0&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Etnias/Etnias.vue?vue&type=template&id=6349f544&":
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Etnias/Etnias.vue?vue&type=template&id=6349f544& ***!
+  \************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -827,261 +1462,29 @@ var render = function() {
           _c("div", { staticClass: "kt-section" }, [
             _c("div", { staticClass: "kt-section__content" }, [
               _c("div", { staticClass: "row" }, [
-                _c(
-                  "div",
-                  { staticClass: "col-lg-2" },
-                  [
-                    _c("label", [_vm._v("Usuarios:")]),
-                    _vm._v(" "),
-                    _c(
-                      "b-form-select",
-                      {
-                        class:
-                          _vm.datos.usuarios == "0" ? "is-invalid" : "is-valid",
-                        model: {
-                          value: _vm.datos.usuarios,
-                          callback: function($$v) {
-                            _vm.$set(
-                              _vm.datos,
-                              "usuarios",
-                              typeof $$v === "string" ? $$v.trim() : $$v
-                            )
+                _c("div", { staticClass: "col-md-6 col-lg-6" }, [
+                  _c("div", { staticClass: "kt-section" }, [
+                    _c("div", { staticClass: "kt-section__content" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-outline-primary btn-icon",
+                          attrs: {
+                            href: "javascript:;",
+                            "data-skin": "dark",
+                            "data-toggle": "kt-tooltip",
+                            "data-placement": "top",
+                            title: "Nueva Etnia"
                           },
-                          expression: "datos.usuarios"
-                        }
-                      },
-                      [
-                        _c("option", { attrs: { value: "0", selected: "" } }, [
-                          _vm._v("Seleccione")
-                        ]),
-                        _vm._v(" "),
-                        _vm._l(_vm.usuarios, function(item) {
-                          return _c(
-                            "option",
-                            { key: item.id, domProps: { value: item.id } },
-                            [_vm._v(_vm._s(item.nombre))]
-                          )
-                        })
-                      ],
-                      2
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "col-lg-2" },
-                  [
-                    _c("label", [_vm._v("Modulos:")]),
-                    _vm._v(" "),
-                    _c(
-                      "b-form-select",
-                      {
-                        class:
-                          _vm.datos.modulos == "0" ? "is-invalid" : "is-valid",
-                        model: {
-                          value: _vm.datos.modulos,
-                          callback: function($$v) {
-                            _vm.$set(
-                              _vm.datos,
-                              "modulos",
-                              typeof $$v === "string" ? $$v.trim() : $$v
-                            )
-                          },
-                          expression: "datos.modulos"
-                        }
-                      },
-                      [
-                        _c("option", { attrs: { value: "0", selected: "" } }, [
-                          _vm._v("Seleccione")
-                        ]),
-                        _vm._v(" "),
-                        _c("option", { attrs: { id: "INICIO SESION" } }, [
-                          _vm._v("INICIO")
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "option",
-                          { attrs: { id: "PARAMETROS ACTIVIDADES" } },
-                          [_vm._v("ACTIVIDADES")]
-                        ),
-                        _vm._v(" "),
-                        _c("option", { attrs: { id: "PARAMETROS BARRIOS" } }, [
-                          _vm._v("BARRIOS")
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "option",
-                          { attrs: { id: "PARAMETROS ESCOLARIDAD" } },
-                          [_vm._v("ESCOLARIDAD")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "option",
-                          {
-                            attrs: { id: "PARAMETROS ENFERMEDADES_INFECCIOSAS" }
-                          },
-                          [_vm._v("ENFERMEDADES INFECCIOSAS")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "option",
-                          { attrs: { id: "PARAMETROS ENFERMEDADES_CRONICAS" } },
-                          [_vm._v("ENFERMEDADES CRONICAS")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "option",
-                          { attrs: { id: "PARAMETROS CORREGIMIENTOS" } },
-                          [_vm._v("CORREGIMIENTOS")]
-                        ),
-                        _vm._v(" "),
-                        _c("option", { attrs: { id: "PARAMETROS COLEGIOS" } }, [
-                          _vm._v("COLEGIOS")
-                        ]),
-                        _vm._v(" "),
-                        _c("option", { attrs: { id: "ESTABLECIMIENTOS" } }, [
-                          _vm._v("ESTABLECIMIENTOS")
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "option",
-                          { attrs: { id: "PARAMETROS ESTADO_CIVIL" } },
-                          [_vm._v("ESTADO CIVIL")]
-                        ),
-                        _vm._v(" "),
-                        _c("option", { attrs: { id: "PARAMETROS ETNIAS" } }, [
-                          _vm._v("ETNIAS")
-                        ]),
-                        _vm._v(" "),
-                        _c("option", { attrs: { id: "PARAMETROS GRUPOS" } }, [
-                          _vm._v("GRUPOS")
-                        ]),
-                        _vm._v(" "),
-                        _c("option", { attrs: { id: "PARAMETROS METODOS" } }, [
-                          _vm._v("METODOS")
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "option",
-                          { attrs: { id: "PARAMETROS MORBILIDAD_GESTACION" } },
-                          [_vm._v("MORBILIDAD GESTACION")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "option",
-                          { attrs: { id: "PARAMETROS MORBILIDAD_NACER" } },
-                          [_vm._v("MORBILIDAD AL NACER")]
-                        ),
-                        _vm._v(" "),
-                        _c("option", { attrs: { id: "PARAMETROS MOTIVOS" } }, [
-                          _vm._v("MOTIVOS")
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "option",
-                          { attrs: { id: "PARAMETROS OCUPACIONES" } },
-                          [_vm._v("OCUPACIONES")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "option",
-                          { attrs: { id: "PARAMETROS PARENTESCOS" } },
-                          [_vm._v("PARENTESCOS")]
-                        ),
-                        _vm._v(" "),
-                        _c("option", { attrs: { id: "PARAMETROS RELIGION" } }, [
-                          _vm._v("RELIGION")
-                        ]),
-                        _vm._v(" "),
-                        _c("option", { attrs: { id: "PARAMETROS VEREDAS" } }, [
-                          _vm._v("VEREDAS")
-                        ]),
-                        _vm._v(" "),
-                        _c("option", { attrs: { id: "PARAMETROS USUARIOS" } }, [
-                          _vm._v("USUARIOS")
-                        ]),
-                        _vm._v(" "),
-                        _c("option", { attrs: { id: "SOPORTE ENTES" } }, [
-                          _vm._v("SOPORTE ENTES")
-                        ]),
-                        _vm._v(" "),
-                        _c("option", { attrs: { id: "UNIDADES" } }, [
-                          _vm._v("UNIDADES")
-                        ]),
-                        _vm._v(" "),
-                        _c("option", { attrs: { id: "CERRAR SESION" } }, [
-                          _vm._v("CERRAR")
-                        ])
-                      ]
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-lg-2" }, [
-                  _c("label", [_vm._v("Fecha:")]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.datos.fecha,
-                        expression: "datos.fecha"
-                      }
-                    ],
-                    staticClass: "form-control text-capitalize",
-                    class: _vm.datos.fecha == "0" ? "" : "is-valid",
-                    attrs: {
-                      id: "date",
-                      type: "date",
-                      placeholder: "Fecha",
-                      max: _vm._f("moment")(_vm.hoy)
-                    },
-                    domProps: { value: _vm.datos.fecha },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(_vm.datos, "fecha", $event.target.value)
-                      }
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-lg-2" }, [
-                  _c("br"),
-                  _vm._v(" "),
-                  _c("label", [_vm._v("      ")]),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    {
-                      staticClass: "btn btn-outline-success btn-icon",
-                      attrs: {
-                        href: "javascript:;",
-                        "data-skin": "dark",
-                        "data-toggle": "kt-tooltip",
-                        "data-placement": "top",
-                        title: "Buscar"
-                      },
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          return _vm.buscar(1)
-                        }
-                      }
-                    },
-                    [_c("i", { staticClass: "fa fa-search" })]
-                  ),
-                  _vm._v(" \n                        ")
+                          on: { click: _vm.abrirModal }
+                        },
+                        [_c("i", { staticClass: "la la-file-text-o" })]
+                      ),
+                      _vm._v(" \n                                ")
+                    ])
+                  ])
                 ])
               ]),
-              _vm._v(" "),
-              _c("br"),
               _vm._v(" "),
               _c("div", { staticClass: "row" }, [
                 _c("div", { staticClass: "col-md-12" }, [
@@ -1097,14 +1500,15 @@ var render = function() {
                         _vm._v(" "),
                         _c(
                           "tbody",
-                          _vm._l(_vm.logs, function(item, index) {
+                          _vm._l(_vm.etnias, function(item, index) {
                             return _c("tr", { key: index }, [
                               _c(
                                 "td",
                                 {
                                   staticStyle: {
                                     "font-weight": "normal",
-                                    "vertical-align": "middle"
+                                    "vertical-align": "middle",
+                                    color: "#212529"
                                   }
                                 },
                                 [
@@ -1123,13 +1527,14 @@ var render = function() {
                                     "font-weight": "normal",
                                     "vertical-align": "middle",
                                     "text-align": "left",
-                                    "text-transform": "capitalize"
+                                    "text-transform": "capitalize",
+                                    color: "#212529"
                                   }
                                 },
                                 [
                                   _vm._v(
                                     "\n                                                " +
-                                      _vm._s(item.accion) +
+                                      _vm._s(item.descripcion) +
                                       "\n                                            "
                                   )
                                 ]
@@ -1141,15 +1546,15 @@ var render = function() {
                                   staticStyle: {
                                     "font-weight": "normal",
                                     "vertical-align": "middle",
-                                    "text-align": "left"
+                                    "text-align": "left",
+                                    "text-transform": "capitalize",
+                                    color: "#212529"
                                   }
                                 },
                                 [
                                   _vm._v(
                                     "\n                                                " +
-                                      _vm._s(item.fecha) +
-                                      " -\n                                                " +
-                                      _vm._s(item.hora) +
+                                      _vm._s(item.observacion) +
                                       "\n                                            "
                                   )
                                 ]
@@ -1161,14 +1566,21 @@ var render = function() {
                                   staticStyle: {
                                     "font-weight": "normal",
                                     "vertical-align": "middle",
-                                    "text-align": "center"
+                                    "text-align": "center",
+                                    color: "#212529"
                                   }
                                 },
                                 [
-                                  _vm._v(
-                                    "\n                                                " +
-                                      _vm._s(item.ip) +
-                                      "\n                                            "
+                                  _c(
+                                    "span",
+                                    {
+                                      staticClass: "kt-badge kt-badge--inline",
+                                      class:
+                                        item.estado == "Activo"
+                                          ? "kt-badge--success"
+                                          : "kt-badge--danger"
+                                    },
+                                    [_vm._v(_vm._s(item.estado))]
                                   )
                                 ]
                               ),
@@ -1177,34 +1589,78 @@ var render = function() {
                                 "td",
                                 {
                                   staticStyle: {
-                                    "font-weight": "normal",
+                                    "text-align": "center",
                                     "vertical-align": "middle",
-                                    "text-align": "left"
+                                    color: "#212529"
                                   }
                                 },
                                 [
-                                  _vm._v(
-                                    "\n                                                " +
-                                      _vm._s(item.modulo) +
-                                      "\n                                            "
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "td",
-                                {
-                                  staticStyle: {
-                                    "font-weight": "normal",
-                                    "vertical-align": "middle",
-                                    "text-align": "left"
-                                  }
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                                                " +
-                                      _vm._s(item.nombre) +
-                                      "\n                                            "
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        "btn btn-outline-success btn-icon btn-sm",
+                                      attrs: {
+                                        type: "button",
+                                        title: "Agregar Clasificación"
+                                      },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.abrirModalClasi(item)
+                                        }
+                                      }
+                                    },
+                                    [_c("i", { staticClass: "fa fa-list" })]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        "btn btn-outline-info btn-icon btn-sm",
+                                      attrs: {
+                                        type: "button",
+                                        title: "Editar"
+                                      },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.editar(item)
+                                        }
+                                      }
+                                    },
+                                    [_c("i", { staticClass: "fa fa-edit" })]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass: "btn btn-icon btn-sm",
+                                      class:
+                                        item.estado == "Activo"
+                                          ? "btn-outline-danger"
+                                          : "btn-outline-success",
+                                      attrs: {
+                                        type: "button",
+                                        title:
+                                          item.estado == "Activo"
+                                            ? "Anular"
+                                            : "Activar"
+                                      },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.eliminar(item)
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c("i", {
+                                        staticClass: "fa",
+                                        class:
+                                          item.estado == "Activo"
+                                            ? "fa-trash"
+                                            : "fa-check"
+                                      })
+                                    ]
                                   )
                                 ]
                               )
@@ -1223,8 +1679,551 @@ var render = function() {
               ])
             ])
           ])
-        ])
-      ]
+        ]),
+        _vm._v(" "),
+        _c(
+          "b-modal",
+          {
+            ref: "modalEtnias",
+            attrs: {
+              "hide-footer": "",
+              title: "Gestion de Etnias",
+              size: "xl",
+              centered: "",
+              "header-bg-variant": "danger",
+              "header-text-variant": "light",
+              "no-close-on-backdrop": true
+            }
+          },
+          [
+            _c("div", { staticClass: "d-block" }, [
+              _c("div", { staticClass: "row" }, [
+                _c(
+                  "div",
+                  { staticClass: "col-lg-12" },
+                  [
+                    _c(
+                      "transition",
+                      { attrs: { duration: 1000, name: "fade" } },
+                      [
+                        _vm.entrarPorError
+                          ? _c(
+                              "div",
+                              {
+                                staticClass: "alert alert-warning fade show",
+                                attrs: { role: "alert" }
+                              },
+                              [
+                                _c("div", { staticClass: "alert-icon" }, [
+                                  _c("i", { staticClass: "flaticon-warning" })
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "alert-text" }, [
+                                  _vm._v(
+                                    "\n                                    Por favor, corrija el(los) siguiente(s)\n                                    error(es):\n                                    "
+                                  ),
+                                  _c("hr"),
+                                  _vm._v(" "),
+                                  _c(
+                                    "ul",
+                                    _vm._l(_vm.errorDevuelto, function(
+                                      error,
+                                      index
+                                    ) {
+                                      return _c("li", { key: index }, [
+                                        _vm._v(
+                                          "\n                                            " +
+                                            _vm._s(error) +
+                                            "\n                                        "
+                                        )
+                                      ])
+                                    }),
+                                    0
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "alert-close" }, [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass: "close",
+                                      attrs: {
+                                        type: "button",
+                                        "data-dismiss": "alert",
+                                        "aria-label": "Close"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "span",
+                                        { attrs: { "aria-hidden": "true" } },
+                                        [
+                                          _c("i", {
+                                            staticClass: "la la-close"
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ]
+                            )
+                          : _vm._e()
+                      ]
+                    )
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c(
+                  "div",
+                  { staticClass: "col-lg-12" },
+                  [
+                    _c(
+                      "transition",
+                      { attrs: { duration: 1000, name: "fade" } },
+                      [
+                        _vm.errores.length
+                          ? _c(
+                              "div",
+                              {
+                                staticClass: "alert alert-warning fade show",
+                                attrs: { role: "alert" }
+                              },
+                              [
+                                _c("div", { staticClass: "alert-icon" }, [
+                                  _c("i", { staticClass: "flaticon-warning" })
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "alert-text" }, [
+                                  _vm._v(
+                                    "\n                                    Por favor, corrija el(los) siguiente(s)\n                                    error(es):\n                                    "
+                                  ),
+                                  _c("hr"),
+                                  _vm._v(" "),
+                                  _c(
+                                    "ul",
+                                    _vm._l(_vm.errores, function(error, index) {
+                                      return _c("li", { key: index }, [
+                                        _vm._v(
+                                          "\n                                            " +
+                                            _vm._s(error) +
+                                            "\n                                        "
+                                        )
+                                      ])
+                                    }),
+                                    0
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "alert-close" }, [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass: "close",
+                                      attrs: {
+                                        type: "button",
+                                        "data-dismiss": "alert",
+                                        "aria-label": "Close"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "span",
+                                        { attrs: { "aria-hidden": "true" } },
+                                        [
+                                          _c("i", {
+                                            staticClass: "la la-close"
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ]
+                            )
+                          : _vm._e()
+                      ]
+                    )
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("form", [
+                _c("div", { staticClass: "form-group row" }, [
+                  _c("div", { staticClass: "col-lg-4" }, [
+                    _c("label", [_vm._v("Etnia:")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.etniasData.descripcion,
+                          expression: "etniasData.descripcion"
+                        }
+                      ],
+                      staticClass: "form-control text-capitalize",
+                      class: _vm.etniaClases,
+                      attrs: { type: "text", placeholder: "Descripción" },
+                      domProps: { value: _vm.etniasData.descripcion },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.etniasData,
+                            "descripcion",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _vm.etniaError
+                      ? _c("div", { staticClass: "invalid-feedback" }, [
+                          _vm._v(
+                            "\n                                " +
+                              _vm._s(_vm.etniaError) +
+                              "\n                            "
+                          )
+                        ])
+                      : _vm._e()
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-lg-8" }, [
+                    _c("label", [_vm._v("Observación:")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.etniasData.observacion,
+                          expression: "etniasData.observacion"
+                        }
+                      ],
+                      staticClass: "form-control text-capitalize",
+                      attrs: { type: "text", placeholder: "Observación" },
+                      domProps: { value: _vm.etniasData.observacion },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.etniasData,
+                            "observacion",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("hr"),
+                _vm._v(" "),
+                _c("div", { staticClass: "text-right" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-success",
+                      class: _vm.spinG,
+                      attrs: { type: "button", disabled: !_vm.valG },
+                      on: { click: _vm.guardarEtnia }
+                    },
+                    [
+                      _c("i", { staticClass: "fa fa-edit" }),
+                      _vm._v(" Guardar\n                        ")
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-warning",
+                      attrs: { type: "button" },
+                      on: { click: _vm.cerrarModal }
+                    },
+                    [
+                      _c("i", { staticClass: "fa fa-window-close" }),
+                      _vm._v(" Cancelar\n                        ")
+                    ]
+                  )
+                ])
+              ])
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "b-modal",
+          {
+            ref: "modalClasificacion",
+            attrs: {
+              "hide-footer": "",
+              title: "Gestion de Clasificación de Etnias",
+              size: "xl",
+              centered: "",
+              "header-bg-variant": "danger",
+              "header-text-variant": "light",
+              "no-close-on-backdrop": true
+            }
+          },
+          [
+            _c("div", { staticClass: "d-block" }, [
+              _c("form", [
+                _c("div", { staticClass: "form-group row" }, [
+                  _c("div", { staticClass: "col-lg-12" }, [
+                    _c(
+                      "label",
+                      {
+                        staticClass: "bold",
+                        staticStyle: { "font-size": "18px" }
+                      },
+                      [_vm._v("Etnia: " + _vm._s(_vm.LabelEtnia))]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c("div", { staticClass: "col-lg-11" }, [
+                    _c("label", [_vm._v("Clasificación:")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.clasificacion,
+                          expression: "clasificacion"
+                        }
+                      ],
+                      staticClass: "form-control text-capitalize",
+                      attrs: { type: "text", placeholder: "Clasificación" },
+                      domProps: { value: _vm.clasificacion },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.clasificacion = $event.target.value
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-lg-1" }, [
+                    _c("label", [_vm._v("   ")]),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "btn btn-outline-info btn-icon",
+                        attrs: {
+                          href: "javascript:;",
+                          "data-skin": "dark",
+                          "data-toggle": "kt-tooltip",
+                          "data-placement": "top",
+                          title: "Agregar Clasificación"
+                        },
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            return _vm.agregar.apply(null, arguments)
+                          }
+                        }
+                      },
+                      [_c("i", { staticClass: "fa fa-plus" })]
+                    ),
+                    _vm._v(" \n                        ")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c("div", { staticClass: "col-md-12" }, [
+                    _c("div", { staticClass: "table-responsive" }, [
+                      _c(
+                        "table",
+                        { staticClass: "table table-sm table-hover" },
+                        [
+                          _c("thead", {}, [
+                            _c("tr", { staticClass: "kt-bg-fill-brand" }, [
+                              _c("th", [_vm._v("No.")]),
+                              _vm._v(" "),
+                              _c("th", [_vm._v("Clasificación")]),
+                              _vm._v(" "),
+                              _c("th", [_vm._v("Estado")]),
+                              _vm._v(" "),
+                              _c("td", { staticClass: "text-center" }, [
+                                _vm._v(
+                                  "\n                                                Opciones\n                                            "
+                                )
+                              ])
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "tbody",
+                            _vm._l(_vm.datos, function(item, index) {
+                              return _c("tr", { key: index }, [
+                                _c(
+                                  "td",
+                                  {
+                                    staticStyle: {
+                                      "font-weight": "normal",
+                                      "vertical-align": "middle"
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                                " +
+                                        _vm._s(index + 1) +
+                                        "\n                                            "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "td",
+                                  {
+                                    staticStyle: {
+                                      "font-weight": "normal",
+                                      "vertical-align": "middle",
+                                      "text-align": "left",
+                                      "text-transform": "capitalize"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "span",
+                                      { staticClass: "text-capitalize" },
+                                      [_vm._v(_vm._s(item.clasificacion))]
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "td",
+                                  {
+                                    staticStyle: {
+                                      "font-weight": "normal",
+                                      "vertical-align": "middle",
+                                      "text-align": "center"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "span",
+                                      {
+                                        staticClass:
+                                          "kt-badge kt-badge--inline",
+                                        class:
+                                          item.estado == "Activo"
+                                            ? "kt-badge--success"
+                                            : "kt-badge--danger"
+                                      },
+                                      [_vm._v(_vm._s(item.estado))]
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "td",
+                                  {
+                                    staticStyle: {
+                                      "text-align": "center",
+                                      "vertical-align": "middle"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass: "btn btn-icon btn-sm",
+                                        class:
+                                          item.estado == "Activo"
+                                            ? "btn-outline-danger"
+                                            : "btn-outline-success",
+                                        attrs: {
+                                          type: "button",
+                                          title:
+                                            item.estado == "Activo"
+                                              ? "Anular"
+                                              : "Activar"
+                                        },
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.eliminarItem(
+                                              index,
+                                              item.estado
+                                            )
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _c("i", {
+                                          staticClass: "fa",
+                                          class:
+                                            item.estado == "Activo"
+                                              ? "fa-trash"
+                                              : "fa-check"
+                                        })
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ])
+                            }),
+                            0
+                          )
+                        ]
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("hr"),
+                _vm._v(" "),
+                _c("div", { staticClass: "text-right" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-success",
+                      class: _vm.spinG,
+                      attrs: { type: "button", disabled: !_vm.valG },
+                      on: { click: _vm.guardarClasificacion }
+                    },
+                    [
+                      _c("i", { staticClass: "fa fa-edit" }),
+                      _vm._v(" Guardar\n                        ")
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-warning",
+                      attrs: { type: "button" },
+                      on: { click: _vm.cerrarModalClasi }
+                    },
+                    [
+                      _c("i", { staticClass: "fa fa-window-close" }),
+                      _vm._v(" Cancelar\n                        ")
+                    ]
+                  )
+                ])
+              ])
+            ])
+          ]
+        )
+      ],
+      1
     )
   ])
 }
@@ -1237,7 +2236,7 @@ var staticRenderFns = [
       _c("div", { staticClass: "kt-portlet__head-label" }, [
         _c("h3", { staticClass: "kt-portlet__head-title" }, [
           _c("span", { staticClass: "kt-widget20__number kt-font-danger" }, [
-            _vm._v("BITACORA DEL SISTEMA")
+            _vm._v("GESTIÓN DE ETNIAS")
           ])
         ])
       ])
@@ -1253,31 +2252,25 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { staticClass: "text-white" }, [
           _vm._v(
-            "\n                                                Acción\n                                            "
+            "\n                                                Etnia\n                                            "
           )
         ]),
         _vm._v(" "),
         _c("th", { staticClass: "text-white" }, [
           _vm._v(
-            "\n                                                Fecha\n                                            "
+            "\n                                                Observación\n                                            "
           )
         ]),
         _vm._v(" "),
         _c("th", { staticClass: "text-center text-white" }, [
           _vm._v(
-            "\n                                                IP\n                                            "
+            "\n                                                Estado\n                                            "
           )
         ]),
         _vm._v(" "),
-        _c("th", { staticClass: "text-white" }, [
+        _c("th", { staticClass: "text-center text-white" }, [
           _vm._v(
-            "\n                                                Modulo\n                                            "
-          )
-        ]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-left text-white" }, [
-          _vm._v(
-            "\n                                                Usuario\n                                            "
+            "\n                                                Opciones\n                                            "
           )
         ])
       ])
@@ -1290,18 +2283,54 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./resources/js/Vistas/Log/Log.vue":
-/*!*****************************************!*\
-  !*** ./resources/js/Vistas/Log/Log.vue ***!
-  \*****************************************/
+/***/ "./resources/js/Servicios/etnias_servicios.js":
+/*!****************************************************!*\
+  !*** ./resources/js/Servicios/etnias_servicios.js ***!
+  \****************************************************/
+/*! exports provided: listarEtnias, guardarEtnias, eliminarEtnias, guardarClasificacion, listarClasificacion */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "listarEtnias", function() { return listarEtnias; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "guardarEtnias", function() { return guardarEtnias; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "eliminarEtnias", function() { return eliminarEtnias; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "guardarClasificacion", function() { return guardarClasificacion; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "listarClasificacion", function() { return listarClasificacion; });
+/* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
+
+function listarEtnias($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/etnias', $data);
+}
+function guardarEtnias($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/etnias/guardar', $data);
+}
+function eliminarEtnias($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/etnias/eliminar', $data);
+}
+function guardarClasificacion($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/etnias/guardarClasificacion', $data);
+}
+function listarClasificacion($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/etnias/listarClasificacion', $data);
+}
+
+/***/ }),
+
+/***/ "./resources/js/Vistas/Etnias/Etnias.vue":
+/*!***********************************************!*\
+  !*** ./resources/js/Vistas/Etnias/Etnias.vue ***!
+  \***********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Log_vue_vue_type_template_id_2b7f364e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Log.vue?vue&type=template&id=2b7f364e& */ "./resources/js/Vistas/Log/Log.vue?vue&type=template&id=2b7f364e&");
-/* harmony import */ var _Log_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Log.vue?vue&type=script&lang=js& */ "./resources/js/Vistas/Log/Log.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _Etnias_vue_vue_type_template_id_6349f544___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Etnias.vue?vue&type=template&id=6349f544& */ "./resources/js/Vistas/Etnias/Etnias.vue?vue&type=template&id=6349f544&");
+/* harmony import */ var _Etnias_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Etnias.vue?vue&type=script&lang=js& */ "./resources/js/Vistas/Etnias/Etnias.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _Etnias_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Etnias.vue?vue&type=style&index=0&lang=css& */ "./resources/js/Vistas/Etnias/Etnias.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -1309,10 +2338,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _Log_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Log_vue_vue_type_template_id_2b7f364e___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Log_vue_vue_type_template_id_2b7f364e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _Etnias_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Etnias_vue_vue_type_template_id_6349f544___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Etnias_vue_vue_type_template_id_6349f544___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -1322,38 +2351,54 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/Vistas/Log/Log.vue"
+component.options.__file = "resources/js/Vistas/Etnias/Etnias.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/Vistas/Log/Log.vue?vue&type=script&lang=js&":
-/*!******************************************************************!*\
-  !*** ./resources/js/Vistas/Log/Log.vue?vue&type=script&lang=js& ***!
-  \******************************************************************/
+/***/ "./resources/js/Vistas/Etnias/Etnias.vue?vue&type=script&lang=js&":
+/*!************************************************************************!*\
+  !*** ./resources/js/Vistas/Etnias/Etnias.vue?vue&type=script&lang=js& ***!
+  \************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Log_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Log.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Log/Log.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Log_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Etnias_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Etnias.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Etnias/Etnias.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Etnias_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/Vistas/Log/Log.vue?vue&type=template&id=2b7f364e&":
-/*!************************************************************************!*\
-  !*** ./resources/js/Vistas/Log/Log.vue?vue&type=template&id=2b7f364e& ***!
-  \************************************************************************/
+/***/ "./resources/js/Vistas/Etnias/Etnias.vue?vue&type=style&index=0&lang=css&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/Vistas/Etnias/Etnias.vue?vue&type=style&index=0&lang=css& ***!
+  \********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Etnias_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Etnias.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Etnias/Etnias.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Etnias_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Etnias_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Etnias_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Etnias_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+/***/ }),
+
+/***/ "./resources/js/Vistas/Etnias/Etnias.vue?vue&type=template&id=6349f544&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/Vistas/Etnias/Etnias.vue?vue&type=template&id=6349f544& ***!
+  \******************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Log_vue_vue_type_template_id_2b7f364e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Log.vue?vue&type=template&id=2b7f364e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Log/Log.vue?vue&type=template&id=2b7f364e&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Log_vue_vue_type_template_id_2b7f364e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Etnias_vue_vue_type_template_id_6349f544___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Etnias.vue?vue&type=template&id=6349f544& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Etnias/Etnias.vue?vue&type=template&id=6349f544&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Etnias_vue_vue_type_template_id_6349f544___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Log_vue_vue_type_template_id_2b7f364e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Etnias_vue_vue_type_template_id_6349f544___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

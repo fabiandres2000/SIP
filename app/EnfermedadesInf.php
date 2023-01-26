@@ -53,7 +53,10 @@ class EnfermedadesInf extends Model
 
     public static function buscar($alias)
     {
-        return DB::connection('mysql')->table($alias . '.enfermedadesinf')->orderBy('descripcion', 'asc')
-            ->where('estado', 'Activo')->get();
+        return DB::connection('mysql')
+        ->table($alias . '.enfermedadesinf')
+        ->orderBy('descripcion', 'asc')
+        ->where('estado', 'Activo')
+        ->get();
     }
 }

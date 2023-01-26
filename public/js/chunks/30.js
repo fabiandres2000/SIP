@@ -1,1 +1,1471 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[30],{349:function(t,a,r){var i=r(505);"string"==typeof i&&(i=[[t.i,i,""]]);var e={hmr:!0,transform:void 0,insertInto:void 0};r(37)(i,e);i.locals&&(t.exports=i.locals)},504:function(t,a,r){"use strict";r(349)},505:function(t,a,r){(t.exports=r(36)(!1)).push([t.i,"\n.modal-backdrop {\n    background-color: rgba(0, 0, 0, 0.5) !important;\n}\n.modal-title {\n    color: #f8f9fa !important;\n}\n.close {\n    display: none;\n}\n",""])},711:function(t,a,r){"use strict";r.r(a);var i=r(1),e=r.n(i),s=r(90),n=r(10);function o(t,a,r,i,e,s,n){try{var o=t[s](n),l=o.value}catch(t){return void r(t)}o.done?a(l):Promise.resolve(l).then(i,e)}function l(t){return function(){var a=this,r=arguments;return new Promise((function(i,e){var s=t.apply(a,r);function n(t){o(s,i,e,n,l,"next",t)}function l(t){o(s,i,e,n,l,"throw",t)}n(void 0)}))}}var c,u,d,p,v={mounted:function(){this.consultar(1)},name:"barri",data:function(){return{ruta:"",disabled:0,errores:[],bandera:!1,entrarPorError:!1,txtbusqueda:"",barrios:[],barriosData:{dpto:"",muni:"",corregimiento:"0",barrio:"",id:0},dpto_options:[],muni_options:{},corregi_options:{},csrf:document.querySelector('meta[name="csrf-token"]').getAttribute("content"),datos:[],paginacion:{total:0,pagina_actual:0,por_pagina:0,ultima_pagina:0,desde:0,hasta:0},offset:4,banderaBoton:!0,valG:!0,tabladatos:null,valPdf:!0,valExcel:!0,valN:!0}},computed:{esActivo:function(){return this.paginacion.pagina_actual},numeroDePaginas:function(){if(!this.paginacion.hasta)return[];var t=this.paginacion.pagina_actual-this.offset;t<1&&(t=1);var a=t+2*this.offset;a>=this.paginacion.ultima_pagina&&(a=this.paginacion.ultima_pagina);for(var r=[];t<=a;)r.push(t),t++;return r},spinG:function(){return this.valG?{}:["kt-spinner","kt-spinner--right","kt-spinner--sm","kt-spinner--light"]},spinPdf:function(){return this.valPdf?{}:["kt-spinner","kt-spinner--right","kt-spinner--sm","kt-spinner--light"]},spinExcel:function(){return this.valExcel?{}:["kt-spinner","kt-spinner--right","kt-spinner--sm","kt-spinner--light"]},spinN:function(){return this.valN?{}:["kt-spinner","kt-spinner--right","kt-spinner--sm","kt-spinner--light"]}},methods:{consultar:(p=l(e.a.mark((function t(a){var r,i=this;return e.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:return this.barrios=[],r={txtbusqueda:this.txtbusqueda.trim(),_token:this.csrf,page:a},t.prev=2,t.next=5,s.e(r).then((function(t){i.barrios=t.data.barrios.data,i.dpto_options=t.data.arrayDpto,i.muni_options=t.data.arrayMuni,i.corregi_options=t.data.arrayCorregi,i.paginacion=t.data.paginacion}));case 5:t.next=16;break;case 7:t.prev=7,t.t0=t.catch(2),t.t1=t.t0.response.status,t.next=422===t.t1?12:14;break;case 12:case 14:return this.$swal("Error...!","Ocurrio un error!","error"),t.abrupt("break",16);case 16:case"end":return t.stop()}}),t,this,[[2,7]])}))),function(t){return p.apply(this,arguments)}),abrirModal:function(){this.errores=[],this.entrarPorError=!1,this.datos=[],this.barriosData.barrio="",this.barriosData.dpto="",this.barriosData.muni="",this.barriosData.corregimiento="0",this.barriosData.id=0,this.bandera=!1,this.banderaBoton=!0,this.$refs.modalBarrio.show()},cerrarModal:function(){this.$refs.modalBarrio.hide(),this.$refs.modalpdf.hide()},cambio:function(){for(var t in this.bandera=!1,this.corregimiento="0",this.corregi_options[this.barriosData.muni])this.bandera=!0},agregar:function(){""!=this.barriosData.dpto?""!=this.barriosData.muni?""!=this.barriosData.barrio?("0"!==this.barriosData.corregimiento?this.datos.push({dpto:this.barriosData.dpto,dptoTexto:this.showText(this.barriosData.dpto,this.dpto_options),muni:this.barriosData.muni,muniTexto:this.showText(this.barriosData.muni,this.muni_options[this.barriosData.dpto]),corregimiento:this.barriosData.corregimiento,corregimientoTexto:this.showText(this.barriosData.corregimiento,this.corregi_options[this.barriosData.muni]),barrio:this.barriosData.barrio,id:0}):this.datos.push({dpto:this.barriosData.dpto,dptoTexto:this.showText(this.barriosData.dpto,this.dpto_options),muni:this.barriosData.muni,muniTexto:this.showText(this.barriosData.muni,this.muni_options[this.barriosData.dpto]),corregimiento:0,corregimientoTexto:"",barrio:this.barriosData.barrio,id:0}),this.barriosData.barrio=""):this.$swal("Error...!","Por favor digite un barrio!","error"):this.$swal("Error...!","Por favor seleccione un municipio!","error"):this.$swal("Error...!","Por favor seleccione un departamento!","error")},eliminarItem:function(t){this.datos.splice(t,1)},guardarBarrio:(d=l(e.a.mark((function t(){var a,r=this;return e.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:if(this.checkForm()){t.next=4;break}this.entrarPorError=!1,t.next=23;break;case 4:return this.errores=[],a={_token:this.csrf,barrios:this.datos,opcion:"GUARDAR"},this.valG=!1,t.prev=7,t.next=10,s.d(a).then((function(t){r.tabladatos.fnClearTable(),r.tabladatos.fnDestroy(),r.consultar(1),r.barriosData.barrio="",r.barriosData.dpto="",r.barriosData.muni="",r.barriosData.corregimiento="0",r.barriosData.id=0,r.bandera=!1,r.cerrarModal(),r.valG=!0,r.$swal("Guardar...!","Datos Guardados Exitosamente!","success")})).catch((function(t){r.errorDevuelto=t.response.data.errors,r.entrarPorError=!0}));case 10:t.next=23;break;case 12:t.prev=12,t.t0=t.catch(7),t.t1=t.t0.response.status,t.next=419===t.t1?17:422===t.t1?19:21;break;case 17:case 19:case 21:return this.$swal("Error...!","Ocurrio un error!","error"),t.abrupt("break",23);case 23:case"end":return t.stop()}}),t,this,[[7,12]])}))),function(){return d.apply(this,arguments)}),editarBarrio:(u=l(e.a.mark((function t(){var a,r=this;return e.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:if(this.checkForm2()){t.next=4;break}this.entrarPorError=!1,t.next=23;break;case 4:return this.errores=[],a={_token:this.csrf,barrios:this.barriosData,opcion:"EDITAR"},this.valG=!1,t.prev=7,t.next=10,s.d(a).then((function(t){r.tabladatos.fnClearTable(),r.tabladatos.fnDestroy(),r.consultar(1),r.datos=[],r.barriosData.barrio="",r.barriosData.dpto="",r.barriosData.muni="",r.barriosData.corregimiento="0",r.barriosData.id=0,r.bandera=!1,r.cerrarModal(),r.$swal("Guardar...!","Datos Guardados Exitosamente!","success"),r.valG=!0})).catch((function(t){r.errorDevuelto=t.response.data.errors,r.entrarPorError=!0}));case 10:t.next=23;break;case 12:t.prev=12,t.t0=t.catch(7),t.t1=t.t0.response.status,t.next=419===t.t1?17:422===t.t1?19:21;break;case 17:case 19:case 21:return this.$swal("Error...!","Ocurrio un error!","error"),t.abrupt("break",23);case 23:case"end":return t.stop()}}),t,this,[[7,12]])}))),function(){return u.apply(this,arguments)}),checkForm:function(t){return this.errores=[],this.datos.length<=0&&this.errores.push("Agregue por lo menos un barrio"),!this.errores.length},checkForm2:function(t){return this.errores=[],""==this.barriosData.dpto&&this.errores.push("Por favor seleccione el departamento."),""==this.barriosData.muni&&this.errores.push("Por favor seleccione el municipio"),""==this.barriosData.barrio&&this.errores.push("Por favor digite el barrio."),!this.errores.length},cambiarPaginas:function(t){this.paginacion.pagina_actual=t,this.consultar(t)},eliminar:(c=l(e.a.mark((function t(a){var r,i,n=this;return e.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:r="",i="","Activo"==a.ESTADO?(r="¿Desea anular el barrio "+a.BARRI+"?",i="Barrio "+a.BARRI+" anulado de manera exitosa"):(r="¿Desea activar el barrio "+a.BARRIO+"?",i="Barrio "+a.BARRIO+" activado de manera exitosa"),this.$swal({title:r,text:"",icon:"warning",showCancelButton:!0,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"}).then((function(t){if(t.value){var r={_token:n.csrf,id:a.id,estado:a.ESTADO};try{s.b(r).then((function(t){n.tabladatos.fnClearTable(),n.tabladatos.fnDestroy(),n.consultar(1),n.$swal({position:"top-end",icon:"success",title:i,showConfirmButton:!1,timer:2e3})})).catch((function(t){n.$swal("Error...!","Ocurrio un error!","error")}))}catch(t){switch(t.response.status){case 422:default:n.$swal("Error...!","Ocurrio un error!","error")}}}}));case 4:case"end":return t.stop()}}),t,this)}))),function(t){return c.apply(this,arguments)}),editar:function(t){this.entrarPorError=!1,this.errores=[],this.barriosData.dpto=t.dpto,this.barriosData.muni=t.muni,this.barriosData.corregimiento=t.corregimiento,this.bandera=!1,null!=this.barriosData.corregimiento?this.bandera=!0:this.bandera=!1,this.barriosData.barrio=t.BARRI,this.barriosData.id=t.id,this.banderaBoton=!1,this.$refs.modalBarrio.show()},showText:function(t,a){for(var r=0;r<a.length;r++)if(a[r].value===t)return a[r].texto;return""},generarPDF:function(){var t=this;return l(e.a.mark((function a(){var r;return e.a.wrap((function(a){for(;;)switch(a.prev=a.next){case 0:return t.valPdf=!1,t.valExcel=!1,t.valN=!1,t.disabled=(t.disabled+1)%2,r={txtbusqueda:t.txtbusqueda.trim(),_token:t.csrf,opcion:"PDF"},a.prev=5,a.next=8,s.c(r).then((function(a){t.valPdf=!0,t.valExcel=!0,t.valN=!0,t.ruta=n.a.state.apiURL+a.data.nombre,t.$refs.modalpdf.show()}));case 8:a.next=12;break;case 10:a.prev=10,a.t0=a.catch(5);case 12:case"end":return a.stop()}}),a,null,[[5,10]])})))()},download:function(t){if(t){var a=window.URL.createObjectURL(new Blob([t])),r=document.createElement("a");r.style.display="none",r.href=a,r.setAttribute("download","excel.pdf"),document.body.appendChild(r),r.click()}}}},b=(r(504),r(3)),f=Object(b.a)(v,(function(){var t=this,a=t.$createElement,r=t._self._c||a;return r("div",[r("div",{staticClass:"kt-portlet",staticStyle:{"margin-top":"-4%"}},[t._m(0),t._v(" "),r("div",{staticClass:"kt-portlet__body"},[r("div",{staticClass:"kt-section"},[r("div",{staticClass:"kt-section__content"},[r("div",{staticClass:"row"},[r("div",{staticClass:"col-md-6 col-lg-6"},[r("div",{staticClass:"kt-section"},[r("div",{staticClass:"kt-section__content"},[r("button",{staticClass:"btn btn-primary ",class:t.spinN,attrs:{type:"button","data-skin":"dark","data-toggle":"kt-tooltip","data-placement":"top",title:"Nuevo Barrio",disabled:!t.valN},on:{click:t.abrirModal}},[r("i",{staticClass:"la la-file-text-o"}),t._v("\n                                        Nuevo Barrio\n                                    ")]),t._v(" "),r("button",{staticClass:" btn btn-success",class:t.spinPdf,attrs:{type:"button","data-skin":"dark","data-toggle":"kt-tooltip","data-placement":"top",title:"Exportar Pdf",disabled:!t.valPdf},on:{click:function(a){return t.generarPDF()}}},[r("i",{staticClass:"fa fa-file-pdf"}),t._v("Exportar a Pdf\n                                    ")]),t._v(" "),r("button",{staticClass:" btn btn-danger",class:t.spinExcel,attrs:{type:"button","data-skin":"dark","data-toggle":"kt-tooltip","data-placement":"top",title:"Exportar Pdf",disabled:!t.valExcel}},[r("i",{staticClass:"fa fa-file-excel"}),t._v("Exportar a Excel\n                                    ")])])])]),t._v(" "),r("div",{staticClass:"col-md-6 col-lg-6"},[r("form",{staticClass:"kt-form"},[r("div",{staticClass:"form-group"},[r("div",{staticClass:"input-group"},[r("input",{directives:[{name:"model",rawName:"v-model",value:t.txtbusqueda,expression:"txtbusqueda"}],staticClass:"form-control",attrs:{type:"text",placeholder:"Busqueda"},domProps:{value:t.txtbusqueda},on:{input:function(a){a.target.composing||(t.txtbusqueda=a.target.value)}}}),t._v(" "),r("div",{staticClass:"input-group-append"},[r("button",{staticClass:"btn btn-primary btn-icon",attrs:{type:"button"},on:{click:function(a){return t.consultar(1)}}},[r("i",{staticClass:"fa fa-search"})])])])])])])]),t._v(" "),r("div",{staticClass:"row"},[r("div",{staticClass:"col-md-12"},[r("div",{staticClass:"table-responsive"},[r("table",{staticClass:"table table-sm table-hover",attrs:{id:"tablaDatos"}},[t._m(1),t._v(" "),r("tbody",t._l(t.barrios,(function(a,i){return r("tr",{key:i},[r("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle"}},[t._v("\n                                                "+t._s(i+1)+"\n                                            ")]),t._v(" "),r("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle","text-align":"left","text-transform":"capitalize"}},[t._v("\n                                                "+t._s(a.BARRI)+"\n                                            ")]),t._v(" "),r("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle","text-align":"left","text-transform":"capitalize"}},[t._v("\n                                                "+t._s(a.DEPARTAMENTO)+"\n                                            ")]),t._v(" "),r("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle","text-align":"left","text-transform":"capitalize"}},[t._v("\n                                                "+t._s(a.MUNICIPIO)+"\n                                            ")]),t._v(" "),r("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle","text-align":"left","text-transform":"capitalize"}},[t._v("\n                                                "+t._s(a.CORREGI)+"\n                                            ")]),t._v(" "),r("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle","text-align":"center"}},[r("span",{staticClass:"kt-badge kt-badge--inline",class:"Activo"==a.ESTADO?"kt-badge--success":"kt-badge--danger"},[t._v(t._s(a.ESTADO))])]),t._v(" "),r("td",{staticStyle:{"text-align":"center","vertical-align":"middle"}},[r("button",{staticClass:"btn btn-outline-info btn-icon btn-sm",attrs:{type:"button",title:"Editar"},on:{click:function(r){return t.editar(a)}}},[r("i",{staticClass:"fa fa-edit"})]),t._v(" "),r("button",{staticClass:"btn btn-icon btn-sm",class:"Activo"==a.ESTADO?"btn-outline-danger":"btn-outline-success",attrs:{type:"button",title:"Activo"==a.ESTADO?"Anular":"Activar"},on:{click:function(r){return t.eliminar(a)}}},[r("i",{staticClass:"fa",class:"Activo"==a.ESTADO?"fa-trash":"fa-check"})])])])})),0)]),t._v(" "),r("div",{staticClass:"kt-separator kt-separator--border-dashed"}),t._v(" "),r("div",{staticClass:"kt-section"},[r("div",{staticClass:"kt-pagination kt-pagination--danger"},[r("ul",{staticClass:"kt-pagination__links"},[t.paginacion.pagina_actual>1?r("li",{staticClass:"kt-pagination__link--first"},[r("a",{attrs:{href:"javascript:;"},on:{click:function(a){return a.preventDefault(),t.cambiarPaginas(1)}}},[r("i",{staticClass:"fa fa-angle-double-left kt-font-danger"})])]):t._e(),t._v(" "),t.paginacion.pagina_actual>1?r("li",{staticClass:"kt-pagination__link--next"},[r("a",{attrs:{href:"javascript:;"},on:{click:function(a){return a.preventDefault(),t.cambiarPaginas(t.paginacion.pagina_actual-1)}}},[r("i",{staticClass:"fa fa-angle-left kt-font-danger"})])]):t._e(),t._v(" "),t._l(t.numeroDePaginas,(function(a,i){return r("li",{key:i,class:[a==t.esActivo?"kt-pagination__link--active":""]},[r("a",{attrs:{href:"javascript:;"},on:{click:function(r){return r.preventDefault(),t.cambiarPaginas(a)}}},[t._v(t._s(a))])])})),t._v(" "),t.paginacion.pagina_actual<t.paginacion.ultima_pagina?r("li",{staticClass:"kt-pagination__link--prev"},[r("a",{attrs:{href:"javascript:;"},on:{click:function(a){return a.preventDefault(),t.cambiarPaginas(t.paginacion.pagina_actual+1)}}},[r("i",{staticClass:"fa fa-angle-right kt-font-danger"})])]):t._e(),t._v(" "),t.paginacion.pagina_actual<t.paginacion.ultima_pagina?r("li",{staticClass:"kt-pagination__link--last"},[r("a",{attrs:{href:"javascript:;"},on:{click:function(a){return a.preventDefault(),t.cambiarPaginas(t.paginacion.ultima_pagina)}}},[r("i",{staticClass:"fa fa-angle-double-right kt-font-danger"})])]):t._e()],2)])])])])])])])]),t._v(" "),r("b-modal",{ref:"modalBarrio",attrs:{"hide-footer":"",title:"Gestion de Barrios",size:"xl",centered:"","header-bg-variant":"danger","header-text-variant":"light","no-close-on-backdrop":!0}},[r("div",{staticClass:"d-block"},[r("div",{staticClass:"row"},[r("div",{staticClass:"col-lg-12"},[r("transition",{attrs:{duration:1e3,name:"fade"}},[t.entrarPorError?r("div",{staticClass:"alert alert-warning fade show",attrs:{role:"alert"}},[r("div",{staticClass:"alert-icon"},[r("i",{staticClass:"flaticon-warning"})]),t._v(" "),r("div",{staticClass:"alert-text"},[t._v("\n                                    Por favor, corrija el(los) siguiente(s)\n                                    error(es):\n                                    "),r("hr"),t._v(" "),r("ul",t._l(t.errorDevuelto,(function(a,i){return r("li",{key:i},[t._v("\n                                            "+t._s(a)+"\n                                        ")])})),0)]),t._v(" "),r("div",{staticClass:"alert-close"},[r("button",{staticClass:"close",attrs:{type:"button","data-dismiss":"alert","aria-label":"Close"}},[r("span",{attrs:{"aria-hidden":"true"}},[r("i",{staticClass:"la la-close"})])])])]):t._e()])],1)]),t._v(" "),r("div",{staticClass:"row"},[r("div",{staticClass:"col-lg-12"},[r("transition",{attrs:{duration:1e3,name:"fade"}},[t.errores.length?r("div",{staticClass:"alert alert-warning fade show",attrs:{role:"alert"}},[r("div",{staticClass:"alert-icon"},[r("i",{staticClass:"flaticon-warning"})]),t._v(" "),r("div",{staticClass:"alert-text"},[t._v("\n                                    Por favor, corrija el(los) siguiente(s)\n                                    error(es):\n                                    "),r("hr"),t._v(" "),r("ul",t._l(t.errores,(function(a,i){return r("li",{key:i},[t._v("\n                                            "+t._s(a)+"\n                                        ")])})),0)]),t._v(" "),r("div",{staticClass:"alert-close"},[r("button",{staticClass:"close",attrs:{type:"button","data-dismiss":"alert","aria-label":"Close"}},[r("span",{attrs:{"aria-hidden":"true"}},[r("i",{staticClass:"la la-close"})])])])]):t._e()])],1)]),t._v(" "),r("form",[r("div",{staticClass:"form-group row"},[r("div",{staticClass:"col-lg-4"},[r("label",[t._v("Departamento:")]),t._v(" "),r("b-form-select",{model:{value:t.barriosData.dpto,callback:function(a){t.$set(t.barriosData,"dpto",a)},expression:"barriosData.dpto"}},[r("option",{attrs:{value:"",selected:""}},[t._v("Seleccione")]),t._v(" "),t._l(t.dpto_options,(function(a){return r("option",{key:a.value,domProps:{value:a.value}},[t._v(t._s(a.texto))])}))],2)],1),t._v(" "),r("div",{staticClass:"col-lg-4"},[r("label",[t._v("Municipio:")]),t._v(" "),r("b-form-select",{on:{change:t.cambio},model:{value:t.barriosData.muni,callback:function(a){t.$set(t.barriosData,"muni",a)},expression:"barriosData.muni"}},[r("option",{attrs:{value:"",selected:""}},[t._v("Seleccione")]),t._v(" "),t._l(t.muni_options[t.barriosData.dpto],(function(a){return r("option",{key:a.value,domProps:{value:a.value}},[t._v(t._s(a.texto))])}))],2)],1),t._v(" "),t.bandera?r("div",{staticClass:"col-lg-4"},[r("label",[t._v("Corregimiento:")]),t._v(" "),r("b-form-select",{model:{value:t.barriosData.corregimiento,callback:function(a){t.$set(t.barriosData,"corregimiento",a)},expression:"barriosData.corregimiento"}},[r("option",{attrs:{value:"0",selected:""}},[t._v("Seleccione")]),t._v(" "),t._l(t.corregi_options[t.barriosData.muni],(function(a){return r("option",{key:a.value,domProps:{value:a.value}},[t._v(t._s(a.texto))])}))],2)],1):t._e()]),t._v(" "),r("div",{staticClass:"form-group row"},[r("div",{staticClass:"col-lg-11"},[r("label",[t._v("Barrio:")]),t._v(" "),r("input",{directives:[{name:"model",rawName:"v-model",value:t.barriosData.barrio,expression:"barriosData.barrio"}],staticClass:"form-control text-capitalize",attrs:{type:"text",placeholder:"Barrio"},domProps:{value:t.barriosData.barrio},on:{input:function(a){a.target.composing||t.$set(t.barriosData,"barrio",a.target.value)}}})]),t._v(" "),r("div",{staticClass:"col-lg-1"},[r("label",[t._v("   ")]),t._v(" "),t.banderaBoton?r("a",{staticClass:"btn btn-outline-info btn-icon",attrs:{href:"javascript:;","data-skin":"dark","data-toggle":"kt-tooltip","data-placement":"top",title:"Agregar Barrio"},on:{click:function(a){return a.preventDefault(),t.agregar.apply(null,arguments)}}},[r("i",{staticClass:"fa fa-plus"})]):t._e(),t._v(" \n                        ")])]),t._v(" "),t.banderaBoton?r("div",{staticClass:"form-group row"},[r("div",{staticClass:"col-md-12"},[r("div",{staticClass:"table-responsive"},[r("table",{staticClass:"table table-sm table-hover"},[r("thead",{},[r("tr",{staticClass:"kt-bg-fill-brand"},[r("th",[t._v("No.")]),t._v(" "),r("th",[t._v("Departamento")]),t._v(" "),r("th",[t._v("Municipio")]),t._v(" "),r("th",[t._v("Corregimiento")]),t._v(" "),r("th",[t._v("Barrio")]),t._v(" "),r("td",{staticClass:"text-center"},[t._v("\n                                                Opciones\n                                            ")])])]),t._v(" "),r("tbody",t._l(t.datos,(function(a,i){return r("tr",{key:i},[r("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle"}},[t._v("\n                                                "+t._s(i+1)+"\n                                            ")]),t._v(" "),r("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle","text-align":"left","text-transform":"capitalize"}},[r("span",{staticClass:"text-capitalize"},[t._v(t._s(a.dptoTexto))])]),t._v(" "),r("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle","text-align":"left","text-transform":"capitalize"}},[r("span",{staticClass:"text-capitalize"},[t._v(t._s(a.muniTexto))])]),t._v(" "),r("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle","text-align":"left","text-transform":"capitalize"}},[r("span",{staticClass:"text-capitalize"},[t._v(t._s(a.corregimientoTexto))])]),t._v(" "),r("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle","text-align":"left","text-transform":"capitalize"}},[t._v("\n                                                "+t._s(a.barrio)+"\n                                            ")]),t._v(" "),r("td",{staticStyle:{"text-align":"center","vertical-align":"middle"}},[r("button",{staticClass:"btn btn-icon btn-sm btn-outline-danger",attrs:{type:"button",title:"Eliminar"},on:{click:function(a){return t.eliminarItem(i)}}},[r("i",{staticClass:"fa fa-trash"})])])])})),0)])])])]):t._e(),t._v(" "),r("hr"),t._v(" "),r("div",{staticClass:"text-right"},[t.banderaBoton?r("button",{staticClass:"btn btn-success",class:t.spinG,attrs:{type:"button",disabled:!t.valG},on:{click:t.guardarBarrio}},[r("i",{staticClass:"fa fa-edit"}),t._v(" Guardar\n                        ")]):r("button",{staticClass:"btn btn-success",attrs:{type:"button"},on:{click:t.editarBarrio}},[r("i",{staticClass:"fa fa-edit"}),t._v(" Guardar\n                        ")]),t._v(" "),r("button",{staticClass:"btn btn-warning",attrs:{type:"button"},on:{click:t.cerrarModal}},[r("i",{staticClass:"fa fa-window-close"}),t._v(" Cancelar\n                        ")])])])])]),t._v(" "),r("b-modal",{ref:"modalpdf",attrs:{"hide-footer":"",title:"Listado de Barrios",size:"xl",centered:"","header-bg-variant":"danger","header-text-variant":"light","no-close-on-backdrop":!0}},[r("embed",{attrs:{id:"divPdf",src:t.ruta,type:"application/pdf",width:"100%",height:"650px"}}),t._v(" "),r("hr"),t._v(" "),r("div",{staticClass:"text-right"},[r("button",{staticClass:"btn btn-warning",attrs:{type:"button"},on:{click:t.cerrarModal}},[r("i",{staticClass:"fa fa-window-close"}),t._v(" Cancelar\n                ")])])])],1)])}),[function(){var t=this.$createElement,a=this._self._c||t;return a("div",{staticClass:"kt-portlet__head"},[a("div",{staticClass:"kt-portlet__head-label"},[a("h3",{staticClass:"kt-portlet__head-title"},[a("span",{staticClass:"kt-widget20__number kt-font-danger"},[this._v("GESTIÓN DE BARRIOS")])])])])},function(){var t=this,a=t.$createElement,r=t._self._c||a;return r("thead",{},[r("tr",{staticClass:"kt-bg-fill-brand"},[r("th",{staticClass:"text-white"},[t._v("No.")]),t._v(" "),r("th",{staticClass:"text-white"},[t._v("\n                                                Barrio\n                                            ")]),t._v(" "),r("th",{staticClass:"text-white"},[t._v("\n                                                Departamento\n                                            ")]),t._v(" "),r("th",{staticClass:"text-white"},[t._v("\n                                                Municipio\n                                            ")]),t._v(" "),r("th",{staticClass:"text-white"},[t._v("\n                                                Corregimiento\n                                            ")]),t._v(" "),r("td",{staticClass:"text-center text-white"},[t._v("\n                                                Estado\n                                            ")]),t._v(" "),r("td",{staticClass:"text-center text-white"},[t._v("\n                                                Opciones\n                                            ")])])])}],!1,null,null,null);a.default=f.exports},90:function(t,a,r){"use strict";r.d(a,"e",(function(){return e})),r.d(a,"d",(function(){return s})),r.d(a,"b",(function(){return n})),r.d(a,"a",(function(){return o})),r.d(a,"c",(function(){return l}));var i=r(0);function e(t){return Object(i.a)().post("/barrios",t)}function s(t){return Object(i.a)().post("/barrios/guardar",t)}function n(t){return Object(i.a)().post("/barrios/eliminar",t)}function o(t){return Object(i.a)().post("/barrios/combo",t)}function l(t){return Object(i.a)().post("/barrios/exportar",t)}}}]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[30],{
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Reportes/Discapacitados.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Reportes/Discapacitados.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Servicios_reportes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Servicios/reportes */ "./resources/js/Servicios/reportes.js");
+/* harmony import */ var _Servicios_barrios_servicios_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Servicios/barrios_servicios.js */ "./resources/js/Servicios/barrios_servicios.js");
+/* harmony import */ var _Servicios_corregimientos_servicios_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Servicios/corregimientos_servicios.js */ "./resources/js/Servicios/corregimientos_servicios.js");
+/* harmony import */ var _Servicios_veredas_servicios_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../Servicios/veredas_servicios.js */ "./resources/js/Servicios/veredas_servicios.js");
+/* harmony import */ var vue_pithy_progress_lib_circle_progress_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-pithy-progress/lib/circle-progress.css */ "./node_modules/vue-pithy-progress/lib/circle-progress.css");
+/* harmony import */ var vue_pithy_progress_lib_circle_progress_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vue_pithy_progress_lib_circle_progress_css__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var datatables_net__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! datatables.net */ "./node_modules/datatables.net/js/jquery.dataTables.js");
+/* harmony import */ var datatables_net__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(datatables_net__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../store */ "./resources/js/store.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
+
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    this.listarBarrios();
+    this.listarCorregimientos();
+    this.listarVeredas();
+    this.personas_discapacitadas();
+  },
+  name: "gestan",
+  data: function data() {
+    return {
+      personas_discapacitadas_array: [],
+      comboBarrio: "",
+      barrios: [],
+      barriosCorregimiento: [],
+      comboBarrio2: "",
+      comboCorregimiento: "",
+      corregimientos: [],
+      comboVereda: "",
+      veredas: [],
+      tipoCombo: "todos"
+    };
+  },
+  computed: {},
+  methods: {
+    personas_discapacitadas: function personas_discapacitadas() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return _Servicios_reportes__WEBPACK_IMPORTED_MODULE_1__["personas_discapacitadas"]("todos", null).then(function (respuesta) {
+                  _this.personas_discapacitadas_array = respuesta.data.discapacitados;
+
+                  _this.crearDataTable();
+                });
+
+              case 2:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
+    listarBarrios: function listarBarrios() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                parametros = {
+                  _token: _this2.csrf,
+                  id: null,
+                  opcion: "MUN"
+                };
+                _context2.next = 3;
+                return _Servicios_barrios_servicios_js__WEBPACK_IMPORTED_MODULE_2__["comboBarrios"](parametros).then(function (respuesta) {
+                  _this2.barrios = respuesta.data.arrayBarrios;
+                });
+
+              case 3:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
+    },
+    listarBarriosCorregimiento: function listarBarriosCorregimiento() {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        var parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                parametros = {
+                  _token: _this3.csrf,
+                  id: _this3.comboCorregimiento,
+                  opcion: "CORRE"
+                };
+                _context3.next = 3;
+                return _Servicios_barrios_servicios_js__WEBPACK_IMPORTED_MODULE_2__["comboBarrios"](parametros).then(function (respuesta) {
+                  _this3.barriosCorregimiento = respuesta.data.arrayBarrios;
+                });
+
+              case 3:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
+      }))();
+    },
+    listarCorregimientos: function listarCorregimientos() {
+      var _this4 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
+        var parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                parametros = {
+                  _token: _this4.csrf
+                };
+                _context4.next = 3;
+                return _Servicios_corregimientos_servicios_js__WEBPACK_IMPORTED_MODULE_3__["comboCorregimientos"](parametros).then(function (respuesta) {
+                  _this4.corregimientos = respuesta.data.corregimientos;
+                });
+
+              case 3:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4);
+      }))();
+    },
+    listarVeredas: function listarVeredas() {
+      var _this5 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
+        var parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                parametros = {
+                  _token: _this5.csrf
+                };
+                _context5.next = 3;
+                return _Servicios_veredas_servicios_js__WEBPACK_IMPORTED_MODULE_4__["comboVeredas"](parametros).then(function (respuesta) {
+                  _this5.veredas = respuesta.data.veredas;
+                });
+
+              case 3:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5);
+      }))();
+    },
+    cambiaraTodos: function cambiaraTodos() {
+      if (this.tipoCombo == "todos") {
+        this.comboBarrio = "";
+        this.comboVereda = "";
+        this.comboCorregimiento = "";
+        this.comboBarrio2 = "";
+        this.personas_discapacitadas();
+      }
+    },
+    filtrar: function filtrar(tipo) {
+      var _this6 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6() {
+        var id;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+          while (1) {
+            switch (_context6.prev = _context6.next) {
+              case 0:
+                if (tipo == "barrio") {
+                  tipo = "barrio";
+                  _this6.comboCorregimiento = "";
+                  _this6.comboVereda = "";
+                  _this6.comboBarrio2 = "";
+                  id = _this6.comboBarrio;
+                }
+
+                if (tipo == "corregimiento") {
+                  tipo = "corre";
+                  _this6.comboBarrio = "";
+                  _this6.comboVereda = "";
+                  _this6.comboBarrio2 = "";
+                  id = _this6.comboCorregimiento;
+
+                  _this6.listarBarriosCorregimiento();
+                }
+
+                if (tipo == "vereda") {
+                  tipo = "vereda";
+                  _this6.comboCorregimiento = "";
+                  _this6.comboBarrio = "";
+                  _this6.comboBarrio2 = "";
+                  id = _this6.comboVereda;
+                }
+
+                if (tipo == "barrio2") {
+                  tipo = "barrio";
+                  _this6.comboVereda = "";
+                  _this6.comboBarrio = "";
+                  id = _this6.comboBarrio2;
+
+                  if (_this6.comboBarrio2 == "") {
+                    tipo = "corre";
+                    id = _this6.comboCorregimiento;
+                  }
+                }
+
+                if (_this6.comboVereda == "" && _this6.comboBarrio == "" && _this6.comboCorregimiento == "" && _this6.comboBarrio2 == "") {
+                  tipo = "Todos";
+                }
+
+                _context6.next = 7;
+                return _Servicios_reportes__WEBPACK_IMPORTED_MODULE_1__["personas_discapacitadas"](tipo, id).then(function (respuesta) {
+                  _this6.personas_discapacitadas_array = respuesta.data.discapacitados;
+
+                  _this6.crearDataTable();
+                })["catch"](function (err) {
+                  console.log(err);
+                });
+
+              case 7:
+              case "end":
+                return _context6.stop();
+            }
+          }
+        }, _callee6);
+      }))();
+    },
+    crearDataTable: function crearDataTable() {
+      jquery__WEBPACK_IMPORTED_MODULE_6___default()("#tablaDatos").dataTable().fnDestroy();
+      setTimeout(function () {
+        jquery__WEBPACK_IMPORTED_MODULE_6___default()('#tablaDatos').DataTable({
+          "lengthChange": false,
+          "ordering": false,
+          pageLength: 10,
+          "bFilter": false,
+          language: {
+            "decimal": "",
+            "emptyTable": "No hay información",
+            "info": "Mostrando _START_ a _END_ de _TOTAL_ Registros",
+            "infoEmpty": "Mostrando 0 to 0 of 0 Registros",
+            "infoFiltered": "(Filtrado de _MAX_ total Registros)",
+            "infoPostFix": "",
+            "thousands": ",",
+            "lengthMenu": "Mostrar _MENU_ Registros",
+            "loadingRecords": "Cargando...",
+            "processing": "Procesando...",
+            "search": "Buscar:",
+            "zeroRecords": "Sin resultados encontrados",
+            "paginate": {
+              "first": "Primero",
+              "last": "Ultimo",
+              "next": "Siguiente",
+              "previous": "Anterior"
+            }
+          }
+        });
+      }, 500);
+    },
+    exportToExcel: function exportToExcel() {
+      var _this7 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee7() {
+        var parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee7$(_context7) {
+          while (1) {
+            switch (_context7.prev = _context7.next) {
+              case 0:
+                parametros = {
+                  datos: _this7.personas_discapacitadas_array,
+                  titulo: "Reporte de Personas Discapacitadas"
+                };
+                _context7.prev = 1;
+                _context7.next = 4;
+                return _Servicios_reportes__WEBPACK_IMPORTED_MODULE_1__["exportaDiscapacitadosExcel"](parametros).then(function (respuesta) {
+                  var href = _store__WEBPACK_IMPORTED_MODULE_8__["default"].state.apiURL + respuesta.data.nombre;
+
+                  _this7.downloadItem(href);
+                });
+
+              case 4:
+                _context7.next = 15;
+                break;
+
+              case 6:
+                _context7.prev = 6;
+                _context7.t0 = _context7["catch"](1);
+                _context7.t1 = _context7.t0.response.status;
+                _context7.next = _context7.t1 === 422 ? 11 : 13;
+                break;
+
+              case 11:
+                _this7.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context7.abrupt("break", 15);
+
+              case 13:
+                _this7.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context7.abrupt("break", 15);
+
+              case 15:
+              case "end":
+                return _context7.stop();
+            }
+          }
+        }, _callee7, null, [[1, 6]]);
+      }))();
+    },
+    downloadItem: function downloadItem(url) {
+      var link = document.createElement('a');
+      link.href = url;
+      link.download = "Reporte-Discapacitados.xlsx";
+      link.click();
+      URL.revokeObjectURL(link.href);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-pithy-progress/lib/circle-progress.css":
+/*!*************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--5-1!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-pithy-progress/lib/circle-progress.css ***!
+  \*************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".a-circle-progress-wrapper .circle-progress{position:relative;display:flex;justify-content:center}.a-circle-progress-wrapper .circle-progress .circle-progress-bar{transform:rotate(-90deg)}.a-circle-progress-wrapper .circle-progress .progress-content{position:absolute;left:50%;transform:translateX(-50%)}.a-circle-progress-wrapper .circle-progress .progress-content .percent-text{height:100%;width:100%;display:flex;align-items:center;justify-content:center}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Reportes/Discapacitados.vue?vue&type=style&index=0&lang=css&":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Reportes/Discapacitados.vue?vue&type=style&index=0&lang=css& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.table_data {\n    width: 100%;\n    font-size: 17px;\n    border-collapse: collapse;\n}\n.table_data thead {\n    padding: 0.3em;\n    color: #fff !important;\n    background: #5578eb;\n}\n.table_data thead tr th, .table_data tbody tr td {\n    text-align: left;\n    vertical-align: top;\n    padding: 0.3em;\n    caption-side: bottom;\n}\n.dataTable th {\n    color: #ffffff !important;\n}\n.dataTables_paginate span .paginate_button{ \n    color: #5578eb !important;\n    margin-left: 4px;\n    margin-right: 4px;\n    font-weight: bold;\n    background-color: #ffff;\n    padding: 4px 8px 4px 8px;\n    border-radius: 4px;\n}\n.dataTables_paginate span .current{     \n    color: #ffff !important;\n    margin-left: 4px;\n    margin-right: 4px;\n    font-weight: bold;\n    background-color: #5578eb;\n    padding: 4px 8px 4px 8px;\n    border-radius: 4px;\n}\n.next{\n    cursor: pointer;\n    background-color: #fd397a;\n    color: white;\n    padding: 5px;\n    border-radius: 4px;\n}\n.previous{\n    cursor: pointer;\n    background-color: #fd397a;\n    color: white;\n    padding: 5px;\n    border-radius: 4px;\n}\n.next:hover, .previous:hover{\n    font-weight: bold;\n    color: white;\n}\n.dataTables_paginate{\n    margin-top: 20px;\n    height: 40px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Reportes/Discapacitados.vue?vue&type=style&index=0&lang=css&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Reportes/Discapacitados.vue?vue&type=style&index=0&lang=css& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Discapacitados.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Reportes/Discapacitados.vue?vue&type=style&index=0&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Reportes/Discapacitados.vue?vue&type=template&id=3faadd0c&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Reportes/Discapacitados.vue?vue&type=template&id=3faadd0c& ***!
+  \**********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "div",
+      { staticClass: "kt-portlet", staticStyle: { "margin-top": "-4%" } },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "kt-portlet__body" }, [
+          _c("div", { staticClass: "kt-section" }, [
+            _c("div", { staticClass: "kt-section__content" }, [
+              _c("div", { staticClass: "row" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "col-sm-3 col-lg-3 text-left",
+                    staticStyle: { padding: "10px 10px 10px 10px" }
+                  },
+                  [
+                    _c("h4", [_vm._v("Aplicar filtro por:")]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.tipoCombo,
+                            expression: "tipoCombo"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        on: {
+                          change: [
+                            function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.tipoCombo = $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            },
+                            function($event) {
+                              return _vm.cambiaraTodos()
+                            }
+                          ]
+                        }
+                      },
+                      [
+                        _c("option", { attrs: { value: "todos" } }, [
+                          _vm._v("Seleccione...")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "barrio" } }, [
+                          _vm._v("Barrio - Cabecera Municipal")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "barrio2" } }, [
+                          _vm._v("Barrio - Corregimiento")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "corregimiento" } }, [
+                          _vm._v("Corregimiento")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "vereda" } }, [
+                          _vm._v("Vereda")
+                        ])
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _vm.tipoCombo == "todos"
+                  ? _c("div", {
+                      staticClass: "col-sm-6 col-lg-6 text-left",
+                      staticStyle: { padding: "10px 10px 10px 20px" }
+                    })
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.tipoCombo == "barrio"
+                  ? _c(
+                      "div",
+                      {
+                        staticClass: "col-sm-4 col-lg-4 text-left",
+                        staticStyle: { padding: "10px 10px 10px 20px" }
+                      },
+                      [
+                        _c("h4", [_vm._v("Seleccione un Barrio")]),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.comboBarrio,
+                                expression: "comboBarrio"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            on: {
+                              change: [
+                                function($event) {
+                                  var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function(o) {
+                                      return o.selected
+                                    })
+                                    .map(function(o) {
+                                      var val =
+                                        "_value" in o ? o._value : o.value
+                                      return val
+                                    })
+                                  _vm.comboBarrio = $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                },
+                                function($event) {
+                                  return _vm.filtrar("barrio")
+                                }
+                              ]
+                            }
+                          },
+                          [
+                            _c("option", { attrs: { value: "" } }, [
+                              _vm._v("Seleccione...")
+                            ]),
+                            _vm._v(" "),
+                            _vm._l(_vm.barrios, function(item) {
+                              return _c(
+                                "option",
+                                { domProps: { value: item.value } },
+                                [_vm._v(_vm._s(item.texto))]
+                              )
+                            })
+                          ],
+                          2
+                        )
+                      ]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.tipoCombo == "corregimiento" || _vm.tipoCombo == "barrio2"
+                  ? _c(
+                      "div",
+                      {
+                        staticClass: "col-sm-3 col-lg-3 text-left",
+                        staticStyle: { padding: "10px 10px 10px 20px" }
+                      },
+                      [
+                        _c("h4", [_vm._v("Seleccione un Corregimiento")]),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.comboCorregimiento,
+                                expression: "comboCorregimiento"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            on: {
+                              change: [
+                                function($event) {
+                                  var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function(o) {
+                                      return o.selected
+                                    })
+                                    .map(function(o) {
+                                      var val =
+                                        "_value" in o ? o._value : o.value
+                                      return val
+                                    })
+                                  _vm.comboCorregimiento = $event.target
+                                    .multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                },
+                                function($event) {
+                                  return _vm.filtrar("corregimiento")
+                                }
+                              ]
+                            }
+                          },
+                          [
+                            _c("option", { attrs: { value: "" } }, [
+                              _vm._v("Seleccione...")
+                            ]),
+                            _vm._v(" "),
+                            _vm._l(_vm.corregimientos, function(item) {
+                              return _c(
+                                "option",
+                                { domProps: { value: item.id } },
+                                [_vm._v(_vm._s(item.descripcion))]
+                              )
+                            })
+                          ],
+                          2
+                        )
+                      ]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.tipoCombo == "barrio2"
+                  ? _c(
+                      "div",
+                      {
+                        staticClass: "col-sm-3 col-lg-3 text-left",
+                        staticStyle: { padding: "10px 10px 10px 20px" }
+                      },
+                      [
+                        _c("h4", [_vm._v("Seleccione un Barrio")]),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.comboBarrio2,
+                                expression: "comboBarrio2"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            on: {
+                              change: [
+                                function($event) {
+                                  var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function(o) {
+                                      return o.selected
+                                    })
+                                    .map(function(o) {
+                                      var val =
+                                        "_value" in o ? o._value : o.value
+                                      return val
+                                    })
+                                  _vm.comboBarrio2 = $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                },
+                                function($event) {
+                                  return _vm.filtrar("barrio2")
+                                }
+                              ]
+                            }
+                          },
+                          [
+                            _c("option", { attrs: { value: "" } }, [
+                              _vm._v("Seleccione...")
+                            ]),
+                            _vm._v(" "),
+                            _vm._l(_vm.barriosCorregimiento, function(item) {
+                              return _c(
+                                "option",
+                                { domProps: { value: item.value } },
+                                [_vm._v(_vm._s(item.texto))]
+                              )
+                            })
+                          ],
+                          2
+                        )
+                      ]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.tipoCombo == "vereda"
+                  ? _c(
+                      "div",
+                      {
+                        staticClass: "col-sm-4 col-lg-4 text-left",
+                        staticStyle: { padding: "10px 10px 10px 20px" }
+                      },
+                      [
+                        _c("h4", [_vm._v("Seleccione una Vereda")]),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.comboVereda,
+                                expression: "comboVereda"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            on: {
+                              change: [
+                                function($event) {
+                                  var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function(o) {
+                                      return o.selected
+                                    })
+                                    .map(function(o) {
+                                      var val =
+                                        "_value" in o ? o._value : o.value
+                                      return val
+                                    })
+                                  _vm.comboVereda = $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                },
+                                function($event) {
+                                  return _vm.filtrar("vereda")
+                                }
+                              ]
+                            }
+                          },
+                          [
+                            _c("option", { attrs: { value: "" } }, [
+                              _vm._v("Seleccione...")
+                            ]),
+                            _vm._v(" "),
+                            _vm._l(_vm.veredas, function(item) {
+                              return _c(
+                                "option",
+                                { domProps: { value: item.id } },
+                                [_vm._v(_vm._s(item.descripcion))]
+                              )
+                            })
+                          ],
+                          2
+                        )
+                      ]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.tipoCombo == "corregimiento"
+                  ? _c("div", {
+                      staticClass: "col-sm-1 col-lg-1 text-left",
+                      staticStyle: { padding: "10px 10px 10px 20px" }
+                    })
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.tipoCombo != "todos" && _vm.tipoCombo != "barrio2"
+                  ? _c("div", {
+                      staticClass: "col-sm-2 col-lg-2 text-left",
+                      staticStyle: { padding: "10px 10px 10px 20px" }
+                    })
+                  : _vm._e(),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    ref: "boton1",
+                    staticClass: "col-sm-3 col-lg-3 text-right",
+                    staticStyle: { padding: "60px 10px 10px 20px" }
+                  },
+                  [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-success",
+                        on: {
+                          click: function($event) {
+                            return _vm.exportToExcel()
+                          }
+                        }
+                      },
+                      [
+                        _c("i", {
+                          staticClass: "fa fa-table",
+                          attrs: { "aria-hidden": "true" }
+                        }),
+                        _vm._v(" Exportar Excel")
+                      ]
+                    )
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-12" }, [
+                  _c(
+                    "table",
+                    {
+                      staticClass: "table table-sm table-hover",
+                      attrs: { id: "tablaDatos" }
+                    },
+                    [
+                      _vm._m(1),
+                      _vm._v(" "),
+                      _c(
+                        "tbody",
+                        _vm._l(_vm.personas_discapacitadas_array, function(
+                          item,
+                          index
+                        ) {
+                          return _c("tr", { key: index }, [
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                            " +
+                                    _vm._s(index + 1) +
+                                    "\n                                        "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  width: "150px",
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                            " +
+                                    _vm._s(item.identificacion) +
+                                    "\n                                        "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                            " +
+                                    _vm._s(item.pnom) +
+                                    " " +
+                                    _vm._s(item.snom) +
+                                    " " +
+                                    _vm._s(item.pape) +
+                                    " " +
+                                    _vm._s(item.sape) +
+                                    "\n                                        "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                            " +
+                                    _vm._s(item.edad) +
+                                    " Años\n                                        "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  width: "150px",
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                            " +
+                                    _vm._s(item.discapacidad) +
+                                    "\n                                        "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                            " +
+                                    _vm._s(item.localizacion) +
+                                    "\n                                        "
+                                )
+                              ]
+                            )
+                          ])
+                        }),
+                        0
+                      )
+                    ]
+                  )
+                ])
+              ])
+            ])
+          ])
+        ])
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "kt-portlet__head" }, [
+      _c("div", { staticClass: "kt-portlet__head-label" }, [
+        _c("h3", { staticClass: "kt-portlet__head-title" }, [
+          _c("span", { staticClass: "kt-widget20__number kt-font-danger" }, [
+            _vm._v("REPORTE DE DISCAPACITADOS")
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", {}, [
+      _c("tr", { staticClass: "kt-bg-fill-brand" }, [
+        _c("th", { staticClass: "text-left" }, [_vm._v("No.")]),
+        _vm._v(" "),
+        _c(
+          "th",
+          { staticClass: "text-left", staticStyle: { width: "150px" } },
+          [
+            _vm._v(
+              "\n                                            Identificación\n                                        "
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-left" }, [
+          _vm._v(
+            "\n                                            Nombre\n                                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("th", [
+          _vm._v(
+            "\n                                            Edad\n                                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("th", { staticStyle: { width: "150px" } }, [
+          _vm._v(
+            "\n                                            Discapacidad\n                                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-left" }, [
+          _vm._v(
+            "\n                                            Ubicación\n                                        "
+          )
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-pithy-progress/lib/circle-progress.css":
+/*!*****************************************************************!*\
+  !*** ./node_modules/vue-pithy-progress/lib/circle-progress.css ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../css-loader??ref--5-1!../../postcss-loader/src??ref--5-2!./circle-progress.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-pithy-progress/lib/circle-progress.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./resources/js/Servicios/barrios_servicios.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/Servicios/barrios_servicios.js ***!
+  \*****************************************************/
+/*! exports provided: listarBarrios, guardarBarrios, eliminarBarrios, comboBarrios, exportar */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "listarBarrios", function() { return listarBarrios; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "guardarBarrios", function() { return guardarBarrios; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "eliminarBarrios", function() { return eliminarBarrios; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "comboBarrios", function() { return comboBarrios; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "exportar", function() { return exportar; });
+/* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
+
+function listarBarrios($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/barrios', $data);
+}
+function guardarBarrios($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/barrios/guardar', $data);
+}
+function eliminarBarrios($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/barrios/eliminar', $data);
+}
+function comboBarrios($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/barrios/combo', $data);
+}
+function exportar($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/barrios/exportar', $data);
+}
+
+/***/ }),
+
+/***/ "./resources/js/Servicios/corregimientos_servicios.js":
+/*!************************************************************!*\
+  !*** ./resources/js/Servicios/corregimientos_servicios.js ***!
+  \************************************************************/
+/*! exports provided: listarCorregimientos, guardarCorregimientos, eliminarCorregimientos, comboCorregimientos */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "listarCorregimientos", function() { return listarCorregimientos; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "guardarCorregimientos", function() { return guardarCorregimientos; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "eliminarCorregimientos", function() { return eliminarCorregimientos; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "comboCorregimientos", function() { return comboCorregimientos; });
+/* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
+
+function listarCorregimientos($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/corregimientos', $data);
+}
+function guardarCorregimientos($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/corregimientos/guardar', $data);
+}
+function eliminarCorregimientos($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/corregimientos/eliminar', $data);
+}
+function comboCorregimientos($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/corregimientos/combo', $data);
+}
+
+/***/ }),
+
+/***/ "./resources/js/Servicios/reportes.js":
+/*!********************************************!*\
+  !*** ./resources/js/Servicios/reportes.js ***!
+  \********************************************/
+/*! exports provided: gestantes, exportarGestantes, nutricional, exportarNutricional, inicialesCronicas, cronicasPDF, inicialesMigrantes, migrantesPDF, personas_discapacitadas, adulto_mayor, exportaAdultoMayorExcel, exportaDiscapacitadosExcel, inicialesInfecciosas */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "gestantes", function() { return gestantes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "exportarGestantes", function() { return exportarGestantes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "nutricional", function() { return nutricional; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "exportarNutricional", function() { return exportarNutricional; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "inicialesCronicas", function() { return inicialesCronicas; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cronicasPDF", function() { return cronicasPDF; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "inicialesMigrantes", function() { return inicialesMigrantes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "migrantesPDF", function() { return migrantesPDF; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "personas_discapacitadas", function() { return personas_discapacitadas; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "adulto_mayor", function() { return adulto_mayor; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "exportaAdultoMayorExcel", function() { return exportaAdultoMayorExcel; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "exportaDiscapacitadosExcel", function() { return exportaDiscapacitadosExcel; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "inicialesInfecciosas", function() { return inicialesInfecciosas; });
+/* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
+
+function gestantes($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/reportes/gestantes', $data);
+}
+function exportarGestantes($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/reportes/exportarGestantes', $data);
+}
+function nutricional($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/reportes/nutricional', $data);
+}
+function exportarNutricional($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/reportes/exportarNutricional', $data);
+}
+function inicialesCronicas($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/reportes/cronicas', $data);
+}
+function cronicasPDF($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/reportes/cronicaspdf', $data);
+}
+function inicialesMigrantes($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/reportes/migrantes', $data);
+}
+function migrantesPDF($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/reportes/migrantespdf', $data);
+}
+function personas_discapacitadas($tipo, $id) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().get('/reportes/personas-discapacitadas?tipo=' + $tipo + '&id=' + $id);
+}
+function adulto_mayor($tipo, $id) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().get('/reportes/adulto-mayor?tipo=' + $tipo + '&id=' + $id);
+}
+function exportaAdultoMayorExcel($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/reportes/exportar-adulto-mayor', $data);
+}
+function exportaDiscapacitadosExcel($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/reportes/exportar-discapacitados', $data);
+}
+function inicialesInfecciosas($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/reportes/infecciosas', $data);
+}
+
+/***/ }),
+
+/***/ "./resources/js/Servicios/veredas_servicios.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/Servicios/veredas_servicios.js ***!
+  \*****************************************************/
+/*! exports provided: listarVeredas, guardarVeredas, eliminarVeredas, comboVeredas */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "listarVeredas", function() { return listarVeredas; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "guardarVeredas", function() { return guardarVeredas; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "eliminarVeredas", function() { return eliminarVeredas; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "comboVeredas", function() { return comboVeredas; });
+/* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
+
+function listarVeredas($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/veredas', $data);
+}
+function guardarVeredas($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/veredas/guardar', $data);
+}
+function eliminarVeredas($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/veredas/eliminar', $data);
+}
+function comboVeredas($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/veredas/combo', $data);
+}
+
+/***/ }),
+
+/***/ "./resources/js/Vistas/Reportes/Discapacitados.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/Vistas/Reportes/Discapacitados.vue ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Discapacitados_vue_vue_type_template_id_3faadd0c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Discapacitados.vue?vue&type=template&id=3faadd0c& */ "./resources/js/Vistas/Reportes/Discapacitados.vue?vue&type=template&id=3faadd0c&");
+/* harmony import */ var _Discapacitados_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Discapacitados.vue?vue&type=script&lang=js& */ "./resources/js/Vistas/Reportes/Discapacitados.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _Discapacitados_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Discapacitados.vue?vue&type=style&index=0&lang=css& */ "./resources/js/Vistas/Reportes/Discapacitados.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _Discapacitados_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Discapacitados_vue_vue_type_template_id_3faadd0c___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Discapacitados_vue_vue_type_template_id_3faadd0c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Vistas/Reportes/Discapacitados.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Vistas/Reportes/Discapacitados.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/Vistas/Reportes/Discapacitados.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Discapacitados_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Discapacitados.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Reportes/Discapacitados.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Discapacitados_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Vistas/Reportes/Discapacitados.vue?vue&type=style&index=0&lang=css&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/Vistas/Reportes/Discapacitados.vue?vue&type=style&index=0&lang=css& ***!
+  \******************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Discapacitados_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Discapacitados.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Reportes/Discapacitados.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Discapacitados_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Discapacitados_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Discapacitados_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Discapacitados_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+/***/ }),
+
+/***/ "./resources/js/Vistas/Reportes/Discapacitados.vue?vue&type=template&id=3faadd0c&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/Vistas/Reportes/Discapacitados.vue?vue&type=template&id=3faadd0c& ***!
+  \****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Discapacitados_vue_vue_type_template_id_3faadd0c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Discapacitados.vue?vue&type=template&id=3faadd0c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Reportes/Discapacitados.vue?vue&type=template&id=3faadd0c&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Discapacitados_vue_vue_type_template_id_3faadd0c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Discapacitados_vue_vue_type_template_id_3faadd0c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ })
+
+}]);

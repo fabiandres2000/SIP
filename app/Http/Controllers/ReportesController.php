@@ -6,6 +6,8 @@ use Auth;
 use Illuminate\Http\Request;
 use Session;
 use File;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class ReportesController extends Controller
 {
@@ -167,19 +169,9 @@ class ReportesController extends Controller
     {
         if (Auth::check()) {
             $datos = request()->all();
-            $enfermedades = \App\EnfermedadesCro::todas(Session::get('alias'));
-            $integrantes = \App\Reportes::listarcronicas(Session::get('alias'), $datos, $datos["tipo"]);
+            $integrantes = \App\Reportes::listarcronicas(Session::get('alias'), $datos);
             $respuesta = [
-                'paginacion' => [
-                    'total' => $integrantes->total(),
-                    'pagina_actual' => $integrantes->currentPage(),
-                    'por_pagina' => $integrantes->perPage(),
-                    'ultima_pagina' => $integrantes->lastPage(),
-                    'desde' => $integrantes->firstItem(),
-                    'hasta' => $integrantes->lastItem(),
-                ],
                 'integrantes' => $integrantes,
-                'enfermedades' => $enfermedades,
             ];
             return response()->json($respuesta, 200);
         }
@@ -315,6 +307,121 @@ class ReportesController extends Controller
 
     }
 
+    public function exportaDiscapacitadosExcel() {
+        $styleArray = [
+            'font' => [
+                'bold' => true,
+                'size' => 18,
+            ],
+            'alignment' => [
+                'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT,
+            ],
+            'fill' => [
+                'fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_GRADIENT_LINEAR,
+                'rotation' => 90,
+                'startColor' => [
+                    'argb' => 'FF2FA021',
+                ],
+                'endColor' => [
+                    'argb' => 'FF2FA021',
+                ],
+            ],
+        ];
+
+        $styleArray2 = [
+            'font' => [
+                'bold' => true,
+                'size' => 14,
+            ],
+            'borders' => [
+                'top' => [
+                    'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                ],
+            ],
+            'alignment' => [
+                'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT,
+            ],
+            'fill' => [
+                'fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_GRADIENT_LINEAR,
+                'rotation' => 90,
+                'startColor' => [
+                    'argb' => 'FF2FA021',
+                ],
+                'endColor' => [
+                    'argb' => 'FF2FA021',
+                ],
+            ],
+        ];
+        
+        if (Auth::check()) {
+            
+            $datos = request()->get('datos');
+            $titulo = request()->get('titulo');
+           
+
+            $ente = Auth::user()->permisos->where('actual', 1)->first()->ente->nombre;
+            File::makeDirectory(public_path().'/'.$ente, $mode = 0777, true, true);
+            $nombre = $titulo.".xlsx";
+
+            $spreadsheet = new Spreadsheet();
+               
+            $sheet = $spreadsheet->getActiveSheet();
+            $sheet->setTitle('Lista');
+
+            $spreadsheet->getActiveSheet()->getColumnDimension('A')->setAutoSize(true);
+            $spreadsheet->getActiveSheet()->getColumnDimension('B')->setAutoSize(true);
+            $spreadsheet->getActiveSheet()->getColumnDimension('C')->setAutoSize(true);
+            $spreadsheet->getActiveSheet()->getColumnDimension('D')->setAutoSize(true);
+            $spreadsheet->getActiveSheet()->getColumnDimension('E')->setAutoSize(true);
+            $spreadsheet->getActiveSheet()->getColumnDimension('F')->setAutoSize(true);
+            
+            $sheet->setCellValue('A1', $ente);
+            $sheet->setCellValue('A2', $titulo);
+            $sheet->setCellValue('A3', 'Listado de Personas Discapacitadas');
+
+            $sheet->mergeCells('A1:F1');
+            $spreadsheet->getActiveSheet()->getStyle('A1:F1')->applyFromArray($styleArray);
+            $sheet->mergeCells('A2:F2');
+            $spreadsheet->getActiveSheet()->getStyle('A2:F2')->applyFromArray($styleArray);
+            $sheet->mergeCells('A3:F3');
+            $spreadsheet->getActiveSheet()->getStyle('A3:F3')->applyFromArray($styleArray);
+
+            $sheet->setCellValue('A4', 'Identificación');
+            $sheet->setCellValue('B4', 'Nombre');
+            $sheet->setCellValue('C4', 'Edad');
+            $sheet->setCellValue('D4', 'Discapacidad');
+            $sheet->setCellValue('E4', 'Sexo');
+            $sheet->setCellValue('F4', 'localización');
+    
+
+            $spreadsheet->getActiveSheet()->getStyle('A4:F4')->applyFromArray($styleArray2);
+
+            $row = 5;
+            foreach ($datos as $item) {
+                $sheet->setCellValue("A{$row}", $item["tipo_id"].":".$item["identificacion"])
+                ->setCellValue("B{$row}", $item["pnom"]." ".$item["snom"]." ".$item["pape"]." ".$item["sape"])
+                ->setCellValue("C{$row}", $item["edad"]." Años")
+                ->setCellValue("D{$row}", $item["discapacidad"])
+                ->setCellValue("E{$row}", $item["sexo"])
+                ->setCellValue("F{$row}", $item["localizacion"]);
+
+                ++$row;
+            }
+            
+            $writer = new Xlsx($spreadsheet);
+            $writer->save( $ente.'/'.$nombre);
+
+            $respuesta = [
+                'nombre' => $ente.'/'.$nombre,
+            ];
+
+            return response()->json($respuesta, 200);
+
+        }else {
+            return redirect("/index")->with("error", "Su sesion ha terminado");
+        }
+    }
+
     public function adulto_mayor()
     {
         if (Auth::check()) {
@@ -333,5 +440,129 @@ class ReportesController extends Controller
             return redirect("/index")->with("error", "Su sesion ha terminado");
         }
 
+    }
+
+    public function exportaAdultoMayorExcel() {
+        $styleArray = [
+            'font' => [
+                'bold' => true,
+                'size' => 18,
+            ],
+            'alignment' => [
+                'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT,
+            ],
+            'fill' => [
+                'fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_GRADIENT_LINEAR,
+                'rotation' => 90,
+                'startColor' => [
+                    'argb' => 'FF2FA021',
+                ],
+                'endColor' => [
+                    'argb' => 'FF2FA021',
+                ],
+            ],
+        ];
+
+        $styleArray2 = [
+            'font' => [
+                'bold' => true,
+                'size' => 14,
+            ],
+            'borders' => [
+                'top' => [
+                    'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                ],
+            ],
+            'alignment' => [
+                'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT,
+            ],
+            'fill' => [
+                'fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_GRADIENT_LINEAR,
+                'rotation' => 90,
+                'startColor' => [
+                    'argb' => 'FF2FA021',
+                ],
+                'endColor' => [
+                    'argb' => 'FF2FA021',
+                ],
+            ],
+        ];
+        
+        if (Auth::check()) {
+            
+            $datos = request()->get('datos');
+            $titulo = request()->get('titulo');
+           
+
+            $ente = Auth::user()->permisos->where('actual', 1)->first()->ente->nombre;
+            File::makeDirectory(public_path().'/'.$ente, $mode = 0777, true, true);
+            $nombre = $titulo.".xlsx";
+
+            $spreadsheet = new Spreadsheet();
+               
+            $sheet = $spreadsheet->getActiveSheet();
+            $sheet->setTitle('Lista');
+
+            $spreadsheet->getActiveSheet()->getColumnDimension('A')->setAutoSize(true);
+            $spreadsheet->getActiveSheet()->getColumnDimension('B')->setAutoSize(true);
+            $spreadsheet->getActiveSheet()->getColumnDimension('C')->setAutoSize(true);
+            $spreadsheet->getActiveSheet()->getColumnDimension('D')->setAutoSize(true);
+            $spreadsheet->getActiveSheet()->getColumnDimension('E')->setAutoSize(true);
+            
+            $sheet->setCellValue('A1', $ente);
+            $sheet->setCellValue('A2', $titulo);
+            $sheet->setCellValue('A3', 'Listado de Adultos Mayores');
+
+            $sheet->mergeCells('A1:E1');
+            $spreadsheet->getActiveSheet()->getStyle('A1:E1')->applyFromArray($styleArray);
+            $sheet->mergeCells('A2:E2');
+            $spreadsheet->getActiveSheet()->getStyle('A2:E2')->applyFromArray($styleArray);
+            $sheet->mergeCells('A3:E3');
+            $spreadsheet->getActiveSheet()->getStyle('A3:E3')->applyFromArray($styleArray);
+
+            $sheet->setCellValue('A4', 'Identificación');
+            $sheet->setCellValue('B4', 'Nombre');
+            $sheet->setCellValue('C4', 'Edad');
+            $sheet->setCellValue('D4', 'Sexo');
+            $sheet->setCellValue('E4', 'localización');
+    
+
+            $spreadsheet->getActiveSheet()->getStyle('A4:E4')->applyFromArray($styleArray2);
+
+            $row = 5;
+            foreach ($datos as $item) {
+                $sheet->setCellValue("A{$row}", $item["tipo_id"].":".$item["identificacion"])
+                ->setCellValue("B{$row}", $item["pnom"]." ".$item["snom"]." ".$item["pape"]." ".$item["sape"])
+                ->setCellValue("C{$row}", $item["edad"]." Años")
+                ->setCellValue("D{$row}", $item["sexo"])
+                ->setCellValue("E{$row}", $item["localizacion"]);
+
+                ++$row;
+            }
+            
+            $writer = new Xlsx($spreadsheet);
+            $writer->save( $ente.'/'.$nombre);
+
+            $respuesta = [
+                'nombre' => $ente.'/'.$nombre,
+            ];
+
+            return response()->json($respuesta, 200);
+
+        }else {
+            return redirect("/index")->with("error", "Su sesion ha terminado");
+        }
+    }
+
+    public function listarinfecciosas()
+    {
+        if (Auth::check()) {
+            $datos = request()->all();
+            $integrantes = \App\Reportes::listarinfecciosas(Session::get('alias'), $datos);
+            $respuesta = [
+                'integrantes' => $integrantes,
+            ];
+            return response()->json($respuesta, 200);
+        }
     }
 }

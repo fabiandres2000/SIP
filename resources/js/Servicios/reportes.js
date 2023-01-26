@@ -39,3 +39,15 @@ export function personas_discapacitadas($tipo, $id) {
 export function adulto_mayor($tipo, $id) {
     return http().get('/reportes/adulto-mayor?tipo='+$tipo+'&id='+$id);
 }
+
+export function exportaAdultoMayorExcel($data) {
+    return http().post('/reportes/exportar-adulto-mayor', $data);
+}
+
+export function exportaDiscapacitadosExcel($data) {
+    return http().post('/reportes/exportar-discapacitados', $data);
+}
+
+export function inicialesInfecciosas($data) {
+    return http().post('/reportes/infecciosas', $data);
+}

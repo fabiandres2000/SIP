@@ -1,1 +1,1837 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[22],{134:function(a,e,t){"use strict";t.d(e,"l",(function(){return n})),t.d(e,"k",(function(){return s})),t.d(e,"a",(function(){return i})),t.d(e,"m",(function(){return o})),t.d(e,"b",(function(){return c})),t.d(e,"g",(function(){return _})),t.d(e,"e",(function(){return d})),t.d(e,"n",(function(){return l})),t.d(e,"h",(function(){return u})),t.d(e,"o",(function(){return v})),t.d(e,"i",(function(){return p})),t.d(e,"j",(function(){return g})),t.d(e,"f",(function(){return h})),t.d(e,"c",(function(){return f})),t.d(e,"d",(function(){return m}));var r=t(0);function n(a,e){return Object(r.a)().get("/socioeconomico/por-persona?tipo="+a+"&id="+e+"&consulta=1")}function s(a,e){return Object(r.a)().get("/socioeconomico/por-persona?tipo="+a+"&id="+e+"&consulta=2")}function i(a,e){return Object(r.a)().get("/socioeconomico/desempleo?tipo="+a+"&id="+e)}function o(){return Object(r.a)().get("/socioeconomico/mercado-laboral")}function c(a){return Object(r.a)().post("/socioeconomico/exportar-analfabetas",a)}function _(a){return Object(r.a)().post("/socioeconomico/exportar-mc",a)}function d(a){return Object(r.a)().post("/socioeconomico/exportar-desempleo",a)}function l(a,e){return Object(r.a)().get("/socioeconomico/poblacion?tipo="+a+"&id="+e)}function u(a){return Object(r.a)().post("/socioeconomico/exportar-poblacion",a)}function v(a,e){return Object(r.a)().get("/socioeconomico/vivienda?tipo="+a+"&id="+e)}function p(a){return Object(r.a)().post("/socioeconomico/exportar-vivienda",a)}function g(a,e){return Object(r.a)().get("/socioeconomico/hogares?tipo="+a+"&id="+e)}function h(a){return Object(r.a)().post("/socioeconomico/exportar-hogar",a)}function f(a){return Object(r.a)().post("/socioeconomico/exportar-analfabetas-excel",a)}function m(a){return Object(r.a)().post("/socioeconomico/exportar-desempleados-excel",a)}},289:function(a,e,t){"use strict";t.d(e,"d",(function(){return n})),t.d(e,"e",(function(){return s})),t.d(e,"b",(function(){return i})),t.d(e,"a",(function(){return o})),t.d(e,"c",(function(){return c}));var r=t(0);function n(a){return Object(r.a)().post("/informes/migrantes",a)}function s(){return Object(r.a)().get("/informes/poblacion-no-asegurada")}function i(){return Object(r.a)().get("/informes/determinante-salud")}function o(){return Object(r.a)().get("/informes/condiciones-salud")}function c(a){return Object(r.a)().post("/informes/exportar-general-salud",a)}},385:function(a,e,t){var r=t(593);"string"==typeof r&&(r=[[a.i,r,""]]);var n={hmr:!0,transform:void 0,insertInto:void 0};t(37)(r,n);r.locals&&(a.exports=r.locals)},386:function(a,e,t){var r=t(595);"string"==typeof r&&(r=[[a.i,r,""]]);var n={hmr:!0,transform:void 0,insertInto:void 0};t(37)(r,n);r.locals&&(a.exports=r.locals)},592:function(a,e,t){"use strict";t(385)},593:function(a,e,t){(a.exports=t(36)(!1)).push([a.i,"\n.li_li {\n    padding-top: 7px;\n    padding-bottom: 7px;\n}\np{\n    line-height: 200%;\n}\n#divPadre {\n    text-align:center;\n}\n#divHijo {\n    width:25cm;\n    margin:0px auto;\n}\n.table_data {\n    width: 100%;\n    font-size: 13px;\n    border-collapse: collapse;\n}\n.table_data thead {\n    padding: 0.3em;\n    color: #fff;\n    background: #5578eb;\n}\n.table_data thead tr th, .table_data tbody tr td {\n    text-align: left;\n    vertical-align: top;\n    padding: 0.3em;\n    caption-side: bottom;\n}\n.table_data tbody tr:nth-child(odd) {\n    background-color: #fff;\n}\n.table_data tbody tr:nth-child(even) {\n    background-color: #f1f1f1;\n}\n.nav-pills, .nav-tabs {\n    margin: 0 0 -10px 0 !important;\n}\n",""])},594:function(a,e,t){"use strict";t(386)},595:function(a,e,t){(a.exports=t(36)(!1)).push([a.i,"\n#divPadre1 {\n    text-align:center;\n    margin-top: -2%;\n}\n#divHijo1 {\n    width:21cm;\n    margin:0px auto;\n}\n",""])},697:function(a,e,t){"use strict";t.r(e);var r=t(1),n=t.n(r),s=t(238),i=t(290),o=t.n(i),c=(t(291),t(293)),_=t.n(c),d=t(294),l=t.n(d),u=t(134),v=t(289),p=t(109),g=t(108),h=t(110),f=t(97),m=t.n(f),b=t(10);function y(a,e,t,r,n,s,i){try{var o=a[s](i),c=o.value}catch(a){return void t(a)}o.done?e(c):Promise.resolve(c).then(r,n)}function x(a){return function(){var e=this,t=arguments;return new Promise((function(r,n){var s=a.apply(e,t);function i(a){y(s,r,n,i,o,"next",a)}function o(a){y(s,r,n,i,o,"throw",a)}i(void 0)}))}}p.d(h.a);var w,z={components:{VueHtml2pdf:s.a,VueEasyPieChart:o.a,Progress:_.a,VueCircle:l.a,Loading:m.a},mounted:function(){this.caracterizacion(),this.poblacion_no_asegurada_f(),this.determinante_salud(),this.condiciones_salud()},data:function(){return{poblacion_array:null,chart_torta_edades:null,chart_no_asegurado_1:null,chart_no_asegurado_2:null,isLoading:!1,poblacion_no_asegurada:null,determinante_salud_array:null,chart_poblacion_pobreza:null,chart_escolaridad:null,chart_desempleo:null,chart_acueducto:null,chart_alcantarillado:null,condiciones_salud_array:null,chart_cronica:null,chart_infecciosa:null,chart_discapacidad:null,chart_embarazo:null,chart_inmunizacion:null,chart_peso_para_talla:null,chart_talla_para_edad:null,chart_imc:null,chart_imc_5_17:null,chart_imc_5_17_e:null,chart_imc_18_60:null,chart_imc_18_60_e:null,rutaPdf:""}},methods:{caracterizacion:function(){var a=this;return x(n.a.mark((function e(){return n.a.wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,u.n("todos",1).then((function(e){a.poblacion_array=e.data.poblacion,a.grafica_torta_edades(a.poblacion_array.edades)})).catch((function(a){console.log(a)}));case 2:case"end":return e.stop()}}),e)})))()},grafica_torta_edades:function(a){var e=this;return x(n.a.mark((function t(){var r,s;return n.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:null!=e.chart_torta_edades&&e.chart_torta_edades.dispose(),r=p.c("chartdiv_edades_torta",g.f),e.chart_torta_edades=r,r.data=[{category:"-1 Años",first:a.personas0_1[0]+a.personas0_1[1]},{category:"1-5 Años",first:a.personas1_5[0]+a.personas1_5[1]},{category:"6-11 Años",first:a.personas6_11[0]+a.personas6_11[1]},{category:"12-17 Años",first:a.personas12_17[0]+a.personas12_17[1]},{category:"18-28 Años",first:a.personas18_28[0]+a.personas18_28[1]},{category:"29-59 Años",first:a.personas29_59[0]+a.personas29_59[1]},{category:"+60 Años",first:a.personas60[0]+a.personas60[1]}],(s=r.series.push(new g.g)).dataFields.value="first",s.dataFields.category="category";case 7:case"end":return t.stop()}}),t)})))()},poblacion_no_asegurada_f:function(){var a=this;return x(n.a.mark((function e(){return n.a.wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,v.e().then((function(e){a.poblacion_no_asegurada=e.data,a.grafica_torta_no_asegurada_1(e.data.no_asegurado_menor_5),a.grafica_torta_no_asegurada_2(e.data.no_asegurado_mayor_60)})).catch((function(a){console.log(a)}));case 2:case"end":return e.stop()}}),e)})))()},grafica_torta_no_asegurada_1:function(a){var e=this;return x(n.a.mark((function t(){var r,s;return n.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:null!=e.chart_no_asegurado_1&&e.chart_no_asegurado_1.dispose(),r=p.c("chartdiv_no_asegurado_1",g.f),e.chart_no_asegurado_1=r,r.data=[{category:"Zona Urbana",first:a.urbano},{category:"Zona Rural",first:a.rural}],(s=r.series.push(new g.g)).dataFields.value="first",s.dataFields.category="category";case 7:case"end":return t.stop()}}),t)})))()},grafica_torta_no_asegurada_2:function(a){var e=this;return x(n.a.mark((function t(){var r,s;return n.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:null!=e.chart_no_asegurado_2&&e.chart_no_asegurado_2.dispose(),r=p.c("chartdiv_no_asegurado_2",g.f),e.chart_no_asegurado_2=r,r.data=[{category:"Zona Urbana",first:a.urbano},{category:"Zona Rural",first:a.rural}],(s=r.series.push(new g.g)).dataFields.value="first",s.dataFields.category="category";case 7:case"end":return t.stop()}}),t)})))()},determinante_salud:function(){var a=this;return x(n.a.mark((function e(){return n.a.wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,v.b().then((function(e){a.determinante_salud_array=e.data,a.grafica_poblacion_pobreza(a.determinante_salud_array.pobreza),a.grafica_torta_escolaridad(a.determinante_salud_array.escolaridad),a.grafica_torta_desempleo_sexo(a.determinante_salud_array.desempleo),a.grafica_viviendas_sin_acueducto(a.determinante_salud_array.alcantarillado_agua.viendasSAP),a.grafica_viviendas_sin_alcantarillado(a.determinante_salud_array.alcantarillado_agua.viendasSA)})).catch((function(a){console.log(a)}));case 2:case"end":return e.stop()}}),e)})))()},grafica_poblacion_pobreza:function(a){var e=this;return x(n.a.mark((function t(){var r,s;return n.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:null!=e.chart_poblacion_pobreza&&e.chart_poblacion_pobreza.dispose(),r=p.c("chartdiv_poblacion_pobreza",g.f),e.chart_poblacion_pobreza=r,r.data=[{category:"Zona Urbana",first:a.poblacion_pobreza_urbano},{category:"Zona Rural",first:a.poblacion_pobreza_rural}],(s=r.series.push(new g.g)).dataFields.value="first",s.dataFields.category="category";case 7:case"end":return t.stop()}}),t)})))()},grafica_torta_escolaridad:function(a){var e=this;return x(n.a.mark((function t(){var r,s;return n.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:null!=e.chart_escolaridad&&e.chart_escolaridad.dispose(),r=p.c("chartdiv_escolaridad",g.f),e.chart_escolaridad=r,r.data=[],a.forEach((function(a){r.data.push({category:a.escolaridad_nombre,first:a.numero_personas})})),(s=r.series.push(new g.g)).dataFields.value="first",s.dataFields.category="category";case 8:case"end":return t.stop()}}),t)})))()},grafica_torta_desempleo_sexo:function(a){var e=this;return x(n.a.mark((function t(){var r,s;return n.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:null!=e.chart_desempleo&&e.chart_desempleo.dispose(),r=p.c("chartdiv_desempleo",g.f),e.chart_desempleo=r,r.data=[{category:"Femenino",first:a.femeninoTD},{category:"Masculino",first:a.masculinoTD}],(s=r.series.push(new g.g)).dataFields.value="first",s.dataFields.category="category";case 7:case"end":return t.stop()}}),t)})))()},grafica_viviendas_sin_acueducto:function(a){var e=this;return x(n.a.mark((function t(){var r,s,i,o;return n.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:r=0,s=0,a.forEach((function(a){1==a.id_zona?s+=1:r+=1})),null!=e.chart_acueducto&&e.chart_acueducto.dispose(),i=p.c("chartdiv_acueducto",g.f),e.chart_acueducto=i,i.data=[{category:"Zona Rural",first:r},{category:"Zona Urbana",first:s}],(o=i.series.push(new g.g)).dataFields.value="first",o.dataFields.category="category";case 10:case"end":return t.stop()}}),t)})))()},grafica_viviendas_sin_alcantarillado:function(a){var e=this;return x(n.a.mark((function t(){var r,s,i,o;return n.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:r=0,s=0,a.forEach((function(a){1==a.id_zona?s+=1:r+=1})),null!=e.chart_alcantarillado&&e.chart_alcantarillado.dispose(),i=p.c("chartdiv_alantarillado",g.f),e.chart_alcantarillado=i,i.data=[{category:"Zona Rural",first:r},{category:"Zona Urbana",first:s}],(o=i.series.push(new g.g)).dataFields.value="first",o.dataFields.category="category";case 10:case"end":return t.stop()}}),t)})))()},condiciones_salud:function(){var a=this;return x(n.a.mark((function e(){return n.a.wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,v.a().then((function(e){a.condiciones_salud_array=e.data,a.grafica_enfermedades_cronicas(a.condiciones_salud_array.enfermedades_cronicas.por_enfermedad),a.grafica_enfermedades_infecciosas(a.condiciones_salud_array.enfermedades_infecciosas.por_enfermedad),a.grafica_personas_discapacitadas(a.condiciones_salud_array.personas_discapacidad.por_discapacidad),a.grafica_adolescentes_mbarazo(a.condiciones_salud_array.adolescentes_embarazo),a.grafica_inmunizacion(a.condiciones_salud_array.inmunizacion),a.grafica_peso_para_talla(a.condiciones_salud_array.nutricion.nutricion_0_5.peso_talla),a.grafica_talla_para_edad(a.condiciones_salud_array.nutricion.nutricion_0_5.talla_edad),a.grafica_imc(a.condiciones_salud_array.nutricion.nutricion_0_5.imc),a.grafica_imc_5_17(a.condiciones_salud_array.nutricion.nutricion_5_17.imc),a.grafica_imc_5_17_e(a.condiciones_salud_array.nutricion.nutricion_5_17.imc_embarazadas),a.grafica_imc_18_60(a.condiciones_salud_array.nutricion.nutricion_18_60.imc),a.grafica_imc_18_60_e(a.condiciones_salud_array.nutricion.nutricion_18_60.imc_embarazadas)})).catch((function(a){console.log(a)}));case 2:case"end":return e.stop()}}),e)})))()},grafica_enfermedades_cronicas:function(a){var e=this;return x(n.a.mark((function t(){var r,s;return n.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:null!=e.chart_cronica&&e.chart_cronica.dispose(),r=p.c("chartdiv_cronica",g.f),e.chart_cronica=r,r.data=[],a.forEach((function(a){r.data.push({category:a.enfermedad,first:a.cantidad})})),(s=r.series.push(new g.g)).dataFields.value="first",s.dataFields.category="category";case 8:case"end":return t.stop()}}),t)})))()},grafica_enfermedades_infecciosas:function(a){var e=this;return x(n.a.mark((function t(){var r,s;return n.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:null!=e.chart_infecciosa&&e.chart_infecciosa.dispose(),r=p.c("chartdiv_infecciosa",g.f),e.chart_infecciosa=r,r.data=[],a.forEach((function(a){r.data.push({category:a.enfermedad,first:a.cantidad})})),(s=r.series.push(new g.g)).dataFields.value="first",s.dataFields.category="category";case 8:case"end":return t.stop()}}),t)})))()},grafica_personas_discapacitadas:function(a){var e=this;return x(n.a.mark((function t(){var r,s;return n.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:null!=e.chart_discapacidad&&e.chart_discapacidad.dispose(),r=p.c("chartdiv_discapacidad",g.f),e.chart_discapacidad=r,r.data=[],a.forEach((function(a){r.data.push({category:a.discapacidad,first:a.cantidad})})),(s=r.series.push(new g.g)).dataFields.value="first",s.dataFields.category="category";case 8:case"end":return t.stop()}}),t)})))()},grafica_adolescentes_mbarazo:function(a){var e=this;return x(n.a.mark((function t(){var r,s;return n.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:null!=e.chart_embarazo&&e.chart_embarazo.dispose(),r=p.c("chartdiv_embarazo",g.f),e.chart_embarazo=r,r.data=[{category:"Zona Rural",first:a.adolescentes_embarazo_rural},{category:"Zona Urbana",first:a.adolescentes_embarazo_urbano}],(s=r.series.push(new g.g)).dataFields.value="first",s.dataFields.category="category";case 7:case"end":return t.stop()}}),t)})))()},grafica_inmunizacion:function(a){var e=this;return x(n.a.mark((function t(){var r,s;return n.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:null!=e.chart_inmunizacion&&e.chart_inmunizacion.dispose(),r=p.c("chartdiv_inmunizacion",g.f),e.chart_inmunizacion=r,r.data=[{category:"Menores a 1 Año",first:a.integrantes_mn1},{category:"De 1 a 5 Años",first:a.integrantes_de1a5}],(s=r.series.push(new g.g)).dataFields.value="first",s.dataFields.category="category";case 7:case"end":return t.stop()}}),t)})))()},grafica_peso_para_talla:function(a){var e=this;return x(n.a.mark((function t(){var r,s;return n.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:null!=e.chart_peso_para_talla&&e.chart_peso_para_talla.dispose(),r=p.c("chartdiv_peso_para_talla",g.f),e.chart_peso_para_talla=r,r.data=[{category:"Desnutrición Aguda Moderada",first:a.desnutricion_aguda_moderada},{category:"Desnutrición Aguda Severa",first:a.desnutricion_aguda_severa},{category:"Peso Adecuado",first:a.peso_adecuado},{category:"Riesgo de Desnutrición Aguda",first:a.riesgo_desnutricion_aguda}],(s=r.series.push(new g.g)).dataFields.value="first",s.dataFields.category="category";case 7:case"end":return t.stop()}}),t)})))()},grafica_talla_para_edad:function(a){var e=this;return x(n.a.mark((function t(){var r,s;return n.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:null!=e.chart_talla_para_edad&&e.chart_talla_para_edad.dispose(),r=p.c("chartdiv_talla_para_edad",g.f),e.chart_talla_para_edad=r,r.data=[{category:"Talla Adecuada para la Edad",first:a.retraso_talla},{category:"Riesgo de Talla Baja",first:a.riesgo_talla_baja},{category:"Talla Baja para la Edad o Retraso en Talla",first:a.retraso_talla}],(s=r.series.push(new g.g)).dataFields.value="first",s.dataFields.category="category",s.labels.template.fontSize=12,s.labels.template.maxWidth=170,s.labels.template.wrap=!0;case 10:case"end":return t.stop()}}),t)})))()},grafica_imc:function(a){var e=this;return x(n.a.mark((function t(){var r,s;return n.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:null!=e.chart_imc&&e.chart_imc.dispose(),r=p.c("chartdiv_imc",g.f),e.chart_imc=r,r.data=[{category:"Obesidad",first:a.obesidad},{category:"Sobrepeso",first:a.sobrepeso},{category:"Riesgo de Sobrepeso",first:a.riesgo_sobrepeso},{category:"Peso Normal",first:a.peso_normal}],(s=r.series.push(new g.g)).dataFields.value="first",s.dataFields.category="category",s.labels.template.fontSize=12,s.labels.template.maxWidth=170,s.labels.template.wrap=!0;case 10:case"end":return t.stop()}}),t)})))()},grafica_imc_5_17:function(a){var e=this;return x(n.a.mark((function t(){var r,s;return n.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:null!=e.chart_imc_5_17&&e.chart_imc_5_17.dispose(),r=p.c("chartdiv_imc_5_17",g.f),e.chart_imc_5_17=r,r.data=[{category:"Obesidad",first:a.obesidad},{category:"Sobrepeso",first:a.sobrepeso},{category:"IMC Adecuado para la Edad",first:a.imc_adecuado},{category:"Riesgo de Delgadez",first:a.riesgo_delgadez},{category:"Delgadez",first:a.delgadez}],(s=r.series.push(new g.g)).dataFields.value="first",s.dataFields.category="category",s.labels.template.fontSize=12,s.labels.template.maxWidth=200,s.labels.template.wrap=!0;case 10:case"end":return t.stop()}}),t)})))()},grafica_imc_5_17_e:function(a){var e=this;return x(n.a.mark((function t(){var r,s;return n.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:null!=e.chart_imc_5_17_e&&e.chart_imc_5_17_e.dispose(),r=p.c("chartdiv_imc_5_17_e",g.f),e.chart_imc_5_17_e=r,r.data=[{category:"Obesidad para la edad gestacional",first:a.obesidad_gestacional},{category:"Sobrepeso para la edad gestacional",first:a.sobrepeso_gestacional},{category:"IMC adecuado para la edad gestacional",first:a.adecuado_gestacional},{category:"Bajo peso para la edad gestacional",first:a.bajo_peso_gestacional}],(s=r.series.push(new g.g)).dataFields.value="first",s.dataFields.category="category",s.labels.template.fontSize=12,s.labels.template.maxWidth=240,s.labels.template.wrap=!0;case 10:case"end":return t.stop()}}),t)})))()},grafica_imc_18_60:function(a){var e=this;return x(n.a.mark((function t(){var r,s;return n.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:null!=e.chart_imc_18_60&&e.chart_imc_18_60.dispose(),r=p.c("chartdiv_imc_18_60",g.f),e.chart_imc_18_60=r,r.data=[{category:"Obesidad",first:a.obesidad},{category:"Sobrepeso",first:a.sobrepeso},{category:"Normal",first:a.normal},{category:"Delgadez",first:a.delgadez}],(s=r.series.push(new g.g)).dataFields.value="first",s.dataFields.category="category",s.labels.template.fontSize=12,s.labels.template.maxWidth=200,s.labels.template.wrap=!0;case 10:case"end":return t.stop()}}),t)})))()},grafica_imc_18_60_e:function(a){var e=this;return x(n.a.mark((function t(){var r,s;return n.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:null!=e.chart_imc_18_60_e&&e.chart_imc_18_60_e.dispose(),r=p.c("chartdiv_imc_18_60_e",g.f),e.chart_imc_18_60_e=r,r.data=[{category:"Obesidad para la edad gestacional",first:a.obesidad_gestacional},{category:"Sobrepeso para la edad gestacional",first:a.sobrepeso_gestacional},{category:"IMC adecuado para la edad gestacional",first:a.adecuado_gestacional},{category:"Bajo peso para la edad gestacional",first:a.bajo_peso_gestacional}],(s=r.series.push(new g.g)).dataFields.value="first",s.dataFields.category="category",s.labels.template.fontSize=12,s.labels.template.maxWidth=240,s.labels.template.wrap=!0;case 10:case"end":return t.stop()}}),t)})))()},generarPDF:(w=x(n.a.mark((function a(){var e,t,r,s,i,o,c,_,d,l,u,p,g,h,f,m,y,x,w,z,C,S=this;return n.a.wrap((function(a){for(;;)switch(a.prev=a.next){case 0:return this.isLoading=!0,a.next=4,this.chart_torta_edades.exporting.getImage("png");case 4:return e=a.sent,a.next=7,this.chart_no_asegurado_1.exporting.getImage("png");case 7:return t=a.sent,a.next=10,this.chart_no_asegurado_2.exporting.getImage("png");case 10:return r=a.sent,a.next=13,this.chart_poblacion_pobreza.exporting.getImage("png");case 13:return s=a.sent,a.next=16,this.chart_escolaridad.exporting.getImage("png");case 16:return i=a.sent,a.next=19,this.chart_desempleo.exporting.getImage("png");case 19:return o=a.sent,a.next=22,this.chart_acueducto.exporting.getImage("png");case 22:return c=a.sent,a.next=25,this.chart_alcantarillado.exporting.getImage("png");case 25:return _=a.sent,a.next=28,this.chart_cronica.exporting.getImage("png");case 28:return d=a.sent,a.next=31,this.chart_infecciosa.exporting.getImage("png");case 31:return l=a.sent,a.next=34,this.chart_discapacidad.exporting.getImage("png");case 34:return u=a.sent,a.next=37,this.chart_embarazo.exporting.getImage("png");case 37:return p=a.sent,a.next=40,this.chart_inmunizacion.exporting.getImage("png");case 40:return g=a.sent,a.next=43,this.chart_peso_para_talla.exporting.getImage("png");case 43:return h=a.sent,a.next=46,this.chart_talla_para_edad.exporting.getImage("png");case 46:return f=a.sent,a.next=49,this.chart_imc.exporting.getImage("png");case 49:return m=a.sent,a.next=52,this.chart_imc_5_17.exporting.getImage("png");case 52:return y=a.sent,a.next=55,this.chart_imc_5_17_e.exporting.getImage("png");case 55:return x=a.sent,a.next=58,this.chart_imc_18_60.exporting.getImage("png");case 58:return w=a.sent,a.next=61,this.chart_imc_18_60_e.exporting.getImage("png");case 61:return z=a.sent,C={_token:this.csrf,poblacion_array:this.poblacion_array,poblacion_no_asegurada:this.poblacion_no_asegurada,chart_torta_edades:e,chart_no_asegurado_1:t,chart_no_asegurado_2:r,determinante_salud_array:this.determinante_salud_array,chart_poblacion_pobreza:s,chart_escolaridad:i,chart_desempleo:o,chart_acueducto:c,chart_alcantarillado:_,condiciones_salud_array:this.condiciones_salud_array,chart_cronica:d,chart_infecciosa:l,chart_discapacidad:u,chart_embarazo:p,chart_inmunizacion:g,chart_peso_para_talla:h,chart_talla_para_edad:f,chart_imc:m,chart_imc_5_17:y,chart_imc_5_17_e:x,chart_imc_18_60:w,chart_imc_18_60_e:z},a.prev=63,a.next=66,v.c(C).then((function(a){S.rutaPdf=b.a.state.apiURL+a.data.nombre,S.isLoading=!1,S.$refs.modalpdf.show()}));case 66:a.next=71;break;case 68:a.prev=68,a.t0=a.catch(63),this.$swal("Error...!","Ocurrio un error!","error");case 71:case"end":return a.stop()}}),a,this,[[63,68]])}))),function(){return w.apply(this,arguments)}),cerrarModal:function(){this.$refs.modalpdf.hide()}}},C=(t(592),t(3)),S={components:{Salud:Object(C.a)(z,(function(){var a=this,e=a.$createElement,t=a._self._c||e;return t("div",{staticStyle:{"margin-top":"4%"},attrs:{id:"divPadre"}},[t("loading",{attrs:{active:a.isLoading,"can-cancel":!0,loader:"dots",height:128,width:128,color:"#007bff","is-full-page":!0},on:{"update:active":function(e){a.isLoading=e}}}),a._v(" "),t("div",{staticClass:"row",attrs:{id:"divHijo"}},[t("div",{staticClass:"col-lg-12"},[t("div",{staticClass:"card"},[t("div",{staticClass:"card-body"},[t("div",{staticClass:"row"},[a._m(0),a._v(" "),t("div",{staticClass:"col-sm-3 text-right"},[t("button",{staticClass:"btn btn-danger",attrs:{type:"button"},on:{click:a.generarPDF}},[t("i",{staticClass:"la la-pdf"}),a._v(" "),t("span",{staticClass:"kt-hidden-mobile"},[a._v("Generar PDF")])])])])])]),a._v(" "),t("div",{staticClass:"card"},[t("div",{staticClass:"card-body",staticStyle:{"text-align":"left"}},[t("h4",{staticStyle:{color:"#fd397a"}},[a._v("Caracterización")]),a._v(" "),t("div",{staticClass:"row",staticStyle:{padding:"10px"}},[null!=a.poblacion_array?t("div",{staticClass:"col-lg-12",staticStyle:{"padding-bottom":"10px"}},[t("strong",[a._v("1. Población por ciclo de vida")]),a._v(" "),t("p",[a._v(" De acuerdo con la información recolectada, la poblacion caracterizada se compone de la siguiente manera por ciclo de vida:")])]):a._e(),a._v(" "),null!=a.poblacion_array?t("div",{staticClass:"col-lg-5"},[t("ul",[t("li",{staticClass:"li_li"},[t("strong",[a._v("Menores de un año: ")]),a._v(" "+a._s(a.poblacion_array.edades.personas0_1[0]+a.poblacion_array.edades.personas0_1[1])+" Personas")]),a._v(" "),t("li",{staticClass:"li_li"},[t("strong",[a._v("De 1 a 5 Años: ")]),a._v(" "+a._s(a.poblacion_array.edades.personas1_5[0]+a.poblacion_array.edades.personas1_5[1])+" Personas")]),a._v(" "),t("li",{staticClass:"li_li"},[t("strong",[a._v("De 6 a 11 Años: ")]),a._v(" "+a._s(a.poblacion_array.edades.personas6_11[0]+a.poblacion_array.edades.personas6_11[1])+" Personas")]),a._v(" "),t("li",{staticClass:"li_li"},[t("strong",[a._v("De 12 a 17 Años: ")]),a._v(" "+a._s(a.poblacion_array.edades.personas12_17[0]+a.poblacion_array.edades.personas12_17[1])+" Personas")]),a._v(" "),t("li",{staticClass:"li_li"},[t("strong",[a._v("De 18 a 28 Años: ")]),a._v(" "+a._s(a.poblacion_array.edades.personas18_28[0]+a.poblacion_array.edades.personas18_28[1])+" Personas")]),a._v(" "),t("li",{staticClass:"li_li"},[t("strong",[a._v("De 29 a 59 Años: ")]),a._v(" "+a._s(a.poblacion_array.edades.personas29_59[0]+a.poblacion_array.edades.personas29_59[1])+" Personas")]),a._v(" "),t("li",{staticClass:"li_li"},[t("strong",[a._v("Mayores de 60 Años ")]),a._v(" "+a._s(a.poblacion_array.edades.personas60[0]+a.poblacion_array.edades.personas60[1])+" Personas")])])]):a._e(),a._v(" "),a._m(1)]),a._v(" "),t("div",{staticClass:"row",staticStyle:{padding:"10px"}},[t("div",{staticClass:"col-lg-12"},[t("strong",[a._v("2. Población menor de 5 años no asegurada")]),a._v(" "),null!=a.poblacion_no_asegurada?t("p",[a._v("\n                                Dentro de este grupo de edad se tiene una cantidad de "),t("strong",[a._v(a._s(a.poblacion_no_asegurada.no_asegurado_menor_5.cantidad_personas)+" personas")]),a._v(", de las cuales "),t("strong",[a._v(a._s(a.poblacion_no_asegurada.no_asegurado_menor_5.rural+a.poblacion_no_asegurada.no_asegurado_menor_5.urbano)+" personas")]),a._v(", se encuentran en la situación de población menor de 5 años no asegurada, de lo cual se puede obtener que "),t("strong",[a._v(a._s(a.poblacion_no_asegurada.no_asegurado_menor_5.rural)+" personas")]),a._v(" se encuentran en zona rural, y "),t("strong",[a._v(a._s(a.poblacion_no_asegurada.no_asegurado_menor_5.urbano)+" personas")]),a._v("  en zona urbana.\n                            ")]):a._e(),a._v(" "),t("div",{staticStyle:{width:"100%",height:"270px"},attrs:{id:"chartdiv_no_asegurado_1"}})])]),a._v(" "),t("div",{staticClass:"row",staticStyle:{padding:"10px"}},[t("div",{staticClass:"col-lg-12"},[t("strong",[a._v("3. Población adulto mayor no asegurada ")]),a._v(" "),null!=a.poblacion_no_asegurada?t("p",[a._v("\n                                Dentro de este grupo de edad se tiene una cantidad de "),t("strong",[a._v(a._s(a.poblacion_no_asegurada.no_asegurado_mayor_60.cantidad_personas)+" personas")]),a._v(", de las cuales "),t("strong",[a._v(a._s(a.poblacion_no_asegurada.no_asegurado_mayor_60.rural+a.poblacion_no_asegurada.no_asegurado_mayor_60.urbano)+" personas")]),a._v(", se encuentran en la situación de población adulto mayor no asegurada, de lo cual se puede obtener que "),t("strong",[a._v(a._s(a.poblacion_no_asegurada.no_asegurado_mayor_60.rural)+" personas")]),a._v(" se encuentran en zona rural, y "),t("strong",[a._v(a._s(a.poblacion_no_asegurada.no_asegurado_mayor_60.urbano)+" personas")]),a._v("  en zona urbana.\n                            ")]):a._e(),a._v(" "),t("div",{staticStyle:{width:"100%",height:"270px"},attrs:{id:"chartdiv_no_asegurado_2"}})])]),a._v(" "),t("br"),a._v(" "),t("br"),a._v(" "),t("h4",{staticStyle:{color:"#fd397a"}},[a._v("Determinante social de la salud")]),a._v(" "),t("div",{staticClass:"row",staticStyle:{padding:"10px"}},[t("div",{staticClass:"col-lg-12"},[t("strong",[a._v("1. Población en pobreza ")]),a._v(" "),null!=a.determinante_salud_array?t("p",[a._v("De acuerdo a la informacion recolectada, se tiene que "),t("strong",[a._v(a._s(a.determinante_salud_array.pobreza.poblacion_pobreza)+" personas")]),a._v(" se encuentran en situación de pobreza, esto representa un "),t("strong",[a._v(a._s(a.determinante_salud_array.pobreza.porcentaje_poblacion_pobreza.toFixed(2))+"%")]),a._v(" de la población total.")]):a._e(),a._v(" "),null!=a.determinante_salud_array?t("ul",[t("li",[a._v("\n                                    Población en pobreza (Rural): "),t("strong",[a._v(a._s(a.determinante_salud_array.pobreza.poblacion_pobreza_rural))])]),a._v(" "),t("li",[a._v("\n                                    Población en pobreza (Urbano): "),t("strong",[a._v(a._s(a.determinante_salud_array.pobreza.poblacion_pobreza_urbano))])])]):a._e(),a._v(" "),t("br"),a._v(" "),t("div",{staticStyle:{width:"100%",height:"270px"},attrs:{id:"chartdiv_poblacion_pobreza"}})]),a._v(" "),t("div",{staticClass:"col-lg-12"},[t("strong",[a._v("2. Población por nivel de escolaridad ")]),a._v(" "),null!=a.determinante_salud_array?t("p",[a._v("Con una población total de "),t("strong",[a._v(a._s(a.determinante_salud_array.pobreza.poblacion)+" personas")]),a._v(" se tiene que: ")]):a._e(),a._v(" "),t("br"),a._v(" "),null!=a.determinante_salud_array?t("table",{staticClass:"table_data",staticStyle:{width:"100%"}},[a._m(2),a._v(" "),t("tbody",a._l(a.determinante_salud_array.escolaridad,(function(e,r){return t("tr",{key:r},[t("td",[a._v(a._s(e.escolaridad_nombre))]),a._v(" "),t("td",[a._v(a._s(e.numero_personas))])])})),0)]):a._e(),a._v(" "),t("br"),a._v(" "),t("div",{staticStyle:{width:"100%",height:"300px"},attrs:{id:"chartdiv_escolaridad"}})])]),a._v(" "),t("br"),a._v(" "),t("br"),a._v(" "),t("div",{staticClass:"row",staticStyle:{padding:"10px"}},[t("div",{staticClass:"col-lg-12"},[t("strong",[a._v("3. Desempleo y tipos de empleo  ")]),a._v(" "),null!=a.determinante_salud_array?t("p",[a._v("La tasa de desempleo del total municipal es de "),t("strong",[a._v(a._s(a.determinante_salud_array.desempleo.TD.toFixed(2))+" %")]),a._v(", lo cual quiere decir que "),t("strong",[a._v(a._s(a.determinante_salud_array.desempleo.D)+" personas ")]),a._v("  de "),t("strong",[a._v(a._s(a.determinante_salud_array.desempleo.FT)+" personas ")]),a._v(" que componen la (fuerza laboral), estan en busca de empleo. ")]):a._e(),a._v(" "),t("br"),a._v(" "),null!=a.determinante_salud_array?t("ul",[t("li",[a._v("Personas de genero masculino desempleados: "),t("strong",[a._v(a._s(a.determinante_salud_array.desempleo.masculinoTD))])]),a._v(" "),t("li",[a._v("Personas de genero femenino desempleados: "),t("strong",[a._v(a._s(a.determinante_salud_array.desempleo.femeninoTD))])])]):a._e(),a._v(" "),t("br"),a._v(" "),t("p",[a._v("Tasa de desempleo por sexo:")]),a._v(" "),t("div",{staticStyle:{width:"100%",height:"270px"},attrs:{id:"chartdiv_desempleo"}})])]),a._v(" "),t("br"),a._v(" "),t("br"),a._v(" "),t("div",{staticClass:"row",staticStyle:{padding:"10px"}},[t("strong",[a._v("4. Acceso a acueducto y alcantarillado")]),a._v(" "),null!=a.determinante_salud_array?t("p",[a._v("Se tiene que "),t("strong",[a._v(a._s(a.determinante_salud_array.alcantarillado_agua.viendasSinAguaPotable)+" Viviendas ")]),a._v(" se encuentran sin el servicio de agua potable y "),t("strong",[a._v(a._s(a.determinante_salud_array.alcantarillado_agua.viendasSinalcantarillado)+" Viviendas ")]),a._v(" sin el servicio de alcantarillado, lo que corresponde a un "),t("strong",[a._v(a._s(a.determinante_salud_array.alcantarillado_agua.porcentajeviendasSinAguaPotable.toFixed(2))+"% ")]),a._v(" y "),t("strong",[a._v(a._s(a.determinante_salud_array.alcantarillado_agua.porcentajeviendasSinalcantarillado.toFixed(2))+"% ")]),a._v(" respectivamente del total de viviendas caracterizadas "),t("strong",[a._v("("+a._s(a.determinante_salud_array.alcantarillado_agua.totalViviendas)+")")]),a._v(" .")]):a._e(),a._v(" "),t("br"),a._v(" "),a._m(3),a._v(" "),a._m(4)]),a._v(" "),t("br"),a._v(" "),t("br"),a._v(" "),t("br"),a._v(" "),t("h4",{staticStyle:{color:"#fd397a"}},[a._v("Condiciones de salud")]),a._v(" "),t("br"),a._v(" "),t("div",{staticClass:"row",staticStyle:{padding:"10px"}},[t("strong",[a._v("1. Población con enfermedades crónicas")]),a._v(" "),null!=a.condiciones_salud_array?t("p",[a._v("Se tiene que el "),t("strong",[a._v(a._s(a.condiciones_salud_array.enfermedades_cronicas.porcentaje_personas_con_enfermedades.toFixed(2))+"%")]),a._v(" de la población padece al menos una enfermedad cronica, esto quiere decir que "),t("strong",[a._v(a._s(a.condiciones_salud_array.enfermedades_cronicas.personas_con_enfermedades)+" Personas")]),a._v(" de "),t("strong",[a._v(a._s(a.condiciones_salud_array.enfermedades_cronicas.numero_personas))]),a._v(" padecen enfermedades cronicas, las cuales estan divididas de la siguiente manera: ")]):a._e(),a._v(" "),t("br"),a._v(" "),a._m(5)]),a._v(" "),t("div",{staticClass:"row",staticStyle:{padding:"10px"}},[t("strong",[a._v("2. Población con enfermedades Infecciosas")]),a._v(" "),null!=a.condiciones_salud_array?t("p",[a._v("Se tiene que el "),t("strong",[a._v(a._s(a.condiciones_salud_array.enfermedades_infecciosas.porcentaje_personas_con_enfermedades.toFixed(2))+"%")]),a._v(" de la población padece al menos una enfermedad infecciosa, esto quiere decir que "),t("strong",[a._v(a._s(a.condiciones_salud_array.enfermedades_infecciosas.personas_con_enfermedades)+" Personas")]),a._v(" de "),t("strong",[a._v(a._s(a.condiciones_salud_array.enfermedades_cronicas.numero_personas))]),a._v(" padecen enfermedades infecciosas, las cuales estan divididas de la siguiente manera: ")]):a._e(),a._v(" "),t("br"),a._v(" "),a._m(6)]),a._v(" "),t("div",{staticClass:"row",staticStyle:{padding:"10px"}},[t("strong",[a._v("3. Población con discapacidad")]),a._v(" "),null!=a.condiciones_salud_array?t("p",[a._v("El "),t("strong",[a._v(a._s(a.condiciones_salud_array.personas_discapacidad.porcentaje_personas_con_discapacidad.toFixed(2))+"%")]),a._v(" de la población es discapacitada, esto quiere decir que "),t("strong",[a._v(a._s(a.condiciones_salud_array.personas_discapacidad.personas_con_discapacidad))]),a._v(" de "),t("strong",[a._v(a._s(a.condiciones_salud_array.personas_discapacidad.numero_personas)+" Personas")]),a._v(" padecen algún tipo de discapacidad, ya sea: fisica, auditiva, entre otras. ")]):a._e(),a._v(" "),t("br"),a._v(" "),a._m(7)]),a._v(" "),t("div",{staticClass:"row",staticStyle:{padding:"10px"}},[t("strong",[a._v("4. Adolescentes en estado de gestación")]),a._v(" "),null!=a.condiciones_salud_array?t("p",[a._v("Se tiene que, de "),t("strong",[a._v(a._s(a.condiciones_salud_array.adolescentes_embarazo.embarazadas)+" mujeres ")]),a._v(" en estado de gestación "),t("strong",[a._v(a._s(a.condiciones_salud_array.adolescentes_embarazo.adolescentes_embarazo)+" son adolescentes, ")]),a._v("lo cual representa un "),t("strong",[a._v(a._s(a.condiciones_salud_array.adolescentes_embarazo.porcentaje_adolescentes_embarazadas.toFixed(2))+"%")]),a._v(" de las mujeres embarazadas.")]):a._e(),a._v(" "),t("br"),a._v(" "),a._m(8)]),a._v(" "),t("div",{staticClass:"row",staticStyle:{padding:"10px"}},[t("strong",[a._v("5. Inmunización ")]),a._v(" "),null!=a.condiciones_salud_array?t("p",[t("strong",[a._v(a._s(a.condiciones_salud_array.inmunizacion.porcentaje_carnet_desac.toFixed(2))+"% ")]),a._v(" de los niños de 0 a 5 años no estan completamente inmunizados, esto quiere decir que "),t("strong",[a._v(a._s(a.condiciones_salud_array.inmunizacion.carnet_desac)+" ")]),a._v(" de "),t("strong",[a._v(a._s(a.condiciones_salud_array.inmunizacion.numero_integrantes)+" niños")]),a._v(" estan sin esquema de vacunación o tienen el esquema incompleto. ")]):a._e(),a._v(" "),t("br"),a._v(" "),a._m(9)]),a._v(" "),t("div",{staticClass:"row",staticStyle:{padding:"10px"}},[null!=a.condiciones_salud_array?t("div",{staticClass:"col-lg-12"},[t("strong",[a._v("6. Situación nutricional ")]),t("br"),a._v(" "),t("strong",{staticStyle:{color:"#fd397a"}},[a._v("6.1 Niños y niñas menores de 5 años de edad (de 0 a 59 meses)")]),t("br"),t("br"),a._v(" "),t("p",[a._v("De un total de "),t("strong",[a._v(a._s(a.condiciones_salud_array.nutricion.nutricion_0_5.cantidad_ninios)+" Niños")]),a._v(", se tiene la siguiente información.")]),t("br"),a._v(" "),t("strong",[a._v("6.1.1 Peso para la talla")]),t("br"),a._v(" "),t("ul",[t("li",[a._v("Desnutrición Aguda Moderada: "),t("strong",[a._v(a._s(a.condiciones_salud_array.nutricion.nutricion_0_5.peso_talla.desnutricion_aguda_moderada)+" Niños")])]),a._v(" "),t("li",[a._v("Peso Adecuado: "),t("strong",[a._v(a._s(a.condiciones_salud_array.nutricion.nutricion_0_5.peso_talla.peso_adecuado)+" Niños")])]),a._v(" "),t("li",[a._v("Desnutrición Aguda Severa: "),t("strong",[a._v(a._s(a.condiciones_salud_array.nutricion.nutricion_0_5.peso_talla.desnutricion_aguda_severa)+" Niños")])]),a._v(" "),t("li",[a._v("Riesgo de Desnutrición Aguda: "),t("strong",[a._v(a._s(a.condiciones_salud_array.nutricion.nutricion_0_5.peso_talla.riesgo_desnutricion_aguda)+" Niños")])])])]):a._e(),a._v(" "),t("br"),a._v(" "),t("br"),a._v(" "),a._m(10),a._v(" "),t("br"),t("br"),a._v(" "),null!=a.condiciones_salud_array?t("div",{staticClass:"col-lg-12"},[t("br"),a._v(" "),t("strong",[a._v("6.1.2 Talla para la edad")]),t("br"),t("br"),a._v(" "),t("ul",[t("li",[a._v("Talla Adecuada para la Edad: "),t("strong",[a._v(a._s(a.condiciones_salud_array.nutricion.nutricion_0_5.talla_edad.talla_adecuada)+" Niños")])]),a._v(" "),t("li",[a._v("Riesgo de Talla Baja: "),t("strong",[a._v(a._s(a.condiciones_salud_array.nutricion.nutricion_0_5.talla_edad.riesgo_talla_baja)+" Niños")])]),a._v(" "),t("li",[a._v("Talla Baja para la Edad o Retraso en Talla: "),t("strong",[a._v(a._s(a.condiciones_salud_array.nutricion.nutricion_0_5.talla_edad.retraso_talla)+" Niños")])])])]):a._e(),a._v(" "),a._m(11),a._v(" "),t("br"),t("br"),a._v(" "),null!=a.condiciones_salud_array?t("div",{staticClass:"col-lg-12"},[t("br"),a._v(" "),t("strong",[a._v("6.1.3 Indice de Masa Corporal (IMC)")]),t("br"),t("br"),a._v(" "),t("ul",[t("li",[a._v("Obesidad: "),t("strong",[a._v(a._s(a.condiciones_salud_array.nutricion.nutricion_0_5.imc.obesidad)+" Niños")])]),a._v(" "),t("li",[a._v("Sobrepeso: "),t("strong",[a._v(a._s(a.condiciones_salud_array.nutricion.nutricion_0_5.imc.sobrepeso)+" Niños")])]),a._v(" "),t("li",[a._v("Riesgo de Sobrepeso: "),t("strong",[a._v(a._s(a.condiciones_salud_array.nutricion.nutricion_0_5.imc.riesgo_sobrepeso)+" Niños")])]),a._v(" "),t("li",[a._v("Peso Normal: "),t("strong",[a._v(a._s(a.condiciones_salud_array.nutricion.nutricion_0_5.imc.peso_normal)+" Niños")])])])]):a._e(),a._v(" "),a._m(12),a._v(" "),null!=a.condiciones_salud_array?t("div",{staticClass:"col-lg-12"},[t("br"),t("br"),a._v(" "),t("strong",{staticStyle:{color:"#fd397a"}},[a._v("6.2 Niñas, niños y adolescentes de 5 a 17 años")]),t("br"),t("br"),a._v(" "),t("p",[a._v("De un total de "),t("strong",[a._v(a._s(a.condiciones_salud_array.nutricion.nutricion_5_17.cantidad_personas)+" personas")]),a._v(", se tiene la siguiente información.")]),a._v(" "),t("strong",[a._v("6.2.1 Indice de Masa Corporal")]),t("br"),a._v(" "),t("br"),a._v(" "),t("ul",[t("li",[a._v("Obesidad: "),t("strong",[a._v(a._s(a.condiciones_salud_array.nutricion.nutricion_5_17.imc.obesidad)+" Personas")])]),a._v(" "),t("li",[a._v("Sobrepeso: "),t("strong",[a._v(a._s(a.condiciones_salud_array.nutricion.nutricion_5_17.imc.sobrepeso)+" Personas")])]),a._v(" "),t("li",[a._v("IMC Adecuado para la Edad: "),t("strong",[a._v(a._s(a.condiciones_salud_array.nutricion.nutricion_5_17.imc.imc_adecuado)+" Personas")])]),a._v(" "),t("li",[a._v("Riesgo de Delgadez: "),t("strong",[a._v(a._s(a.condiciones_salud_array.nutricion.nutricion_5_17.imc.riesgo_delgadez)+" Personas")])]),a._v(" "),t("li",[a._v("Delgadez: "),t("strong",[a._v(a._s(a.condiciones_salud_array.nutricion.nutricion_5_17.imc.delgadez)+" Personas")])])])]):a._e(),a._v(" "),a._m(13),a._v(" "),null!=a.condiciones_salud_array?t("div",{staticClass:"col-lg-12"},[t("br"),t("br"),a._v(" "),t("strong",[a._v("6.2.2 Indice de Masa Corporal (Mujeres Embarazadas - 5 a 17 Años)")]),t("br"),a._v(" "),t("br"),a._v(" "),t("ul",[t("li",[a._v("Obesidad para la edad gestacional: "),t("strong",[a._v(a._s(a.condiciones_salud_array.nutricion.nutricion_5_17.imc_embarazadas.obesidad_gestacional)+" Personas")])]),a._v(" "),t("li",[a._v("Sobrepeso para la edad gestacional: "),t("strong",[a._v(a._s(a.condiciones_salud_array.nutricion.nutricion_5_17.imc_embarazadas.sobrepeso_gestacional)+" Personas")])]),a._v(" "),t("li",[a._v("IMC adecuado para la edad gestacional: "),t("strong",[a._v(a._s(a.condiciones_salud_array.nutricion.nutricion_5_17.imc_embarazadas.adecuado_gestacional)+" Personas")])]),a._v(" "),t("li",[a._v("Bajo peso para la edad gestacional: "),t("strong",[a._v(a._s(a.condiciones_salud_array.nutricion.nutricion_5_17.imc_embarazadas.bajo_peso_gestacional)+" Personas")])])])]):a._e(),a._v(" "),a._m(14),a._v(" "),null!=a.condiciones_salud_array?t("div",{staticClass:"col-lg-12"},[t("br"),t("br"),a._v(" "),t("strong",{staticStyle:{color:"#fd397a"}},[a._v("6.3 Adultos  mayores de 18 años.")]),t("br"),t("br"),a._v(" "),t("p",[a._v("De un total de "),t("strong",[a._v(a._s(a.condiciones_salud_array.nutricion.nutricion_18_60.cantidad_personas)+" personas")]),a._v(", se tiene la siguiente información.")]),a._v(" "),t("strong",[a._v("6.3.1 Indice de Masa Corporal")]),t("br"),a._v(" "),t("br"),a._v(" "),t("ul",[t("li",[a._v("Obesidad: "),t("strong",[a._v(a._s(a.condiciones_salud_array.nutricion.nutricion_18_60.imc.obesidad)+" Personas")])]),a._v(" "),t("li",[a._v("Sobrepeso: "),t("strong",[a._v(a._s(a.condiciones_salud_array.nutricion.nutricion_18_60.imc.sobrepeso)+" Personas")])]),a._v(" "),t("li",[a._v("Normal: "),t("strong",[a._v(a._s(a.condiciones_salud_array.nutricion.nutricion_18_60.imc.normal)+" Personas")])]),a._v(" "),t("li",[a._v("Delgadez: "),t("strong",[a._v(a._s(a.condiciones_salud_array.nutricion.nutricion_18_60.imc.delgadez)+" Personas")])])])]):a._e(),a._v(" "),a._m(15),a._v(" "),null!=a.condiciones_salud_array?t("div",{staticClass:"col-lg-12"},[t("br"),t("br"),a._v(" "),t("strong",[a._v("6.3.2 Indice de Masa Corporal (Mujeres Embarazadas - Mayores de 18 años)")]),t("br"),a._v(" "),t("br"),a._v(" "),t("ul",[t("li",[a._v("Obesidad para la edad gestacional: "),t("strong",[a._v(a._s(a.condiciones_salud_array.nutricion.nutricion_18_60.imc_embarazadas.obesidad_gestacional)+" Personas")])]),a._v(" "),t("li",[a._v("Sobrepeso para la edad gestacional: "),t("strong",[a._v(a._s(a.condiciones_salud_array.nutricion.nutricion_18_60.imc_embarazadas.sobrepeso_gestacional)+" Personas")])]),a._v(" "),t("li",[a._v("IMC adecuado para la edad gestacional: "),t("strong",[a._v(a._s(a.condiciones_salud_array.nutricion.nutricion_18_60.imc_embarazadas.adecuado_gestacional)+" Personas")])]),a._v(" "),t("li",[a._v("Bajo peso para la edad gestacional: "),t("strong",[a._v(a._s(a.condiciones_salud_array.nutricion.nutricion_18_60.imc_embarazadas.bajo_peso_gestacional)+" Personas")])])])]):a._e(),a._v(" "),a._m(16)])])])])]),a._v(" "),t("b-modal",{ref:"modalpdf",attrs:{"hide-footer":"",title:"INFORME GENERAL SITUACIÓN EN SALUD POBLACIONAL",size:"xl",centered:"","header-bg-variant":"danger","header-text-variant":"light","no-close-on-backdrop":!0}},[t("embed",{attrs:{id:"divPdf",src:a.rutaPdf,type:"application/pdf",width:"100%",height:"650px"}}),a._v(" "),t("hr"),a._v(" "),t("div",{staticClass:"text-right"},[t("button",{staticClass:"btn btn-warning",attrs:{type:"button"},on:{click:a.cerrarModal}},[t("i",{staticClass:"fa fa-window-close"}),a._v(" Cancelar\n            ")])])])],1)}),[function(){var a=this.$createElement,e=this._self._c||a;return e("div",{staticClass:"col-sm-9",staticStyle:{"text-align":"left"}},[e("h4",[this._v("INFORME GENERAL SITUACIÓN EN SALUD POBLACIONAL")])])},function(){var a=this.$createElement,e=this._self._c||a;return e("div",{staticClass:"col-lg-7 text-center",staticStyle:{"padding-top":"30px"}},[e("div",{staticStyle:{width:"100%",height:"200px"},attrs:{id:"chartdiv_edades_torta"}})])},function(){var a=this.$createElement,e=this._self._c||a;return e("thead",[e("tr",[e("th",[this._v("Nivel de escolaridad")]),this._v(" "),e("th",[this._v("Cantidad de personas")])])])},function(){var a=this.$createElement,e=this._self._c||a;return e("div",{staticClass:"col-lg-12 text-center"},[e("h5",[this._v("Viviendas sin Acceso a Acueducto")]),this._v(" "),e("h6",[this._v("(Por zona)")]),this._v(" "),e("div",{staticStyle:{width:"100%",height:"220px"},attrs:{id:"chartdiv_acueducto"}})])},function(){var a=this.$createElement,e=this._self._c||a;return e("div",{staticClass:"col-lg-12 text-center"},[e("h5",[this._v("Viviendas sin Acceso a Alcantarillado")]),this._v(" "),e("h6",[this._v("(Por zona)")]),this._v(" "),e("div",{staticStyle:{width:"100%",height:"220px"},attrs:{id:"chartdiv_alantarillado"}})])},function(){var a=this.$createElement,e=this._self._c||a;return e("div",{staticClass:"col-lg-12 text-center"},[e("h5",[this._v("Personas con enfermedades cronicas")]),this._v(" "),e("h6",[this._v("(Por tipo de enfermedad)")]),this._v(" "),e("div",{staticStyle:{width:"100%",height:"220px"},attrs:{id:"chartdiv_cronica"}})])},function(){var a=this.$createElement,e=this._self._c||a;return e("div",{staticClass:"col-lg-12 text-center"},[e("h5",[this._v("Personas con enfermedades Infecciosas")]),this._v(" "),e("h6",[this._v("(Por tipo de enfermedad)")]),this._v(" "),e("div",{staticStyle:{width:"100%",height:"220px"},attrs:{id:"chartdiv_infecciosa"}})])},function(){var a=this.$createElement,e=this._self._c||a;return e("div",{staticClass:"col-lg-12 text-center"},[e("h5",[this._v("Personas con Discapacidad")]),this._v(" "),e("h6",[this._v("(Por tipo de discapacidad)")]),this._v(" "),e("div",{staticStyle:{width:"100%",height:"220px"},attrs:{id:"chartdiv_discapacidad"}})])},function(){var a=this.$createElement,e=this._self._c||a;return e("div",{staticClass:"col-lg-12 text-center"},[e("h5",[this._v("Adolescentes en Embarazo")]),this._v(" "),e("h6",[this._v("(Por Zona)")]),this._v(" "),e("div",{staticStyle:{width:"100%",height:"220px"},attrs:{id:"chartdiv_embarazo"}})])},function(){var a=this.$createElement,e=this._self._c||a;return e("div",{staticClass:"col-lg-12 text-center"},[e("h5",[this._v("Niños no Inmunizados")]),this._v(" "),e("h6",[this._v("(Por Grupo de Edad)")]),this._v(" "),e("div",{staticStyle:{width:"100%",height:"220px"},attrs:{id:"chartdiv_inmunizacion"}})])},function(){var a=this.$createElement,e=this._self._c||a;return e("div",{staticClass:"col-lg-12 text-center"},[e("h5",[this._v("GRAFICA DE PESO PARA LA TALLA")]),this._v(" "),e("div",{staticStyle:{width:"100%",height:"220px"},attrs:{id:"chartdiv_peso_para_talla"}})])},function(){var a=this.$createElement,e=this._self._c||a;return e("div",{staticClass:"col-lg-12 text-center"},[e("h5",[this._v("GRAFICA DE TALLA PARA LA EDAD")]),this._v(" "),e("div",{staticStyle:{width:"100%",height:"220px"},attrs:{id:"chartdiv_talla_para_edad"}})])},function(){var a=this.$createElement,e=this._self._c||a;return e("div",{staticClass:"col-lg-12 text-center"},[e("h5",[this._v("GRAFICA IMC")]),this._v(" "),e("div",{staticStyle:{width:"100%",height:"220px"},attrs:{id:"chartdiv_imc"}})])},function(){var a=this.$createElement,e=this._self._c||a;return e("div",{staticClass:"col-lg-12 text-center"},[e("h5",[this._v("GRAFICA IMC")]),this._v(" "),e("div",{staticStyle:{width:"100%",height:"220px"},attrs:{id:"chartdiv_imc_5_17"}})])},function(){var a=this.$createElement,e=this._self._c||a;return e("div",{staticClass:"col-lg-12 text-center"},[e("h5",[this._v("GRAFICA IMC")]),this._v(" "),e("h6",[this._v("(Mujeres Embarazadas - 5 a 17 Años)")]),this._v(" "),e("div",{staticStyle:{width:"100%",height:"220px"},attrs:{id:"chartdiv_imc_5_17_e"}})])},function(){var a=this.$createElement,e=this._self._c||a;return e("div",{staticClass:"col-lg-12 text-center"},[e("h5",[this._v("GRAFICA IMC")]),this._v(" "),e("div",{staticStyle:{width:"100%",height:"220px"},attrs:{id:"chartdiv_imc_18_60"}})])},function(){var a=this.$createElement,e=this._self._c||a;return e("div",{staticClass:"col-lg-12 text-center"},[e("h5",[this._v("GRAFICA IMC")]),this._v(" "),e("h6",[this._v("(Mujeres Embarazadas - Mayores de 18 años)")]),this._v(" "),e("div",{staticStyle:{width:"100%",height:"220px"},attrs:{id:"chartdiv_imc_18_60_e"}})])}],!1,null,null,null).exports}},P=(t(594),Object(C.a)(S,(function(){var a=this.$createElement,e=this._self._c||a;return e("div",{attrs:{id:"divPadre1"}},[e("div",{staticStyle:{width:"70%"},attrs:{id:"divHijo1"}},[e("b-card",{attrs:{"no-body":""}},[e("b-tabs",{attrs:{card:""}},[e("b-tab",{attrs:{title:"Informe General de Salud ",active:""}},[e("Salud")],1),this._v(" "),e("b-tab",{attrs:{title:"Informe Riesgos de Salud"}},[e("h4",[this._v("Riesgos ...")])])],1)],1)],1)])}),[],!1,null,null,null));e.default=P.exports}}]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[22],{
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Consultas/viviendas.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Consultas/viviendas.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Servicios_consultas__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Servicios/consultas */ "./resources/js/Servicios/consultas.js");
+/* harmony import */ var _Servicios_barrios_servicios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Servicios/barrios_servicios */ "./resources/js/Servicios/barrios_servicios.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    this.iniciales();
+  },
+  data: function data() {
+    return {
+      hoy: "",
+      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
+      paises_options: [],
+      dpto_options: [],
+      muni_options: {},
+      corregi_options: {},
+      barrio_options: {},
+      vereda_options: {},
+      id_dpto: "",
+      id_mun: "",
+      id_corre: "",
+      id_vereda: "",
+      id_zona: "",
+      id_barrio: "",
+      tenencia_vivienda: "",
+      tipo_vivienda: "",
+      poblacion_especial: "",
+      material_predominante: "",
+      promedio_ingresos: "",
+      energia_electrica: "",
+      gas_natural: "",
+      acueducto: "",
+      alcantarillado: "",
+      aseo: "",
+      servicio_sanitario: "",
+      aguas_negras: "",
+      tipo_combustible: ""
+    };
+  },
+  methods: {
+    volver: function volver() {},
+    buscar: function buscar() {
+      this.$router.push({
+        name: "ConsultaVivienda",
+        params: {
+          id_dpto: this.id_dpto,
+          id_mun: this.id_mun,
+          id_corre: this.id_corre,
+          id_vereda: this.id_vereda,
+          id_zona: this.id_zona,
+          id_barrio: this.id_barrio,
+          tenencia_vivienda: this.tenencia_vivienda,
+          tipo_vivienda: this.tipo_vivienda,
+          poblacion_especial: this.poblacion_especial,
+          material_predominante: this.material_predominante,
+          promedio_ingresos: this.promedio_ingresos,
+          energia_electrica: this.energia_electrica,
+          gas_natural: this.gas_natural,
+          acueducto: this.acueducto,
+          alcantarillado: this.alcantarillado,
+          aseo: this.aseo,
+          servicio_sanitario: this.servicio_sanitario,
+          aguas_negras: this.aguas_negras,
+          tipo_combustible: this.tipo_combustible
+        }
+      }); //recibir this.$router.params.acueductos
+    },
+    iniciales: function iniciales() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                parametros = {
+                  _token: _this.csrf
+                };
+                _context.prev = 1;
+                _context.next = 4;
+                return _Servicios_consultas__WEBPACK_IMPORTED_MODULE_1__["iniciales"](parametros).then(function (respuesta) {
+                  //console.log(respuesta);
+                  _this.dpto_options = respuesta.data.arrayDpto;
+                  _this.muni_options = respuesta.data.arrayMuni;
+                  _this.corregi_options = respuesta.data.arrayCorregi;
+                  _this.vereda_options = respuesta.data.arrayVeredas;
+                });
+
+              case 4:
+                _context.next = 8;
+                break;
+
+              case 6:
+                _context.prev = 6;
+                _context.t0 = _context["catch"](1);
+
+              case 8:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[1, 6]]);
+      }))();
+    },
+    cambiarCombo: function () {
+      var _cambiarCombo = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(caja) {
+        var _this2 = this;
+
+        var parametros, _parametros;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                if (caja === "dpto") {
+                  this.id_mun = "";
+                  this.id_corre = "";
+                  this.id_vereda = "";
+                  this.id_barrio = "";
+                }
+
+                if (!(caja === "muni")) {
+                  _context2.next = 20;
+                  break;
+                }
+
+                this.id_corre = "";
+                this.id_vereda = "";
+                this.id_barrio = "";
+                parametros = {
+                  _token: this.csrf,
+                  id: this.id_mun,
+                  opcion: "MUN"
+                };
+                _context2.prev = 6;
+                _context2.next = 9;
+                return _Servicios_barrios_servicios__WEBPACK_IMPORTED_MODULE_2__["comboBarrios"](parametros).then(function (respuesta) {
+                  _this2.barrio_options = respuesta.data.arrayBarrios;
+                });
+
+              case 9:
+                _context2.next = 20;
+                break;
+
+              case 11:
+                _context2.prev = 11;
+                _context2.t0 = _context2["catch"](6);
+                _context2.t1 = _context2.t0.response.status;
+                _context2.next = _context2.t1 === 422 ? 16 : 18;
+                break;
+
+              case 16:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context2.abrupt("break", 20);
+
+              case 18:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context2.abrupt("break", 20);
+
+              case 20:
+                if (!(caja === "corregi")) {
+                  _context2.next = 42;
+                  break;
+                }
+
+                this.id_vereda = "";
+                this.id_barrio = "";
+
+                if (!(this.id_corre !== "0" && this.id_corre !== "")) {
+                  _context2.next = 41;
+                  break;
+                }
+
+                _parametros = {
+                  _token: this.csrf,
+                  id: this.id_corre,
+                  opcion: "CORRE"
+                };
+                _context2.prev = 25;
+                _context2.next = 28;
+                return _Servicios_barrios_servicios__WEBPACK_IMPORTED_MODULE_2__["comboBarrios"](_parametros).then(function (respuesta) {
+                  _this2.barrio_options = respuesta.data.arrayBarrios;
+                });
+
+              case 28:
+                _context2.next = 39;
+                break;
+
+              case 30:
+                _context2.prev = 30;
+                _context2.t2 = _context2["catch"](25);
+                _context2.t3 = _context2.t2.response.status;
+                _context2.next = _context2.t3 === 422 ? 35 : 37;
+                break;
+
+              case 35:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context2.abrupt("break", 39);
+
+              case 37:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context2.abrupt("break", 39);
+
+              case 39:
+                _context2.next = 42;
+                break;
+
+              case 41:
+                if (this.id_corre === "0") {
+                  this.cambiarCombo("muni");
+                  this.id_corre = "0";
+                } else {
+                  this.cambiarCombo("muni");
+                }
+
+              case 42:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this, [[6, 11], [25, 30]]);
+      }));
+
+      function cambiarCombo(_x) {
+        return _cambiarCombo.apply(this, arguments);
+      }
+
+      return cambiarCombo;
+    }()
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Consultas/viviendas.vue?vue&type=style&index=0&lang=css&":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Consultas/viviendas.vue?vue&type=style&index=0&lang=css& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.modal-backdrop {\n  background-color: rgba(0, 0, 0, 0.5) !important;\n}\n.modal-title {\n  color: #f8f9fa !important;\n}\n.close {\n  display: none;\n}\n.color-datepicker {\n  background: #f2f2f2;\n  border: 1px solid #ddd;\n  padding: 0em 1em 1em;\n  margin-bottom: 2em;\n}\n.modal-sm {\n  max-width: 60%;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Consultas/viviendas.vue?vue&type=style&index=0&lang=css&":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Consultas/viviendas.vue?vue&type=style&index=0&lang=css& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./viviendas.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Consultas/viviendas.vue?vue&type=style&index=0&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Consultas/viviendas.vue?vue&type=template&id=c701a7aa&":
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Consultas/viviendas.vue?vue&type=template&id=c701a7aa& ***!
+  \******************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "row" }, [
+    _c("div", { staticClass: "col-12" }, [
+      _c(
+        "div",
+        {
+          staticClass: "kt-portlet kt-portlet--height-fluid kt-portlet--mobile",
+          staticStyle: { "margin-top": "-4%", height: "auto" }
+        },
+        [
+          _c(
+            "div",
+            {
+              staticClass:
+                "\n          kt-portlet__head\n          kt-portlet__head--lg\n          kt-portlet__head--noborder\n          kt-portlet__head--break-sm\n        "
+            },
+            [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "kt-portlet__head-toolbar" }, [
+                _c("div", { staticClass: "btn-group" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-brand",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          return _vm.buscar.apply(null, arguments)
+                        }
+                      }
+                    },
+                    [
+                      _c("i", { staticClass: "la la-search" }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "kt-hidden-mobile" }, [
+                        _vm._v("Buscar")
+                      ])
+                    ]
+                  )
+                ])
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "kt-portlet__body" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c(
+                "div",
+                { staticClass: "col-lg-4" },
+                [
+                  _c("label", [_vm._v("Departamento:")]),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-select",
+                    {
+                      ref: "id_dpto",
+                      on: {
+                        change: function($event) {
+                          return _vm.cambiarCombo("dpto")
+                        }
+                      },
+                      model: {
+                        value: _vm.id_dpto,
+                        callback: function($$v) {
+                          _vm.id_dpto =
+                            typeof $$v === "string" ? $$v.trim() : $$v
+                        },
+                        expression: "id_dpto"
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { value: "", selected: "" } }, [
+                        _vm._v("Seleccione")
+                      ]),
+                      _vm._v(" "),
+                      _vm._l(_vm.dpto_options, function(item) {
+                        return _c(
+                          "option",
+                          { key: item.value, domProps: { value: item.value } },
+                          [
+                            _vm._v(
+                              "\n                " +
+                                _vm._s(item.texto) +
+                                "\n              "
+                            )
+                          ]
+                        )
+                      })
+                    ],
+                    2
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-lg-4" },
+                [
+                  _c("label", [_vm._v("Municipio:")]),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-select",
+                    {
+                      ref: "id_mun",
+                      on: {
+                        change: function($event) {
+                          return _vm.cambiarCombo("muni")
+                        }
+                      },
+                      model: {
+                        value: _vm.id_mun,
+                        callback: function($$v) {
+                          _vm.id_mun =
+                            typeof $$v === "string" ? $$v.trim() : $$v
+                        },
+                        expression: "id_mun"
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { value: "", selected: "" } }, [
+                        _vm._v("Seleccione")
+                      ]),
+                      _vm._v(" "),
+                      _vm._l(_vm.muni_options[_vm.id_dpto], function(item) {
+                        return _c(
+                          "option",
+                          { key: item.value, domProps: { value: item.value } },
+                          [
+                            _vm._v(
+                              "\n                " +
+                                _vm._s(item.texto) +
+                                "\n              "
+                            )
+                          ]
+                        )
+                      })
+                    ],
+                    2
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-lg-4" },
+                [
+                  _c("label", [_vm._v("Corregimiento:")]),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-select",
+                    {
+                      on: {
+                        change: function($event) {
+                          return _vm.cambiarCombo("corregi")
+                        }
+                      },
+                      model: {
+                        value: _vm.id_corre,
+                        callback: function($$v) {
+                          _vm.id_corre = $$v
+                        },
+                        expression: "id_corre"
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { value: "", selected: "" } }, [
+                        _vm._v("Seleccione")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "0" } }, [
+                        _vm._v("No Aplica")
+                      ]),
+                      _vm._v(" "),
+                      _vm._l(_vm.corregi_options[_vm.id_mun], function(item) {
+                        return _c(
+                          "option",
+                          { key: item.value, domProps: { value: item.value } },
+                          [
+                            _vm._v(
+                              "\n                " +
+                                _vm._s(item.texto) +
+                                "\n              "
+                            )
+                          ]
+                        )
+                      })
+                    ],
+                    2
+                  )
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c(
+                "div",
+                { staticClass: "col-lg-4" },
+                [
+                  _c("label", [_vm._v("Vereda:")]),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-select",
+                    {
+                      on: {
+                        change: function($event) {
+                          return _vm.cambiarCombo("vereda")
+                        }
+                      },
+                      model: {
+                        value: _vm.id_vereda,
+                        callback: function($$v) {
+                          _vm.id_vereda = $$v
+                        },
+                        expression: "id_vereda"
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { value: "", selected: "" } }, [
+                        _vm._v("Seleccione")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "0" } }, [
+                        _vm._v("No Aplica")
+                      ]),
+                      _vm._v(" "),
+                      _vm._l(_vm.vereda_options[_vm.id_corre], function(item) {
+                        return _c(
+                          "option",
+                          { key: item.value, domProps: { value: item.value } },
+                          [
+                            _vm._v(
+                              "\n                " +
+                                _vm._s(item.texto) +
+                                "\n              "
+                            )
+                          ]
+                        )
+                      })
+                    ],
+                    2
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-lg-4" },
+                [
+                  _c("label", [_vm._v("Barrio:")]),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-select",
+                    {
+                      model: {
+                        value: _vm.id_barrio,
+                        callback: function($$v) {
+                          _vm.id_barrio = $$v
+                        },
+                        expression: "id_barrio"
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { value: "", selected: "" } }, [
+                        _vm._v("Seleccione")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "0" } }, [
+                        _vm._v("No Aplica")
+                      ]),
+                      _vm._v(" "),
+                      _vm._l(_vm.barrio_options, function(item) {
+                        return _c(
+                          "option",
+                          { key: item.value, domProps: { value: item.value } },
+                          [
+                            _vm._v(
+                              "\n                " +
+                                _vm._s(item.texto) +
+                                "\n              "
+                            )
+                          ]
+                        )
+                      })
+                    ],
+                    2
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-lg-4" },
+                [
+                  _c("label", [_vm._v("Zona:")]),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-select",
+                    {
+                      model: {
+                        value: _vm.id_zona,
+                        callback: function($$v) {
+                          _vm.id_zona = $$v
+                        },
+                        expression: "id_zona"
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { value: "", selected: "" } }, [
+                        _vm._v("Seleccione")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "0" } }, [
+                        _vm._v("No Aplica")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "1" } }, [
+                        _vm._v("Urbano")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "2" } }, [
+                        _vm._v("Rural centro poblado")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "3" } }, [
+                        _vm._v("Rural disperso")
+                      ])
+                    ]
+                  )
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _vm._m(2),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c(
+                "div",
+                { staticClass: "col-lg-4" },
+                [
+                  _c("label", [_vm._v("Tenencia de Vivienda:")]),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-select",
+                    {
+                      ref: "tenencia_vivienda",
+                      model: {
+                        value: _vm.tenencia_vivienda,
+                        callback: function($$v) {
+                          _vm.tenencia_vivienda =
+                            typeof $$v === "string" ? $$v.trim() : $$v
+                        },
+                        expression: "tenencia_vivienda"
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { value: "", selected: "" } }, [
+                        _vm._v("Seleccione")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "PROPIETARIO" } }, [
+                        _vm._v("PROPIETARIO(A)")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "ARRENDADO" } }, [
+                        _vm._v("ARRENDADO(A)")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "FAMILIAR" } }, [
+                        _vm._v("FAMILIAR")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "CUIDADOR" } }, [
+                        _vm._v("CUIDADOR(A)")
+                      ])
+                    ]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-lg-4" },
+                [
+                  _c("label", [_vm._v("Tipo de Vivienda:")]),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-select",
+                    {
+                      model: {
+                        value: _vm.tipo_vivienda,
+                        callback: function($$v) {
+                          _vm.tipo_vivienda =
+                            typeof $$v === "string" ? $$v.trim() : $$v
+                        },
+                        expression: "tipo_vivienda"
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { value: "", selected: "" } }, [
+                        _vm._v("Seleccione")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "1" } }, [
+                        _vm._v("No Aplica")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "2" } }, [_vm._v("Casa")]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "3" } }, [
+                        _vm._v("Apartamento")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "4" } }, [
+                        _vm._v("Finca")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "5" } }, [
+                        _vm._v("Vivienda Indigena")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "6" } }, [
+                        _vm._v("Improvisada - Lote")
+                      ])
+                    ]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-lg-4" },
+                [
+                  _c("label", [_vm._v("Materia Predominante Piso:")]),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-select",
+                    {
+                      model: {
+                        value: _vm.material_predominante,
+                        callback: function($$v) {
+                          _vm.material_predominante =
+                            typeof $$v === "string" ? $$v.trim() : $$v
+                        },
+                        expression: "material_predominante"
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { value: "", selected: "" } }, [
+                        _vm._v("Seleccione")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "NA" } }, [
+                        _vm._v("No Aplica")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "1" } }, [
+                        _vm._v("Marmol ó Madera Pulida")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "2" } }, [
+                        _vm._v("Cerámica ó Tablón")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "3" } }, [
+                        _vm._v("Cemento")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "4" } }, [
+                        _vm._v("Madera")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "5" } }, [
+                        _vm._v("Tierra")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "6" } }, [
+                        _vm._v("Bolsa ó Vinilo")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "6" } }, [_vm._v("Otros")])
+                    ]
+                  )
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c(
+                "div",
+                { staticClass: "col-lg-4" },
+                [
+                  _c("label", [_vm._v("Población Especial:")]),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-select",
+                    {
+                      ref: "poblacion_especial",
+                      model: {
+                        value: _vm.poblacion_especial,
+                        callback: function($$v) {
+                          _vm.poblacion_especial =
+                            typeof $$v === "string" ? $$v.trim() : $$v
+                        },
+                        expression: "poblacion_especial"
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { value: "", selected: "" } }, [
+                        _vm._v("Seleccione")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "0" } }, [
+                        _vm._v("NO APLICA")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "1" } }, [
+                        _vm._v("DESPLAZADO")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "3" } }, [
+                        _vm._v("VICTIMA DEL CONFLICTO ARMADO")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "4" } }, [
+                        _vm._v("MADRE COMUNITARIA")
+                      ])
+                    ]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-lg-4" },
+                [
+                  _c("label", [_vm._v("Promedio de Ingresos Mensuales:")]),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-select",
+                    {
+                      model: {
+                        value: _vm.promedio_ingresos,
+                        callback: function($$v) {
+                          _vm.promedio_ingresos =
+                            typeof $$v === "string" ? $$v.trim() : $$v
+                        },
+                        expression: "promedio_ingresos"
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { value: "", selected: "" } }, [
+                        _vm._v("Seleccione")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "NA" } }, [
+                        _vm._v("No Aplica")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "1" } }, [
+                        _vm._v(
+                          "\n                Menos de un salario minimo legal vigente\n              "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "2" } }, [
+                        _vm._v("Un salario minimo legal vigente")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "3" } }, [
+                        _vm._v("Entre 1 y 3 salarios mínimos")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "4" } }, [
+                        _vm._v("Entre 3 y 5 salarios mínimos")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "5" } }, [
+                        _vm._v("Más de 5 salarios mínimos")
+                      ])
+                    ]
+                  )
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _vm._m(3),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c(
+                "div",
+                { staticClass: "col-lg-3" },
+                [
+                  _c("label", [_vm._v("Energia Electrica:")]),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-select",
+                    {
+                      model: {
+                        value: _vm.energia_electrica,
+                        callback: function($$v) {
+                          _vm.energia_electrica =
+                            typeof $$v === "string" ? $$v.trim() : $$v
+                        },
+                        expression: "energia_electrica"
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { value: "", selected: "" } }, [
+                        _vm._v("Seleccione")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "NA" } }, [
+                        _vm._v("No Aplica")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "SI" } }, [_vm._v("SI")]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "NO" } }, [_vm._v("NO")])
+                    ]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-lg-3" },
+                [
+                  _c("label", [_vm._v("Gas Natural:")]),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-select",
+                    {
+                      model: {
+                        value: _vm.gas_natural,
+                        callback: function($$v) {
+                          _vm.gas_natural =
+                            typeof $$v === "string" ? $$v.trim() : $$v
+                        },
+                        expression: "gas_natural"
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { value: "", selected: "" } }, [
+                        _vm._v("Seleccione")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "NA" } }, [
+                        _vm._v("No Aplica")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "SI" } }, [_vm._v("SI")]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "PI" } }, [
+                        _vm._v("SI PIPETA DE GAS")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "NO" } }, [_vm._v("NO")])
+                    ]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-lg-3" },
+                [
+                  _c("label", [_vm._v("Acueducto:")]),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-select",
+                    {
+                      model: {
+                        value: _vm.acueducto,
+                        callback: function($$v) {
+                          _vm.acueducto =
+                            typeof $$v === "string" ? $$v.trim() : $$v
+                        },
+                        expression: "acueducto"
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { value: "", selected: "" } }, [
+                        _vm._v("Seleccione")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "NA" } }, [
+                        _vm._v("No Aplica")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "SI" } }, [_vm._v("SI")]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "NO" } }, [_vm._v("NO")])
+                    ]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-lg-3" },
+                [
+                  _c("label", [_vm._v("Alcantarillado:")]),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-select",
+                    {
+                      model: {
+                        value: _vm.alcantarillado,
+                        callback: function($$v) {
+                          _vm.alcantarillado =
+                            typeof $$v === "string" ? $$v.trim() : $$v
+                        },
+                        expression: "alcantarillado"
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { value: "", selected: "" } }, [
+                        _vm._v("Seleccione")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "NA" } }, [
+                        _vm._v("No Aplica")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "SI" } }, [_vm._v("SI")]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "NO" } }, [_vm._v("NO")])
+                    ]
+                  )
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c(
+                "div",
+                { staticClass: "col-lg-3" },
+                [
+                  _c("label", [_vm._v("Aseo:")]),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-select",
+                    {
+                      model: {
+                        value: _vm.aseo,
+                        callback: function($$v) {
+                          _vm.aseo = typeof $$v === "string" ? $$v.trim() : $$v
+                        },
+                        expression: "aseo"
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { value: "", selected: "" } }, [
+                        _vm._v("Seleccione")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "NA" } }, [
+                        _vm._v("No Aplica")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "SI" } }, [_vm._v("SI")]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "NO" } }, [_vm._v("NO")])
+                    ]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-lg-4" },
+                [
+                  _c("label", [_vm._v("El Servicio Sanitario Es:")]),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-select",
+                    {
+                      model: {
+                        value: _vm.servicio_sanitario,
+                        callback: function($$v) {
+                          _vm.servicio_sanitario =
+                            typeof $$v === "string" ? $$v.trim() : $$v
+                        },
+                        expression: "servicio_sanitario"
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { value: "", selected: "" } }, [
+                        _vm._v("Seleccione")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "NA" } }, [
+                        _vm._v("No Aplica")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "1" } }, [
+                        _vm._v("De Uso Exclusivo de las Personas de la Familia")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "2" } }, [
+                        _vm._v("Compartida con Personas de Otras Familias")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "3" } }, [
+                        _vm._v("Sin servicio sanitario")
+                      ])
+                    ]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-lg-5" },
+                [
+                  _c("label", [
+                    _vm._v(
+                      "¿Se presenta en tu barrio problemáticas de aguas negras?:"
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-select",
+                    {
+                      model: {
+                        value: _vm.aguas_negras,
+                        callback: function($$v) {
+                          _vm.aguas_negras =
+                            typeof $$v === "string" ? $$v.trim() : $$v
+                        },
+                        expression: "aguas_negras"
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { value: "", selected: "" } }, [
+                        _vm._v("Seleccione")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "NA" } }, [
+                        _vm._v("No Aplica")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "FRECUENTE" } }, [
+                        _vm._v("FRECUENTE")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "NUNCA" } }, [
+                        _vm._v("NUNCA")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "OCASIONAL" } }, [
+                        _vm._v("OCASIONAL")
+                      ])
+                    ]
+                  )
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _vm._m(4),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c(
+                "div",
+                { staticClass: "col-lg-6" },
+                [
+                  _c("label", [
+                    _vm._v(
+                      "¿Cuál es el tipo de combustible utilizado en su casa para cocinar?:"
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-select",
+                    {
+                      model: {
+                        value: _vm.tipo_combustible,
+                        callback: function($$v) {
+                          _vm.tipo_combustible =
+                            typeof $$v === "string" ? $$v.trim() : $$v
+                        },
+                        expression: "tipo_combustible"
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { value: "", selected: "" } }, [
+                        _vm._v("Seleccione")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "NA" } }, [
+                        _vm._v("No Aplica")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "1" } }, [
+                        _vm._v("Luz eléctrica")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "2" } }, [
+                        _vm._v("Gasolina")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "3" } }, [_vm._v("Leña")]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "4" } }, [
+                        _vm._v("Carbón")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "5" } }, [
+                        _vm._v("Gas natural")
+                      ])
+                    ]
+                  )
+                ],
+                1
+              )
+            ])
+          ])
+        ]
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "kt-portlet__head-label" }, [
+      _c("h3", { staticClass: "kt-portlet__head-title" }, [
+        _c("span", { staticClass: "kt-widget20__number kt-font-danger" }, [
+          _vm._v("CONSULTA DE VIVIENDAS")
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [
+      _c(
+        "span",
+        {
+          staticClass: "kt-font-boldest",
+          staticStyle: { "font-size": "18px" }
+        },
+        [_vm._v("Ubicación")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [
+      _c(
+        "span",
+        {
+          staticClass: "kt-font-boldest",
+          staticStyle: { "font-size": "18px" }
+        },
+        [_vm._v("Vivienda")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [
+      _c(
+        "span",
+        {
+          staticClass: "kt-font-boldest",
+          staticStyle: { "font-size": "18px" }
+        },
+        [_vm._v("Acceso a servicios públicos")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [
+      _c(
+        "span",
+        {
+          staticClass: "kt-font-boldest",
+          staticStyle: { "font-size": "18px" }
+        },
+        [_vm._v("Otros")]
+      )
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./resources/js/Servicios/barrios_servicios.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/Servicios/barrios_servicios.js ***!
+  \*****************************************************/
+/*! exports provided: listarBarrios, guardarBarrios, eliminarBarrios, comboBarrios, exportar */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "listarBarrios", function() { return listarBarrios; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "guardarBarrios", function() { return guardarBarrios; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "eliminarBarrios", function() { return eliminarBarrios; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "comboBarrios", function() { return comboBarrios; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "exportar", function() { return exportar; });
+/* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
+
+function listarBarrios($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/barrios', $data);
+}
+function guardarBarrios($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/barrios/guardar', $data);
+}
+function eliminarBarrios($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/barrios/eliminar', $data);
+}
+function comboBarrios($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/barrios/combo', $data);
+}
+function exportar($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/barrios/exportar', $data);
+}
+
+/***/ }),
+
+/***/ "./resources/js/Servicios/consultas.js":
+/*!*********************************************!*\
+  !*** ./resources/js/Servicios/consultas.js ***!
+  \*********************************************/
+/*! exports provided: iniciales, viviendas, viviendaspdf, jefe, jefespdf */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "iniciales", function() { return iniciales; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "viviendas", function() { return viviendas; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "viviendaspdf", function() { return viviendaspdf; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "jefe", function() { return jefe; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "jefespdf", function() { return jefespdf; });
+/* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
+
+function iniciales($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/vivienda/iniciales', $data);
+}
+function viviendas($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/vivienda/listar', $data);
+}
+function viviendaspdf($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/vivienda/listarpdf', $data);
+}
+function jefe($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/jefehogar/listar', $data);
+}
+function jefespdf($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/jefehogar/listarpdf', $data);
+}
+
+/***/ }),
+
+/***/ "./resources/js/Vistas/Consultas/viviendas.vue":
+/*!*****************************************************!*\
+  !*** ./resources/js/Vistas/Consultas/viviendas.vue ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _viviendas_vue_vue_type_template_id_c701a7aa___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./viviendas.vue?vue&type=template&id=c701a7aa& */ "./resources/js/Vistas/Consultas/viviendas.vue?vue&type=template&id=c701a7aa&");
+/* harmony import */ var _viviendas_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./viviendas.vue?vue&type=script&lang=js& */ "./resources/js/Vistas/Consultas/viviendas.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _viviendas_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./viviendas.vue?vue&type=style&index=0&lang=css& */ "./resources/js/Vistas/Consultas/viviendas.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _viviendas_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _viviendas_vue_vue_type_template_id_c701a7aa___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _viviendas_vue_vue_type_template_id_c701a7aa___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Vistas/Consultas/viviendas.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Vistas/Consultas/viviendas.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/Vistas/Consultas/viviendas.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_viviendas_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./viviendas.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Consultas/viviendas.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_viviendas_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Vistas/Consultas/viviendas.vue?vue&type=style&index=0&lang=css&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/Vistas/Consultas/viviendas.vue?vue&type=style&index=0&lang=css& ***!
+  \**************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_viviendas_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./viviendas.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Consultas/viviendas.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_viviendas_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_viviendas_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_viviendas_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_viviendas_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+/***/ }),
+
+/***/ "./resources/js/Vistas/Consultas/viviendas.vue?vue&type=template&id=c701a7aa&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/Vistas/Consultas/viviendas.vue?vue&type=template&id=c701a7aa& ***!
+  \************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_viviendas_vue_vue_type_template_id_c701a7aa___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./viviendas.vue?vue&type=template&id=c701a7aa& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Consultas/viviendas.vue?vue&type=template&id=c701a7aa&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_viviendas_vue_vue_type_template_id_c701a7aa___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_viviendas_vue_vue_type_template_id_c701a7aa___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ })
+
+}]);

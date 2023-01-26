@@ -387,7 +387,7 @@ class Reportes extends Model
         return $c;
     }
 
-    public static function listarcronicas($alias, $data, $tipo)
+    public static function listarcronicas($alias, $data)
     {
         $consulta = DB::connection('mysql')->table($alias . '.caracterizacion')
             ->join($alias . '.hogar', 'hogar.id', 'caracterizacion.id_hogar')
@@ -506,12 +506,9 @@ class Reportes extends Model
         }
 
         $consulta->union($consultai);
-
-        if ($tipo == "Todos") {
-            return $consulta->get();
-        } else {
-            return $consulta->paginate(10);
-        }
+        
+        return $consulta->get();
+        
     }
 
     public static function listarmigrantes($alias, $data, $tipo)
@@ -815,4 +812,129 @@ class Reportes extends Model
 
         return $adulto_mayor;
     }
+
+    public static function listarinfecciosas($alias, $data)
+    {
+        $consulta = DB::connection('mysql')->table($alias . '.caracterizacion')
+            ->join($alias . '.hogar', 'hogar.id', 'caracterizacion.id_hogar')
+            ->join($alias . ".vivienda", "hogar.id", "vivienda.id_hogar")
+            ->join($alias . ".dptos", "dptos.codigo", "hogar.id_dpto")
+            ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+            ->join($alias . '.muni', function ($join) {
+                $join->on('muni.coddep', '=', 'dptos.codigo');
+                $join->on('muni.codmun', '=', 'hogar.id_mun');
+            })
+            ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+            ->leftJoin($alias . ".veredas", "veredas.id", "hogar.id_vereda")
+            ->leftjoin($alias . '.administradoras', 'administradoras.id', 'caracterizacion.afiliacion_entidad')
+            ->leftjoin($alias . '.ocupaciones', 'ocupaciones.id', 'caracterizacion.ocupacion')
+            ->leftJoin($alias . ".enfermedades_jefes", "enfermedades_jefes.id_jefe", "caracterizacion.id")
+            ->leftJoin($alias . ".enfermedadesinf", "enfermedades_jefes.id_enfermedad", "enfermedadesinf.id")
+            ->where("enfermedades_jefes.tipo", "Infecciosa")
+            ->where('caracterizacion.estado', 'Activo')
+            ->select("caracterizacion.id",
+                "caracterizacion.identificacion",
+                "caracterizacion.sexo AS genero",
+                "enfermedades_jefes.tiempo AS tiempo",
+                "enfermedades_jefes.tratamiento AS atendido",
+                "enfermedadesinf.descripcion AS enfermedad",
+                "ocupaciones.descripcion as ocupacion",
+            )
+            ->selectRaw("CASE "
+                . " WHEN caracterizacion.afiliacion_entidad IS NULL THEN '' "
+                . " WHEN caracterizacion.afiliacion_entidad='OTRA' THEN 'OTRA' "
+                . " WHEN caracterizacion.afiliacion_entidad='NINGUNA' THEN 'NINGUNA' "
+                . " ELSE administradoras.adm_nombre "
+                . " END AS eps"
+                . " ")
+            ->selectRaw("CONCAT_WS(' ',caracterizacion.pape,caracterizacion.sape,
+        caracterizacion.pnom,caracterizacion.snom) as nombres")
+            ->selectRaw("CONCAT_WS('-',dptos.descripcion,muni.descripcion,
+        corregimientos.descripcion,hogar.direccion) as localizacion")
+            ->selectRaw("TIMESTAMPDIFF(YEAR, fecha_nacimiento, hogar.fecha) AS edad");
+
+        if ($data["datos"]["rangoEdad"] == "0-") {
+            $consulta->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nacimiento, hogar.fecha) BETWEEN 0 AND 0");
+        } else if ($data["datos"]["rangoEdad"] == "r1-5") {
+            $consulta->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nacimiento, hogar.fecha) BETWEEN 1 AND 5");
+        } else if ($data["datos"]["rangoEdad"] == "r6-11") {
+            $consulta->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nacimiento, hogar.fecha) BETWEEN 6 AND 11");
+        } else if ($data["datos"]["rangoEdad"] == "r12-17") {
+            $consulta->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nacimiento, hogar.fecha) BETWEEN 12 AND 17");
+        } else if ($data["datos"]["rangoEdad"] == "r18-28") {
+            $consulta->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nacimiento, hogar.fecha) BETWEEN 18 AND 28");
+        } else if ($data["datos"]["rangoEdad"] == "r29-59") {
+            $consulta->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nacimiento, hogar.fecha) BETWEEN 29 AND 59");
+        } else if ($data["datos"]["rangoEdad"] == "r60+") {
+            $consulta->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nacimiento, hogar.fecha) BETWEEN 60 AND 120");
+        }
+
+        if ($data["datos"]["enfermedad"] != "Todas") {
+            $consulta->where("enfermedades_jefes.id_enfermedad", $data["datos"]["enfermedad"]);
+        }
+
+        $consultai = DB::connection('mysql')->table($alias . '.integrantes')
+            ->join($alias . '.hogar', 'hogar.id', 'integrantes.id_hogar')
+            ->join($alias . ".vivienda", "hogar.id", "vivienda.id_hogar")
+            ->join($alias . ".dptos", "dptos.codigo", "hogar.id_dpto")
+            ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+            ->join($alias . '.muni', function ($join) {
+                $join->on('muni.coddep', '=', 'dptos.codigo');
+                $join->on('muni.codmun', '=', 'hogar.id_mun');
+            })
+            ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+            ->leftJoin($alias . ".veredas", "veredas.id", "hogar.id_vereda")
+            ->leftjoin($alias . '.administradoras', 'administradoras.id', 'integrantes.afi_entidad')
+            ->leftjoin($alias . '.ocupaciones', 'ocupaciones.id', 'integrantes.ocupacion')
+            ->leftJoin($alias . ".enfermedades_integrantes", "enfermedades_integrantes.id_inte", "integrantes.id")
+            ->leftJoin($alias . ".enfermedadesinf", "enfermedades_integrantes.id_enfermedad", "enfermedadesinf.id")
+            ->where("enfermedades_integrantes.tipo", "Infecciosa")
+            ->where('integrantes.estado', 'Activo')
+            ->select("integrantes.id",
+                "integrantes.identificacion",
+                "integrantes.sexo AS genero",
+                "enfermedades_integrantes.tiempo AS tiempo",
+                "enfermedades_integrantes.tratamiento AS atendido",
+                "enfermedadesinf.descripcion AS enfermedad",
+                "ocupaciones.descripcion as ocupacion",
+            )
+            ->selectRaw("CASE "
+                . " WHEN integrantes.afi_entidad IS NULL THEN '' "
+                . " WHEN integrantes.afi_entidad='OTRA' THEN 'OTRA' "
+                . " WHEN integrantes.afi_entidad='NINGUNA' THEN 'NINGUNA' "
+                . " ELSE administradoras.adm_nombre "
+                . " END AS eps"
+                . " ")
+            ->selectRaw("CONCAT_WS(' ',integrantes.pape,integrantes.sape,
+            integrantes.pnom,integrantes.snom) as nombres")
+            ->selectRaw("CONCAT_WS('-',dptos.descripcion,muni.descripcion,
+            corregimientos.descripcion,hogar.direccion) as localizacion")
+            ->selectRaw("TIMESTAMPDIFF(YEAR, fecha_nac, hogar.fecha) AS edad");
+
+        if ($data["datos"]["rangoEdad"] == "0-") {
+            $consultai->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nac, hogar.fecha) BETWEEN 0 AND 0");
+        } else if ($data["datos"]["rangoEdad"] == "r1-5") {
+            $consultai->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nac, hogar.fecha) BETWEEN 1 AND 5");
+        } else if ($data["datos"]["rangoEdad"] == "r6-11") {
+            $consultai->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nac, hogar.fecha) BETWEEN 6 AND 11");
+        } else if ($data["datos"]["rangoEdad"] == "r12-17") {
+            $consultai->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nac, hogar.fecha) BETWEEN 12 AND 17");
+        } else if ($data["datos"]["rangoEdad"] == "r18-28") {
+            $consultai->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nac, hogar.fecha) BETWEEN 18 AND 28");
+        } else if ($data["datos"]["rangoEdad"] == "r29-59") {
+            $consultai->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nac, hogar.fecha) BETWEEN 29 AND 59");
+        } else if ($data["datos"]["rangoEdad"] == "r60+") {
+            $consultai->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nac, hogar.fecha) BETWEEN 60 AND 120");
+        }
+
+        if ($data["datos"]["enfermedad"] != "Todas") {
+            $consultai->where("enfermedades_integrantes.id_enfermedad", $data["datos"]["enfermedad"]);
+        }
+
+        $consulta->union($consultai);
+
+        return $consulta->get();
+        
+    }
+    
 }

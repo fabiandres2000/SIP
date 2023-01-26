@@ -83,10 +83,12 @@ Route::post('/grupos/eliminar', 'GrupoController@eliminar');
 Route::post('/enfermedadesCro', 'EnfermedadesCroController@gestion');
 Route::post('/enfermedadesCro/guardar', 'EnfermedadesCroController@guardar');
 Route::post('/enfermedadesCro/eliminar', 'EnfermedadesCroController@eliminar');
+Route::get('/enfermedadesCro/combo', 'EnfermedadesCroController@combo');
 
 Route::post('/enfermedadesInf', 'EnfermedadesInfController@gestion');
 Route::post('/enfermedadesInf/guardar', 'EnfermedadesInfController@guardar');
 Route::post('/enfermedadesInf/eliminar', 'EnfermedadesInfController@eliminar');
+Route::get('/enfermedadesInf/combo', 'EnfermedadesInfController@combo');
 
 Route::post('/religion', 'ReligionController@gestion');
 Route::post('/religion/guardar', 'ReligionController@guardar');
@@ -229,4 +231,7 @@ Route::get('/informes/condiciones-salud', 'InformesController@condiciones_salud'
 Route::post('/informes/exportar-general-salud', 'InformesController@exportarGeneralSalud');
 
 Route::get('/reportes/personas-discapacitadas', 'ReportesController@personas_discapacitadas');
+Route::post('/reportes/exportar-discapacitados', 'ReportesController@exportaDiscapacitadosExcel');
 Route::get('/reportes/adulto-mayor', 'ReportesController@adulto_mayor');
+Route::post('/reportes/exportar-adulto-mayor', 'ReportesController@exportaAdultoMayorExcel');
+Route::post('/reportes/infecciosas', 'ReportesController@listarinfecciosas');

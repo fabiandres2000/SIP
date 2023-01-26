@@ -61,7 +61,7 @@
                             <div v-if="tipoCombo == 'corregimiento'" class="col-sm-1 col-lg-1 text-left" style="padding: 10px 10px 10px 20px;"></div>
                             <div v-if="tipoCombo != 'todos' && tipoCombo != 'barrio2'" class="col-sm-2 col-lg-2 text-left" style="padding: 10px 10px 10px 20px;"></div>
                             <div ref="boton1" class="col-sm-3 col-lg-3 text-right" style="padding: 60px 10px 10px 20px;">
-                                <button  @click="exportToExcel()" class="btn btn-success"><i class="fa fa-excel" aria-hidden="true"></i> Exportar Excel</button>
+                                <button  @click="exportToExcel()" class="btn btn-success"><i class="fa fa-table" aria-hidden="true"></i> Exportar Excel</button>
                             </div>
                         </div>
                         <div class="row">
@@ -125,34 +125,6 @@
                     </div>
                 </div>
             </div>
-            <b-modal
-                ref="modalpdf"
-                hide-footer
-                title="Reporte de Población Discapacitada"
-                size="xl"
-                centered
-                header-bg-variant="danger"
-                header-text-variant="light"
-                :no-close-on-backdrop="true"
-            >
-                <embed
-                    id="divPdf"
-                    :src="ruta"
-                    type="application/pdf"
-                    width="100%"
-                    height="650px"
-                />
-                <hr />
-                <div class="text-right">
-                    <button
-                        type="button"
-                        class="btn btn-warning"
-                        @click="cerrarModal"
-                    >
-                        <i class="fa fa-window-close"></i> Cancelar
-                    </button>
-                </div>
-            </b-modal>
         </div>
     </div>
 </template>
@@ -178,7 +150,6 @@ export default {
     data() {
         return {
             adulto_mayor_array: [], 
-            ruta: "",
             comboBarrio: "",
             barrios: [],
             barriosCorregimiento: [],
@@ -308,6 +279,7 @@ export default {
                     "lengthChange": false,
                     "ordering": false,
                     pageLength : 10,
+                    "bFilter": false,
                     language: {
                         "decimal": "",
                         "emptyTable": "No hay información",
@@ -331,12 +303,35 @@ export default {
                 });
             }, 500);
         },
-        cerrarModal() {
-            this.$refs.modalpdf.hide();
-        },   
         async exportToExcel(){
-            
-        }     
+            const parametros = {
+                datos: this.adulto_mayor_array,
+                titulo: "Reporte de Adulto Mayor"
+            };
+
+            try {
+                await reporteServicios.exportaAdultoMayorExcel(parametros).then(respuesta => {
+                    let href = store.state.apiURL + respuesta.data.nombre;
+                    this.downloadItem(href);
+                });
+            } catch (error) {
+                switch (error.response.status) {
+                    case 422:
+                    this.$swal("Error...!", "Ocurrio un error!", "error");
+                    break;
+                    default:
+                    this.$swal("Error...!", "Ocurrio un error!", "error");
+                    break;
+                }
+            }
+        },
+        downloadItem (url) {      
+            const link = document.createElement('a')
+            link.href = url
+            link.download = "Reporte-Adulto-Mayor.xlsx"
+            link.click()
+            URL.revokeObjectURL(link.href);
+        },   
     }
 };
 </script>
@@ -360,38 +355,55 @@ export default {
         caption-side: bottom;
     }
 
-
-    .table_data tbody tr:nth-child(odd) {
-        background-color: #fff;
-    }
-
-    .table_data tbody tr:nth-child(even) {
-        background-color: #f1f1f1;
-    }
-
     .dataTable th {
         color: #ffffff !important;
     }
 
-    .dataTables_paginate span {
-        padding-left: 10px;
-        padding-right: 10px;
+    .dataTables_paginate span .paginate_button{ 
+        color: #5578eb !important;
+        margin-left: 4px;
+        margin-right: 4px;
+        font-weight: bold;
+        background-color: #ffff;
+        padding: 4px 8px 4px 8px;
+        border-radius: 4px;    
+    }
+
+    .dataTables_paginate span .current{     
         color: #ffff !important;
+        margin-left: 4px;
+        margin-right: 4px;
+        font-weight: bold;
+        background-color: #5578eb;
+        padding: 4px 8px 4px 8px;
+        border-radius: 4px;
     }
+    
 
-    .dataTables_paginate span  a{
-        color: #ffff !important;
-    }
-
-    .dataTables_filter label input {
-        margin-left: 20px
-    }
-
-    .nav-pills, .nav-tabs {
-        margin: 0 0 -10px 0 !important;
-    }
-
-    .paginate_button{
+    .next{
         cursor: pointer;
+        background-color: #fd397a;
+        color: white;
+        padding: 5px;
+        border-radius: 4px;
+    }
+
+    .previous{
+        cursor: pointer;
+        background-color: #fd397a;
+        color: white;
+        padding: 5px;
+        border-radius: 4px;
+    }
+
+    .dataTables_paginate{
+        margin-top: 20px;
+        height: 40px;
+    }
+
+    .next:hover, .previous:hover{
+        font-weight: bold;
+        color: white;
     }
 </style>
+

@@ -9,3 +9,7 @@ export function guardar($data) {
 export function eliminar($data) {
     return http().post('/enfermedadesInf/eliminar', $data);
 }
+
+export function combo($data) {
+    return http().get('/enfermedadesInf/combo');
+}

@@ -1,1 +1,1433 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[64],{741:function(t,a,s){"use strict";s.r(a);var e=s(1),r=s.n(e),i=s(4),o=s(10);function l(t,a,s,e,r,i,o){try{var l=t[i](o),n=l.value}catch(t){return void s(t)}l.done?a(n):Promise.resolve(n).then(e,r)}function n(t){return function(){var a=this,s=arguments;return new Promise((function(e,r){var i=t.apply(a,s);function o(t){l(i,e,r,o,n,"next",t)}function n(t){l(i,e,r,o,n,"throw",t)}o(void 0)}))}}var c,u,d,v,_,p={mounted:function(){this.consultar()},name:"usuari",data:function(){return{errores:[],usuariosData:{id:0,identificacion:"",nombre:"",email:"",password:"",confPassword:"",rol:"",usuario:"",estado:"",celular:"",direccion:"",id_compania:0,imagen:null},errorDevuelto:[],entrarPorError:!1,imagenMiniatura:null,imagenMiniatura1:null,csrf:document.querySelector('meta[name="csrf-token"]').getAttribute("content"),alias:"",auxiliar:!0,errorDevuelto1:[],entrarPorError1:!1,claves:{actual:"",nueva:"",confir:""}}},computed:{imagen:function(){return null==this.imagenMiniatura?"".concat(o.a.state.serverPath,"assets/media/default.png"):"".concat(o.a.state.serverPath,"assets/media/fotos/").concat(this.usuariosData.imagen)},imagen1:function(){return"background-image: url('"+this.imagenMiniatura1+"')"}},methods:{consultar:(_=n(r.a.mark((function t(){var a,s=this;return r.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:return this.usuarios=[],a={_token:this.csrf},t.prev=2,t.next=5,i.o(a).then((function(t){s.errores=[],s.entrarPorError=!1,s.usuariosData=t.data.usuarios,s.alias=t.data.alias,s.imagenMiniatura=s.usuariosData.imagen,s.imagenMiniatura1=s.usuariosData.imagen,null==s.imagenMiniatura1?s.imagenMiniatura1="".concat(o.a.state.serverPath,"assets/media/default.png"):s.imagenMiniatura1="".concat(o.a.state.serverPath,"assets/media/fotos/").concat(s.usuariosData.imagen)}));case 5:t.next=18;break;case 7:t.prev=7,t.t0=t.catch(2),t.t1=t.t0.response.status,t.next=419===t.t1?12:422===t.t1?14:16;break;case 12:case 14:case 16:return this.$swal("Error...!","Ocurrio un error!","error"),t.abrupt("break",18);case 18:case"end":return t.stop()}}),t,this,[[2,7]])}))),function(){return _.apply(this,arguments)}),obtenerImagen1:function(t){var a=t.target.files[0];this.usuariosData.imagen=a,this.cargarImagen1(a)},cargarImagen1:(v=n(r.a.mark((function t(a){var s,e,o=this;return r.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:return(s=new FileReader).onload=function(t){o.imagenMiniatura1=t.target.result},s.readAsDataURL(a),(e=new FormData).append("_token",this.csrf),e.append("imagen",this.usuariosData.imagen),e.append("id",this.usuariosData.id),t.next=9,i.q(e).then((function(t){o.usuariosData.imagen=t.data.ruta})).catch((function(t){o.errorDevuelto=t.response.data.errors,o.entrarPorError=!0}));case 9:case"end":return t.stop()}}),t,this)}))),function(t){return v.apply(this,arguments)}),cambiarTab:function(t){console.log(t),1==t?(this.auxiliar=!0,$("#enlaceIP").addClass("kt-widget__item--active"),$("#enlaceCC").removeClass("kt-widget__item--active")):($("#enlaceCC").addClass("kt-widget__item--active"),$("#enlaceIP").removeClass("kt-widget__item--active"),this.auxiliar=!1)},guardarDatos:(d=n(r.a.mark((function t(){var a,s=this;return r.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:if(this.checkForm()){t.next=4;break}this.entrarPorError=!1,t.next=20;break;case 4:return this.errores=[],a={_token:this.csrf,id:this.usuariosData.id,identificacion:this.usuariosData.identificacion,nombre:this.usuariosData.nombre,email:this.usuariosData.email,celular:this.usuariosData.celular,direccion:this.usuariosData.direccion,usuario:this.usuariosData.usuario,rol:this.usuariosData.rol,ruta:this.usuariosData.imagen},t.prev=6,t.next=9,i.i(a).then((function(t){s.errorDevuelto=[],s.entrarPorError=!1,s.$swal("Guardar...!","Datos Guardados Exitosamente!","success"),location.reload()})).catch((function(t){s.errorDevuelto=t.response.data.errors,s.entrarPorError=!0}));case 9:t.next=20;break;case 11:t.prev=11,t.t0=t.catch(6),t.t1=t.t0.response.status,t.next=422===t.t1?16:18;break;case 16:case 18:return this.$swal("Error...!","Ocurrio un error!","error"),t.abrupt("break",20);case 20:case"end":return t.stop()}}),t,this,[[6,11]])}))),function(){return d.apply(this,arguments)}),checkForm:function(t){return this.errores=[],this.usuariosData.identificacion||this.errores.push("La identificación es obligatoria."),this.usuariosData.identificacion.length<6&&this.errores.push("Por favor escriba una identificación mayor a 6 caracteres"),this.usuariosData.nombre||this.errores.push("El nombre es obligatorio."),this.usuariosData.nombre.length<5&&this.errores.push("Por favor escriba un nombre mayor a 5 caracteres"),this.usuariosData.email?this.validEmail(this.usuariosData.email)||this.errores.push("El correo electrónico debe ser válido."):this.errores.push("El correo electrónico es obligatorio."),this.usuariosData.celular||this.errores.push("El celular es obligatorio."),this.usuariosData.usuario||this.errores.push("El usuario es obligatorio."),!this.errores.length},validEmail:function(t){return/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(t)},guardarContrasena:(u=n(r.a.mark((function t(){var a,s=this;return r.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:if(""!==this.claves.actual){t.next=3;break}return this.$swal("Error...!","La contraseña actual es obligatoria!","error"),t.abrupt("return",!1);case 3:if(""!==this.claves.nueva){t.next=6;break}return this.$swal("Error...!","La nueva contraseña es obligatoria!","error"),t.abrupt("return",!1);case 6:if(!(this.claves.nueva.length<5)){t.next=9;break}return this.$swal("Error...!","Por favor escriba una Contraseña mayor a 5 caracteres!","error"),t.abrupt("return",!1);case 9:if(""!==this.claves.confir){t.next=12;break}return this.$swal("Error...!","Confirmar la contraseña es obligatorio!","error"),t.abrupt("return",!1);case 12:if(this.claves.nueva==this.claves.confir){t.next=15;break}return this.$swal("Error...!","Las contraseñas no coinciden!","error"),t.abrupt("return",!1);case 15:return a={_token:this.csrf,claves:this.claves},t.prev=16,t.next=19,i.b(a).then((function(t){"SI"===t.data.OPC?(s.$swal("Cambiar...!","Contraseña cambiada de manera exitosa!","success"),setTimeout((function(){s.salir()}),3e3)):s.$swal("Cambiar...!","Contraseña no cambiada!","warning")})).catch((function(t){s.errorDevuelto1=t.response.data.errors,s.entrarPorError1=!0}));case 19:t.next=30;break;case 21:t.prev=21,t.t0=t.catch(16),t.t1=t.t0.response.status,t.next=422===t.t1?26:28;break;case 26:case 28:return this.$swal("Error...!","Ocurrio un error!","error"),t.abrupt("break",30);case 30:case"end":return t.stop()}}),t,this,[[16,21]])}))),function(){return u.apply(this,arguments)}),salir:(c=n(r.a.mark((function t(){var a,s=this;return r.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:return a={_token:this.csrf},t.prev=1,t.next=4,i.p(a).then((function(t){s.$swal("Cerrar...!","Sesion Cerrada de Manera Exitosa!","success"),setTimeout((function(){window.location="/index"}),2e3)})).catch((function(t){}));case 4:t.next=15;break;case 6:t.prev=6,t.t0=t.catch(1),t.t1=t.t0.response.status,t.next=422===t.t1?11:13;break;case 11:case 13:return this.$swal("Error...!","Ocurrio un error!","error"),t.abrupt("break",15);case 15:case"end":return t.stop()}}),t,this,[[1,6]])}))),function(){return c.apply(this,arguments)})}},m=s(3),C=Object(m.a)(p,(function(){var t=this,a=t.$createElement,s=t._self._c||a;return s("div",[t._m(0),t._v(" "),s("div",{staticClass:"kt-portlet__body"},[s("div",{staticClass:"kt-grid kt-grid--desktop kt-grid--ver kt-grid--ver-desktop kt-app"},[t._m(1),t._v(" "),s("div",{staticClass:"kt-grid__item kt-app__toggle kt-app__aside",attrs:{id:"kt_user_profile_aside"}},[s("div",{staticClass:"kt-portlet "},[t._m(2),t._v(" "),s("div",{staticClass:"kt-portlet__body kt-portlet__body--fit-y"},[s("div",{staticClass:"kt-widget kt-widget--user-profile-1"},[s("div",{staticClass:"kt-widget__head"},[s("div",{staticClass:"kt-widget__media"},[s("img",{attrs:{src:t.imagen,alt:"image"}})]),t._v(" "),s("div",{staticClass:"kt-widget__content"},[s("div",{staticClass:"kt-widget__section"},[s("a",{staticClass:"kt-widget__username",attrs:{href:"#"}},[t._v("\n                                            "+t._s(t.usuariosData.nombre)+"\n                                            "),s("i",{staticClass:"flaticon2-correct kt-font-success"})]),t._v(" "),s("span",{staticClass:"kt-widget__subtitle"},[t._v("\n                                            "+t._s(t.usuariosData.rol)+"\n                                        ")])])])]),t._v(" "),s("div",{staticClass:"kt-widget__body"},[s("div",{staticClass:"kt-widget__content"},[s("div",{staticClass:"kt-widget__info"},[s("span",{staticClass:"kt-widget__label"},[t._v("Email:")]),t._v(" "),s("a",{staticClass:"kt-widget__data",attrs:{href:"#"}},[t._v(t._s(t.usuariosData.email))])]),t._v(" "),s("div",{staticClass:"kt-widget__info"},[s("span",{staticClass:"kt-widget__label"},[t._v("Telefono:")]),t._v(" "),s("a",{staticClass:"kt-widget__data",attrs:{href:"#"}},[t._v(t._s(t.usuariosData.celular))])]),t._v(" "),s("div",{staticClass:"kt-widget__info"},[s("span",{staticClass:"kt-widget__label"},[t._v("Dirección:")]),t._v(" "),s("span",{staticClass:"kt-widget__data"},[t._v(t._s(t.usuariosData.direccion))])])]),t._v(" "),s("div",{staticClass:"kt-widget__items"},[s("a",{staticClass:"kt-widget__item kt-widget__item--active",attrs:{href:"javascript:;",id:"enlaceIP"},on:{click:function(a){return t.cambiarTab(1)}}},[s("span",{staticClass:"kt-widget__section"},[s("span",{staticClass:"kt-widget__icon"},[s("svg",{staticClass:"kt-svg-icon",attrs:{xmlns:"http://www.w3.org/2000/svg","xmlns:xlink":"http://www.w3.org/1999/xlink",width:"24px",height:"24px",viewBox:"0 0 24 24",version:"1.1"}},[s("g",{attrs:{stroke:"none","stroke-width":"1",fill:"none","fill-rule":"evenodd"}},[s("polygon",{attrs:{id:"Shape",points:"0 0 24 0 24 24 0 24"}}),t._v(" "),s("path",{attrs:{d:"M12,11 C9.790861,11 8,9.209139 8,7 C8,4.790861 9.790861,3 12,3 C14.209139,3 16,4.790861 16,7 C16,9.209139 14.209139,11 12,11 Z",id:"Mask",fill:"#000000","fill-rule":"nonzero",opacity:"0.3"}}),t._v(" "),s("path",{attrs:{d:"M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z",id:"Mask-Copy",fill:"#000000","fill-rule":"nonzero"}})])])]),t._v(" "),s("span",{staticClass:"kt-widget__desc"},[t._v("\n                                                Información Personal\n                                            ")])])]),t._v(" "),s("a",{staticClass:"kt-widget__item ",attrs:{href:"javascript:;",id:"enlaceCC"},on:{click:function(a){return t.cambiarTab(2)}}},[s("span",{staticClass:"kt-widget__section"},[s("span",{staticClass:"kt-widget__icon"},[s("svg",{staticClass:"kt-svg-icon",attrs:{xmlns:"http://www.w3.org/2000/svg","xmlns:xlink":"http://www.w3.org/1999/xlink",width:"24px",height:"24px",viewBox:"0 0 24 24",version:"1.1"}},[s("g",{attrs:{stroke:"none","stroke-width":"1",fill:"none","fill-rule":"evenodd"}},[s("rect",{attrs:{id:"bound",x:"0",y:"0",width:"24",height:"24"}}),t._v(" "),s("path",{attrs:{d:"M4,4 L11.6314229,2.5691082 C11.8750185,2.52343403 12.1249815,2.52343403 12.3685771,2.5691082 L20,4 L20,13.2830094 C20,16.2173861 18.4883464,18.9447835 16,20.5 L12.5299989,22.6687507 C12.2057287,22.8714196 11.7942713,22.8714196 11.4700011,22.6687507 L8,20.5 C5.51165358,18.9447835 4,16.2173861 4,13.2830094 L4,4 Z",id:"Path-50",fill:"#000000",opacity:"0.3"}}),t._v(" "),s("path",{attrs:{d:"M12,11 C10.8954305,11 10,10.1045695 10,9 C10,7.8954305 10.8954305,7 12,7 C13.1045695,7 14,7.8954305 14,9 C14,10.1045695 13.1045695,11 12,11 Z",id:"Mask",fill:"#000000",opacity:"0.3"}}),t._v(" "),s("path",{attrs:{d:"M7.00036205,16.4995035 C7.21569918,13.5165724 9.36772908,12 11.9907452,12 C14.6506758,12 16.8360465,13.4332455 16.9988413,16.5 C17.0053266,16.6221713 16.9988413,17 16.5815,17 C14.5228466,17 11.463736,17 7.4041679,17 C7.26484009,17 6.98863236,16.6619875 7.00036205,16.4995035 Z",id:"Mask-Copy",fill:"#000000",opacity:"0.3"}})])])]),t._v(" "),s("span",{staticClass:"kt-widget__desc"},[t._v("\n                                                Cambiar Contraseña\n                                            ")])])])])])])])])]),t._v(" "),s("div",{staticClass:"kt-grid__item kt-grid__item--fluid kt-app__content"},[t.auxiliar?s("div",{staticClass:"row"},[s("div",{staticClass:"col-xl-12"},[s("div",{staticClass:"kt-portlet"},[t._m(3),t._v(" "),s("form",{staticClass:"kt-form kt-form--label-right"},[s("div",{staticClass:"kt-portlet__body"},[s("div",{staticClass:"kt-section kt-section--first"},[s("div",{staticClass:"kt-section__body"},[s("div",{staticClass:"row justify-content-center"},[s("div",{staticClass:"col-lg-7"},[s("transition",{attrs:{duration:1e3,name:"fade"}},[t.errores.length?s("div",{staticClass:"alert alert-warning fade show",attrs:{role:"alert"}},[s("div",{staticClass:"alert-icon"},[s("i",{staticClass:"flaticon-warning"})]),t._v(" "),s("div",{staticClass:"alert-text"},[t._v("\n                                                                Por favor, corrija el(los) siguiente(s)\n                                                                error(es):\n                                                                "),s("hr"),t._v(" "),s("ul",t._l(t.errores,(function(a,e){return s("li",{key:e},[t._v("\n                                                                        "+t._s(a)+"\n                                                                    ")])})),0)]),t._v(" "),s("div",{staticClass:"alert-close"},[s("button",{staticClass:"close",attrs:{type:"button","data-dismiss":"alert","aria-label":"Close"}},[s("span",{attrs:{"aria-hidden":"true"}},[s("i",{staticClass:"la la-close"})])])])]):t._e()])],1)]),t._v(" "),s("div",{staticClass:"row justify-content-center"},[s("div",{staticClass:"col-lg-7"},[s("transition",{attrs:{duration:1e3,name:"fade"}},[t.entrarPorError?s("div",{staticClass:"alert alert-warning fade show",attrs:{role:"alert"}},[s("div",{staticClass:"alert-icon"},[s("i",{staticClass:"flaticon-warning"})]),t._v(" "),s("div",{staticClass:"alert-text"},[t._v("\n                                                                Por favor, corrija el(los) siguiente(s)\n                                                                error(es):\n                                                                "),s("hr"),t._v(" "),s("ul",t._l(t.errorDevuelto,(function(a,e){return s("li",{key:e},[t._v("\n                                                                        "+t._s(a)+"\n                                                                    ")])})),0)]),t._v(" "),s("div",{staticClass:"alert-close"},[s("button",{staticClass:"close",attrs:{type:"button","data-dismiss":"alert","aria-label":"Close"}},[s("span",{attrs:{"aria-hidden":"true"}},[s("i",{staticClass:"la la-close"})])])])]):t._e()])],1)]),t._v(" "),s("div",{staticClass:"form-group row"},[s("div",{staticClass:"col-lg-12 col-xl-12",staticStyle:{"text-align":"center"}},[s("div",{staticClass:"kt-avatar kt-avatar--outline kt-avatar--circle",attrs:{id:"kt_apps_user_add_avatar"}},[s("div",{staticClass:"kt-avatar__holder",style:t.imagen1}),t._v(" "),s("label",{staticClass:"kt-avatar__upload",attrs:{"data-toggle":"kt-tooltip",title:"","data-original-title":"Change avatar"}},[s("i",{staticClass:"fa fa-pen"}),t._v(" "),s("input",{attrs:{type:"file",name:"profile_avatar",accept:".png, .jpg, .jpeg"},on:{change:t.obtenerImagen1}})]),t._v(" "),t._m(4)])])]),t._v(" "),s("div",{staticClass:"form-group row"},[s("label",{staticClass:"col-xl-3 col-lg-3 col-form-label"},[t._v("Identificación")]),t._v(" "),s("div",{staticClass:"col-lg-9 col-xl-6"},[s("input",{directives:[{name:"model",rawName:"v-model",value:t.usuariosData.identificacion,expression:"usuariosData.identificacion"}],staticClass:"form-control",attrs:{type:"text"},domProps:{value:t.usuariosData.identificacion},on:{input:function(a){a.target.composing||t.$set(t.usuariosData,"identificacion",a.target.value)}}})])]),t._v(" "),s("div",{staticClass:"form-group row"},[s("label",{staticClass:"col-xl-3 col-lg-3 col-form-label"},[t._v("Nombre")]),t._v(" "),s("div",{staticClass:"col-lg-9 col-xl-6"},[s("input",{directives:[{name:"model",rawName:"v-model",value:t.usuariosData.nombre,expression:"usuariosData.nombre"}],staticClass:"form-control",attrs:{type:"text"},domProps:{value:t.usuariosData.nombre},on:{input:function(a){a.target.composing||t.$set(t.usuariosData,"nombre",a.target.value)}}})])]),t._v(" "),s("div",{staticClass:"form-group row"},[s("label",{staticClass:"col-xl-3 col-lg-3 col-form-label"},[t._v("Dirección")]),t._v(" "),s("div",{staticClass:"col-lg-9 col-xl-6"},[s("input",{directives:[{name:"model",rawName:"v-model",value:t.usuariosData.direccion,expression:"usuariosData.direccion"}],staticClass:"form-control",attrs:{type:"text"},domProps:{value:t.usuariosData.direccion},on:{input:function(a){a.target.composing||t.$set(t.usuariosData,"direccion",a.target.value)}}})])]),t._v(" "),s("div",{staticClass:"form-group row"},[s("label",{staticClass:"col-xl-3 col-lg-3 col-form-label"},[t._v("Telefono")]),t._v(" "),s("div",{staticClass:"col-lg-9 col-xl-6"},[s("div",{staticClass:"input-group"},[t._m(5),t._v(" "),s("input",{directives:[{name:"model",rawName:"v-model",value:t.usuariosData.celular,expression:"usuariosData.celular"}],staticClass:"form-control",attrs:{type:"text",placeholder:"Celular","aria-describedby":"basic-addon1"},domProps:{value:t.usuariosData.celular},on:{input:function(a){a.target.composing||t.$set(t.usuariosData,"celular",a.target.value)}}})])])]),t._v(" "),s("div",{staticClass:"form-group row"},[s("label",{staticClass:"col-xl-3 col-lg-3 col-form-label"},[t._v("Email")]),t._v(" "),s("div",{staticClass:"col-lg-9 col-xl-6"},[s("div",{staticClass:"input-group"},[t._m(6),t._v(" "),s("input",{directives:[{name:"model",rawName:"v-model",value:t.usuariosData.email,expression:"usuariosData.email"}],staticClass:"form-control",attrs:{type:"text",placeholder:"Email","aria-describedby":"basic-addon1"},domProps:{value:t.usuariosData.email},on:{input:function(a){a.target.composing||t.$set(t.usuariosData,"email",a.target.value)}}})])])]),t._v(" "),s("div",{staticClass:"form-group row"},[s("label",{staticClass:"col-xl-3 col-lg-3 col-form-label"},[t._v("Usuario")]),t._v(" "),s("div",{staticClass:"col-lg-9 col-xl-6"},[s("input",{directives:[{name:"model",rawName:"v-model",value:t.usuariosData.usuario,expression:"usuariosData.usuario"}],staticClass:"form-control",attrs:{type:"text"},domProps:{value:t.usuariosData.usuario},on:{input:function(a){a.target.composing||t.$set(t.usuariosData,"usuario",a.target.value)}}})])])])])]),t._v(" "),s("div",{staticClass:"kt-portlet__foot"},[s("div",{staticClass:"kt-form__actions"},[s("div",{staticClass:"row justify-content-center"},[s("div",{staticClass:"col-lg-6 col-xl-6"}),t._v(" "),s("div",{staticClass:"col-lg-6 col-xl-6"},[s("button",{staticClass:"btn btn-success",attrs:{type:"button"},on:{click:t.guardarDatos}},[s("i",{staticClass:"fa fa-edit"}),t._v("\n                                                    Guardar\n                                                ")])])])])])])])])]):s("div",{staticClass:"row"},[s("div",{staticClass:"col-xl-12"},[s("div",{staticClass:"kt-portlet"},[t._m(7),t._v(" "),s("form",{staticClass:"kt-form kt-form--label-right"},[s("div",{staticClass:"kt-portlet__body"},[s("div",{staticClass:"kt-section kt-section--first"},[s("div",{staticClass:"kt-section__body"},[s("div",{staticClass:"row"},[s("div",{staticClass:"col-lg-12"},[s("transition",{attrs:{duration:1e3,name:"fade"}},[t.entrarPorError1?s("div",{staticClass:"alert alert-warning fade show",attrs:{role:"alert"}},[s("div",{staticClass:"alert-icon"},[s("i",{staticClass:"flaticon-warning"})]),t._v(" "),s("div",{staticClass:"alert-text"},[t._v("\n                                                                Por favor, corrija el(los) siguiente(s)\n                                                                error(es):\n                                                                "),s("hr"),t._v(" "),s("ul",t._l(t.errorDevuelto1,(function(a,e){return s("li",{key:e},[t._v("\n                                                                        "+t._s(a)+"\n                                                                    ")])})),0)]),t._v(" "),s("div",{staticClass:"alert-close"},[s("button",{staticClass:"close",attrs:{type:"button","data-dismiss":"alert","aria-label":"Close"}},[s("span",{attrs:{"aria-hidden":"true"}},[s("i",{staticClass:"la la-close"})])])])]):t._e()])],1)]),t._v(" "),s("div",{staticClass:"form-group row"},[s("label",{staticClass:"col-xl-3 col-lg-3 col-form-label"},[t._v("Contraseña Actual")]),t._v(" "),s("div",{staticClass:"col-lg-9 col-xl-6"},[s("input",{directives:[{name:"model",rawName:"v-model",value:t.claves.actual,expression:"claves.actual"}],staticClass:"form-control",attrs:{type:"password",value:"",placeholder:"Contraseña Actual"},domProps:{value:t.claves.actual},on:{input:function(a){a.target.composing||t.$set(t.claves,"actual",a.target.value)}}})])]),t._v(" "),s("div",{staticClass:"form-group row"},[s("label",{staticClass:"col-xl-3 col-lg-3 col-form-label"},[t._v("Nueva Contraseña")]),t._v(" "),s("div",{staticClass:"col-lg-9 col-xl-6"},[s("input",{directives:[{name:"model",rawName:"v-model",value:t.claves.nueva,expression:"claves.nueva"}],staticClass:"form-control",attrs:{type:"password",value:"",placeholder:"Nueva Contraseña"},domProps:{value:t.claves.nueva},on:{input:function(a){a.target.composing||t.$set(t.claves,"nueva",a.target.value)}}})])]),t._v(" "),s("div",{staticClass:"form-group form-group-last row"},[s("label",{staticClass:"col-xl-3 col-lg-3 col-form-label"},[t._v("Verificar Contraseña")]),t._v(" "),s("div",{staticClass:"col-lg-9 col-xl-6"},[s("input",{directives:[{name:"model",rawName:"v-model",value:t.claves.confir,expression:"claves.confir"}],staticClass:"form-control",attrs:{type:"password",value:"",placeholder:"Verificar Contraseña"},domProps:{value:t.claves.confir},on:{input:function(a){a.target.composing||t.$set(t.claves,"confir",a.target.value)}}})])])])])]),t._v(" "),s("div",{staticClass:"kt-portlet__foot"},[s("div",{staticClass:"kt-form__actions"},[s("div",{staticClass:"row justify-content-center"},[s("div",{staticClass:"col-lg-6 col-xl-6"}),t._v(" "),s("div",{staticClass:"col-lg-6 col-xl-6"},[s("button",{staticClass:"btn btn-success",attrs:{type:"button"},on:{click:t.guardarContrasena}},[s("i",{staticClass:"fa fa-edit"}),t._v("\n                                                    Guardar\n                                                ")])])])])])])])])])])])])])}),[function(){var t=this.$createElement,a=this._self._c||t;return a("div",{staticClass:"kt-portlet",staticStyle:{"margin-top":"-4%"}},[a("div",{staticClass:"kt-portlet__head"},[a("div",{staticClass:"kt-portlet__head-label"},[a("h3",{staticClass:"kt-portlet__head-title"},[a("span",{staticClass:"kt-widget20__number kt-font-danger"},[this._v("PERFIL DEL USUARIO")])])])])])},function(){var t=this.$createElement,a=this._self._c||t;return a("button",{staticClass:"kt-app__aside-close",attrs:{id:"kt_user_profile_aside_close"}},[a("i",{staticClass:"la la-close"})])},function(){var t=this.$createElement,a=this._self._c||t;return a("div",{staticClass:"kt-portlet__head  kt-portlet__head--noborder"},[a("div",{staticClass:"kt-portlet__head-label"},[a("h3",{staticClass:"kt-portlet__head-title"})]),this._v(" "),a("div",{staticClass:"kt-portlet__head-toolbar"},[a("div",{staticClass:"dropdown-menu dropdown-menu-right dropdown-menu-fit dropdown-menu-md"})])])},function(){var t=this.$createElement,a=this._self._c||t;return a("div",{staticClass:"kt-portlet__head"},[a("div",{staticClass:"kt-portlet__head-label"},[a("h3",{staticClass:"kt-portlet__head-title"},[this._v("Información Personal "),a("small",[this._v("modifique su información personal")])])]),this._v(" "),a("div",{staticClass:"kt-portlet__head-toolbar"},[a("div",{staticClass:"kt-portlet__head-wrapper"})])])},function(){var t=this.$createElement,a=this._self._c||t;return a("span",{staticClass:"kt-avatar__cancel",attrs:{"data-toggle":"kt-tooltip",title:"","data-original-title":"Cancel avatar"}},[a("i",{staticClass:"fa fa-times"})])},function(){var t=this.$createElement,a=this._self._c||t;return a("div",{staticClass:"input-group-prepend"},[a("span",{staticClass:"input-group-text"},[a("i",{staticClass:"la la-phone"})])])},function(){var t=this.$createElement,a=this._self._c||t;return a("div",{staticClass:"input-group-prepend"},[a("span",{staticClass:"input-group-text"},[a("i",{staticClass:"la la-at"})])])},function(){var t=this.$createElement,a=this._self._c||t;return a("div",{staticClass:"kt-portlet__head"},[a("div",{staticClass:"kt-portlet__head-label"},[a("h3",{staticClass:"kt-portlet__head-title"},[this._v("Cambiar Contraseña "),a("small",[this._v("cambie su contraseña de inicio de sesion")])])]),this._v(" "),a("div",{staticClass:"kt-portlet__head-toolbar"},[a("div",{staticClass:"kt-portlet__head-wrapper"})])])}],!1,null,null,null);a.default=C.exports}}]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[64],{
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Reportes/AdultoMayor.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Reportes/AdultoMayor.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Servicios_reportes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Servicios/reportes */ "./resources/js/Servicios/reportes.js");
+/* harmony import */ var _Servicios_barrios_servicios_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Servicios/barrios_servicios.js */ "./resources/js/Servicios/barrios_servicios.js");
+/* harmony import */ var _Servicios_corregimientos_servicios_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Servicios/corregimientos_servicios.js */ "./resources/js/Servicios/corregimientos_servicios.js");
+/* harmony import */ var _Servicios_veredas_servicios_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../Servicios/veredas_servicios.js */ "./resources/js/Servicios/veredas_servicios.js");
+/* harmony import */ var vue_pithy_progress_lib_circle_progress_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-pithy-progress/lib/circle-progress.css */ "./node_modules/vue-pithy-progress/lib/circle-progress.css");
+/* harmony import */ var vue_pithy_progress_lib_circle_progress_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vue_pithy_progress_lib_circle_progress_css__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var datatables_net__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! datatables.net */ "./node_modules/datatables.net/js/jquery.dataTables.js");
+/* harmony import */ var datatables_net__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(datatables_net__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../store */ "./resources/js/store.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
+
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    this.listarBarrios();
+    this.listarCorregimientos();
+    this.listarVeredas();
+    this.adulto_mayor();
+  },
+  name: "gestan",
+  data: function data() {
+    return {
+      adulto_mayor_array: [],
+      comboBarrio: "",
+      barrios: [],
+      barriosCorregimiento: [],
+      comboBarrio2: "",
+      comboCorregimiento: "",
+      corregimientos: [],
+      comboVereda: "",
+      veredas: [],
+      tipoCombo: "todos"
+    };
+  },
+  computed: {},
+  methods: {
+    adulto_mayor: function adulto_mayor() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return _Servicios_reportes__WEBPACK_IMPORTED_MODULE_1__["adulto_mayor"]("todos", null).then(function (respuesta) {
+                  _this.adulto_mayor_array = respuesta.data.adulto_mayor;
+
+                  _this.crearDataTable();
+                });
+
+              case 2:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
+    listarBarrios: function listarBarrios() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                parametros = {
+                  _token: _this2.csrf,
+                  id: null,
+                  opcion: "MUN"
+                };
+                _context2.next = 3;
+                return _Servicios_barrios_servicios_js__WEBPACK_IMPORTED_MODULE_2__["comboBarrios"](parametros).then(function (respuesta) {
+                  _this2.barrios = respuesta.data.arrayBarrios;
+                });
+
+              case 3:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
+    },
+    listarBarriosCorregimiento: function listarBarriosCorregimiento() {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        var parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                parametros = {
+                  _token: _this3.csrf,
+                  id: _this3.comboCorregimiento,
+                  opcion: "CORRE"
+                };
+                _context3.next = 3;
+                return _Servicios_barrios_servicios_js__WEBPACK_IMPORTED_MODULE_2__["comboBarrios"](parametros).then(function (respuesta) {
+                  _this3.barriosCorregimiento = respuesta.data.arrayBarrios;
+                });
+
+              case 3:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
+      }))();
+    },
+    listarCorregimientos: function listarCorregimientos() {
+      var _this4 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
+        var parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                parametros = {
+                  _token: _this4.csrf
+                };
+                _context4.next = 3;
+                return _Servicios_corregimientos_servicios_js__WEBPACK_IMPORTED_MODULE_3__["comboCorregimientos"](parametros).then(function (respuesta) {
+                  _this4.corregimientos = respuesta.data.corregimientos;
+                });
+
+              case 3:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4);
+      }))();
+    },
+    listarVeredas: function listarVeredas() {
+      var _this5 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
+        var parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                parametros = {
+                  _token: _this5.csrf
+                };
+                _context5.next = 3;
+                return _Servicios_veredas_servicios_js__WEBPACK_IMPORTED_MODULE_4__["comboVeredas"](parametros).then(function (respuesta) {
+                  _this5.veredas = respuesta.data.veredas;
+                });
+
+              case 3:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5);
+      }))();
+    },
+    cambiaraTodos: function cambiaraTodos() {
+      if (this.tipoCombo == "todos") {
+        this.comboBarrio = "";
+        this.comboVereda = "";
+        this.comboCorregimiento = "";
+        this.comboBarrio2 = "";
+        this.adulto_mayor();
+      }
+    },
+    filtrar: function filtrar(tipo) {
+      var _this6 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6() {
+        var id;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+          while (1) {
+            switch (_context6.prev = _context6.next) {
+              case 0:
+                if (tipo == "barrio") {
+                  tipo = "barrio";
+                  _this6.comboCorregimiento = "";
+                  _this6.comboVereda = "";
+                  _this6.comboBarrio2 = "";
+                  id = _this6.comboBarrio;
+                }
+
+                if (tipo == "corregimiento") {
+                  tipo = "corre";
+                  _this6.comboBarrio = "";
+                  _this6.comboVereda = "";
+                  _this6.comboBarrio2 = "";
+                  id = _this6.comboCorregimiento;
+
+                  _this6.listarBarriosCorregimiento();
+                }
+
+                if (tipo == "vereda") {
+                  tipo = "vereda";
+                  _this6.comboCorregimiento = "";
+                  _this6.comboBarrio = "";
+                  _this6.comboBarrio2 = "";
+                  id = _this6.comboVereda;
+                }
+
+                if (tipo == "barrio2") {
+                  tipo = "barrio";
+                  _this6.comboVereda = "";
+                  _this6.comboBarrio = "";
+                  id = _this6.comboBarrio2;
+
+                  if (_this6.comboBarrio2 == "") {
+                    tipo = "corre";
+                    id = _this6.comboCorregimiento;
+                  }
+                }
+
+                if (_this6.comboVereda == "" && _this6.comboBarrio == "" && _this6.comboCorregimiento == "" && _this6.comboBarrio2 == "") {
+                  tipo = "Todos";
+                }
+
+                _context6.next = 7;
+                return _Servicios_reportes__WEBPACK_IMPORTED_MODULE_1__["adulto_mayor"](tipo, id).then(function (respuesta) {
+                  _this6.adulto_mayor_array = respuesta.data.adulto_mayor;
+
+                  _this6.crearDataTable();
+                })["catch"](function (err) {
+                  console.log(err);
+                });
+
+              case 7:
+              case "end":
+                return _context6.stop();
+            }
+          }
+        }, _callee6);
+      }))();
+    },
+    crearDataTable: function crearDataTable() {
+      jquery__WEBPACK_IMPORTED_MODULE_6___default()("#tablaDatos").dataTable().fnDestroy();
+      setTimeout(function () {
+        jquery__WEBPACK_IMPORTED_MODULE_6___default()('#tablaDatos').DataTable({
+          "lengthChange": false,
+          "ordering": false,
+          pageLength: 10,
+          language: {
+            "decimal": "",
+            "emptyTable": "No hay información",
+            "info": "Mostrando _START_ a _END_ de _TOTAL_ Registros",
+            "infoEmpty": "Mostrando 0 to 0 of 0 Registros",
+            "infoFiltered": "(Filtrado de _MAX_ total Registros)",
+            "infoPostFix": "",
+            "thousands": ",",
+            "lengthMenu": "Mostrar _MENU_ Registros",
+            "loadingRecords": "Cargando...",
+            "processing": "Procesando...",
+            "search": "Buscar:",
+            "zeroRecords": "Sin resultados encontrados",
+            "paginate": {
+              "first": "Primero",
+              "last": "Ultimo",
+              "next": "Siguiente",
+              "previous": "Anterior"
+            }
+          }
+        });
+      }, 500);
+    },
+    exportToExcel: function exportToExcel() {
+      var _this7 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee7() {
+        var parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee7$(_context7) {
+          while (1) {
+            switch (_context7.prev = _context7.next) {
+              case 0:
+                parametros = {
+                  datos: _this7.adulto_mayor_array,
+                  titulo: "Reporte de Adulto Mayor"
+                };
+                _context7.prev = 1;
+                _context7.next = 4;
+                return _Servicios_reportes__WEBPACK_IMPORTED_MODULE_1__["exportaAdultoMayorExcel"](parametros).then(function (respuesta) {
+                  var href = _store__WEBPACK_IMPORTED_MODULE_8__["default"].state.apiURL + respuesta.data.nombre;
+
+                  _this7.downloadItem(href);
+                });
+
+              case 4:
+                _context7.next = 15;
+                break;
+
+              case 6:
+                _context7.prev = 6;
+                _context7.t0 = _context7["catch"](1);
+                _context7.t1 = _context7.t0.response.status;
+                _context7.next = _context7.t1 === 422 ? 11 : 13;
+                break;
+
+              case 11:
+                _this7.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context7.abrupt("break", 15);
+
+              case 13:
+                _this7.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context7.abrupt("break", 15);
+
+              case 15:
+              case "end":
+                return _context7.stop();
+            }
+          }
+        }, _callee7, null, [[1, 6]]);
+      }))();
+    },
+    downloadItem: function downloadItem(url) {
+      var link = document.createElement('a');
+      link.href = url;
+      link.download = "Reporte-Adulto-Mayor.xlsx";
+      link.click();
+      URL.revokeObjectURL(link.href);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-pithy-progress/lib/circle-progress.css":
+/*!*************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--5-1!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-pithy-progress/lib/circle-progress.css ***!
+  \*************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".a-circle-progress-wrapper .circle-progress{position:relative;display:flex;justify-content:center}.a-circle-progress-wrapper .circle-progress .circle-progress-bar{transform:rotate(-90deg)}.a-circle-progress-wrapper .circle-progress .progress-content{position:absolute;left:50%;transform:translateX(-50%)}.a-circle-progress-wrapper .circle-progress .progress-content .percent-text{height:100%;width:100%;display:flex;align-items:center;justify-content:center}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Reportes/AdultoMayor.vue?vue&type=style&index=0&lang=css&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Reportes/AdultoMayor.vue?vue&type=style&index=0&lang=css& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.table_data {\n    width: 100%;\n    font-size: 17px;\n    border-collapse: collapse;\n}\n.table_data thead {\n    padding: 0.3em;\n    color: #fff !important;\n    background: #5578eb;\n}\n.table_data thead tr th, .table_data tbody tr td {\n    text-align: left;\n    vertical-align: top;\n    padding: 0.3em;\n    caption-side: bottom;\n}\n.table_data tbody tr:nth-child(odd) {\n    background-color: #fff;\n}\n.table_data tbody tr:nth-child(even) {\n    background-color: #f1f1f1;\n}\n.dataTable th {\n    color: #ffffff !important;\n}\n.dataTables_paginate span {\n    padding-left: 10px;\n    padding-right: 10px;\n    color: #ffff !important;\n}\n.dataTables_paginate span  a{\n    color: #ffff !important;\n}\n.dataTables_filter label input {\n    margin-left: 20px\n}\n.nav-pills, .nav-tabs {\n    margin: 0 0 -10px 0 !important;\n}\n.paginate_button{\n    cursor: pointer;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Reportes/AdultoMayor.vue?vue&type=style&index=0&lang=css&":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Reportes/AdultoMayor.vue?vue&type=style&index=0&lang=css& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./AdultoMayor.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Reportes/AdultoMayor.vue?vue&type=style&index=0&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Reportes/AdultoMayor.vue?vue&type=template&id=7eee6fa1&":
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Reportes/AdultoMayor.vue?vue&type=template&id=7eee6fa1& ***!
+  \*******************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "div",
+      { staticClass: "kt-portlet", staticStyle: { "margin-top": "-4%" } },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "kt-portlet__body" }, [
+          _c("div", { staticClass: "kt-section" }, [
+            _c("div", { staticClass: "kt-section__content" }, [
+              _c("div", { staticClass: "row" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "col-sm-3 col-lg-3 text-left",
+                    staticStyle: { padding: "10px 10px 10px 10px" }
+                  },
+                  [
+                    _c("h4", [_vm._v("Aplicar filtro por:")]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.tipoCombo,
+                            expression: "tipoCombo"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        on: {
+                          change: [
+                            function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.tipoCombo = $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            },
+                            function($event) {
+                              return _vm.cambiaraTodos()
+                            }
+                          ]
+                        }
+                      },
+                      [
+                        _c("option", { attrs: { value: "todos" } }, [
+                          _vm._v("Seleccione...")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "barrio" } }, [
+                          _vm._v("Barrio - Cabecera Municipal")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "barrio2" } }, [
+                          _vm._v("Barrio - Corregimiento")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "corregimiento" } }, [
+                          _vm._v("Corregimiento")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "vereda" } }, [
+                          _vm._v("Vereda")
+                        ])
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _vm.tipoCombo == "todos"
+                  ? _c("div", {
+                      staticClass: "col-sm-6 col-lg-6 text-left",
+                      staticStyle: { padding: "10px 10px 10px 20px" }
+                    })
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.tipoCombo == "barrio"
+                  ? _c(
+                      "div",
+                      {
+                        staticClass: "col-sm-4 col-lg-4 text-left",
+                        staticStyle: { padding: "10px 10px 10px 20px" }
+                      },
+                      [
+                        _c("h4", [_vm._v("Seleccione un Barrio")]),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.comboBarrio,
+                                expression: "comboBarrio"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            on: {
+                              change: [
+                                function($event) {
+                                  var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function(o) {
+                                      return o.selected
+                                    })
+                                    .map(function(o) {
+                                      var val =
+                                        "_value" in o ? o._value : o.value
+                                      return val
+                                    })
+                                  _vm.comboBarrio = $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                },
+                                function($event) {
+                                  return _vm.filtrar("barrio")
+                                }
+                              ]
+                            }
+                          },
+                          [
+                            _c("option", { attrs: { value: "" } }, [
+                              _vm._v("Seleccione...")
+                            ]),
+                            _vm._v(" "),
+                            _vm._l(_vm.barrios, function(item) {
+                              return _c(
+                                "option",
+                                { domProps: { value: item.value } },
+                                [_vm._v(_vm._s(item.texto))]
+                              )
+                            })
+                          ],
+                          2
+                        )
+                      ]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.tipoCombo == "corregimiento" || _vm.tipoCombo == "barrio2"
+                  ? _c(
+                      "div",
+                      {
+                        staticClass: "col-sm-3 col-lg-3 text-left",
+                        staticStyle: { padding: "10px 10px 10px 20px" }
+                      },
+                      [
+                        _c("h4", [_vm._v("Seleccione un Corregimiento")]),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.comboCorregimiento,
+                                expression: "comboCorregimiento"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            on: {
+                              change: [
+                                function($event) {
+                                  var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function(o) {
+                                      return o.selected
+                                    })
+                                    .map(function(o) {
+                                      var val =
+                                        "_value" in o ? o._value : o.value
+                                      return val
+                                    })
+                                  _vm.comboCorregimiento = $event.target
+                                    .multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                },
+                                function($event) {
+                                  return _vm.filtrar("corregimiento")
+                                }
+                              ]
+                            }
+                          },
+                          [
+                            _c("option", { attrs: { value: "" } }, [
+                              _vm._v("Seleccione...")
+                            ]),
+                            _vm._v(" "),
+                            _vm._l(_vm.corregimientos, function(item) {
+                              return _c(
+                                "option",
+                                { domProps: { value: item.id } },
+                                [_vm._v(_vm._s(item.descripcion))]
+                              )
+                            })
+                          ],
+                          2
+                        )
+                      ]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.tipoCombo == "barrio2"
+                  ? _c(
+                      "div",
+                      {
+                        staticClass: "col-sm-3 col-lg-3 text-left",
+                        staticStyle: { padding: "10px 10px 10px 20px" }
+                      },
+                      [
+                        _c("h4", [_vm._v("Seleccione un Barrio")]),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.comboBarrio2,
+                                expression: "comboBarrio2"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            on: {
+                              change: [
+                                function($event) {
+                                  var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function(o) {
+                                      return o.selected
+                                    })
+                                    .map(function(o) {
+                                      var val =
+                                        "_value" in o ? o._value : o.value
+                                      return val
+                                    })
+                                  _vm.comboBarrio2 = $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                },
+                                function($event) {
+                                  return _vm.filtrar("barrio2")
+                                }
+                              ]
+                            }
+                          },
+                          [
+                            _c("option", { attrs: { value: "" } }, [
+                              _vm._v("Seleccione...")
+                            ]),
+                            _vm._v(" "),
+                            _vm._l(_vm.barriosCorregimiento, function(item) {
+                              return _c(
+                                "option",
+                                { domProps: { value: item.value } },
+                                [_vm._v(_vm._s(item.texto))]
+                              )
+                            })
+                          ],
+                          2
+                        )
+                      ]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.tipoCombo == "vereda"
+                  ? _c(
+                      "div",
+                      {
+                        staticClass: "col-sm-4 col-lg-4 text-left",
+                        staticStyle: { padding: "10px 10px 10px 20px" }
+                      },
+                      [
+                        _c("h4", [_vm._v("Seleccione una Vereda")]),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.comboVereda,
+                                expression: "comboVereda"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            on: {
+                              change: [
+                                function($event) {
+                                  var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function(o) {
+                                      return o.selected
+                                    })
+                                    .map(function(o) {
+                                      var val =
+                                        "_value" in o ? o._value : o.value
+                                      return val
+                                    })
+                                  _vm.comboVereda = $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                },
+                                function($event) {
+                                  return _vm.filtrar("vereda")
+                                }
+                              ]
+                            }
+                          },
+                          [
+                            _c("option", { attrs: { value: "" } }, [
+                              _vm._v("Seleccione...")
+                            ]),
+                            _vm._v(" "),
+                            _vm._l(_vm.veredas, function(item) {
+                              return _c(
+                                "option",
+                                { domProps: { value: item.id } },
+                                [_vm._v(_vm._s(item.descripcion))]
+                              )
+                            })
+                          ],
+                          2
+                        )
+                      ]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.tipoCombo == "corregimiento"
+                  ? _c("div", {
+                      staticClass: "col-sm-1 col-lg-1 text-left",
+                      staticStyle: { padding: "10px 10px 10px 20px" }
+                    })
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.tipoCombo != "todos" && _vm.tipoCombo != "barrio2"
+                  ? _c("div", {
+                      staticClass: "col-sm-2 col-lg-2 text-left",
+                      staticStyle: { padding: "10px 10px 10px 20px" }
+                    })
+                  : _vm._e(),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    ref: "boton1",
+                    staticClass: "col-sm-3 col-lg-3 text-right",
+                    staticStyle: { padding: "60px 10px 10px 20px" }
+                  },
+                  [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-success",
+                        on: {
+                          click: function($event) {
+                            return _vm.exportToExcel()
+                          }
+                        }
+                      },
+                      [
+                        _c("i", {
+                          staticClass: "fa fa-table",
+                          attrs: { "aria-hidden": "true" }
+                        }),
+                        _vm._v(" Exportar Excel")
+                      ]
+                    )
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-12" }, [
+                  _c(
+                    "table",
+                    {
+                      staticClass: "table table-sm table-hover",
+                      attrs: { id: "tablaDatos" }
+                    },
+                    [
+                      _vm._m(1),
+                      _vm._v(" "),
+                      _c(
+                        "tbody",
+                        _vm._l(_vm.adulto_mayor_array, function(item, index) {
+                          return _c("tr", { key: index }, [
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                            " +
+                                    _vm._s(index + 1) +
+                                    "\n                                        "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  width: "150px",
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                            " +
+                                    _vm._s(item.identificacion) +
+                                    "\n                                        "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                            " +
+                                    _vm._s(item.pnom) +
+                                    " " +
+                                    _vm._s(item.snom) +
+                                    " " +
+                                    _vm._s(item.pape) +
+                                    " " +
+                                    _vm._s(item.sape) +
+                                    "\n                                        "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  width: "150px",
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                            " +
+                                    _vm._s(item.edad) +
+                                    " Años\n                                        "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                            " +
+                                    _vm._s(item.localizacion) +
+                                    "\n                                        "
+                                )
+                              ]
+                            )
+                          ])
+                        }),
+                        0
+                      )
+                    ]
+                  )
+                ])
+              ])
+            ])
+          ])
+        ])
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "kt-portlet__head" }, [
+      _c("div", { staticClass: "kt-portlet__head-label" }, [
+        _c("h3", { staticClass: "kt-portlet__head-title" }, [
+          _c("span", { staticClass: "kt-widget20__number kt-font-danger" }, [
+            _vm._v("REPORTE ADULTO MAYOR")
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", {}, [
+      _c("tr", { staticClass: "kt-bg-fill-brand" }, [
+        _c("th", { staticClass: "text-left" }, [_vm._v("No.")]),
+        _vm._v(" "),
+        _c(
+          "th",
+          { staticClass: "text-left", staticStyle: { width: "150px" } },
+          [
+            _vm._v(
+              "\n                                            Identificación\n                                        "
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-left" }, [
+          _vm._v(
+            "\n                                            Nombre\n                                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("th", { staticStyle: { width: "150px" } }, [
+          _vm._v(
+            "\n                                            Edad\n                                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-left" }, [
+          _vm._v(
+            "\n                                            Ubicación\n                                        "
+          )
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-pithy-progress/lib/circle-progress.css":
+/*!*****************************************************************!*\
+  !*** ./node_modules/vue-pithy-progress/lib/circle-progress.css ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../css-loader??ref--5-1!../../postcss-loader/src??ref--5-2!./circle-progress.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-pithy-progress/lib/circle-progress.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./resources/js/Servicios/barrios_servicios.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/Servicios/barrios_servicios.js ***!
+  \*****************************************************/
+/*! exports provided: listarBarrios, guardarBarrios, eliminarBarrios, comboBarrios, exportar */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "listarBarrios", function() { return listarBarrios; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "guardarBarrios", function() { return guardarBarrios; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "eliminarBarrios", function() { return eliminarBarrios; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "comboBarrios", function() { return comboBarrios; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "exportar", function() { return exportar; });
+/* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
+
+function listarBarrios($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/barrios', $data);
+}
+function guardarBarrios($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/barrios/guardar', $data);
+}
+function eliminarBarrios($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/barrios/eliminar', $data);
+}
+function comboBarrios($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/barrios/combo', $data);
+}
+function exportar($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/barrios/exportar', $data);
+}
+
+/***/ }),
+
+/***/ "./resources/js/Servicios/corregimientos_servicios.js":
+/*!************************************************************!*\
+  !*** ./resources/js/Servicios/corregimientos_servicios.js ***!
+  \************************************************************/
+/*! exports provided: listarCorregimientos, guardarCorregimientos, eliminarCorregimientos, comboCorregimientos */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "listarCorregimientos", function() { return listarCorregimientos; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "guardarCorregimientos", function() { return guardarCorregimientos; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "eliminarCorregimientos", function() { return eliminarCorregimientos; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "comboCorregimientos", function() { return comboCorregimientos; });
+/* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
+
+function listarCorregimientos($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/corregimientos', $data);
+}
+function guardarCorregimientos($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/corregimientos/guardar', $data);
+}
+function eliminarCorregimientos($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/corregimientos/eliminar', $data);
+}
+function comboCorregimientos($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/corregimientos/combo', $data);
+}
+
+/***/ }),
+
+/***/ "./resources/js/Servicios/reportes.js":
+/*!********************************************!*\
+  !*** ./resources/js/Servicios/reportes.js ***!
+  \********************************************/
+/*! exports provided: gestantes, exportarGestantes, nutricional, exportarNutricional, inicialesCronicas, cronicasPDF, inicialesMigrantes, migrantesPDF, personas_discapacitadas, adulto_mayor, exportaAdultoMayorExcel, exportaDiscapacitadosExcel, inicialesInfecciosas */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "gestantes", function() { return gestantes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "exportarGestantes", function() { return exportarGestantes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "nutricional", function() { return nutricional; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "exportarNutricional", function() { return exportarNutricional; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "inicialesCronicas", function() { return inicialesCronicas; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cronicasPDF", function() { return cronicasPDF; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "inicialesMigrantes", function() { return inicialesMigrantes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "migrantesPDF", function() { return migrantesPDF; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "personas_discapacitadas", function() { return personas_discapacitadas; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "adulto_mayor", function() { return adulto_mayor; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "exportaAdultoMayorExcel", function() { return exportaAdultoMayorExcel; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "exportaDiscapacitadosExcel", function() { return exportaDiscapacitadosExcel; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "inicialesInfecciosas", function() { return inicialesInfecciosas; });
+/* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
+
+function gestantes($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/reportes/gestantes', $data);
+}
+function exportarGestantes($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/reportes/exportarGestantes', $data);
+}
+function nutricional($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/reportes/nutricional', $data);
+}
+function exportarNutricional($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/reportes/exportarNutricional', $data);
+}
+function inicialesCronicas($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/reportes/cronicas', $data);
+}
+function cronicasPDF($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/reportes/cronicaspdf', $data);
+}
+function inicialesMigrantes($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/reportes/migrantes', $data);
+}
+function migrantesPDF($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/reportes/migrantespdf', $data);
+}
+function personas_discapacitadas($tipo, $id) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().get('/reportes/personas-discapacitadas?tipo=' + $tipo + '&id=' + $id);
+}
+function adulto_mayor($tipo, $id) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().get('/reportes/adulto-mayor?tipo=' + $tipo + '&id=' + $id);
+}
+function exportaAdultoMayorExcel($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/reportes/exportar-adulto-mayor', $data);
+}
+function exportaDiscapacitadosExcel($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/reportes/exportar-discapacitados', $data);
+}
+function inicialesInfecciosas($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/reportes/infecciosas', $data);
+}
+
+/***/ }),
+
+/***/ "./resources/js/Servicios/veredas_servicios.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/Servicios/veredas_servicios.js ***!
+  \*****************************************************/
+/*! exports provided: listarVeredas, guardarVeredas, eliminarVeredas, comboVeredas */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "listarVeredas", function() { return listarVeredas; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "guardarVeredas", function() { return guardarVeredas; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "eliminarVeredas", function() { return eliminarVeredas; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "comboVeredas", function() { return comboVeredas; });
+/* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
+
+function listarVeredas($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/veredas', $data);
+}
+function guardarVeredas($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/veredas/guardar', $data);
+}
+function eliminarVeredas($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/veredas/eliminar', $data);
+}
+function comboVeredas($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/veredas/combo', $data);
+}
+
+/***/ }),
+
+/***/ "./resources/js/Vistas/Reportes/AdultoMayor.vue":
+/*!******************************************************!*\
+  !*** ./resources/js/Vistas/Reportes/AdultoMayor.vue ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _AdultoMayor_vue_vue_type_template_id_7eee6fa1___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AdultoMayor.vue?vue&type=template&id=7eee6fa1& */ "./resources/js/Vistas/Reportes/AdultoMayor.vue?vue&type=template&id=7eee6fa1&");
+/* harmony import */ var _AdultoMayor_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AdultoMayor.vue?vue&type=script&lang=js& */ "./resources/js/Vistas/Reportes/AdultoMayor.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _AdultoMayor_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AdultoMayor.vue?vue&type=style&index=0&lang=css& */ "./resources/js/Vistas/Reportes/AdultoMayor.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _AdultoMayor_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _AdultoMayor_vue_vue_type_template_id_7eee6fa1___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _AdultoMayor_vue_vue_type_template_id_7eee6fa1___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Vistas/Reportes/AdultoMayor.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Vistas/Reportes/AdultoMayor.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/Vistas/Reportes/AdultoMayor.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdultoMayor_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./AdultoMayor.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Reportes/AdultoMayor.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdultoMayor_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Vistas/Reportes/AdultoMayor.vue?vue&type=style&index=0&lang=css&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/Vistas/Reportes/AdultoMayor.vue?vue&type=style&index=0&lang=css& ***!
+  \***************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AdultoMayor_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./AdultoMayor.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Reportes/AdultoMayor.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AdultoMayor_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AdultoMayor_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AdultoMayor_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AdultoMayor_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+/***/ }),
+
+/***/ "./resources/js/Vistas/Reportes/AdultoMayor.vue?vue&type=template&id=7eee6fa1&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/Vistas/Reportes/AdultoMayor.vue?vue&type=template&id=7eee6fa1& ***!
+  \*************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdultoMayor_vue_vue_type_template_id_7eee6fa1___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./AdultoMayor.vue?vue&type=template&id=7eee6fa1& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Reportes/AdultoMayor.vue?vue&type=template&id=7eee6fa1&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdultoMayor_vue_vue_type_template_id_7eee6fa1___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdultoMayor_vue_vue_type_template_id_7eee6fa1___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ })
+
+}]);

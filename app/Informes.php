@@ -1593,6 +1593,7 @@ class Informes extends Model
             foreach ($enfermedades_array_2 as $item2) {
                 if($item->descripcion == $item2->enfermedad){
                     $encontrado = true;
+                    $item_encontrado = $item2;
                 }
             }
 
@@ -1602,7 +1603,7 @@ class Informes extends Model
                     "cantidad"  => 1,
                 ]);
             }else{
-                $item2->cantidad += 1;
+                $item_encontrado->cantidad += 1;
             }
         }
         
@@ -1679,6 +1680,7 @@ class Informes extends Model
             foreach ($enfermedades_array_2 as $item2) {
                 if($item->descripcion == $item2->enfermedad){
                     $encontrado = true;
+                    $item_encontrado = $item2;
                 }
             }
 
@@ -1688,7 +1690,7 @@ class Informes extends Model
                     "cantidad"  => 1,
                 ]);
             }else{
-                $item2->cantidad += 1;
+                $item_encontrado->cantidad += 1;
             }
         }
         

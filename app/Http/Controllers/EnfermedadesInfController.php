@@ -82,4 +82,20 @@ class EnfermedadesInfController extends Controller
             return redirect("/")->with("error", "Su sesion ha terminado");
         }
     }
+
+    public function combo()
+    {
+        if (Auth::check()) {
+               
+            $enfermedades = \App\EnfermedadesInf::buscar(Session::get('alias'));
+
+            $respuesta = [
+                'enfermedades' => $enfermedades,
+            ];
+
+            return response()->json($respuesta, 200);
+        } else {
+            return redirect("/")->with("error", "Su sesion ha terminado");
+        }
+    }
 }
