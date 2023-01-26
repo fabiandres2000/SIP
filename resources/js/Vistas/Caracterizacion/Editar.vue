@@ -110,7 +110,7 @@
             </div>
             <!-- Identificación -->
             <div class="tab-pane active" id="tabIdentificacion" role="tabpanel">
-              <div class="row">
+              <div class="row" style="padding-top: 20px">
                 <div class="col-12 kt-align-right">
                   <button
                     type="button"
@@ -3806,7 +3806,7 @@
 
             <!-- Vivienda -->
             <div class="tab-pane" id="tabVivienda" role="tabpanel">
-              <div class="row">
+              <div class="row" style="padding-top: 20px">
                 <div class="col-12 kt-align-right">
                   <button
                     type="button"
@@ -6313,7 +6313,7 @@
 
             <!-- Cart. X ciclo -->
             <div class="tab-pane" id="cartxciclo" role="tabpanel">
-              <div class="row">
+              <div class="row" style="padding-top: 20px">
                 <div class="col-12 kt-align-right">
                   <button
                     type="button"
@@ -9361,7 +9361,7 @@
 
             <!-- Adolescente -->
             <div class="tab-pane" id="adolescente" role="tabpanel">
-              <div class="row">
+              <div class="row" style="padding-top: 20px">
                 <div class="col-12 kt-align-right">
                   <button
                     type="button"
@@ -11017,7 +11017,7 @@
 
             <!-- Adulto Mayor -->
             <div class="tab-pane" id="adultomayor" role="tabpanel">
-              <div class="row">
+              <div class="row" style="padding-top: 20px">
                 <div class="col-12 kt-align-right">
                   <button
                     type="button"
@@ -11738,7 +11738,7 @@
 
             <!-- Migrante -->
             <div class="tab-pane" id="migrante" role="tabpanel">
-              <div class="row">
+              <div class="row" style="padding-top: 20px">
                 <div class="col-12 kt-align-right">
                   <button
                     type="button"

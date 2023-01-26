@@ -61,7 +61,7 @@
                             <div v-if="tipoCombo == 'corregimiento'" class="col-sm-1 col-lg-1 text-left" style="padding: 10px 10px 10px 20px;"></div>
                             <div v-if="tipoCombo != 'todos' && tipoCombo != 'barrio2'" class="col-sm-2 col-lg-2 text-left" style="padding: 10px 10px 10px 20px;"></div>
                             <div ref="boton1" class="col-sm-3 col-lg-3 text-right" style="padding: 60px 10px 10px 20px;">
-                                <button  @click="exportToPDF()" class="btn btn-danger"><i class="fa fa-file" aria-hidden="true"></i> Exportar PDF</button>
+                                <button  @click="exportToExcel()" class="btn btn-success"><i class="fa fa-excel" aria-hidden="true"></i> Exportar Excel</button>
                             </div>
                         </div>
                         <div class="row">
@@ -333,7 +333,10 @@ export default {
         },
         cerrarModal() {
             this.$refs.modalpdf.hide();
-        },        
+        },   
+        async exportToExcel(){
+            
+        }     
     }
 };
 </script>

@@ -2045,8 +2045,4 @@ export default {
     margin-bottom: 2em;
 }
 
-.nav-pills, .nav-tabs {
-    margin: 0 0 -10px 0 !important;
-}
-
 </style>
