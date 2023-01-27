@@ -460,7 +460,7 @@ export default {
                 },
                 {
                     category: "Alto",
-                    first: array.Alto,
+                    first: array.alto,
                 },
             ];
             var series = chart.series.push(new am4charts.PieSeries3D());

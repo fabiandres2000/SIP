@@ -235,3 +235,5 @@ Route::post('/reportes/exportar-discapacitados', 'ReportesController@exportaDisc
 Route::get('/reportes/adulto-mayor', 'ReportesController@adulto_mayor');
 Route::post('/reportes/exportar-adulto-mayor', 'ReportesController@exportaAdultoMayorExcel');
 Route::post('/reportes/infecciosas', 'ReportesController@listarinfecciosas');
+Route::post('/reportes/descolarizados', 'ReportesController@descolarizados');
+Route::post('/reportes/bajo-nivel-socioeconomico', 'ReportesController@bajo_nivel_socioeconomico');

@@ -51,3 +51,11 @@ export function exportaDiscapacitadosExcel($data) {
 export function inicialesInfecciosas($data) {
     return http().post('/reportes/infecciosas', $data);
 }
+
+export function descolarizados($data) {
+    return http().post('/reportes/descolarizados', $data);
+}
+
+export function bajo_nivel_socioeconomico($data) {
+    return http().post('/reportes/bajo-nivel-socioeconomico', $data);
+}

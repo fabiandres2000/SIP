@@ -258,6 +258,16 @@ export const routes = [
         path: '/reportes/adulto-mayor',
         name: 'AdultoMayor',
         component: () => import ('./Vistas/Reportes/AdultoMayor.vue')
+    },
+    {
+        path: '/reportes/descolarizados',
+        name: 'Descolarizados',
+        component: () => import ('./Vistas/Reportes/Descolarizados.vue')
+    },
+    {
+        path: '/reportes/bajo-nivel-socioeconomico',
+        name: 'BajoNivel',
+        component: () => import ('./Vistas/Reportes/BajoNivelSocioeconomico.vue')
     }
 ];
 

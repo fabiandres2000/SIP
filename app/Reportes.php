@@ -936,5 +936,192 @@ class Reportes extends Model
         return $consulta->get();
         
     }
+
+    public static function descolarizados($alias, $data)
+    {
+        $consulta = DB::connection('mysql')->table($alias . '.caracterizacion')
+        ->join($alias . '.hogar', 'hogar.id', 'caracterizacion.id_hogar')
+        ->join($alias . ".dptos", "dptos.codigo", "hogar.id_dpto")
+        ->join($alias . ".escolaridad", "caracterizacion.nivel_escolaridad", "escolaridad.id")
+        ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+        ->join($alias . '.muni', function ($join) {
+            $join->on('muni.coddep', '=', 'dptos.codigo');
+            $join->on('muni.codmun', '=', 'hogar.id_mun');
+        })
+        ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+        ->leftJoin($alias . ".veredas", "veredas.id", "hogar.id_vereda")
+        ->leftjoin($alias . '.administradoras', 'administradoras.id', 'caracterizacion.afiliacion_entidad')
+        ->leftjoin($alias . '.ocupaciones', 'ocupaciones.id', 'caracterizacion.ocupacion')
+        ->where('caracterizacion.estado', 'Activo')
+        ->whereIn('caracterizacion.nivel_escolaridad', [1,4,12,13])
+        ->select("caracterizacion.id","caracterizacion.identificacion","caracterizacion.sexo AS genero","ocupaciones.descripcion as ocupacion","escolaridad.descripcion as nivel_escolaridad")        
+        ->selectRaw("CONCAT_WS(' ',caracterizacion.pape,caracterizacion.sape,caracterizacion.pnom,caracterizacion.snom) as nombres")
+        ->selectRaw("CONCAT_WS('-',dptos.descripcion,muni.descripcion,corregimientos.descripcion,hogar.direccion) as localizacion")
+        ->selectRaw("TIMESTAMPDIFF(YEAR, fecha_nacimiento, hogar.fecha) AS edad");
+
+        if ($data["datos"]["rangoEdad"] == "0-") {
+            $consulta->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nacimiento, hogar.fecha) BETWEEN 0 AND 0");
+        } else if ($data["datos"]["rangoEdad"] == "r1-5") {
+            $consulta->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nacimiento, hogar.fecha) BETWEEN 1 AND 5");
+        } else if ($data["datos"]["rangoEdad"] == "r6-11") {
+            $consulta->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nacimiento, hogar.fecha) BETWEEN 6 AND 11");
+        } else if ($data["datos"]["rangoEdad"] == "r12-17") {
+            $consulta->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nacimiento, hogar.fecha) BETWEEN 12 AND 17");
+        } else if ($data["datos"]["rangoEdad"] == "r18-28") {
+            $consulta->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nacimiento, hogar.fecha) BETWEEN 18 AND 28");
+        } else if ($data["datos"]["rangoEdad"] == "r29-59") {
+            $consulta->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nacimiento, hogar.fecha) BETWEEN 29 AND 59");
+        } else if ($data["datos"]["rangoEdad"] == "r60+") {
+            $consulta->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nacimiento, hogar.fecha) BETWEEN 60 AND 120");
+        }
+
+
+        $consultai = DB::connection('mysql')->table($alias . '.integrantes')
+        ->join($alias . '.hogar', 'hogar.id', 'integrantes.id_hogar')
+        ->join($alias . ".dptos", "dptos.codigo", "hogar.id_dpto")
+        ->join($alias . ".escolaridad", "integrantes.escolaridad", "escolaridad.id")
+        ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+        ->join($alias . '.muni', function ($join) {
+            $join->on('muni.coddep', '=', 'dptos.codigo');
+            $join->on('muni.codmun', '=', 'hogar.id_mun');
+        })
+        ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+        ->leftJoin($alias . ".veredas", "veredas.id", "hogar.id_vereda")
+        ->leftjoin($alias . '.administradoras', 'administradoras.id', 'integrantes.afi_entidad')
+        ->leftjoin($alias . '.ocupaciones', 'ocupaciones.id', 'integrantes.ocupacion')
+        ->where('integrantes.estado', 'Activo')
+        ->whereIn('integrantes.escolaridad', [1,4,12,13])
+        ->select("integrantes.id","integrantes.identificacion","integrantes.sexo AS genero","ocupaciones.descripcion as ocupacion","escolaridad.descripcion as nivel_escolaridad")        
+        ->selectRaw("CONCAT_WS(' ',integrantes.pape,integrantes.sape,integrantes.pnom,integrantes.snom) as nombres")
+        ->selectRaw("CONCAT_WS('-',dptos.descripcion,muni.descripcion,corregimientos.descripcion,hogar.direccion) as localizacion")
+        ->selectRaw("TIMESTAMPDIFF(YEAR, fecha_nac, hogar.fecha) AS edad");
+
+        if ($data["datos"]["rangoEdad"] == "0-") {
+            $consultai->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nac, hogar.fecha) BETWEEN 0 AND 0");
+        } else if ($data["datos"]["rangoEdad"] == "r1-5") {
+            $consultai->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nac, hogar.fecha) BETWEEN 1 AND 5");
+        } else if ($data["datos"]["rangoEdad"] == "r6-11") {
+            $consultai->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nac, hogar.fecha) BETWEEN 6 AND 11");
+        } else if ($data["datos"]["rangoEdad"] == "r12-17") {
+            $consultai->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nac, hogar.fecha) BETWEEN 12 AND 17");
+        } else if ($data["datos"]["rangoEdad"] == "r18-28") {
+            $consultai->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nac, hogar.fecha) BETWEEN 18 AND 28");
+        } else if ($data["datos"]["rangoEdad"] == "r29-59") {
+            $consultai->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nac, hogar.fecha) BETWEEN 29 AND 59");
+        } else if ($data["datos"]["rangoEdad"] == "r60+") {
+            $consultai->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nac, hogar.fecha) BETWEEN 60 AND 120");
+        }
+
+        $consulta->union($consultai);
+
+        return $consulta->get();
+        
+    }
+
+    public static function nivel_socioeconomico($alias){
+
+        $consulta = DB::connection('mysql')->table($alias . '.caracterizacion')
+        ->join($alias . '.hogar', 'hogar.id', 'caracterizacion.id_hogar')
+        ->join($alias . ".dptos", "dptos.codigo", "hogar.id_dpto")
+        ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+        ->join($alias . '.muni', function ($join) {
+            $join->on('muni.coddep', '=', 'dptos.codigo');
+            $join->on('muni.codmun', '=', 'hogar.id_mun');
+        })
+        ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+        ->leftJoin($alias . ".veredas", "veredas.id", "hogar.id_vereda")
+        ->leftjoin($alias . '.administradoras', 'administradoras.id', 'caracterizacion.afiliacion_entidad')
+        ->leftjoin($alias . '.ocupaciones', 'ocupaciones.id', 'caracterizacion.ocupacion')
+        ->where('caracterizacion.estado', 'Activo')
+        ->select("caracterizacion.id as id_jefe","caracterizacion.identificacion","caracterizacion.sexo AS genero","ocupaciones.descripcion as ocupacion","caracterizacion.id_hogar")        
+        ->selectRaw("CONCAT_WS(' ',caracterizacion.pape,caracterizacion.sape,caracterizacion.pnom,caracterizacion.snom) as nombres")
+        ->selectRaw("CONCAT_WS('-',dptos.descripcion,muni.descripcion,corregimientos.descripcion,hogar.direccion) as localizacion")
+        ->selectRaw("TIMESTAMPDIFF(YEAR, fecha_nacimiento, hogar.fecha) AS edad");
+
+        
+        $consultai = DB::connection('mysql')->table($alias . '.integrantes')
+        ->join($alias . '.hogar', 'hogar.id', 'integrantes.id_hogar')
+        ->join($alias . ".dptos", "dptos.codigo", "hogar.id_dpto")
+        ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+        ->join($alias . '.muni', function ($join) {
+            $join->on('muni.coddep', '=', 'dptos.codigo');
+            $join->on('muni.codmun', '=', 'hogar.id_mun');
+        })
+        ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+        ->leftJoin($alias . ".veredas", "veredas.id", "hogar.id_vereda")
+        ->leftjoin($alias . '.administradoras', 'administradoras.id', 'integrantes.afi_entidad')
+        ->leftjoin($alias . '.ocupaciones', 'ocupaciones.id', 'integrantes.ocupacion')
+        ->where('integrantes.estado', 'Activo')
+        ->select("integrantes.jefe as id_jefe","integrantes.identificacion","integrantes.sexo AS genero","ocupaciones.descripcion as ocupacion","integrantes.id_hogar")        
+        ->selectRaw("CONCAT_WS(' ',integrantes.pape,integrantes.sape,integrantes.pnom,integrantes.snom) as nombres")
+        ->selectRaw("CONCAT_WS('-',dptos.descripcion,muni.descripcion,corregimientos.descripcion,hogar.direccion) as localizacion")
+        ->selectRaw("TIMESTAMPDIFF(YEAR, fecha_nac, hogar.fecha) AS edad");
+
+        $consulta->union($consultai);
+        $integrantes = $consulta->get();
+
+        $array_bajos = array();
+        
+        foreach ($integrantes as $item) {
+            $item->riesgo_vivienda =  DB::connection('mysql')->table($alias.'.riesgo_socioeconomico_vivienda')
+            ->where('riesgo_socioeconomico_vivienda.id_hogar', $item->id_hogar)
+            ->select("riesgo_socioeconomico_vivienda.total")
+            ->first();
+
+            switch (true) {
+                case $item->riesgo_vivienda->total >= 0 && $item->riesgo_vivienda->total <= 100:
+                    $item->riesgo_vivienda->valor = "Bajo - Bajo";
+                    break;
+                case $item->riesgo_vivienda->total >= 100.1 && $item->riesgo_vivienda->total <= 300:
+                    $item->riesgo_vivienda->valor = "Bajo";
+                    break;
+                case $item->riesgo_vivienda->total >= 300.1 && $item->riesgo_vivienda->total <= 475:
+                    $item->riesgo_vivienda->valor = "Medio - Bajo";
+                    break;
+                case $item->riesgo_vivienda->total >= 475.1 && $item->riesgo_vivienda->total <= 650:
+                    $item->riesgo_vivienda->valor = "Medio";
+                    break;  
+                case $item->riesgo_vivienda->total >= 650.1 && $item->riesgo_vivienda->total <= 825:
+                    $item->riesgo_vivienda->valor = "Medio - Alto";
+                    break;
+                case $item->riesgo_vivienda->total >= 825.1 && $item->riesgo_vivienda->total <= 1000:
+                    $item->riesgo_vivienda->valor = "Alto";
+                    break;  
+            }
+
+    
+            $item->riesgo_hogar = DB::connection('mysql')->table($alias.'.riesgo_socioeconomico_hogar')
+            ->where('riesgo_socioeconomico_hogar.id_jefe', $item->id_jefe)
+            ->select("riesgo_socioeconomico_hogar.total")
+            ->first();
+
+            switch (true) {
+                case $item->riesgo_hogar->total >=0 && $item->riesgo_hogar->total <=50:
+                    $item->riesgo_hogar->valor = "Bajo - Bajo";
+                    break;
+                case $item->riesgo_hogar->total >=51 && $item->riesgo_hogar->total <=110:
+                    $item->riesgo_hogar->valor = "Bajo";
+                    break;
+                case $item->riesgo_hogar->total >=111 && $item->riesgo_hogar->total <=200:
+                    $item->riesgo_hogar->valor = "Medio - Bajo";
+                    break;
+                case $item->riesgo_hogar->total >=201 && $item->riesgo_hogar->total <=300:
+                    $item->riesgo_hogar->valor = "Medio";
+                    break;  
+                case $item->riesgo_hogar->total >=301 && $item->riesgo_hogar->total <=400:
+                    $item->riesgo_hogar->valor = "Medio - Alto";
+                    break;
+                case $item->riesgo_hogar->total >=400 && $item->riesgo_hogar->total <=500:
+                    $item->riesgo_hogar->valor = "Alto";
+                    break;  
+            }
+
+            if($item->riesgo_hogar->valor == "Bajo" || $item->riesgo_hogar->valor == "Bajo - Bajo" || $item->riesgo_vivienda->valor == "Bajo" || $item->riesgo_vivienda->valor == "Bajo - Bajo"){
+                array_push($array_bajos, $item);
+            }
+        }
+        
+       return $array_bajos;
+    }
     
 }

@@ -565,4 +565,28 @@ class ReportesController extends Controller
             return response()->json($respuesta, 200);
         }
     }
+
+    public function descolarizados()
+    {
+        if (Auth::check()) {
+            $datos = request()->all();
+            $integrantes = \App\Reportes::descolarizados(Session::get('alias'), $datos);
+            $respuesta = [
+                'integrantes' => $integrantes,
+            ];
+            return response()->json($respuesta, 200);
+        }
+    }
+
+    public function bajo_nivel_socioeconomico()
+    {
+        if (Auth::check()) {
+            $datos = request()->all();
+            $integrantes = \App\Reportes::nivel_socioeconomico(Session::get('alias'), $datos);
+            $respuesta = [
+                'integrantes' => $integrantes,
+            ];
+            return response()->json($respuesta, 200);
+        }
+    }
 }

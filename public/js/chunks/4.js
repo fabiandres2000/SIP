@@ -69585,8 +69585,8 @@ function _pdfmake() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, Promise.all([
-                        Promise.all(/*! import() | pdfmake */[__webpack_require__.e(3), __webpack_require__.e("vendors~pdfmake")]).then(__webpack_require__.t.bind(null, /*! pdfmake/build/pdfmake.js */ "./node_modules/pdfmake/build/pdfmake.js", 7)),
-                        Promise.all(/*! import() | pdfmake */[__webpack_require__.e(3), __webpack_require__.e("vendors~pdfmake")]).then(__webpack_require__.bind(null, /*! ../../pdfmake/vfs_fonts */ "./node_modules/@amcharts/amcharts4/.internal/pdfmake/vfs_fonts.js"))
+                        Promise.all(/*! import() | pdfmake */[__webpack_require__.e(1), __webpack_require__.e("vendors~pdfmake")]).then(__webpack_require__.t.bind(null, /*! pdfmake/build/pdfmake.js */ "./node_modules/pdfmake/build/pdfmake.js", 7)),
+                        Promise.all(/*! import() | pdfmake */[__webpack_require__.e(1), __webpack_require__.e("vendors~pdfmake")]).then(__webpack_require__.bind(null, /*! ../../pdfmake/vfs_fonts */ "./node_modules/@amcharts/amcharts4/.internal/pdfmake/vfs_fonts.js"))
                     ])];
                 case 1:
                     a = _a.sent();

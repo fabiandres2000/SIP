@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[54],{
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Reportes/Nutricional.vue?vue&type=script&lang=js&":
-/*!***************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Reportes/Nutricional.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Reportes/Gestantes.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Reportes/Gestantes.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -13,7 +13,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Servicios_reportes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Servicios/reportes */ "./resources/js/Servicios/reportes.js");
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../store */ "./resources/js/store.js");
-//
 //
 //
 //
@@ -381,7 +380,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   name: "gestan",
   data: function data() {
     return {
-      nutricional: [],
+      gestantes: [],
       paginacion: {
         total: 0,
         pagina_actual: 0,
@@ -448,7 +447,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                this.nutricional = [];
+                this.gestantes = [];
                 parametros = {
                   rango: this.rango,
                   _token: this.csrf,
@@ -457,8 +456,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 };
                 _context.prev = 2;
                 _context.next = 5;
-                return _Servicios_reportes__WEBPACK_IMPORTED_MODULE_1__["nutricional"](parametros).then(function (respuesta) {
-                  _this.nutricional = respuesta.data.nutricional.data;
+                return _Servicios_reportes__WEBPACK_IMPORTED_MODULE_1__["gestantes"](parametros).then(function (respuesta) {
+                  _this.gestantes = respuesta.data.gestantes.data;
                   _this.paginacion = respuesta.data.paginacion;
                   _this.total_mujeres = respuesta.data.total_mujeres;
                   _this.porceMujeres = _this.paginacion.total * 100 / _this.total_mujeres;
@@ -522,7 +521,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 };
                 _context2.prev = 2;
                 _context2.next = 5;
-                return _Servicios_reportes__WEBPACK_IMPORTED_MODULE_1__["exportarNutricional"](parametros).then(function (respuesta) {
+                return _Servicios_reportes__WEBPACK_IMPORTED_MODULE_1__["exportarGestantes"](parametros).then(function (respuesta) {
                   _this2.valPdf = true;
                   _this2.ruta = _store__WEBPACK_IMPORTED_MODULE_2__["default"].state.apiURL + respuesta.data.nombre;
 
@@ -553,10 +552,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Reportes/Nutricional.vue?vue&type=template&id=0642857c&":
-/*!*******************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Reportes/Nutricional.vue?vue&type=template&id=0642857c& ***!
-  \*******************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Reportes/Gestantes.vue?vue&type=template&id=636b41f8&":
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Reportes/Gestantes.vue?vue&type=template&id=636b41f8& ***!
+  \*****************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -688,6 +687,18 @@ var render = function() {
                     ],
                     1
                   )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-10 col-lg-10" }, [
+                  _c("h5", [
+                    _vm._v(
+                      "Total de mujeres gestantes: " +
+                        _vm._s(_vm.paginacion.total) +
+                        " - " +
+                        _vm._s(Math.round(_vm.porceMujeres * 100) / 100) +
+                        "% población en edad fertil"
+                    )
+                  ])
                 ])
               ]),
               _vm._v(" "),
@@ -702,10 +713,10 @@ var render = function() {
                     [
                       _vm._m(1),
                       _vm._v(" "),
-                      _vm.nutricional.length > 0
+                      _vm.gestantes.length > 0
                         ? _c(
                             "tbody",
-                            _vm._l(_vm.nutricional, function(item, index) {
+                            _vm._l(_vm.gestantes, function(item, index) {
                               return _c("tr", { key: index }, [
                                 _c(
                                   "td",
@@ -775,7 +786,7 @@ var render = function() {
                                   [
                                     _vm._v(
                                       "\n                                            " +
-                                        _vm._s(item.sexo) +
+                                        _vm._s(item.localizacion) +
                                         "\n                                        "
                                     )
                                   ]
@@ -800,6 +811,51 @@ var render = function() {
                                   ]
                                 ),
                                 _vm._v(" "),
+                                _c(
+                                  "td",
+                                  {
+                                    staticStyle: {
+                                      "font-weight": "normal",
+                                      "vertical-align": "middle",
+                                      "text-align": "left",
+                                      "text-transform": "capitalize"
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                            2021-02-03\n                                        "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "td",
+                                  {
+                                    staticStyle: {
+                                      "font-weight": "normal",
+                                      "vertical-align": "middle",
+                                      "text-align": "left",
+                                      "text-transform": "capitalize"
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                            " +
+                                        _vm._s(item.textoNivel) +
+                                        "\n                                        "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c("td", {
+                                  staticStyle: {
+                                    "font-weight": "normal",
+                                    "vertical-align": "middle",
+                                    "text-align": "left",
+                                    "text-transform": "capitalize"
+                                  }
+                                }),
+                                _vm._v(" "),
                                 _c("td", {
                                   staticStyle: {
                                     "font-weight": "normal",
@@ -822,71 +878,26 @@ var render = function() {
                                   [
                                     _vm._v(
                                       "\n                                            " +
-                                        _vm._s(item.localizacion) +
-                                        "\n                                        "
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "td",
-                                  {
-                                    staticStyle: {
-                                      "font-weight": "normal",
-                                      "vertical-align": "middle",
-                                      "text-align": "left",
-                                      "text-transform": "capitalize"
-                                    }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                                            " +
-                                        _vm._s(item.textoColegio) +
-                                        "\n                                        "
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "td",
-                                  {
-                                    staticStyle: {
-                                      "font-weight": "normal",
-                                      "vertical-align": "middle",
-                                      "text-align": "left",
-                                      "text-transform": "capitalize"
-                                    }
-                                  },
-                                  [
-                                    _vm._l(item.enfer_infec, function(item2) {
-                                      return _c("p", [
-                                        _vm._v("- " + _vm._s(item2.enfermedad))
-                                      ])
-                                    }),
-                                    _vm._v(" "),
-                                    _vm._l(item.enfer_cro, function(item3) {
-                                      return _c("p", [
-                                        _vm._v("- " + _vm._s(item3.enfermedad))
-                                      ])
-                                    })
-                                  ],
-                                  2
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "td",
-                                  {
-                                    staticStyle: {
-                                      "font-weight": "normal",
-                                      "vertical-align": "middle",
-                                      "text-align": "left",
-                                      "text-transform": "capitalize"
-                                    }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                                            " +
                                         _vm._s(item.textoEps) +
+                                        "\n                                        "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "td",
+                                  {
+                                    staticStyle: {
+                                      "font-weight": "normal",
+                                      "vertical-align": "middle",
+                                      "text-align": "left",
+                                      "text-transform": "capitalize"
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                            " +
+                                        _vm._s(item.embarazo_multiple) +
                                         "\n                                        "
                                     )
                                   ]
@@ -1077,7 +1088,7 @@ var render = function() {
             ref: "modalpdf",
             attrs: {
               "hide-footer": "",
-              title: "Reporte Nutricional",
+              title: "Reporte de Gestantes",
               size: "xl",
               centered: "",
               "header-bg-variant": "danger",
@@ -1127,7 +1138,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "kt-portlet__head-label" }, [
       _c("h3", { staticClass: "kt-portlet__head-title" }, [
         _c("span", { staticClass: "kt-widget20__number kt-font-danger" }, [
-          _vm._v("REPORTE NUTRICIONAL")
+          _vm._v("REPORTE DE GESTANTES")
         ])
       ])
     ])
@@ -1137,7 +1148,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("thead", {}, [
-      _c("tr", { staticStyle: { background: "#1D4A7E", color: "#fff" } }, [
+      _c("tr", { staticClass: "kt-bg-fill-brand" }, [
         _c("th", { staticClass: "text-left" }, [_vm._v("No.")]),
         _vm._v(" "),
         _c("th", { staticClass: "text-left" }, [
@@ -1154,7 +1165,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { staticClass: "text-left" }, [
           _vm._v(
-            "\n                                            Genero\n                                        "
+            "\n                                            Ubicación\n                                        "
           )
         ]),
         _vm._v(" "),
@@ -1166,37 +1177,39 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { staticClass: "text-left" }, [
           _vm._v(
-            "\n                                            Desnutrición\n                                        "
+            "\n                                            Control P.\n                                        "
           )
         ]),
         _vm._v(" "),
         _c("th", { staticClass: "text-left" }, [
           _vm._v(
-            "\n                                            Localización\n                                        "
+            "\n                                            Escolaridad\n                                        "
           )
         ]),
         _vm._v(" "),
         _c("th", { staticClass: "text-left" }, [
           _vm._v(
-            "\n                                            Inst. Educativo\n                                        "
+            "\n                                            Diag. Nutriconal\n                                        "
           )
         ]),
         _vm._v(" "),
         _c("th", { staticClass: "text-left" }, [
           _vm._v(
-            "\n                                            Enfermedades\n                                        "
+            "\n                                            Enfermedad\n                                        "
           )
         ]),
         _vm._v(" "),
-        _c(
-          "th",
-          { staticClass: "text-left;", staticStyle: { width: "170px" } },
-          [
-            _vm._v(
-              "\n                                            Eps\n                                        "
-            )
-          ]
-        )
+        _c("th", { staticClass: "text-left" }, [
+          _vm._v(
+            "\n                                            Eps\n                                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-left" }, [
+          _vm._v(
+            "\n                                            Embarazon Multiple\n                                        "
+          )
+        ])
       ])
     ])
   },
@@ -1215,7 +1228,7 @@ var staticRenderFns = [
             "text-transform": "capitalize",
             "font-size": "20px"
           },
-          attrs: { colspan: "10" }
+          attrs: { colspan: "11" }
         },
         [
           _vm._v(
@@ -1236,7 +1249,7 @@ render._withStripped = true
 /*!********************************************!*\
   !*** ./resources/js/Servicios/reportes.js ***!
   \********************************************/
-/*! exports provided: gestantes, exportarGestantes, nutricional, exportarNutricional, inicialesCronicas, cronicasPDF, inicialesMigrantes, migrantesPDF, personas_discapacitadas, adulto_mayor, exportaAdultoMayorExcel, exportaDiscapacitadosExcel, inicialesInfecciosas */
+/*! exports provided: gestantes, exportarGestantes, nutricional, exportarNutricional, inicialesCronicas, cronicasPDF, inicialesMigrantes, migrantesPDF, personas_discapacitadas, adulto_mayor, exportaAdultoMayorExcel, exportaDiscapacitadosExcel, inicialesInfecciosas, descolarizados, bajo_nivel_socioeconomico */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1254,6 +1267,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "exportaAdultoMayorExcel", function() { return exportaAdultoMayorExcel; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "exportaDiscapacitadosExcel", function() { return exportaDiscapacitadosExcel; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "inicialesInfecciosas", function() { return inicialesInfecciosas; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "descolarizados", function() { return descolarizados; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bajo_nivel_socioeconomico", function() { return bajo_nivel_socioeconomico; });
 /* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
 
 function gestantes($data) {
@@ -1295,20 +1310,26 @@ function exportaDiscapacitadosExcel($data) {
 function inicialesInfecciosas($data) {
   return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/reportes/infecciosas', $data);
 }
+function descolarizados($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/reportes/descolarizados', $data);
+}
+function bajo_nivel_socioeconomico($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/reportes/bajo-nivel-socioeconomico', $data);
+}
 
 /***/ }),
 
-/***/ "./resources/js/Vistas/Reportes/Nutricional.vue":
-/*!******************************************************!*\
-  !*** ./resources/js/Vistas/Reportes/Nutricional.vue ***!
-  \******************************************************/
+/***/ "./resources/js/Vistas/Reportes/Gestantes.vue":
+/*!****************************************************!*\
+  !*** ./resources/js/Vistas/Reportes/Gestantes.vue ***!
+  \****************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Nutricional_vue_vue_type_template_id_0642857c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Nutricional.vue?vue&type=template&id=0642857c& */ "./resources/js/Vistas/Reportes/Nutricional.vue?vue&type=template&id=0642857c&");
-/* harmony import */ var _Nutricional_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Nutricional.vue?vue&type=script&lang=js& */ "./resources/js/Vistas/Reportes/Nutricional.vue?vue&type=script&lang=js&");
+/* harmony import */ var _Gestantes_vue_vue_type_template_id_636b41f8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Gestantes.vue?vue&type=template&id=636b41f8& */ "./resources/js/Vistas/Reportes/Gestantes.vue?vue&type=template&id=636b41f8&");
+/* harmony import */ var _Gestantes_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Gestantes.vue?vue&type=script&lang=js& */ "./resources/js/Vistas/Reportes/Gestantes.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -1318,9 +1339,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _Nutricional_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Nutricional_vue_vue_type_template_id_0642857c___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Nutricional_vue_vue_type_template_id_0642857c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _Gestantes_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Gestantes_vue_vue_type_template_id_636b41f8___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Gestantes_vue_vue_type_template_id_636b41f8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -1330,38 +1351,38 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/Vistas/Reportes/Nutricional.vue"
+component.options.__file = "resources/js/Vistas/Reportes/Gestantes.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/Vistas/Reportes/Nutricional.vue?vue&type=script&lang=js&":
-/*!*******************************************************************************!*\
-  !*** ./resources/js/Vistas/Reportes/Nutricional.vue?vue&type=script&lang=js& ***!
-  \*******************************************************************************/
+/***/ "./resources/js/Vistas/Reportes/Gestantes.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/Vistas/Reportes/Gestantes.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Nutricional_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Nutricional.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Reportes/Nutricional.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Nutricional_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Gestantes_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Gestantes.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Reportes/Gestantes.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Gestantes_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/Vistas/Reportes/Nutricional.vue?vue&type=template&id=0642857c&":
-/*!*************************************************************************************!*\
-  !*** ./resources/js/Vistas/Reportes/Nutricional.vue?vue&type=template&id=0642857c& ***!
-  \*************************************************************************************/
+/***/ "./resources/js/Vistas/Reportes/Gestantes.vue?vue&type=template&id=636b41f8&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/Vistas/Reportes/Gestantes.vue?vue&type=template&id=636b41f8& ***!
+  \***********************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Nutricional_vue_vue_type_template_id_0642857c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Nutricional.vue?vue&type=template&id=0642857c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Reportes/Nutricional.vue?vue&type=template&id=0642857c&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Nutricional_vue_vue_type_template_id_0642857c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Gestantes_vue_vue_type_template_id_636b41f8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Gestantes.vue?vue&type=template&id=636b41f8& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Reportes/Gestantes.vue?vue&type=template&id=636b41f8&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Gestantes_vue_vue_type_template_id_636b41f8___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Nutricional_vue_vue_type_template_id_0642857c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Gestantes_vue_vue_type_template_id_636b41f8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

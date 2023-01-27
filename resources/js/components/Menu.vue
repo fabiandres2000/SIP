@@ -1087,6 +1087,45 @@
                                             >
                                         </router-link>
                                     </li>
+
+                                    <li
+                                        class="kt-menu__item kt-menu__item--submenu"
+                                        aria-haspopup="true"
+                                        data-ktmenu-submenu-toggle="hover"
+                                    >
+                                        <router-link
+                                            to="/reportes/descolarizados"
+                                            class="kt-menu__link kt-menu__toggle"
+                                        >
+                                            <i
+                                                class="kt-menu__link-bullet kt-menu__link-bullet--line"
+                                            >
+                                                <span></span>
+                                            </i>
+                                            <span class="kt-menu__link-text"
+                                                >Población Descolarizada</span
+                                            >
+                                        </router-link>
+                                    </li>
+                                    <li
+                                        class="kt-menu__item kt-menu__item--submenu"
+                                        aria-haspopup="true"
+                                        data-ktmenu-submenu-toggle="hover"
+                                    >
+                                        <router-link
+                                            to="/reportes/bajo-nivel-socioeconomico"
+                                            class="kt-menu__link kt-menu__toggle"
+                                        >
+                                            <i
+                                                class="kt-menu__link-bullet kt-menu__link-bullet--line"
+                                            >
+                                                <span></span>
+                                            </i>
+                                            <span class="kt-menu__link-text"
+                                                >Población Bajo Nivel Socio.</span
+                                            >
+                                        </router-link>
+                                    </li>
                                 </ul>
                             </div>
                         </li>

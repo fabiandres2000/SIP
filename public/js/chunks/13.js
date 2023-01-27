@@ -17005,7 +17005,7 @@ _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_7__["useTheme"](_amcharts_amch
                   first: array.medioAlto
                 }, {
                   category: "Alto",
-                  first: array.Alto
+                  first: array.alto
                 }];
                 series = chart.series.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_8__["PieSeries3D"]());
                 series.dataFields.value = "first";
@@ -19715,7 +19715,7 @@ _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_7__["useTheme"](_amcharts_amch
                   first: array.medioAlto
                 }, {
                   category: "Alto",
-                  first: array.Alto
+                  first: array.alto
                 }];
                 series = chart.series.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_8__["PieSeries3D"]());
                 series.dataFields.value = "first";
